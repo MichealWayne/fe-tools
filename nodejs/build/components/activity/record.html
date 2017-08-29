@@ -1,0 +1,61 @@
+<style>
+	/*records*/
+	#records {
+	    width: 100%;
+	    padding: 0 .277778rem;
+	    height: 0.722222rem;
+	    background-color: rgba(0, 128, 217, 0.58);
+	    font-size: 0.333333rem;
+	    line-height: 0.722222rem;
+	    color: #fff;
+	    position: fixed;
+	    z-index: 9;
+	    top: 0;
+	    left: 0;
+	}
+	#records .lists, #records .checkBonous {
+	    height: 100%;
+	    overflow: hidden;
+	}
+	#records .lists ul {
+	    height: 100%;
+	}
+</style>
+
+<!-- records -->
+<!-- 奖励记录 -->
+<div id="records" class="u-j-middle">
+    <section class="lists">
+        <ul class="wrapper"></ul>
+    </section>
+</div>
+
+<script>
+	//@@ setRecords @@
+	// 购买记录
+	var setRecords = function () {
+	    ;(function($) {
+	        if (!$) return false;
+	            var url = "/public/guangdaRecord.txt";
+	            $.getJSON(url, function(data) {
+	                for (var e in data) {
+	                    var node = $('<li class="item0"></li>');
+	                    node.text(data[e].vc_investorname + " 购买" + data[e].nd_applicationamount.split(".")[0] + "元 " + data[e].vc_accepttime);
+	                    $("#records .lists .wrapper").append(node);
+	                };
+
+	                setInterval(function() {
+	                    $("#records .lists").find("ul").animate({
+	                        marginTop: "-0.722222rem"
+	                    }, 500, function() {
+	                        $(this).css({
+	                            marginTop: "0"
+	                        }).find("li:first").appendTo(this);
+	                    })
+	                }, 2000);
+	            });
+	    } (Zepto || jQuery) );
+	};
+
+	module.exports = setRecords;
+</script>

@@ -1,0 +1,22 @@
+<script>
+	//@@ timecheck @@
+	/*
+	* time check
+	*/
+
+	var timecheak = function (starttime, endtime) {
+		var now = (new Date()).getTime();
+		var start = (new Date(starttime)).getTime();
+		var end = (new Date(endtime)).getTime();
+
+		if (now < start) {
+			$('html').hide();
+			alert('活动未开始！');
+		} else if (now > end) {
+			$('html').hide();
+			alert('活动已结束！');
+		}
+	};
+
+	module.exports = timecheak;
+</script>

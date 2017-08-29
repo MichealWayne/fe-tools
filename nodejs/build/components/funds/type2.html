@@ -1,0 +1,87 @@
+<style>
+	/*main product*/
+	.m-main{
+		margin-top: 0.533rem;
+		padding-bottom: 0.533rem;
+		text-align: center;
+		box-shadow: 0 0.037rem 0.233rem #e0dfdf;
+	}
+	.m-main .btn-red{
+		background-color: #ff1010;
+		color: #fff;
+		box-shadow: 0 0.053rem 0 #dd0a0a;
+	}
+	.m-main .m-p_tip1{
+		width: 1.933rem;
+		height: 0.533rem;line-height: 0.613rem;
+		color: #fff;
+		background-color: #207fe7;
+		border-radius: 0 0 0.133rem 0.133rem;
+		margin: 0 auto;
+	}
+	.m-main h1{
+		margin-top: 9px;
+		line-height: 1.067rem;
+		font-size: 0.8rem;
+		font-weight: bold;
+		color: #232323;
+	}
+	.m-main .m-p_tip2{
+		width: 3.4rem;
+		height: 0.667rem;line-height: 0.667rem;
+		margin: 0.107rem auto 0;
+		color: #ff1010;
+		border: thin solid #ff1010;
+		border-radius: 0.133rem;
+	}
+	.m-p_tip2 img{
+		width: 0.293rem;
+		vertical-align: middle;
+	}
+	.m-main .m-sy{
+		margin-top: 0.36rem;
+		line-height: 0.853rem;
+		font-size: 0.92rem;
+		font-weight: bold;
+		color: #ff1010;
+	}
+	.m-main .m-sy_tit{
+		height: 0.453rem;line-height: 0.453rem;
+		color: #b0b0b0;
+	}
+	.m-main .btn-red{
+		margin: 0.267rem auto 0;
+		width: 5.6rem;
+		height: 0.9rem;line-height: 0.93rem;
+		font-size: 0.347rem;
+		border-radius: 0.45rem;
+	}
+
+</style>
+
+
+
+<!-- 基金产品 -->
+<section class="m-main u-w92 g-center" data-ta="des">
+	<p class="m-p_tip1">小长假版</p>
+	<h1>同花顺假期宝</h1>
+	<p class="m-p_tip2"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAoCAYAAAD6xArmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAVNJREFUeNpi/P//PwMtABMDjcCowbQ3mAXOEhREl5MG4odAzEzAjD6G9++LSXFxMhGGHgHiSlKCAmRgAgFDXwNxKBD/IsVgJyBWxGPoX6ihL0iNvDQCrq0B4oP4FDDCszQi8kSB+AkQs+HQswmI/VFE3r8nysWxeAy9A8Rx5KZjXMHwHRquH0lLxxBgA8TqONQ+AuJMNLGP0PD+RcjgZDyOUEezFGSYJzHJjR+Iw0nItYlAvI+YMI4CYk4iDQXltmXERl4ykYZOB+IOUlKFCShdI2F5aA5DBjuAOJfSYjMTrRC6DMQRWCwjyWA2tKB5Ck0BH4mNWVwGh0CzNiytekINp7gGyUFKq0HQYKC4ajIAYkti0iqpBmcSm1ZJKTb5oUXmYiDOItoUIorNWKjXcxkoBOgGm5GSVokNCnVo0npBsilYgoJxtLU5avCowQNgMECAAQDSn0pZEfjsxAAAAABJRU5ErkJggg==">假期赎回实时到账</p>
+	<p class="m-sy j-sy">--%</p>
+	<p class="m-sy_tit">近7日年化收益</p>
+	<a class="u-btn btn-red j-buy" href="javascript:void(0)" data-ta="buy">立即转入</a>
+</section>
+
+
+<script>
+	//@@ getfundsy  @@
+	// get yield by interface
+	var getSy = function () {
+		$.getJSON(Global.interface, function (data) {
+			for(var e in data.data){
+				$(".j-sy").eq(e).html(parseFloat(data.data[e].syl).toFixed(2) + "%");
+			}
+		});
+	};
+
+	module.exports = getSy;
+</script>
