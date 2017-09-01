@@ -57,7 +57,7 @@ Builder.buildFiles = (data) => {
 
     // build html
     let htmlData = _HTML.replace(Fetch.reg.css, '').replace(Fetch.reg.js, '');
-    FS.setFile(path.join(THIS.dist, THIS.filename), htmlData);
+    FS.setFile(path.join(THIS.dist, THIS.buildname), htmlData);
 };
 
 // initialize function
