@@ -1,0 +1,11 @@
+# 原生js方法库
+- check: 验证方法集合
+- cookie: cookie操作
+- dom: dom操作方法集合
+- img_color: 图片、颜色方法集合
+- platform: 平台信息方法集合
+- time: 时间方法集合
+- tween: 动画线性函数集合
+- url: url方法集合
+- util: es操作方法集合
+- other: 其他
