@@ -72,3 +72,25 @@ function getPlatform() {
 
     return (info.versions.iPhone || info.versions.iPad) ? 'iphone' : 'gphone'
 }
+
+/*
+* mobile
+* 获取手机系统版本（ios，android）
+* @return {Object} 系统信息
+*/
+function getMobileOS() {
+    var _os = {
+        android: '',
+        ios: ''
+    };
+
+    try {
+        var ua = navigator.userAgent, 
+            _android = ua.match(/(Android);?[\s\/]+([\d.]+)?/),
+            _ios = ua.match(/([iPad,iPod,iPhone]).*OS\s([\d_]+)/);
+
+        if (_android) _os.android = +_android[2] || '';
+        if (_ios) _os.ios = +_ios[2].replace(/_/g, '.') || '';
+    } catch (e) {}
+    return _os
+}
