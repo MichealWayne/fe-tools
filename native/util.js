@@ -77,9 +77,23 @@ function randomNum(min, max) {
     return Math.floor(min + Math.random() * (max - min));
 }
 
+// 获取类型
+// @param obj: 变量；
+// @return {String} 类型
+function type (obj) {
+  return Object.prototype.toString.call(obj).replace(/\[object\s|\]/g, '')
+};
+
+// 判断变量是否为对象类型
+// @param list: 变量
+// @return {Boolean} true | false
+function isObject (object) {
+  return type(object) === 'Object'
+};
 
 /*
-* 对象转字符串
+* 对象转字符串（主要用于post数据）
+* (need isObject, type)
 * @param {Object} obj
 * @return {String}
 */
@@ -90,7 +104,7 @@ function obj2str (obj) {
 
     for (var i in obj) {
         if (obj[i] === null) dto.push('\"' + i + '\":' + obj[i]);
-        else if (isObject(obj[i])) dto.push('\"' + i + '\":' + _.obj2str(obj[i]));
+        else if (isObject(obj[i])) dto.push('\"' + i + '\":' + obj2str(obj[i]));
         else dto.push('\"' + i + '\":\"' + encodeURI(obj[i]) + '\"');
     }
 
