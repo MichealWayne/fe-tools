@@ -47,7 +47,7 @@ function removeClass(element, className) {
 * @param {DOMelement} element: 父节点
 * @param {Array} 节点数组
 */
-function (className, element) {
+function getElementsByClassName(className, element) {
     if (document.getElementsByClassName) {
         return (element || document).getElementsByClassName(className);
     }
