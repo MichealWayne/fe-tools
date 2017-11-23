@@ -257,7 +257,8 @@ function checkHometelnoAndMobiletelno(vcHometelno, vcMobiletelno) {
 }
 
 /*
-* 校验手机号码
+* 校验手机号码（双重判断）
+* (need getPhoneNumberType)
 * @params {String} vcMobiletelno: 手机号码；
 * @return {String} 错误信息或字符串‘true’
 */
@@ -272,6 +273,32 @@ function checkMobiletelno(vcMobiletelno) {
     return 'true';
 
 }
+/*
+* 校验手机号码
+* @params {String} vcMobiletelno: 手机号码；
+* @return {String} 运营商或-1
+*/
+function getPhoneNumberType(number) {
+    if(number.length != 11 || parseInt(number) != number) return -1;
+    var yidong = "134|135|136|137|138|139|147|150|151|152|157|158|159|178|182|183|184|187|188";
+    var liantong = "130|131|132|155|156|176|185|186|145|166";
+    var dianxin = "133|153|177|180|181|189";
+    var xuni = "170";
+    
+    var prefix = number.substr(0,3);
+    if(yidong.indexOf(prefix) != -1){
+        return 0;//移动
+    } else if(liantong.indexOf(prefix) != -1) {
+        return 1;//联通
+    } else if(dianxin.indexOf(prefix) != -1) {
+        return 2;//电信
+    } else if (xuni.indexOf(prefix) != -1) {
+        return 3;//虚拟运营商
+    } else {
+        return -1;
+    }
+}
+
 
 /*
 * 校验电话号码
