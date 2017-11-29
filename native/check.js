@@ -282,7 +282,7 @@ function getPhoneNumberType(number) {
     if(number.length != 11 || parseInt(number) != number) return -1;
     var yidong = "134|135|136|137|138|139|147|150|151|152|157|158|159|178|182|183|184|187|188";
     var liantong = "130|131|132|155|156|176|185|186|145|166";
-    var dianxin = "133|153|177|180|181|189";
+    var dianxin = "133|153|177|180|181|189|199";
     var xuni = "170";
     
     var prefix = number.substr(0,3);
