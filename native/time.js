@@ -50,7 +50,7 @@ function formatRemainTime(endTime) {
 }
 
 /*
-* 倒计时每分钟
+* 倒计时
 * @param {Number} timeNum: 倒计时时间戳
 * @param {String} type: 'second' || 'minute'
 * @param {Function} callback: 回调函数
@@ -70,7 +70,7 @@ function countDown (timeNum, type, callback, timeoverCallback) {
     } ();
     var _day = Math.floor(timeNum / 1000 / 60 / 60 / 24),
         _hour = Math.floor(timeNum / 1000 / 60 / 60 % 24),
-        _minute = Math.floor(timeNum / 1000 / 60 % 60)。
+        _minute = Math.floor(timeNum / 1000 / 60 % 60),
         _second = Math.floor(timeNum / 1000 % 60);
 
     if (callback) callback(_day, _hour, _minute, _second);
