@@ -34,6 +34,27 @@ function getExplore() {
 }
 
 /*
+* mobile
+* 获取浏览器类型和版本
+* return {String}
+*/
+function getMobileExplore() {
+	var ua = navigator.userAgent.toLowerCase();
+		
+    if (~ua.indexOf('qq')) return 'qq';     // QQ或qq浏览器 
+    if (~ua.indexOf('micromessenger')) return 'wchat';      // 微信
+    if (~ua.indexOf('weibo')) return 'weibo';       // 微博
+    if (~ua.indexOf('liebao')) return 'liebao';     // 猎豹浏览器
+    if (~ua.indexOf('uc')) return 'uc';     // uc浏览器
+    if (~ua.indexOf('baidu')) return 'baidu';       // 百度app或百度浏览器
+    if (~ua.indexOf('fxios')) return 'firefox';     // 火狐浏览器
+    if (~ua.indexOf('sogou')) return 'sogou';       // 搜狗浏览器
+    if (~ua.indexOf('mxios')) return 'maxthon';     // 遨游浏览器
+    return 'native'
+}
+
+
+/*
 * 获取操作系统类型
 * @return {String} 
 */
