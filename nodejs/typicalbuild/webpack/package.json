@@ -1,0 +1,181 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server -d --hot --env.dev",
+    "build": "rimraf dist && webpack -p --env.config production"
+  },
+  "author": "Micheal Wang",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.9",
+    "eslint": "^4.17.0",
+    "eslint-config-enough": "^0.3.0",
+    "eslint-loader": "^1.9.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.6",
+    "glob": "^7.1.2",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^2.30.1",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
+    "mockjs": "^1.0.1-beta3",
+    "postcss-loader": "^2.1.0",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.20.3",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.2",
+    "less-plugin-clean-css": "^1.5.1",
+    "zepto": "^1.2.0"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "loose": true
+        }
+      ],
+      "stage-2"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "enough",
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+      "array-callback-return": [
+        0
+      ],
+      "no-var": [
+        0
+      ],
+      "no-trailing-spaces": [
+        0
+      ],
+      "space-before-blocks": [
+        0
+      ],
+      "prefer-const": [
+        0
+      ],
+      "prefer-arrow-callback": [
+        0
+      ],
+      "new-cap": [
+        0
+      ],
+      "quote-props": [
+        0
+      ],
+      "valid-jsdoc": [
+        0
+      ],
+      "prefer-spread": [
+        0
+      ],
+      "keyword-space": [
+        0
+      ],
+      "dot-notation": [
+        0
+      ],
+      "prefer-rest-params": [
+        0
+      ],
+      "padded-blocks": [
+        0
+      ],
+      "no-undef": [
+        0
+      ],
+      "no-multi-spaces": [
+        0
+      ],
+      "no-unused-expressions": [
+        0
+      ],
+      "no-unreachable": [
+        0
+      ],
+      "no-extra-semi": [
+        0
+      ],
+      "no-empty": [
+        0
+      ],
+      "no-array-constructor": [
+        0
+      ],
+      "quotes": [
+        0
+      ],
+      "no-extra-parens": [
+        0
+      ],
+      "space-in-parens": [
+        0
+      ],
+      "wrap-iife": [
+        0
+      ],
+      "object-shorthand": [
+        0
+      ],
+      "func-call-spacing": [
+        0
+      ],
+      "eqeqeq": [
+        0
+      ],
+      "indent": [
+        0
+      ],
+      "semi": [
+        0
+      ],
+      "no-unused-vars": [
+        2,
+        {
+          "vars": "local",
+          "args": "none"
+        }
+      ],
+      "no-mixed-spaces-and-tabs": [
+        0
+      ],
+      "no-console": [
+        0
+      ],
+      "space-before-function-paren": [
+        0
+      ],
+      "spaced-comment": [
+        0
+      ],
+      "no-alert": [
+        0
+      ],
+      "linebreak-style": [
+        "off",
+        "windows"
+      ]
+    }
+  }
+}

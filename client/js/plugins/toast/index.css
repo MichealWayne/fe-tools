@@ -1,0 +1,53 @@
+#fundToast {
+  position: fixed;
+  z-index: -1;
+  left: 50%;
+  max-width: 60%;
+  padding: 0.133rem 0.2rem;
+  color: #fff;
+  font-size: 0.32rem;
+  line-height: 0.48rem;
+  text-align: center;
+  word-break: break-all;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  opacity: 0;
+}
+#fundToast.z-top {
+  top: 10%;
+}
+#fundToast.z-bottom {
+  bottom: 15%;
+}
+#fundToast.z-middle {
+  top: 35%;
+  font-size: 0.347rem;
+  line-height: 0.533rem;
+}
+.f-a-messageOut {
+  overflow: hidden;
+  -webkit-animation-name: MessageMoveOut;
+  animation-name: MessageMoveOut;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+@-webkit-keyframes MessageMoveOut {
+  from {
+    opacity: 1;
+    z-index: 19;
+  }
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+@keyframes MessageMoveOut {
+  from {
+    opacity: 1;
+    z-index: 19;
+  }
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
+}
