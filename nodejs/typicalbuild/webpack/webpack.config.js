@@ -2,17 +2,27 @@
  * webpack config
  */
 
-let glob = require('glob');
-let path = require('path');
-let webpack = require('webpack');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
-let Ex = require('extract-text-webpack-plugin');
+const glob = require('glob');
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const LessFunc = require('less-plugin-functions');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const getTimeStr = require('ijijin_builder/base/lib/util/util').getTimeStr;
 
-let getTimeStr = require('ijijin_builder/base/lib/util/util').getTimeStr;
-
-let myBanner = `
-  @build time: ${getTimeStr()}
+// top banner
+const myBanner = `
+  @build time: ${ getTimeStr() }
 `;
+const browsersVersionSet = {	// for autoprefixer
+	browsers: [
+		'last 2 versions',
+		'android 4', 
+		'ios 8'
+	]
+	// pc: ['ie 6-8', 'Firefox > 20', 'cover 99.5%']
+};
+const imageLimit = 5000;	// base64 limit
 
 module.exports = (options = {}) => {
     const entries = glob.sync('./src/**/enter.js');
@@ -36,11 +46,11 @@ module.exports = (options = {}) => {
     let plugins = [
         ...entryHtmlList,
         new webpack.BannerPlugin(myBanner),
-        new Ex(`css/[name]${options.dev ? '' : 
-            //'.[chunkhash]'
-            ''
-        }.css`),
-        new webpack.optimize.CommonsChunkPlugin({
+		new MiniCssExtractPlugin({
+			filename: `[name]${options.dev ? '' : '.[chunkhash]'}.css`,
+			chunkFilename: `[id].css`
+		}),
+        new webpack.optimize.SplitChunksPlugin({
           names: "commons"
         })
     ];
@@ -56,7 +66,7 @@ module.exports = (options = {}) => {
                 'mock': path.resolve(__dirname, 'src/mock'),
                 'lib': path.resolve(__dirname, 'src/js/lib'),
                 'css': path.resolve(__dirname, 'src/css'),
-                'tools': path.resolve(__dirname, 'node_modules/ijijin_builder/tools/')
+				'less': path.resolve(__dirname, 'src/less')
             }
         },
 
@@ -64,17 +74,26 @@ module.exports = (options = {}) => {
             //publicPath: '/assets/',
             path: path.resolve(__dirname, 'dist'),
             filename: options.dev ? '[name].js' :
-                'js/[name].js',
-                //'js/[name].[chunkhash].js',
+                //'js/[name].js',
+                'js/[name].[chunkhash].js',
             chunkFilename: '[id].js?[chunkhash]'
         },
+		
+		devtool: 'inline-source-map',
 
         module: {
             rules: [
                 // js
                 {
                     test: /\.js$/,
-                    use: ['babel-loader'
+					exclude: /ijijin_builder/,
+                    use: [
+						{
+							loader: 'babel-loader',
+							options: {
+								presets: ['babel-preset-env']
+							}
+						}
                         ,'eslint-loader'
                     ]
                 },
@@ -94,21 +113,42 @@ module.exports = (options = {}) => {
                 // css
                 {
                     test: /\.css$/,
-                    use: Ex.extract({
-                        use: ['css-loader', 'postcss-loader'],
-                        publicPath:'../'
-                    })
-                    //'style-loader', 'css-loader', 'postcss-loader')
+                    use: [
+						MiniCssExtractPlugin.loader,
+						'css-loader',
+						{
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [
+                                    require('autoprefixer')(browsersVersionSet)
+                                ]
+                            }
+                        }
+					]
                 },
 
                 // less
                 {
                     test: /\.less$/,
-                    use: Ex.extract({
-                        fallback:"style-loader",
-                        use: ['css-loader', 'less-loader', 'postcss-loader'],
-                        publicPath:'../'
-                    })
+                    use: [
+						MiniCssExtractPlugin.loader,
+						'css-loader',
+						{
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [
+                                    require('autoprefixer')(browsersVersionSet)
+                                ]
+                            }
+                        },
+						{
+							loader: 'less-loader',
+							options: {
+								strictMath: true,
+								plugins: [ new LessFunc() ]
+							}
+						}
+					]
                 },
 
                 // image or font
@@ -117,7 +157,7 @@ module.exports = (options = {}) => {
                     use: [{
                         loader: 'url-loader',
                         options: {
-                            limit: 5000,
+                            limit: imageLimit,
                             name: 'images/[hash].[ext]'
                         }
                     }]
