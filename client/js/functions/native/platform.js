@@ -5,6 +5,32 @@
 */
 
 /*
+ * 是否是pc环境
+ * @return {Boolean}
+ */
+export function isPC () {
+    let Agents = [
+        'android', 
+        'iphone', 
+        'symbianos', 
+        'windows phone', 
+        'windows mobile', 
+        'windows ce', 
+        'ipad', 
+        'ipod'
+    ];
+    let flag = true;
+    for (let i in Agents) {
+        if (~ua.indexOf(Agents[i])) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+
+
+/*
 * PC
 * 获取浏览器类型和版本
 * @return {String} 

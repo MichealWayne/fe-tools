@@ -1,13 +1,13 @@
 {
   "name": "webpack",
   "version": "2.0.0",
-  "description": "",
+  "description": "a typical webpack config project.contain less, babel, eslint.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server -d --hot --env.dev",
     "build": "rimraf dist && webpack -p --env.config production"
   },
-  "author": "Micheal Wang",
+  "author": "Micheal Wayne",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.4.4",

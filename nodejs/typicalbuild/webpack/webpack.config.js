@@ -11,10 +11,10 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const getTimeStr = require('ijijin_builder/base/lib/util/util').getTimeStr;
 
 // top banner
-const myBanner = `
+const MY_BANNER = `
   @build time: ${ getTimeStr() }
 `;
-const browsersVersionSet = {	// for autoprefixer
+const BROWSERS_VERSION_SET = {	// for autoprefixer
 	browsers: [
 		'last 2 versions',
 		'android 4', 
@@ -22,7 +22,7 @@ const browsersVersionSet = {	// for autoprefixer
 	]
 	// pc: ['ie 6-8', 'Firefox > 20', 'cover 99.5%']
 };
-const imageLimit = 5000;	// base64 limit
+const IMAGE_LIMIT = 5000;	// base64 limit
 
 module.exports = (options = {}) => {
     const entries = glob.sync('./src/**/enter.js');
@@ -45,7 +45,7 @@ module.exports = (options = {}) => {
 
     let plugins = [
         ...entryHtmlList,
-        new webpack.BannerPlugin(myBanner),
+        new webpack.BannerPlugin(MY_BANNER),
 		new MiniCssExtractPlugin({
 			filename: `[name]${options.dev ? '' : '.[chunkhash]'}.css`,
 			chunkFilename: `[id].css`
@@ -120,7 +120,7 @@ module.exports = (options = {}) => {
                             loader: 'postcss-loader',
                             options: {
                                 plugins: [
-                                    require('autoprefixer')(browsersVersionSet)
+                                    require('autoprefixer')(BROWSERS_VERSION_SET)
                                 ]
                             }
                         }
@@ -137,7 +137,7 @@ module.exports = (options = {}) => {
                             loader: 'postcss-loader',
                             options: {
                                 plugins: [
-                                    require('autoprefixer')(browsersVersionSet)
+                                    require('autoprefixer')(BROWSERS_VERSION_SET)
                                 ]
                             }
                         },
@@ -157,7 +157,7 @@ module.exports = (options = {}) => {
                     use: [{
                         loader: 'url-loader',
                         options: {
-                            limit: imageLimit,
+                            limit: IMAGE_LIMIT,
                             name: 'images/[hash].[ext]'
                         }
                     }]
