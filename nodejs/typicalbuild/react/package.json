@@ -1,7 +1,17 @@
 {
-  "name": "pagebuild",
-  "version": "0.1.0",
+  "name": "ReactDemo",
+  "author": "ReactDemo",
+  "version": "1.0.0",
+  "task": "fs-test",
+  "description": "a typical React config project.contain less, babel, eslint.",
   "private": true,
+  "scripts": {
+    "start": "node scripts/start.js",
+    "dev": "npm run start",
+    "build": "node scripts/build.js",
+    "build:prod": "node scripts/prod.js && node build/index",
+    "test": "node scripts/test.js"
+  },
   "dependencies": {
     "@babel/core": "7.1.6",
     "@svgr/webpack": "2.4.1",
@@ -30,7 +40,7 @@
     "fs-extra": "7.0.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
-	  "ijijin_builder": "2.1.4",
+    "ijijin_builder": "3.0.0",
     "jest": "23.6.0",
     "jest-pnp-resolver": "1.0.1",
     "jest-resolve": "23.6.0",
@@ -58,11 +68,6 @@
     "webpack-dev-server": "3.1.14",
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
-  },
-  "scripts": {
-    "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"

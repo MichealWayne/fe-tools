@@ -2,16 +2,23 @@
  * webpack config
  */
 
+const fs = require('fs');
 const glob = require('glob');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LessFunc = require('less-plugin-functions');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const getTimeStr = require('ijijin_builder/base/lib/util/util').getTimeStr;
+const getTimeStr = require('ijijin_builder/nodebuild/lib/util/util').getTimeStr;
+const CONFIG = require('./package.json');
 
 // top banner
 const MY_BANNER = `
+  ${CONFIG.name}
+  @version: ${CONFIG.version}
+  @description: ${CONFIG.description}
+  @author: ${CONFIG.author}
+  @task: ${CONFIG.task || ''}
   @build time: ${ getTimeStr() }
 `;
 const BROWSERS_VERSION_SET = {	// for autoprefixer
@@ -45,9 +52,9 @@ module.exports = (options = {}) => {
 
     let plugins = [
         ...entryHtmlList,
-        new webpack.BannerPlugin(MY_BANNER),
+        
 		new MiniCssExtractPlugin({
-			filename: `[name]${options.dev ? '' : '.[chunkhash]'}.css`,
+			filename: `css/[name]${options.dev ? '' : '.[chunkhash:8]'}.css`,
 			chunkFilename: `[id].css`
 		}),
         new webpack.optimize.SplitChunksPlugin({
@@ -55,6 +62,9 @@ module.exports = (options = {}) => {
         })
     ];
     if (!options.dev) plugins.push(new webpack.IgnorePlugin(/mock\/*/));    // ignore mock
+	if (options.prod) {		// add banner description
+		plugins.push(new webpack.BannerPlugin(MY_BANNER));
+	}
 
     return {
         entry: entryJSList,
@@ -71,15 +81,14 @@ module.exports = (options = {}) => {
         },
 
         output: {
-            //publicPath: '/assets/',
             path: path.resolve(__dirname, 'dist'),
             filename: options.dev ? '[name].js' :
                 //'js/[name].js',
-                'js/[name].[chunkhash].js',
-            chunkFilename: '[id].js?[chunkhash]'
+                'js/[name].[chunkhash:8].js',
+            chunkFilename: '[id].js?[chunkhash:8]'
         },
 		
-		devtool: 'inline-source-map',
+		devtool: options.dev && 'cheap-module-source-map' || (options.prod ? false : 'source-map'),
 
         module: {
             rules: [
@@ -176,9 +185,7 @@ module.exports = (options = {}) => {
                 index: '/assets/',
                 disableDotRule: true
             },
-            inline: true,
-            //host: "192.168.27.183", // 本机的局域网ip
-            //open: true
+            inline: true
         },
 
         performance: {

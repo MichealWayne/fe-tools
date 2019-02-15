@@ -1,5 +1,4 @@
 
-
 ### 操作命令
 #### 本地开发
 ``` sh
@@ -26,10 +25,10 @@
 
 * 注意：如需执行处理脚本，可在build/目录下增加脚本文件build.js。打包后版本备份前会执行该脚本。
 
-
-### 目录结构
-├─css       css
-├─images    图片
-├─js        js
-│  └─lib    工具库
-└─mock      接口模拟
+### 目录结构(src)
+├─assets    静态资源
+│  └─images 图片
+├─router    路由配置
+├─views     视图
+├─mock      接口模拟
+└─main.js   入口js

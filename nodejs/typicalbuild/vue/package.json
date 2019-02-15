@@ -1,10 +1,15 @@
 {
-  "name": "ifundwechat",
-  "version": "0.1.0",
+  "name": "VueDemo",
+  "author": "VueDemo",
+  "version": "1.0.0",
+  "task": "fs-test",
+  "description": "a typical vue config project.contain less, babel, eslint.",
   "private": true,
   "scripts": {
     "start": "vue-cli-service serve",
+    "dev": "npm run start",
     "build": "vue-cli-service build",
+    "build:prod": "vue-cli-service build --mode prod && node build/index",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -21,7 +26,8 @@
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "mockjs": "^1.0.1-beta3",
-    "vue-template-compiler": "^2.5.16"
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.29.3"
   },
   "browserslist": [
     "> 1%",

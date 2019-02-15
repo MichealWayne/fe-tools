@@ -1,0 +1,30 @@
+{
+  "name": "ijijin-cli",
+  "version": "0.9.3",
+  "description": "ijijin FE build tools cli.",
+  "main": "index.js",
+  "dependencies": {
+    "gm": "^1.23.0",
+    "minimist": "^1.2.0",
+    "http-proxy": "^1.16.2",
+	"open": "^0.0.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "build",
+    "FE",
+    "cli",
+    "ijijin"
+  ],
+  "author": "michealwayne",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichealWayne/fe-tools.git"
+  },
+  "bin": {
+    "ijijin": "./bin/index.js"
+  }
+}

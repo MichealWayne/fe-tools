@@ -23,10 +23,20 @@ const getClientEnvironment = require('./env');
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
+const getTimeStr = require('ijijin_builder/nodebuild/lib/util/util').getTimeStr;
+const CONFIG = require('../package.json');
 
-
+// top banner
+const MY_BANNER = `
+  ${CONFIG.name}
+  @version: ${CONFIG.version}
+  @description: ${CONFIG.description}
+  @author: ${CONFIG.author}
+  @task: ${CONFIG.task || ''}
+  @build time: ${ getTimeStr() }
+`;
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+const shouldUseSourceMap = process.env.PROD ? false : process.env.GENERATE_SOURCEMAP !== 'false';
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
@@ -126,10 +136,10 @@ module.exports = function (webpackEnv) {
         // These are the "entry points" to our application.
         // This means they will be the "root" imports that are included in JS bundle.
 		externals: {
-            React: 'react',
-            ReactDOM: 'react-dom',
-            ReactRouterDOM: 'react-router-dom',
-            axios: 'axios'
+            'react-dom': 'ReactDOM',
+            'react-router-dom': 'ReactRouterDOM',
+            'react': 'React',
+            'axios': 'axios'
         },
         entry: [
             // Include an alternative client for WebpackDevServer. A client's job is to
@@ -181,40 +191,7 @@ module.exports = function (webpackEnv) {
             minimizer: [
                 // This is only used in production mode
                 new TerserPlugin({
-                    terserOptions: {
-                        parse: {
-                            // we want terser to parse ecma 8 code. However, we don't want it
-                            // to apply any minfication steps that turns valid ecma 5 code
-                            // into invalid ecma 5 code. This is why the 'compress' and 'output'
-                            // sections only apply transformations that are ecma 5 safe
-                            // https://github.com/facebook/create-react-app/pull/4234
-                            ecma: 8,
-                        },
-                        compress: {
-                            ecma: 5,
-                            warnings: false,
-                            // Disabled because of an issue with Uglify breaking seemingly valid code:
-                            // https://github.com/facebook/create-react-app/issues/2376
-                            // Pending further investigation:
-                            // https://github.com/mishoo/UglifyJS2/issues/2011
-                            comparisons: false,
-                            // Disabled because of an issue with Terser breaking valid code:
-                            // https://github.com/facebook/create-react-app/issues/5250
-                            // Pending futher investigation:
-                            // https://github.com/terser-js/terser/issues/120
-                            inline: 2,
-                        },
-                        mangle: {
-                            safari10: true,
-                        },
-                        output: {
-                            ecma: 5,
-                            comments: false,
-                            // Turned on because emoji and regex is not minified properly using default
-                            // https://github.com/facebook/create-react-app/issues/2488
-                            ascii_only: true,
-                        },
-                    },
+ 
                     // Use multi-process parallel running to improve the build speed
                     // Default number of concurrent runs: os.cpus().length - 1
                     parallel: true,
@@ -487,6 +464,9 @@ module.exports = function (webpackEnv) {
             ],
         },
         plugins: [
+			// banner
+			process.env.PROD && new webpack.BannerPlugin(MY_BANNER),
+			
             // Generates an `index.html` file with the <script> injected.
             new HtmlWebpackPlugin(
                 Object.assign(

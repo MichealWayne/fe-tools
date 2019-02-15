@@ -4,6 +4,7 @@ const Tip = require('../base/lib/util/tip');
 const getTimeStr = require('../base/lib/util/util').getTimeStr;
 
 const path = require('path');
+const FECONFIG_PATH = '/usr/config/fe.json';
 
 let Typicalinit = {
     getFolder: config => {
@@ -17,8 +18,9 @@ let Typicalinit = {
             case 'v':
             case 'vue':
                 return 'vue';
-            case 'test':
-                return 'test';
+			case 'r':
+            case 'react':
+                return 'react';
             default:
                 return null
         }
@@ -61,6 +63,7 @@ let Typicalinit = {
 		if (type === 'vue') {	// vue
 			Tip.warn('vue project need vue-cli 3+.');
 		}
+		
         Tip.safe(`
 result: ${name}目录已创建.(${type})
 
@@ -71,5 +74,5 @@ now you can start project as:
 		`);
     }
 };
-Typicalinit.init({name: 'test', type: 'vue', dirname: __dirname});
+// Typicalinit.init({name: 'test', type: 'vue', dirname: __dirname});
 module.exports = Typicalinit;

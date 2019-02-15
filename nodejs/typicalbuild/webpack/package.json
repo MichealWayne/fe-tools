@@ -1,13 +1,16 @@
 {
-  "name": "webpack",
-  "version": "2.0.0",
+  "name": "WebpackDemo",
+  "version": "1.0.0",
+  "task": "fs-test",
+  "author": "WebpackDemo",
   "description": "a typical webpack config project.contain less, babel, eslint.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server -d --hot --env.dev",
-    "build": "rimraf dist && webpack -p --env.config production"
+    "dev": "npm run start",
+    "build": "rimraf dist && webpack -p --env.config production",
+    "build:prod": "rimraf dist && webpack -p --env.config production --env.prod && node build/index"
   },
-  "author": "Micheal Wayne",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^9.4.4",
@@ -26,7 +29,7 @@
     "glob": "^7.1.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "ijijin_builder": "^2.1.3",
+    "ijijin_builder": "^3.0.0",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
     "less-plugin-functions": "^1.0.0",
