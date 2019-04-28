@@ -1,0 +1,46 @@
+// pull refresh
+
+#fundPullRefresh {
+    height: 40px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 40px;
+
+    .u-loading_text {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+    }
+
+    .u-loading_img {
+        position: relative;
+        top: -2px;
+        margin-right: 6px;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
+
+    .a-loading_imgrotate {
+        -webkit-animation: rotating 1.2s linear infinite;
+        animation: rotating 1.2s linear infinite;
+    }
+}
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(360deg)
+    }
+}
+@keyframes rotating {
+    from {
+        transform: rotate(0)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
