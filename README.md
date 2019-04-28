@@ -8,7 +8,9 @@
 │  │  │  └─native
 │  │  └─plugins
 │  │      ├─alert
-│  │      └─toast
+│  │      ├─toast
+│  │      ├─keyboard-number
+│  │      └─pullRefresh
 │  └─less
 │      ├─mobile
 │      └─pc
@@ -29,26 +31,15 @@
     │  │  └─util
     │  └─templates
     └─typicalbuild
-        ├─gulp+webpack
-        │  └─src
-        │      ├─components
-        │      ├─css
-        │      ├─images
-        │      ├─js
-        │      │  └─lib
-        │      └─mock
+        ├─react
+        ├─vue
+        ├─gulp+webpack		
         └─webpack
-            └─src
-                ├─components
-                ├─css
-                ├─images
-                ├─js
-                │  └─lib
-                └─mock
 ```
 
 ## 更新信息
 - 2019.04.28：新增storage封装；新增下拉刷新、数字键盘原生组件；
+
 
 ## 说明
 
@@ -82,4 +73,6 @@
 #### 2.3 typicalbuild 典型项目构建
 - gulp+webpack
 - webpack
+- vue
+- react
 

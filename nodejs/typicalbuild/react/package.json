@@ -124,5 +124,6 @@
       "react-app"
     ]
   },
-  "proxy": "http://[::1]:8080"
+  "proxy": "http://[::1]:8080",
+  "homepage": "./"
 }
