@@ -1,4 +1,7 @@
 # 基础样式库
+
+[请移至Moo-CSS](https://github.com/MichealWayne/Moo-CSS)
+
 - pc：PC端
 - mobile：移动端
 

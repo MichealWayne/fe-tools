@@ -61,6 +61,7 @@
 
 
 ### 2.nodejs 服务端、脚本
+使用可见[ijijin-cli](https://www.npmjs.com/package/ijijin-cli)
 使用可见[ijijin_builder](https://www.npmjs.com/package/ijijin_builder)
 
 #### 2.1 base 方法
