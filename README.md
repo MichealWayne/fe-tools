@@ -92,11 +92,11 @@
 #### 1.4.2 数据工具
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://lodash.com/docs/" target="_blank">LoDash 文档</a> | `lodash` | 广为人知的函数式工具库。
-<a href="https://underscorejs.org/" target="_blank">UnderscoreJS 文档</a> | `underscorejs` | 红极一时的函数式工具库。
-<a href="http://winterbe.github.io/streamjs/" target="_blank">StreamJs 文档</a> | `streamjs` | 一款js数据的操作工具。
-<a href="https://baconjs.github.io/" target="_blank">BaconJs 文档</a> | `baconjs` | 也是一款js数据的操作工具。
-<a href="https://momentjs.com/" target="_blank">MomentJs 文档</a> | `momentjs` | 一款日期格式化的工具。
+<a href="https://lodash.com/docs/" target="_blank">LoDash</a> | `lodash` | 广为人知的函数式工具库。
+<a href="https://underscorejs.org/" target="_blank">UnderscoreJS</a> | `underscorejs` | 红极一时的函数式工具库。
+<a href="http://winterbe.github.io/streamjs/" target="_blank">StreamJs</a> | `streamjs` | 一款js数据的操作工具。
+<a href="https://baconjs.github.io/" target="_blank">BaconJs</a> | `baconjs` | 也是一款js数据的操作工具。
+<a href="https://momentjs.com/" target="_blank">MomentJs</a> | `momentjs` | 一款日期格式化的工具。
 
 #### 1.4.3 请求、cookie和缓存
 地址 | 标签 | 说明
@@ -200,7 +200,7 @@
 <a href="http://www.nodeclass.com/api/jade.html" target="_blank">jade</a> | `jade` | html模板引擎。
 <a href="https://www.gulpjs.com.cn/docs/" target="_blank">gulp 配置文档</a> | `gulp` | 自动化构建工具。
 <a href="https://gulpjs.com/plugins/" target="_blank">gulp plugins</a> | `gulp` | gulp插件中心。
-<a href="https://grunt.docschina.org/" target="_blank">grunt 配置文档</a> | `grunt` | | 自动化构建工具。
+<a href="https://grunt.docschina.org/" target="_blank">grunt 配置文档</a> | `grunt` | 自动化构建工具。
 <a href="http://www.css88.com/doc/webpack/" target="_blank">webpack 配置文档</a> | `webpack` | 应用面不能再广的打包工具。
 <a href="https://parceljs.docschina.org/" target="_blank">parceljs 配置文档</a> | `parceljs` | 轻量打包。
 <a href="http://babeljs.io/" target="_blank">babel</a> | `babel` | 应用面不能再广的ES编译器。
@@ -253,7 +253,7 @@
 <a href="https://github.com/Coding/WebIDE" target="_blank">webIDE</a> | `webide` | web上写代码。
 <a href="https://hiroppy.github.io/fusuma/" target="_blank">Fusuma</a> | `fusuma` | 用markdown写web ppt。
 <a href="https://vuepress.vuejs.org/zh/" target="_blank">VuePress</a> | `vuepress` | 用markdown写文档/博客
-<p>- <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a></p> | `hexo` | 用markdown写文档/博客
+<a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> | `hexo` | 用markdown写文档/博客
 
 
 ### 1.10 测试、安全及加密
