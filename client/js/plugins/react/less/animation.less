@@ -1,0 +1,39 @@
+/*
+ * 过渡、动画
+ */
+
+/*.v-fade-enter {
+    opacity: 0;
+}
+.v-fade-enter-active {
+    opacity: 1;
+    transition: opacity 2000ms ease-out;
+}
+.v-fade-exit {
+    opacity: 1;
+}
+.v-fade-exit-active {
+    opacity: 0;
+    transition: opacity 2000ms ease-in;
+}*/
+
+.example-enter {
+    opacity: 0.01;
+
+    &.example-enter-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in;
+    }
+}
+.example-exit {
+    opacity: 1;
+
+    &.example-exit-active {
+        opacity: 0.01;
+        transition: opacity 300ms ease-in;
+    }
+}
+
+.example-exit-done {
+    display: none !important;
+}

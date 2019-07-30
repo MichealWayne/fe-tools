@@ -1,0 +1,46 @@
+// 下拉刷新
+
+.ru-pull-refresh{
+        overflow-y: auto;
+        .u-loading_img{
+            position: relative;
+            margin-top: -4px;
+            margin-right: 6px;
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+        }
+
+        .u-p_ctn{
+            position: relative;
+            .u-p_refresh{
+                margin-top: -40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 12px;
+                text-align: center;
+            }
+        }
+
+        .a-loading_imgrotate {
+            animation: rotating 1.2s linear infinite;
+        }
+    }
+    @-webkit-keyframes rotating {
+        from {
+            -webkit-transform: rotate(0)
+        }
+
+        to {
+            -webkit-transform: rotate(360deg)
+        }
+    }
+    @keyframes rotating {
+        from {
+            transform: rotate(0)
+        }
+
+        to {
+            transform: rotate(360deg)
+        }
+    }

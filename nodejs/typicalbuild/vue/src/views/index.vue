@@ -1,6 +1,6 @@
 <template>
     <section>
-        <p class='f-tc'>hello ijijin</p>
+        <p class='f-tc'>hello vue</p>
     </section>
 </template>
 

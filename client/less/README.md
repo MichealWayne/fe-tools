@@ -1,7 +1,8 @@
 # 基础样式库
 
-[请移至Moo-CSS](https://github.com/MichealWayne/Moo-CSS)
+> [请移至moo-css-base](https://www.npmjs.com/package/moo-css-base)
 
+## ijijin_builder/stylebuild
 - pc：PC端
 - mobile：移动端
 
