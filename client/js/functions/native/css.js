@@ -10,7 +10,6 @@
 * @return {String} css前缀
 */
 export function getPrefix () {
-    var prefix;
     var vendors = {
         Webkit: 'webkit',
         Moz: '',
