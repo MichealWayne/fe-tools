@@ -28,7 +28,7 @@
     "gulp-rev-collector": "^1.2.3",
     "gulp-uglify": "^3.0.0",
     "jshint": "^2.9.5",
-    "open": "0.0.5",
+    "open": "6.0.0",
     "webpack": "^3.10.0",
     "webpack-stream": "^4.0.0"
   }
