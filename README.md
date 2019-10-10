@@ -149,11 +149,15 @@
 <a href="https://sweetalert.js.org/" target="_blank">sweetalert</a> | `sweetalert.js` | 还算库的PC alert展示插件。
 <a href="https://github.com/lancedikson/bowser" target="_blank">bowserjs</a> | `bowserjs` | 通过ua做的浏览器探测插件。
 <a href="https://github.com/Tencent/vConsole" target="_blank">vConsole</a> | `vconsole` | 被誉为移动端的开发者工具。
-<a href="https://clipboardjs.com/" target="_blank">clipboard.js</a> | `clipboardjs` | 剪切板控制插件。
+<a href="https://clipboardjs.com/" target="_blank">clipboard.js</a> | `clipboardjs` | 剪贴板控制插件。
 <a href="https://github.com/kazuhikoarase/qrcode-generator/tree/master/js" target="_blank">Qrcode-generator</a> | `grcode-generator` | 二维码生成工具。
 <a href="http://html2canvas.hertzen.com/documentation" target="_blank">html2canvas</a> | `html2canvas` | html转为图片（canvas），即实现网页截图。
 <a href="https://github.com/sofish/pen#readme" target="_blank">Pen Editor</a> | `Pen Editor` | web的文本编辑工具。
 <a href="https://nosir.github.io/cleave.js/" target="_blank">cleave.js</a> | `cleave.js` | 一款好用的input输入控制插件。
+<a href="https://github.com/jackmoore/autosize" target="_blank">autosize.js</a> | `autosize.js` | 一款好用的`<textarea/>`高度自适应工具。
+<a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver.js</a> | `FileSaver.js` | 网页端字符/图片/文件另存为插件。
+<a href="https://github.com/mailru/FileAPI" target="_blank">FileAPI.js</a> | `FileAPI` | 控制文件上传的插件。
+<a href="https://github.com/alexgibson/shake.js" target="_blank">shake.js</a> | `shake.js` | 移动端摇晃震动监听插件。
 
 
 ##### 视/音频
@@ -237,10 +241,12 @@
 <a href="https://cli.vuejs.org/zh/guide/cli-service.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4" target="_blank">vue-cli 文档</a> | `vue-cli` | vue脚手架工具文档。
 <a href="https://vuex.vuejs.org/zh/" target="_blank">vuex 文档</a> | `vuex` | vue数据流控制工具。
 <a href="https://router.vuejs.org/zh/" target="_blank">vue-router 文档</a> | `vue-router` | 基于vue的前端路由控制。
+<a href="http://danilowoz.com/create-vue-content-loader/" target="_blank">vue-content-loader 文档</a> | `create-vue-content-loader` | vue版SVG骨架屏插件。
 <a href="http://ustbhuangyi.github.io/better-scroll/doc/api.html" target="_blank">better-scroll 文档</a> | `better-scroll` | 控制滚动场景的插件。
 <a href="https://youzan.github.io/vant/#/zh-CN/intro" target="_blank">vant 文档</a> | `vant` | 移动UI库，有赞。
 <a href="http://aidenzou.github.io/vue-weui/#!/" target="_blank">vue-weui 文档</a> | `vue-weui` | weui风格的移动UI组件库。
 <a href="https://element.eleme.cn/#/zh-CN" target="_blank">Element 文档</a> | `element` | 使用PC中后台前端开发的UI组件库，饿了么。
+<a href="https://github.com/hilongjw/vue-lazyload" target="_blank">vue-lazyload 文档</a> | `vue-lazyload` | vue版的图片/组件懒加载插件。
 <a href="http://v1.iviewui.com/docs/guide/install" target="_blank">iView 文档</a> | `iview` | PC UI组件库。
 <a href="https://vue.ant.design/docs/vue/introduce-cn/" target="_blank">antd-vue 文档</a> | `antd-vue` | PC UI组件库，ant design的Vue版。
 <a href="https://kazupon.github.io/vue-i18n/" target="_blank">vue-i18n 文档</a> | `vue-i18n` | 多语言解决方案。
@@ -258,8 +264,11 @@
 <a href="https://dvajs.com/" target="_blank">dvajs 文档</a> | `dvajs` | 基于 redux 和 redux-saga 的数据流方案，蚂蚁。
 <a href="https://umijs.org/zh/" target="_blank">UmiJs 文档</a> | `umijs` | 可插拔的企业级 react 应用框架，蚂蚁。
 <a href="https://nextjs.org/" target="_blank">NextJs 文档</a> | `nextjs` | 轻量级的 React 服务端渲染应用框架。
+<a href="http://danilowoz.com/create-content-loader/" target="_blank">react-content-loader 文档</a> | `create-content-loader` | react版SVG骨架屏插件。
 <a href="https://ant.design/docs/react/getting-started-cn" target="_blank">antd 文档</a> | `antd` | ant design，PC UI组件库。
 <a href="https://mobile.ant.design/index-cn" target="_blank">antd-mobile 文档</a> | `antd-mobile` | 移动版的antd，UI组件库。
+<a href="https://www.styled-components.com/" target="_blank">styled-components 文档</a> | `styled-components` | react的css-in-js实现。
+<a href="https://github.com/twobin/react-lazyload" target="_blank">react-lazyload 文档</a> | `react-lazyload` | react版的图片/组件加载插件。
 <a href="https://rexxars.github.io/react-markdown/" target="_blank">react-markdown</a> | `react-markdown` | 在react上使用的markdown工具。
 <a href="https://github.com/JedWatson/classnames#readme" target="_blank">classnames</a> | `classnames` | 操作className的工具，多用于React。
 
