@@ -1,8 +1,27 @@
-/*
-* DOM操作
-* @author: Micheal Wang
-* @build time: 2017.11.15
+/**
+* @module DOM操作
+* @author Micheal Wang
+* @build 2017.11.15
+* @update 2019.10.17
 */
+
+// environment
+
+/**
+ * @function isBrowser
+ * @description 是否在浏览器环境下
+ */
+export function isBrowser () {
+    return ![typeof window, typeof document].includes('undefined');
+}
+
+/**
+ * @function isBrowserTab
+ * @description 当前页面是否显示
+ */
+export function isBrowserTab () {
+    return !document.hidden;
+}
 
 // class
 
@@ -67,6 +86,56 @@ export function getElementsByClassName(className, element) {
     return elements;
 }
 
+// element
+
+/**
+ * @function insertAfter
+ * @description 在指定元素之后插入新元素
+ * @param {dom element} el 
+ * @param {string} htmlString 
+ */
+export function insertAfter (el, htmlString) {
+    return el.insertAdjacentHTML('afterend', htmlString);
+}
+
+/**
+ * @function insertBefore
+ * @description 在指定元素之前插入新元素
+ * @param {dom element} el 
+ * @param {string} htmlString 
+ */
+export function insertBefore (el, htmlString) {
+    return el.insertAdjacentHTML('beforebegin', htmlString);
+}
+
+/**
+ * @function elementContains
+ * @description 检查是否包含子元素
+ * @param {dom element} parent 
+ * @param {dom element} child 
+ */
+export function elementContains (parent, child) {
+    return parent !== child && parent.contains(child);
+}
+
+/**
+ * @function hide
+ * @description 隐藏元素
+ * @param  {...dom element} el 
+ */
+export function hide (...el) {
+    [...el].forEach(e => e.style.display = 'none');
+}
+
+/**
+ * @function nodeListToArray
+ * @description dom列表伪数组转为数组
+ * @param {dom element list} nodeList 
+ */
+export function nodeListToArray (nodeList) {
+    return [...nodeList];
+}
+
 // scroll
 
 
@@ -97,6 +166,13 @@ export function offset(element) {
 */
 export function getScrollTop() {
     return (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+}
+
+export function getScrollPosition (el = window) {
+    return {
+        x: el.pageXOffset !== undefined ? el.pageXOffset : el.screenLeft,
+        y: el.pageYOffset !== undefined ? el.pageYOffset : el.screenTop
+    }
 }
 
 /*
@@ -151,4 +227,31 @@ export function animateScrollTo(to, duration) {
 
         animateScrollTo(to, duration - 16);
     });
+}
+
+/**
+ * @function smoothScroll
+ * @description 指定元素滚动到可视区域
+ * @param {dom element} element 
+ */
+export function smoothScroll (element) {
+    document.querySelector(element).scrollIntoView({
+        behavior: 'smooth'
+    })
+}
+
+// html
+
+/**
+ * @function escapeHTML
+ * @param {string} str 
+ */
+export function escapeHTML (str) {
+    return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '%lt;',
+        '>': '%gt;',
+        '\'': '&#39;',
+        '"': '&quot;'
+    }[tag] || tag));
 }

@@ -38,3 +38,11 @@ export function getUrlParam (name, decode) {
     }
     return null; //返回参数值
 }
+
+/**
+ * @function httpsRedirect
+ * @description page http -> https
+ */
+export function httpsRedirect () {
+    if (location.protocol !== 'https:') location.replace('https://' + location.href.split('//')[1]);
+}
