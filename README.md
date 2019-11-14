@@ -2,10 +2,32 @@
 
 > 前端开发常用文档/网站地址、样式/js方法封装库、项目模板。
 
-
 <a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="http://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 60%;" src="https://blog.michealwayne.cn/images/fe.png"/></a>
 
-## 1.常用网站
+## * Chrome插件FE-Tools
+
+### 功能：
+- 工具网站搜索（`√`）
+- 本地收藏夹网站搜索（`√`）
+- url转二维码及svg矢量图（`√`）
+- 图片压缩及转base64（`√`）
+- px/rem/vw换算计算器（`√`）
+- rgb/hsb/hex色值换算（`√`）
+- 中英翻译
+- 工具函数库搜索
+- 搜索自定义拓展
+
+[前往>>](https://github.com/MichealWayne/fe-tools/tree/master/chrome-extension)
+
+### 安装方式
+
+clone本仓库到本地，点击“加载已解压的拓展程序”选择本地仓库目录下的chrome-extension目录。
+
+
+------------------
+
+
+## 1. 常用网站
 目录：
 - [1.1 HTML/CSS/JavaScript](#11-htmlcssjavascript)
 - [1.2 兼容/查询](#12-兼容查询)
@@ -334,6 +356,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank">正则表达式30分钟</a> | `regexp` | 正则上手教程。
+<a href="https://regexper.com/" target="_blank">在线正则验证</a> | `regexper` | 可视化在线正则验证网站。
 <a href="http://wproxy.org/whistle/install.html" target="_blank">whistle</a> | `whistle` | web调试代理工具。
 <a href="https://github.com/typicode/husky#readme" target="_blank">husky</a> | `Husky` | NodeJS上的git工具。
 <a href="https://cn.eslint.org/" target="_blank">eslint 文档</a> | `eslint` | js代码检查工具。
@@ -346,6 +369,9 @@
 <a href="https://hiroppy.github.io/fusuma/" target="_blank">Fusuma</a> | `fusuma` | 用markdown写web ppt。
 <a href="https://vuepress.vuejs.org/zh/" target="_blank">VuePress</a> | `vuepress` | 用markdown写文档/博客
 <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> | `hexo` | 用markdown写文档/博客
+<a href="https://www.materialui.co/colors" target="_blank">materialui</a> | `materialui` | 快速色值选择
+<a href="https://carbon.now.sh/" target="_blank">carbon</a> | `carbon` | 生成写博客时代码的美腻截图
+
 
 
 ### 1.10 测试、安全及加密
@@ -362,6 +388,12 @@
 <p><a href="https://zhuanlan.zhihu.com/p/38278311" target="_blank">《HTTPS 到底加密了什么？》</a></p>
 <p><a href="https://juejin.im/post/5b6d579cf265da0f6e51a7e0" target="_blank">《Web 端反爬虫技术方案》</a></p>
 <p><a href="https://juejin.im/entry/5bc93545e51d450e5f3dceff" target="_blank">《那些我们该讨论的前端加密方法》</a></p>
+
+
+#### 1.10.3 Debug
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://www.fundebug.com/" target="_blank">FunDebug</a> | `FunDebug` | 简单的项目debug监控工具，有免费版
 
 
 ------------------

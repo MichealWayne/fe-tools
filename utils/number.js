@@ -65,3 +65,43 @@ export function round (n, decimals = 0) {
 export function sum (...arr) {
     return [...arr].reduce((acc, val) => acc + val, 0);
 }
+
+/**
+ * @function isNumberEqual
+ * @param {number} num1
+ * @param {number} num2
+ * @param {number} precision?
+ */
+export function isNumberEqual(num1, num2) {
+  let precision = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0.00001;
+
+  return Math.abs(num1 - num2) < precision;
+}
+
+/**
+ * @function clamp
+ * @param {number} val
+ * @param {number} min
+ * @param {number} max
+ */
+export function clamp(val, min, max) {
+  if (val < min) {
+    return min;
+  } else if (val > max) {
+    return max;
+  }
+  return val;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
