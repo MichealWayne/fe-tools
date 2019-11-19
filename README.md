@@ -92,6 +92,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 #### 1.3.3 样式库/模块
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://css.30secondsofcode.org/" target="_blank">30s-of-code(css)</a> | `30s-of-code(css)` | 常用CSS样式模块集合，30s of code系列。
 <a href="https://daneden.github.io/animate.css/" target="_blank">animate.css</a> | `bulma.css` | CSS3动画库。
 <a href="http://ianlunn.github.io/Hover/" target="_blank">Hover.css</a> | `Hover.css` | 鼠标hover交互动画库。
 <a href="https://bulma.io/" target="_blank">bulma.css</a> | `bulma.css` | 一款轻量级的CSS UI库。
@@ -109,6 +110,8 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 <a href="https://fontawesome.com/" target="_blank">fontawesome</a> | `fontawesome` | 字体图标库。
 <a href="https://www.iconfont.cn/" target="_blank">iconfont</a> | `iconfont` | 字体图标库，阿里。
 <a href="http://necolas.github.io/normalize.css/" target="_blank">normalize</a> | `normalize` | 相对较优的CSS reset替代方案。
+
+
 
 #### 1.3.4 其他
 地址 | 标签 | 说明
@@ -294,6 +297,8 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 <a href="https://github.com/twobin/react-lazyload" target="_blank">react-lazyload 文档</a> | `react-lazyload` | react版的图片/组件加载插件。
 <a href="https://rexxars.github.io/react-markdown/" target="_blank">react-markdown</a> | `react-markdown` | 在react上使用的markdown工具。
 <a href="https://github.com/JedWatson/classnames#readme" target="_blank">classnames</a> | `classnames` | 操作className的工具，多用于React。
+<a href="https://github.com/30-seconds/30-seconds-of-react" target="_blank">30s-of-react</a> | `30s-of-react` | 常用React代码模块集合，30s of code系列。
+
 
 
 ### 1.7 Nodejs和构建
@@ -303,6 +308,8 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 <a href="https://yarn.bootcss.com/" target="_blank">yarn</a> | `yarn` | 高速的node包管理平台。
 <a href="http://nodejs.cn/api/" target="_blank">nodejs api</a> | `node` | Node官方文档。
 <a href="https://v8docs.nodesource.com/node-10.6/index.html" target="_blank">V8</a> | `v8` |  V8引擎介绍。
+<a href="https://docs.docker.com/" target="_blank">docker</a> | `docker` | 应用容器引擎Docker。
+<a href="https://man.linuxde.net/" target="_blank">Linux</a> | `linux` | Linux命令查询手册。
 
 #### 1.7.1 构建
 地址 | 标签 | 说明
@@ -317,6 +324,8 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 <a href="http://www.css88.com/doc/webpack/" target="_blank">webpack 配置文档</a> | `webpack` | 应用面不能再广的打包工具。
 <a href="https://parceljs.docschina.org/" target="_blank">parceljs 配置文档</a> | `parceljs` | 轻量打包。
 <a href="http://babeljs.io/" target="_blank">babel</a> | `babel` | 应用面不能再广的ES编译器。
+
+
 
 #### 1.7.2 服务端
 地址 | 标签 | 说明
@@ -351,6 +360,9 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 <a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
 <a href="https://guoshuyu.cn/home/wx/Flutter-1.html" target="_blank">Flutter文档</a> | `跨端` | 超火的Dart语法的跨端开发工具。
 <a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | windows应用的开发。
+<a href="https://developer.chrome.com/extensions" target="_blank">chrome extension</a> | `chrome-extension` | Chrome拓展程序官方文档。
+<a href="https://github.com/sxei/chrome-plugin-demo" target="_blank">chrome-plugin-demo</a> | `chrome-plugin, chrome-extension` | 一篇很好的Chrome拓展程序开发教程，有demo。
+
 
 
 ### 1.9 辅助工具

@@ -24,13 +24,5 @@
 		"https://*/*",
 		"https://testfund.10jqka.com.cn"
     ],
-	"omnibox": { "keyword" : "fe" },
-	"background": {
-		"scripts": ["scripts/background.js"]
-	},
-	"content_scripts": [{
-		"matches": ["<all_urls>"],
-		"js": ["scripts/content-script.js"],
-		"run_at": "document_idle"
-	}]
+	"omnibox": { "keyword" : "fe" }
 }
