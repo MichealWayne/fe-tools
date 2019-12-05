@@ -208,6 +208,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 <a href="https://github.com/pvorb/node-md5" target="_blank">md5.js</a> | `md5` | md5加密。
 <a href="http://requirejs.org/" target="_blank">requirejs 文档</a> | `requirejs` | js模块化工具。
 <a href="http://yslove.net/seajs/" target="_blank">seajs 文档</a> | `seajs` | js模块化工具。
+<a href="http://browserify.org/" target="_blank">Browserify 文档</a> | `browserify` | 浏览器端使用类似于 node 的 require() 方式。
 <a href="https://github.com/rickharrison/validate.js" target="_blank">validate.js</a> | `validate.js` | form表单校验工具。
 <a href="https://github.com/validatorjs/validator.js" target="_blank">validator.js</a> | `validator.js` | 有名的内容校验工具，比如邮箱验证、数值验证等。
 
@@ -226,6 +227,9 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 <a href="http://snapsvg.io/" target="_blank">Snap.svg</a> | `snap` | 一款svg操作库。
 <a href="https://www.pixijs.com/" target="_blank">pixi.js</a> | `pixijs` | 2D WebGL渲染引擎。
 <a href="https://libcafe.com/3d/index.html" target="_blank">svg-3d-builder</a> | `svg-3d-builder` | 3D SVG渲染引擎。
+<a href="https://github.com/jsplumb/jsplumb" target="_blank">jsplumb</a> | `jsplumb` | 一款好用的流程图可视化库。
+<a href="https://js.cytoscape.org/" target="_blank">cytoscapejs</a> | `cytoscape` | 一款好用的关系图谱可视化库。
+
 
 #### 1.4.6 数据可视化(地图)
 地址 | 标签 | 说明
@@ -339,6 +343,8 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 <a href="https://parall.ax/products/jspdf" target="_blank">js-pdf</a> | `js-pdf` | 通过node操作生成pdf的工具。
 <a href="http://doc.pm2.io/en/plus/overview/" target="_blank">pm2</a> | `pm2` | node进程管理。
 <a href="https://github.com/Marak/colors.js" target="_blank">colors.js</a> | `colorsjs` | node log控制台输出颜色控制。
+<a href="https://log4js-node.github.io/log4js-node/" target="_blank">log4.js</a> | `log4js` | log日志工具。
+
 
 
 ### 1.8 Hybird和跨端
