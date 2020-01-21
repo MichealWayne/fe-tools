@@ -61,8 +61,6 @@ let startServer = (dpath, port, callback, proxyConfig) => {
         let url = req.url;
         if (url.charAt(url.length - 1) === '/') url += 'index.html';
         if (~url.indexOf('?')) url = url.split('?')[0];
-
-        url = url.replace('/ifundapp_app', '').replace('/scym_scsy', '');
 		
 		if (proxyConfig && proxyConfig.target) {	// 代理
 			startProxy(proxyConfig.target);

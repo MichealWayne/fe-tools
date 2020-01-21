@@ -118,6 +118,8 @@
 <a href="https://www.babylonjs.com/" target="_blank">babylon.js</a> | `babylonjs` | 有名的3D游戏/视频框架。
 <a href="https://stdlib.io/" target="_blank">stdlib</a> | `stdlib` | js的数学增强库。
 <a href="https://immutable-js.github.io/immutable-js/" target="_blank">immutable-js</a> | `immutable` | 生产环境js的List, Stack, Map, OrderedMap, Set, OrderedSet以及Record数据结构支持。
+<a href="https://github.com/alibaba/GCanvas" target="_blank">GCanvas</a> | `gcanvas` | 轻量的跨平台图形引擎（web/weex/react-native），阿里。
+
 
 
 #### 1.4.2 数据工具
@@ -260,6 +262,10 @@
 <a href="http://v1.iviewui.com/docs/guide/install" target="_blank">iView 文档</a> | `iview` | PC UI组件库。
 <a href="https://vue.ant.design/docs/vue/introduce-cn/" target="_blank">antd-vue 文档</a> | `antd-vue` | PC UI组件库，ant design的Vue版。
 <a href="https://kazupon.github.io/vue-i18n/" target="_blank">vue-i18n 文档</a> | `vue-i18n` | 多语言解决方案。
+<a href="https://github.com/ecomfe/vue-echarts" target="_blank">vue-echarts 文档</a> | `vue-echarts` | Echarts的Vue封装组件。
+<a href="https://zh.nuxtjs.org/" target="_blank">Nuxt.JS 文档</a> | `nuxtjs` | Vue的服务端渲染应用框架。
+
+
 
 
 ### 1.6 React
@@ -294,6 +300,9 @@
 <a href="https://v8docs.nodesource.com/node-10.6/index.html" target="_blank">V8</a> | `v8` |  V8引擎介绍。
 <a href="https://docs.docker.com/" target="_blank">docker</a> | `docker` | 应用容器引擎Docker。
 <a href="https://man.linuxde.net/" target="_blank">Linux</a> | `linux` | Linux命令查询手册。
+<a href="http://aheckmann.github.io/gm/" target="_blank">GraphicsMagick</a> | `gm` | 后台图片处理工具。
+
+
 
 #### 1.7.1 构建
 地址 | 标签 | 说明
@@ -311,6 +320,7 @@
 
 
 
+
 #### 1.7.2 服务端
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -324,6 +334,9 @@
 <a href="http://doc.pm2.io/en/plus/overview/" target="_blank">pm2</a> | `pm2` | node进程管理。
 <a href="https://github.com/Marak/colors.js" target="_blank">colors.js</a> | `colorsjs` | node log控制台输出颜色控制。
 <a href="https://log4js-node.github.io/log4js-node/" target="_blank">log4.js</a> | `log4js` | log日志工具。
+<a href="https://nwjs.io/" target="_blank">nw.js</a> | `nwjs` | 基于nodeJs和chromium的应用程序运行环境，允许您直接从DOM调用所有Node.js模块。
+<a href="https://github.com/archiverjs/node-archiver" target="_blank">node-archiver</a> | `node-archiver` | 支持ZIP/TAR文档流传输和接收插件。
+<a href="https://github.com/thejoshwolfe/yazl" target="_blank">yazl</a> | `yazl` | 压缩zip插件，对应解压为[yauzl](https://github.com/thejoshwolfe/yauzl)。
 
 
 
@@ -376,7 +389,7 @@
 <a href="https://tinypng.com/" target="_blank">tinypng</a> | `Tinypng` | 压缩png和jpeg图片
 <a href="https://jakearchibald.github.io/svgomg/" target="_blank">svgomg</a> | `SVGOMG` | 压缩SVG图形
 <a href="https://imagemagick.org/index.php" target="_blank">ImageMagick</a> | `imagemagick` | 后台运用极广的图片处理工具。
-<a href="http://aheckmann.github.io/gm/" target="_blank">GraphicsMagick</a> | `gm` | 后台图片处理工具。
+
 
 
 

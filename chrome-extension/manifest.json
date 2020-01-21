@@ -21,8 +21,10 @@
 		"webRequest",
 		"storage",
 		"http://*/*",
-		"https://*/*",
-		"https://testfund.10jqka.com.cn"
+		"https://*/*"
     ],
-	"omnibox": { "keyword" : "fe" }
+	"omnibox": { "keyword" : "fe" },
+	"background": {
+		"scripts": ["scripts/background.js"]
+	}
 }
