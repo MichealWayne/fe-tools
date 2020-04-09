@@ -37,6 +37,8 @@
 <a href="https://zhongsp.gitbooks.io/typescript-handbook/content/" target="_blank">Typescript Handbook</a> | `typescript` | TypeScript使用手册。
 <a href="http://www.html5plus.org/doc/h5p.html" target="_blank">Web API Reference</a> | `html5` | HTML5 web API查询，如摄像头/地理位置。
 <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect" target="_blank">Safari HTML Ref查询</a> | `html` | Safari webview的HTML标签查询，某些ios特殊的属性或表现可以查这个。
+<a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
+
 
 
 ### 1.2 兼容/查询
@@ -400,6 +402,7 @@
 <a href="https://mochajs.org/" target="_blank">MochaJS文档</a> | `mocha` | 一款单元测试工具。
 <a href="https://jestjs.io/zh-Hans/" target="_blank">JestJS文档</a> | `jest` | 一款单元测试工具。
 
+
 #### 1.10.2 安全及加密知识
 <p><a href="https://cloud.tencent.com/developer/article/1136202" target="_blank">《浅谈前端安全》</a></p>
 <p><a href="https://mawei.blog/post/frontend-security-vulnerabilities-part1/" target="_blank">《8大前端安全问题》</a></p>
@@ -413,6 +416,19 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://www.fundebug.com/" target="_blank">FunDebug</a> | `FunDebug` | 简单的项目debug监控工具，有免费版
+
+#### 1.10.4 质量检测
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="http://www.jslint.com/" target="_blank">JSLint js代码检查</a> | `jslint` | 一个JavaScript验证工具
+<a href="https://jshint.com/" target="_blank">JSHint js代码检查</a> | `jshint` | 一个JavaScript验证工具
+<a href="https://eslint.org/" target="_blank">ESLint js代码检查</a> | `eslint` | 一个JavaScript验证工具
+<a href="http://csslint.net/" target="_blank">CSSLint css代码检查</a> | `csslint` | 一个CSS验证工具
+<a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a> | `validator` | 在线HTML验证网站
+<a href="https://www.sonarlint.org/vscode/" target="_blank">SonarLint vscode</a> | `sonarlint` | js/ts工程代码质量验证的vscode插件
+
+
+
 
 
 ------------------
