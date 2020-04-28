@@ -33,6 +33,7 @@
 <a href="http://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 使用频率最高的ECMAScript6文档。
 <a href="https://ecma262.docschina.org/" target="_blank">ECMA International(6) China | `ES6` | ECMAScript6官方文档，部分中文翻译。
 <a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank">ECMA International(6)</a> | `ES6` | ECMAScript6官方文档。
+<a href="http://es6-features.org/" target="_blank">ECMA6 features | `ES6` | 通俗易懂的ECMAScript6特性demos。
 <a href="https://www.tslang.cn/docs/home.html" target="_blank">TypeScript中文文档</a> | `typescript` | TypeScript官网文档。
 <a href="https://zhongsp.gitbooks.io/typescript-handbook/content/" target="_blank">Typescript Handbook</a> | `typescript` | TypeScript使用手册。
 <a href="http://www.html5plus.org/doc/h5p.html" target="_blank">Web API Reference</a> | `html5` | HTML5 web API查询，如摄像头/地理位置。
@@ -119,7 +120,7 @@
 <a href="http://fabricjs.com/" target="_blank">fabric.js</a> | `fabricjs` | 有名的svg和canvas相互转换的封装库。
 <a href="https://www.babylonjs.com/" target="_blank">babylon.js</a> | `babylonjs` | 有名的3D游戏/视频框架。
 <a href="https://stdlib.io/" target="_blank">stdlib</a> | `stdlib` | js的数学增强库。
-<a href="https://immutable-js.github.io/immutable-js/" target="_blank">immutable-js</a> | `immutable` | 生产环境js的List, Stack, Map, OrderedMap, Set, OrderedSet以及Record数据结构支持。
+<a href="https://immutable-js.github.io/immutable-js/" target="_blank">immutable-js</a> | `immutable` | 生产环境js的List, Stack, Map, OrderedMap, Set, OrderedSet以及Record数据结构支持，通常用于ReactJs。
 <a href="https://github.com/alibaba/GCanvas" target="_blank">GCanvas</a> | `gcanvas` | 轻量的跨平台图形引擎（web/weex/react-native），阿里。
 
 
@@ -148,6 +149,9 @@
 <a href="https://github.com/marcuswestin/store.js/" target="_blank">StoreJs</a> | `storage` | storage的封装库，兼容IE6。
 <a href="https://github.com/js-cookie/js-cookie" target="_blank">js-cookie</a> | `js-cookie` | cookie的封装库。
 <a href="https://dexie.org/" target="_blank">Dexie.js</a> | `Dexie.js` | IndexedDB的封装库。
+<a href="https://localforage.github.io/localForage/" target="_blank">localForage.js</a> | `localForage` | 基于IndexedDB、WebSQL、localStorage的离线存储库，Mozilla。
+<a href="https://addyosmani.com/basket.js/" target="_blank">basket.js</a> | `basket.js` | 利用localStorage来缓存script和css资源。
+
 
 
 
@@ -213,6 +217,8 @@
 <a href="https://libcafe.com/3d/index.html" target="_blank">svg-3d-builder</a> | `svg-3d-builder` | 3D SVG渲染引擎。
 <a href="https://github.com/jsplumb/jsplumb" target="_blank">jsplumb</a> | `jsplumb` | 一款好用的流程图可视化库。
 <a href="https://js.cytoscape.org/" target="_blank">cytoscapejs</a> | `cytoscape` | 一款好用的关系图谱可视化库。
+<a href="http://mermaid-js.github.io/mermaid/#/" target="_blank">Mermaid</a> | `mermaid` | 一款好用的流程图生成可视化库。
+
 
 
 #### 1.4.6 数据可视化(地图)
@@ -240,6 +246,7 @@
 ---- | ---- | ----
 <a href="https://github.com/AlloyTeam/AlloyFinger" target="_blank">AlloyFinger.js</a> | `AlloyFinger` | 增加移动端的各种手势事件。
 <a href="http://hammerjs.github.io/" target="_blank">hammer.js</a> | `hammerjs` | 增加手势以及取消了移动端click的300ms延迟。
+<a href="https://interactjs.io/" target="_blank">interact.js</a> | `interactjs` | 使用JavaScript实现拖放、缩放和多点触控手势。
 
 #### 1.4.9 加载
 地址 | 标签 | 说明
@@ -275,7 +282,8 @@
 ---- | ---- | ----
 <a href="https://doc.react-china.org/docs/hello-world.html" target="_blank">React 文档</a> | `react` | 官方文档。
 <a href="https://facebook.github.io/create-react-app/" target="_blank">create-react-app 文档</a> | `create-react-app` | react脚手架工具文档。
-<a href="http://react-guide.github.io/react-router-cn/" target="_blank">react-router</a> | `react-router` | 基于react的前端路由控制。
+<a href="https://github.com/facebook/react-devtools" target="_blank">react Chrome devtools</a> | `react-devtools` | react的Chrome开发拓展插件。
+<a href="http://react-guide.github.io/react-router-cn/" target="_blank">react-router</a> | `react-router` | 用于react的前端路由控制。
 <a href="https://www.redux.org.cn/docs/introduction/" target="_blank">redux 文档</a> | `redux` | 广泛使用的数据流控制工具，reducer+flux。
 <a href="http://facebook.github.io/flux/" target="_blank">flux 文档</a> | `flux` | 数据流控制工具。
 <a href="https://cn.mobx.js.org/" target="_blank">mobx 文档</a> | `mobx` | 轻量数据流控制工具。
@@ -287,6 +295,10 @@
 <a href="https://mobile.ant.design/index-cn" target="_blank">antd-mobile 文档</a> | `antd-mobile` | 移动版的antd，UI组件库。
 <a href="https://www.styled-components.com/" target="_blank">styled-components 文档</a> | `styled-components` | react的css-in-js实现。
 <a href="https://github.com/twobin/react-lazyload" target="_blank">react-lazyload 文档</a> | `react-lazyload` | react版的图片/组件加载插件。
+<a href="https://github.com/jamiebuilds/react-loadable#readme" target="_blank">react-loadable</a> | `react-loadable` | 实现react组件构建时代代码抽离和动态加载。
+<a href="https://github.com/STRML/react-draggable" target="_blank">react-draggable</a> | `react-draggable` | 一个用于拖拽操作的React封装组件。
+<a href="https://github.com/tajo/react-portal#readme" target="_blank">React-portal</a> | `react-portal` | 一个通过portals定义附加的节点组件渲染工具。
+<a href="https://github.com/vkbansal/react-contextmenu" target="_blank">React-contextmenu</a> | `react-contextmenu` | pc端web实现右键菜单的工具组件。
 <a href="https://rexxars.github.io/react-markdown/" target="_blank">react-markdown</a> | `react-markdown` | 在react上使用的markdown工具。
 <a href="https://github.com/JedWatson/classnames#readme" target="_blank">classnames</a> | `classnames` | 操作className的工具，多用于React。
 <a href="https://github.com/30-seconds/30-seconds-of-react" target="_blank">30s-of-react</a> | `30s-of-react` | 常用React代码模块集合，30s of code系列。
@@ -332,6 +344,7 @@
 <a href="https://docs.nestjs.com/" target="_blank">Nest.js</a> | `nestjs` | 强大的Web应用框架。
 <a href="https://github.com/nuysoft/Mock/wiki" target="_blank">Mockjs 配置文档</a> | `mockjs` | 接口数据模拟工具，可以在客户端和服务端使用。
 <a href="https://sheetjs.com/" target="_blank">SheetJs</a> | `sheetjs` | 通过node操作word的工具。
+<a href="https://github.com/parallel-js/parallel.js" target="_blank">ParallelJs</a> | `paralleljs` | 并行处理js的工具，可用于浏览器和node服务端。
 <a href="https://parall.ax/products/jspdf" target="_blank">js-pdf</a> | `js-pdf` | 通过node操作生成pdf的工具。
 <a href="http://doc.pm2.io/en/plus/overview/" target="_blank">pm2</a> | `pm2` | node进程管理。
 <a href="https://github.com/Marak/colors.js" target="_blank">colors.js</a> | `colorsjs` | node log控制台输出颜色控制。
@@ -358,6 +371,7 @@
 <a href="https://weex.apache.org/zh/" target="_blank">Weex文档</a> | `跨端` | 热门的vue语法跨端工具。
 <a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex-UI文档</a> | `跨端/weex` | weex的UI组件库。
 <a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具。
+<a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具。
 <a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
 <a href="https://guoshuyu.cn/home/wx/Flutter-1.html" target="_blank">Flutter文档</a> | `跨端` | 超火的Dart语法的跨端开发工具。
 <a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | windows应用的开发。
@@ -391,6 +405,7 @@
 <a href="https://tinypng.com/" target="_blank">tinypng</a> | `Tinypng` | 压缩png和jpeg图片
 <a href="https://jakearchibald.github.io/svgomg/" target="_blank">svgomg</a> | `SVGOMG` | 压缩SVG图形
 <a href="https://imagemagick.org/index.php" target="_blank">ImageMagick</a> | `imagemagick` | 后台运用极广的图片处理工具。
+<a href="https://www.whatfontis.com/" target="_blank">whatfontis.com</a> | `whatfontis` | 识别图片上的字体不过限于英文字体，需要注册。
 
 
 
@@ -405,11 +420,13 @@
 
 #### 1.10.2 安全及加密知识
 <p><a href="https://cloud.tencent.com/developer/article/1136202" target="_blank">《浅谈前端安全》</a></p>
+<p><a href="http://blog.michealwayne.cn/2020/04/19/safety/%E3%80%90%E6%80%BB%E7%BB%93%E3%80%91%E5%86%8D%E8%B0%88%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" target="_blank">《再谈前端安全》</a></p>
 <p><a href="https://mawei.blog/post/frontend-security-vulnerabilities-part1/" target="_blank">《8大前端安全问题》</a></p>
 <p><a href="https://juejin.im/post/5c452021518825242062979f" target="_blank">《前端加密那点事》</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/38278311" target="_blank">《HTTPS 到底加密了什么？》</a></p>
 <p><a href="https://juejin.im/post/5b6d579cf265da0f6e51a7e0" target="_blank">《Web 端反爬虫技术方案》</a></p>
 <p><a href="https://juejin.im/entry/5bc93545e51d450e5f3dceff" target="_blank">《那些我们该讨论的前端加密方法》</a></p>
+
 
 
 #### 1.10.3 Debug
@@ -425,6 +442,7 @@
 <a href="https://eslint.org/" target="_blank">ESLint js代码检查</a> | `eslint` | 一个JavaScript验证工具
 <a href="http://csslint.net/" target="_blank">CSSLint css代码检查</a> | `csslint` | 一个CSS验证工具
 <a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a> | `validator` | 在线HTML验证网站
+<a href="https://flow.org/" target="_blank">Flow js代码检查</a> | `flow` | 一个JavaScript代码检查工具
 <a href="https://www.sonarlint.org/vscode/" target="_blank">SonarLint vscode</a> | `sonarlint` | js/ts工程代码质量验证的vscode插件
 
 
