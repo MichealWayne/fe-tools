@@ -2,7 +2,7 @@
 
 > 前端开发常用文档/网站地址、样式/js方法封装库、项目模板。
 
-<a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.png"/></a>
+<a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
 
 
 ------------------
@@ -20,9 +20,10 @@
 - [1.8 Hybird和跨端](#18-hybird和跨端)
 - [1.9 辅助工具](#19-辅助工具)
 - [1.10 测试、安全及加密](#110-测试安全及加密)
+- [1.11 IDE插件]
 
 
-### 1.1 HTML/CSS/JavaScript
+### 1.1 HTML/CSS/JavaScript/Dart
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN 文档手册</a> | `html/css/js` | 很全很有用的查询网站。
@@ -39,7 +40,7 @@
 <a href="http://www.html5plus.org/doc/h5p.html" target="_blank">Web API Reference</a> | `html5` | HTML5 web API查询，如摄像头/地理位置。
 <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect" target="_blank">Safari HTML Ref查询</a> | `html` | Safari webview的HTML标签查询，某些ios特殊的属性或表现可以查这个。
 <a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
-
+<a href="https://www.dartcn.com/guides/language/language-tour" target="_blank">Dart中文网</a> | `dart` | dart语言中文网。
 
 
 ### 1.2 兼容/查询
@@ -289,7 +290,9 @@
 <a href="https://cn.mobx.js.org/" target="_blank">mobx 文档</a> | `mobx` | 轻量数据流控制工具。
 <a href="https://dvajs.com/" target="_blank">dvajs 文档</a> | `dvajs` | 基于 redux 和 redux-saga 的数据流方案，蚂蚁。
 <a href="https://umijs.org/zh/" target="_blank">UmiJs 文档</a> | `umijs` | 可插拔的企业级 react 应用框架，蚂蚁。
+<a href="http://rekit.js.org" target="_blank">Rekit 文档</a> | `rekit` | React/Redux/React-router开发工具/IDE。
 <a href="https://nextjs.org/" target="_blank">NextJs 文档</a> | `nextjs` | 轻量级的 React 服务端渲染应用框架。
+<a href="https://cn.mobx.js.org/" target="_blank">Umi Hooks 文档</a> | `umi hooks` | 适用于中台的hooks方法，如请求、拖拽、防抖。
 <a href="http://danilowoz.com/create-content-loader/" target="_blank">react-content-loader 文档</a> | `create-content-loader` | react版SVG骨架屏插件。
 <a href="https://ant.design/docs/react/getting-started-cn" target="_blank">antd 文档</a> | `antd` | ant design，PC UI组件库。
 <a href="https://mobile.ant.design/index-cn" target="_blank">antd-mobile 文档</a> | `antd-mobile` | 移动版的antd，UI组件库。
@@ -400,7 +403,6 @@
 <a href="https://vuepress.vuejs.org/zh/" target="_blank">VuePress</a> | `vuepress` | 用markdown写文档/博客
 <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> | `hexo` | 用markdown写文档/博客
 <a href="https://www.materialui.co/colors" target="_blank">materialui</a> | `materialui` | 快速色值选择
-<a href="https://marketplace.visualstudio.com/items?itemName=pnp.polacode" target="_blank">polacode</a> | `polacode` | 代码截图的vscode IDE插件
 <a href="https://carbon.now.sh/" target="_blank">carbon</a> | `carbon` | 生成写博客时代码的美腻截图
 <a href="https://tinypng.com/" target="_blank">tinypng</a> | `Tinypng` | 压缩png和jpeg图片
 <a href="https://jakearchibald.github.io/svgomg/" target="_blank">svgomg</a> | `SVGOMG` | 压缩SVG图形
@@ -444,6 +446,36 @@
 <a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a> | `validator` | 在线HTML验证网站
 <a href="https://flow.org/" target="_blank">Flow js代码检查</a> | `flow` | 一个JavaScript代码检查工具
 <a href="https://www.sonarlint.org/vscode/" target="_blank">SonarLint vscode</a> | `sonarlint` | js/ts工程代码质量验证的vscode插件
+
+
+### 1.11 IDE插件
+
+#### 1.11.1 VS Code
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://marketplace.visualstudio.com/" target="_blank">MarketPlace</a> | `marketplace` | 插件首页
+<a href="https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight" target="_blank">Color Highlight</a> | `color-highlight` | 颜色预览。
+<a href="https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview" target="_blank">Svg Preview</a> | `svg-preview` | SVG图形预览。
+<a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker" target="_blank">Code Spell Checker</a> | `code-spell-checker` | 代码单词拼写校验。
+<a href="https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify" target="_blank">Beautify</a> | `beautify` |  javascript, JSON, CSS, Sass, 和HTML格式优化。
+<a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks" target="_blank">Bookmarks</a> | `bookmarks` |  看代码神器，代码书签。
+<a href="https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets" target="_blank">Rainbow Brackets</a> | `rainbow-brackets` |  开发必备，括号颜色区分。
+<a href="https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-stylefmt" target="_blank">stylefmt</a> | `stylefmt` |  css格式化。
+<a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome" target="_blank">Debugger For Chrome</a> | `debugger-for-chrome` |  vscode和chrome联调插件，本地开发必备。
+<a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank">Eslint</a> | `eslint` |  js检查。
+<a href="https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint" target="_blank">stylelint</a> | `stylelint` |  css/less/scss检查。
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin" target="_blank">TypeScript Tslint Plugin</a> | `typescript-tslint-plugin` |  TypeScript检查。
+<a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur" target="_blank">vetur</a> | `vetur` |  Vue开发工具。
+<a href="https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code" target="_blank">Dart</a> | `dart-code` |  Dart语言开发支持。
+<a href="https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter" target="_blank">Flutter</a> | `Flutter` |  Flutter开发适配。
+<a href="https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets" target="_blank">HTML Snippets</a> | `html-snippets` |  HTML标签快速开发。
+<a href="https://marketplace.visualstudio.com/items?itemName=maximetinu.identical-sublime-monokai-csharp-theme-colorizer" target="_blank">Identical Sublime Monokai</a> | `identical-sublime-monokai` |  本人还是习惯sublime的风格。
+<a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint" target="_blank">Markdownlint</a> | `markdownlint` |  markdown检查。
+<a href="https://marketplace.visualstudio.com/items?itemName=HookyQR.minify" target="_blank">Minify</a> | `minify` |  js/css直接压缩。
+<a href="https://marketplace.visualstudio.com/items?itemName=pnp.polacode" target="_blank">polacode</a> | `polacode` | 代码截图的vscode IDE插件
+<a href="https://gitlens.amod.io/" target="_blank">GitLens</a> | `gitlens` | git源代码管理插件
+<a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager" target="_blank">Project Manager</a> | `project-manager` | 本地项目管理
 
 
 
