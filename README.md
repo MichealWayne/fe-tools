@@ -311,6 +311,7 @@
 <a href="https://github.com/twobin/react-lazyload" target="_blank">react-lazyload 文档</a> | `react-lazyload` | react版的图片/组件加载插件。
 <a href="https://github.com/jamiebuilds/react-loadable#readme" target="_blank">react-loadable</a> | `react-loadable` | 实现react组件构建时代代码抽离和动态加载。
 <a href="https://github.com/STRML/react-draggable" target="_blank">react-draggable</a> | `react-draggable` | 一个用于拖拽操作的React封装组件。
+<a href="https://github.com/JedWatson/react-tappable" target="_blank">react-tappable</a> | `react-tappable` | 一个用于点击事件操作的React封装组件。
 <a href="https://github.com/tajo/react-portal#readme" target="_blank">React-portal</a> | `react-portal` | 一个通过portals定义附加的节点组件渲染工具。
 <a href="https://github.com/vkbansal/react-contextmenu" target="_blank">React-contextmenu</a> | `react-contextmenu` | pc端web实现右键菜单的工具组件。
 <a href="https://rexxars.github.io/react-markdown/" target="_blank">react-markdown</a> | `react-markdown` | 在react上使用的markdown工具。
@@ -430,6 +431,7 @@
 <a href="https://imagemagick.org/index.php" target="_blank">ImageMagick</a> | `imagemagick` | 后台运用极广的图片处理工具。
 <a href="https://www.whatfontis.com/" target="_blank">whatfontis.com</a> | `whatfontis` | 识别图片上的字体不过限于英文字体，需要注册。
 <a href="https://ps.gaoding.com/#/" target="_blank">ps.gaoding.com</a> | `ps` | 强大的在线Photoshop。
+<a href="https://avocode.com/convert-psd-to-sketch?ref=producthunt" target="_blank">convert-psd-to-sketch avocode</a> | `avocode` | psd一键转sketch。
 <a href="https://jakearchibald.github.io/svgomg/" target="_blank">svgomg</a> | `svgomg` | 在线svg优化及预览。
 <a href="https://code2flow.com/" target="_blank">code2flow</a> | `code2flow` | 在线伪码转流程图工具。
 <a href="https://tool.lu/json/" target="_blank">tool.lu-json</a> | `json` | 在线json格式化工具。
@@ -477,6 +479,7 @@
 <a href="https://validator.w3.org/" target="_blank">Markup Validation Service</a> | `validator` | 在线HTML验证网站
 <a href="https://flow.org/" target="_blank">Flow js代码检查</a> | `flow` | 一个JavaScript代码检查工具
 <a href="https://www.sonarlint.org/vscode/" target="_blank">SonarLint vscode</a> | `sonarlint` | js/ts工程代码质量验证的vscode插件
+<a href="https://github.com/google/eng-practices" target="_blank">Google eng-practices</a> | `eng-practices` | 谷歌工程实践文档
 
 
 ### 1.11 IDE插件
