@@ -283,7 +283,7 @@
 <a href="https://terryz.github.io/vue/#/region" target="_blank">v-region 文档</a> | `v-region` | Vue行政区选择组件。
 <a href="https://github.com/ecomfe/vue-echarts" target="_blank">vue-echarts 文档</a> | `vue-echarts` | Echarts的Vue封装组件。
 <a href="https://zh.nuxtjs.org/" target="_blank">Nuxt.JS 文档</a> | `nuxtjs` | Vue的服务端渲染应用框架。
-
+<a href="https://github.com/vitejs/vite" target="_blank">ViteJS 文档</a> | `vitejs` | 无bundle的Vue轻量前端项目构建工具。
 
 
 
@@ -302,7 +302,9 @@
 <a href="http://rekit.js.org" target="_blank">Rekit 文档</a> | `rekit` | React/Redux/React-router开发工具/IDE。
 <a href="https://nextjs.org/" target="_blank">NextJs 文档</a> | `nextjs` | 轻量级的 React 服务端渲染应用框架。
 <a href="https://www.gatsbyjs.cn/" target="_blank">Gatsby.js 文档</a> | `gatsbyjs` | 轻量级的 React 静态网站搭建框架。
+<a href="https://github.com/streamich/react-use" target="_blank"> 文档</a> | `react-use` | 好用的React自定义hooks封装库。
 <a href="https://cn.mobx.js.org/" target="_blank">Umi Hooks 文档</a> | `umi hooks` | 适用于中台的hooks方法，如请求、拖拽、防抖。
+<a href="https://react-query.tanstack.com/docs/overview" target="_blank">react-query 文档</a> | `react-query` | 好用的React ajax接口请求处理封装hook。
 <a href="https://github.com/welldone-software/why-did-you-render#readme" target="_blank">why-did-you-render</a> | `why-did-you-render` | 用来检测React组件是否需要重新渲染的工具。
 <a href="http://danilowoz.com/create-content-loader/" target="_blank">react-content-loader 文档</a> | `create-content-loader` | react版SVG骨架屏插件。
 <a href="https://ant.design/docs/react/getting-started-cn" target="_blank">antd 文档</a> | `antd` | ant design，PC UI组件库。
@@ -351,6 +353,7 @@
 <a href="http://www.css88.com/doc/webpack/" target="_blank">webpack 配置文档</a> | `webpack` | 应用面不能再广的打包工具。
 <a href="https://github.com/neutrinojs/webpack-chain" target="_blank">webpack-chain</a> | `webpack-chain` | 链式配置webpack配置的工具。
 <a href="https://parceljs.docschina.org/" target="_blank">parceljs 配置文档</a> | `parceljs` | 轻量打包。
+<a href="https://www.snowpack.dev/" target="_blank">snowpack 官网</a> | `snowpack` | 无bundle的轻量前端项目构建工具。
 <a href="http://babeljs.io/" target="_blank">babel</a> | `babel` | 应用面不能再广的ES编译器。
 <a href="https://github.com/fb55/htmlparser2#readme" target="_blank">htmlparser2</a> | `htmlparser2` | 一款html的转AST工具。
 <a href="https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md" target="_blank">parse5</a> | `parse5` | 一款html的转AST工具。
@@ -447,6 +450,9 @@
 ---- | ---- | ----
 <a href="https://mochajs.org/" target="_blank">MochaJS文档</a> | `mocha` | 一款单元测试工具。
 <a href="https://jestjs.io/zh-Hans/" target="_blank">JestJS文档</a> | `jest` | 一款单元测试工具。
+<a href="https://www.cypress.io/" target="_blank">Cypress官网</a> | `cypress` | 一款单元测试集成平台工具。
+<a href="https://www.cypress.io/" target="_blank">Cypress官网</a> | `cypress` | 一款单元测试集成平台工具。
+<a href="https://enzymejs.github.io/enzyme/" target="_blank">enzyme官网</a> | `enzyme` | 一款React单元测试工具，可以测hook。
 
 
 #### 1.10.2 安全及加密知识
