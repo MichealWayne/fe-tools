@@ -5,9 +5,9 @@
 
 /**
  * @function approximatelyEqual
- * @param {*} val1 
- * @param {*} val2 
- * @param {*} epsilon 
+ * @param {number} val1 
+ * @param {number} val2 
+ * @param {number} epsilon 
  */
 export function approximatelyEqual (val1, val2, epsilon = 0.001) {
     return Math.abs(val1 - val2) < epsilon;
@@ -54,8 +54,8 @@ export function randomIntArrayInRange (min, max, num = 1) {
  * @param {number} n 
  * @param {number} decimals 
  */
-export function round (n, decimals = 0) {
-    return Number(`${Math.round(`${n}e${decimals}`)}e-${decimals}`);
+export function round (n: number, decimals: number = 0) {
+    return Number(`${Math.round(+`${n}e${decimals}`)}e-${decimals}`);
 }
 
 /**
@@ -92,16 +92,4 @@ export function clamp(val, min, max) {
   }
   return val;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 

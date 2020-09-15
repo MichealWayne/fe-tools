@@ -66,7 +66,7 @@ export function palindrome (str) {
  * @param {string} separator 
  */
 export function fromCamelCase (str, separator = '_') {
-    str.replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2')
+    return str.replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2')
         .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + separator + '$2').toLowerCase();
 }
 
@@ -87,4 +87,13 @@ export function truncateString (str, num) {
     return str.length > num
             ? str.slice(0, num > 3 ? num - 3 : num) + '...'
             : str;
+}
+
+/**
+ * @function isChinese
+ * @param {string} str 
+ * @return {boolean}
+ */
+export function isChinese (str) {
+    return (/^[\u4E00-\u9FA5]{1,}$/).test(str);
 }

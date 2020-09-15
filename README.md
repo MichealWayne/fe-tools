@@ -78,7 +78,7 @@
 ---- | ---- | ----
 <a href="https://css.30secondsofcode.org/" target="_blank">30s-of-code(css)</a> | `30s-of-code(css)` | 常用CSS样式模块集合，30s of code系列。
 <a href="https://daneden.github.io/animate.css/" target="_blank">animate.css</a> | `bulma.css` | CSS3动画库。
-<a href="http://ianlunn.github.io/Hover/" target="_blank">Hover.css</a> | `Hover.css` | 鼠标hover交互动画库。
+<a href="http://ianlunn.github.io/Hover/" target="_blank">Hover.css</a> | `Hover.css` | PC鼠标hover交互动画库。
 <a href="https://bulma.io/" target="_blank">bulma.css</a> | `bulma.css` | 一款轻量级的CSS UI库。
 <a href="http://cardinalcss.com/" target="_blank">cardinal.css</a> | `cardinal.css` | 一款移动优先的less库。
 <a href="http://bootflat.github.io/index.html" target="_blank">bootflat.css</a> | `bootflat.css` | 一款扁平化风格scss库，基于BootStrap3.3。
@@ -91,10 +91,10 @@
 <a href="https://www.getpapercss.com" target="_blank">paper.css</a> | `paper.css` | 手绘风格的前端样式框架。
 <a href="http://www.uiplayground.in/css3-icons/" target="_blank">css3 icon</a> | `css3 icon` | 纯CSS实现的图标。
 <a href="http://bootstrap.css88.com/css/" target="_blank">Bootstrap 文档</a> | `bootstrap` | 红极一时的前端样式框架。
+<a href="https://www.layui.com/doc/" target="_blank">layui 文档</a> | `layui` | 一款采用自身模块规范编写的前端 UI 框架。
 <a href="https://fontawesome.com/" target="_blank">fontawesome</a> | `fontawesome` | 字体图标库。
 <a href="https://www.iconfont.cn/" target="_blank">iconfont</a> | `iconfont` | 字体图标库，阿里。
 <a href="http://necolas.github.io/normalize.css/" target="_blank">normalize</a> | `normalize` | 相对较优的CSS reset替代方案。
-
 
 
 #### 1.3.4 其他
@@ -107,7 +107,6 @@
 <a href="https://glenmaddern.com/articles/css-modules" target="_blank">CSS modules</a> | `css-modules` | 一种CSS样式模块化的解决方案。
 <a href="https://github.com/MicheleBertoli/css-in-js" target="_blank">css in js</a> | `css-in-js` | 用写js的方式生成css样式。
 <a href="http://blog.michealwayne.cn/Moo-CSS/docs/moocss/#m%E6%A8%A1%E5%9D%97" target="_blank">Moo-CSS</a> | `moo-css` | 一种CSS写法方案。
-
 
 
 ### 1.4 JS插件/库
@@ -123,7 +122,7 @@
 <a href="https://stdlib.io/" target="_blank">stdlib</a> | `stdlib` | js的数学增强库。
 <a href="https://immutable-js.github.io/immutable-js/" target="_blank">immutable-js</a> | `immutable` | 生产环境js的List, Stack, Map, OrderedMap, Set, OrderedSet以及Record数据结构支持，通常用于ReactJs。
 <a href="https://github.com/alibaba/GCanvas" target="_blank">GCanvas</a> | `gcanvas` | 轻量的跨平台图形引擎（web/weex/react-native），阿里。
-
+<a href="https://roughjs.com/" target="_blank">Rough.js官网</a> | `roughjs` | 一个有意思的canvas绘图库（画出的图形具有手绘风格）。
 
 
 #### 1.4.2 数据工具
@@ -154,8 +153,6 @@
 <a href="https://addyosmani.com/basket.js/" target="_blank">basket.js</a> | `basket.js` | 利用localStorage来缓存script和css资源。
 
 
-
-
 #### 1.4.4 插件
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -172,6 +169,7 @@
 <a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver.js</a> | `FileSaver.js` | 网页端字符/图片/文件另存为插件。
 <a href="https://github.com/mailru/FileAPI" target="_blank">FileAPI.js</a> | `FileAPI` | 控制文件上传的插件。
 <a href="https://github.com/alexgibson/shake.js" target="_blank">shake.js</a> | `shake.js` | 移动端摇晃震动监听插件。
+<a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy.js</a> | `tippy.js` | 好用的气泡组件，有React版。
 
 
 ##### 视/音频
@@ -357,8 +355,8 @@
 <a href="http://babeljs.io/" target="_blank">babel</a> | `babel` | 应用面不能再广的ES编译器。
 <a href="https://github.com/fb55/htmlparser2#readme" target="_blank">htmlparser2</a> | `htmlparser2` | 一款html的转AST工具。
 <a href="https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md" target="_blank">parse5</a> | `parse5` | 一款html的转AST工具。
-<a href="https://github.com/benjamn/recast" target="_blank">recast</a> | `recast` | 一款js的转AST工具。
-
+<a href="https://github.com/benjamn/recast" target="_blank">recast</a> | `recast` | 一款js转AST的工具。
+<a href="https://github.com/airbnb/ts-migrate" target="_blank">ts-migrate</a> | `ts-migrate` | 一款js转ts(TypeScript)的工具。
 
 
 

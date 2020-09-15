@@ -3,21 +3,6 @@
  * @description math functions
  */
 
-/**
- * @function arrayAverage
- * @param {number[]} arr 
- */
-export function arrayAverage (arr) {
-    return arr.reduce((acc, val) => acc + val, 0) / arr.length;
-}
-
-/**
- * @function arraySum
- * @param {number[]} arr 
- */
-export function arraySum (arr) {
-    return arr.reduce((arr, val) => acc + val, 0);
-}
 
 /**
  * @function factorial

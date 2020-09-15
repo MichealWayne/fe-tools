@@ -1,0 +1,114 @@
+# utils
+
+- [array.ts](./array.ts)
+    - arrayMax：数组最大值
+    - arrayMin：数组最小值
+    - arrayAverage：数组平均值
+    - arraySum：数组之和
+    - all：是否全部通过
+    - allEqual：数组值是否全相等
+    - arrayToCSV：数组转CSV格式字符串
+    - castArray：数据数组化
+    - chunk：数组chunk化
+    - compact：筛选出数组“真”值
+    - countOccurrences：统计数组中某值的个数
+    - deepFlatten：数组扁平化
+    - flatten：数组扁平化（可控制深度）
+    - difference：筛选出数组1中不存在于数组2的元素
+    - differenceBy：通过比较函数筛选出数组1中不存在于数组2的元素
+    - dropWhile：当数组数据不木盒条件时从头删除数据
+    - indexOfAll：找出数组中某值的所有位置
+    - intersection：找出两个数组的相同元素
+    - intersectionBy：通过函数找出两个数组的相同元素
+    - intersectionWith：通过函数找出两个数组的相同元素
+    - negate：得出否定筛选
+    - sample：数组随机数
+    - sampleSize：数组随机片段
+    - shuffle：随机排序
+    - everyNth：隔位取值
+    - filterNonUnique：找出不重复的元素
+    - initializeArrayWithValues：初始数组，填充值
+    - remove：根据筛选条件删除数组元素
+    - digitize：数字格式化
+    - fibonacci：斐波那契
+    - median：找出中位数
+- [check.ts](./check.ts)
+    - validateEmail：校验email
+    - isIdCard：校验身份证
+    - isUrl：校验url
+    - validateNumber：校验是否有效数字
+- [check.plus.ts](./check.plus.ts)
+    - checkPwdStrength：校验密码强度
+    - checkIdcard：校验身份证
+- [color.ts](./color.ts)
+    - randomHexColor：随机十六进制格式颜色
+    - getColorRgb：十六进制格式颜色转rgb
+- [date.ts](./date.ts)
+    - dayOfYear：一年中的第几天
+    - getColonTimeFromDate：获取时分秒
+    - getDaysDiffBetweenDates：获取天数差
+    - isAfterDate：是否在某天之后
+    - isBeforeDate：是否在某天之前
+    - tomorrow：明天的日期
+    - formatRemainTime：两个日期还差多少天多少小时多少分多少秒
+- [function.ts](./function.ts)
+    - attempt：容错执行函数
+    - defer：延迟执行
+    - runPromisesInSeries：promise链式执行
+    - timeTaken：计算执行时间
+    - memoize：缓存化
+    - once：单例执行
+    - chainAsync：链式异步执行
+    - compose：函数组合
+    - pipe：管道执行
+    - curry：柯里化
+    - functionName：输出函数名
+    - promisify：函数promise化
+    - sleep：延迟执行
+- [math.ts](./math.ts)
+    - factorial：阶乘
+    - gcd：公约数
+    - isDivisible：是否能整除
+    - isEven：是否为偶数
+    - lcm：最小公倍数
+- [number.ts](./number.ts)
+    - approximatelyEqual：相等比较
+    - average：计算平均值
+    - randomIntegerInRange：随机整数
+    - randomNumberInRange：随机数
+    - randomIntArrayInRange：范围内的数组
+    - round：精度优化
+    - sum：求和
+    - isNumberEqual：相等比较
+    - clamp：数值不超出范围处理
+- [object.ts](./object.ts)
+    - forOwn：对象遍历处理
+    - objectFromPairs：数组字典转对象
+    - mapObject：数组转对象
+    - pick：过滤对象
+- [string.ts](./string.ts)
+    - byteSize：获取字符串占用字节
+    - capitalize：首字符大写
+    - capitalizeEveryWord：每个单词首字符大写
+    - decapitalize：首字符小写
+    - splitLines：根据缓缓分割
+    - stripHTMLTags：去除html标签字符
+    - palindrome：字符串反转
+    - fromCamelCase：驼峰处理
+    - reverseString：反转字符串
+    - truncateString：字符溢出省略
+    - isChinese：是否全是中文
+- [trade.ts](./trade.ts)
+    - luhnCheck：银行卡号校验
+    - toCurrency：货币转换
+- [tween.ts](./tween.ts)
+- [type.ts](./type.ts)
+    - type：获取类型标志
+    - isObject：是否是对象
+    - isEmptyObject：是否是空对象
+    - is：是否是
+    - equals：是否深度相等
+    - size：获取长度
+- [others.ts](./others.ts)
+    - getKeyName：获取pc按键值
+    - digitUppercase：金额文字化

@@ -3,6 +3,35 @@
  * @description value type functions
  */
 
+
+/**
+ * @function type
+ * @param {any} obj 
+ * @return {string}
+ */
+export function type (obj) {
+    return Object.prototype.toString.call(obj).replace(/\[object\s|\]/g, '')
+}
+
+/**
+ * @function isObject
+ * @param {any} object 
+ * @return {boolean}
+ */
+export function isObject (object) {
+    return type(object) === 'Object'
+}
+
+/**
+ * @function isEmptyObject
+ * @param {any} obj 
+ */
+export function isEmptyObject (obj) {
+    if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return false
+    return !Object.keys(obj).length
+}
+
+
 /**
  * @function is
  * @param {Constructor} type 
@@ -38,6 +67,6 @@ export function size (val) {
         : val && typeof val === 'object'
         ? val.size || val.length || Object.keys(val).length
         : typeof val === 'string'
-        ? new Bolob([val]).size
+        ? new Blob([val]).size
         : 0;
 }

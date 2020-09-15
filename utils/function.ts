@@ -20,6 +20,7 @@ export function attempt (fn, ...args) {
  * @function defer
  * @param {function} fn 
  * @param  {...any} args 
+ * @return {number}
  */
 export function defer (fn, ...args) {
     return setTimeout(fn, 1, ...args);
@@ -28,6 +29,7 @@ export function defer (fn, ...args) {
 /**
  * @function runPromisesInSeries
  * @param {promise array} ps 
+ * @return {Promise}
  */
 export function runPromisesInSeries (ps) {
     return ps.reduce((p, next) => p.then(next), Promise.resolve());
@@ -36,6 +38,7 @@ export function runPromisesInSeries (ps) {
 /**
  * @function timeTaken
  * @param {function} callback 
+ * @return {any}
  */
 export function timeTaken (callback) {
     console.time('timeTaken');
@@ -47,11 +50,12 @@ export function timeTaken (callback) {
 /**
  * @function memoize
  * @param {function} fn 
+ * @return {any}
  */
 export function memoize (fn) {
     const cache = new Map();
     const cached = function (val) {
-        return cache.has(val) ? cache.get(val) : cache.set(val, fn.call(this, val)) && cache.get(val);
+        return cache.has(val) ? cache.get(val) : cache.set(val, fn(val)) && cache.get(val);
     };
     cached.cache = cache;
     return cached;
@@ -60,13 +64,14 @@ export function memoize (fn) {
 /**
  * @function once
  * @param {function} fn 
+ * @return {function}
  */
 export function once (fn) {
     let called = false;
     return function () {
         if (!called) {
             called = true;
-            fn.apply(this, arguments);
+            fn(...arguments);
         }
     }
 }
@@ -74,8 +79,7 @@ export function once (fn) {
 /**
  * @function chainAsync
  * @param {function array} fns 
- * @example
- * chainAsync([next => { console.log(1); setTimeout(next, 1000)}, next => { console.log(2);} ])
+ * @example chainAsync([next => { console.log(1); setTimeout(next, 1000)}, next => { console.log(2);} ])
  */
 export function chainAsync (fns) {
     let curr = 0;

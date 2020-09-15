@@ -24,11 +24,23 @@ export function objectFromPairs (arr) {
  * @function mapObject
  * @param {array} arr 
  * @param {function} fn 
+ * @return {object}
  */
-export function mapObject (arr, fn) {
-    return (a => (a = [arr, arr.map(fn)], a[0].reduce( (acc,val,ind) => (acc[val] = a[1][ind], acc), {}) )) ( );
+export function mapObject (arr: string[], fn) {
+    let _arr = arr.map(fn);
+    let obj = {};
+    return arr.reduce((acc, val, index) => {
+        obj[val] = _arr[index];
+        return obj
+    }, obj);
 }
 
+/**
+ * @function pick
+ * @param {object} obj 
+ * @param {array} arr 
+ * @return {object}
+ */
 export function pick (obj, arr) {
     return arr.reduce((acc, curr) => (
         curr in obj && (acc[curr] = obj[curr]),
