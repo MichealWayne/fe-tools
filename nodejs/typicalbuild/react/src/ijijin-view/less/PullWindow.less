@@ -1,0 +1,85 @@
+// 上拉弹窗
+
+.ru-pull-window .m-win_bg {
+    display: none;
+}
+.ru-pull-window .ru-select {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 19;
+    width: 100%;
+    height: 11.567rem;
+    background-color: #fff;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    display: none;
+
+
+    header{
+        padding-top: 0.133rem;
+        line-height: 1.2rem;
+        height: 1.2rem;
+        text-align: center;
+        font-size: 0.427rem;
+        font-weight: normal;
+
+        a {
+            font-size: 0.32rem;
+            right: 0.4rem;
+            top: 0.133rem;
+        }
+        .icon-close{
+            left: 0;
+            top: 0;
+        }
+    }
+
+    .m-v_ctn{
+        margin: 0 auto;
+        padding-top: 0.267rem;
+        width: 92%;
+        line-height: 0.667rem;
+        max-height: 9.5rem;
+    }
+    .icon-close{
+        width: 1.2rem;
+        height: 1.333rem;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABkCAYAAAAG2CffAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAepJREFUeNrs3EFKw0AUgOF0LN6gdxBB8AhizyC4cZud6MZjKK6zFd0I3kDPIIhCb1Ao9ACCxBeYgRIQk7aZvjfz//Ao6SbtR2lnZtFRXdcFDZ+DAGigCWiggSaggSaggQaagAaagAYaaAIaaAIaaKAJaKAJaKCBJqCBJqCBBpqABpr6NN7Vjauqah6uZJ5kFrt4DWVZZvGJvpG5l3mVmUS658Tf7zinr44HmZnMUSTsgHwqc5sT9FzmJBJ2QG7u8y5zltuPYQzsNvJUZpnjqmNIbBXImpZ3Q2CrQda2jt4mtipkjRuWgP21AbY6ZK07w7nHWQdbJbLmLfg62GqRtZ919MFWjawduiu2emQL0P9hm0C2Av0X9qEV5KZxYaeAHXA//fPqkS19olexz2V+/PW3v15qf+HWoJvv5EeZPX+9L/NcxDvPzgK6/cN3sOEOEuiO6+TZFrbrQHdcJy+sYDvDyIUlbGcc2Qy2SwDZBLZLBFk9tksIWTW2SwxZLbZLELmN/aEB2yWKvIo91YDtEkZWhe0SR1aDvUvolyLuoX0b+yIX6GuZtyLuoX3AvpS5i/lmR/z1PGcdQBPQQANNQANNQAMNNAENNAENNNAENNAENNBAE9BAE9BAA01AA01AAw00AQ009elXgAEATRW5fjV7JmgAAAAASUVORK5CYII=)
+    }
+}
+
+.ru-trans-win-enter,
+.ru-trans-win-enter-done,
+.ru-trans-win-exit {
+    display: block !important;
+
+    & + .m-win_bg {
+        display: block !important;
+    }
+}
+
+.ru-trans-win-enter, .ru-trans-win-leave-active {
+    -webkit-transform: translate3d(0, 12rem, 0) !important;
+            transform: translate3d(0, 12rem, 0) !important;
+}
+
+.ru-trans-win-exit,
+.ru-select.ru-trans-win-enter-active {
+    transform: none;
+} 
+.ru-trans-win-enter,
+.ru-select.ru-trans-win-exit-active {
+    -webkit-transform: translate3d(0, 12rem, 0);
+            transform: translate3d(0, 12rem, 0);
+}
+.ru-select.ru-trans-win-enter-active,
+.ru-select.ru-trans-win-exit-active {
+   -webkit-transition: transform .5s;
+   transition: transform .5s;
+}
+
+.ru-select.ru-trans-win-exit-done {
+    display: none;
+}

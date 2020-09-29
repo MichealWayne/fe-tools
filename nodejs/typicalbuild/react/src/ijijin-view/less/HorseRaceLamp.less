@@ -1,0 +1,24 @@
+// 通告栏
+.vu-horse-race-lamp {
+    padding: 0 0.3rem;
+    width: 100%;
+    font-size: 0.32rem;
+    color: #e6921a;
+    overflow: hidden;
+    & > ul {
+        &.animation {
+            -webkit-transition: -webkit-transform 1.2s linear;
+            transition: transform 1.2s linear;
+        }
+        & > .g-box_b {
+            display: -webkit-flex;
+            display: flex;
+            -webkit-align-items: center;
+            align-items: center;
+            height: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+}

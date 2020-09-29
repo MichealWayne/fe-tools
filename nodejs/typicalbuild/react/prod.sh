@@ -2,4 +2,4 @@
 
 echo "build prod!"
 
-npm run build:prod && exec /bin/bash
+npm run build:prod

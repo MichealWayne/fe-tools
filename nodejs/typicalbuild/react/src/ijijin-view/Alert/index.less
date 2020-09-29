@@ -1,0 +1,71 @@
+/*
+ * v-alert
+ */
+:global {
+  .r-alert {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    //弹框
+    .r-alert-win {
+      position: fixed;
+      padding-top: 15px;
+      left: 50%;
+      top: 40%;
+      width: 70%;
+      font-size: 14px;
+      text-align: center;
+      word-break: break-all;
+      background-color: #fff;
+      border-radius: 8px;
+      transition: 0.3s;
+      transform: translate3d(-50%, -50%, 0);
+      overflow: hidden;
+    }
+
+    //标题
+    .r-alert-tit {
+      text-align: center;
+    }
+
+    //内容
+    .r-alert-ctn {
+      padding: 7.5px 18px 15px;
+    }
+
+    //按钮组
+    .r-alert-btns {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    //按钮
+    .r-alert-btn {
+      position: relative;
+      padding: 5px 0;
+      flex: 1;
+      height: 35px;
+      font-size: 14px;
+      background-color: #fff;
+      // 按钮分割线
+      &:after {
+        position: absolute;
+        content: '';
+        right: 0;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        transform: scale(0.5, 1);
+        background-color: #e2e2e2;
+      }
+
+      &:last-child:after {
+        background-color: rgba(255, 255, 255, 0);
+      }
+    }
+  }
+}

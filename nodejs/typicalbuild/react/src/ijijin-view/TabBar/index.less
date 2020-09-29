@@ -1,0 +1,17 @@
+:global {
+  .m-tab-bar {
+    display: flex;
+
+    & > button {
+      flex: 1;
+      height: 40px;
+      border-bottom: 2px solid #ffff;
+      background-color: #fff;
+
+      &.active {
+        color: #fe5d4e;
+        border-bottom: 2px solid #fe5d4e;
+      }
+    }
+  }
+}

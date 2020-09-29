@@ -1,6 +1,6 @@
 # fe-books
 
-> 前端开发常用文档/网站地址、样式/js方法封装库、项目模板。
+> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。
 
 <a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
 
@@ -133,7 +133,8 @@
 <a href="https://underscorejs.org/" target="_blank">UnderscoreJS</a> | `underscorejs` | 红极一时的函数式工具库。
 <a href="http://winterbe.github.io/streamjs/" target="_blank">StreamJs</a> | `streamjs` | 一款js数据的操作工具。
 <a href="https://baconjs.github.io/" target="_blank">BaconJs</a> | `baconjs` | 也是一款js数据的操作工具。
-<a href="https://momentjs.com/" target="_blank">MomentJs</a> | `momentjs` | 一款日期格式化的工具。
+<a href="https://momentjs.com/" target="_blank">MomentJs</a> | `momentjs` | 一款日期格式化的工具（2020开始停止维护）。
+<a href="https://day.js.org/" target="_blank">DayJs</a> | `dayjs` | 一款日期格式化的工具，MomentJS的替代品。
 <a href="http://numbrojs.com/" target="_blank">numbro</a> | `numbrojs` | 一款多国语言的数字转化工具。
 <a href="http://openexchangerates.github.io/accounting.js/" target="_blank">accounting.js</a> | `accounting.js` | 数字，金钱的格式化工具。
 <a href="http://openexchangerates.github.io/money.js/" target="_blank">money.js</a> | `money.js` | 金钱的汇率转换工具。
@@ -170,6 +171,8 @@
 <a href="https://github.com/mailru/FileAPI" target="_blank">FileAPI.js</a> | `FileAPI` | 控制文件上传的插件。
 <a href="https://github.com/alexgibson/shake.js" target="_blank">shake.js</a> | `shake.js` | 移动端摇晃震动监听插件。
 <a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy.js</a> | `tippy.js` | 好用的气泡组件，有React版。
+<a href="https://www.algolia.com/" target="_blank">algolia</a> | `algolia` | 好用的搜索集成方案。
+
 
 
 ##### 视/音频
@@ -318,7 +321,7 @@
 <a href="https://github.com/JedWatson/classnames#readme" target="_blank">classnames</a> | `classnames` | 操作className的工具，多用于React。
 <a href="https://github.com/30-seconds/30-seconds-of-react" target="_blank">30s-of-react</a> | `30s-of-react` | 常用React代码模块集合，30s of code系列。
 <a href="https://vasanthk.gitbooks.io/react-bits/" target="_blank">React Bits</a> | `react-bits` | 常用React技巧。
-
+<a href="https://docsite.js.org/zh-cn/docs/addDoc.html" target="_blank">docsiteJS</a> | `docsite` | 基于React的文档生成工具。
 
 
 
@@ -439,7 +442,8 @@
 <a href="https://tool.lu/js/" target="_blank">tool.lu-js</a> | `js` | 在线js格式化/混淆/压缩工具。
 <a href="https://tool.lu/css/" target="_blank">tool.lu-css</a> | `css` | 在线css格式化/压缩/响应式单位处理工具。
 <a href="https://tool.lu/coderunner/" target="_blank">tool.lu-coderunner</a> | `coderunner` | 在线php/c/c++/python/go/js/java/bash代码执行工具。
-
+<a href="https://www.diffchecker.com/" target="_blank">diffchecker.com</a> | `diffchecker` | 在线文本/文件diff工具。
+<a href="https://isoflow.io/" target="_blank">isoflow.io</a> | `isoflow` | 在线流程图绘制工具。
 
 
 ### 1.10 测试、安全及加密
@@ -550,11 +554,8 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 ## 2.fe-tools方法/工具库
 
 ```
-├─client    
-│  ├─js
-│  │  ├─functions
-│  │  └─plugins
-│  └─less
+├─utils 
+├─webAPI    
 └─nodejs
     ├─base
     ├─imgbuild
@@ -569,35 +570,14 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 ### 说明
 
-### 2.1 client 客户端
-前端开发常用样式、方法；
+### 2.1 utils 基础工具库
+前端开发常用样式、方法，适用于浏览器/Nodejs。
 
-#### 2.1.1 js js方法、插件
-##### functions js方法
-- dom：DOM操作；
-- native：验证、cookie、css、颜色/图片、平台、时间、url解析、storage封装等方法；
-
-##### plugins js插件
-- js：原生组件
-	- alert 弹框
-	- toast toast提示
-	- keyboard-number 数字软键盘
-	- pullRefresh 下拉刷新
-- vue：vue组件
-	- Alert弹窗
-	- PullRefresh下拉刷新
-	- Toast通知提示
-- react：react组件
-	- Alert弹窗
-	- PullRefresh下拉刷新
-	- Toast通知提示
-
-#### 2.1.2 less 基础样式库
-- pc：PC端
-- mobile：移动端
+### 2.2 webAPI 浏览器端封装库
+浏览器端DOM操作，CSS操作，事件处理等封装。
 
 
-### 3 nodejs 服务端、脚本
+### 2.3 nodejs 服务端、脚本
 使用可见[ijijin-cli](https://www.npmjs.com/package/ijijin-cli)
 使用可见[ijijin_builder](https://www.npmjs.com/package/ijijin_builder)
 

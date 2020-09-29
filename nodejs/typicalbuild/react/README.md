@@ -25,9 +25,21 @@
 
 * 注意：如需执行处理脚本，可在build/目录下增加脚本文件build.js。打包后版本备份前会执行该脚本。
 
-### 目录结构(src)
-├─function  方法集合
-├─less      样式
-├─views     视图
-├─mock      接口模拟
-└─index.js  入口js
+### 目录结构
+├─asset
+     └─images 图片
+     └─lib    工具库
+├─components  组件
+├─ijijinView  组件
+├─less        样式
+├─page        页面入口
+├─script      js文件
+│  └─config    配置文件
+│  └─const     静态变量
+│  └─fn.business  业务方法库
+│  └─fn.util 基础方法库
+│  └─http    请求文件
+│  └─tokenInit  用户token（key1~key5）初始化
+├─type        接口定义
+├─view        view层
+

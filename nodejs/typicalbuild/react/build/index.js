@@ -2,14 +2,11 @@
  * production build
  */
 
-'use strict';
 const fs = require('fs');
 const os = require('os');
 const callfile = require('child_process');
 const join = require('path').join;
 const CONFIG = require(join(__dirname, '../package.json'));
-const Tip = require('ijijin_builder/nodebuild/lib/util/tip');
-const getTimeStr = require('ijijin_builder/nodebuild/lib/util/util').getTimeStr;
 let dirname = process.cwd();
 
 let platform = os.platform();
@@ -29,7 +26,7 @@ let renderREADME = () => {
 - description: ${CONFIG.description}
 - author: ${CONFIG.author}
 - task: ${CONFIG.task || ''}
-- build time: ${ getTimeStr && getTimeStr().split(' ')[0] }
+- build time: ${new Date().toLocaleString()}
 
 ------`;
 		_readmeData = _info + String(_readmeData).replace(/------(([\s\S])*?)------/, '');
@@ -49,13 +46,13 @@ let renderREADME = () => {
 let runShell = () => {
 		callfile.execFile(join(__dirname, isWIN && 'index.bat' || 'index.sh'), ['-V', CONFIG.version, '-U', CONFIG.author], { cwd: dirname }, (err, stdout, stderr) => {
 		if (err) {
-			Tip.error(err);
+			console.error(err);
 			return false;
 		}
 
-		if (stdout) Tip.log(stdout);
+		if (stdout) console.log(stdout);
 		else if (stderr) {
-			Tip.error(stderr);
+			console.error(stderr);
 		}
 	});
 };

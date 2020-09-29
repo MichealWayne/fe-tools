@@ -1,0 +1,91 @@
+@import './colors.less';
+/*
+ * r-alert
+ */
+:global {
+.ru-alert {
+    .u-win {
+        padding-top: 15px;
+        left: 50%;
+        top: 50%;
+        width: 70%;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        word-break: break-all;
+        background-color: #fff;
+        border-radius: 8px;
+        -webkit-transition: 0.3s;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        transition: 0.3s;
+        transform: translate3d(-50%, -50%, 0);
+    }
+    .u-btn {
+        color: #323232;
+    }
+    .m-tit {
+        text-align: center;
+    }
+    .m-ctn {
+        padding: 7px 19px 15px;
+    }
+    .m-ctn.z-notit {
+        padding-top: 22px;
+        padding-bottom: 22px;
+    }
+    .u-btn, .u-btn_il {
+        position: relative;
+        padding: 5px 0;
+        height: 32px;
+        line-height: 32px;
+        font-size: 15px;
+        text-align: center;
+        border-radius: 4px;
+        &:after {
+            position: absolute;
+            content: '';
+            right: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background-color: #e2e2e2;
+            -webkit-transform: scale(0.5, 1);
+            transform: scale(0.5, 1);
+        }
+        &:last-child:after {
+            background-color: rgba(255, 255, 255, 0);
+        }
+    }
+}
+
+
+.r-alert-enter {
+    opacity: 0.7;
+    -webkit-transform: translate3d(-50%, -50%, 0) scale(0.7) !important;
+    transform: translate3d(-50%, -50%, 0) scale(0.7) !important;
+    &.r-alert-enter-active {
+        opacity: 1;
+        -webkit-transition: 0.2s;
+        -webkit-transform: translate3d(-50%, -50%, 0);
+        transition: 0.2s;
+        transform: translate3d(-50%, -50%, 0);
+    }
+}
+.r-alert-exit {
+    opacity: 1;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+    &.r-alert-exit-active {
+        opacity: 0;
+        -webkit-transform: translate3d(-50%, -50%, 0) scale(0.7) !important;
+        transform: translate3d(-50%, -50%, 0) scale(0.7) !important;
+    }
+}
+.r-alert-exit-done {
+    display: none !important;
+}
+
+.u-win.r-alert-enter {
+    opacity: 0;
+}
+}

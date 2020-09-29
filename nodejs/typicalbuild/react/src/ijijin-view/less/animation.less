@@ -1,0 +1,28 @@
+/*
+ * 过渡、动画
+ */
+
+:global {
+
+.example-enter {
+    opacity: 0.01;
+
+    &.example-enter-active {
+        opacity: 1;
+        transition: opacity 500ms ease-in;
+    }
+}
+.example-exit {
+    opacity: 1;
+
+    &.example-exit-active {
+        opacity: 0.01;
+        transition: opacity 300ms ease-in;
+    }
+}
+
+.example-exit-done {
+    display: none !important;
+}
+
+}

@@ -1,0 +1,32 @@
+// 选择器
+
+// 容器
+.vu-picker {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    
+    // 滚动轨道
+    .vu-trace {
+        transition: transform 0.1s linear;
+        -webkit-transition: transform 0.1s linear;
+        
+        & > li {
+            color: #8a8a8a;
+            font-size: 14px;
+            &.active {
+                color: #333;
+                font-size: 16px;
+            }
+        }
+    }
+    
+    // 选择行
+    .vu-pick {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        border-top: 1px solid #f2f2f2;
+        border-bottom: 1px solid #f2f2f2;
+    }
+}
