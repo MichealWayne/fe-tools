@@ -95,6 +95,7 @@
 <a href="https://fontawesome.com/" target="_blank">fontawesome</a> | `fontawesome` | 字体图标库。
 <a href="https://www.iconfont.cn/" target="_blank">iconfont</a> | `iconfont` | 字体图标库，阿里。
 <a href="http://necolas.github.io/normalize.css/" target="_blank">normalize</a> | `normalize` | 相对较优的CSS reset替代方案。
+<a href="https://tailwindcss.com/" target="_blank">Tailwind官网</a> | `tailwind` | 模块化的UI库。
 
 
 #### 1.3.4 其他
@@ -189,6 +190,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="http://camanjs.com/" target="_blank">caman.js</a> | `camanjs` | 一款web图片处理插件。
+<a href="https://sharp.pixelplumbing.com/" target="_blank">Sharp</a> | `sharp` | 一款大图片处理工具。
 
 ##### 字符串
 地址 | 标签 | 说明
@@ -208,6 +210,10 @@
 <a href="http://browserify.org/" target="_blank">Browserify 文档</a> | `browserify` | 浏览器端使用类似于 node 的 require() 方式。
 <a href="https://github.com/rickharrison/validate.js" target="_blank">validate.js</a> | `validate.js` | form表单校验工具。
 <a href="https://github.com/validatorjs/validator.js" target="_blank">validator.js</a> | `validator.js` | 有名的内容校验工具，比如邮箱验证、数值验证等。
+<a href="https://cn.rx.js.org/" target="_blank">RxJS中文官网</a> | `RxJS` | ReactiveX编程理念的js异步编程库。
+<a href="https://github.com/kelektiv/node.bcrypt.js#readme" target="_blank">Bcrypt</a> | `bcrypt` | 用于密码散列处理的库。
+<a href="https://github.com/Marak/Faker.js#readme" target="_blank">Faker</a> | `faker` | 用于在浏览器/Nodejs中生成假数据。
+<a href="https://joi.dev/" target="_blank">Joi官网</a> | `joi` | 面向js的强大schema描述语言与数据验证器。
 
 
 #### 1.4.6 数据可视化(图表)
@@ -255,7 +261,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://github.com/AlloyTeam/AlloyFinger" target="_blank">AlloyFinger.js</a> | `AlloyFinger` | 增加移动端的各种手势事件。
-<a href="http://hammerjs.github.io/" target="_blank">hammer.js</a> | `hammerjs` | 增加手势以及取消了移动端click的300ms延迟。
+<a href="http://hammerjs.github.io/" target="_blank">hammer.js</a> | `hammerjs` | 手势封装库，取消了移动端click的300ms延迟。
 <a href="https://interactjs.io/" target="_blank">interact.js</a> | `interactjs` | 使用JavaScript实现拖放、缩放和多点触控手势。
 
 #### 1.4.9 加载
@@ -322,6 +328,7 @@
 <a href="https://github.com/30-seconds/30-seconds-of-react" target="_blank">30s-of-react</a> | `30s-of-react` | 常用React代码模块集合，30s of code系列。
 <a href="https://vasanthk.gitbooks.io/react-bits/" target="_blank">React Bits</a> | `react-bits` | 常用React技巧。
 <a href="https://docsite.js.org/zh-cn/docs/addDoc.html" target="_blank">docsiteJS</a> | `docsite` | 基于React的文档生成工具。
+<a href="http://casesandberg.github.io/react-color/" target="_blank">React Color</a> | `react-color` | 基于React的拾色器插件，模拟Sketch, Photoshop, Chrome, Github, Twitter, Material Design等取色工具。
 
 
 
@@ -360,7 +367,7 @@
 <a href="https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md" target="_blank">parse5</a> | `parse5` | 一款html的转AST工具。
 <a href="https://github.com/benjamn/recast" target="_blank">recast</a> | `recast` | 一款js转AST的工具。
 <a href="https://github.com/airbnb/ts-migrate" target="_blank">ts-migrate</a> | `ts-migrate` | 一款js转ts(TypeScript)的工具。
-
+<a href="https://github.com/kimmobrunfeldt/concurrently#readme" target="_blank">Concurrently</a> | `concurrently` | 一款Nodejs的命名行控制工具。
 
 
 #### 1.7.2 服务端
@@ -380,7 +387,12 @@
 <a href="https://nwjs.io/" target="_blank">nw.js</a> | `nwjs` | 基于nodeJs和chromium的应用程序运行环境，允许您直接从DOM调用所有Node.js模块。
 <a href="https://github.com/archiverjs/node-archiver" target="_blank">node-archiver</a> | `node-archiver` | 支持ZIP/TAR文档流传输和接收插件。
 <a href="https://github.com/thejoshwolfe/yazl" target="_blank">yazl</a> | `yazl` | 压缩zip插件，对应解压为[yauzl](https://github.com/thejoshwolfe/yauzl)。
-
+<a href="https://sailsjs.com/" target="_blank">SailsJs</a> | `sailsjs` | 好用的MVC nodejs框架。
+<a href="https://github.com/expressjs/cors#readme" target="_blank">Cors中间件</a> | `cors` | Nodejs的Cors中间件。
+<a href="https://github.com/expressjs/body-parser#readme" target="_blank">Body-parser中间件</a> | `body-parser` | Nodejs的请求流解析中间件。
+<a href="http://restify.com/" target="_blank">Restify</a> | `restify` | Nodejs的Web服务框架。
+<a href="https://github.com/expressjs/multer#readme" target="_blank">Multer</a> | `multer` | 用于处理上传文件的Nodejs中间件。
+<a href="https://github.com/node-cache/node-cache" target="_blank">Node-cache</a> | `node-cache` | 一个Nodejs的缓存控制模块。
 
 
 ### 1.8 Hybird和跨端
@@ -488,6 +500,9 @@
 <a href="https://flow.org/" target="_blank">Flow js代码检查</a> | `flow` | 一个JavaScript代码检查工具
 <a href="https://www.sonarlint.org/vscode/" target="_blank">SonarLint vscode</a> | `sonarlint` | js/ts工程代码质量验证的vscode插件
 <a href="https://github.com/google/eng-practices" target="_blank">Google eng-practices</a> | `eng-practices` | 谷歌工程实践文档
+<a href="https://github.com/cheeriojs/cheerio#readme" target="_blank">Cheerio</a> | `cheerio` | 用于web抓取的工具。
+<a href="https://pptr.dev/" target="_blank">Puppeteer官网</a> | `puppeteer` | 强大的自动化工具。
+
 
 
 ### 1.11 IDE插件
