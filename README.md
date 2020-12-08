@@ -329,7 +329,7 @@
 <a href="https://vasanthk.gitbooks.io/react-bits/" target="_blank">React Bits</a> | `react-bits` | 常用React技巧。
 <a href="https://docsite.js.org/zh-cn/docs/addDoc.html" target="_blank">docsiteJS</a> | `docsite` | 基于React的文档生成工具。
 <a href="http://casesandberg.github.io/react-color/" target="_blank">React Color</a> | `react-color` | 基于React的拾色器插件，模拟Sketch, Photoshop, Chrome, Github, Twitter, Material Design等取色工具。
-
+<a href="http://reactdesktop.js.org/" target="_blank">React Desktop</a> | `react-desktop` | 模拟Mac或windows桌面交互的React封装组件。
 
 
 
@@ -554,6 +554,7 @@
 - px/rem/vw换算计算器（`√`）
 - rgb/hsb/hex色值换算（`√`）
 - 快速翻译（`√`）
+- 简易Postman（`√`）
 - 工具函数库搜索
 - 搜索自定义拓展
 
@@ -612,4 +613,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 ### 更新信息
+- 2020.12.07：优化Chrome拓展插件，增加简易Postman；
+- 2020.09.15：js utils库转为ts utils；
 - 2019.04.28：新增storage封装；新增下拉刷新、数字键盘原生组件；
+

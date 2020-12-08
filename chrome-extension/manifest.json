@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "fe-tools",
-	"version": "1.0.0",
+	"version": "1.1.0",
     "description": "前端开发的插件集合工具。",
     "icons": {
 		"16": "images/icon.png",
