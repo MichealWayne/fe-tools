@@ -36,7 +36,7 @@
     - validateEmail：校验email
     - isIdCard：校验身份证
     - isUrl：校验url
-    - validateNumber：校验是否有效数字
+    - validateNumber：校验是否为有效数字
 - [check.plus.ts](./check.plus.ts)
     - checkPwdStrength：校验密码强度
     - checkIdcard：校验身份证
@@ -51,6 +51,18 @@
     - isBeforeDate：是否在某天之前
     - tomorrow：明天的日期
     - formatRemainTime：两个日期还差多少天多少小时多少分多少秒
+- [Easing.ts](./Easing.ts)
+    - Linear：一阶线性函数
+    - Quadratic：二阶缓冲函数
+    - Cubic：三阶缓冲函数
+    - Quartic：四阶缓冲函数
+    - Quintic：五阶缓冲函数
+    - Sinusoidal：正弦函数
+    - Exponential：指数函数
+    - Circular：圆形函数
+    - Elastic：伸缩缓冲函数
+    - Back：倒退缓冲函数
+    - Bounce：弹跳缓冲函数
 - [function.ts](./function.ts)
     - attempt：容错执行函数
     - defer：延迟执行
