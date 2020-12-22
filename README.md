@@ -141,7 +141,7 @@
 <a href="http://numbrojs.com/" target="_blank">numbro</a> | `numbrojs` | 一款多国语言的数字转化工具。
 <a href="http://openexchangerates.github.io/accounting.js/" target="_blank">accounting.js</a> | `accounting.js` | 数字，金钱的格式化工具。
 <a href="http://openexchangerates.github.io/money.js/" target="_blank">money.js</a> | `money.js` | 金钱的汇率转换工具。
-
+<a href="https://github.com/MikeMcl/decimal.js#readme" target="_blank">decimal.js</a> | `decimal.js` | Js精度处理库。
 
 #### 1.4.3 请求、cookie和缓存
 地址 | 标签 | 说明
@@ -201,6 +201,7 @@
 <a href="https://vocajs.com/" target="_blank">Voca.js</a> | `vocajs` | 字符串的驼峰/修饰/填充/截断/转义/大小写更改等等。
 <a href="http://alexcorvi.github.io/anchorme.js/" target="_blank">anchorme.js</a> | `anchormejs` | 自动将文本中的链接/URL/电子邮件转化为可点击的锚点链接。
 <a href="https://github.com/jprichardson/string.js" target="_blank">String.js</a> | `stringjs` | 字符串的截取删除等操作库（很久没维护了）。
+<a href="https://github.com/ljharb/qs" target="_blank">qs.js</a> | `qsjs` | URL参数处理库。
 
 
 
@@ -350,6 +351,7 @@
 <a href="https://docs.docker.com/" target="_blank">docker</a> | `docker` | 应用容器引擎Docker。
 <a href="https://man.linuxde.net/" target="_blank">Linux</a> | `linux` | Linux命令查询手册。
 <a href="http://aheckmann.github.io/gm/" target="_blank">GraphicsMagick</a> | `gm` | 后台图片处理工具。
+<a href="https://github.com/protobi/js-xlsx/tree/beta#readme" target="_blank">js-xlsx</a> | `js-xlsx` | xlsx的编辑和处理库。
 <a href="https://github.com/shelljs/shelljs" target="_blank">ShellJs</a> | `shelljs` | 用nodejs实现shell常用命令。
 
 
@@ -562,6 +564,7 @@
 - rgb/hsb/hex色值换算（`√`）
 - 快速翻译（`√`）
 - 简易Postman（`√`）
+- 常用正则查询（`√`）
 - 工具函数库搜索
 - 搜索自定义拓展
 
@@ -620,6 +623,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 ### 更新信息
+- 2020.12.22：Chrome拓展插件增加正则模块；
 - 2020.12.07：优化Chrome拓展插件，增加简易Postman；
 - 2020.09.15：js utils库转为ts utils；
 - 2019.04.28：新增storage封装；新增下拉刷新、数字键盘原生组件；
