@@ -21,7 +21,7 @@
     "@vue/cli-plugin-babel": "^3.0.4",
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "ijijin-view": "^0.9.1",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",

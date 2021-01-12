@@ -123,7 +123,6 @@
 <a href="https://stdlib.io/" target="_blank">stdlib</a> | `stdlib` | js的数学增强库。
 <a href="https://immutable-js.github.io/immutable-js/" target="_blank">immutable-js</a> | `immutable` | 生产环境js的List, Stack, Map, OrderedMap, Set, OrderedSet以及Record数据结构支持，通常用于ReactJs。
 <a href="https://github.com/alibaba/GCanvas" target="_blank">GCanvas</a> | `gcanvas` | 轻量的跨平台图形引擎（web/weex/react-native），阿里。
-<a href="https://roughjs.com/" target="_blank">Rough.js官网</a> | `roughjs` | 一个有意思的canvas绘图库（画出的图形具有手绘风格）。
 <a href="https://github.com/jayphelps/core-decorators" target="_blank">core-decorators</a> | `core-decorators` | 丰富的装饰器封装库，基于ES2016/2017的装饰器语法。
 
 
@@ -193,7 +192,10 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="http://camanjs.com/" target="_blank">caman.js</a> | `camanjs` | 一款web图片处理插件。
-<a href="https://sharp.pixelplumbing.com/" target="_blank">Sharp</a> | `sharp` | 一款大图片处理工具。
+<a href="https://sharp.pixelplumbing.com/" target="_blank">Sharp</a> | `sharp` | 一款强大的图片处理工具。
+<a href="https://github.com/GoogleChromeLabs/squoosh" target="_blank">squoosh.js</a> | `squoosh` | 一款优秀的图片压缩方案，有浏览器环境。
+<a href="https://github.com/naptha/tesseract.js" target="_blank">tesseract.js</a> | `tesseract` | 一款强大的OCR识别库。
+
 
 ##### 字符串
 地址 | 标签 | 说明
@@ -260,6 +262,9 @@
 <a href="https://createjs.com/tweenjs" target="_blank">TweenJS</a> | `tweenjs` | 动画曲线（ease/linear...）操作库，CreateJS四剑客之一。
 <a href="https://createjs.com/soundjs" target="_blank">SoundJS</a> | `soundjs` | 音频控制库，CreateJS四剑客之一。
 <a href="https://createjs.com/preloadjs" target="_blank">PreloadJS</a> | `preload` | 资源预加载库，CreateJS四剑客之一。
+<a href="https://p5js.org/" target="_blank">P5js</a> | `p5js` | canvas绘画功能库。
+<a href="https://roughjs.com/" target="_blank">Rough.js官网</a> | `roughjs` | 一个有意思的canvas绘图库（画出的图形具有手绘风格）。
+<a href="https://github.com/BabylonJS/Babylon.js" target="_blank">BabylonJS</a> | `BabylonJS` | 一个功能强大，美观，简单且开放的游戏和渲染引擎。
 
 #### 1.4.8 移动端手势
 地址 | 标签 | 说明
@@ -376,6 +381,7 @@
 <a href="https://github.com/benjamn/recast" target="_blank">recast</a> | `recast` | 一款js转AST的工具。
 <a href="https://github.com/airbnb/ts-migrate" target="_blank">ts-migrate</a> | `ts-migrate` | 一款js转ts(TypeScript)的工具。
 <a href="https://github.com/kimmobrunfeldt/concurrently#readme" target="_blank">Concurrently</a> | `concurrently` | 一款Nodejs的命名行控制工具。
+<a href="https://github.com/evanw/esbuild" target="_blank">esbuild</a> | `esbuild` | 一款极快的js打包和压缩工具。
 
 
 #### 1.7.2 服务端
@@ -402,6 +408,12 @@
 <a href="https://github.com/expressjs/multer#readme" target="_blank">Multer</a> | `multer` | 用于处理上传文件的Nodejs中间件。
 <a href="https://github.com/node-cache/node-cache" target="_blank">Node-cache</a> | `node-cache` | 一个Nodejs的缓存控制模块。
 
+#### 1.7.3 GraphQL
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/hasura/graphql-engine" target="_blank">hasura graphql-engine</a> | `hasura` | 一款强大的graphql引擎方案。
+<a href="https://github.com/apollographql/apollo-client" target="_blank">apollo-client</a> | `apollo-client` | 适用于每个UI框架和GraphQL服务器的方案。
+
 
 ### 1.8 Hybird和跨端
 地址 | 标签 | 说明
@@ -415,8 +427,11 @@
 <a href="https://dev.mi.com/doc/?page_id=2303" target="_blank">小米轻应用官网</a> | `轻应用/hybird` | 小米轻应用开发官网。
 <a href="https://www.quickapp.cn/" target="_blank">Oppo/vivo快应用官网</a> | `轻应用/hybird` | Oppo/vivo轻应用开发官网。
 <a href="https://developer.huawei.com/consumer/cn/quickApp" target="_blank">华为快应用官网</a> | `轻应用/hybird` | 华为轻应用开发官网。
-<a href="https://reactnative.cn/" target="_blank">React-native 文档</a> | `跨端` | 热门的react语法跨端工具。
-<a href="https://weex.apache.org/zh/" target="_blank">Weex文档</a> | `跨端` | 热门的vue语法跨端工具。
+<a href="https://reactnative.cn/" target="_blank">React-native 文档</a> | `跨端` | 热门的react语法跨端工具，RN。
+<a href="https://github.com/NativeScript/NativeScript" target="_blank">NativeScript</a> | `跨端` | 国外一款流行的跨端开发框架，支持Angular/Vue/Svelte/React。
+<a href="https://github.com/ionic-team/ionic-framework" target="_blank">ionic-framework</a> | `跨端` | 一个强大的跨平台UI工具包，用于使用HTML，CSS和JavaScript构建本机质量的iOS，Android和PWA。
+<a href="https://github.com/quasarframework/quasar" target="_blank">quasar-framework</a> | `跨端` | 构建一流的高性能的Vue响应式网站、PWA、SSR、移动和桌面应用
+<a href="https://weex.apache.org/zh/" target="_blank">Weex文档</a> | `跨端` | 前几年热门的vue语法跨端工具，现在都不维护了。
 <a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex-UI文档</a> | `跨端/weex` | weex的UI组件库。
 <a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具。
 <a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具。
@@ -489,14 +504,13 @@
 <p><a href="https://juejin.im/entry/5bc93545e51d450e5f3dceff" target="_blank">《那些我们该讨论的前端加密方法》</a></p>
 
 
-
 #### 1.10.3 Debug
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://github.com/Tencent/vConsole" target="_blank">vConsole</a> | `vconsole` | 被誉为移动端的web开发者工具。
 <a href="https://www.fundebug.com/" target="_blank">FunDebug</a> | `FunDebug` | 简单的项目debug监控工具，有免费版
 <a href="http://www.webfunny.cn/" target="_blank">Webfunny</a> | `webfunny_monitor` | 统一的前端异常监控解决方案。
-
+<a href="https://github.com/typicode/json-server" target="_blank">json-server</a> | `json-server` | 一款通过本地起服务的快速mock工具。
 
 #### 1.10.4 质量检测
 地址 | 标签 | 说明
