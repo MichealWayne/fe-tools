@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # fe-books
 
 > 前端开发常用文档/网站地址、样式/js方法封装库、项目模板。
@@ -503,7 +502,6 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 > 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。
 
 <a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
-
 
 ------------------
 
@@ -1095,7 +1093,6 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 clone本仓库到本地，点击“加载已解压的拓展程序”选择本地仓库目录下的chrome-extension目录。
 
-
 ------------------
 
 ## 2.fe-tools方法/工具库
@@ -1144,9 +1141,8 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 ### 更新信息
+- 2021.03.20：更新Moo-datas；
 - 2020.12.22：Chrome拓展插件增加正则模块；
 - 2020.12.07：优化Chrome拓展插件，增加简易Postman；
 - 2020.09.15：js utils库转为ts utils；
 - 2019.04.28：新增storage封装；新增下拉刷新、数字键盘原生组件；
-
->>>>>>> 9f5aa03010dd80566c92ffae93ce1512996f1b50
