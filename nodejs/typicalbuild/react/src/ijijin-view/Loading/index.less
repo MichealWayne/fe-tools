@@ -1,0 +1,31 @@
+:global {
+  .m-refresh-loading {
+    box-sizing: border-box;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.333rem;
+    overflow: hidden;
+    transition: all 0.5s;
+
+    img {
+      width: 0.6rem;
+      height: 0.6rem;
+      animation: refresh 1s linear infinite;
+    }
+
+    
+    &.hide {
+      height: 0;
+    }
+  }
+  @keyframes refresh {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

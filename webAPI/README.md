@@ -1,0 +1,46 @@
+# webAPI
+
+浏览器相关封装。
+
+- [cookies.ts](./cookies.ts)：cookie封装
+    - getCookie：获取cookie
+    - setCookie：设置cookie
+    - delCookie：删除cookie
+- [css.ts](./css.ts)
+    - getPrefix：获取浏览器前缀
+    - getStyle：获取样式
+- [dom.ts](./dom.ts)
+    - isBrowser：是否浏览器环境
+    - isBrowserTab：页面是否隐藏
+    - hasClass：元素是否有此class
+    - addClass：元素添加class
+    - removeClass：元素删除此class
+    - insertAfter：在元素之后插入新元素
+    - insertBefore：在元素之前插入新元素
+    - elementContains：检查是否包含子元素
+    - hide：隐藏元素（列表）
+    - nodeListToArray：元素列表转数组格式
+    - setAttribute：元素设置属性
+    - escapeHTML：转义HTML
+    - getOffsetPos：获取一个元素的距离文档(document)的位置
+    - getScrollTop：获取滚动条距顶部的距离
+    - getScrollPosition：获取滚动条距顶部和左侧的距离
+    - setScrollTop：设置滚动条距顶部的距离
+    - animateScrollTo：平滑滚动（dom 动画）
+    - smoothScroll：平滑滚动（依赖webapi）
+    - disableCP：禁止复制
+- [image.ts](./image.ts)
+    - isSupportWebP：是否支持webp格式图片
+    - compressImage：图片压缩
+- [platform.ts](./platform.ts)
+    - isPC：是否为pc环境
+    - getPcExplore：获取pc浏览器版本
+    - getSystemOS：获取系统版本
+    - getPlatform：获取移动端平台
+    - getMobileOS：获取移动端系统及其版本
+- [rem.ts](./rem.ts)
+- [storage.ts](./storage.ts)
+- [url.ts](./url.ts)
+    - parseQueryString：获取url search参数对象
+    - getUrlParam：获取url search字段值
+    - httpsRedirect：强制https重定向

@@ -1,0 +1,56 @@
+@import './colors.less';
+
+:global {
+/*
+ * r-toast
+ */
+.ru-toast {
+    position: fixed;
+    z-index: 29;
+    padding: 5px 7px;
+    left: 50%;
+    max-width: 80%;
+    min-width: 30%;
+    min-height: 18px;
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+    word-break: break-all;
+    border-radius: 8px;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    /*opacity: 0;*/
+
+
+    &.z-top {
+        top: 10%;
+    }
+    &.z-middle {
+        top: 35%;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    &.z-bottom{
+        bottom: 15%;
+    }
+}
+
+.r-toast-exit,
+.ru-toast.r-toast-enter-active {
+    opacity: 1;
+} 
+.r-toast-enter,
+.ru-toast.r-toast-exit-active {
+    opacity: 0;
+}
+.ru-toast.r-toast-enter-active,
+.ru-toast.r-toast-exit-active {
+   -webkit-transition: opacity .5s;
+   transition: opacity .5s;
+}
+
+.ru-toast.r-toast-exit-done {
+    display: none;
+}
+
+}

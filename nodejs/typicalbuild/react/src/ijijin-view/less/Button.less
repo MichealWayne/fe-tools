@@ -1,0 +1,64 @@
+@import './colors.less';
+
+:global {
+/*
+ * v-button
+ */
+.ru-btn{
+    box-sizing: content-box;
+    border: thin solid transparent;
+    -webkit-appearance: none;
+    background-color: transparent;
+    color: @white;
+    transition: background-color .6s ease;
+
+    /* default */
+    &.btn-default{
+        color: @font-base;
+        border-color: @button-gray;
+    }
+
+    /* red && red border */
+    &.btn-red{
+        background-color: @red-light;
+    }
+    &.btn-red_bd{
+        color: @red-light;
+        border-color: @red-light;
+    }
+
+    /* blue && blue border */
+    &.btn-blue{
+        background-color: @blue;
+    }
+    &.btn-blue_bd{
+        color: @blue;
+        border-color: @blue;
+    }
+
+    /* gray */
+    &.btn-gray_bd{
+        color: @button-gray;
+        border-color: @button-gray;
+    }
+
+    /* white */
+    &.btn-white{
+        color: @font-base;
+        background-color: @white;
+    }
+
+    /* no border radius */
+    &.z-noradius {
+        border-radius: 0;
+    }
+
+    /* disabled */
+    &.z-disabled {
+        color: @white !important;
+        background-color: @button-disable !important;
+        border-color: transparent !important;
+    }
+}
+
+}

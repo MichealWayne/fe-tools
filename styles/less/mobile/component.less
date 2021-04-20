@@ -1,0 +1,148 @@
+/*
+* Mobile
+* components
+*/
+@import url('./colors.less');
+
+
+// font color
+.f-cr_red{
+    color: @font-up !important;
+}
+.f-cr_green{
+    color: @font-down !important;
+}
+.f-cr_blue{
+    color: @font-link !important;
+}
+.f-ft_base{
+    color: @font-base !important;
+}
+.f-ft_base2{
+    color: @font-base2 !important;
+}
+.f-ft_sub{
+    color: @font-sub !important;
+}
+.f-ft_sub_{
+    color: @font-sub_ !important;
+}
+
+// border radius
+.f-bdr10{
+    border-radius: 5px;
+}
+.f-bdr8{
+    border-radius: 4px;
+}
+
+// icon
+.u-block, .u-icon, em.u-icon, .u-btn{
+    display: block;
+}
+.u-block_il, .u-icon_il, em.u-icon_il, .u-btn_il{
+    display: inline-block;
+}
+.u-inline{
+    display: inline;
+}
+
+.f-pclass{
+    position: relative;
+}
+.f-pclass:before, .f-pclass:after{
+    position: absolute;
+    content: '';
+}
+
+// "border" 1px
+.f-b_1px{
+    position: relative;
+}
+.f-b_1px:after{
+    position: absolute;
+    content: '';
+    background-color: @border-gray;
+}
+.bb_1px:after,
+.bt_1px:after {
+    left: 0;
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scale(1, 0.5);
+    transform: scale(1, 0.5);
+}
+
+.bb_1px:after {
+    bottom: 0;
+}
+
+.bt_1px:after {
+    top: 0;
+}
+
+.bl_1px:after,
+.br_1px:after {
+    top: 0;
+    width: 1px;
+    height: 100%;
+    -webkit-transform: scale(0.5, 1);
+    transform: scale(0.5, 1);
+}
+.bl_1px:after{
+    left: 0;
+}
+.br_1px:after{
+    right: 0;
+}
+
+// buttons
+.u-btn, .u-btn_il{
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn_yellow{
+    background-color: @button-yellow;
+    color: @white;
+}
+.btn_orange{
+    background-color: @button-orange;
+    color: @white;
+}
+.btn_red{
+    background-color: @button-red;
+    color: @white;
+}
+.btn_gray{
+    background-color: @button-gray;
+    color: @white;
+}
+.btn-bd_gray{
+    border: thin solid @font-sub_;
+    color: @font-sub_;
+}
+.btn-bd_white{
+    border: thin solid @white;
+    color: @white;
+}
+
+// window
+.m-win_bg{
+    position: fixed;
+    z-index: 18;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+.m-win_bg{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.m-win{
+    position: fixed;
+    z-index: 19;
+}

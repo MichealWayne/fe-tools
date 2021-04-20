@@ -1,0 +1,25 @@
+{
+  "name": "fe-tools-utils",
+  "version": "1.0.0",
+  "description": "unit functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "keywords": [
+    "fe-tools"
+  ],
+  "author": "MichealWayne",
+  "license": "ISC",
+  "devDependencies": {
+    "@jest/types": "^26.3.0",
+    "@types/jest": "^26.0.10",
+    "jest": "^26.4.2",
+    "ts-jest": "^26.2.0",
+    "tslib": "^2.0.1",
+    "typescript": "^3.9.7"
+  }
+}
