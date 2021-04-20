@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "fe-tools",
-	"version": "1.0.0",
+	"version": "1.3.0",
     "description": "前端开发的插件集合工具。",
     "icons": {
 		"16": "images/icon.png",
@@ -21,8 +21,16 @@
 		"webRequest",
 		"storage",
 		"http://*/*",
-		"https://*/*",
-		"https://testfund.10jqka.com.cn"
+		"https://*/*"
     ],
-	"omnibox": { "keyword" : "fe" }
+	"omnibox": { "keyword" : "fe" },
+	"background": {
+		"scripts": ["scripts/background.js"]
+	},
+	"content_scripts": [
+		{ 
+			"matches": [ "*://*/*" ], 
+			"js" : [ "js/content-script.js" ]
+		}
+	]
 }

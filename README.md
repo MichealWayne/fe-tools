@@ -4,7 +4,6 @@
 
 <a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.png"/></a>
 
-
 ------------------
 
 
@@ -401,7 +400,6 @@
 ---- | ---- | ----
 <a href="https://www.fundebug.com/" target="_blank">FunDebug</a> | `FunDebug` | 简单的项目debug监控工具，有免费版
 
-
 ------------------
 
 
@@ -426,7 +424,6 @@
 ### 安装方式
 
 clone本仓库到本地，点击“加载已解压的拓展程序”选择本地仓库目录下的chrome-extension目录。
-
 
 ------------------
 
@@ -499,5 +496,3 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 
-### 更新信息
-- 2019.04.28：新增storage封装；新增下拉刷新、数字键盘原生组件；
