@@ -41,6 +41,7 @@
 <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect" target="_blank">Safari HTML Ref查询</a> | `html` | Safari webview的HTML标签查询，某些ios特殊的属性或表现可以查这个。
 <a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
 <a href="https://www.dartcn.com/guides/language/language-tour" target="_blank">Dart中文网</a> | `dart` | dart语言中文网。
+<a href="https://www.rfc-editor.org/" target="_blank">RFC规范官网</a> | `rfc/http` | RFC协议官网，HTTP协议等内容。
 
 
 ### 1.2 兼容/查询
@@ -138,6 +139,7 @@
 <a href="https://momentjs.com/" target="_blank">MomentJs</a> | `momentjs` | 一款日期格式化的工具（2020开始停止维护）。
 <a href="https://day.js.org/" target="_blank">DayJs</a> | `dayjs` | 一款日期格式化的工具，MomentJS的替代品。
 <a href="http://numbrojs.com/" target="_blank">numbro</a> | `numbrojs` | 一款多国语言的数字转化工具。
+<a href="http://numeraljs.com/" target="_blank"> NumeralJs</a> | `numeraljs` | 用于格式化和操作数字的 js 库。
 <a href="http://openexchangerates.github.io/accounting.js/" target="_blank">accounting.js</a> | `accounting.js` | 数字，金钱的格式化工具。
 <a href="http://openexchangerates.github.io/money.js/" target="_blank">money.js</a> | `money.js` | 金钱的汇率转换工具。
 <a href="https://github.com/MikeMcl/decimal.js#readme" target="_blank">decimal.js</a> | `decimal.js` | Js精度处理库。
@@ -175,6 +177,7 @@
 <a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy.js</a> | `tippy.js` | 好用的气泡组件，有React版。
 <a href="https://www.algolia.com/" target="_blank">algolia</a> | `algolia` | 好用的搜索集成方案。
 <a href="https://opensource.appbase.io/dejavu/" target="_blank">dejavu</a> | `dejavu` | 一款弹性搜索方案，逮虾户。
+<a href="https://kamranahmed.info/driver.js/#single-element-with-popover" target="_blank">driver.js</a> | `driverjs` | 一款轻量的用户操作引导插件。
 
 
 
@@ -220,6 +223,10 @@
 <a href="https://github.com/kelektiv/node.bcrypt.js#readme" target="_blank">Bcrypt</a> | `bcrypt` | 用于密码散列处理的库。
 <a href="https://github.com/Marak/Faker.js#readme" target="_blank">Faker</a> | `faker` | 用于在浏览器/Nodejs中生成假数据。
 <a href="https://joi.dev/" target="_blank">Joi官网</a> | `joi` | 面向js的强大schema描述语言与数据验证器。
+<a href="https://github.com/JedWatson/classnames#readme" target="_blank">classnames</a> | `classnames` | className条件组合的工具，多用于React。
+<a href="https://github.com/pillarjs/path-to-regexp#readme" target="_blank">path-to-regexp</a> | `path-to-regexp` | URL或路径校验工具，使用面极广。
+
+
 
 
 #### 1.4.6 数据可视化(图表)
@@ -265,6 +272,7 @@
 <a href="https://p5js.org/" target="_blank">P5js</a> | `p5js` | canvas绘画功能库。
 <a href="https://roughjs.com/" target="_blank">Rough.js官网</a> | `roughjs` | 一个有意思的canvas绘图库（画出的图形具有手绘风格）。
 <a href="https://github.com/BabylonJS/Babylon.js" target="_blank">BabylonJS</a> | `BabylonJS` | 一个功能强大，美观，简单且开放的游戏和渲染引擎。
+<a href="https://github.com/sarcadass/granim.js#readme" target="_blank">GranimJs</a> | `granimjs` | 用于创建流体和交互式渐变的动画js库，仅17k。
 
 #### 1.4.8 移动端手势
 地址 | 标签 | 说明
@@ -337,7 +345,6 @@
 <a href="https://github.com/tajo/react-portal#readme" target="_blank">React-portal</a> | `react-portal` | 一个通过portals定义附加的节点组件渲染工具。
 <a href="https://github.com/vkbansal/react-contextmenu" target="_blank">React-contextmenu</a> | `react-contextmenu` | pc端web实现右键菜单的工具组件。
 <a href="https://rexxars.github.io/react-markdown/" target="_blank">react-markdown</a> | `react-markdown` | 在react上使用的markdown工具。
-<a href="https://github.com/JedWatson/classnames#readme" target="_blank">classnames</a> | `classnames` | 操作className的工具，多用于React。
 <a href="https://github.com/30-seconds/30-seconds-of-react" target="_blank">30s-of-react</a> | `30s-of-react` | 常用React代码模块集合，30s of code系列。
 <a href="https://vasanthk.gitbooks.io/react-bits/" target="_blank">React Bits</a> | `react-bits` | 常用React技巧。
 <a href="https://docsite.js.org/zh-cn/docs/addDoc.html" target="_blank">docsiteJS</a> | `docsite` | 基于React的文档生成工具。
@@ -363,6 +370,7 @@
 <a href="http://aheckmann.github.io/gm/" target="_blank">GraphicsMagick</a> | `gm` | 后台图片处理工具。
 <a href="https://github.com/protobi/js-xlsx/tree/beta#readme" target="_blank">js-xlsx</a> | `js-xlsx` | xlsx的编辑和处理库。
 <a href="https://github.com/shelljs/shelljs" target="_blank">ShellJs</a> | `shelljs` | 用nodejs实现shell常用命令。
+<a href="https://prettier.io/" target="_blank">Prettier</a> | `prettier ` | 对代码无侵害的代码格式化工具。
 
 
 
@@ -376,7 +384,7 @@
 <a href="https://gulpjs.com/plugins/" target="_blank">gulp plugins</a> | `gulp` | gulp插件中心。
 <a href="https://grunt.docschina.org/" target="_blank">grunt 配置文档</a> | `grunt` | 自动化构建工具。
 <a href="https://rollupjs.org/guide/en/" target="_blank">rollupjs文档</a> | `Rollup` | 一款ES6模块构建工具。
-<a href="http://www.css88.com/doc/webpack/" target="_blank">webpack 配置文档</a> | `webpack` | 应用面不能再广的打包工具。
+<a href="https://webpack.docschina.org/" target="_blank">webpack 配置文档</a> | `webpack` | 应用面不能再广的打包工具。
 <a href="https://github.com/neutrinojs/webpack-chain" target="_blank">webpack-chain</a> | `webpack-chain` | 链式配置webpack配置的工具。
 <a href="https://parceljs.docschina.org/" target="_blank">parceljs 配置文档</a> | `parceljs` | 轻量打包。
 <a href="https://www.snowpack.dev/" target="_blank">snowpack 官网</a> | `snowpack` | 无bundle的轻量前端项目构建工具。
@@ -385,7 +393,7 @@
 <a href="https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md" target="_blank">parse5</a> | `parse5` | 一款html的转AST工具。
 <a href="https://github.com/benjamn/recast" target="_blank">recast</a> | `recast` | 一款js转AST的工具。
 <a href="https://github.com/airbnb/ts-migrate" target="_blank">ts-migrate</a> | `ts-migrate` | 一款js转ts(TypeScript)的工具。
-<a href="https://github.com/kimmobrunfeldt/concurrently#readme" target="_blank">Concurrently</a> | `concurrently` | 一款Nodejs的命名行控制工具。
+<a href="https://github.com/kimmobrunfeldt/concurrently#readme" target="_blank">Concurrently</a> | `concurrently` | 一款Nodejs的命名行控制工具，实现同时运行多条命令。
 <a href="https://github.com/evanw/esbuild" target="_blank">esbuild</a> | `esbuild` | 一款极快的js打包和压缩工具。
 
 
@@ -394,6 +402,7 @@
 ---- | ---- | ----
 <a href="http://www.expressjs.com.cn/" target="_blank">express 配置文档</a> | `express` | 轻量web应用程序开发框架。
 <a href="https://koajs.cn/#-application-" target="_blank">Koa 文档</a> | `koajs` | web应用程序开发框架。
+<a href="https://www.fastify.io/" target="_blank">Fastify 官网</a> | `fastify` | 标称当代最快的轻量web应用程序开发框架，重点是JSON schema加速。
 <a href="https://docs.feathersjs.com/" target="_blank">feathers.js</a> | `feathersjs` | 轻量web应用程序开发框架。
 <a href="https://docs.nestjs.com/" target="_blank">Nest.js</a> | `nestjs` | 强大的Web应用框架。
 <a href="https://github.com/nuysoft/Mock/wiki" target="_blank">Mockjs 配置文档</a> | `mockjs` | 接口数据模拟工具，可以在客户端和服务端使用。
@@ -414,6 +423,8 @@
 <a href="https://github.com/node-cache/node-cache" target="_blank">Node-cache</a> | `node-cache` | 一个Nodejs的缓存控制模块。
 <a href="https://socket.io/" target="_blank">Socket.IO</a> | `socket.io` | WebSocket解决方案。
 <a href="https://github.com/websockets/ws" target="_blank">ws</a> | `ws` | WebSocket的一个nodejs包。
+<a href="https://github.com/digitalocean/nginxconfig.io" target="_blank">nginxconfig.io</a> | `nginxconfig.io` | 在线生成nginx配置的工具。
+
 
 
 #### 1.7.3 GraphQL
@@ -421,6 +432,15 @@
 ---- | ---- | ----
 <a href="https://github.com/hasura/graphql-engine" target="_blank">hasura graphql-engine</a> | `hasura` | 一款强大的graphql引擎方案。
 <a href="https://github.com/apollographql/apollo-client" target="_blank">apollo-client</a> | `apollo-client` | 适用于每个UI框架和GraphQL服务器的方案。
+
+#### 1.7.4 微前端
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://single-spa.js.org/" target="_blank">single-spa</a> | `single-spa` | 以路由配置为主要特点的微前端解决方案。
+<a href="https://qiankun.umijs.org/zh/" target="_blank">qiankun</a> | `qiankun` | 蚂蚁系微前端框架，基于single-spa。
+<a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank">Module Federation</a> | `module-federation` | 构建时共享模块为主要特点的微前端解决方案，webpack（5）的实现。
+<a href="https://fronts.js.org/" target="_blank">R/Fronts</a> | `fronts` | 渐进式微前端框架，基于webpack module-federation。
+
 
 
 ### 1.8 Hybird和跨端
@@ -454,6 +474,7 @@
 ### 1.9 辅助工具
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://www.typescriptlang.org/dt/search?search=" target="_blank">Ts声明文件查询</a> | `joi` | 各类库的TypeScript声明文件查询网站。
 <a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank">正则表达式30分钟</a> | `regexp` | 正则上手教程。
 <a href="https://regexper.com/" target="_blank">在线正则验证</a> | `regexper` | 可视化在线正则验证网站。
 <a href="http://wproxy.org/whistle/install.html" target="_blank">whistle</a> | `whistle` | web调试代理工具。
@@ -488,6 +509,7 @@
 <a href="https://tool.lu/coderunner/" target="_blank">tool.lu-coderunner</a> | `coderunner` | 在线php/c/c++/python/go/js/java/bash代码执行工具。
 <a href="https://www.diffchecker.com/" target="_blank">diffchecker.com</a> | `diffchecker` | 在线文本/文件diff工具。
 <a href="https://isoflow.io/" target="_blank">isoflow.io</a> | `isoflow` | 在线流程图绘制工具。
+<a href="https://github.com/n8n-io/n8n" target="_blank"> n8n </a> | `n8n` | 基于自由和开放的公平代码许可节点的工作流自动化工具。轻松自动化跨不同服务的任务。
 
 
 ### 1.10 测试、安全及加密
@@ -533,6 +555,7 @@
 <a href="https://github.com/google/eng-practices" target="_blank">Google eng-practices</a> | `eng-practices` | 谷歌工程实践文档
 <a href="https://github.com/cheeriojs/cheerio#readme" target="_blank">Cheerio</a> | `cheerio` | 用于web抓取的工具。
 <a href="https://pptr.dev/" target="_blank">Puppeteer官网</a> | `puppeteer` | 强大的自动化工具。
+<a href="https://github.com/GoogleChrome/lighthouse" target="_blank">Lighthouse</a> | `lighthouse` | Google标准的web性能检测工具，Chrome自带。
 
 
 
@@ -564,7 +587,6 @@
 <a href="https://marketplace.visualstudio.com/items?itemName=pnp.polacode" target="_blank">polacode</a> | `polacode` | 代码截图的vscode IDE插件
 <a href="https://gitlens.amod.io/" target="_blank">GitLens</a> | `gitlens` | git源代码管理插件
 <a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager" target="_blank">Project Manager</a> | `project-manager` | 本地项目管理
-
 
 
 
