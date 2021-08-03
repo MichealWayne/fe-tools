@@ -168,6 +168,7 @@
 <a href="https://clipboardjs.com/" target="_blank">clipboard.js</a> | `clipboardjs` | 剪贴板控制插件。
 <a href="https://github.com/kazuhikoarase/qrcode-generator/tree/master/js" target="_blank">Qrcode-generator</a> | `grcode-generator` | 二维码生成工具。
 <a href="http://html2canvas.hertzen.com/documentation" target="_blank">html2canvas</a> | `html2canvas` | html转为图片（canvas），即实现网页截图。
+<a href="https://www.rrweb.io/" target="_blank">rrweb</a> | `rrweb ` | 基于样式截取的网页“录屏”工具，实现用户操作采集和回放。
 <a href="https://github.com/sofish/pen#readme" target="_blank">Pen Editor</a> | `Pen Editor` | web的文本编辑工具。
 <a href="https://nosir.github.io/cleave.js/" target="_blank">cleave.js</a> | `cleave.js` | 一款好用的input输入控制插件。
 <a href="https://github.com/jackmoore/autosize" target="_blank">autosize.js</a> | `autosize.js` | 一款好用的`<textarea/>`高度自适应工具。
@@ -178,6 +179,9 @@
 <a href="https://www.algolia.com/" target="_blank">algolia</a> | `algolia` | 好用的搜索集成方案。
 <a href="https://opensource.appbase.io/dejavu/" target="_blank">dejavu</a> | `dejavu` | 一款弹性搜索方案，逮虾户。
 <a href="https://kamranahmed.info/driver.js/#single-element-with-popover" target="_blank">driver.js</a> | `driverjs` | 一款轻量的用户操作引导插件。
+<a href="https://michalsnik.github.io/aos/" target="_blank">aos.js</a> | `aosjs` | 一款强大的页面滚动动画插件。
+<a href="http://lab.ejci.net/favico.js/" target="_blank">favico.js</a> | `favicojs` | 一款让pc网站图标动起来的插件。
+<a href="https://alvarotrigo.com/fullPage/" target="_blank">fullPage.js</a> | `fullpagejs` | 一款快速搭建全屏滚动页面的插件。
 
 
 
@@ -370,13 +374,14 @@
 <a href="http://aheckmann.github.io/gm/" target="_blank">GraphicsMagick</a> | `gm` | 后台图片处理工具。
 <a href="https://github.com/protobi/js-xlsx/tree/beta#readme" target="_blank">js-xlsx</a> | `js-xlsx` | xlsx的编辑和处理库。
 <a href="https://github.com/shelljs/shelljs" target="_blank">ShellJs</a> | `shelljs` | 用nodejs实现shell常用命令。
-<a href="https://prettier.io/" target="_blank">Prettier</a> | `prettier ` | 对代码无侵害的代码格式化工具。
+<a href="https://github.com/chalk/chalk" target="_blank">chalk</a> | `chalk ` | 控制台命令行输出样式工具，主要控制颜色。
 
 
 
 #### 1.7.1 构建
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://prettier.io/" target="_blank">Prettier</a> | `prettier ` | 对代码无侵害的代码格式化工具。
 <a href="https://ejs.bootcss.com/" target="_blank">ejs</a> | `ejs` | 简单上手的html模板引擎。
 <a href="https://pugjs.org/language/includes.html" target="_blank">pug</a> | `pug` | html模板引擎。
 <a href="http://www.nodeclass.com/api/jade.html" target="_blank">jade</a> | `jade` | html模板引擎。
@@ -395,6 +400,7 @@
 <a href="https://github.com/airbnb/ts-migrate" target="_blank">ts-migrate</a> | `ts-migrate` | 一款js转ts(TypeScript)的工具。
 <a href="https://github.com/kimmobrunfeldt/concurrently#readme" target="_blank">Concurrently</a> | `concurrently` | 一款Nodejs的命名行控制工具，实现同时运行多条命令。
 <a href="https://github.com/evanw/esbuild" target="_blank">esbuild</a> | `esbuild` | 一款极快的js打包和压缩工具。
+<a href="https://github.com/svg/svgo" target="_blank">svgo</a> | `svgo ` | 一款处理svg的node插件。
 
 
 #### 1.7.2 服务端
@@ -440,6 +446,7 @@
 <a href="https://qiankun.umijs.org/zh/" target="_blank">qiankun</a> | `qiankun` | 蚂蚁系微前端框架，基于single-spa。
 <a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank">Module Federation</a> | `module-federation` | 构建时共享模块为主要特点的微前端解决方案，webpack（5）的实现。
 <a href="https://fronts.js.org/" target="_blank">R/Fronts</a> | `fronts` | 渐进式微前端框架，基于webpack module-federation。
+<a href="https://github.com/jsdom/jsdom" target="_blank">jsdom</a> | `jsdom` | 在node环境上实现DOM操作的封装库。
 
 
 
@@ -490,6 +497,7 @@
 <a href="http://gittalk.com.cutestat.com/" target="_blank">GitTalk</a> | `gittalk` | github的评论工具。
 <a href="https://github.com/Coding/WebIDE" target="_blank">webIDE</a> | `webide` | web上写代码。
 <a href="https://hiroppy.github.io/fusuma/" target="_blank">Fusuma</a> | `fusuma` | 用markdown写web ppt。
+<a href="https://stackedit.io/" target="_blank">stackedit</a> | `stackedit ` | 在浏览器中运行的Markdown编辑器。
 <a href="https://vuepress.vuejs.org/zh/" target="_blank">VuePress</a> | `vuepress` | 用markdown写文档/博客
 <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> | `hexo` | 用markdown写文档/博客
 <a href="https://www.materialui.co/colors" target="_blank">materialui</a> | `materialui` | 快速色值选择
@@ -519,7 +527,7 @@
 <a href="https://mochajs.org/" target="_blank">MochaJS文档</a> | `mocha` | 一款单元测试工具。
 <a href="https://jestjs.io/zh-Hans/" target="_blank">JestJS文档</a> | `jest` | 一款单元测试工具。
 <a href="https://www.cypress.io/" target="_blank">Cypress官网</a> | `cypress` | 一款单元测试集成平台工具。
-<a href="https://www.cypress.io/" target="_blank">Cypress官网</a> | `cypress` | 一款单元测试集成平台工具。
+<a href="https://github.com/avajs/ava" target="_blank">AvaJs</a> | `avajs` | 一款快速的测试工具。
 <a href="https://enzymejs.github.io/enzyme/" target="_blank">enzyme官网</a> | `enzyme` | 一款React单元测试工具，可以测hook。
 
 
@@ -555,6 +563,7 @@
 <a href="https://github.com/google/eng-practices" target="_blank">Google eng-practices</a> | `eng-practices` | 谷歌工程实践文档
 <a href="https://github.com/cheeriojs/cheerio#readme" target="_blank">Cheerio</a> | `cheerio` | 用于web抓取的工具。
 <a href="https://pptr.dev/" target="_blank">Puppeteer官网</a> | `puppeteer` | 强大的自动化工具。
+<a href="https://www.selenium.dev/" target="_blank">Selenium官网</a> | `selenium` | 强大的用于Web应用程序测试的工具。
 <a href="https://github.com/GoogleChrome/lighthouse" target="_blank">Lighthouse</a> | `lighthouse` | Google标准的web性能检测工具，Chrome自带。
 
 
@@ -666,6 +675,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 ### 更新信息
+- 2021.07.31：更新/增加链接；
 - 2021.03.20：更新Moo-datas；
 - 2020.12.22：Chrome拓展插件增加正则模块；
 - 2020.12.07：优化Chrome拓展插件，增加简易Postman；
