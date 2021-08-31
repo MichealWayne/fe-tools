@@ -1,67 +1,84 @@
-/*
-* extend functions
-*/
+/**
+ * extend functions
+ */
 
-'use strict';
-
-// extend Array function
-// array unique function
+/**
+ * @extend Array function
+ * @description array unique function
+ */
 Array.prototype.unique = function () {
-    let res = [],
-        json = {};
+  const res = [];
+  const json = {};
 
-    for (let i = 0; i < this.length; i++) {
-        if (!json[this[i]]) {
-            res.push(this[i]);
-            json[this[i]] = 1;
-        }
+  for (let i = 0, len = this.length; i < len; i++) {
+    if (!json[this[i]]) {
+      res.push(this[i]);
+      json[this[i]] = 1;
     }
-    return res;
+  }
+  return res;
 };
 
-// date format show
-// @param {String} format: date format;
-// @return {String} format: time
-Date.prototype.format = function (format) {
-    let o = {
-        'M+' : this.getMonth() + 1, //month
-        'd+' : this.getDate(), //day
-        'h+' : this.getHours(), //hour
-        'm+' : this.getMinutes(), //minute
-        's+' : this.getSeconds(), //second
-        'q+' : Math.floor((this.getMonth() + 3) / 3), //quarter
-        'S' : this.getMilliseconds() //millisecond
+/**
+ * @extend date format show
+ * @param {String} format: date format;
+ * @return {String} format: time
+ */
+Date.prototype.format = function (_format) {
+  let format = _format;
+  const TimeInfos = {
+    // month
+    'M+': this.getMonth() + 1,
+    // day
+    'd+': this.getDate(),
+    // hour
+    'h+': this.getHours(),
+    // minute
+    'm+': this.getMinutes(),
+    // second
+    's+': this.getSeconds(),
+    // quarter
+    'q+': Math.floor((this.getMonth() + 3) / 3),
+    // millisecond
+    S: this.getMilliseconds(),
+  };
+  if (/(y+)/.test(format)) {
+    format = format.replace(RegExp.$1, String(this.getFullYear()).substr(4 - RegExp.$1.length));
+  }
+  for (const k in TimeInfos) {
+    if (new RegExp(`(${k})`).test(format)) {
+      format = format.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1
+          ? TimeInfos[k]
+          : `00${TimeInfos[k]}`.substr(String(TimeInfos[k]).length)
+      );
     }
-    if (/(y+)/.test(format)) {
-        format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
-    }
-    for (let k in o) {
-        if (new RegExp('(' + k + ')').test(format)) {
-            format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length));
-        }
-    }
-    return format;
+  }
+  return format;
 };
 
-// get time string
-// format: y/m/d h:m:s
-// @param {String} timestr: time string, optional;
-// @return {String} time string;
-function getTimeStr (timestr) {
-    let setTime = (num) => {
-        return num < 10 ? '0' + num : num;
-    };
-    let _date = timestr ? new Date(timestr) : new Date();
-    let _month = setTime(_date.getMonth() + 1);
-    let _day = setTime(_date.getDate());
-    let _hour = setTime(_date.getHours());
-    let _minute = setTime(_date.getMinutes());
-    let _second = setTime(_date.getSeconds());
+/**
+ * @function getTimeStr
+ * @description get time format: y/m/d h:m:s
+ * @param {String} timestr: time string, optional;
+ * @return {String} time string;
+ */
+function getTimeStr(timestr) {
+  const setTimeShow = num => {
+    const isLessTen = num < 10;
+    return isLessTen ? `0${num}` : num;
+  };
+  const _date = timestr ? new Date(timestr) : new Date();
+  const _month = setTimeShow(_date.getMonth() + 1);
+  const _day = setTimeShow(_date.getDate());
+  const _hour = setTimeShow(_date.getHours());
+  const _minute = setTimeShow(_date.getMinutes());
+  const _second = setTimeShow(_date.getSeconds());
 
-    return _date.getFullYear() + '/' + _month + '/' + _day + ' ' + _hour + ':' + _minute + ':' + _second;
+  return `${_date.getFullYear()}/${_month}/${_day} ${_hour}:${_minute}:${_second}`;
 }
 
-
 module.exports = {
-    getTimeStr: getTimeStr
+  getTimeStr,
 };

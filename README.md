@@ -176,6 +176,7 @@
 <a href="https://github.com/mailru/FileAPI" target="_blank">FileAPI.js</a> | `FileAPI` | 控制文件上传的插件。
 <a href="https://github.com/alexgibson/shake.js" target="_blank">shake.js</a> | `shake.js` | 移动端摇晃震动监听插件。
 <a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy.js</a> | `tippy.js` | 好用的气泡组件，有React版。
+<a href="https://fusejs.io/" target="_blank">fuse</a> | `fusejs` | 轻量、好用的js模糊搜索库。
 <a href="https://www.algolia.com/" target="_blank">algolia</a> | `algolia` | 好用的搜索集成方案。
 <a href="https://opensource.appbase.io/dejavu/" target="_blank">dejavu</a> | `dejavu` | 一款弹性搜索方案，逮虾户。
 <a href="https://kamranahmed.info/driver.js/#single-element-with-popover" target="_blank">driver.js</a> | `driverjs` | 一款轻量的用户操作引导插件。
@@ -338,6 +339,7 @@
 <a href="https://cn.mobx.js.org/" target="_blank">Umi Hooks 文档</a> | `umi hooks` | 适用于中台的hooks方法，如请求、拖拽、防抖。
 <a href="https://react-query.tanstack.com/docs/overview" target="_blank">react-query 文档</a> | `react-query` | 好用的React ajax接口请求处理封装hook。
 <a href="https://github.com/welldone-software/why-did-you-render#readme" target="_blank">why-did-you-render</a> | `why-did-you-render` | 用来检测React组件是否需要重新渲染的工具。
+<a href="https://www.framer.com/motion/" target="_blank">framer-motion 官网</a> | `framer-motion` | 非常强大的React动画/交互手势库，来自Farmer API。
 <a href="http://danilowoz.com/create-content-loader/" target="_blank">react-content-loader 文档</a> | `create-content-loader` | react版SVG骨架屏插件。
 <a href="https://ant.design/docs/react/getting-started-cn" target="_blank">antd 文档</a> | `antd` | ant design，PC UI组件库。
 <a href="https://mobile.ant.design/index-cn" target="_blank">antd-mobile 文档</a> | `antd-mobile` | 移动版的antd，UI组件库。
@@ -364,6 +366,7 @@
 <a href="https://www.npmjs.com/" target="_blank">npm</a> | `npm` | node包统一平台。
 <a href="https://yarn.bootcss.com/" target="_blank">yarn</a> | `yarn` | 高速的node包管理器。
 <a href="https://pnpm.js.org/" target="_blank">pnpm</a> | `pnpm` | 快速高效的node包统一管理器。
+<a href="https://unpkg.com/" target="_blank">unpkg</a> | `unpkg` | 国外公共静态资源CDN，适用于 npm 上的所有内容。
 <a href="http://nodejs.cn/api/" target="_blank">nodejs api</a> | `node` | Node官方文档。
 <a href="https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts" target="_blank">Deno api</a> | `deno` | Deno官方文档（Nodejs.next）。
 台。
@@ -481,6 +484,7 @@
 ### 1.9 辅助工具
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析npm软件包的体积和加载性能的网站。
 <a href="https://www.typescriptlang.org/dt/search?search=" target="_blank">Ts声明文件查询</a> | `joi` | 各类库的TypeScript声明文件查询网站。
 <a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank">正则表达式30分钟</a> | `regexp` | 正则上手教程。
 <a href="https://regexper.com/" target="_blank">在线正则验证</a> | `regexper` | 可视化在线正则验证网站。
@@ -596,7 +600,7 @@
 <a href="https://marketplace.visualstudio.com/items?itemName=pnp.polacode" target="_blank">polacode</a> | `polacode` | 代码截图的vscode IDE插件
 <a href="https://gitlens.amod.io/" target="_blank">GitLens</a> | `gitlens` | git源代码管理插件
 <a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager" target="_blank">Project Manager</a> | `project-manager` | 本地项目管理
-
+<a href="https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster" target="_blank">JavaScript Booster</a> | `javascript-booster` | js/ts快速重构优化工具，比如将var换为const/let。
 
 
 
@@ -675,6 +679,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 ### 更新信息
+- 2021.08.31：修改封装函数；增加链接；
 - 2021.07.31：更新/增加链接；
 - 2021.03.20：更新Moo-datas；
 - 2020.12.22：Chrome拓展插件增加正则模块；

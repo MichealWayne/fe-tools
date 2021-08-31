@@ -6,104 +6,116 @@
  * @property {Number} rem rem比例
  */
 
-import { isPC } from './platform'
+import { isPC } from './platform';
 
-let rem_rate = 1;
+const remRate = 1;
 
 declare global {
-    interface Window { 
-        norem: any; 
-        flexible: any;
-    }
+  interface Window {
+    norem: any;
+    flexible: any;
+  }
 }
 
-;(function (win) {
-	if (window.norem) return false;		// no rem set
-	
-    let doc = win.document;
-    let docEl = doc.documentElement;
-    let dpr = 1;
-    let tid;
+(function (win) {
+  // no rem set
+  if (window.norem) return false;
 
-    let flexible: any = {};
+  const doc = win.document;
+  const docEl = doc.documentElement;
+  let dpr = 1;
+  let tid;
 
-    if (isPC()) {
-        docEl.style.fontSize = '54px';
-        return false;
-    }
+  const flexible: any = {};
 
-    /**
-     * @function refreshRem
-     * @description **window.flexible.refreshRem()**。重新根据屏幕调整rem
-     * @example
-     * window.flexible.refreshRem();
-     */
-    function refreshRem () {
-        let width = docEl.getBoundingClientRect().width;
-        width = width > 540 ? 540 : width;
-        
-        let rem = width / 10 * rem_rate;
-        docEl.style.fontSize = rem + 'px';
-        flexible.rem = rem;
-		flexible.oriRem = width / 10;
-    }
+  if (isPC()) {
+    docEl.style.fontSize = '54px';
+    return false;
+  }
 
-    win.addEventListener('resize', function () {
+  /**
+   * @function refreshRem
+   * @description **window.flexible.refreshRem()**。重新根据屏幕调整rem
+   * @example
+   * window.flexible.refreshRem();
+   */
+  function refreshRem() {
+    let { width } = docEl.getBoundingClientRect();
+    width = width > 540 ? 540 : width;
+
+    const rem = (width / 10) * remRate;
+    docEl.style.fontSize = rem + 'px';
+    flexible.rem = rem;
+    flexible.oriRem = width / 10;
+  }
+
+  win.addEventListener(
+    'resize',
+    function () {
+      clearTimeout(tid);
+      tid = setTimeout(refreshRem, 300);
+    },
+    false
+  );
+  win.addEventListener(
+    'pageshow',
+    function (e) {
+      if (e.persisted) {
         clearTimeout(tid);
         tid = setTimeout(refreshRem, 300);
-    }, false);
-    win.addEventListener('pageshow', function (e) {
-        if (e.persisted) {
-            clearTimeout(tid);
-            tid = setTimeout(refreshRem, 300);
-        }
-    }, false);
+      }
+    },
+    false
+  );
 
-    if (doc.readyState === 'complete') {
-        refreshRem();
-    } else {
-        doc.addEventListener('DOMContentLoaded', function () {
-            refreshRem();
-        }, false);
-    }
-      
+  if (doc.readyState === 'complete') {
     refreshRem();
+  } else {
+    doc.addEventListener(
+      'DOMContentLoaded',
+      function () {
+        refreshRem();
+      },
+      false
+    );
+  }
 
-    flexible.dpr = dpr;
-    flexible.refreshRem = refreshRem;
+  refreshRem();
 
-    /**
-     * @function rem2px
-     * @description **window.flexible.rem2px(d)**。rem单位转px
-     * @param  {Number | String} d rem值
-     * @return {String}   转换后px值
-     * @example
-     * window.flexible.rem2px('1rem');  // '75px'
-     */
-    flexible.rem2px = d => {
-        let val: any = parseFloat(d) * flexible.rem;
-        if (typeof d === 'string' && d.match(/rem$/)) {
-            val += 'px';
-        }
-        return val;
-    };
+  flexible.dpr = dpr;
+  flexible.refreshRem = refreshRem;
 
+  /**
+   * @function rem2px
+   * @description **window.flexible.rem2px(d)**。rem单位转px
+   * @param  {Number | String} d rem值
+   * @return {String}   转换后px值
+   * @example
+   * window.flexible.rem2px('1rem');  // '75px'
+   */
+  flexible.rem2px = d => {
+    let val: any = parseFloat(d) * flexible.rem;
+    if (typeof d === 'string' && d.match(/rem$/)) {
+      val += 'px';
+    }
+    return val;
+  };
 
-    /**
-     * @function px2rem
-     * @description **window.flexible.px2rem(d)**。rem单位转px
-     * @param  {Number | String} d px值
-     * @return {String}   转换后rem值
-     * @example
-     * window.flexible.rem2px('75px');  // '1rem'
-     */
-    flexible.px2rem = d => {
-        let val: any = parseFloat(d) / flexible.rem;
-        if (typeof d === 'string' && d.match(/px$/)) {
-            val += 'rem';
-        }
-        return val;
-    };
+  /**
+   * @function px2rem
+   * @description **window.flexible.px2rem(d)**。rem单位转px
+   * @param  {Number | String} d px值
+   * @return {String}   转换后rem值
+   * @example
+   * window.flexible.rem2px('75px');  // '1rem'
+   */
+  flexible.px2rem = d => {
+    let val: any = parseFloat(d) / flexible.rem;
+    if (typeof d === 'string' && d.match(/px$/)) {
+      val += 'rem';
+    }
+    return val;
+  };
 
-    win.flexible = flexible;
-}) (window);
+  win.flexible = flexible;
+})(window);

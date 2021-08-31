@@ -2,4 +2,7 @@
  * /src/js/index/enter.js -> index.html
  */
 
-import 'ijijin_builder/stylebuild/lib/mobile.less';
+import 'moo-css-base/mobile.less';
+import '@/less/index.less';
+
+console.log('hello js');

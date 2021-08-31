@@ -1,7 +1,7 @@
 {
-  "name": "ijijin-cli",
+  "name": "fe-cli",
   "version": "0.9.3",
-  "description": "ijijin FE build tools cli.",
+  "description": "fe FE build tools cli.",
   "main": "index.js",
   "dependencies": {
     "gm": "^1.23.0",
@@ -14,8 +14,7 @@
   "keywords": [
     "build",
     "FE",
-    "cli",
-    "ijijin"
+    "cli"
   ],
   "author": "michealwayne",
   "license": "ISC",

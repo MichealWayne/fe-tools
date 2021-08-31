@@ -1,11 +1,10 @@
 'use strict';
 
-const fsFuncs = require('./lib/fs/fsFuncs'),
-    fn = require('./lib/util/util'),
-    colors = require('./lib/util/colors'),
-    tip = require('./lib/util/tip'),
-    env = require('./lib/process/env');
-
+const fsFuncs = require('./lib/fs/fsFuncs');
+const fn = require('./lib/util/util');
+const colors = require('./lib/util/colors');
+const tip = require('./lib/util/tip');
+const env = require('./lib/process/env');
 
 /*
  * FS: file work
@@ -15,9 +14,9 @@ const fsFuncs = require('./lib/fs/fsFuncs'),
  * Env: process word
  */
 module.exports = {
-    FS: fsFuncs,
-    Fn: fn,
-    Colors: colors,
-    Tip: tip,
-    Env: env
+  FS: fsFuncs,
+  Fn: fn,
+  Colors: colors,
+  Tip: tip,
+  Env: env,
 };
