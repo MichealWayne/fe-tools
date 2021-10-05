@@ -254,14 +254,14 @@
 
 
 
-#### 1.4.6 数据可视化(地图)
+#### 1.4.7 数据可视化(地图)
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://cesiumjs.org/" target="_blank">cesiumjs</a> | `Cesium.js` | 一款开源的3D城市建模库。
 <a href="http://kartograph.org/" target="_blank">Kartograph</a> | `Kartograph.js` | 一款普通的2D SVG城市数据展示库，IE7+。
 <a href="https://leafletjs.com/" target="_blank">leafletjs</a> | `Leaflet.js` | 一款移动优先的地图展示插件。
 
-#### 1.4.7 h5动画
+#### 1.4.8 h5动画
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="http://bouncejs.com/" target="_blank">Bounce.js</a> | `BounceJS` | 牛啤的CSS3动画创建工具。
@@ -279,14 +279,14 @@
 <a href="https://github.com/BabylonJS/Babylon.js" target="_blank">BabylonJS</a> | `BabylonJS` | 一个功能强大，美观，简单且开放的游戏和渲染引擎。
 <a href="https://github.com/sarcadass/granim.js#readme" target="_blank">GranimJs</a> | `granimjs` | 用于创建流体和交互式渐变的动画js库，仅17k。
 
-#### 1.4.8 移动端手势
+#### 1.4.9 移动端手势
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://github.com/AlloyTeam/AlloyFinger" target="_blank">AlloyFinger.js</a> | `AlloyFinger` | 增加移动端的各种手势事件。
 <a href="http://hammerjs.github.io/" target="_blank">hammer.js</a> | `hammerjs` | 手势封装库，取消了移动端click的300ms延迟。
 <a href="https://interactjs.io/" target="_blank">interact.js</a> | `interactjs` | 使用JavaScript实现拖放、缩放和多点触控手势。
 
-#### 1.4.9 加载
+#### 1.4.10 加载
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="http://pazguille.github.io/aload/" target="_blank">aload.js</a> | `aload.js` | 异步图片/js/css加载工具。
@@ -294,6 +294,14 @@
 <a href="https://github.com/aFarkas/lazysizes" target="_blank">lazysizes.js</a> | `lazysizes` | 高性能的图片/iframe懒加载工具。
 <a href="https://infinite-scroll.com/" target="_blank">infinite-scroll.js</a> | `infinite-scroll` | “无限”滚动的加载插件。
 
+
+#### 1.4.11 TypeScript辅助
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/TypeStrong/ts-loader" target="_blank">ts-loader</a> | `ts-loader` | webpack中的TypeScript构建插件。
+<a href="https://github.com/s-panferov/awesome-typescript-loader" target="_blank">awesome-typescript-loader</a> | `awesome-typescript-loader` | webpack中的TypeScript构建插件，比ts-loader要快一点。
+<a href="https://github.com/kimamula/ts-transformer-keys#readme" target="_blank">ts-transformer-keys</a> | `ts-transformer-keys` | 用于提取interface的键值数组（需要用webpack）。
+<a href="https://github.com/tamino-martinius/node-ts-dedent#readme" target="_blank">ts-dedent</a> | `ts-dedent` | node端打印正常换行的log。
 
 ### 1.5 Vue
 地址 | 标签 | 说明
@@ -347,6 +355,7 @@
 <a href="https://github.com/twobin/react-lazyload" target="_blank">react-lazyload 文档</a> | `react-lazyload` | react版的图片/组件加载插件。
 <a href="https://github.com/jamiebuilds/react-loadable#readme" target="_blank">react-loadable</a> | `react-loadable` | 实现react组件构建时代代码抽离和动态加载。
 <a href="https://github.com/STRML/react-draggable" target="_blank">react-draggable</a> | `react-draggable` | 一个用于拖拽操作的React封装组件。
+<a href="https://github.com/react-dnd/react-dnd#readme" target="_blank">React DND</a> | `react-dnd` | 适用于React的复杂拖拽控制库，基于HTML5拖放API。
 <a href="https://github.com/JedWatson/react-tappable" target="_blank">react-tappable</a> | `react-tappable` | 一个用于点击事件操作的React封装组件。
 <a href="https://github.com/tajo/react-portal#readme" target="_blank">React-portal</a> | `react-portal` | 一个通过portals定义附加的节点组件渲染工具。
 <a href="https://github.com/vkbansal/react-contextmenu" target="_blank">React-contextmenu</a> | `react-contextmenu` | pc端web实现右键菜单的工具组件。
@@ -360,6 +369,7 @@
 <a href="https://github.com/sstur/react-rte" target="_blank">React RTE</a> | `react-rte` | 富文本编辑器，基于draftJS。
 
 
+
 ### 1.7 Nodejs和构建
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -371,6 +381,7 @@
 <a href="https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts" target="_blank">Deno api</a> | `deno` | Deno官方文档（Nodejs.next）。
 台。
 <a href="https://lerna.js.org/" target="_blank">Lerna</a> | `lerna` | 好用的多包管理工具，monorepo。
+<a href="https://github.com/ds300/patch-package#readme" target="_blank">patch-package</a> | `patch-package ` | 给node_modules打补丁的工具包。
 <a href="https://v8docs.nodesource.com/node-10.6/index.html" target="_blank">V8</a> | `v8` |  V8引擎介绍。
 <a href="https://docs.docker.com/" target="_blank">docker</a> | `docker` | 应用容器引擎Docker。
 <a href="https://man.linuxde.net/" target="_blank">Linux</a> | `linux` | Linux命令查询手册。
@@ -378,6 +389,8 @@
 <a href="https://github.com/protobi/js-xlsx/tree/beta#readme" target="_blank">js-xlsx</a> | `js-xlsx` | xlsx的编辑和处理库。
 <a href="https://github.com/shelljs/shelljs" target="_blank">ShellJs</a> | `shelljs` | 用nodejs实现shell常用命令。
 <a href="https://github.com/chalk/chalk" target="_blank">chalk</a> | `chalk ` | 控制台命令行输出样式工具，主要控制颜色。
+
+
 
 
 
@@ -679,6 +692,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 ### 更新信息
+- 2021.09.30：更新/增加链接；模版依赖修复；
 - 2021.08.31：修改封装函数；增加链接；
 - 2021.07.31：更新/增加链接；
 - 2021.03.20：更新Moo-datas；
