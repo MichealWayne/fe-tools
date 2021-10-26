@@ -592,6 +592,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://marketplace.visualstudio.com/" target="_blank">MarketPlace</a> | `marketplace` | 插件首页
+<a href="https://vscode.dev/" target="_blank">VSCode在线</a> | `VSCode` | VSCode在线版
 <a href="https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight" target="_blank">Color Highlight</a> | `color-highlight` | 颜色预览。
 <a href="https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview" target="_blank">Svg Preview</a> | `svg-preview` | SVG图形预览。
 <a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker" target="_blank">Code Spell Checker</a> | `code-spell-checker` | 代码单词拼写校验。
