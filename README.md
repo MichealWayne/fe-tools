@@ -26,41 +26,46 @@
 ### 1.1 HTML/CSS/JavaScript/Dart
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN 文档手册</a> | `html/css/js` | 很全很有用的查询网站。
+<a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN 文档手册</a> | `html/css/js` | Mozilla出品的一个很全很有用的前端查询/学习网站。
 <a href="https://www.w3.org/" target="_blank">W3C官网</a> | `html/css/js` | W3C官方，不解释。
-<a href="https://www.html.cn/book/css/all-properties.html" target="_blank">html中文网-css教程手册</a> | `css` | 快速查询css属性及基本使用。
-<a href="http://www.yyyweb.com/demo/html5-tools/html5-canvas.html" target="_blank">canvas速查手册</a> | `canvas` | 一目了然canvas的api方法。
+<a href="https://www.html.cn/book/css/all-properties.html" target="_blank">html中文网-css教程手册</a> | `css` | HTML中文网-快速查询css属性及基本使用。
+<a href="http://www.yyyweb.com/demo/html5-tools/html5-canvas.html" target="_blank">canvas速查手册</a> | `canvas` | canvas API方法集合，一目了然。
+<a href="https://www.w3.org/Graphics/SVG/" target="_blank">W3C官网-SVG</a> | `svg` | W3C官网，SVG文档。
 <a href="http://www.t086.com/code/vml/" target="_blank">VML 参考手册</a> | `VML(IE)` | *微软开发的在低端IE上运行的“SVG”。
-<a href="http://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 使用频率最高的ECMAScript6文档。
-<a href="https://ecma262.docschina.org/" target="_blank">ECMA International(6) China | `ES6` | ECMAScript6官方文档，部分中文翻译。
+<a href="https://www.typescriptlang.org/docs/handbook/intro.html" target="_blank">TypeScript官方手册</a> | `typescript` | TypeScript官方手册。
+<a href="https://www.ecma-international.org/publications-and-standards/standards/" target="_blank">ECMA standards | `ecma` | ECMAScript 协议标准。
 <a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank">ECMA International(6)</a> | `ES6` | ECMAScript6官方文档。
+<a href="https://ecma262.docschina.org/" target="_blank">ECMA International(6) China | `ES6` | ECMAScript6官方文档，部分中文翻译。
 <a href="http://es6-features.org/" target="_blank">ECMA6 features | `ES6` | 通俗易懂的ECMAScript6特性demos。
-<a href="https://www.tslang.cn/docs/home.html" target="_blank">TypeScript中文文档</a> | `typescript` | TypeScript官网文档。
-<a href="https://zhongsp.gitbooks.io/typescript-handbook/content/" target="_blank">Typescript Handbook</a> | `typescript` | TypeScript使用手册。
+<a href="http://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 使用频率最高的ECMAScript6文档。
 <a href="http://www.html5plus.org/doc/h5p.html" target="_blank">Web API Reference</a> | `html5` | HTML5 web API查询，如摄像头/地理位置。
 <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect" target="_blank">Safari HTML Ref查询</a> | `html` | Safari webview的HTML标签查询，某些ios特殊的属性或表现可以查这个。
+<a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网网。
 <a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
-<a href="https://www.dartcn.com/guides/language/language-tour" target="_blank">Dart中文网</a> | `dart` | dart语言中文网。
+<a href="https://dart.dev/" target="_blank">Dart官网</a> | `dart` | dart语言英文官网。
+<a href="https://www.dartcn.com/guides/language/language-tour" target="_blank">Dart中文网</a> | `dart` | dart语言中文学习网。
 <a href="https://www.rfc-editor.org/" target="_blank">RFC规范官网</a> | `rfc/http` | RFC协议官网，HTTP协议等内容。
+<a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">Media Types</a> | `MIME` | 媒体类型，MIME。
 
 
 ### 1.2 兼容/查询
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://caniuse.com/" target="_blank">can i use</a> | `--` | 使用频率最高的兼容支持查询网站。
+<a href="https://caniuse.com/" target="_blank">can i use</a> | `caniuse` | 使用频率最高的兼容支持查询网站。
 <a href="http://kangax.github.io/compat-table/es6/" target="_blank">ES兼容查询</a> | `js` | ECMAScript兼容查询。
-<a href="http://iosfonts.com/" target="_blank">IOS字体支持查询</a> | `ios font` | IOS系统自带字体查询。
+<a href="http://iosfonts.com/" target="_blank">iOS字体支持查询</a> | `ios font` | IOS系统自带字体查询。
 <a href="https://www.bootcss.com/p/websafecolors/" target="_blank">Web安全色查询</a> | `web color` | 为了尽量让用户看到色彩相同的网页,请尽量使用216色的web安全色。
-<a href="http://tongji.baidu.com/data/browser" target="_blank">浏览器份额统计</a> | `browser` | 百度统计的市面上浏览器份额，（要Flash，Chrome不一定能看）。
+<a href="http://tongji.baidu.com/data/browser" target="_blank">浏览器份额统计</a> | `browser` | 百度统计的市面上浏览器/app份额。
 
 ### 1.3 CSS工具
 #### 1.3.1 预处理
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="http://www.css88.com/doc/less/features/" target="_blank">less文档</a> | `less` | 易上手的CSS预处理工具。
+<a href="https://lesscss.org/" target="_blank">less文档</a> | `less` | 易上手的CSS预处理工具。
 <a href="https://sass-guidelin.es/zh/" target="_blank">sass 文档</a> | `sass` | 热门的CSS预处理工具。
 <a href="http://stylus-lang.com/" target="_blank">stylus 文档</a> | `stylus` | 功能丰富的CSS预处理工具。
 <a href="http://www.zhangxinxu.com/jq/stylus/" target="_blank">stylus 文档(张旭鑫)</a> | `stylus` | stylus中文文档。
+<a href="https://asmcss.com/" target="_blank">Assembler CSS 文档</a> | `asmcss` | Assembler CSS 官方文档，Just-in-time。
 
 #### 1.3.2 后处理
 地址 | 标签 | 说明
@@ -303,6 +308,12 @@
 <a href="https://github.com/kimamula/ts-transformer-keys#readme" target="_blank">ts-transformer-keys</a> | `ts-transformer-keys` | 用于提取interface的键值数组（需要用webpack）。
 <a href="https://github.com/tamino-martinius/node-ts-dedent#readme" target="_blank">ts-dedent</a> | `ts-dedent` | node端打印正常换行的log。
 
+#### 1.4.12 其他
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/sveltejs/svelte" target="_blank">Svelte</a> | `svelte` | 无虚拟DOM的轻量Web应用编译器。
+
+
 ### 1.5 Vue
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -324,7 +335,7 @@
 <a href="https://zh.nuxtjs.org/" target="_blank">Nuxt.JS 文档</a> | `nuxtjs` | Vue的服务端渲染应用框架。
 <a href="https://github.com/vitejs/vite" target="_blank">ViteJS 文档</a> | `vitejs` | 无bundle的Vue轻量前端项目构建工具。
 <a href="https://github.com/vuejs/vue-class-component#readme" target="_blank">vue-class-component</a> | `vue-class-component` | Vue的Component装饰器封装，用于jsx/tsx的vue组件写法。
-
+<a href="https://formilyjs.org/" target="_blank">Formily</a> | `formilyjs` | Element/Antd的表单DSL解决方案。
 
 
 ### 1.6 React
@@ -368,20 +379,20 @@
 <a href="https://www.reactboilerplate.com/" target="_blank">React Boilerplate</a> | `react-boilerplate` | 性能优先的一个典型的React项目模板。
 <a href="https://github.com/sstur/react-rte" target="_blank">React RTE</a> | `react-rte` | 富文本编辑器，基于draftJS。
 
-
-
 ### 1.7 Nodejs和构建
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://www.npmjs.com/" target="_blank">npm</a> | `npm` | node包统一平台。
 <a href="https://yarn.bootcss.com/" target="_blank">yarn</a> | `yarn` | 高速的node包管理器。
 <a href="https://pnpm.js.org/" target="_blank">pnpm</a> | `pnpm` | 快速高效的node包统一管理器。
+<a href="https://storybook.js.org/" target="_blank">StoryBook</a> | `storybookjs` | 用于独立开发React、Vue和Angular的UI组件库。
 <a href="https://unpkg.com/" target="_blank">unpkg</a> | `unpkg` | 国外公共静态资源CDN，适用于 npm 上的所有内容。
 <a href="http://nodejs.cn/api/" target="_blank">nodejs api</a> | `node` | Node官方文档。
 <a href="https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts" target="_blank">Deno api</a> | `deno` | Deno官方文档（Nodejs.next）。
 台。
 <a href="https://lerna.js.org/" target="_blank">Lerna</a> | `lerna` | 好用的多包管理工具，monorepo。
 <a href="https://github.com/ds300/patch-package#readme" target="_blank">patch-package</a> | `patch-package ` | 给node_modules打补丁的工具包。
+<a href="https://v8.dev/docs" target="_blank">V8 dev docs</a> | `V8` | js V8引擎文档。
 <a href="https://v8docs.nodesource.com/node-10.6/index.html" target="_blank">V8</a> | `v8` |  V8引擎介绍。
 <a href="https://docs.docker.com/" target="_blank">docker</a> | `docker` | 应用容器引擎Docker。
 <a href="https://man.linuxde.net/" target="_blank">Linux</a> | `linux` | Linux命令查询手册。
@@ -391,16 +402,14 @@
 <a href="https://github.com/chalk/chalk" target="_blank">chalk</a> | `chalk ` | 控制台命令行输出样式工具，主要控制颜色。
 
 
-
-
-
 #### 1.7.1 构建
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://prettier.io/" target="_blank">Prettier</a> | `prettier ` | 对代码无侵害的代码格式化工具。
 <a href="https://ejs.bootcss.com/" target="_blank">ejs</a> | `ejs` | 简单上手的html模板引擎。
-<a href="https://pugjs.org/language/includes.html" target="_blank">pug</a> | `pug` | html模板引擎。
-<a href="http://www.nodeclass.com/api/jade.html" target="_blank">jade</a> | `jade` | html模板引擎。
+<a href="http://mustache.github.io/" target="_blank">Mustache</a> | `mustache` | 适用于多语言的html模板库。
+<a href="https://pugjs.org/language/includes.html" target="_blank">pug</a> | `pug` | html模板库。
+<a href="http://www.nodeclass.com/api/jade.html" target="_blank">jade</a> | `jade` | html模板库。
 <a href="https://www.gulpjs.com.cn/docs/" target="_blank">gulp 配置文档</a> | `gulp` | 自动化构建工具。
 <a href="https://gulpjs.com/plugins/" target="_blank">gulp plugins</a> | `gulp` | gulp插件中心。
 <a href="https://grunt.docschina.org/" target="_blank">grunt 配置文档</a> | `grunt` | 自动化构建工具。
@@ -416,8 +425,8 @@
 <a href="https://github.com/airbnb/ts-migrate" target="_blank">ts-migrate</a> | `ts-migrate` | 一款js转ts(TypeScript)的工具。
 <a href="https://github.com/kimmobrunfeldt/concurrently#readme" target="_blank">Concurrently</a> | `concurrently` | 一款Nodejs的命名行控制工具，实现同时运行多条命令。
 <a href="https://github.com/evanw/esbuild" target="_blank">esbuild</a> | `esbuild` | 一款极快的js打包和压缩工具。
-<a href="https://github.com/svg/svgo" target="_blank">svgo</a> | `svgo ` | 一款处理svg的node插件。
-
+<a href="https://github.com/addyosmani/critical#readme" target="_blank">critical</a> | `critical` | 一款从HTML中提取相关CSS的工具。
+<a href="https://modernjs.dev/" target="_blank">ModernJS</a> | `modernjs` | 前端工程化体系工具，字节跳动。
 
 #### 1.7.2 服务端
 地址 | 标签 | 说明
@@ -447,12 +456,11 @@
 <a href="https://github.com/websockets/ws" target="_blank">ws</a> | `ws` | WebSocket的一个nodejs包。
 <a href="https://github.com/digitalocean/nginxconfig.io" target="_blank">nginxconfig.io</a> | `nginxconfig.io` | 在线生成nginx配置的工具。
 
-
-
 #### 1.7.3 GraphQL
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://github.com/hasura/graphql-engine" target="_blank">hasura graphql-engine</a> | `hasura` | 一款强大的graphql引擎方案。
+<a href="https://graphql.org/graphql-js/" target="_blank">Graphql-js</a> | `graphql` | GraphQL的js实现。
+<a href="https://github.com/hasura/graphql-engine" target="_blank">hasura graphql-engine</a> | `hasura` | 一款强大的GraphQL引擎方案。
 <a href="https://github.com/apollographql/apollo-client" target="_blank">apollo-client</a> | `apollo-client` | 适用于每个UI框架和GraphQL服务器的方案。
 
 #### 1.7.4 微前端
@@ -463,8 +471,6 @@
 <a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank">Module Federation</a> | `module-federation` | 构建时共享模块为主要特点的微前端解决方案，webpack（5）的实现。
 <a href="https://fronts.js.org/" target="_blank">R/Fronts</a> | `fronts` | 渐进式微前端框架，基于webpack module-federation。
 <a href="https://github.com/jsdom/jsdom" target="_blank">jsdom</a> | `jsdom` | 在node环境上实现DOM操作的封装库。
-
-
 
 ### 1.8 Hybird和跨端
 地址 | 标签 | 说明
@@ -485,7 +491,8 @@
 <a href="https://weex.apache.org/zh/" target="_blank">Weex文档</a> | `跨端` | 前几年热门的vue语法跨端工具，现在都不维护了。
 <a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex-UI文档</a> | `跨端/weex` | weex的UI组件库。
 <a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具。
-<a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具。
+<a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具，阿里。
+<a href="https://hippyjs.org/" target="_blank">Hippy文档</a> | `跨端` | 腾讯的一款混合跨端框架。
 <a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
 <a href="https://guoshuyu.cn/home/wx/Flutter-1.html" target="_blank">Flutter文档</a> | `跨端` | 超火的Dart语法的跨端开发工具。
 <a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | windows应用的开发。
@@ -497,6 +504,7 @@
 ### 1.9 辅助工具
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a> | `stackoverflow` | 技术问题排忧解难的友好社区。
 <a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析npm软件包的体积和加载性能的网站。
 <a href="https://www.typescriptlang.org/dt/search?search=" target="_blank">Ts声明文件查询</a> | `joi` | 各类库的TypeScript声明文件查询网站。
 <a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank">正则表达式30分钟</a> | `regexp` | 正则上手教程。
@@ -520,6 +528,7 @@
 <a href="https://www.materialui.co/colors" target="_blank">materialui</a> | `materialui` | 快速色值选择
 <a href="https://carbon.now.sh/" target="_blank">carbon</a> | `carbon` | 生成写博客时代码的美腻截图
 <a href="https://tinypng.com/" target="_blank">tinypng</a> | `Tinypng` | 压缩png和jpeg图片
+<a href="https://github.com/svg/svgo" target="_blank">svgo</a> | `svgo` | 压缩SVG图形文件工具
 <a href="https://jakearchibald.github.io/svgomg/" target="_blank">svgomg</a> | `SVGOMG` | 压缩SVG图形
 <a href="https://imagemagick.org/index.php" target="_blank">ImageMagick</a> | `imagemagick` | 后台运用极广的图片处理工具。
 <a href="https://github.com/javierbyte/img2css" target="_blank">img2css</a> | `img2css` | 一个有趣的库，利用box-shadow将图片以CSS的方式呈现。
@@ -535,7 +544,7 @@
 <a href="https://www.diffchecker.com/" target="_blank">diffchecker.com</a> | `diffchecker` | 在线文本/文件diff工具。
 <a href="https://isoflow.io/" target="_blank">isoflow.io</a> | `isoflow` | 在线流程图绘制工具。
 <a href="https://github.com/n8n-io/n8n" target="_blank"> n8n </a> | `n8n` | 基于自由和开放的公平代码许可节点的工作流自动化工具。轻松自动化跨不同服务的任务。
-
+<a href="https://zijian.aliyun.com/detect/dns/DNS_PING-d31c5446aff9db99decd9d9d944b11c5-1640605424801" target="_blank"> 阿里云 DNS检测 </a> | `dns` | 域名DNS检测网站工具，阿里云。
 
 ### 1.10 测试、安全及加密
 #### 1.10.1 单元测试
@@ -546,6 +555,7 @@
 <a href="https://www.cypress.io/" target="_blank">Cypress官网</a> | `cypress` | 一款单元测试集成平台工具。
 <a href="https://github.com/avajs/ava" target="_blank">AvaJs</a> | `avajs` | 一款快速的测试工具。
 <a href="https://enzymejs.github.io/enzyme/" target="_blank">enzyme官网</a> | `enzyme` | 一款React单元测试工具，可以测hook。
+<a href="https://github.com/marmelab/gremlins.js" target="_blank">gremlins.js</a> | `gremlins` | 一款node及浏览器的Monkey Test工具。
 
 
 #### 1.10.2 安全及加密知识
@@ -579,7 +589,7 @@
 <a href="https://www.sonarlint.org/vscode/" target="_blank">SonarLint vscode</a> | `sonarlint` | js/ts工程代码质量验证的vscode插件
 <a href="https://github.com/google/eng-practices" target="_blank">Google eng-practices</a> | `eng-practices` | 谷歌工程实践文档
 <a href="https://github.com/cheeriojs/cheerio#readme" target="_blank">Cheerio</a> | `cheerio` | 用于web抓取的工具。
-<a href="https://pptr.dev/" target="_blank">Puppeteer官网</a> | `puppeteer` | 强大的自动化工具。
+<a href="https://pptr.dev/" target="_blank">Puppeteer官网</a> | `puppeteer` | 基于chromium的无头浏览器，可用于爬虫等web自动化。
 <a href="https://www.selenium.dev/" target="_blank">Selenium官网</a> | `selenium` | 强大的用于Web应用程序测试的工具。
 <a href="https://github.com/GoogleChrome/lighthouse" target="_blank">Lighthouse</a> | `lighthouse` | Google标准的web性能检测工具，Chrome自带。
 
@@ -615,8 +625,6 @@
 <a href="https://gitlens.amod.io/" target="_blank">GitLens</a> | `gitlens` | git源代码管理插件
 <a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager" target="_blank">Project Manager</a> | `project-manager` | 本地项目管理
 <a href="https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster" target="_blank">JavaScript Booster</a> | `javascript-booster` | js/ts快速重构优化工具，比如将var换为const/let。
-
-
 
 ------------------
 
@@ -693,6 +701,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 ### 更新信息
+- 2021.12.26：调整/更新链接；
 - 2021.09.30：更新/增加链接；模版依赖修复；
 - 2021.08.31：修改封装函数；增加链接；
 - 2021.07.31：更新/增加链接；
