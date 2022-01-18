@@ -1,3 +1,5 @@
+// document: https://prettier.io/docs/en/configuration.html
+
 module.exports = {
   printWidth: 100,
   tabWidth: 2,

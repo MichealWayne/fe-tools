@@ -1,20 +1,22 @@
 /**
  * vue config
+ * @author Wayne
+ * @update 2021-01-06
  */
- 
+
 const webpack = require('webpack');
-const getTimeStr = require('ijijin_builder/base/lib/util/util').getTimeStr;
 const CONFIG = require('./package.json');
 
-let vuePages = {
-    index:{
-        entry: `src/main.js`,
-        template: `src/index.html`,
-        filename: `index.html`
-    }
+const vuePages = {
+  index: {
+    entry: `src/main.js`,
+    template: `src/index.html`,
+    filename: `index.html`,
+  },
 };
 
-const useSourceMap = !process.env.PROD && true;
+const useSourceMap = !process.env.PROD;
+
 // top banner
 const MY_BANNER = `
   ${CONFIG.name}
@@ -22,56 +24,42 @@ const MY_BANNER = `
   @description: ${CONFIG.description}
   @author: ${CONFIG.author}
   @task: ${CONFIG.task || ''}
-  @build time: ${ getTimeStr() }
+  @build time: ${new Date()}
 `;
 
+// document https://cli.vuejs.org/zh/config/
 module.exports = {
-    publicPath: './',
-    
-	productionSourceMap: useSourceMap,
-	css: {
-		sourceMap: useSourceMap
-	},
-	
-    devServer: {
-        port: '3000',
-        proxy: false	// proxy config
-    },
+  publicPath: './',
 
-    configureWebpack: config => {
-		let _plugins = [];
-		
-		if (process.env.NODE_ENV === 'production') _plugins.push(new webpack.IgnorePlugin(/mock\/*/));
-		if (process.env.PROD) _plugins.push(new webpack.BannerPlugin(MY_BANNER));
-		
-        return {
-			plugins: _plugins,
-			
-            externals: {
-                'vue': 'Vue',
-                'vue-router': 'VueRouter',
-                'axios': 'axios'
-            }
-        }
-    },
-	
-	chainWebpack: config => {
-        config.module
-            .rule('ijijin')
-            .test(/\.js$/)
-            .include
-            .add(/ijijin-view/)
-            .end()
-            .use('babel')
-            .loader('babel-loader')
-            .options({
-                presets: [
-                    ['@babel/preset-env', { modules: false }]
-                ]
-            });
-    },
+  productionSourceMap: useSourceMap,
+  css: {
+    sourceMap: useSourceMap,
+  },
 
-    pages: {
-        ...vuePages
-    }
+  devServer: {
+    port: '3000',
+    // proxy config
+    proxy: false,
+  },
+
+  configureWebpack: () => {
+    let plugins = [];
+
+    if (process.env.NODE_ENV === 'production') plugins.push(new webpack.IgnorePlugin(/mock\/*/));
+    if (process.env.PROD) plugins.push(new webpack.BannerPlugin(MY_BANNER));
+
+    return {
+      plugins,
+
+      externals: {
+        vue: 'Vue',
+        'vue-router': 'VueRouter',
+        axios: 'axios',
+      },
+    };
+  },
+
+  pages: {
+    ...vuePages,
+  },
 };

@@ -9,12 +9,12 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
 
 const pwaConfig = options => ({
-    plugins: [
-        new ManifestPlugin({
-            fileName: 'manifest.json',
-            publicPath: './'
-        }),
-    ]
-})
+  plugins: [
+    new ManifestPlugin({
+      fileName: 'manifest.json',
+      publicPath: './',
+    }),
+  ],
+});
 
 module.exports = options => webpackMerge(baseConfig(options), pwaConfig(options));

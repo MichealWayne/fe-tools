@@ -23,7 +23,7 @@
 - [1.11 IDE插件](#111-ide插件)
 
 
-### 1.1 HTML/CSS/JavaScript/Dart
+### 1.1 HTML/CSS/JavaScript/WASM/Dart
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN 文档手册</a> | `html/css/js` | Mozilla出品的一个很全很有用的前端查询/学习网站。
@@ -40,12 +40,13 @@
 <a href="http://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 使用频率最高的ECMAScript6文档。
 <a href="http://www.html5plus.org/doc/h5p.html" target="_blank">Web API Reference</a> | `html5` | HTML5 web API查询，如摄像头/地理位置。
 <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect" target="_blank">Safari HTML Ref查询</a> | `html` | Safari webview的HTML标签查询，某些ios特殊的属性或表现可以查这个。
-<a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网网。
-<a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
 <a href="https://dart.dev/" target="_blank">Dart官网</a> | `dart` | dart语言英文官网。
 <a href="https://www.dartcn.com/guides/language/language-tour" target="_blank">Dart中文网</a> | `dart` | dart语言中文学习网。
 <a href="https://www.rfc-editor.org/" target="_blank">RFC规范官网</a> | `rfc/http` | RFC协议官网，HTTP协议等内容。
 <a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">Media Types</a> | `MIME` | 媒体类型，MIME。
+<a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网网。
+<a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
+<a href="https://docs.krustlet.dev/" target="_blank">Krustlet 官网</a> | `krustlet` | 一款 Web Assembly 框架。
 
 
 ### 1.2 兼容/查询
@@ -53,7 +54,7 @@
 ---- | ---- | ----
 <a href="https://caniuse.com/" target="_blank">can i use</a> | `caniuse` | 使用频率最高的兼容支持查询网站。
 <a href="http://kangax.github.io/compat-table/es6/" target="_blank">ES兼容查询</a> | `js` | ECMAScript兼容查询。
-<a href="http://iosfonts.com/" target="_blank">iOS字体支持查询</a> | `ios font` | IOS系统自带字体查询。
+<a href="http://iosfonts.com/" target="_blank">iOS字体</a> | `ios font` | iOS系统自带字体查询。
 <a href="https://www.bootcss.com/p/websafecolors/" target="_blank">Web安全色查询</a> | `web color` | 为了尽量让用户看到色彩相同的网页,请尽量使用216色的web安全色。
 <a href="http://tongji.baidu.com/data/browser" target="_blank">浏览器份额统计</a> | `browser` | 百度统计的市面上浏览器/app份额。
 
@@ -400,6 +401,7 @@
 <a href="https://github.com/protobi/js-xlsx/tree/beta#readme" target="_blank">js-xlsx</a> | `js-xlsx` | xlsx的编辑和处理库。
 <a href="https://github.com/shelljs/shelljs" target="_blank">ShellJs</a> | `shelljs` | 用nodejs实现shell常用命令。
 <a href="https://github.com/chalk/chalk" target="_blank">chalk</a> | `chalk ` | 控制台命令行输出样式工具，主要控制颜色。
+<a href="https://github.com/node-schedule/node-schedule" target="_blank">node-schedule</a> | `node-schedule` | 适用于nodejs的定时任务工具。
 
 
 #### 1.7.1 构建
@@ -434,6 +436,7 @@
 <a href="http://www.expressjs.com.cn/" target="_blank">express 配置文档</a> | `express` | 轻量web应用程序开发框架。
 <a href="https://koajs.cn/#-application-" target="_blank">Koa 文档</a> | `koajs` | web应用程序开发框架。
 <a href="https://www.fastify.io/" target="_blank">Fastify 官网</a> | `fastify` | 标称当代最快的轻量web应用程序开发框架，重点是JSON schema加速。
+<a href="http://www.midwayjs.org/" target="_blank">Midway 官网</a> | `midway` | 支持了 Web / 全栈 / 微服务 / RPC / Socket / Serverless 的 web 应用程序开发框架，阿里淘系。
 <a href="https://docs.feathersjs.com/" target="_blank">feathers.js</a> | `feathersjs` | 轻量web应用程序开发框架。
 <a href="https://docs.nestjs.com/" target="_blank">Nest.js</a> | `nestjs` | 强大的Web应用框架。
 <a href="https://github.com/nuysoft/Mock/wiki" target="_blank">Mockjs 配置文档</a> | `mockjs` | 接口数据模拟工具，可以在客户端和服务端使用。
@@ -472,6 +475,16 @@
 <a href="https://fronts.js.org/" target="_blank">R/Fronts</a> | `fronts` | 渐进式微前端框架，基于webpack module-federation。
 <a href="https://github.com/jsdom/jsdom" target="_blank">jsdom</a> | `jsdom` | 在node环境上实现DOM操作的封装库。
 
+#### 1.7.5 云和Serverless
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://wasmedge.org/" target="_blank">WasmEdge 官网</a> | `wasmedge` | 一款与WebAssembly有关的云原生及serverless框架。
+<a href="https://www.serverless.com/" target="_blank">Serverless Framework 官网</a> | `serverless` | 快速建立node Serverless 服务的框架，支持腾讯云 SCF，AWS Lambda等。
+<a href="https://aws.amazon.com/cn/campaigns/lambda/" target="_blank">AWS Lambda</a> | `aws-lambda` | 经典，亚马逊amazon serverless计算服务。
+<a href="https://qingfuwu.cn/" target="_blank">字节轻服务 官网</a> | `qingfuwu` | 字节轻服务，支持Serverless（FaaS）、CDN等服务，有免费档。
+<a href="https://help.aliyun.com/document_detail/154438.html" target="_blank">阿里云 FC</a> | `qingfuwu` | 阿里云函数计算服务，支持Serverless（FaaS）。
+<a href="https://cloud.tencent.com/document/product/583" target="_blank">腾讯云 SFC</a> | `qingfuwu` | 腾讯云云函数服务，支持Serverless（FaaS）。
+
 ### 1.8 Hybird和跨端
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -498,8 +511,6 @@
 <a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | windows应用的开发。
 <a href="https://developer.chrome.com/extensions" target="_blank">chrome extension</a> | `chrome-extension` | Chrome拓展程序官方文档。
 <a href="https://github.com/sxei/chrome-plugin-demo" target="_blank">chrome-plugin-demo</a> | `chrome-plugin, chrome-extension` | 一篇很好的Chrome拓展程序开发教程，有demo。
-
-
 
 ### 1.9 辅助工具
 地址 | 标签 | 说明
@@ -545,6 +556,7 @@
 <a href="https://isoflow.io/" target="_blank">isoflow.io</a> | `isoflow` | 在线流程图绘制工具。
 <a href="https://github.com/n8n-io/n8n" target="_blank"> n8n </a> | `n8n` | 基于自由和开放的公平代码许可节点的工作流自动化工具。轻松自动化跨不同服务的任务。
 <a href="https://zijian.aliyun.com/detect/dns/DNS_PING-d31c5446aff9db99decd9d9d944b11c5-1640605424801" target="_blank"> 阿里云 DNS检测 </a> | `dns` | 域名DNS检测网站工具，阿里云。
+<a href="https://tabatkins.github.io/railroad-diagrams/generator.html" target="_blank"> Railroad Diagrams </a> | `railroad-diagrams` | 在线绘制铁路图的网站工具。
 
 ### 1.10 测试、安全及加密
 #### 1.10.1 单元测试
@@ -651,7 +663,7 @@
 
 ### 安装方式
 
-clone本仓库到本地，点击“加载已解压的拓展程序”选择本地仓库目录下的chrome-extension目录。
+clone本仓库到本地，在`“扩展程序”界面`点击`“加载已解压的拓展程序”`选择本地仓库目录下的chrome-extension目录。
 
 ------------------
 
@@ -663,11 +675,12 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 └─nodejs
     ├─base
     ├─imgbuild
-    ├─pagebuild
+    ├─servebuild
     └─typicalbuild
         ├─react
         ├─vue
         ├─gulp+webpack		
+        ├─webpack + ts
         └─webpack
 ```
 
@@ -682,8 +695,7 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 
 
 ### 2.3 nodejs 服务端、脚本
-使用可见[ijijin-cli](https://www.npmjs.com/package/ijijin-cli)
-使用可见[ijijin_builder](https://www.npmjs.com/package/ijijin_builder)
+`todo 更新调用`
 
 #### 3.1.1 base 方法
 - fs：文件操作
@@ -691,16 +703,20 @@ clone本仓库到本地，点击“加载已解压的拓展程序”选择本地
 - util：其他工具
 
 #### 3.1.2 pagebuild 页面构建
+`已废弃`
 
 #### 3.1.3 typicalbuild 典型项目构建
+
 - gulp+webpack
 - webpack
+- webpack + ts
 - vue
 - react
 
 
 
 ### 更新信息
+- 2022.01.16：调整/更新链接；typebuild项目模版依赖处理；
 - 2021.12.26：调整/更新链接；
 - 2021.09.30：更新/增加链接；模版依赖修复；
 - 2021.08.31：修改封装函数；增加链接；

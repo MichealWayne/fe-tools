@@ -1,9 +1,9 @@
 {
-  "name": "demo",
+  "name": "react-demo",
   "version": "1.0.0",
   "platform": "mobile",
-  "task": "fs-test",
-  "author": "demo-whw",
+  "task": "test",
+  "author": "wayne",
   "description": "a typical webpack config project.contain less, babel, eslint.",
   "main": "index.js",
   "scripts": {
@@ -39,6 +39,7 @@
     "eslint-config-enough": "^0.3.0",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-typescript": "^0.14.0",
     "file-loader": "^3.0.1",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "glob": "^7.1.2",
@@ -93,156 +94,10 @@
       "react-hot-loader/babel"
     ]
   },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "enough",
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "plugins": [
-      "react"
-    ],
-    "rules": {
-      "react/jsx-uses-react": 2,
-      "react/jsx-uses-vars": 2,
-      "react/react-in-jsx-scope": 2,
-      "object-curly-spacing": [
-        0
-      ],
-      "array-callback-return": [
-        0
-      ],
-      "arrow-parens": [
-        0
-      ],
-      "arrow-body-style": [
-        0
-      ],
-      "no-var": [
-        0
-      ],
-      "no-trailing-spaces": [
-        0
-      ],
-      "space-before-blocks": [
-        0
-      ],
-      "prefer-const": [
-        0
-      ],
-      "prefer-arrow-callback": [
-        0
-      ],
-      "new-cap": [
-        0
-      ],
-      "quote-props": [
-        0
-      ],
-      "valid-jsdoc": [
-        0
-      ],
-      "prefer-spread": [
-        0
-      ],
-      "keyword-space": [
-        0
-      ],
-      "dot-notation": [
-        0
-      ],
-      "prefer-rest-params": [
-        0
-      ],
-      "padded-blocks": [
-        0
-      ],
-      "no-undef": [
-        0
-      ],
-      "no-multi-spaces": [
-        0
-      ],
-      "no-unused-expressions": [
-        0
-      ],
-      "no-unreachable": [
-        0
-      ],
-      "no-extra-semi": [
-        0
-      ],
-      "no-empty": [
-        0
-      ],
-      "no-array-constructor": [
-        0
-      ],
-      "quotes": [
-        0
-      ],
-      "no-extra-parens": [
-        0
-      ],
-      "space-in-parens": [
-        0
-      ],
-      "wrap-iife": [
-        0
-      ],
-      "object-shorthand": [
-        0
-      ],
-      "func-call-spacing": [
-        0
-      ],
-      "eqeqeq": [
-        0
-      ],
-      "indent": [
-        0
-      ],
-      "semi": [
-        0
-      ],
-      "no-unused-vars": [
-        2,
-        {
-          "vars": "local",
-          "args": "none"
-        }
-      ],
-      "no-mixed-spaces-and-tabs": [
-        0
-      ],
-      "no-console": [
-        0
-      ],
-      "space-before-function-paren": [
-        0
-      ],
-      "spaced-comment": [
-        0
-      ],
-      "no-alert": [
-        0
-      ],
-      "linebreak-style": [
-        "off",
-        "windows"
-      ]
-    }
-  },
-  "browserslist": [
-    "last 2 versions",
-    "android 4",
-    "ios 8"
-  ],
   "port": "3000",
   "proxy": {
-    "/public/*": {
-      "target": "http://testfund.10jqka.com.cn",
+    "/baidu/*": {
+      "target": "http://www.baidu.com",
       "changeOrigin": true
     }
   },

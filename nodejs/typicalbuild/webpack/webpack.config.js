@@ -1,10 +1,11 @@
 /**
  * @config webpack.config
  * @author Wayne
+ * @update 2022-01-16
  */
 
 const glob = require('glob');
-const path = require('path');
+const { resolve, join } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LessFunc = require('less-plugin-functions');
@@ -23,6 +24,7 @@ const MY_BANNER = `
 
 const IMAGE_LIMIT = 5000; // base64 limit
 
+// document https://webpack.js.org/concepts/
 module.exports = (options = {}) => {
   const entries = glob.sync('./src/**/enter.js');
   const entryJSList = {};
@@ -69,17 +71,17 @@ module.exports = (options = {}) => {
     resolve: {
       extensions: ['.js', '.css', 'less'],
       alias: {
-        '@': path.resolve(__dirname, 'src'),
-        '~': path.resolve(__dirname, 'src'),
-        mock: path.resolve(__dirname, 'src/mock'),
-        lib: path.resolve(__dirname, 'src/js/lib'),
-        css: path.resolve(__dirname, 'src/css'),
-        less: path.resolve(__dirname, 'src/less'),
+        '@': resolve(__dirname, 'src'),
+        '~': resolve(__dirname, 'src'),
+        mock: resolve(__dirname, 'src/mock'),
+        lib: resolve(__dirname, 'src/js/lib'),
+        css: resolve(__dirname, 'src/css'),
+        less: resolve(__dirname, 'src/less'),
       },
     },
 
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: resolve(__dirname, 'dist'),
       filename: options.dev
         ? '[name].js'
         : //'js/[name].js',
@@ -94,7 +96,6 @@ module.exports = (options = {}) => {
         // js
         {
           test: /\.js$/,
-          // exclude: /node_modules/,
           use: [
             {
               loader: 'babel-loader',
@@ -112,7 +113,7 @@ module.exports = (options = {}) => {
           use: {
             loader: 'html-loader',
             options: {
-              root: path.resolve(__dirname, 'src'),
+              root: resolve(__dirname, 'src'),
               attrs: ['img:src'],
             },
           },
@@ -176,7 +177,7 @@ module.exports = (options = {}) => {
     devServer: {
       port: 3000,
       hot: true,
-      contentBase: path.join(__dirname, 'src'),
+      contentBase: join(__dirname, 'src'),
       overlay: true,
       historyApiFallback: {
         index: '/assets/',

@@ -1,7 +1,7 @@
 {
   "name": "webpack-ts-demo",
-  "version": "0.1.0",
-  "task": "fs-test",
+  "version": "0.1.1",
+  "task": "test",
   "author": "webpack-ts-demo",
   "description": "a typical webpack config project.contain less, typescript, eslint.",
   "main": "index.js",
@@ -14,7 +14,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-typescript": "^7.15.0",
-    "@typescript-eslint/parser": "^4.29.3",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^4.33.0",
     "autoprefixer": "^9.4.4",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
@@ -28,6 +29,7 @@
     "eslint": "^4.17.0",
     "eslint-config-enough": "^0.3.0",
     "eslint-loader": "^2.1.1",
+    "eslint-plugin-typescript": "^0.14.0",
     "file-loader": "^3.0.1",
     "glob": "^7.1.2",
     "html-loader": "^0.5.5",
@@ -45,7 +47,7 @@
     "typescript": "^4.4.2",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.1",
-    "webpack-cli": "^3.2.1",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
