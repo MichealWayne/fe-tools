@@ -121,8 +121,8 @@
 #### 1.4.1 库
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="http://www.css88.com/jqapi-1.9/" target="_blank">jQuery api</a> | `jQuery` | 红极一时的js库。
-<a href="http://www.css88.com/doc/zeptojs_api/" target="_blank">Zepto api</a> | `Zepto` | 移动端使用的轻量级“jQuery”。
+<a href="http://www.css88.com/jqapi-1.9/" target="_blank">jQueryJs</a> | `jQuery` | 红极一时的js库。
+<a href="http://www.css88.com/doc/zeptojs_api/" target="_blank">ZeptoJs</a> | `Zepto` | 移动端使用的轻量级“jQuery”。
 <a href="https://github.com/basecss/city" target="_blank">city.js</a> | `city` | 全国行政区划分数据文件。
 <a href="http://phaser.io/" target="_blank">phaser.js</a> | `phaser` | 2D游戏前端库。
 <a href="http://fabricjs.com/" target="_blank">fabric.js</a> | `fabricjs` | 有名的svg和canvas相互转换的封装库。
@@ -179,6 +179,7 @@
 <a href="https://nosir.github.io/cleave.js/" target="_blank">cleave.js</a> | `cleave.js` | 一款好用的input输入控制插件。
 <a href="https://github.com/jackmoore/autosize" target="_blank">autosize.js</a> | `autosize.js` | 一款好用的`<textarea/>`高度自适应工具。
 <a href="https://github.com/eligrey/FileSaver.js" target="_blank">FileSaver.js</a> | `FileSaver.js` | 网页端字符/图片/文件另存为插件。
+<a href="http://danml.com/download.html" target="_blank">download.js</a> | `download.js` | 网页端字符/图片/文件另存为插件，比FileSaver快一点。
 <a href="https://github.com/mailru/FileAPI" target="_blank">FileAPI.js</a> | `FileAPI` | 控制文件上传的插件。
 <a href="https://github.com/alexgibson/shake.js" target="_blank">shake.js</a> | `shake.js` | 移动端摇晃震动监听插件。
 <a href="https://atomiks.github.io/tippyjs/" target="_blank">Tippy.js</a> | `tippy.js` | 好用的气泡组件，有React版。
@@ -195,7 +196,7 @@
 ##### 视/音频
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="http://www.mediaelementjs.com/" target="_blank">mediaelement.js</a> | `mediaelementjs` | 一款视频控制插件。
+<a href="http://www.mediaelementjs.com/" target="_blank">MediaElement.js</a> | `mediaelementjs` | 一款视频控制插件。
 <a href="https://videojs.com/" target="_blank">video.js</a> | `videojs` | 一款视频控制插件。
 <a href="https://github.com/bilibili/flv.js" target="_blank">flv.js</a> | `flvjs` | 一款无需flash的flv播放插件。
 <a href="https://github.com/goldfire/howler.js#documentation" target="_blank">howler.js</a> | `howlerjs` | 视、音频控制插件。
@@ -225,9 +226,9 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://github.com/pvorb/node-md5" target="_blank">md5.js</a> | `md5` | md5加密。
-<a href="http://requirejs.org/" target="_blank">requirejs 文档</a> | `requirejs` | js模块化工具。
-<a href="http://yslove.net/seajs/" target="_blank">seajs 文档</a> | `seajs` | js模块化工具。
-<a href="http://browserify.org/" target="_blank">Browserify 文档</a> | `browserify` | 浏览器端使用类似于 node 的 require() 方式。
+<a href="http://requirejs.org/" target="_blank">RequireJs</a> | `requirejs` | js模块化工具。
+<a href="http://yslove.net/seajs/" target="_blank">SeaJs</a> | `seajs` | js模块化工具。
+<a href="http://browserify.org/" target="_blank">Browserify</a> | `browserify` | 浏览器端使用类似于 node 的 require() 方式。
 <a href="https://github.com/rickharrison/validate.js" target="_blank">validate.js</a> | `validate.js` | form表单校验工具。
 <a href="https://github.com/validatorjs/validator.js" target="_blank">validator.js</a> | `validator.js` | 有名的内容校验工具，比如邮箱验证、数值验证等。
 <a href="https://cn.rx.js.org/" target="_blank">RxJS中文官网</a> | `RxJS` | ReactiveX编程理念的js异步编程库。
@@ -249,7 +250,8 @@
 <a href="http://www.chartjs.org/docs/latest/" target="_blank">Chartjs</a> | `chartjs` | 模块化可视化库。
 <a href="http://antv.alipay.com/zh-cn/g2/3.x/demo/funnel/basic.html" target="_blank">antv</a> | `G2/F2` | 包括pc/移动的可视化库，蚂蚁。
 <a href="http://blog.michealwayne.cn/FundCharts/docs/" target="_blank">FundCharts</a> | `fundcharts` | 本人的跨端轻量可视化库。
-<a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" target="_blank">ThreeJs文档</a> | `threejs/webGL` | 3D建模工具
+<a href="https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" target="_blank">ThreeJs文档</a> | `threejs/webGL` | 著名的webGL 3D建模库
+<a href="https://playcanvas.com/" target="_blank">PlayCanvas文档</a> | `playcanvas` | webGL游戏3D建模库
 <a href="http://scenejs.org/" target="_blank">scene.js</a> | `scenejs` | WebGL 3D基础库。
 <a href="http://snapsvg.io/" target="_blank">Snap.svg</a> | `snap` | 一款svg操作库。
 <a href="https://www.pixijs.com/" target="_blank">pixi.js</a> | `pixijs` | 2D WebGL渲染引擎。
@@ -281,7 +283,7 @@
 <a href="https://createjs.com/soundjs" target="_blank">SoundJS</a> | `soundjs` | 音频控制库，CreateJS四剑客之一。
 <a href="https://createjs.com/preloadjs" target="_blank">PreloadJS</a> | `preload` | 资源预加载库，CreateJS四剑客之一。
 <a href="https://p5js.org/" target="_blank">P5js</a> | `p5js` | canvas绘画功能库。
-<a href="https://roughjs.com/" target="_blank">Rough.js官网</a> | `roughjs` | 一个有意思的canvas绘图库（画出的图形具有手绘风格）。
+<a href="https://roughjs.com/" target="_blank">Rough.js</a> | `roughjs` | 一个有意思的canvas绘图库（画出的图形具有手绘风格）。
 <a href="https://github.com/BabylonJS/Babylon.js" target="_blank">BabylonJS</a> | `BabylonJS` | 一个功能强大，美观，简单且开放的游戏和渲染引擎。
 <a href="https://github.com/sarcadass/granim.js#readme" target="_blank">GranimJs</a> | `granimjs` | 用于创建流体和交互式渐变的动画js库，仅17k。
 
@@ -335,8 +337,8 @@
 <a href="https://github.com/ecomfe/vue-echarts" target="_blank">vue-echarts 文档</a> | `vue-echarts` | Echarts的Vue封装组件。
 <a href="https://zh.nuxtjs.org/" target="_blank">Nuxt.JS 文档</a> | `nuxtjs` | Vue的服务端渲染应用框架。
 <a href="https://github.com/vitejs/vite" target="_blank">ViteJS 文档</a> | `vitejs` | 无bundle的Vue轻量前端项目构建工具。
-<a href="https://github.com/vuejs/vue-class-component#readme" target="_blank">vue-class-component</a> | `vue-class-component` | Vue的Component装饰器封装，用于jsx/tsx的vue组件写法。
-<a href="https://formilyjs.org/" target="_blank">Formily</a> | `formilyjs` | Element/Antd的表单DSL解决方案。
+<a href="https://github.com/vuejs/vue-class-component#readme" target="_blank">vue-class-component 仓库</a> | `vue-class-component` | Vue的Component装饰器封装，用于jsx/tsx的vue组件写法。
+<a href="https://formilyjs.org/" target="_blank">Formily 文档</a> | `formilyjs` | Element/Antd的表单DSL解决方案。
 
 
 ### 1.6 React
@@ -355,7 +357,7 @@
 <a href="http://rekit.js.org" target="_blank">Rekit 文档</a> | `rekit` | React/Redux/React-router开发工具/IDE。
 <a href="https://nextjs.org/" target="_blank">NextJs 文档</a> | `nextjs` | 轻量级的 React 服务端渲染应用框架。
 <a href="https://www.gatsbyjs.cn/" target="_blank">Gatsby.js 文档</a> | `gatsbyjs` | 轻量级的 React 静态网站搭建框架。
-<a href="https://github.com/streamich/react-use" target="_blank"> 文档</a> | `react-use` | 好用的React自定义hooks封装库。
+<a href="https://github.com/streamich/react-use" target="_blank">React-use 文档</a> | `react-use` | 好用的React自定义hooks封装库。
 <a href="https://cn.mobx.js.org/" target="_blank">Umi Hooks 文档</a> | `umi hooks` | 适用于中台的hooks方法，如请求、拖拽、防抖。
 <a href="https://react-query.tanstack.com/docs/overview" target="_blank">react-query 文档</a> | `react-query` | 好用的React ajax接口请求处理封装hook。
 <a href="https://github.com/welldone-software/why-did-you-render#readme" target="_blank">why-did-you-render</a> | `why-did-you-render` | 用来检测React组件是否需要重新渲染的工具。
@@ -385,16 +387,17 @@
 ---- | ---- | ----
 <a href="https://www.npmjs.com/" target="_blank">npm</a> | `npm` | node包统一平台。
 <a href="https://yarn.bootcss.com/" target="_blank">yarn</a> | `yarn` | 高速的node包管理器。
-<a href="https://pnpm.js.org/" target="_blank">pnpm</a> | `pnpm` | 快速高效的node包统一管理器。
+<a href="https://pnpm.js.org/" target="_blank">pnpm</a> | `pnpm` | 快速高效（安全）的node包统一管理器。
 <a href="https://storybook.js.org/" target="_blank">StoryBook</a> | `storybookjs` | 用于独立开发React、Vue和Angular的UI组件库。
 <a href="https://unpkg.com/" target="_blank">unpkg</a> | `unpkg` | 国外公共静态资源CDN，适用于 npm 上的所有内容。
 <a href="http://nodejs.cn/api/" target="_blank">nodejs api</a> | `node` | Node官方文档。
 <a href="https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts" target="_blank">Deno api</a> | `deno` | Deno官方文档（Nodejs.next）。
-台。
 <a href="https://lerna.js.org/" target="_blank">Lerna</a> | `lerna` | 好用的多包管理工具，monorepo。
 <a href="https://github.com/ds300/patch-package#readme" target="_blank">patch-package</a> | `patch-package ` | 给node_modules打补丁的工具包。
 <a href="https://v8.dev/docs" target="_blank">V8 dev docs</a> | `V8` | js V8引擎文档。
 <a href="https://v8docs.nodesource.com/node-10.6/index.html" target="_blank">V8</a> | `v8` |  V8引擎介绍。
+<a href="https://github.com/bellard/quickjs" target="_blank">QuickJs</a> | `quickjs` |  一款轻量级js引擎。
+<a href="https://github.com/GoogleChromeLabs/jsvu" target="_blank">jsvu</a> | `jsvu` |  js引擎调试必备，引擎切换及版本控制。
 <a href="https://docs.docker.com/" target="_blank">docker</a> | `docker` | 应用容器引擎Docker。
 <a href="https://man.linuxde.net/" target="_blank">Linux</a> | `linux` | Linux命令查询手册。
 <a href="http://aheckmann.github.io/gm/" target="_blank">GraphicsMagick</a> | `gm` | 后台图片处理工具。
@@ -507,8 +510,10 @@
 <a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具，阿里。
 <a href="https://hippyjs.org/" target="_blank">Hippy文档</a> | `跨端` | 腾讯的一款混合跨端框架。
 <a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
+<a href="https://github.com/remaxjs/remax" target="_blank">Remax文档</a> | `remax` | React语法跨web/小程序工具，对小程序友好。
 <a href="https://guoshuyu.cn/home/wx/Flutter-1.html" target="_blank">Flutter文档</a> | `跨端` | 超火的Dart语法的跨端开发工具。
-<a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | windows应用的开发。
+<a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | PC、windows/Mac应用的开发。
+<a href="http://electronjs.org/docs" target="_blank">WebView2文档</a> | `跨端` | PC、windows应用的开发，微软。
 <a href="https://developer.chrome.com/extensions" target="_blank">chrome extension</a> | `chrome-extension` | Chrome拓展程序官方文档。
 <a href="https://github.com/sxei/chrome-plugin-demo" target="_blank">chrome-plugin-demo</a> | `chrome-plugin, chrome-extension` | 一篇很好的Chrome拓展程序开发教程，有demo。
 
@@ -571,6 +576,7 @@
 
 
 #### 1.10.2 安全及加密知识
+<p><a href="https://github.com/veeral-patel/how-to-secure-anything" target="_blank">《How to Secure Anything》</a></p>
 <p><a href="https://github.com/brix/crypto-js" target="_blank">crypto-js 前端数据加密工具</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1136202" target="_blank">《浅谈前端安全》</a></p>
 <p><a href="http://blog.michealwayne.cn/2020/04/19/safety/%E3%80%90%E6%80%BB%E7%BB%93%E3%80%91%E5%86%8D%E8%B0%88%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" target="_blank">《再谈前端安全》</a></p>
@@ -604,7 +610,7 @@
 <a href="https://pptr.dev/" target="_blank">Puppeteer官网</a> | `puppeteer` | 基于chromium的无头浏览器，可用于爬虫等web自动化。
 <a href="https://www.selenium.dev/" target="_blank">Selenium官网</a> | `selenium` | 强大的用于Web应用程序测试的工具。
 <a href="https://github.com/GoogleChrome/lighthouse" target="_blank">Lighthouse</a> | `lighthouse` | Google标准的web性能检测工具，Chrome自带。
-
+<a href="https://github.com/nolanlawson/fuite" target="_blank">Fuite</a> | `fuite` | web内存检测工具，基于puppeteer。
 
 
 ### 1.11 IDE插件
@@ -637,6 +643,11 @@
 <a href="https://gitlens.amod.io/" target="_blank">GitLens</a> | `gitlens` | git源代码管理插件
 <a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager" target="_blank">Project Manager</a> | `project-manager` | 本地项目管理
 <a href="https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster" target="_blank">JavaScript Booster</a> | `javascript-booster` | js/ts快速重构优化工具，比如将var换为const/let。
+
+### 1.12 生活篇
+
+<a href="https://github.com/Anduin2017/HowToCook" target="_blank">HowToCook</a> | `HowToCook` | 程序员在家做饭方法指南。
+
 
 ------------------
 
@@ -714,8 +725,8 @@ clone本仓库到本地，在`“扩展程序”界面`点击`“加载已解压
 - react
 
 
-
 ### 更新信息
+- 2022.02.19：调整/更新链接；
 - 2022.01.16：调整/更新链接；typebuild项目模版依赖处理；
 - 2021.12.26：调整/更新链接；
 - 2021.09.30：更新/增加链接；模版依赖修复；
