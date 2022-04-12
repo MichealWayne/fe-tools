@@ -1,0 +1,10 @@
+/node_modules/*
+src/js/lib/*.js
+lib/*.js
+.eslintrc.js
+
+# backups
+/baks
+
+# tests
+__tests__/**/*

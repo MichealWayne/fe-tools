@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": false,
+    "allowJs": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "lib": [
+      "ES6",
+      "DOM"
+    ],
+    "outDir": "./dist",
+    "types": [
+      "jest",
+      "node"
+    ]
+  },
+  "include": ["packages/**/src"],
+  "exclude": [
+    "__tests__",
+    "dist",
+    "temp",
+    "node_modules",
+    "**/node_modules",
+    "scripts/*", 
+    "demo/*", 
+    "src/packages/**/demo", 
+    "**/demo/*"
+  ]
+}

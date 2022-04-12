@@ -18,3 +18,10 @@
 /src/.umi-production
 /src/.umi-test
 /.env.local
+
+# test
+coverage
+
+# temp
+temp
+bak
