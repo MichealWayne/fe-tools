@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable no-useless-escape */
 /**
  * @module Check.plus
  * @description check password functions
@@ -181,9 +182,9 @@ function checkIdcard(idcard, TipEnum) {
             //出生日期的合法性检查
             //闰年月日:((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))
             //平年月日:((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))
-            if (parseInt(idcard.substr(6, 4), 10) % 4 === 0 ||
-                (parseInt(idcard.substr(6, 4), 10) % 100 === 0 &&
-                    parseInt(idcard.substr(6, 4), 10) % 4 === 0)) {
+            if (parseInt(idcard.substring(6, 4), 10) % 4 === 0 ||
+                (parseInt(idcard.substring(6, 4), 10) % 100 === 0 &&
+                    parseInt(idcard.substring(6, 4), 10) % 4 === 0)) {
                 ereg =
                     /^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}[0-9Xx]$/; //闰年出生日期的合法性正则表达式
             }
@@ -192,8 +193,7 @@ function checkIdcard(idcard, TipEnum) {
                     /^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}[0-9Xx]$/; //平年出生日期的合法性正则表达式
             }
             if (ereg.test(idcard)) {
-                //测试出生日期的合法性
-                //计算校验位
+                // 测试出生日期的合法性, 计算校验位
                 S =
                     (parseInt(idcardList[0]) + parseInt(idcardList[10])) * 7 +
                         (parseInt(idcardList[1]) + parseInt(idcardList[11])) * 9 +
@@ -209,7 +209,7 @@ function checkIdcard(idcard, TipEnum) {
                 M = 'F';
                 JYM = '10X98765432';
                 // 判断校验位
-                M = JYM.substr(Y, 1);
+                M = JYM.substring(Y, 1);
                 if (M === idcardList[17]) {
                     birthdayValue =
                         idcard.charAt(6) +
@@ -231,7 +231,6 @@ function checkIdcard(idcard, TipEnum) {
             break;
         default:
             return TipEnum.fail;
-            break;
     }
 }
 exports.checkIdcard = checkIdcard;

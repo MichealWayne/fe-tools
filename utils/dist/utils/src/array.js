@@ -115,7 +115,7 @@ exports.castArray = castArray;
 function chunk(arr, size) {
     return Array.from({
         length: Math.ceil(arr.length / size),
-    }, function (v, i) { return arr.slice(i * size, i * size + size); });
+    }, function (_v, i) { return arr.slice(i * size, i * size + size); });
 }
 exports.chunk = chunk;
 /**
@@ -322,7 +322,7 @@ exports.shuffle = shuffle;
  * @return {array}
  */
 function everyNth(arr, nth) {
-    return arr.filter(function (e, i) { return i % nth === 0; });
+    return arr.filter(function (_e, i) { return i % nth === 0; });
 }
 exports.everyNth = everyNth;
 /**
@@ -378,7 +378,7 @@ exports.digitize = digitize;
 function fibonacci(n) {
     return Array(n)
         .fill(0)
-        .reduce(function (acc, val, i) { return acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i); }, []);
+        .reduce(function (acc, _val, i) { return acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i); }, []);
 }
 exports.fibonacci = fibonacci;
 /**
@@ -388,7 +388,7 @@ exports.fibonacci = fibonacci;
  */
 function median(arr) {
     var mid = Math.floor(arr.length / 2);
-    var nums = arr.sort(function (a, b) { return a - b; });
-    return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+    arr.sort(function (a, b) { return a - b; });
+    return arr.length % 2 !== 0 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2;
 }
 exports.median = median;

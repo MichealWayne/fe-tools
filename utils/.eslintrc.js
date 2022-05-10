@@ -1,3 +1,5 @@
+// document: https://eslint.org/docs/user-guide/configuring
+
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
@@ -28,12 +30,12 @@ module.exports = {
     'no-unused-vars': [0],
     'no-magic-numbers': [0],
     'no-shadow': 'off',
-    '@typescript-eslint/no-shadow': ['error'],
+    'no-unreachable-loop': [0],
+    'default-case-last': [0],
     'line-comment-position': [0],
+    '@typescript-eslint/no-shadow': ['error'],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/explicit-module-boundary-types': [0],
     '@typescript-eslint/no-explicit-any': [0],
-    'no-useless-escape': [0],
-    'no-cond-assign': [0],
   },
 };

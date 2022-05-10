@@ -38,12 +38,12 @@ var remRate = 1;
     }
     win.addEventListener('resize', function () {
         clearTimeout(tid);
-        tid = setTimeout(refreshRem, 300);
+        tid = win.setTimeout(refreshRem, 300);
     }, false);
     win.addEventListener('pageshow', function (e) {
         if (e.persisted) {
             clearTimeout(tid);
-            tid = setTimeout(refreshRem, 300);
+            tid = win.setTimeout(refreshRem, 300);
         }
     }, false);
     if (doc.readyState === 'complete') {

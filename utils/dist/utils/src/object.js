@@ -36,7 +36,7 @@ exports.objectFromPairs = objectFromPairs;
 function mapObject(arr, fn) {
     var _arr = arr.map(fn);
     var obj = {};
-    return arr.reduce(function (acc, val, index) {
+    return arr.reduce(function (_acc, val, index) {
         obj[val] = _arr[index];
         return obj;
     }, obj);

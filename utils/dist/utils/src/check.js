@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable no-useless-escape */
 /**
  * @module Check
  * @description check functions
