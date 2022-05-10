@@ -38,7 +38,7 @@ export function objectFromPairs(arr: [string, unknown][]) {
 export function mapObject(arr: string[], fn: (...args: unknown[]) => unknown) {
   const _arr = arr.map(fn);
   const obj: plainObject = {};
-  return arr.reduce((acc, val, index) => {
+  return arr.reduce((_acc, val, index) => {
     obj[val] = _arr[index];
     return obj;
   }, obj);

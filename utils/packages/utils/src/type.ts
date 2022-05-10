@@ -48,9 +48,7 @@ export function isUndefined(val?: unknown): val is undefined {
  * isArray(test1);  // true
  * isArray(test2);  // false
  */
-export const isArray = (val?: unknown): val is Array<any> => {
-  return type(val) === 'Array';
-};
+export const isArray = (val?: unknown): val is Array<any> => type(val) === 'Array';
 
 /**
  * @function isString
@@ -109,13 +107,10 @@ export function isFunction(val?: unknown): val is Function {
  * isPromise(test1);  // true
  * isPromise(test2);  // true
  */
-export const isPromise = <T = any>(val?: unknown): val is Promise<T> => {
-  return (
-    !!val &&
-    (typeof val === 'object' || typeof val === 'function') &&
-    typeof (val as PromiseLike<T>).then === 'function'
-  );
-};
+export const isPromise = <T = any>(val?: unknown): val is Promise<T> =>
+  !!val &&
+  (typeof val === 'object' || typeof val === 'function') &&
+  typeof (val as PromiseLike<T>).then === 'function';
 
 /**
  * @function isEmptyObj

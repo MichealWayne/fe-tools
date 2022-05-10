@@ -117,6 +117,8 @@
 <a href="https://glenmaddern.com/articles/css-modules" target="_blank">CSS modules</a> | `css-modules` | 一种CSS样式模块化的解决方案。
 <a href="https://github.com/MicheleBertoli/css-in-js" target="_blank">css in js</a> | `css-in-js` | 用写js的方式生成css样式。
 <a href="http://blog.michealwayne.cn/Moo-CSS/docs/moocss/#m%E6%A8%A1%E5%9D%97" target="_blank">Moo-CSS</a> | `moo-css` | 一种CSS写法方案。
+<a href="https://github.com/l-hammer/You-need-to-know-css" target="_blank">CSS tricks for web developers</a> | `You-need-to-know-css` | CSS技巧集合。
+
 
 
 ### 1.4 JS插件/库
@@ -443,7 +445,7 @@
 <a href="https://koajs.cn/#-application-" target="_blank">Koa 文档</a> | `koajs` | web应用程序开发框架。
 <a href="https://www.fastify.io/" target="_blank">Fastify 官网</a> | `fastify` | 标称当代最快的轻量web应用程序开发框架，重点是JSON schema加速。
 <a href="http://www.midwayjs.org/" target="_blank">Midway 官网</a> | `midway` | 支持了 Web / 全栈 / 微服务 / RPC / Socket / Serverless 的 web 应用程序开发框架，阿里淘系。
-<a href="https://docs.feathersjs.com/" target="_blank">feathers.js</a> | `feathersjs` | 轻量web应用程序开发框架。
+<a href="https://docs.feathersjs.com/" target="_blank">feathers.js</a> | `feathersjs` | 轻量web应用程序开发框架，适用于数据流型。
 <a href="https://docs.nestjs.com/" target="_blank">Nest.js</a> | `nestjs` | 强大的Web应用框架。
 <a href="https://github.com/nuysoft/Mock/wiki" target="_blank">Mockjs 配置文档</a> | `mockjs` | 接口数据模拟工具，可以在客户端和服务端使用。
 <a href="https://sheetjs.com/" target="_blank">SheetJs</a> | `sheetjs` | 通过node操作word的工具。
@@ -491,6 +493,18 @@
 <a href="https://qingfuwu.cn/" target="_blank">字节轻服务 官网</a> | `qingfuwu` | 字节轻服务，支持Serverless（FaaS）、CDN等服务，有免费档。
 <a href="https://help.aliyun.com/document_detail/154438.html" target="_blank">阿里云 FC</a> | `qingfuwu` | 阿里云函数计算服务，支持Serverless（FaaS）。
 <a href="https://cloud.tencent.com/document/product/583" target="_blank">腾讯云 SFC</a> | `qingfuwu` | 腾讯云云函数服务，支持Serverless（FaaS）。
+
+#### 1.7.6 低代码LowCode
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://lowcode-engine.cn/" target="_blank">lowcode-engine</a> | `lowcode-engine` | 阿里开源低代码引擎。
+<a href="https://weda.cloud.tencent.com/" target="_blank">微搭</a> | `weda` | 腾讯低代码引擎，微搭。
+<a href="https://aisuda.bce.baidu.com/amis/zh-CN/docs/index">amis</a> | `amis` | 百度开源低代码引擎，适用于偏中后台项目。
+
+
+
+
 
 ### 1.8 Hybird和跨端
 地址 | 标签 | 说明
@@ -653,6 +667,8 @@
 ### 1.12 生活篇
 
 <a href="https://github.com/Anduin2017/HowToCook" target="_blank">HowToCook</a> | `HowToCook` | 程序员在家做饭方法指南。
+<a href="https://github.com/geekan/HowToLiveLonger" target="_blank">HowToCook</a> | `HowToLiveLonger` | 程序员延寿指南。
+
 
 
 ------------------
@@ -732,6 +748,7 @@ clone本仓库到本地，在`“扩展程序”界面`点击`“加载已解压
 
 
 ### 更新信息
+- 2022.04.26：修复utils；更新链接；
 - 2022.03.26：更新utils；更新链接；
 - 2022.02.19：调整/更新链接；
 - 2022.01.16：调整/更新链接；typebuild项目模版依赖处理；

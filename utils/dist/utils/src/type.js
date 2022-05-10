@@ -50,9 +50,7 @@ exports.isUndefined = isUndefined;
  * isArray(test1);  // true
  * isArray(test2);  // false
  */
-var isArray = function (val) {
-    return type(val) === 'Array';
-};
+var isArray = function (val) { return type(val) === 'Array'; };
 exports.isArray = isArray;
 /**
  * @function isString
@@ -112,9 +110,9 @@ exports.isFunction = isFunction;
  * isPromise(test2);  // true
  */
 var isPromise = function (val) {
-    return (!!val &&
+    return !!val &&
         (typeof val === 'object' || typeof val === 'function') &&
-        typeof val.then === 'function');
+        typeof val.then === 'function';
 };
 exports.isPromise = isPromise;
 /**
@@ -145,7 +143,7 @@ function equals(a, b) {
         return a.getTime() === b.getTime();
     if (!a || !b || (typeof a !== 'object' && typeof b !== 'object'))
         return a === b;
-    if (a.prototype !== b.prototype)
+    if (a.__proto__ !== b.__proto__)
         return false;
     var keys = Object.keys(a);
     if (keys.length !== Object.keys(b).length)
@@ -159,7 +157,7 @@ exports.equals = equals;
  */
 function size(val) {
     // eslint-disable-next-line no-nested-ternary
-    return Array.isArray(val)
+    return (0, exports.isArray)(val)
         ? val.length
         : val && isObject(val)
             ? val.size || val.length || Object.keys(val).length

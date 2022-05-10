@@ -12,18 +12,18 @@ export function randomHexColor() {
 }
 
 /**
- * @function getColorRgb
- * @param {string} color : hexadecimal number color
- * @return {array} 255色彩数组
+ * @function getColorRgbArr
+ * @description hexadecimal color to 255.#ff0000 -> [255, 0, 0];
+ * @param {string} color hexadecimal number color
+ * @return {number[]} rgb array
  */
-export function getColorRgb(color: string) {
-  const reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/;
+export function getColorRgbArr(color: string): number[] {
+  const reg = /^#[\da-f]{3}([\da-f]{3})?$/i;
   let sColor = color.toLowerCase();
-
   if (sColor && reg.test(sColor)) {
     if (sColor.length === 4) {
       let sColorNew = '#';
-      for (let i = 1; i < 4; i += 1) {
+      for (let i = 1; i < 4; i++) {
         sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1));
       }
       sColor = sColorNew;
@@ -31,10 +31,34 @@ export function getColorRgb(color: string) {
 
     const sColorChange = [];
     for (let i = 1; i < 7; i += 2) {
-      sColorChange.push(parseInt(`0x${sColor.slice(i, i + 2)}`, 10));
+      sColorChange.push(parseInt(`0x${sColor.slice(i, i + 2)}`, 16));
     }
     return sColorChange;
+  } else {
+    return [];
   }
+}
 
-  return sColor;
+/**
+ * @function getColorRgba
+ * @description hexadecimal color string -> rgba
+ * @param {string} str hex color string
+ * @param {number} rate
+ * @return {string}
+ * @need getColorRgb
+ */
+export function getColorRgba(str: string, rate = 1): string {
+  const rgbStr = getColorRgbArr(str).join(',');
+  const isLegalColor = rgbStr !== '';
+  return `rgba(${isLegalColor ? rgbStr : '0,0,0'},${isLegalColor ? rate : 0})`;
+}
+
+/**
+ * @function isTransparentColor
+ * @param colorStr
+ * @return {boolean}
+ */
+export function isTransparentColor(colorStr: string): boolean {
+  if (!colorStr) return false;
+  return colorStr.replace(' ', '').indexOf('0)') > -1;
 }

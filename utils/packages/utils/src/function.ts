@@ -165,3 +165,51 @@ export function promisify(func: (...ks: unknown[]) => unknown) {
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+/**
+ * @function throttle
+ * @param {Function} func
+ * @param {Number} intervalTime
+ * @returns {Function}
+ */
+export function throttle(
+  func: {
+    apply: (arg0: unknown, ...arg1: unknown[]) => void;
+  },
+  intervalTime = 500
+) {
+  let flag = true;
+  return function (_this: unknown, ...args: unknown[]) {
+    if (flag) {
+      func.apply(_this, args);
+      flag = false;
+      setTimeout(() => {
+        flag = true;
+      }, intervalTime);
+    }
+  };
+}
+
+/**
+ * @function debounce
+ * @param {Function} func
+ * @param {Number} intervalTime
+ * @returns {Function}
+ */
+export function debounce(
+  func: {
+    apply: (arg0: unknown, arg1: unknown[]) => void;
+  },
+  intervalTime = 500
+) {
+  let timeId: null | ReturnType<typeof setTimeout> = null;
+  return function (_this: unknown, ...args: unknown[]) {
+    if (timeId) {
+      clearTimeout(timeId);
+    }
+    timeId = setTimeout(() => {
+      timeId = null;
+      func.apply(_this, args);
+    }, intervalTime);
+  };
+}

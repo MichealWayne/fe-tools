@@ -1,3 +1,5 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable no-cond-assign */
 /**
  * @module Platform
  */
@@ -112,6 +114,7 @@ export function getMobileOS() {
   };
 
   try {
+    // eslint-disable-next-line no-useless-escape
     const _android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
     const _ios = ua.match(/([iPad,iPod,iPhone]).*OS\s([\d_]+)/);
 

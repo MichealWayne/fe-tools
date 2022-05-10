@@ -29,7 +29,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sleep = exports.promisify = exports.functionName = exports.curry = exports.pipe = exports.compose = exports.chainAsync = exports.once = exports.memoize = exports.timeTaken = exports.runPromisesInSeries = exports.defer = exports.attempt = void 0;
+exports.debounce = exports.throttle = exports.sleep = exports.promisify = exports.functionName = exports.curry = exports.pipe = exports.compose = exports.chainAsync = exports.once = exports.memoize = exports.timeTaken = exports.runPromisesInSeries = exports.defer = exports.attempt = void 0;
 /**
  * @funciton attempt
  * @param {function} fn
@@ -229,3 +229,51 @@ function sleep(ms) {
     return new Promise(function (resolve) { return setTimeout(resolve, ms); });
 }
 exports.sleep = sleep;
+/**
+ * @function throttle
+ * @param {Function} func
+ * @param {Number} intervalTime
+ * @returns {Function}
+ */
+function throttle(func, intervalTime) {
+    if (intervalTime === void 0) { intervalTime = 500; }
+    var flag = true;
+    return function (_this) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        if (flag) {
+            func.apply(_this, args);
+            flag = false;
+            setTimeout(function () {
+                flag = true;
+            }, intervalTime);
+        }
+    };
+}
+exports.throttle = throttle;
+/**
+ * @function debounce
+ * @param {Function} func
+ * @param {Number} intervalTime
+ * @returns {Function}
+ */
+function debounce(func, intervalTime) {
+    if (intervalTime === void 0) { intervalTime = 500; }
+    var timeId = null;
+    return function (_this) {
+        var args = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+            args[_i - 1] = arguments[_i];
+        }
+        if (timeId) {
+            clearTimeout(timeId);
+        }
+        timeId = setTimeout(function () {
+            timeId = null;
+            func.apply(_this, args);
+        }, intervalTime);
+    };
+}
+exports.debounce = debounce;

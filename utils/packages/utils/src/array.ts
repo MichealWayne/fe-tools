@@ -103,7 +103,7 @@ export function chunk(arr: AnyArr, size: number): unknown[] {
     {
       length: Math.ceil(arr.length / size),
     },
-    (v, i) => arr.slice(i * size, i * size + size)
+    (_v, i) => arr.slice(i * size, i * size + size)
   );
 }
 
@@ -306,7 +306,7 @@ export function shuffle([...arr]) {
  * @return {array}
  */
 export function everyNth(arr: AnyArr, nth: number) {
-  return arr.filter((e, i) => i % nth === 0);
+  return arr.filter((_e, i) => i % nth === 0);
 }
 
 /**
@@ -361,7 +361,7 @@ export function digitize(num: number) {
 export function fibonacci(n: number) {
   return Array(n)
     .fill(0)
-    .reduce((acc, val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i), []);
+    .reduce((acc, _val, i) => acc.concat(i > 1 ? acc[i - 1] + acc[i - 2] : i), []);
 }
 
 /**
@@ -371,6 +371,6 @@ export function fibonacci(n: number) {
  */
 export function median(arr: NumberArr) {
   const mid = Math.floor(arr.length / 2);
-  const nums = arr.sort((a, b) => a - b);
-  return arr.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+  arr.sort((a, b) => a - b);
+  return arr.length % 2 !== 0 ? arr[mid] : (arr[mid - 1] + arr[mid]) / 2;
 }
