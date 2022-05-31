@@ -1,9 +1,12 @@
 /**
  * @module Image
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 15:25:47
  */
 
 /**
  * @function isSupportWebP
+ * @description 页面当前所处环境是否支持webp格式图片
  * @return {boolean}
  */
 export function isSupportWebP() {
@@ -15,9 +18,14 @@ export function isSupportWebP() {
 
 /**
  * @function compressImage
+ * @description 进行图片压缩并输出base64
  * @param {HTMLImageElement} img: 图片元素
  * @param {Number} rate: 压缩比例
  * @return {String} base64图片
+ * @example
+ *   const img = new Image();
+ *   img.src = 'https://blog.michealwayne.cn/favicon.png';
+ *   img.onload = () => console.log(compressImage(img, 0.3)); // 输出压缩后的base64
  */
 export function compressImage(img: HTMLImageElement, rate: number) {
   const canvas: HTMLCanvasElement = document.createElement('canvas');

@@ -2,13 +2,16 @@
 /* eslint-disable no-cond-assign */
 /**
  * @module Platform
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 15:29:42
  */
 
 export const ua = navigator.userAgent.toLowerCase();
 
 /**
  * @function isPC
- * @return {boolean}
+ * @description 当前页面是否处于PC环境下
+ * @return {Boolean}
  */
 export function isPC() {
   return [
@@ -25,7 +28,8 @@ export function isPC() {
 
 /**
  * @function getPcExplore
- * @return {string}
+ * @description 获取当前PC浏览器标识
+ * @return {String}
  */
 
 export function getPcExplore() {
@@ -68,7 +72,8 @@ export function getPcExplore() {
 
 /**
  * @function getSystemOS
- * @return {string | undefined}
+ * @description 获取当前页面所在的系统标识
+ * @return {String}
  */
 export function getSystemOS() {
   const userAgent =
@@ -83,11 +88,13 @@ export function getSystemOS() {
   if (/iphone/i.test(userAgent) || /ipad/i.test(userAgent) || /ipod/i.test(userAgent)) 'ios';
   if (/android/i.test(userAgent)) return 'android';
   if (/win/i.test(appVersion) && /phone/i.test(userAgent)) return 'windowsPhone';
+  return 'Unkonwn';
 }
 
 /**
  * @function getPlatform
- * @return {string}
+ * @description 获取当前页面所处的移动设备标识
+ * @return {String}
  */
 export function getPlatform() {
   const info = {
@@ -105,23 +112,24 @@ export function getPlatform() {
 
 /**
  * @function getMobileOS
- * @return {string}
+ * @description 获取当前页面所处的移动设备系统
+ * @return {String}
  */
 export function getMobileOS() {
-  const _os = {
+  const os = {
     android: 0,
     ios: 0,
   };
 
   try {
     // eslint-disable-next-line no-useless-escape
-    const _android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
-    const _ios = ua.match(/([iPad,iPod,iPhone]).*OS\s([\d_]+)/);
+    const android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
+    const ios = ua.match(/([iPad,iPod,iPhone]).*OS\s([\d_]+)/);
 
-    if (_android) _os.android = +_android[2] || 0;
-    if (_ios) _os.ios = +_ios[2].replace(/_/g, '.') || 0;
+    if (android) os.android = +android[2] || 0;
+    if (ios) os.ios = +ios[2].replace(/_/g, '.') || 0;
   } catch (e) {
-    return _os;
+    return os;
   }
-  return _os;
+  return os;
 }
