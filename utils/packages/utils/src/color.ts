@@ -1,10 +1,13 @@
 /**
  * @module Color
  * @description handle color format
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 15:56:53
  */
 
 /**
  * @function randomHexColor
+ * @description 生成随机十六进制颜色
  * @return {String}
  */
 export function randomHexColor() {
@@ -13,7 +16,7 @@ export function randomHexColor() {
 
 /**
  * @function getColorRgbArr
- * @description hexadecimal color to 255.#ff0000 -> [255, 0, 0];
+ * @description 颜色格式转换。hexadecimal color to 255.#ff0000 -> [255, 0, 0];
  * @param {string} color hexadecimal number color
  * @return {number[]} rgb array
  */
@@ -55,7 +58,8 @@ export function getColorRgba(str: string, rate = 1): string {
 
 /**
  * @function isTransparentColor
- * @param colorStr
+ * @description 是否为透色
+ * @param {String} colorStr
  * @return {boolean}
  */
 export function isTransparentColor(colorStr: string): boolean {

@@ -2,6 +2,7 @@
   "name": "fe-tools",
   "private": true,
   "license": "MIT",
+  "author": "Wayne",
   "scripts": {
     "test": "jest",
     "build": "tsc"

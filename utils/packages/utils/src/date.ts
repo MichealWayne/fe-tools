@@ -1,10 +1,13 @@
 /**
  * @module Date
  * @description date functions
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 16:00:55
  */
 
 /**
  * @function dayOfYear
+ * @description 此日期是当年中的第几天
  * @param {Date} date
  * @return {number}
  */
@@ -14,8 +17,11 @@ export function dayOfYear(date: Date) {
 
 /**
  * @function getColonTimeFromDate
+ * @description 获取hh:mm:ss时间
  * @param {Date} date
  * @return {string}
+ * @example
+ *  getColonTimeFromDate(new Date()); // 如'15:58:40'
  */
 export function getColonTimeFromDate(date: Date) {
   return date.toTimeString().slice(0, 8);
@@ -23,12 +29,13 @@ export function getColonTimeFromDate(date: Date) {
 
 /**
  * @function getDaysDiffBetweenDates
+ * @description 判断两个日期差了几天
  * @param {Date} dateInitial
  * @param {Date} dateFinal
  * @return {number}
  */
 export function getDaysDiffBetweenDates(dateInitial: Date, dateFinal: Date) {
-  return (+dateFinal - +dateInitial) / (1000 * 3600 * 24);
+  return (+dateFinal - +dateInitial) / (1000 * 60 * 60 * 24);
 }
 
 /**
@@ -53,6 +60,7 @@ export function isBeforeDate(dateA: Date, dateB: Date) {
 
 /**
  * @function tomorrow
+ * @description 获取明天日期
  * @return {string}
  */
 export function tomorrow() {
@@ -63,6 +71,7 @@ export function tomorrow() {
 
 /**
  * @function formatRemainTime
+ * @description 获取倒计时日期信息
  * @param {Date} startTime
  * @param {Date} endTime
  * @return {string}

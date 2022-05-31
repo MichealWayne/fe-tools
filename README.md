@@ -125,13 +125,15 @@
 #### 1.4.1 库
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://lodash.com/docs/" target="_blank">LoDash</a> | `lodash` | 广为人知的函数式工具库。
+<a href="https://gcanti.github.io/fp-ts/" target="_blank">fp-ts</a> | `fp-ts` | 遵循函数式编程范式的ts封装库。
+<a href="https://underscorejs.org/" target="_blank">UnderscoreJS</a> | `underscorejs` | 红极一时的函数式工具库。
 <a href="http://www.css88.com/jqapi-1.9/" target="_blank">jQueryJs</a> | `jQuery` | 红极一时的js库。
 <a href="http://www.css88.com/doc/zeptojs_api/" target="_blank">ZeptoJs</a> | `Zepto` | 移动端使用的轻量级“jQuery”。
 <a href="https://github.com/basecss/city" target="_blank">city.js</a> | `city` | 全国行政区划分数据文件。
 <a href="http://phaser.io/" target="_blank">phaser.js</a> | `phaser` | 2D游戏前端库。
 <a href="http://fabricjs.com/" target="_blank">fabric.js</a> | `fabricjs` | 有名的svg和canvas相互转换的封装库。
 <a href="https://www.babylonjs.com/" target="_blank">babylon.js</a> | `babylonjs` | 有名的3D游戏/视频框架。
-<a href="https://stdlib.io/" target="_blank">stdlib</a> | `stdlib` | js的数学增强库。
 <a href="https://immutable-js.github.io/immutable-js/" target="_blank">immutable-js</a> | `immutable` | 生产环境js的List, Stack, Map, OrderedMap, Set, OrderedSet以及Record数据结构支持，通常用于ReactJs。
 <a href="https://github.com/alibaba/GCanvas" target="_blank">GCanvas</a> | `gcanvas` | 轻量的跨平台图形引擎（web/weex/react-native），阿里。
 <a href="https://github.com/jayphelps/core-decorators" target="_blank">core-decorators</a> | `core-decorators` | 丰富的装饰器封装库，基于ES2016/2017的装饰器语法。
@@ -141,9 +143,8 @@
 #### 1.4.2 数据工具
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://lodash.com/docs/" target="_blank">LoDash</a> | `lodash` | 广为人知的函数式工具库。
+<a href="https://stdlib.io/" target="_blank">stdlib</a> | `stdlib` | js的数学增强库。
 <a href="https://github.com/ramda/ramda" target="_blank">ramda</a> | `ramda` | 广为人知的函数式工具库。
-<a href="https://underscorejs.org/" target="_blank">UnderscoreJS</a> | `underscorejs` | 红极一时的函数式工具库。
 <a href="http://winterbe.github.io/streamjs/" target="_blank">StreamJs</a> | `streamjs` | 一款js数据的操作工具。
 <a href="https://baconjs.github.io/" target="_blank">BaconJs</a> | `baconjs` | 也是一款js数据的操作工具。
 <a href="https://momentjs.com/" target="_blank">MomentJs</a> | `momentjs` | 一款日期格式化的工具（2020开始停止维护）。
@@ -467,6 +468,8 @@
 <a href="https://socket.io/" target="_blank">Socket.IO</a> | `socket.io` | WebSocket解决方案。
 <a href="https://github.com/websockets/ws" target="_blank">ws</a> | `ws` | WebSocket的一个nodejs包。
 <a href="https://github.com/digitalocean/nginxconfig.io" target="_blank">nginxconfig.io</a> | `nginxconfig.io` | 在线生成nginx配置的工具。
+<a href="https://github.com/davidmarkclements/fast-safe-stringify#readme" target="_blank">fast-safe-stringify</a> | `fast-safe-stringify` | 安全快速地序列化JSON，替代JSON.stringify。
+
 
 #### 1.7.3 GraphQL
 地址 | 标签 | 说明
@@ -526,6 +529,7 @@
 <a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex-UI文档</a> | `跨端/weex` | weex的UI组件库。
 <a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具。
 <a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具，阿里。
+<a href="https://wechat-miniprogram.github.io/kbone/docs/" target="_blank">Kbone文档</a> | `小程序/跨端` | 跨web/小程序跨端构建插件，成本低，适配各类web框架，腾讯。
 <a href="https://hippyjs.org/" target="_blank">Hippy文档</a> | `跨端` | 腾讯的一款混合跨端框架。
 <a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
 <a href="https://github.com/remaxjs/remax" target="_blank">Remax文档</a> | `remax` | React语法跨web/小程序工具，对小程序友好。
@@ -582,6 +586,7 @@
 <a href="https://github.com/n8n-io/n8n" target="_blank"> n8n </a> | `n8n` | 基于自由和开放的公平代码许可节点的工作流自动化工具。轻松自动化跨不同服务的任务。
 <a href="https://zijian.aliyun.com/detect/dns/DNS_PING-d31c5446aff9db99decd9d9d944b11c5-1640605424801" target="_blank"> 阿里云 DNS检测 </a> | `dns` | 域名DNS检测网站工具，阿里云。
 <a href="https://tabatkins.github.io/railroad-diagrams/generator.html" target="_blank"> Railroad Diagrams </a> | `railroad-diagrams` | 在线绘制铁路图的网站工具。
+<a href="https://unbug.github.io/codelf/" target="_blank">CodeIf</a> | `codeIf` | 帮助解决命名困难的命名搜索工具。
 
 ### 1.10 测试、安全及加密
 #### 1.10.1 单元测试
@@ -748,6 +753,7 @@ clone本仓库到本地，在`“扩展程序”界面`点击`“加载已解压
 
 
 ### 更新信息
+- 2022.05.17：更新utils（webApi、增加描述）；更新链接；
 - 2022.04.26：修复utils；更新链接；
 - 2022.03.26：更新utils；更新链接；
 - 2022.02.19：调整/更新链接；

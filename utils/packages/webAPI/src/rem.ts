@@ -4,6 +4,8 @@
  * @alias window.flexible
  * @property {Number} dpr 设备屏幕分辨率
  * @property {Number} rem rem比例
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 15:30:30
  */
 
 import { isPC } from './platform';

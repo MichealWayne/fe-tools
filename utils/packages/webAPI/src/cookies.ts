@@ -1,8 +1,8 @@
-/*
+/**
  * @module Cookie
- * @author: Wayne
- * @Date: 2021-04-27 14:47:13
- * @LastEditTime: 2021-08-28 14:41:06
+ * @author Wayne
+ * @Date 2020-04-11 21:53:56
+ * @LastEditTime 2022-05-31 15:19:18
  */
 
 /**
@@ -20,14 +20,14 @@ export function getCookie(name: string) {
 
 /**
  * @function getSec
- * @param {string | number} str
+ * @param {String?} str
  * @explain
  *  's20'是代表20秒
  *  h是指小时，如12小时则是：'h12'
  *  d是天数，30天则：'d30'
  * @return {number}
  */
-function getSec(str?: string) {
+function getSecond(str?: string) {
   if (!str) return 24 * 60 * 60 * 1000;
   const str1 = Number(str.substring(1, str.length));
   const str2 = str.substring(0, 1);
@@ -53,14 +53,14 @@ export function setCookie(
   domain?: string,
   path?: string
 ) {
-  const strsec = getSec(time);
+  const strsec = getSecond(time);
   const exp = new Date();
   exp.setTime(exp.getTime() + strsec * 1);
 
   document.cookie =
     name +
     '=' +
-    escape(value) +
+    value +
     ';expires=' +
     exp.toUTCString() +
     (domain ? ';domain=' + domain : '') +

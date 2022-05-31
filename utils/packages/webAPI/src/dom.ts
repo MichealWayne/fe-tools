@@ -1,11 +1,13 @@
 /**
  * @module dom
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 15:19:08
  */
 
 /**
  * @function isBrowser
- * @description 是否在浏览器环境下
- * @return {boolean}
+ * @description 当前页面是否在浏览器环境下
+ * @return {Boolean}
  */
 export function isBrowser() {
   return ![typeof window, typeof document].includes('undefined');
@@ -13,8 +15,8 @@ export function isBrowser() {
 
 /**
  * @function isBrowserTab
- * @description 当前页面是否显示
- * @return {boolean}
+ * @description 当前页面是否为显示状态
+ * @return {Boolean}
  */
 export function isBrowserTab() {
   return !document.hidden;
@@ -22,52 +24,55 @@ export function isBrowserTab() {
 
 /**
  * @function hasClass
- * @param {Element} element
- * @param {string} className
- * @return {boolean}
+ * @description 判断节点elem是否包含某个class
+ * @param {Element} elem
+ * @param {String} className
+ * @return {Boolean}
  */
-export function hasClass(element: HTMLElement, className: string) {
-  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(element.className);
+export function hasClass(elem: HTMLElement, className: string) {
+  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(elem.className);
 }
 
 /**
  * @function addClass
- * @param {Element} element
- * @param {string} className
+ * @description 给DOM节点elem添加class
+ * @param {Element} elem
+ * @param {String} className
  */
-export function addClass(element: HTMLElement, className: string) {
-  if (!hasClass(element, className)) {
-    element.className += ' ' + className;
+export function addClass(elem: HTMLElement, className: string) {
+  if (!hasClass(elem, className)) {
+    elem.className += ' ' + className;
   }
 }
 
 /**
  * @function removeClass
- * @param {Element} element
- * @param {string} className
+ * @description 移除DOM节点的某个class
+ * @param {Element} elem
+ * @param {String} className
  */
-export function removeClass(element: HTMLElement, className: string) {
-  if (hasClass(element, className)) {
+export function removeClass(elem: HTMLElement, className: string) {
+  if (hasClass(elem, className)) {
     const reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
-    element.className = element.className.replace(reg, ' ');
+    elem.className = elem.className.replace(reg, ' ');
   }
 }
 
 /**
  * @function insertAfter
  * @description 在指定元素之后插入新元素
- * @param {dom element} el
- * @param {string} htmlString
+ * @param {DOMElement} elem
+ * @param {String} htmlString
  */
-export function insertAfter(el: HTMLElement, htmlString: string) {
-  return el.insertAdjacentHTML('afterend', htmlString);
+export function insertAfter(elem: HTMLElement, htmlString: string) {
+  return elem.insertAdjacentHTML('afterend', htmlString);
 }
 
 /**
  * @function insertBefore
  * @description 在指定元素之前插入新元素
- * @param {dom element} el
- * @param {string} htmlString
+ * @param {DOMElement} el
+ * @param {String} htmlString
  */
 export function insertBefore(el: HTMLElement, htmlString: string) {
   return el.insertAdjacentHTML('beforebegin', htmlString);
@@ -76,8 +81,8 @@ export function insertBefore(el: HTMLElement, htmlString: string) {
 /**
  * @function elementContains
  * @description 检查是否包含子元素
- * @param {dom element} parent
- * @param {dom element} child
+ * @param {DOMElement} parent
+ * @param {DOMElement} child
  */
 export function elementContains(parent: HTMLElement, child: HTMLElement) {
   return parent !== child && parent.contains(child);
@@ -86,7 +91,7 @@ export function elementContains(parent: HTMLElement, child: HTMLElement) {
 /**
  * @function hide
  * @description 隐藏元素
- * @param  {...dom element} el
+ * @param  {...DOMElement} el
  */
 export function hide(...el: HTMLElement[]) {
   [...el].forEach(e => (e.style.display = 'none'));
@@ -95,7 +100,7 @@ export function hide(...el: HTMLElement[]) {
 /**
  * @function nodeListToArray
  * @description dom列表伪数组转为数组
- * @param {dom element list} nodeList
+ * @param {DOMElement[]} nodeList
  */
 export function nodeListToArray(nodeList: HTMLElement[]) {
   return [...nodeList];
@@ -103,34 +108,34 @@ export function nodeListToArray(nodeList: HTMLElement[]) {
 
 /**
  * @function setAttribute
- * @param {Element} node
- * @param {string} key
- * @param {string} value
+ * @param {Element} elem
+ * @param {String} key
+ * @param {String} value
  */
-export function setAttribute(node: HTMLElement, key: string, value: string) {
-  let { tagName } = node;
+export function setAttribute(elem: HTMLElement, key: string, value: string) {
+  let { tagName } = elem;
   switch (key) {
     case 'style':
-      node.style.cssText = value;
+      elem.style.cssText = value;
       break;
     case 'value':
       tagName = (tagName || '').toLowerCase();
       if (tagName === 'input' || tagName === 'textarea') {
-        (node as HTMLInputElement).value = value;
+        (elem as HTMLInputElement).value = value;
       } else {
         // if it is not a input or textarea, use `setAttribute` to set
-        node.setAttribute(key, value);
+        elem.setAttribute(key, value);
       }
       break;
     default:
-      node.setAttribute(key, value);
+      elem.setAttribute(key, value);
       break;
   }
 }
 
 /**
  * @function escapeHTML
- * @param {string} str
+ * @param {String} str
  */
 export function escapeHTML(str: string) {
   return str.replace(
@@ -151,19 +156,19 @@ export function escapeHTML(str: string) {
 /**
  * @function getOffsetPos
  * @description 获取一个元素的距离文档(document)的位置，类似jQ中的offset()
- * @param {DOMelement} element: 父节点
+ * @param {DOMElement} elem 父节点
  * @returns { {left: number, top: number} }
  */
-export function getOffsetPos(element: HTMLElement | null) {
+export function getOffsetPos(elem: HTMLElement | null) {
   const pos = {
     left: 0,
     top: 0,
   };
 
-  while (element) {
-    pos.left += element.offsetLeft;
-    pos.top += element.offsetTop;
-    element = element.offsetParent as HTMLElement;
+  while (elem) {
+    pos.left += elem.offsetLeft;
+    pos.top += elem.offsetTop;
+    elem = elem.offsetParent as HTMLElement;
   }
 
   return pos;
@@ -182,21 +187,21 @@ export function getScrollTop() {
 
 /**
  * @function getScrollPosition
- * @param {Element} el
+ * @param {Element} elem
  * @returns { {x: number, y: number} }
  */
-export function getScrollPosition(el = window) {
+export function getScrollPosition(elem = window) {
   return {
-    x: el.pageXOffset !== undefined ? el.pageXOffset : el.screenLeft,
-    y: el.pageYOffset !== undefined ? el.pageYOffset : el.screenTop,
+    x: elem.pageXOffset !== undefined ? elem.pageXOffset : elem.screenLeft,
+    y: elem.pageYOffset !== undefined ? elem.pageYOffset : elem.screenTop,
   };
 }
 
 /**
  * @function setScrollTop
  * @description 设置滚动条距顶部的距离
- * @param {number} height: 滚动高度;
- * @return {number} value
+ * @param {Number} height 滚动高度
+ * @return {Number} value
  */
 export function setScrollTop(height: number) {
   window.scrollTo(0, height);
@@ -228,9 +233,9 @@ export const requestAnimFrame = (function () {
 /**
  * @function animateScrollTo
  * @description 在${duration}时间内，滚动条平滑滚动到${to}指定位置
- * (need getScrollTop, setScrollTop,requestAnimFrame)
- * @param {Number} to: 滚动高度
- * @param {Number} duration: 滚动时间
+ *  (need getScrollTop, setScrollTop,requestAnimFrame)
+ * @param {Number} to 滚动高度
+ * @param {Number} duration 滚动时间
  */
 export function animateScrollTo(to: number, duration: number) {
   if (duration < 0) {
@@ -260,10 +265,10 @@ export function animateScrollTo(to: number, duration: number) {
 /**
  * @function smoothScroll
  * @description 指定元素滚动到可视区域
- * @param {dom element} elemSelector
+ * @param {DOMElement} elemSelector
  */
 export function smoothScroll(elemSelector: string) {
-  document.querySelector(elemSelector)?.scrollIntoView({
+  document.querySelector(elemSelector)!.scrollIntoView({
     behavior: 'smooth',
   });
 }
@@ -273,7 +278,7 @@ export function smoothScroll(elemSelector: string) {
  * @description 禁止网页复制粘贴
  */
 export function disableCP() {
-  const html = document.querySelector('html') as HTMLElement;
+  const html = document.querySelector('html')!;
   html.oncopy = () => false;
   html.onpaste = () => false;
 }

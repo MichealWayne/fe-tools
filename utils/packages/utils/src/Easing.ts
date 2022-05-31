@@ -1,6 +1,8 @@
 /**
  * @module Easing
  * @description Animation easing functions
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 16:01:08
  */
 
 export type EasingFunction = (amount: number) => number;

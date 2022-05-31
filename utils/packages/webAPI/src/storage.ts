@@ -1,11 +1,7 @@
 /**
  * @model Stroage
- */
-
-/**
- * deserialize() 解析值
- * @param {String} value
- * @return {String|Object|Array}
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 15:31:19
  */
 
 /**

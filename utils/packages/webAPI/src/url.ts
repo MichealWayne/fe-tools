@@ -1,11 +1,15 @@
 /**
  * @module URL
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-05-31 15:34:53
  */
 
 /**
  * @function parseQueryString
- * @param {any} url
+ * @description 获取url中的query信息
+ * @param {String} url
  * @return {Object}
+ * @example console.log(parseQueryString('https://github.com/?a=1&b=sss')); // {a: '1', b: 'sss'}
  */
 export function parseQueryString(url: string) {
   url = url || window.location.href;
@@ -21,9 +25,10 @@ export function parseQueryString(url: string) {
 
 /**
  * @function getUrlParam
- * @param {string} name
- * @param {string | undefined} decode
- * @return {string | null}
+ * @description 获取页面地址中query字段对应的信息
+ * @param {String} name
+ * @param {String | undefined} decode
+ * @return {String | null}
  */
 export function getUrlParam(name: string, decode?: string) {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
