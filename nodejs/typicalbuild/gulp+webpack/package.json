@@ -5,12 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp dev",
-	"build": "gulp pro"
+    "build": "gulp pro"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ijijin_builder": "^2.1.3",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",

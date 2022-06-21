@@ -1,0 +1,21 @@
+{
+  "name": "fe-tools-node-utils",
+  "version": "0.0.9",
+  "description": "FrontEnd tools, Nodejs utils functions.",
+  "author": "Wayne <michealwayne@163.com>",
+  "license": "ISC",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "minimist": "^1.1.0"
+  }
+}

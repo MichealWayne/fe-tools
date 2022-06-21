@@ -49,6 +49,8 @@
 <a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网网。
 <a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
 <a href="https://docs.krustlet.dev/" target="_blank">Krustlet 官网</a> | `krustlet` | 一款 Web Assembly 框架。
+<a href="https://wechat-miniprogram.github.io/miniprogram-compat/" target="_blank">微信小程序ES兼容查询</a> | `weapp` | 微信小程序ES api及对应小程序环境版本兼容查询。
+
 
 
 ### 1.2 兼容/查询
@@ -264,7 +266,7 @@
 <a href="https://github.com/jsplumb/jsplumb" target="_blank">jsplumb</a> | `jsplumb` | 一款好用的流程图可视化库。
 <a href="https://js.cytoscape.org/" target="_blank">cytoscapejs</a> | `cytoscape` | 一款好用的关系图谱可视化库。
 <a href="http://mermaid-js.github.io/mermaid/#/" target="_blank">Mermaid</a> | `mermaid` | 一款好用的流程图生成可视化库。
-
+<a href="https://ecomfe.github.io/zrender-doc/public/" target="_blank">Zrender</a> | `zrender` | 2D渲染渲染引擎库，支持Canvas/SVG/VML，也是ECharts的渲染器。
 
 
 #### 1.4.7 数据可视化(地图)
@@ -319,7 +321,12 @@
 #### 1.4.12 其他
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://github.com/sveltejs/svelte" target="_blank">Svelte</a> | `svelte` | 无虚拟DOM的轻量Web应用编译器。
+<a href="https://github.com/krausest/js-framework-benchmark" target="_blank">js-framework-benchmark</a> | `js-framework-benchmark` | 基于chrome的各前端框架性能对比，有个分析站点。
+<a href="https://angular.io/" target="_blank">Angular</a> | `angular` | 封装度高的经典前端框架。
+<a href="https://github.com/sveltejs/svelte" target="_blank">Svelte</a> | `svelte` | 无虚拟DOM的轻量Web应用编译器，template，近期火。
+<a href="https://stenciljs.com/" target="_blank">Stenciljs</a> | `stenciljs` | webComponent的编译构建框架，jsx。
+<a href="https://www.infernojs.org/" target="_blank">Infernojs</a> | `infernojs` | 轻量的类React库，jsx。
+<a href="https://emberjs.com/" target="_blank">Emberjs</a> | `emberjs` | 脚手架强大的web开发框架，template。
 
 
 ### 1.5 Vue
@@ -527,16 +534,17 @@
 <a href="https://github.com/quasarframework/quasar" target="_blank">quasar-framework</a> | `跨端` | 构建一流的高性能的Vue响应式网站、PWA、SSR、移动和桌面应用
 <a href="https://weex.apache.org/zh/" target="_blank">Weex文档</a> | `跨端` | 前几年热门的vue语法跨端工具，现在都不维护了。
 <a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex-UI文档</a> | `跨端/weex` | weex的UI组件库。
-<a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具。
+<a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具，runtime跨端模式。
 <a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具，阿里。
 <a href="https://wechat-miniprogram.github.io/kbone/docs/" target="_blank">Kbone文档</a> | `小程序/跨端` | 跨web/小程序跨端构建插件，成本低，适配各类web框架，腾讯。
 <a href="https://hippyjs.org/" target="_blank">Hippy文档</a> | `跨端` | 腾讯的一款混合跨端框架。
 <a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
-<a href="https://github.com/remaxjs/remax" target="_blank">Remax文档</a> | `remax` | React语法跨web/小程序工具，对小程序友好。
+<a href="https://github.com/remaxjs/remax" target="_blank">Remax文档</a> | `remax` | React语法跨web/小程序工具，类似于taro-next(3)的跨端模式，对小程序友好，支付宝。
 <a href="https://ant-move.github.io/guide/" target="_blank"> Antmove </a> | `antmove` | 小程序转换器，基于支付宝/微信小程序转换为多端小程序，高德。
 <a href="https://guoshuyu.cn/home/wx/Flutter-1.html" target="_blank">Flutter文档</a> | `跨端` | 超火的Dart语法的跨端开发工具。
 <a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | PC、windows/Mac应用的开发。
 <a href="http://electronjs.org/docs" target="_blank">WebView2文档</a> | `跨端` | PC、windows应用的开发，微软。
+<a href="https://wendux.github.io/dist/#/doc/flyio/readme" target="_blank">flyio(fly)文档</a> | `fly` | 支持Web、Node.js 、微信小程序 、Weex 、React Native 、Quick App的请求封装库。
 <a href="https://developer.chrome.com/extensions" target="_blank">chrome extension</a> | `chrome-extension` | Chrome拓展程序官方文档。
 <a href="https://github.com/sxei/chrome-plugin-demo" target="_blank">chrome-plugin-demo</a> | `chrome-plugin, chrome-extension` | 一篇很好的Chrome拓展程序开发教程，有demo。
 
