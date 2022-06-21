@@ -23,6 +23,6 @@
     "url": "git+https://github.com/MichealWayne/fe-tools.git"
   },
   "bin": {
-    "ijijin": "./bin/index.js"
+    "easycli": "./bin/index.js"
   }
 }
