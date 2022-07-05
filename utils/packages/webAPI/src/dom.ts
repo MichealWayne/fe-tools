@@ -1,7 +1,7 @@
 /**
  * @module dom
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:19:08
+ * @LastEditTime 2022-07-05 13:29:46
  */
 
 /**
@@ -281,4 +281,22 @@ export function disableCP() {
   const html = document.querySelector('html')!;
   html.oncopy = () => false;
   html.onpaste = () => false;
+}
+
+/**
+ * @function getElementSize
+ * @description **getElementStyle(el, property)** get DOM style
+ * @param {HTMLElement} elem element
+ * @param {string} property css property
+ * @return {number | undefined}
+ * @example
+ *  const bodyWidth = getElementStyle(document.querySelector('body'), 'width')
+ */
+export function getElementSize(elem: HTMLElement, property: string): number {
+  // IE currentStyle
+  const value = (elem as any).currentStyle
+    ? (elem as any).currentStyle[property]
+    : document.defaultView?.getComputedStyle(elem, null).getPropertyValue(property);
+  const matches = value && value.match(/^(\d+)(\.\d+)?px$/);
+  return matches ? +matches[1] : 0;
 }

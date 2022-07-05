@@ -2,7 +2,7 @@
  * @module Type
  * @description value type functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 16:02:34
+ * @LastEditTime 2022-06-22 10:37:28
  */
 
 /**
@@ -11,7 +11,7 @@
  * @param {any} val variable value
  * @return {string} type string
  * @example
- * var test1 = [1, 2, 3],
+ * const test1 = [1, 2, 3],
  *     test2 = { a: 1, b: '2' },
  *     test3 = 'abc',
  *     test4;
@@ -45,7 +45,7 @@ export function isUndefined(val?: unknown): val is undefined {
  * @param {any} val value
  * @return {boolean}
  * @example
- * var test1 = [1, 2, 3],
+ * const test1 = [1, 2, 3],
  *     test2 = { a: 1, b: '2' };
  * isArray(test1);  // true
  * isArray(test2);  // false
@@ -88,7 +88,7 @@ export function isObject(val?: unknown): val is Record<any, any> {
  * @param {any} val variable value
  * @return {Boolean}
  * @example
- * var test1 = [1, 2, 3],
+ * const test1 = [1, 2, 3],
  *     test2 = function () { alert(1) };
  * isFunction(test1);  // false
  * isFunction(test2);  // true
@@ -104,7 +104,7 @@ export function isFunction(val?: unknown): val is Function {
  * @param {any} val variable value
  * @return {Boolean}
  * @example
- * var test1 = new Promise(resolve => resolve(1))),
+ * const test1 = new Promise(resolve => resolve(1))),
  *     test2 = { then: () => '', catch: () => '', };
  * isPromise(test1);  // true
  * isPromise(test2);  // true
