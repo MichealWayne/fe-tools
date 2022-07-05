@@ -44,6 +44,7 @@
 <a href="https://webkit.org/status/" target="_blank">WebKit 特性状态查询</a> | `webkit` | WebKit 官网文档，js/css特性状态支持情况查询。
 <a href="https://dart.dev/" target="_blank">Dart官网</a> | `dart` | dart语言英文官网。
 <a href="https://www.dartcn.com/guides/language/language-tour" target="_blank">Dart中文网</a> | `dart` | dart语言中文学习网。
+<a href="https://github.com/dart-archive/ts2dart" target="_blank">ts2dart</a> | `ts2dart` | 一款 TypeScript 转 Dart 语言的工具。
 <a href="https://www.rfc-editor.org/" target="_blank">RFC规范官网</a> | `rfc/http` | RFC协议官网，HTTP协议等内容。
 <a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">Media Types</a> | `MIME` | 媒体类型，MIME。
 <a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网网。
@@ -324,9 +325,12 @@
 <a href="https://github.com/krausest/js-framework-benchmark" target="_blank">js-framework-benchmark</a> | `js-framework-benchmark` | 基于chrome的各前端框架性能对比，有个分析站点。
 <a href="https://angular.io/" target="_blank">Angular</a> | `angular` | 封装度高的经典前端框架。
 <a href="https://github.com/sveltejs/svelte" target="_blank">Svelte</a> | `svelte` | 无虚拟DOM的轻量Web应用编译器，template，近期火。
+<a href="https://solidjs.com/" target="_blank">SolidJs</a> | `solid` | 对webComponent友好的库，开发体验与react相似，国外这几年较火。
 <a href="https://stenciljs.com/" target="_blank">Stenciljs</a> | `stenciljs` | webComponent的编译构建框架，jsx。
 <a href="https://www.infernojs.org/" target="_blank">Infernojs</a> | `infernojs` | 轻量的类React库，jsx。
 <a href="https://emberjs.com/" target="_blank">Emberjs</a> | `emberjs` | 脚手架强大的web开发框架，template。
+<a href="https://github.com/akxcv/vuera" target="_blank">Vuera</a> | `vuera` | 用来混用Vue/React组件的库、即Vue中可以使用React组件、React中可以使用Vue组件。
+
 
 
 ### 1.5 Vue
@@ -716,42 +720,40 @@ clone本仓库到本地，在`“扩展程序”界面`点击`“加载已解压
 ## 2.fe-tools方法/工具库
 
 ```
-├─utils 
-├─webAPI    
-└─nodejs
-    ├─base
-    ├─imgbuild
-    ├─servebuild
-    └─typicalbuild
-        ├─react
-        ├─vue
-        ├─gulp+webpack		
-        ├─webpack + ts
-        └─webpack
+└─fe-templates 
+    ├─react
+    ├─vue
+    ├─webpack+ts
+    └─webpack   
+└─utils
+    ├─utils
+    ├─webAPI
+    ├─node-utils
+    └─node-img-build
 ```
 
 
-### 说明
+### 2.1 utils说明
 
-### 2.1 utils 基础工具库
+#### utils 基础工具库
 前端开发常用样式、方法，适用于浏览器/Nodejs。
 
-### 2.2 webAPI 浏览器端封装库
-浏览器端DOM操作，CSS操作，事件处理等封装。
+#### webAPI 浏览器端封装库
+浏览器端DOM操作，CSS操作，事件处理等封装，适用于浏览器。
 
+#### node-utils Nodejs基础工具库
+Nodejs文件，事件处理等封装。
 
-### 2.3 nodejs 服务端、脚本
-`todo 更新调用`
+#### node-img-build Nodejs图片工具
+webp、base64等图片处理封装。
 
-#### 3.1.1 base 方法
-- fs：文件操作
-- server：简易服务器
-- util：其他工具
+> todo: 小程序封装，构建封装，图片处理封装优化。
 
-#### 3.1.2 pagebuild 页面构建
-`已废弃`
+### 2.2 --nodejs 服务端、脚本--
 
-#### 3.1.3 typicalbuild 典型项目构建
+已拆分至packages和fe-templates。
+
+#### 2.3 fe-templates 典型项目模版
 
 - gulp+webpack
 - webpack
@@ -761,6 +763,7 @@ clone本仓库到本地，在`“扩展程序”界面`点击`“加载已解压
 
 
 ### 更新信息
+- 2022.06.18：更新utils（node-utils）；更新链接；
 - 2022.05.17：更新utils（webApi、增加描述）；更新链接；
 - 2022.04.26：修复utils；更新链接；
 - 2022.03.26：更新utils；更新链接；

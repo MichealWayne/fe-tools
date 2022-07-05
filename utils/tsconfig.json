@@ -17,9 +17,14 @@
     "types": [
       "jest",
       "node"
-    ]
+    ],
+    "paths": {
+      "utils": ["./packages/utils/src/index.ts"],
+      "node-utils": ["./packages/node-utils/src/index.ts"],
+      "web-apis": ["./packages/webAPI/src/index.ts"]
+    }
   },
-  "include": ["packages/**/src"],
+  "include": ["packages/**/src", "types/*"],
   "exclude": [
     "__tests__",
     "dist",
