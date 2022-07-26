@@ -409,6 +409,7 @@
 <a href="https://unpkg.com/" target="_blank">unpkg</a> | `unpkg` | 国外公共静态资源CDN，适用于 npm 上的所有内容。
 <a href="http://nodejs.cn/api/" target="_blank">nodejs api</a> | `node` | Node官方文档。
 <a href="https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts" target="_blank">Deno api</a> | `deno` | Deno官方文档（Nodejs.next）。
+<a href="https://bun.sh/">Bun</a> | `bun` | 号称比Nodejs快3倍的js runtime容器。
 <a href="https://lerna.js.org/" target="_blank">Lerna</a> | `lerna` | 好用的多包管理工具，monorepo。
 <a href="https://github.com/ds300/patch-package#readme" target="_blank">patch-package</a> | `patch-package ` | 给node_modules打补丁的工具包。
 <a href="https://v8.dev/docs" target="_blank">V8 dev docs</a> | `V8` | js V8引擎文档。
@@ -549,6 +550,7 @@
 <a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | PC、windows/Mac应用的开发。
 <a href="http://electronjs.org/docs" target="_blank">WebView2文档</a> | `跨端` | PC、windows应用的开发，微软。
 <a href="https://wendux.github.io/dist/#/doc/flyio/readme" target="_blank">flyio(fly)文档</a> | `fly` | 支持Web、Node.js 、微信小程序 、Weex 、React Native 、Quick App的请求封装库。
+<a href="https://github.com/icindy/wxParse" target="_blank">wxParse</a> | `wxParse ` | 微信小程序富文本解析组件，支持Html及markdown转wxml可视化（但是目前已停止维护）。
 <a href="https://developer.chrome.com/extensions" target="_blank">chrome extension</a> | `chrome-extension` | Chrome拓展程序官方文档。
 <a href="https://github.com/sxei/chrome-plugin-demo" target="_blank">chrome-plugin-demo</a> | `chrome-plugin, chrome-extension` | 一篇很好的Chrome拓展程序开发教程，有demo。
 
@@ -610,6 +612,7 @@
 <a href="https://github.com/avajs/ava" target="_blank">AvaJs</a> | `avajs` | 一款快速的测试工具。
 <a href="https://enzymejs.github.io/enzyme/" target="_blank">enzyme官网</a> | `enzyme` | 一款React单元测试工具，可以测hook。
 <a href="https://github.com/marmelab/gremlins.js" target="_blank">gremlins.js</a> | `gremlins` | 一款node及浏览器的Monkey Test工具。
+<a href="https://uptime.kuma.pet/" target="_blank">uptime-kuma</a> | `uptime-kuma` | 一款开源的、基于puppeteer的指标监控平台。
 
 
 #### 1.10.2 安全及加密知识
@@ -683,6 +686,9 @@
 
 ### 1.12 生活篇
 
+
+地址 | 标签 | 说明
+---- | ---- | ----
 <a href="https://github.com/Anduin2017/HowToCook" target="_blank">HowToCook</a> | `HowToCook` | 程序员在家做饭方法指南。
 <a href="https://github.com/geekan/HowToLiveLonger" target="_blank">HowToCook</a> | `HowToLiveLonger` | 程序员延寿指南。
 
@@ -763,6 +769,7 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2022.07.23：调整utils；更新链接；
 - 2022.06.18：更新utils（node-utils）；更新链接；
 - 2022.05.17：更新utils（webApi、增加描述）；更新链接；
 - 2022.04.26：修复utils；更新链接；

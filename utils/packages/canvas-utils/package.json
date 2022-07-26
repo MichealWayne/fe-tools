@@ -1,0 +1,11 @@
+{
+  "name": "fe-tools-canvas-utils",
+  "version": "0.1.0",
+  "description": "web/weapp/nodejs canvas utils(used in FundCharts).",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Wayne<michealwayne@163.com>",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}

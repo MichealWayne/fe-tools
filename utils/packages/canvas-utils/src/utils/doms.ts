@@ -1,0 +1,44 @@
+/**
+ * @module DOM
+ * @description dom operate
+ * @author Wayne
+ * @Date 2022-06-06 10:08:50
+ * @LastEditTime 2022-07-05 13:35:48
+ */
+
+import { getElementSize } from 'web-apis';
+
+import { DEFAULT_CANVAS_SIZE } from '../constants';
+
+/**
+ * @function createCanvasElem
+ * @description (web)创建并填充canvas元素
+ * @param {HTMLElement} elem
+ * @param {Options} options
+ * @returns {HTMLCanvasElement}
+ * @example
+ *  const canvas = createCanvasElem(document.querySelector('body'), {
+ *    id: 'demo'
+ *  })
+ */
+export function createCanvasElem(
+  elem: HTMLElement,
+  {
+    id,
+    width,
+    height,
+  }: {
+    id: string;
+    width?: number;
+    height?: number;
+  }
+): HTMLCanvasElement {
+  const canvas = document.createElement('canvas');
+  canvas.id = `${id}Canvas`;
+
+  canvas.width = width || getElementSize(elem, 'width') || DEFAULT_CANVAS_SIZE.width;
+  canvas.height = height || getElementSize(elem, 'height') || DEFAULT_CANVAS_SIZE.height;
+
+  elem.appendChild(canvas);
+  return canvas;
+}
