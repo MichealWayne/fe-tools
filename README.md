@@ -27,30 +27,29 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN 文档手册</a> | `html/css/js` | Mozilla出品的一个很全很有用的前端查询/学习网站。
-<a href="https://www.w3.org/" target="_blank">W3C官网</a> | `html/css/js` | W3C官方，不解释。
+<a href="https://www.w3.org/" target="_blank">W3C官网</a> | `html/css/js` | W3C官方标准。
 <a href="https://www.html.cn/book/css/all-properties.html" target="_blank">html中文网-css教程手册</a> | `css` | HTML中文网-快速查询css属性及基本使用。
-<a href="http://www.yyyweb.com/demo/html5-tools/html5-canvas.html" target="_blank">canvas速查手册</a> | `canvas` | canvas API方法集合，一目了然。
+<a href="https://www.canvasapi.cn/" target="_blank">canvas api速查手册</a> | `canvas` | canvas API方法集合。
 <a href="https://www.w3.org/Graphics/SVG/" target="_blank">W3C官网-SVG</a> | `svg` | W3C官网，SVG文档。
-<a href="http://www.t086.com/code/vml/" target="_blank">VML 参考手册</a> | `VML(IE)` | *微软开发的在低端IE上运行的“SVG”。
+<a href="http://www.t086.com/code/vml/" target="_blank">VML 参考手册</a> | `VML(IE)` | *微软开发的在低端IE上运行的图形绘制DSL、类似“SVG”。
 <a href="https://www.typescriptlang.org/docs/handbook/intro.html" target="_blank">TypeScript官方手册</a> | `typescript` | TypeScript官方手册。
 <a href="https://github.com/type-challenges/type-challenges" target="_blank">TypeScript Challenges</a> | `ts-challenges` | TypeScript Challenges，在线学习/检验自己的ts水平。
 <a href="https://www.ecma-international.org/publications-and-standards/standards/" target="_blank">ECMA standards | `ecma` | ECMAScript 协议标准。
 <a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank">ECMA International(6)</a> | `ES6` | ECMAScript6官方文档。
-<a href="https://ecma262.docschina.org/" target="_blank">ECMA International(6) China | `ES6` | ECMAScript6官方文档，部分中文翻译。
+<a href="https://ecma262.docschina.org/" target="_blank">ECMA International(6) 汉化 | `ES6` | ECMAScript6官方文档，部分中文翻译。
 <a href="http://es6-features.org/" target="_blank">ECMA6 features | `ES6` | 通俗易懂的ECMAScript6特性demos。
-<a href="http://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 使用频率最高的ECMAScript6文档。
+<a href="http://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 国内使用频率最高的ECMAScript6文档，特别适合新手。
 <a href="http://www.html5plus.org/doc/h5p.html" target="_blank">Web API Reference</a> | `html5` | HTML5 web API查询，如摄像头/地理位置。
-<a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect" target="_blank">Safari HTML Ref查询</a> | `html` | Safari webview的HTML标签查询，某些ios特殊的属性或表现可以查这个。
+<a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect" target="_blank">Safari HTML Ref查询</a> | `html` | Safari webview的HTML标签查询，用于移动web开发，比如某些iOS特殊的属性或表现可以查这个。
 <a href="https://webkit.org/status/" target="_blank">WebKit 特性状态查询</a> | `webkit` | WebKit 官网文档，js/css特性状态支持情况查询。
 <a href="https://dart.dev/" target="_blank">Dart官网</a> | `dart` | dart语言英文官网。
 <a href="https://www.dartcn.com/guides/language/language-tour" target="_blank">Dart中文网</a> | `dart` | dart语言中文学习网。
-<a href="https://github.com/dart-archive/ts2dart" target="_blank">ts2dart</a> | `ts2dart` | 一款 TypeScript 转 Dart 语言的工具。
-<a href="https://www.rfc-editor.org/" target="_blank">RFC规范官网</a> | `rfc/http` | RFC协议官网，HTTP协议等内容。
+<a href="https://github.com/dart-archive/ts2dart" target="_blank">ts2dart</a> | `ts2dart` | 一款 TypeScript 转 Dart 语言的工具库（当然会存在一些问题）。
+<a href="https://www.rfc-editor.org/" target="_blank">RFC规范官网</a> | `rfc/http` | RFC协议官网，可查询HTTP协议等内容。
 <a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">Media Types</a> | `MIME` | 媒体类型，MIME。
-<a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网网。
+<a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网。
 <a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
 <a href="https://docs.krustlet.dev/" target="_blank">Krustlet 官网</a> | `krustlet` | 一款 Web Assembly 框架。
-<a href="https://wechat-miniprogram.github.io/miniprogram-compat/" target="_blank">微信小程序ES兼容查询</a> | `weapp` | 微信小程序ES api及对应小程序环境版本兼容查询。
 
 
 
@@ -59,9 +58,10 @@
 ---- | ---- | ----
 <a href="https://caniuse.com/" target="_blank">can i use</a> | `caniuse` | 使用频率最高的兼容支持查询网站。
 <a href="http://kangax.github.io/compat-table/es6/" target="_blank">ES兼容查询</a> | `js` | ECMAScript兼容查询。
-<a href="http://iosfonts.com/" target="_blank">iOS字体</a> | `ios font` | iOS系统自带字体查询。
-<a href="https://www.bootcss.com/p/websafecolors/" target="_blank">Web安全色查询</a> | `web color` | 为了尽量让用户看到色彩相同的网页,请尽量使用216色的web安全色。
-<a href="http://tongji.baidu.com/data/browser" target="_blank">浏览器份额统计</a> | `browser` | 百度统计的市面上浏览器/app份额。
+<a href="https://wechat-miniprogram.github.io/miniprogram-compat/" target="_blank">微信小程序ES兼容查询</a> | `weapp` | 微信小程序ES api及对应小程序环境版本兼容查询。
+<a href="http://iosfonts.com/" target="_blank">iOS字体</a> | `ios font` | iOS系统自带字体支持情况查询。
+<a href="https://www.bootcss.com/p/websafecolors/" target="_blank">Web安全色查询</a> | `web color` | *为了尽量让用户看到色彩相同的网页,请尽量使用216色的web安全色。
+<a href="http://tongji.baidu.com/data/browser" target="_blank">浏览器份额统计</a> | `browser` | *百度统计的市面上浏览器/app份额。
 
 ### 1.3 CSS工具
 #### 1.3.1 预处理
@@ -77,8 +77,8 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="http://api.postcss.org/" target="_blank">postcss 文档</a> | `postcss` | 被广泛运用的CSS后处理工具。
-<a href="https://github.com/postcss/postcss" target="_blank">github-postcss</a> | `postcss` | post插件库中心。
-<a href="https://github.com/postcss/autoprefixer" target="_blank">github-autoprefixer</a> | `autoprefixer` | 自动补充浏CSS前缀的后处理工具。
+<a href="https://github.com/postcss/postcss" target="_blank">postcss 插件</a> | `postcss` | post插件库中心。
+<a href="https://github.com/postcss/autoprefixer" target="_blank">autoprefixer</a> | `autoprefixer` | 自动补充浏CSS前缀的后处理工具。
 <a href="https://cssnano.co/" target="_blank">cssnano官网</a> | `cssnano` | CSS优化和分解插件。
 <a href="https://www.npmjs.com/package/postcss-plugin-px2rem" target="_blank">postcss-plugin-px2rem</a> | `px2rem` | 将px单位转为rem单位的工具。
 <a href="https://www.npmjs.com/package/postcss-px-to-viewport" target="_blank">postcss-px-to-viewport</a> | `px2vw` | 将px单位转为vw单位的工具。
@@ -401,11 +401,12 @@
 ### 1.7 Nodejs和构建
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://github.com/goldbergyoni/nodebestpractices" target="_blank">Node.js best practices list</a> | `nodebestpractices` | Nodejs最佳实践集合。
 <a href="https://www.npmjs.com/" target="_blank">npm</a> | `npm` | node包统一平台。
 <a href="https://yarn.bootcss.com/" target="_blank">yarn</a> | `yarn` | 高速的node包管理器。
 <a href="https://pnpm.js.org/" target="_blank">pnpm</a> | `pnpm` | 快速高效（安全）的node包统一管理器。
 <a href="https://github.com/tj/n" target="_blank">n</a> | `n` | 极度简单的 Nodejs 版本管理工具。
-<a href="https://storybook.js.org/" target="_blank">StoryBook</a> | `storybookjs` | 用于独立开发React、Vue和Angular的UI组件库。
+<a href="https://storybook.js.org/" target="_blank">StoryBook</a> | `storybookjs` | 用于独立开发React、Vue和Angular的UI组件库导航站点。
 <a href="https://unpkg.com/" target="_blank">unpkg</a> | `unpkg` | 国外公共静态资源CDN，适用于 npm 上的所有内容。
 <a href="http://nodejs.cn/api/" target="_blank">nodejs api</a> | `node` | Node官方文档。
 <a href="https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts" target="_blank">Deno api</a> | `deno` | Deno官方文档（Nodejs.next）。
@@ -559,6 +560,7 @@
 ---- | ---- | ----
 <a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a> | `stackoverflow` | 技术问题排忧解难的友好社区。
 <a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析npm软件包的体积和加载性能的网站。
+<a href="https://npmgraph.js.org/" target="_blank">npmgraph</a> | `npmgraph` | 分析npm软件包依赖关系的工具网站。
 <a href="https://www.typescriptlang.org/dt/search?search=" target="_blank">Ts声明文件查询</a> | `joi` | 各类库的TypeScript声明文件查询网站。
 <a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank">正则表达式30分钟</a> | `regexp` | 正则上手教程。
 <a href="https://regexper.com/" target="_blank">在线正则验证</a> | `regexper` | 可视化在线正则验证网站。
@@ -577,6 +579,7 @@
 <a href="https://hiroppy.github.io/fusuma/" target="_blank">Fusuma</a> | `fusuma` | 用markdown写web ppt。
 <a href="https://stackedit.io/" target="_blank">stackedit</a> | `stackedit ` | 在浏览器中运行的Markdown编辑器。
 <a href="https://vuepress.vuejs.org/zh/" target="_blank">VuePress</a> | `vuepress` | 用markdown写文档/博客
+<a href="https://vitejs.cn/vitepress/" target="_blank">VitePress</a> | `vitepress` | 用markdown写文档/博客，VuePress小兄弟，用vite构建
 <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> | `hexo` | 用markdown写文档/博客
 <a href="https://d.umijs.org/" target="_blank">dumi</a> | `dumi` | 适合写前端开发文档的工具，markdown，蚂蚁
 <a href="https://www.materialui.co/colors" target="_blank">materialui</a> | `materialui` | 快速色值选择
@@ -613,6 +616,7 @@
 <a href="https://enzymejs.github.io/enzyme/" target="_blank">enzyme官网</a> | `enzyme` | 一款React单元测试工具，可以测hook。
 <a href="https://github.com/marmelab/gremlins.js" target="_blank">gremlins.js</a> | `gremlins` | 一款node及浏览器的Monkey Test工具。
 <a href="https://uptime.kuma.pet/" target="_blank">uptime-kuma</a> | `uptime-kuma` | 一款开源的、基于puppeteer的指标监控平台。
+<a href="https://playwright.dev/" target="_blank">Playwright</a> | `playwright` | 较新颖的e2e测试工具，支持Chrome、firefox等主流浏览器。
 
 
 #### 1.10.2 安全及加密知识
@@ -651,6 +655,9 @@
 <a href="https://www.selenium.dev/" target="_blank">Selenium官网</a> | `selenium` | 强大的用于Web应用程序测试的工具。
 <a href="https://github.com/GoogleChrome/lighthouse" target="_blank">Lighthouse</a> | `lighthouse` | Google标准的web性能检测工具，Chrome自带。
 <a href="https://github.com/nolanlawson/fuite" target="_blank">Fuite</a> | `fuite` | web内存检测工具，基于puppeteer。
+<a href="https://github.com/chaitin/xray" target="_blank"> xray </a> | `xray ` | 一款完善的安全评估工具，支持常见 web 安全问题扫描和自定义 poc，不过不开源。
+
+
 
 
 ### 1.11 IDE插件
@@ -690,7 +697,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://github.com/Anduin2017/HowToCook" target="_blank">HowToCook</a> | `HowToCook` | 程序员在家做饭方法指南。
-<a href="https://github.com/geekan/HowToLiveLonger" target="_blank">HowToCook</a> | `HowToLiveLonger` | 程序员延寿指南。
+<a href="https://github.com/geekan/HowToLiveLonger" target="_blank">HowToLiveLonger</a> | `HowToLiveLonger` | 程序员延寿指南。
 
 
 
@@ -769,6 +776,7 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2022.08.14：修改链接（调整部分无用链接）；
 - 2022.07.23：调整utils；更新链接；
 - 2022.06.18：更新utils（node-utils）；更新链接；
 - 2022.05.17：更新utils（webApi、增加描述）；更新链接；
