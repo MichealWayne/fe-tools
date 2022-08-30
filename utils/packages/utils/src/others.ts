@@ -114,9 +114,9 @@ const keyCodeMap = {
  * @param  {number} keycode
  * @return {string}
  */
-export function getKeyName(keycode: number) {
-  if (keyCodeMap[keycode as keyof typeof keyCodeMap]) {
-    return keyCodeMap[keycode as keyof typeof keyCodeMap];
+export function getKeyName(keycode: keyof typeof keyCodeMap) {
+  if (keyCodeMap[keycode]) {
+    return keyCodeMap[keycode];
   } else {
     console.warn(`Unknow Key(Key Code:${keycode})`);
     return '';
@@ -137,24 +137,24 @@ export function digitUppercase(num: number) {
   ];
   const head = num < 0 ? '欠' : '';
   num = Math.abs(num);
-  let s = '';
+  let resStr = '';
   for (let i = 0, len = fraction.length; i < len; i++) {
-    s += (digit[Math.floor(num * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
+    resStr += (digit[Math.floor(num * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
   }
-  s = s || '整';
+  resStr = resStr || '整';
   num = Math.floor(num);
   for (let i = 0; i < unit[0].length && num > 0; i++) {
-    let p = '';
+    let str = '';
     for (let j = 0; j < unit[1].length && num > 0; j++) {
-      p = digit[num % 10] + unit[1][j] + p;
+      str = digit[num % 10] + unit[1][j] + str;
       num = Math.floor(num / 10);
     }
-    s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s;
+    resStr = str.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + resStr;
   }
 
   return (
     head +
-    s
+    resStr
       .replace(/(零.)*零元/, '元')
       .replace(/(零.)+/g, '零')
       .replace(/^整$/, '零元整')

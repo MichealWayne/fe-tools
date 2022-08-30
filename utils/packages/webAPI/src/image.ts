@@ -7,7 +7,7 @@
 /**
  * @function isSupportWebP
  * @description 页面当前所处环境是否支持webp格式图片
- * @return {boolean}
+ * @return {Boolean}
  */
 export function isSupportWebP() {
   return (

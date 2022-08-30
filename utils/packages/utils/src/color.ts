@@ -2,7 +2,7 @@
  * @module Color
  * @description handle color format
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:56:53
+ * @LastEditTime 2022-08-30 10:51:07
  */
 
 /**
@@ -58,9 +58,9 @@ export function getColorRgba(str: string, rate = 1): string {
 
 /**
  * @function isTransparentColor
- * @description 是否为透色
+ * @description 是否为透明色
  * @param {String} colorStr
- * @return {boolean}
+ * @return {Boolean}
  */
 export function isTransparentColor(colorStr: string): boolean {
   if (!colorStr) return false;

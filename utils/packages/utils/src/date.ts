@@ -2,14 +2,16 @@
  * @module Date
  * @description date functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 16:00:55
+ * @LastEditTime 2022-08-24 19:21:29
  */
 
 /**
  * @function dayOfYear
  * @description 此日期是当年中的第几天
  * @param {Date} date
- * @return {number}
+ * @return {Number}
+ * @example
+ *   dayOfYear(new Date('2022/02/20')); // 51
  */
 export function dayOfYear(date: Date) {
   return Math.floor((+date - +new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
@@ -19,9 +21,9 @@ export function dayOfYear(date: Date) {
  * @function getColonTimeFromDate
  * @description 获取hh:mm:ss时间
  * @param {Date} date
- * @return {string}
+ * @return {String}
  * @example
- *  getColonTimeFromDate(new Date()); // 如'15:58:40'
+ *  getColonTimeFromDate(new Date()); // '15:58:40'
  */
 export function getColonTimeFromDate(date: Date) {
   return date.toTimeString().slice(0, 8);
@@ -32,7 +34,7 @@ export function getColonTimeFromDate(date: Date) {
  * @description 判断两个日期差了几天
  * @param {Date} dateInitial
  * @param {Date} dateFinal
- * @return {number}
+ * @return {Number}
  */
 export function getDaysDiffBetweenDates(dateInitial: Date, dateFinal: Date) {
   return (+dateFinal - +dateInitial) / (1000 * 60 * 60 * 24);
@@ -50,12 +52,12 @@ export function isAfterDate(dateA: Date, dateB: Date) {
 
 /**
  * @function isBeforeDate
- * @param {Date} dateA
- * @param {Date} dateB
+ * @param {Date} date1
+ * @param {Date} date2
  * @return {boolean}
  */
-export function isBeforeDate(dateA: Date, dateB: Date) {
-  return dateA < dateB;
+export function isBeforeDate(date1: Date, date2: Date) {
+  return date1 < date2;
 }
 
 /**

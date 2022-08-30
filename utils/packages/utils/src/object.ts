@@ -1,9 +1,12 @@
 /**
  * @module Object
  * @description object functions
+ * @author Wayne
+ * @Date 2022-07-05 13:53:42
+ * @LastEditTime 2022-08-17 19:48:54
  */
 
-export type plainObject = {
+export type PlainObject = {
   [propName: string]: unknown;
 };
 
@@ -12,7 +15,7 @@ export type plainObject = {
  * @param {object} obj
  * @param {function} fn
  */
-export function forOwn(obj: plainObject, fn: (val: any, key: string, obj: plainObject) => unknown) {
+export function forOwn(obj: PlainObject, fn: (val: any, key: string, obj: PlainObject) => unknown) {
   return Object.keys(obj).forEach(key => fn(obj[key], key, obj));
 }
 
@@ -23,7 +26,7 @@ export function forOwn(obj: plainObject, fn: (val: any, key: string, obj: plainO
  *   objectFromPairs([['a', 1], ['b', [2]]]); // -> {a:1, b:[2]}
  */
 export function objectFromPairs(arr: [string, unknown][]) {
-  return arr.reduce((a: plainObject, v) => {
+  return arr.reduce((a: PlainObject, v) => {
     a[v[0] as keyof typeof a] = v[1];
     return a;
   }, {});
@@ -37,7 +40,7 @@ export function objectFromPairs(arr: [string, unknown][]) {
  */
 export function mapObject(arr: string[], fn: (...args: unknown[]) => unknown) {
   const _arr = arr.map(fn);
-  const obj: plainObject = {};
+  const obj: PlainObject = {};
   return arr.reduce((_acc, val, index) => {
     obj[val] = _arr[index];
     return obj;
@@ -50,8 +53,8 @@ export function mapObject(arr: string[], fn: (...args: unknown[]) => unknown) {
  * @param {array} arr
  * @return {object}
  */
-export function pick(obj: plainObject, arr: string[]) {
-  return arr.reduce((acc: plainObject, curr) => {
+export function pick(obj: PlainObject, arr: string[]) {
+  return arr.reduce((acc: PlainObject, curr) => {
     curr in obj && (acc[curr] = obj[curr]);
     return acc;
   }, {});

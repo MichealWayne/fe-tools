@@ -2,13 +2,14 @@
  * @module Easing
  * @description Animation easing functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 16:01:08
+ * @LastEditTime 2022-08-30 10:54:15
  */
 
 export type EasingFunction = (amount: number) => number;
 
 /**
  * The Ease class provides a collection of easing functions for use with tween.js.
+ * @see https://www.febucci.com/2018/08/easing-functions/
  */
 const Easing = {
   Linear: {

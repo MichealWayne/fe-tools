@@ -30,7 +30,7 @@ export function isBrowserTab() {
  * @return {Boolean}
  */
 export function hasClass(elem: HTMLElement, className: string) {
-  return new RegExp('(\\s|^)' + className + '(\\s|$)').test(elem.className);
+  return new RegExp(`(\\s|^)${className}(\\s|$)`).test(elem.className);
 }
 
 /**
@@ -41,7 +41,7 @@ export function hasClass(elem: HTMLElement, className: string) {
  */
 export function addClass(elem: HTMLElement, className: string) {
   if (!hasClass(elem, className)) {
-    elem.className += ' ' + className;
+    elem.className += ` ${className}`;
   }
 }
 
@@ -53,7 +53,7 @@ export function addClass(elem: HTMLElement, className: string) {
  */
 export function removeClass(elem: HTMLElement, className: string) {
   if (hasClass(elem, className)) {
-    const reg = new RegExp('(\\s|^)' + className + '(\\s|$)');
+    const reg = new RegExp(`(\\s|^)${className}(\\s|$)`);
     elem.className = elem.className.replace(reg, ' ');
   }
 }

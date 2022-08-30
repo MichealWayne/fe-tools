@@ -1,5 +1,12 @@
+/**
+ * @module fsFuncs
+ * @Date 2020-04-11 21:55:46
+ * @LastEditTime 2022-08-24 19:44:23
+ */
+
 import fs from 'fs';
 import { join, dirname } from 'path';
+
 import Tip from '../util/tip.js';
 
 /**
@@ -86,7 +93,7 @@ export function setFolderSync(folderPath: string, noTip?: boolean) {
 /**
  * @function rmdirsSync
  * @description 同步删除指定目录下的所前目录和文件,包括当前目录
- * @param {*} targetPath
+ * @param {String} targetPath
  * @returns
  */
 export function rmdirsSync(targetPath: string) {
@@ -121,7 +128,7 @@ export function rmdirsSync(targetPath: string) {
  * @param {Boolean} replaceBool replace original data or add
  * @return {Promise}
  */
-export function writeFile(filePath: string, fileData: string, replaceBool: boolean) {
+export function writeFile(filePath: string, fileData: string, replaceBool?: boolean) {
   return new Promise((resolve, reject) => {
     const dirPath = dirname(filePath);
     setFolderSync(dirPath, true);
@@ -138,6 +145,43 @@ export function writeFile(filePath: string, fileData: string, replaceBool: boole
   });
 }
 
+/**
+ * @function writeJson
+ * @description 写JSON文件
+ * @param {String} filePath
+ * @param {Object} obj
+ */
+export function writeJson(filePath: string, obj: { [key: string]: unknown }) {
+  writeFile(filePath, `${JSON.stringify(obj, null, 2)}\n`);
+}
+
+/**
+ * @function readFile
+ * @description 读取文件内容
+ * @param {String} filePath
+ * @returns {String}
+ */
+export function readFile(filePath: string) {
+  if (fs.existsSync(filePath)) {
+    return fs.readFileSync(filePath, 'utf8');
+  }
+  return '';
+}
+
+/**
+ * @function readJson
+ * @description 读取JSON文件内容
+ * @param {String} filePath
+ * @returns {String}
+ */
+export function readJson(filePath: string) {
+  const content = readFile(filePath);
+  if (content) {
+    return JSON.parse(content);
+  }
+  return {};
+}
+
 export default {
   travelFolderSync,
   fsExistsSync,
@@ -145,4 +189,6 @@ export default {
   mkdirsSync,
   rmdirsSync,
   writeFile,
+  readFile,
+  readJson,
 };
