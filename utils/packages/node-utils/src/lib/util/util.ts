@@ -3,8 +3,11 @@
  * @extend functions
  * @author Wayne
  * @Date 2022-06-21 14:12:36
- * @LastEditTime 2022-07-05 09:51:16
+ * @LastEditTime 2022-08-24 19:38:34
  */
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const isBuffer = require('buffer').Buffer.isBuffer;
 
 /**
  * @function getTimeStr
@@ -28,5 +31,6 @@ export function getTimeStr(timeStr?: string) {
 }
 
 export default {
+  isBuffer,
   getTimeStr,
 };

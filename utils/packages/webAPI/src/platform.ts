@@ -3,7 +3,7 @@
 /**
  * @module Platform
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:29:42
+ * @LastEditTime 2022-08-18 16:37:15
  */
 
 export const ua = navigator.userAgent.toLowerCase();
@@ -76,18 +76,14 @@ export function getPcExplore() {
  * @return {String}
  */
 export function getSystemOS() {
-  const userAgent =
-    ('navigator' in window && 'userAgent' in navigator && navigator.userAgent.toLowerCase()) || '';
-  const appVersion =
-    ('navigator' in window && 'appVersion' in navigator && navigator.appVersion.toLowerCase()) ||
-    '';
+  const appVersion = (navigator && navigator.appVersion.toLowerCase()) || '';
 
   if (/mac/i.test(appVersion)) return 'MacOSX';
   if (/win/i.test(appVersion)) return 'windows';
   if (/linux/i.test(appVersion)) return 'linux';
-  if (/iphone/i.test(userAgent) || /ipad/i.test(userAgent) || /ipod/i.test(userAgent)) 'ios';
-  if (/android/i.test(userAgent)) return 'android';
-  if (/win/i.test(appVersion) && /phone/i.test(userAgent)) return 'windowsPhone';
+  if (/iphone/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) return 'ios';
+  if (/android/i.test(ua)) return 'android';
+  if (/win/i.test(appVersion) && /phone/i.test(ua)) return 'windowsPhone';
   return 'Unkonwn';
 }
 
@@ -98,12 +94,10 @@ export function getSystemOS() {
  */
 export function getPlatform() {
   const info = {
-    versions: (function () {
-      return {
-        iPhone: ua.indexOf('iPhone') > -1 || ua.indexOf('Mac') > -1,
-        iPad: ua.indexOf('iPad') > -1,
-      };
-    })(),
+    versions: {
+      iPhone: ua.indexOf('iPhone') > -1 || ua.indexOf('Mac') > -1,
+      iPad: ua.indexOf('iPad') > -1,
+    },
     language: navigator.language.toLowerCase(),
   };
 

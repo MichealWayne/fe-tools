@@ -2,8 +2,10 @@
  * @module Function
  * @description function handler functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 16:01:37
+ * @LastEditTime 2022-08-30 10:44:35
  */
+
+const DEFAULT_INTERVAL = 500;
 
 /**
  * @funciton attempt
@@ -178,7 +180,7 @@ export function throttle(
   func: {
     apply: (arg0: unknown, ...arg1: unknown[]) => void;
   },
-  intervalTime = 500
+  intervalTime = DEFAULT_INTERVAL
 ) {
   let flag = true;
   return function (_this: unknown, ...args: unknown[]) {
@@ -202,7 +204,7 @@ export function debounce(
   func: {
     apply: (arg0: unknown, arg1: unknown[]) => void;
   },
-  intervalTime = 500
+  intervalTime = DEFAULT_INTERVAL
 ) {
   let timeId: null | ReturnType<typeof setTimeout> = null;
   return function (_this: unknown, ...args: unknown[]) {

@@ -37,7 +37,8 @@ export function decapitalize([first, ...rest]: string) {
 
 /**
  * @function splitLines
- * @param {string} str
+ * @description 字符换行分割
+ * @param {String} str
  */
 export function splitLines(str: string) {
   return str.split(/\r?\n/);
@@ -91,8 +92,8 @@ export function truncateString(str: string, num: number) {
 
 /**
  * @function isChinese
- * @param {string} str
- * @return {boolean}
+ * @param {String} str
+ * @return {Boolean}
  */
 export function isChinese(str: string) {
   return /^[\u4E00-\u9FA5]{1,}$/.test(str);

@@ -2,7 +2,7 @@
  * @module tip
  * @author Wayne
  * @Date 2022-06-21 14:16:08
- * @LastEditTime 2022-07-05 09:50:40
+ * @LastEditTime 2022-08-24 19:56:40
  */
 import Colors from './colors';
 import { getTimeStr } from './util';
@@ -36,7 +36,9 @@ const tipFunHoc = (key: string) => {
 
 const Tip = {
   safe: tipFunHoc('safe'),
+  success: tipFunHoc('safe'),
   log: tipFunHoc('log'),
+  info: tipFunHoc('log'),
   error: tipFunHoc('error'),
   strongError: tipFunHoc('strongError'),
   warn: tipFunHoc('warn'),

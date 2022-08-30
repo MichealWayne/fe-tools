@@ -27,10 +27,10 @@ export function type(val?: unknown): string {
 /**
  * @function isUndefined
  * @description **isUndefined(val)** if the variable value is undefined
- * @param {any} val variable value
- * @return {boolean}
+ * @param {unknown} val variable value
+ * @return {Boolean}
  * @example
- * var test1 = [1, 2, 3],
+ * const test1 = [1, 2, 3],
  *     test2;
  * isString(test1);  // false
  * isString(test2);  // true
@@ -42,8 +42,8 @@ export function isUndefined(val?: unknown): val is undefined {
 /**
  * @function isArray
  * @description **isArray(val)** if the variable value is Array.(Array.isArray: android 5+)
- * @param {any} val value
- * @return {boolean}
+ * @param {unknown} val value
+ * @return {Boolean}
  * @example
  * const test1 = [1, 2, 3],
  *     test2 = { a: 1, b: '2' };
@@ -55,10 +55,10 @@ export const isArray = (val?: unknown): val is Array<any> => type(val) === 'Arra
 /**
  * @function isString
  * @description **isString(val)** if the variable value is String
- * @param {any} val variable value
- * @return {boolean}
+ * @param {unknown} val variable value
+ * @return {Boolean}
  * @example
- * var test1 = [1, 2, 3],
+ * const test1 = [1, 2, 3],
  *     test2 = 'abc';
  * isString(test1);  // false
  * isString(test2);  // true
@@ -70,10 +70,10 @@ export function isString(val?: unknown): val is string {
 /**
  * @function isObject
  * @description **isObject(val)** if the variable value is Object
- * @param {any} val variable value
- * @return {boolean}
+ * @param {unknown} val variable value
+ * @return {Boolean}
  * @example
- * var test1 = [1, 2, 3],
+ * const test1 = [1, 2, 3],
  *     test2 = { a: 1, b: '2' };
  * isObject(test1);  // false
  * isObject(test2);  // true
@@ -85,7 +85,7 @@ export function isObject(val?: unknown): val is Record<any, any> {
 /**
  * @function isFunction
  * @description **isFunction(val)** if the variable value is Function
- * @param {any} val variable value
+ * @param {unknown} val variable value
  * @return {Boolean}
  * @example
  * const test1 = [1, 2, 3],
@@ -101,7 +101,7 @@ export function isFunction(val?: unknown): val is Function {
 /**
  * @function isPromise
  * @description **isPromise(val)** if the variable value is isPromise.(https://github.com/then/is-promise)
- * @param {any} val variable value
+ * @param {unknown} val variable value
  * @return {Boolean}
  * @example
  * const test1 = new Promise(resolve => resolve(1))),
