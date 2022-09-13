@@ -3,18 +3,16 @@
  * @module Check
  * @description check functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:56:44
+ * @LastEditTime 2022-09-01 10:08:44
  */
 
 /**
- * @function validateEmail
- * @param {string} str
- * @return {boolean}
+ * @function isEmail
+ * @param {String} str
+ * @return {Boolean}
  */
-export function validateEmail(str: string) {
-  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-    str
-  );
+export function isEmail(str: string) {
+  return /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(str);
 }
 
 /**
@@ -35,6 +33,15 @@ export function isIdCard(str: string) {
  */
 export function isUrl(str: string) {
   return /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/i.test(str);
+}
+
+/**
+ * @function isPhoneNumber
+ * @param {string} str
+ * @return {boolean}
+ */
+export function isPhoneNumber(str: string) {
+  return /^0*(86)*(1)\d{10}$/.test(str);
 }
 
 /**

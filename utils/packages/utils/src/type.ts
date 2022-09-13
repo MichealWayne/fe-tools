@@ -8,8 +8,8 @@
 /**
  * @function type
  * @description **type(val)** get the variable value's type
- * @param {any} val variable value
- * @return {string} type string
+ * @param {unknown} val variable value
+ * @return {String} type string
  * @example
  * const test1 = [1, 2, 3],
  *     test2 = { a: 1, b: '2' },
