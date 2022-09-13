@@ -1,8 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
+import { hot } from 'react-hot-loader/root';
+
 import Logo from '@/assets/images/i-logo.png';
 import styles from './index.less';
-import { hot } from 'react-hot-loader/root';
+
 function App() {
   return (
     <section className={classnames(styles['m-head'], 'f-tc u-app')}>

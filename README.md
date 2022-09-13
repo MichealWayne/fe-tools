@@ -198,7 +198,9 @@
 <a href="https://michalsnik.github.io/aos/" target="_blank">aos.js</a> | `aosjs` | 一款强大的页面滚动动画插件。
 <a href="http://lab.ejci.net/favico.js/" target="_blank">favico.js</a> | `favicojs` | 一款让pc网站图标动起来的插件。
 <a href="https://alvarotrigo.com/fullPage/" target="_blank">fullPage.js</a> | `fullpagejs` | 一款快速搭建全屏滚动页面的插件。
-
+<a href="https://github.com/fengyuanchen/cropperjs" target="_blank">cropper.js</a> | `cropperjs` | 一款集成的图片裁剪插件库，基于jQuery。
+<a href="https://fengyuanchen.github.io/viewerjs/" target="_blank">viewer.js</a> | `viewerjs` | 一款集成的图片浏览/简单处理插件库。
+<a href="https://fengyuanchen.github.io/compressorjs/" target="_blank">compressor.js</a> | `compressorjs` | 一款集成的图片压缩处理插件库。
 
 
 ##### 视/音频
@@ -393,7 +395,7 @@
 <a href="https://github.com/30-seconds/30-seconds-of-react" target="_blank">30s-of-react</a> | `30s-of-react` | 常用React代码模块集合，30s of code系列。
 <a href="https://vasanthk.gitbooks.io/react-bits/" target="_blank">React Bits</a> | `react-bits` | 常用React技巧。
 <a href="https://docsite.js.org/zh-cn/docs/addDoc.html" target="_blank">docsiteJS</a> | `docsite` | 基于React的文档生成工具。
-<a href="http://casesandberg.github.io/react-color/" target="_blank">React Color</a> | `react-color` | 基于React的拾色器插件，模拟Sketch, Photoshop, Chrome, Github, Twitter, Material Design等取色工具。
+<a href="http://casesandberg.github.io/react-color/" target="_blank">React Color</a> | `react-color` | 基于React的拾色器插件，模拟Sketch, Photoshop, Chrome等取色工具，注意可以直接用于Preact。
 <a href="http://reactdesktop.js.org/" target="_blank">React Desktop</a> | `react-desktop` | 模拟Mac或windows桌面交互的React封装组件。
 <a href="https://www.reactboilerplate.com/" target="_blank">React Boilerplate</a> | `react-boilerplate` | 性能优先的一个典型的React项目模板。
 <a href="https://github.com/sstur/react-rte" target="_blank">React RTE</a> | `react-rte` | 富文本编辑器，基于draftJS。
@@ -776,6 +778,7 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2022.09.12：调整utils（utils/webApi）；调整fe-template；
 - 2022.08.28：更新utils（node-utils）、调整utils（utils）
 - 2022.08.14：修改链接（调整部分无用链接）；
 - 2022.07.23：调整utils；更新链接；

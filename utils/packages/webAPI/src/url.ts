@@ -44,6 +44,26 @@ export function getUrlParam(name: string, decode?: string) {
 }
 
 /**
+ * @function getBaseUrl
+ * @param {string} url 原始URL
+ * @returns {string} url 修改后的URL
+ * @desc 📝 获取 url 中?之前的部分
+ */
+export const getBaseUrl = (url: string = location.href.toString()): string =>
+  url.includes('?') ? url.split('?')[0] : url;
+
+/**
+ * @function getUrlDomain
+ * @description 获取 url 中的域名
+ * @param {string} url 原始URL
+ * @returns {string} url 修改后的URL
+ */
+export const getUrlDomain = (url: string = location.href.toString()): string => {
+  const baseUrl = /^(http|https):\/\/[^\/]+/.exec(url)![0];
+  return baseUrl;
+};
+
+/**
  * @function httpsRedirect
  * @description page http -> https
  */
