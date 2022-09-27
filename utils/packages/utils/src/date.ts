@@ -2,7 +2,7 @@
  * @module Date
  * @description date functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-08-24 19:21:29
+ * @LastEditTime 2022-09-26 11:05:39
  */
 
 /**
@@ -14,7 +14,7 @@
  *   dayOfYear(new Date('2022/02/20')); // 51
  */
 export function dayOfYear(date: Date) {
-  return Math.floor((+date - +new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+  return Math.floor((+date - +new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
 }
 
 /**

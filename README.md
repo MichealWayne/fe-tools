@@ -21,6 +21,7 @@
 - [1.9 辅助工具](#19-辅助工具)
 - [1.10 测试、安全及加密](#110-测试安全及加密)
 - [1.11 IDE插件](#111-ide插件)
+- [1.12 生活篇](#112-生活篇)
 
 
 ### 1.1 HTML/CSS/JavaScript/WASM/Dart
@@ -140,6 +141,7 @@
 <a href="https://immutable-js.github.io/immutable-js/" target="_blank">immutable-js</a> | `immutable` | 生产环境js的List, Stack, Map, OrderedMap, Set, OrderedSet以及Record数据结构支持，通常用于ReactJs。
 <a href="https://github.com/alibaba/GCanvas" target="_blank">GCanvas</a> | `gcanvas` | 轻量的跨平台图形引擎（web/weex/react-native），阿里。
 <a href="https://github.com/jayphelps/core-decorators" target="_blank">core-decorators</a> | `core-decorators` | 丰富的装饰器封装库，基于ES2016/2017的装饰器语法。
+<a href="https://github.com/prettymuchbryce/http-status-codes" target="_blank">http-status-codes</a> | `http-status-codes` | 枚举 HTTP 状态代码的常量。支持 RFC1945（HTTP/1.0、RFC2616 (HTTP/1.1) 和 RFC2518 (WebDAV)）中定义的所有状态代码。常用于ajax请求处理，ts。
 
 
 
@@ -247,6 +249,7 @@
 <a href="https://joi.dev/" target="_blank">Joi官网</a> | `joi` | 面向js的强大schema描述语言与数据验证器。
 <a href="https://github.com/JedWatson/classnames#readme" target="_blank">classnames</a> | `classnames` | className条件组合的工具，多用于React。
 <a href="https://github.com/pillarjs/path-to-regexp#readme" target="_blank">path-to-regexp</a> | `path-to-regexp` | URL或路径校验工具，使用面极广。
+<a href="https://craig.is/killing/mice" target="_blank">Mousetrap</a> | `Mousetrap` | 键盘事件注册捕获封装库，支持Windows/Mac键盘。
 
 
 
@@ -357,6 +360,7 @@
 <a href="https://github.com/vitejs/vite" target="_blank">ViteJS 文档</a> | `vitejs` | 无bundle的Vue轻量前端项目构建工具。
 <a href="https://github.com/vuejs/vue-class-component#readme" target="_blank">vue-class-component 仓库</a> | `vue-class-component` | Vue的Component装饰器封装，用于jsx/tsx的vue组件写法。
 <a href="https://formilyjs.org/" target="_blank">Formily 文档</a> | `formilyjs` | Element/Antd的表单DSL解决方案。
+<a href="https://pinia.vuejs.org/" target="_blank">pinia 文档</a> | `pinia` | 轻量Vue状态管理工具，vue3推荐。
 
 
 ### 1.6 React
@@ -762,7 +766,10 @@ Nodejs文件，事件处理等封装。
 #### node-img-build Nodejs图片工具
 webp、base64等图片处理封装。
 
-> todo: 小程序封装，构建封装，图片处理封装优化。
+#### canvas-utils Canvas图形绘制封装
+
+
+> todo: 小程序封装，构建封装。
 
 ### 2.2 --nodejs 服务端、脚本--
 
@@ -778,8 +785,9 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2022.09.24：更新链接；
 - 2022.09.12：调整utils（utils/webApi）；调整fe-template；
-- 2022.08.28：更新utils（node-utils）、调整utils（utils）
+- 2022.08.28：更新utils（node-utils）、调整utils（utils）;
 - 2022.08.14：修改链接（调整部分无用链接）；
 - 2022.07.23：调整utils；更新链接；
 - 2022.06.18：更新utils（node-utils）；更新链接；

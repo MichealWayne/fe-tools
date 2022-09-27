@@ -2,7 +2,7 @@
  * @module Array
  * @description array functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:56:08
+ * @LastEditTime 2022-09-26 11:02:58
  */
 
 export type NumberArr = number[];
@@ -54,21 +54,6 @@ export function arrayAverage(arr: number[]): number {
 export function arraySum(arr: number[]): number {
   return arr.reduce((acc, val) => acc + val, 0);
 }
-
-/**
- * @function all
- * @description 判断数组中所有项是否都满足条件
- * @param {unknown[]} arr
- * @param {function} fn
- * @return {boolean}
- * @example
- *   all([1, 2, 3], num => num > 0);  // -> true
- *   all([1, 2, 3], num => num > 2);  // -> false
- */
-export interface ArrayHook {
-  (value: any, index?: number, array?: unknown[]): boolean;
-}
-export const all = (arr: AnyArr, fn: ArrayHook = Boolean): boolean => arr.every(fn);
 
 /**
  * @function allEqual
@@ -178,7 +163,7 @@ export function flatten(arr: AnyArr, depth = 1): unknown[] {
  * @description 判断两个数组项是否相同
  * @param {unknown[]} arr1
  * @param {unknown[]} arr2
- * @return {array}
+ * @return {Boolean}
  * @example
  *   difference([1, 2, 3], [1, 1, 2, 2, 3]);  // -> false
  *   difference([1, 2, 3], [1, 2, 3, 4]);  // -> false
@@ -195,7 +180,7 @@ export function difference(arr1: AnyArr, arr2: AnyArr) {
  * @param {unknown[]} arr1
  * @param {unknown[]} arr2
  * @param {function} fn
- * @return {array}
+ * @return {Boolean}
  * @example
  *   differenceBy([1, 2, 3], [2, 4, 6], x => x > 0);  // -> false
  */
@@ -290,7 +275,7 @@ export function negate(fn: (...args: unknown[]) => unknown) {
  * @function sample
  * @description 从数组arr中随机取一项
  * @param {unknown[]} arr
- * @return {any}
+ * @return {unknown}
  */
 export function sample(arr: AnyArr) {
   return arr[Math.floor(Math.random() * arr.length)];
