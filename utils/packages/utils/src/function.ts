@@ -2,7 +2,7 @@
  * @module Function
  * @description function handler functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-08-30 10:44:35
+ * @LastEditTime 2022-09-26 11:09:50
  */
 
 const DEFAULT_INTERVAL = 500;
@@ -22,6 +22,7 @@ export function attempt(fn: (...ks: unknown[]) => unknown, ...args: unknown[]) {
 
 /**
  * @function defer
+ * @description 延迟执行函数
  * @param {function} fn
  * @param  {...any} args
  * @return {number}
@@ -32,6 +33,7 @@ export function defer(fn: (...ks: unknown[]) => unknown, ...args: unknown[]) {
 
 /**
  * @function runPromisesInSeries
+ * @description 队列执行promise
  * @param {promise array} ps
  * @return {Promise}
  */
@@ -41,6 +43,7 @@ export function runPromisesInSeries(ps: any[]) {
 
 /**
  * @function timeTaken
+ * @description 记录执行时间
  * @param {function} callback
  * @return {any}
  */
@@ -53,6 +56,7 @@ export function timeTaken(callback: (...args: unknown[]) => unknown) {
 
 /**
  * @function memoize
+ * @description 缓存函数
  * @param {function} fn
  * @return {any}
  */
@@ -67,6 +71,7 @@ export function memoize(fn: (...args: unknown[]) => unknown) {
 
 /**
  * @function once
+ * @description 单例执行函数
  * @param {function} fn
  * @return {function}
  */
@@ -82,6 +87,7 @@ export function once(fn: (...args: unknown[]) => unknown) {
 
 /**
  * @function chainAsync
+ * @description 链式执行函数
  * @param {function array} fns
  * @example chainAsync([next => { console.log(1); setTimeout(next, 1000)}, next => { console.log(2);} ])
  */
@@ -93,6 +99,7 @@ export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
 
 /**
  * @function compose
+ * @description 组合函数
  * @param  {...function} fns
  * @example
  * const add5 = x => x + 5;
@@ -110,6 +117,7 @@ export function compose(...fns: Array<(...args: unknown[]) => unknown>) {
 
 /**
  * @function pipe
+ * @description 管道执行函数
  * @param  {...function} fns
  * @example
  * const add5 = x => x + 5;
@@ -127,6 +135,7 @@ export function pipe(...fns: Array<(...args: unknown[]) => unknown>) {
 
 /**
  * @function curry
+ * @description 柯里化
  * @param {function} fn
  * @param {number} arity
  * @param  {...any} args
@@ -143,6 +152,7 @@ export function curry(
 
 /**
  * @function functionName
+ * @description 打印函数名称
  * @param {function} fn
  */
 export function functionName(fn: (...ks: unknown[]) => unknown) {
@@ -151,6 +161,7 @@ export function functionName(fn: (...ks: unknown[]) => unknown) {
 
 /**
  * @function promisify
+ * @description 函数执行promise化
  * @param {function} func
  */
 export function promisify(func: (...ks: unknown[]) => unknown) {
@@ -164,6 +175,7 @@ export function promisify(func: (...ks: unknown[]) => unknown) {
 
 /**
  * @function sleep
+ * @description 延迟ms执行
  * @param {number} ms
  */
 export function sleep(ms: number) {
@@ -172,6 +184,7 @@ export function sleep(ms: number) {
 
 /**
  * @function throttle
+ * @description 节流函数
  * @param {Function} func
  * @param {Number} intervalTime
  * @returns {Function}
@@ -196,6 +209,7 @@ export function throttle(
 
 /**
  * @function debounce
+ * @description 防抖函数
  * @param {Function} func
  * @param {Number} intervalTime
  * @returns {Function}

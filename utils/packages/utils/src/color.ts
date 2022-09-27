@@ -2,7 +2,7 @@
  * @module Color
  * @description handle color format
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-08-30 10:51:07
+ * @LastEditTime 2022-09-26 11:04:27
  */
 
 /**
@@ -22,6 +22,7 @@ export function randomHexColor() {
  */
 export function getColorRgbArr(color: string): number[] {
   const reg = /^#[\da-f]{3}([\da-f]{3})?$/i;
+
   let sColor = color.toLowerCase();
   if (sColor && reg.test(sColor)) {
     if (sColor.length === 4) {
@@ -58,7 +59,7 @@ export function getColorRgba(str: string, rate = 1): string {
 
 /**
  * @function isTransparentColor
- * @description 是否为透明色
+ * @description rgb/rgba是否为透明色
  * @param {String} colorStr
  * @return {Boolean}
  */
