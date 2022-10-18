@@ -323,6 +323,10 @@
 <a href="https://github.com/s-panferov/awesome-typescript-loader" target="_blank">awesome-typescript-loader</a> | `awesome-typescript-loader` | webpack中的TypeScript构建插件，比ts-loader要快一点。
 <a href="https://github.com/kimamula/ts-transformer-keys#readme" target="_blank">ts-transformer-keys</a> | `ts-transformer-keys` | 用于提取interface的键值数组（需要用webpack）。
 <a href="https://github.com/tamino-martinius/node-ts-dedent#readme" target="_blank">ts-dedent</a> | `ts-dedent` | node端打印正常换行的log。
+<a href="https://github.com/kawamataryo/suppress-ts-errors" target="_blank">suppress-ts-error</a> | `suppress-ts-error` | 自动为项目中所有的类型报错添加 @ts-expect-error 或 @ts-ignore 注释。
+<a href="https://github.com/sindresorhus/type-fest" target="_blank">type-fest</a> | `type-fest` | 经典的工具类型封装库。
+
+
 
 #### 1.4.12 其他
 地址 | 标签 | 说明
@@ -430,6 +434,9 @@
 <a href="https://github.com/shelljs/shelljs" target="_blank">ShellJs</a> | `shelljs` | 用nodejs实现shell常用命令。
 <a href="https://github.com/chalk/chalk" target="_blank">chalk</a> | `chalk ` | 控制台命令行输出样式工具，主要控制颜色。
 <a href="https://github.com/node-schedule/node-schedule" target="_blank">node-schedule</a> | `node-schedule` | 适用于nodejs的定时任务工具。
+<a href="https://www.npmjs.com/package/source-map-support" target="_blank">source-map-support</a> | `source-map-support` | 在 nodejs 环境下支持 SourceMap 的模块工具。
+
+
 
 
 #### 1.7.1 构建
@@ -610,6 +617,7 @@
 <a href="https://zijian.aliyun.com/detect/dns/DNS_PING-d31c5446aff9db99decd9d9d944b11c5-1640605424801" target="_blank"> 阿里云 DNS检测 </a> | `dns` | 域名DNS检测网站工具，阿里云。
 <a href="https://tabatkins.github.io/railroad-diagrams/generator.html" target="_blank"> Railroad Diagrams </a> | `railroad-diagrams` | 在线绘制铁路图的网站工具。
 <a href="https://unbug.github.io/codelf/" target="_blank">CodeIf</a> | `codeIf` | 帮助解决命名困难的命名搜索工具。
+<a href="https://app.quicktype.io/" target="_blank"> QuickType </a> | `QuickType` | 根据 json 文本生成指定语言（如 TypeScript，C++，,Java，C#，Go 等）类型声明代码的工具网站。
 
 ### 1.10 测试、安全及加密
 #### 1.10.1 单元测试
@@ -785,6 +793,7 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2022.09.24：更新链接；调整react模版
 - 2022.09.24：更新链接；
 - 2022.09.12：调整utils（utils/webApi）；调整fe-template；
 - 2022.08.28：更新utils（node-utils）、调整utils（utils）;
