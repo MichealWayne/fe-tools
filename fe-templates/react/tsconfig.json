@@ -10,25 +10,15 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-        "@/*": [
-            "src/*"
-        ]
+      "@/*": ["src/*"]
     },
-    "lib": [
-      "esnext",
-      "dom"
-    ],
+    "lib": ["esnext", "dom"],
     "typeRoots": ["./src/types/", "node_modules/@types/"],
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "strictFunctionTypes": false
   },
-  "include": [
-    "./src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
-  ]
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "build"]
 }
