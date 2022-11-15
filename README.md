@@ -339,6 +339,7 @@
 <a href="https://www.infernojs.org/" target="_blank">Infernojs</a> | `infernojs` | 轻量的类React库，jsx。
 <a href="https://emberjs.com/" target="_blank">Emberjs</a> | `emberjs` | 脚手架强大的web开发框架，template。
 <a href="https://github.com/akxcv/vuera" target="_blank">Vuera</a> | `vuera` | 用来混用Vue/React组件的库、即Vue中可以使用React组件、React中可以使用Vue组件。
+<a href="https://github.com/web3/web3.js" target="_blank">Web3js</a> | `web3js` | 以太坊标准js封装库。
 
 
 
@@ -464,6 +465,8 @@
 <a href="https://github.com/evanw/esbuild" target="_blank">esbuild</a> | `esbuild` | 一款极快的js打包和压缩工具。
 <a href="https://github.com/addyosmani/critical#readme" target="_blank">critical</a> | `critical` | 一款从HTML中提取相关CSS的工具。
 <a href="https://modernjs.dev/" target="_blank">ModernJS</a> | `modernjs` | 前端工程化体系工具，字节跳动。
+<a href="https://github.com/javascript-obfuscator/javascript-obfuscator" target="_blank">javascript-obfuscator</a> | `obfuscator` | js代码混淆插件。
+
 
 #### 1.7.2 服务端
 地址 | 标签 | 说明
@@ -492,6 +495,7 @@
 <a href="https://github.com/expressjs/multer#readme" target="_blank">Multer</a> | `multer` | 用于处理上传文件的Nodejs中间件。
 <a href="https://github.com/node-cache/node-cache" target="_blank">Node-cache</a> | `node-cache` | 一个Nodejs的缓存控制模块。
 <a href="https://socket.io/" target="_blank">Socket.IO</a> | `socket.io` | WebSocket解决方案。
+<a href="https://github.com/luin/ioredis" target="_blank">ioredis</a> | `ioredis` | redis调用js封装库。
 <a href="https://github.com/websockets/ws" target="_blank">ws</a> | `ws` | WebSocket的一个nodejs包。
 <a href="https://github.com/digitalocean/nginxconfig.io" target="_blank">nginxconfig.io</a> | `nginxconfig.io` | 在线生成nginx配置的工具。
 <a href="https://github.com/davidmarkclements/fast-safe-stringify#readme" target="_blank">fast-safe-stringify</a> | `fast-safe-stringify` | 安全快速地序列化JSON，替代JSON.stringify。
@@ -627,6 +631,7 @@
 <a href="https://jestjs.io/zh-Hans/" target="_blank">JestJS文档</a> | `jest` | 一款单元测试工具。
 <a href="https://www.cypress.io/" target="_blank">Cypress官网</a> | `cypress` | 一款单元测试集成平台工具。
 <a href="https://github.com/avajs/ava" target="_blank">AvaJs</a> | `avajs` | 一款快速的测试工具。
+<a href="http://karma-runner.github.io/latest/index.html" target="_blank">karma</a> | `karma` | 一款基于Node.js的JavaScript测试执行过程管理工具（Testacular的新名字）。
 <a href="https://enzymejs.github.io/enzyme/" target="_blank">enzyme官网</a> | `enzyme` | 一款React单元测试工具，可以测hook。
 <a href="https://github.com/marmelab/gremlins.js" target="_blank">gremlins.js</a> | `gremlins` | 一款node及浏览器的Monkey Test工具。
 <a href="https://uptime.kuma.pet/" target="_blank">uptime-kuma</a> | `uptime-kuma` | 一款开源的、基于puppeteer的指标监控平台。
@@ -793,7 +798,8 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
-- 2022.09.24：更新链接；调整react模版
+- 2022.11.12：更新链接
+- 2022.10.15：更新链接；调整react模版
 - 2022.09.24：更新链接；
 - 2022.09.12：调整utils（utils/webApi）；调整fe-template；
 - 2022.08.28：更新utils（node-utils）、调整utils（utils）;
