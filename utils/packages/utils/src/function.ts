@@ -5,6 +5,8 @@
  * @LastEditTime 2022-09-26 11:09:50
  */
 
+export const NOOP = () => '';
+
 const DEFAULT_INTERVAL = 500;
 
 /**
@@ -15,8 +17,8 @@ const DEFAULT_INTERVAL = 500;
 export function attempt(fn: (...ks: unknown[]) => unknown, ...args: unknown[]) {
   try {
     return fn(...args);
-  } catch (e) {
-    return e instanceof Error ? e : new Error(String(e));
+  } catch (err) {
+    return err instanceof Error ? err : new Error(String(err));
   }
 }
 
@@ -44,14 +46,14 @@ export function runPromisesInSeries(ps: any[]) {
 /**
  * @function timeTaken
  * @description 记录执行时间
- * @param {function} callback
+ * @param {function} fn
  * @return {any}
  */
-export function timeTaken(callback: (...args: unknown[]) => unknown) {
+export function timeTaken(fn: (...ks: unknown[]) => unknown, ...args: unknown[]) {
   console.time('timeTaken');
-  const r = callback();
+  const res = fn(...args);
   console.timeEnd('timeTaken');
-  return r;
+  return res;
 }
 
 /**
@@ -162,12 +164,12 @@ export function functionName(fn: (...ks: unknown[]) => unknown) {
 /**
  * @function promisify
  * @description 函数执行promise化
- * @param {function} func
+ * @param {function} fn
  */
-export function promisify(func: (...ks: unknown[]) => unknown) {
+export function promisify(fn: (...ks: unknown[]) => unknown) {
   return (...args: unknown[]) =>
     new Promise((resolve, reject) => {
-      func(...args, (err: Error, result: unknown) => {
+      fn(...args, (err: Error, result: unknown) => {
         err ? reject(err) : resolve(result);
       });
     });
@@ -185,12 +187,12 @@ export function sleep(ms: number) {
 /**
  * @function throttle
  * @description 节流函数
- * @param {Function} func
+ * @param {Function} fn
  * @param {Number} intervalTime
  * @returns {Function}
  */
 export function throttle(
-  func: {
+  fn: {
     apply: (arg0: unknown, ...arg1: unknown[]) => void;
   },
   intervalTime = DEFAULT_INTERVAL
@@ -198,7 +200,7 @@ export function throttle(
   let flag = true;
   return function (_this: unknown, ...args: unknown[]) {
     if (flag) {
-      func.apply(_this, args);
+      fn.apply(_this, args);
       flag = false;
       setTimeout(() => {
         flag = true;
@@ -210,12 +212,12 @@ export function throttle(
 /**
  * @function debounce
  * @description 防抖函数
- * @param {Function} func
+ * @param {Function} fn
  * @param {Number} intervalTime
  * @returns {Function}
  */
 export function debounce(
-  func: {
+  fn: {
     apply: (arg0: unknown, arg1: unknown[]) => void;
   },
   intervalTime = DEFAULT_INTERVAL
@@ -227,7 +229,7 @@ export function debounce(
     }
     timeId = setTimeout(() => {
       timeId = null;
-      func.apply(_this, args);
+      fn.apply(_this, args);
     }, intervalTime);
   };
 }

@@ -43,12 +43,3 @@ export function isUrl(str: string) {
 export function isPhoneNumber(str: string) {
   return /^0*(86)*(1)\d{10}$/.test(str);
 }
-
-/**
- * @function validateNumber
- * @param {Unknown} n
- * @return {Boolean}
- */
-export function validateNumber(n: unknown) {
-  return !isNaN(parseFloat(n as string)) && isFinite(n as number) && Number(n) === n;
-}

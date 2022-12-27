@@ -2,8 +2,10 @@
  * @model CSS
  * @author Wayne
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:19:08
+ * @LastEditTime 2022-08-24 13:23:16
  */
+
+import { isUndefined } from '../type';
 
 /**
  * @function getPrefix
@@ -17,9 +19,9 @@ export function getPrefix() {
   };
 
   const testEl = document.createElement('div');
-  if (testEl.style.transform === undefined) {
+  if (isUndefined(testEl.style.transform)) {
     for (const i in vendors) {
-      if (testEl.style[`${i}TransitionProperty` as keyof typeof testEl.style] !== undefined) {
+      if (!isUndefined(testEl.style[`${i}TransitionProperty` as keyof typeof testEl.style])) {
         return vendors[i as keyof typeof vendors];
       }
     }

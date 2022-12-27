@@ -40,12 +40,13 @@ export function getListExtremum(arr: number[]): ListExtremum {
   let maxNum = arr[0];
   let minNum = maxNum;
 
-  const maxFunc = Math.max;
-  const minFunc = Math.min;
-
   for (let i = 1, len = arr.length; i < len; i++) {
-    maxNum = maxFunc(maxNum, arr[i]);
-    minNum = minFunc(minNum, arr[i]);
+    const item = arr[i];
+    if (item > maxNum) {
+      maxNum = item;
+    } else if (item < minNum) {
+      minNum = item;
+    }
   }
   return {
     max: maxNum,

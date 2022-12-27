@@ -68,6 +68,27 @@ export function isString(val?: unknown): val is string {
 }
 
 /**
+ * @function isNumber
+ * @description **isNumber(val)** if the variable value is Number
+ * @param {unknown} val
+ * @return {Boolean}
+ * @example
+ * const test1 = 1,
+ *     test2 = new Number(1),
+ *     test3 = Number(1),
+ *     test4 = Infinity,
+ *     test5 = NaN;
+ * isNumber(test1);  // true
+ * isNumber(test2);  // false
+ * isNumber(test3);  // true
+ * isNumber(test4);  // false
+ * isNumber(test5);  // false
+ */
+export function isNumber(val?: unknown): val is number {
+  return typeof val === 'number' && val === val;
+}
+
+/**
  * @function isObject
  * @description **isObject(val)** if the variable value is Object
  * @param {unknown} val variable value
@@ -113,21 +134,6 @@ export const isPromise = <T = any>(val?: unknown): val is Promise<T> =>
   !!val &&
   (typeof val === 'object' || typeof val === 'function') &&
   typeof (val as PromiseLike<T>).then === 'function';
-
-/**
- * @function isEmptyObj
- * @param {Object} obj
- * @returns {Boolean}
- */
-export function isEmptyObj(obj?: { [propsName: string]: unknown } | null): boolean {
-  if (!obj) {
-    return false;
-  }
-  for (const _key in obj) {
-    return false;
-  }
-  return true;
-}
 
 /**
  * @function equals

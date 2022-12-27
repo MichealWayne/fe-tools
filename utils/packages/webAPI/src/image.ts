@@ -16,6 +16,33 @@ export function isSupportWebP() {
   );
 }
 
+
+/**
+ * Returns a canvas with the cropped piece only.
+ * @param {HTMLImageElement|Image|HTMLCanvasElement} src image
+ *        or canvas to crop
+ * @param {number} x left
+ * @param {number} y top
+ * @param {number} width width
+ * @param {number} height height
+ */
+export function cropImage(
+  src: HTMLImageElement | HTMLCanvasElement,
+  x: number,
+  y: number,
+  width: number,
+  height: number
+) {
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+
+  const ctx = canvas.getContext('2d')!;
+  ctx.drawImage(src, x, y, width, height, 0, 0, width, height);
+  return canvas;
+}
+
+
 /**
  * @function compressImage
  * @description 进行图片压缩并输出base64

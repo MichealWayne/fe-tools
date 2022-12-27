@@ -130,7 +130,7 @@ export function countOccurrences(arr: AnyArr, val: unknown): number {
 
 /**
  * @function deepFlatten
- * @description 数组深度扁平化
+ * @description 数组深度扁平化。（无ES5兼容要求的话可以直接用数组原型上的flat(deep)方法）
  * @param {unknown[]} arr
  * @return {array}
  * @example

@@ -3,10 +3,10 @@
  * @module Check.plus
  * @description check password functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:56:21
+ * @LastEditTime 2022-12-27 13:25:08
  */
 
-// todo 优化代码
+// todo 优化验证
 
 enum DefaultPwdStrengthTips {
   formatErr = '密码长度必须在6-12位之间',

@@ -1,8 +1,9 @@
 /**
  * @module Date
- * @description date functions
+ * @description date functions.
+ * @notice 存在复杂的日期处理场景建议直接使用date-fns
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-09-26 11:05:39
+ * @LastEditTime 2022-12-27 13:17:32
  */
 
 /**
@@ -13,7 +14,7 @@
  * @example
  *   dayOfYear(new Date('2022/02/20')); // 51
  */
-export function dayOfYear(date: Date) {
+export function dayOfYear(date = new Date()) {
   return Math.floor((+date - +new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
 }
 
@@ -25,7 +26,7 @@ export function dayOfYear(date: Date) {
  * @example
  *  getColonTimeFromDate(new Date()); // '15:58:40'
  */
-export function getColonTimeFromDate(date: Date) {
+export function getColonTimeFromDate(date = new Date()) {
   return date.toTimeString().slice(0, 8);
 }
 
@@ -46,7 +47,7 @@ export function getDaysDiffBetweenDates(dateInitial: Date, dateFinal: Date) {
  * @param {Date} dateB
  * @return {boolean}
  */
-export function isAfterDate(dateA: Date, dateB: Date) {
+export function isAfterDate(dateA: Date, dateB = new Date()) {
   return dateA > dateB;
 }
 
@@ -56,40 +57,39 @@ export function isAfterDate(dateA: Date, dateB: Date) {
  * @param {Date} date2
  * @return {boolean}
  */
-export function isBeforeDate(date1: Date, date2: Date) {
-  return date1 < date2;
+export function isBeforeDate(dateA: Date, dateB = new Date()) {
+  return dateA < dateB;
 }
 
 /**
- * @function tomorrow
- * @description 获取明天日期
- * @return {string}
+ * @function daysLater
+ * @description 获取几天后的日期
+ * @return {String}
  */
-export function tomorrow() {
-  const t = new Date();
-  t.setDate(t.getDate() + 1);
-  return t.toISOString().split('T')[0];
+export function daysLater(date = new Date(), days = 1) {
+  date.setDate(date.getDate() + days);
+  return date.toISOString().split('T')[0];
 }
 
 /**
- * @function formatRemainTime
+ * @function getFormattedRemainTime
  * @description 获取倒计时日期信息
  * @param {Date} startTime
  * @param {Date} endTime
  * @return {string}
  */
-export function formatRemainTime(startDate: Date, endDate: Date) {
-  const t = +endDate - +startDate;
+export function getFormattedRemainTime(dateInitial: Date, dateFinal: Date) {
+  const time = +dateFinal - +dateInitial;
   let day = 0;
   let hour = 0;
   let minute = 0;
   let second = 0;
 
-  if (t >= 0) {
-    day = Math.floor(t / 1000 / 3600 / 24);
-    hour = Math.floor((t / 1000 / 60 / 60) % 24);
-    minute = Math.floor((t / 1000 / 60) % 60);
-    second = Math.floor((t / 1000) % 60);
+  if (time >= 0) {
+    day = Math.floor(time / 1000 / 3600 / 24);
+    hour = Math.floor((time / 1000 / 60 / 60) % 24);
+    minute = Math.floor((time / 1000 / 60) % 60);
+    second = Math.floor((time / 1000) % 60);
   }
   return {
     day,
