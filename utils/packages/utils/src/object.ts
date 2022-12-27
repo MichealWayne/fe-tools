@@ -6,6 +6,8 @@
  * @LastEditTime 2022-08-17 19:48:54
  */
 
+import { isObject } from './type';
+
 export type PlainObject = {
   [propName: string]: unknown;
 };
@@ -53,8 +55,8 @@ export function mapObject(arr: string[], fn: (...args: unknown[]) => unknown) {
  * @param {array} arr
  * @return {object}
  */
-export function pick(obj: PlainObject, arr: string[]) {
-  return arr.reduce((acc: PlainObject, curr) => {
+export function pick(obj: PlainObject, keys: string[]) {
+  return keys.reduce((acc: PlainObject, curr) => {
     curr in obj && (acc[curr] = obj[curr]);
     return acc;
   }, {});
@@ -69,3 +71,14 @@ export function pick(obj: PlainObject, arr: string[]) {
 export function hasOwnProp(obj: unknown, key: string): boolean {
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
+
+/**
+ * @function isEmptyObj
+ * @description 是否为空对象
+ * @param {Object} obj
+ * @returns {Boolean}
+ */
+export function isEmptyObj(obj?: PlainObject | null): boolean {
+  return isObject(obj) && Object.keys(obj).length === 0;
+}
+

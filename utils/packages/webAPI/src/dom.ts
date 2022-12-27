@@ -4,6 +4,8 @@
  * @LastEditTime 2022-07-05 13:29:46
  */
 
+import { isUndefined } from '../type';
+
 /**
  * @function isBrowser
  * @description 当前页面是否在浏览器环境下
@@ -192,8 +194,8 @@ export function getScrollTop() {
  */
 export function getScrollPosition(elem = window) {
   return {
-    x: elem.pageXOffset !== undefined ? elem.pageXOffset : elem.screenLeft,
-    y: elem.pageYOffset !== undefined ? elem.pageYOffset : elem.screenTop,
+    x: !isUndefined(elem.pageXOffset) ? elem.pageXOffset : elem.screenLeft,
+    y: !isUndefined(elem.pageYOffset) ? elem.pageYOffset : elem.screenTop,
   };
 }
 
@@ -274,10 +276,10 @@ export function smoothScroll(elemSelector: string) {
 }
 
 /**
- * @function disableCP
+ * @function disableCopy
  * @description 禁止网页复制粘贴
  */
-export function disableCP() {
+export function disableCopy() {
   const html = document.querySelector('html')!;
   html.oncopy = () => false;
   html.onpaste = () => false;

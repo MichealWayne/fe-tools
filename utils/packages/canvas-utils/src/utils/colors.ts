@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2022-06-07 11:21:34
- * @LastEditTime 2022-06-07 15:25:42
+ * @LastEditTime 2022-12-27 11:28:33
  */
 
 /**
@@ -64,7 +64,7 @@ export function isTransparentColor(colorStr: string): boolean {
  * @return {number[]}
  */
 export function getLightfulRgbList(color: string, weight = 0): number[] {
-  return getColorRgbList(color).map(function (data) {
+  return getColorRgbList(color).map(data => {
     const colorData = ~~(data + data * weight);
     return colorData > 255 ? 255 : colorData;
   });

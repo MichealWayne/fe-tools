@@ -1,11 +1,16 @@
 /**
+ * @author Wayne
+ * @Date 2022-04-11 21:45:54
+ * @LastEditTime 2022-12-27 13:33:31
+ */
+/**
  * @module Trade
  * @description trade functions
  */
 
 /**
  * @function luhnCheck
- * @param {number | string} num
+ * @param {Number | String} num
  * @extends to:https://github.com/navyxie/bankcardinfo
  */
 export function luhnCheck(num: number) {
@@ -22,7 +27,7 @@ export function luhnCheck(num: number) {
 
 /**
  * @function toCurrency
- * @param {number} n
+ * @param {Number} n
  * @param {currency string} curr
  * @param {country string} LanguageFormat
  */

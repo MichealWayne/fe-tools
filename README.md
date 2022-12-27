@@ -126,6 +126,7 @@
 <a href="https://github.com/MicheleBertoli/css-in-js" target="_blank">css in js</a> | `css-in-js` | 用写js的方式生成css样式。
 <a href="http://blog.michealwayne.cn/Moo-CSS/docs/moocss/#m%E6%A8%A1%E5%9D%97" target="_blank">Moo-CSS</a> | `moo-css` | 一种CSS写法方案。
 <a href="https://github.com/l-hammer/You-need-to-know-css" target="_blank">CSS tricks for web developers</a> | `You-need-to-know-css` | CSS技巧集合。
+<a href="https://logotyp.us/" target="_blank"> logotyp.us </a> | `logotyp` | 国内外知名企业/商业的logo集合。
 
 
 
@@ -156,7 +157,8 @@
 <a href="https://stdlib.io/" target="_blank">stdlib</a> | `stdlib` | js的数学增强库。
 <a href="http://winterbe.github.io/streamjs/" target="_blank">StreamJs</a> | `streamjs` | 一款js数据的操作工具。
 <a href="https://baconjs.github.io/" target="_blank">BaconJs</a> | `baconjs` | 也是一款js数据的操作工具。
-<a href="https://day.js.org/" target="_blank">DayJs</a> | `dayjs` | 一款日期格式化的工具，MomentJS的替代品。
+<a href="https://date-fns.org/" target="_blank">Date fns</a> | `date-fns` | 一款模块化支持按需的日期格式化工具。
+<a href="https://day.js.org/" target="_blank">DayJs</a> | `dayjs` | 一款日期格式化的工具，轻量，MomentJS的替代品。
 <a href="https://momentjs.com/" target="_blank">MomentJs</a> | `momentjs` | 一款日期格式化的工具（2020开始停止维护）。
 <a href="http://numbrojs.com/" target="_blank">numbro</a> | `numbrojs` | 一款多国语言的数字转化工具。
 <a href="http://numeraljs.com/" target="_blank"> NumeralJs</a> | `numeraljs` | 用于格式化和操作数字的 js 库。
@@ -227,8 +229,6 @@
 <a href="https://github.com/fengyuanchen/cropperjs" target="_blank">cropper.js</a> | `cropperjs` | 一款集成的图片裁剪插件库。
 <a href="https://fengyuanchen.github.io/viewerjs/" target="_blank">viewer.js</a> | `viewerjs` | 一款集成的图片浏览/简单处理插件库。
 <a href="https://fengyuanchen.github.io/compressorjs/" target="_blank">compressor.js</a> | `compressorjs` | 一款集成的图片压缩处理插件库。
-
-
 
 ##### 字符串
 地址 | 标签 | 说明

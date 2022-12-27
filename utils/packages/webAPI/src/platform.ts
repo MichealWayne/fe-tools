@@ -78,7 +78,7 @@ export function getPcExplore() {
 export function getSystemOS() {
   const appVersion = (navigator && navigator.appVersion.toLowerCase()) || '';
 
-  if (/mac/i.test(appVersion)) return 'MacOSX';
+  if (/mac/i.test(appVersion)) return 'mac';
   if (/win/i.test(appVersion)) return 'windows';
   if (/linux/i.test(appVersion)) return 'linux';
   if (/iphone/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) return 'ios';

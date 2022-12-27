@@ -5,7 +5,8 @@
 
 /**
  * @function byteSize
- * @param {string} str
+ * @param {String} str
+ * @return {Number}
  */
 export function byteSize(str: string) {
   return new Blob([str]).size;
@@ -13,7 +14,8 @@ export function byteSize(str: string) {
 
 /**
  * @function capitalize
- * @param {string} param0
+ * @param {String} paramString
+ * @return {String}
  */
 export function capitalize([first, ...rest]: string[]) {
   return first.toUpperCase() + rest.join('');
@@ -21,7 +23,8 @@ export function capitalize([first, ...rest]: string[]) {
 
 /**
  * @function capitalizeEveryWord
- * @param {string} str
+ * @param {String} str
+ * @return {String}
  */
 export function capitalizeEveryWord(str: string) {
   return str.replace(/\b[a-z]/g, char => char.toUpperCase());
@@ -29,7 +32,8 @@ export function capitalizeEveryWord(str: string) {
 
 /**
  * @function decapitalize
- * @param {string} param0
+ * @param {String} paramString
+ * @return {String}
  */
 export function decapitalize([first, ...rest]: string) {
   return first.toLowerCase() + rest.join('');
@@ -39,6 +43,7 @@ export function decapitalize([first, ...rest]: string) {
  * @function splitLines
  * @description 字符换行分割
  * @param {String} str
+ * @return {String}
  */
 export function splitLines(str: string) {
   return str.split(/\r?\n/);
@@ -46,7 +51,8 @@ export function splitLines(str: string) {
 
 /**
  * @function stripHTMLTags
- * @param {string} str
+ * @param {String} str
+ * @return {String}
  */
 export function stripHTMLTags(str: string) {
   return str.replace(/<[^>]*>/g, '');
@@ -54,17 +60,19 @@ export function stripHTMLTags(str: string) {
 
 /**
  * @function palindrome
- * @param {string} str
+ * @param {String} str
+ * @return {String}
  */
 export function palindrome(str: string) {
-  const s = str.toLowerCase().replace(/[\W_]/g, '');
-  return s === s.split('').reverse().join('');
+  const _str = str.toLowerCase().replace(/[\W_]/g, '');
+  return _str === _str.split('').reverse().join('');
 }
 
 /**
  * @function fromCamelCase
- * @param {string} str
- * @param {string} separator
+ * @param {String} str
+ * @param {String} separator
+ * @return {String}
  */
 export function fromCamelCase(str: string, separator = '_') {
   return str
@@ -75,7 +83,8 @@ export function fromCamelCase(str: string, separator = '_') {
 
 /**
  * @function reverseString
- * @param {string} str
+ * @param {String} str
+ * @return {String}
  */
 export function reverseString(str: string) {
   return [...str].reverse().join('');
@@ -83,8 +92,9 @@ export function reverseString(str: string) {
 
 /**
  * @function truncateString
- * @param {string} str
- * @param {number} num
+ * @param {String} str
+ * @param {Number} num
+ * @return {String}
  */
 export function truncateString(str: string, num: number) {
   return str?.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;

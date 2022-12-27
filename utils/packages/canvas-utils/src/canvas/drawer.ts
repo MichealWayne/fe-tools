@@ -149,7 +149,7 @@ export function clearArc(ctx: CanvasRenderingContext2D, point: PointPosition, wi
  * @param {object|null} ctx canvas context
  * @return {number} retina pixel ratio
  */
-export function retinaScale(canvas: any, ctx: CanvasRenderingContext2D): number {
+export function retinaScale(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D): number {
   const pixelRatio = window.devicePixelRatio || 1;
 
   if (pixelRatio === 1) {

@@ -4,6 +4,21 @@
  */
 
 /**
+ * @function isValidNumber
+ * @description 是否是合法的数字
+ * @param {unknown} val
+ * @return {Boolean}
+ * @example
+ *   isValidNumber(1); // true
+ *   isValidNumber('1'); // false
+ *   isValidNumber(NaN); // false
+ *   isValidNumber(Infinity); // false
+ */
+export function isValidNumber(val: unknown) {
+  return !isNaN(parseFloat(val as string)) && isFinite(val as number) && Number(val) === val;
+}
+
+/**
  * @function isApproximatelyEqual
  * @description 两个数字是否约等于
  * @param {Number} val1
@@ -60,13 +75,14 @@ export function randomIntArrayInRange(min: number, max: number, num = 1) {
 
 /**
  * @function round
- * @description 数字取整
+ * @description 数字取位
  * @param {Number} n
  * @param {Number} decimals
  * @return {Number}
  */
-export function round(n: number, decimals: number) {
-  return Number(`${Math.round(+`${n}e${decimals || 0}`)}e-${decimals}`);
+export function round(num: number, decimals: number) {
+  const _decimals = decimals || 0;
+  return Number(`${Math.round(+`${num}e${_decimals}`)}e-${_decimals}`);
 }
 
 /**
@@ -92,15 +108,15 @@ export function isNumberEqual(num1: number, num2: number, precision = 0.00001) {
 /**
  * @function clamp
  * @description 通过区间约束范围值
- * @param {Number} val
+ * @param {Number} num
  * @param {Number} min
  * @param {Number} max
  */
-export function clamp(val: number, min: number, max: number) {
-  if (val < min) {
+export function clamp(num: number, min: number, max: number) {
+  if (num < min) {
     return min;
-  } else if (val > max) {
+  } else if (num > max) {
     return max;
   }
-  return val;
+  return num;
 }

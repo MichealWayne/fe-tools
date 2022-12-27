@@ -125,7 +125,7 @@ export function getKeyName(keycode: keyof typeof keyCodeMap) {
 
 /**
  * @function digitUppercase
- * @param  {Number} n
+ * @param  {Number} num
  * @return {String}
  */
 export function digitUppercase(num: number) {

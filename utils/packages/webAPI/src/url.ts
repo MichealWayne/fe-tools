@@ -1,7 +1,7 @@
 /**
  * @module URL
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:34:53
+ * @LastEditTime 2022-12-27 13:36:35
  */
 
 /**
@@ -42,6 +42,22 @@ export function getUrlParam(name: string, decode?: string) {
   }
   return null;
 }
+
+/**
+ * @func paramsJoinUrl
+ * @description 将参数对象转为 url 字符串
+ * @param {object} 参数对象
+ * @returns {string} url 修改后的URL
+ */
+export const paramsJoinUrl = (params: { [key: string]: string }): string => {
+  const param = [];
+  for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+      param.push(`${key}=${params[key]}`);
+    }
+  }
+  return encodeURIComponent(param.join('&'));
+};
 
 /**
  * @function getBaseUrl
