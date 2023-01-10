@@ -1,13 +1,20 @@
 /**
  * @author Wayne
  * @Date 2022-08-24 19:58:13
- * @LastEditTime 2022-08-30 10:28:57
+ * @LastEditTime 2023-01-07 13:59:20
  */
 import { spawn, spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';
 
 export const IGNORE = '__ignore__';
 
+/**
+ * @function runAsyncBase
+ * @param cmd
+ * @param args
+ * @param param2
+ * @returns
+ */
 function runAsyncBase(
   cmd: unknown,
   args: string[],
@@ -73,10 +80,26 @@ export function runPromise(promise: Promise<any>) {
   });
 }
 
+/**
+ * @function runAsync
+ * @description 异步执行
+ * @param cmd
+ * @param args
+ * @param options
+ * @returns
+ */
 export function runAsync(cmd: string, args: string[], options: any) {
   return runPromise(runAsyncBase(cmd, args, options));
 }
 
+/**
+ * @function runSync
+ * @description 同步执行
+ * @param cmd
+ * @param args
+ * @param options
+ * @returns
+ */
 export function runSync(cmd: unknown, args: string[], options: any) {
   if (cmd instanceof URL) {
     cmd = fileURLToPath(cmd as any);

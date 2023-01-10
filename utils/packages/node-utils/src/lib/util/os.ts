@@ -1,7 +1,7 @@
 /**
  * @module os
  * @Date 2020-08-20 21:55:46
- * @LastEditTime 2022-08-30 10:26:39
+ * @LastEditTime 2023-01-07 13:59:19
  */
 
 import os from 'os';
@@ -49,8 +49,8 @@ export function processUptime() {
 
 /**
  * @function freemem
- * @description 获取空余内存
- * @returns {Number}
+ * @description 获取空余内存(Mb)
+ * @return {Number}
  */
 export function freemem() {
   return os.freemem() / (1024 * 1024);
@@ -58,7 +58,7 @@ export function freemem() {
 
 /**
  * @function totalmem
- * @description 获取总内存
+ * @description 获取总内存(Mb)
  * @returns {Number}
  */
 export function totalmem() {
@@ -107,6 +107,9 @@ export function freeCommand(callback: AnyCallbackFunc) {
 // Hard Disk Drive
 export function harddrive(callback: AnyCallbackFunc) {
   childrenProcess.exec('df -k', function (err, stdout) {
+    if (err) {
+      return console.error(err);
+    }
     let total = 0;
     let used = 0;
     let free = 0;
@@ -180,17 +183,20 @@ export function allLoadavg() {
   return loads[0].toFixed(4) + ',' + loads[1].toFixed(4) + ',' + loads[2].toFixed(4);
 }
 
-/*
- * Returns the load average usage for 1, 5 or 15 minutes.
+/**
+ * @function loadavg
+ * @description Returns the load average usage for 1, 5 or 15 minutes.
+ * @param {Number} time
+ * @returns
  */
-export function loadavg(time?: number) {
-  if (time === undefined || (time !== 5 && time !== 15)) time = 1;
+export function loadavg(time = 1) {
+  if (time !== 5 && time !== 15) time = 1;
 
   const loads = os.loadavg();
   let v = 0;
-  if (time == 1) v = loads[0];
-  if (time == 5) v = loads[1];
-  if (time == 15) v = loads[2];
+  if (time === 1) v = loads[0];
+  else if (time === 5) v = loads[1];
+  else if (time === 15) v = loads[2];
 
   return v;
 }

@@ -1,7 +1,7 @@
 /**
  * @module fsFuncs
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-08-24 19:44:23
+ * @LastEditTime 2023-01-07 13:59:11
  */
 
 import fs from 'fs';
@@ -12,6 +12,9 @@ import Tip from '../util/tip.js';
 /**
  * @function travelFolderSync
  * @description 遍历文件夹输出文件信息
+ * @param {String} dirPath
+ * @param {Function} callback
+ * @param {Function} folderCallback
  */
 export function travelFolderSync(
   dirPath: string,
@@ -48,14 +51,15 @@ export function mkdirsSync(dirPath: string) {
           try {
             fs.mkdirSync(pathTemp);
           } catch (e) {
+            Tip.log(`Error!create director fail! path=${pathTemp} errorMsg:${e}`);
             return false;
           }
         }
       }
     }
     return true;
-  } catch (e) {
-    Tip.log(`Error!create director fail! path=${dirPath} errorMsg:${e}`);
+  } catch (err) {
+    Tip.log(`Error!create director fail! path=${dirPath} errorMsg:${err}`);
     return false;
   }
 }

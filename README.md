@@ -206,7 +206,7 @@
 <a href="https://michalsnik.github.io/aos/" target="_blank">aos.js</a> | `aosjs` | 一款强大的页面滚动动画插件。
 <a href="http://lab.ejci.net/favico.js/" target="_blank">favico.js</a> | `favicojs` | 一款让pc网站图标动起来的插件。
 <a href="https://alvarotrigo.com/fullPage/" target="_blank">fullPage.js</a> | `fullpagejs` | 一款快速搭建全屏滚动页面的插件。
-
+<a href="https://github.com/buuing/lucky-canvas" target="_blank">Lucky Canvas</a> | `lucky-canvas` | 一款支持web、小程序跨平台的 ( 大转盘 / 九宫格 / 老虎机 ) 抽奖插件。
 
 ##### 视/音频
 地址 | 标签 | 说明
@@ -345,6 +345,7 @@
 <a href="https://www.infernojs.org/" target="_blank">Infernojs</a> | `infernojs` | 轻量的类React库，jsx。
 <a href="https://emberjs.com/" target="_blank">Emberjs</a> | `emberjs` | 脚手架强大的web开发框架，template。
 <a href="https://github.com/akxcv/vuera" target="_blank">Vuera</a> | `vuera` | 用来混用Vue/React组件的库、即Vue中可以使用React组件、React中可以使用Vue组件。
+<a href="https://quark-design.hellobike.com/" target="_blank">Quark</a> | `quark` | 基于 Web Components 的移动端跨框架 UI 组件库，哈啰。
 <a href="https://github.com/web3/web3.js" target="_blank">Web3js</a> | `web3js` | 以太坊标准js封装库。
 
 
@@ -572,8 +573,10 @@
 <a href="https://github.com/remaxjs/remax" target="_blank">Remax文档</a> | `remax` | React语法跨web/小程序工具，类似于taro-next(3)的跨端模式，对小程序友好，支付宝。
 <a href="https://ant-move.github.io/guide/" target="_blank"> Antmove </a> | `antmove` | 小程序转换器，基于支付宝/微信小程序转换为多端小程序，高德。
 <a href="https://guoshuyu.cn/home/wx/Flutter-1.html" target="_blank">Flutter文档</a> | `跨端` | 超火的Dart语法的跨端开发工具。
-<a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | PC、windows/Mac应用的开发。
-<a href="http://electronjs.org/docs" target="_blank">WebView2文档</a> | `跨端` | PC、windows应用的开发，微软。
+<a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | PC、windows/Mac应用的开发框架。
+<a href="http://electronjs.org/docs" target="_blank">WebView2文档</a> | `跨端` | PC、windows应用的开发框架，微软。
+<a href="https://tauri.app/" target="_blank">Tauri文档</a> | `Tauri` | Rust 编写的、基于web的 windows/Mac 应用的开发框架。
+<a href="https://github.com/tw93/Pake" target="_blank">Pake</a> | `pake` | 基于Rust Tauri 框架、 打包网页生成很小的桌面 App的脚手架工具，支持 Mac / Windows / Linux 系统。
 <a href="https://wendux.github.io/dist/#/doc/flyio/readme" target="_blank">flyio(fly)文档</a> | `fly` | 支持Web、Node.js 、微信小程序 、Weex 、React Native 、Quick App的请求封装库。
 <a href="https://github.com/icindy/wxParse" target="_blank">wxParse</a> | `wxParse ` | 微信小程序富文本解析组件，支持Html及markdown转wxml可视化（但是目前已停止维护）。
 <a href="https://developer.chrome.com/extensions" target="_blank">chrome extension</a> | `chrome-extension` | Chrome拓展程序官方文档。
@@ -630,6 +633,9 @@
 <a href="https://tabatkins.github.io/railroad-diagrams/generator.html" target="_blank"> Railroad Diagrams </a> | `railroad-diagrams` | 在线绘制铁路图的网站工具。
 <a href="https://unbug.github.io/codelf/" target="_blank">CodeIf</a> | `codeIf` | 帮助解决命名困难的命名搜索工具。
 <a href="https://app.quicktype.io/" target="_blank"> QuickType </a> | `QuickType` | 根据 json 文本生成指定语言（如 TypeScript，C++，,Java，C#，Go 等）类型声明代码的工具网站。
+<a href="https://github.com/1c7/chinese-independent-developer" target="_blank"> 中国独立开发者项目列表 </a> | `chinese-independent-developer` | 聚合中国独立开发者的项目。
+
+
 
 ### 1.10 测试、安全及加密
 #### 1.10.1 单元测试
@@ -806,6 +812,8 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2023.01.07：修复utils webApi bug；
+- 2022.12.27：utils方法更新；新增链接；
 - 2022.11.27：更新/调整链接；
 - 2022.11.12：更新链接；
 - 2022.10.15：更新链接；调整react模版；

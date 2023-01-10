@@ -1,11 +1,12 @@
 /**
  * @author Wayne
  * @Date 2021-04-27 14:47:13
- * @LastEditTime 2022-07-05 11:32:42
+ * @LastEditTime 2023-01-07 13:59:08
  */
 import path from 'path';
-import { Tip } from 'node-utils';
 import gmConstructor from 'gm';
+
+import { Tip } from 'node-utils';
 
 const gm = gmConstructor.subClass({ imageMagick: true });
 
@@ -18,7 +19,7 @@ export function getGmStream(
   imgName: string,
   callback: (data: gmConstructor.ImageInfo, gm?: gmConstructor.State) => void
 ) {
-  gm(path.join(filePath, imgName)).identify(function (err, data) {
+  return gm(path.join(filePath, imgName)).identify(function (err, data) {
     if (err) {
       Tip.error(err);
       return false;
@@ -44,7 +45,7 @@ export function toWebpImg(
 ) {
   const webpPath = path.join(outPath, imgName.replace('_2x.', '.').split('.')[0] + '.webp');
 
-  gm(path.join(filePath, imgName))
+  return gm(path.join(filePath, imgName))
     .setFormat('webp')
     .write(webpPath, err => {
       if (err) {
@@ -87,7 +88,7 @@ export function toBase64(
   callback: (base64: string) => void,
   type = 'jpg'
 ) {
-  gmStream.toBuffer(type, (err, buffer) => {
+  return gmStream.toBuffer(type, (err, buffer) => {
     if (err) {
       Tip.error(err);
       return false;

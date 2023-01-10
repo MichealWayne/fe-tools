@@ -3,7 +3,7 @@
  * @extend functions
  * @author Wayne
  * @Date 2022-06-21 14:12:36
- * @LastEditTime 2022-08-24 19:38:34
+ * @LastEditTime 2023-01-10 14:00:14
  */
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -16,18 +16,16 @@ const isBuffer = require('buffer').Buffer.isBuffer;
  * @return {String} time string;
  */
 export function getTimeStr(timeStr?: string) {
-  const setTimeShow = (num: number) => {
-    const isLessTen = num < 10;
-    return isLessTen ? `0${num}` : num;
-  };
-  const _date = timeStr ? new Date(timeStr) : new Date();
-  const _month = setTimeShow(_date.getMonth() + 1);
-  const _day = setTimeShow(_date.getDate());
-  const _hour = setTimeShow(_date.getHours());
-  const _minute = setTimeShow(_date.getMinutes());
-  const _second = setTimeShow(_date.getSeconds());
+  const setTimeShow = (num: number) => (num < 10 ? `0${num}` : num);
 
-  return `${_date.getFullYear()}/${_month}/${_day} ${_hour}:${_minute}:${_second}`;
+  const date = timeStr ? new Date(timeStr) : new Date();
+  const _month = setTimeShow(date.getMonth() + 1);
+  const _day = setTimeShow(date.getDate());
+  const _hour = setTimeShow(date.getHours());
+  const _minute = setTimeShow(date.getMinutes());
+  const _second = setTimeShow(date.getSeconds());
+
+  return `${date.getFullYear()}/${_month}/${_day} ${_hour}:${_minute}:${_second}`;
 }
 
 export default {

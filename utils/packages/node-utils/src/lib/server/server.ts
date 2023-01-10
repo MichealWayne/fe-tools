@@ -4,7 +4,7 @@
  * @dependenies http-proxy
  * @author Wayne
  * @Date 2018-04-18 14:16:36
- * @LastEditTime 2022-07-05 10:07:31
+ * @LastEditTime 2023-01-07 13:59:15
  */
 
 import fs from 'fs';
@@ -44,11 +44,11 @@ enum HTTP_RES_CODES {
 /**
  * @function startServer
  * @description server function
- * @param {String} path server path
+ * @param {String} path server folder path
  * @param {Number} port listening port
  * @param {Function} callback Server started callback;
  */
-const startServer = (serverPath: string, port = 8443, callback?: (...args: unknown[]) => void) => {
+const startServer = (serverPath: string, port = 1234, callback?: (...args: unknown[]) => void) => {
   const Folder = serverPath || path.join(__dirname, '../');
   const dport = port;
   const config = {
@@ -68,8 +68,7 @@ const startServer = (serverPath: string, port = 8443, callback?: (...args: unkno
       const { pathname } = new URL(reqUrl);
 
       // extension
-      let ext = path.extname(pathname);
-      ext = ext ? ext.slice(1) : 'unknow';
+      const ext = path.extname(pathname)?.slice(1) || 'unknown';
       Tip.log(reqUrl);
 
       const filePath = path.join(Folder, reqUrl);
