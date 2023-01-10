@@ -3,7 +3,7 @@
 /**
  * @module Platform
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-08-18 16:37:15
+ * @LastEditTime 2023-01-07 13:59:06
  */
 
 export const ua = navigator.userAgent.toLowerCase();
@@ -67,7 +67,7 @@ export function getPcExplore() {
   if (sys.chrome) return 'Chrome: ' + sys.chrome;
   if (sys.opera) return 'Opera: ' + sys.opera;
   if (sys.safari) return 'Safari: ' + sys.safari;
-  return 'Unkonwn';
+  return 'unkonwn';
 }
 
 /**
@@ -84,7 +84,7 @@ export function getSystemOS() {
   if (/iphone/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) return 'ios';
   if (/android/i.test(ua)) return 'android';
   if (/win/i.test(appVersion) && /phone/i.test(ua)) return 'windowsPhone';
-  return 'Unkonwn';
+  return 'unkonwn';
 }
 
 /**
@@ -95,8 +95,8 @@ export function getSystemOS() {
 export function getPlatform() {
   const info = {
     versions: {
-      iPhone: ua.indexOf('iPhone') > -1 || ua.indexOf('Mac') > -1,
-      iPad: ua.indexOf('iPad') > -1,
+      iPhone: ua.indexOf('iphone') > -1 || ua.indexOf('mac') > -1,
+      iPad: ua.indexOf('ipad') > -1,
     },
     language: navigator.language.toLowerCase(),
   };
@@ -117,8 +117,8 @@ export function getMobileOS() {
 
   try {
     // eslint-disable-next-line no-useless-escape
-    const android = ua.match(/(Android);?[\s\/]+([\d.]+)?/);
-    const ios = ua.match(/([iPad,iPod,iPhone]).*OS\s([\d_]+)/);
+    const android = ua.match(/(android);?[\s\/]+([\d.]+)?/);
+    const ios = ua.match(/([ipad,ipod,iphone]).*os\s([\d_]+)/);
 
     if (android) os.android = +android[2] || 0;
     if (ios) os.ios = +ios[2].replace(/_/g, '.') || 0;
