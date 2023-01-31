@@ -21,15 +21,10 @@ export function drawLine(
   point1: PointPosition,
   point2: PointPosition
 ): void {
-  const x1 = point1.x;
-  const y1 = point1.y;
-  const x2 = point2.x;
-  const y2 = point2.y;
-
   ctx.beginPath();
 
-  ctx.moveTo(x1, y1);
-  ctx.lineTo(x2, y2);
+  ctx.moveTo(point1.x, point1.y);
+  ctx.lineTo(point2.x, point2.y);
 
   ctx.closePath();
   ctx.stroke();
@@ -50,7 +45,7 @@ function _getBeveling(x: number, y: number) {
 /**
  * @function drawDashLine
  * @description 画虚线
- * @param {canvas object} ctx canvas context
+ * @param {CanvasRenderingContext2D} ctx canvas context
  * @param {PointPosition} point1
  * @param {PointPosition} point2
  * @param {number} dashLen dash line width
@@ -80,7 +75,7 @@ export function drawDashLine(
 /**
  * @function drawPoint
  * @description 画圆点
- * @param {canvas object} ctx canvas context
+ * @param {CanvasRenderingContext2D} ctx canvas context
  * @param {PointPosition} centerPoint
  * @param {string} color fill color
  * @param {string} strokeColor circle side color
@@ -91,15 +86,15 @@ export function drawPoint(
   ctx: CanvasRenderingContext2D,
   centerPoint: PointPosition,
   color: string,
-  strokeColor: string,
-  width: number,
-  strokeWidth: number
+  strokeColor = '#fff',
+  width = 0,
+  strokeWidth = 1
 ): void {
   const { x, y } = centerPoint;
   ctx.beginPath();
 
-  ctx.strokeStyle = strokeColor || '#fff';
-  ctx.lineWidth = strokeWidth !== undefined ? strokeWidth : 1;
+  ctx.strokeStyle = strokeColor;
+  ctx.lineWidth = strokeWidth;
   ctx.arc(x, y, width, 0, Math.PI * 2, true);
   ctx.closePath();
   ctx.fillStyle = color;
@@ -113,7 +108,7 @@ export function drawPoint(
 /**
  * @function clearArc
  * @description 实现圆形清除
- * @param {canvas object} ctx canvas context
+ * @param {CanvasRenderingContext2D} ctx canvas context
  * @param {PointPosition} point
  * @param {number} width radius
  */
@@ -145,7 +140,7 @@ export function clearArc(ctx: CanvasRenderingContext2D, point: PointPosition, wi
 /**
  * @function retinaScale
  * @description 适配移动端机型，for web
- * @param {canvas object} canvas
+ * @param {HTMLCanvasElement} canvas
  * @param {object|null} ctx canvas context
  * @return {number} retina pixel ratio
  */

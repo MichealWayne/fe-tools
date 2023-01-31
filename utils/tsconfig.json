@@ -21,7 +21,7 @@
     "paths": {
       "utils": ["./packages/utils/src/index.ts"],
       "node-utils": ["./packages/node-utils/src/index.ts"],
-      "web-apis": ["./packages/webAPI/src/index.ts"]
+      "web-utils": ["packages/web-utils/src/index.ts"]
     }
   },
   "include": ["packages/**/src", "types/*"],

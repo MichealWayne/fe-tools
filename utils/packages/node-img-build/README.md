@@ -1,6 +1,6 @@
-# image build
+# （Nodejs）image build
 
-进行倍图、模糊图和 webp 处理。依赖于 gm、imageMagick
+进行倍图、模糊图和 webp 处理。依赖于 [gm](https://www.npmjs.com/package/gm)、[imageMagick](https://imagemagick.org/index.php)
 
 ## 图片转 base64 字符串
 

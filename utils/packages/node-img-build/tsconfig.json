@@ -1,18 +1,29 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
     "outDir": "./dist/",
+    "sourceMap": false,
+    "strict": true,
     "noImplicitAny": true,
-    "sourceMap": true,
     "module": "commonjs",
     "target": "es5",
     "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "types": ["jest", "node"],
+    "baseUrl": ".",
+    "importHelpers": true,
+    "lib": [
+      "es2018",
+      "dom"
+    ],
     "paths": {
-      "node-utils": ["../node-utils/src/index.ts"]
+      "@/*": ["src/*"],
+      "utils": ["../utils/src/index.ts"],
+      "web-utils": ["../web-utils/src/index.ts"]
     },
-  }
+    "types": ["jest", "node"]
+  },
+  "exclude": [
+    "__tests__",
+    "./baks/**/*",
+    "node_modules"
+  ]
 }

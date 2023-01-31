@@ -17,7 +17,7 @@
     "paths": {
       "@/*": ["src/*"],
       "utils": ["../utils/src/index.ts"],
-      "web-apis": ["../webAPI/src/index.ts"]
+      "web-utils": ["../web-utils/src/index.ts"]
     },
     "types": ["jest", "node"]
   },

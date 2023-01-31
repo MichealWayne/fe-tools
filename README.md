@@ -403,6 +403,7 @@
 <a href="https://ant.design/docs/react/getting-started-cn" target="_blank">antd 文档</a> | `antd` | ant design，PC UI组件库。
 <a href="https://mobile.ant.design/index-cn" target="_blank">antd-mobile 文档</a> | `antd-mobile` | 移动版的antd，UI组件库。
 <a href="https://www.styled-components.com/" target="_blank">styled-components 文档</a> | `styled-components` | react的css-in-js实现。
+<a href="https://github.com/cristianbote/goober" target="_blank"> goober 文档</a> | `goober` | 只有1kb大小的css-in-js库。
 <a href="https://github.com/twobin/react-lazyload" target="_blank">react-lazyload 文档</a> | `react-lazyload` | react版的图片/组件加载插件。
 <a href="https://github.com/jamiebuilds/react-loadable#readme" target="_blank">react-loadable</a> | `react-loadable` | 实现react组件构建时代代码抽离和动态加载。
 <a href="https://github.com/STRML/react-draggable" target="_blank">react-draggable</a> | `react-draggable` | 一个用于拖拽操作的React封装组件。
@@ -432,6 +433,7 @@
 <a href="http://nodejs.cn/api/" target="_blank">nodejs api</a> | `node` | Node官方文档。
 <a href="https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts" target="_blank">Deno api</a> | `deno` | Deno官方文档（Nodejs.next）。
 <a href="https://bun.sh/">Bun</a> | `bun` | 号称比Nodejs快3倍的js runtime容器。
+<a href="https://turbo.build/repo" target="_blank">TurboRepo</a> | `turborepo` | 好用的、高性能的多包管理工具，monorepo。
 <a href="https://lerna.js.org/" target="_blank">Lerna</a> | `lerna` | 好用的多包管理工具，monorepo。
 <a href="https://github.com/ds300/patch-package#readme" target="_blank">patch-package</a> | `patch-package ` | 给node_modules打补丁的工具包。
 <a href="https://v8.dev/docs" target="_blank">V8 dev docs</a> | `V8` | js V8引擎文档。
@@ -464,6 +466,7 @@
 <a href="https://rollupjs.org/guide/en/" target="_blank">rollupjs文档</a> | `Rollup` | 一款ES6模块构建工具。
 <a href="https://webpack.docschina.org/" target="_blank">webpack 配置文档</a> | `webpack` | 应用面不能再广的打包工具。
 <a href="https://github.com/neutrinojs/webpack-chain" target="_blank">webpack-chain</a> | `webpack-chain` | 链式配置webpack配置的工具。
+<a href="https://turbo.build/pack" target="_blank">TurboPack</a> | `turbopack` | 基于Rust的高性能打包工具。
 <a href="https://parceljs.docschina.org/" target="_blank">parceljs 配置文档</a> | `parceljs` | 轻量打包。
 <a href="https://www.snowpack.dev/" target="_blank">snowpack 官网</a> | `snowpack` | 无bundle的轻量前端项目构建工具。
 <a href="http://babeljs.io/" target="_blank">babel</a> | `babel` | 应用面不能再广的ES编译器。
@@ -474,7 +477,7 @@
 <a href="https://github.com/kimmobrunfeldt/concurrently#readme" target="_blank">Concurrently</a> | `concurrently` | 一款Nodejs的命名行控制工具，实现同时运行多条命令。
 <a href="https://github.com/evanw/esbuild" target="_blank">esbuild</a> | `esbuild` | 一款极快的js打包和压缩工具。
 <a href="https://github.com/addyosmani/critical#readme" target="_blank">critical</a> | `critical` | 一款从HTML中提取相关CSS的工具。
-<a href="https://modernjs.dev/" target="_blank">ModernJS</a> | `modernjs` | 前端工程化体系工具，字节跳动。
+<a href="https://modernjs.dev/" target="_blank">ModernJS</a> | `modernjs` | web前端工程化体系工具，字节跳动。
 <a href="https://github.com/javascript-obfuscator/javascript-obfuscator" target="_blank">javascript-obfuscator</a> | `obfuscator` | js代码混淆插件。
 
 
