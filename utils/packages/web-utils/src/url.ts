@@ -1,7 +1,7 @@
 /**
  * @module URL
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-12-27 13:36:35
+ * @LastEditTime 2023-01-07 10:43:48
  */
 
 /**
@@ -11,8 +11,7 @@
  * @return {Object}
  * @example console.log(parseQueryString('https://github.com/?a=1&b=sss')); // {a: '1', b: 'sss'}
  */
-export function parseQueryString(url: string) {
-  url = url || window.location.href;
+export function parseQueryString(url = window.location.href) {
   const search = url.substring(url.lastIndexOf('?') + 1);
 
   if (!search) return {};
@@ -25,17 +24,17 @@ export function parseQueryString(url: string) {
 
 /**
  * @function getUrlParam
- * @description 获取页面地址中query字段对应的信息
+ * @description 获取页面地址中query字段对应的信息，如兼容可以的话（iOS8、Android4.4）建议直接使用URL()
  * @param {String} name
  * @param {String | undefined} decode
  * @return {String | null}
  */
 export function getUrlParam(name: string, decode?: string) {
   const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
-  const r = window.location.search.substring(1).match(reg);
-  if (r !== null) {
+  const res = window.location.search.substring(1).match(reg);
+  if (res !== null) {
     if (!decode) {
-      return decodeURI(r[2]);
+      return decodeURI(res[2]);
     } else {
       return eval(decode + '(r[2])');
     }
@@ -52,7 +51,7 @@ export function getUrlParam(name: string, decode?: string) {
 export const paramsJoinUrl = (params: { [key: string]: string }): string => {
   const param = [];
   for (const key in params) {
-    if (params.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(params, key)) {
       param.push(`${key}=${params[key]}`);
     }
   }
@@ -75,7 +74,8 @@ export const getBaseUrl = (url: string = location.href.toString()): string =>
  * @returns {string} url 修改后的URL
  */
 export const getUrlDomain = (url: string = location.href.toString()): string => {
-  const baseUrl = /^(http|https):\/\/[^\/]+/.exec(url)![0];
+  // eslint-disable-next-line no-useless-escape
+  const baseUrl = /^(http|https):\/\/[^\/]+/.exec(url)?.[0] || '';
   return baseUrl;
 };
 

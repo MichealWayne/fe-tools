@@ -2,10 +2,10 @@
  * @model CSS
  * @author Wayne
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-08-24 13:23:16
+ * @LastEditTime 2023-01-31 10:44:53
  */
 
-import { isUndefined } from '../type';
+import { isUndefined } from 'utils';
 
 /**
  * @function getPrefix

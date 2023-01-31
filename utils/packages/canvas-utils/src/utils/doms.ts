@@ -3,10 +3,10 @@
  * @description dom operate
  * @author Wayne
  * @Date 2022-06-06 10:08:50
- * @LastEditTime 2022-07-05 13:35:48
+ * @LastEditTime 2023-01-31 10:45:43
  */
 
-import { getElementSize } from 'web-apis';
+import { getElementSize } from 'web-utils';
 
 import { DEFAULT_CANVAS_SIZE } from '../constants';
 

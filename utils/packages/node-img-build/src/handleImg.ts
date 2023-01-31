@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2021-04-27 14:47:13
- * @LastEditTime 2023-01-07 13:59:08
+ * @LastEditTime 2023-01-20 10:18:23
  */
 import path from 'path';
 import gmConstructor from 'gm';
@@ -13,29 +13,40 @@ const gm = gmConstructor.subClass({ imageMagick: true });
 /**
  * @function getGmFile
  * @description 获得gm格式图片
+ * @param {String} filePath
+ * @param {String} imgName
+ * @param {Function} callback?
+ * @return {Promise}
  */
 export function getGmStream(
   filePath: string,
   imgName: string,
-  callback: (data: gmConstructor.ImageInfo, gm?: gmConstructor.State) => void
+  callback?: (data: gmConstructor.ImageInfo, gm?: gmConstructor.State) => void
 ) {
-  return gm(path.join(filePath, imgName)).identify(function (err, data) {
-    if (err) {
-      Tip.error(err);
-      return false;
-    }
+  const gmInstance = gm(path.join(filePath, imgName));
 
-    return callback.call(gm, data);
-  });
+  if (callback) {
+    return gmInstance.identify((err, data) => {
+      if (err) {
+        Tip.error(err);
+        return false;
+      }
+
+      return callback.call(gm, data);
+    });
+  }
+
+  return gmInstance;
 }
 
 /**
  * @function toWebpImg
  * @description 图片转为webp格式（文件名中的_2x.会被替换）
- * @params {String} filepath: 图片所在目录;
- * @params {String} filename: 图片文件名;
- * @params {String} outpath: 输出目录;
- * @params {Function} callback: callback（可选）;
+ * @param {String} filepath: 图片所在目录;
+ * @param {String} filename: 图片文件名;
+ * @param {String} outpath: 输出目录;
+ * @param {Function} callback: callback（可选）;
+ * @return {Promise}
  */
 export function toWebpImg(
   filePath: string,
@@ -61,8 +72,8 @@ export function toWebpImg(
 /**
  * @function toBlurImg
  * @description 生成模糊图（gm格式）
- * @params {GmFile} gmfile: gm格式图
- * @params {Object} config: 配置信息
+ * @param {GmFile} gmfile: gm格式图
+ * @param {Object} config: 配置信息
  *                  color: 颜色总数
  *                  blurRadius: 模糊半径
  *                  blurSigma: 模糊Sigma值
@@ -74,19 +85,21 @@ export function toBlurImg(
 ) {
   if (!gmStream) return false;
 
-  gmStream.colors(color).blur(blurRadius, blurSigma);
-
-  return gmStream;
+  return gmStream.colors(color).blur(blurRadius, blurSigma);
 }
 
 /**
  * @function toBase64
  * @description 图片转base64
+ * @param {gmConstructor.State} gmStream
+ * @param {String} type
+ * @param {Function} callback
+ * @return {Promise}
  */
 export function toBase64(
   gmStream: gmConstructor.State,
-  callback: (base64: string) => void,
-  type = 'jpg'
+  type = 'jpg',
+  callback?: (base64: string) => void
 ) {
   return gmStream.toBuffer(type, (err, buffer) => {
     if (err) {
@@ -102,6 +115,10 @@ export function toBase64(
 /**
  * @function resizeImg
  * @description 图片改变尺寸
+ * @param {gmConstructor.State} gmStream
+ * @param {Number} width
+ * @param {Number} height
+ * @param {Promise}
  */
 export function resizeImg(gmStream: gmConstructor.State, width: number, height?: number) {
   if (!width) {
@@ -111,9 +128,9 @@ export function resizeImg(gmStream: gmConstructor.State, width: number, height?:
 
   if (height) {
     return gmStream.resize(width, height);
-  } else {
-    return gmStream.resize(width);
   }
+
+  return gmStream.resize(width);
 }
 
 export default {

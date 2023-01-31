@@ -1,10 +1,10 @@
 /**
  * @module dom
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-07-05 13:29:46
+ * @LastEditTime 2023-01-31 10:45:01
  */
 
-import { isUndefined } from '../type';
+import { isUndefined } from 'utils';
 
 /**
  * @function isBrowser
@@ -270,7 +270,7 @@ export function animateScrollTo(to: number, duration: number) {
  * @param {DOMElement} elemSelector
  */
 export function smoothScroll(elemSelector: string) {
-  document.querySelector(elemSelector)!.scrollIntoView({
+  document.querySelector(elemSelector)?.scrollIntoView({
     behavior: 'smooth',
   });
 }
@@ -280,7 +280,7 @@ export function smoothScroll(elemSelector: string) {
  * @description 禁止网页复制粘贴
  */
 export function disableCopy() {
-  const html = document.querySelector('html')!;
+  const html = document.querySelector('html') || ({} as any);
   html.oncopy = () => false;
   html.onpaste = () => false;
 }
