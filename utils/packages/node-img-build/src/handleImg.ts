@@ -1,12 +1,14 @@
 /**
  * @author Wayne
  * @Date 2021-04-27 14:47:13
- * @LastEditTime 2023-01-20 10:18:23
+ * @LastEditTime 2023-02-21 11:16:27
  */
 import path from 'path';
 import gmConstructor from 'gm';
 
-import { Tip } from 'node-utils';
+import NodeUtils from 'node-utils';
+
+const { Tip } = NodeUtils;
 
 const gm = gmConstructor.subClass({ imageMagick: true });
 
@@ -54,7 +56,7 @@ export function toWebpImg(
   outPath: string,
   callback?: (webPath: string) => void
 ) {
-  const webpPath = path.join(outPath, imgName.replace('_2x.', '.').split('.')[0] + '.webp');
+  const webpPath = path.join(outPath, `${imgName.replace('_2x.', '.').split('.')[0]}.webp`);
 
   return gm(path.join(filePath, imgName))
     .setFormat('webp')

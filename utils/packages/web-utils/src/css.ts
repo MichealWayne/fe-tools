@@ -2,7 +2,7 @@
  * @model CSS
  * @author Wayne
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-01-31 10:44:53
+ * @LastEditTime 2023-02-21 10:37:55
  */
 
 import { isUndefined } from 'utils';
@@ -40,6 +40,6 @@ export function getStyle(el: any, property: string) {
   const value = el.currentStyle
     ? el.currentStyle[property]
     : document.defaultView!.getComputedStyle(el, null).getPropertyValue(property);
-  const matches = value && value.match(/^(\d+)(\.\d+)?px$/);
+  const matches = value?.match(/^(\d+)(\.\d+)?px$/);
   return matches ? +matches[1] : undefined;
 }

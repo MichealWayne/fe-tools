@@ -1,8 +1,10 @@
 /**
  * @model Stroage
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:31:19
+ * @LastEditTime 2023-02-21 10:40:59
  */
+
+import { PlainObject } from 'utils';
 
 /**
  * @function deserialize
@@ -64,7 +66,7 @@ function Storage(type = 'local') {
 
         return deserialize(_val);
       } else {
-        const _obj: any = {};
+        const _obj: PlainObject = {};
         for (const i in _controller) {
           if (i && typeof _controller[i] === 'string') {
             _obj[i] = deserialize(_controller[i]);
