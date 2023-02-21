@@ -2,6 +2,47 @@
  * @module Others
  */
 
+// 复杂比较请见https://github.com/omichelsen/compare-versions
+/* Compare version strings.
+ *
+ * |Name  |Desc              |
+ * |------|------------------|
+ * |v1    |Version to compare|
+ * |v2    |Version to compare|
+ * |return|Comparison result |
+ */
+
+/* example
+ * compareVersion('1.1.8', '1.0.4'); // -> 1
+ * compareVersion('1.0.2', '1.0.2'); // -> 0
+ * compareVersion('2.0', '2.0.0'); // -> 0
+ * compareVersion('3.0.1', '3.0.0.2'); // -> 1
+ * compareVersion('1.1.1', '1.2.3'); // -> -1
+ */
+
+/**
+ * @function compareVersion
+ * @param {string} v1Str
+ * @param {string} v2Str
+ * @return {1|0|-1}
+ */
+export function compareVersion(v1Str: string, v2Str: string) {
+  const v1 = v1Str.split('.');
+  const v2 = v2Str.split('.');
+
+  const len = Math.max(v1.length, v2.length);
+
+  for (let i = 0; i < len; i++) {
+    const num1 = parseInt(v1[i], 10);
+    const num2 = parseInt(v2[i], 10);
+
+    if (num1 > num2) return 1;
+    if (num1 < num2) return -1;
+  }
+
+  return 0;
+}
+
 /**
  * pc keycode map
  */

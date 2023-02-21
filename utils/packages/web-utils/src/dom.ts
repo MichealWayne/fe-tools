@@ -1,7 +1,7 @@
 /**
  * @module dom
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-01-31 10:45:01
+ * @LastEditTime 2023-02-21 10:38:09
  */
 
 import { isUndefined } from 'utils';
@@ -182,9 +182,7 @@ export function getOffsetPos(elem: HTMLElement | null) {
  * @return {Number} 滚动高度
  */
 export function getScrollTop() {
-  return (
-    (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop
-  );
+  return document.documentElement?.scrollTop || document.body.scrollTop;
 }
 
 /**
@@ -299,6 +297,6 @@ export function getElementSize(elem: HTMLElement, property: string): number {
   const value = (elem as any).currentStyle
     ? (elem as any).currentStyle[property]
     : document.defaultView?.getComputedStyle(elem, null).getPropertyValue(property);
-  const matches = value && value.match(/^(\d+)(\.\d+)?px$/);
+  const matches = value?.match(/^(\d+)(\.\d+)?px$/);
   return matches ? +matches[1] : 0;
 }

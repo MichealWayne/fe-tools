@@ -84,5 +84,5 @@ export const getUrlDomain = (url: string = location.href.toString()): string => 
  * @description page http -> https
  */
 export function httpsRedirect() {
-  if (location.protocol !== 'https:') location.replace('https://' + location.href.split('//')[1]);
+  if (location.protocol !== 'https:') location.replace(`https://${location.href.split('//')[1]}`);
 }

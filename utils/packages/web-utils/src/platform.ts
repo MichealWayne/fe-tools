@@ -3,7 +3,7 @@
 /**
  * @module Platform
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-01-07 13:59:06
+ * @LastEditTime 2023-02-21 11:14:15
  */
 
 export const ua = navigator.userAgent.toLowerCase();
@@ -61,12 +61,12 @@ export function getPcExplore() {
     ? (sys.safari = s[1])
     : 0;
 
-  if (sys.ie) return 'IE: ' + sys.ie;
-  if (sys.edge) return 'EDGE: ' + sys.edge;
-  if (sys.firefox) return 'Firefox: ' + sys.firefox;
-  if (sys.chrome) return 'Chrome: ' + sys.chrome;
-  if (sys.opera) return 'Opera: ' + sys.opera;
-  if (sys.safari) return 'Safari: ' + sys.safari;
+  if (sys.ie) return `IE: ${sys.ie}`;
+  if (sys.edge) return `EDGE: ${sys.edge}`;
+  if (sys.firefox) return `Firefox: ${sys.firefox}`;
+  if (sys.chrome) return `Chrome: ${sys.chrome}`;
+  if (sys.opera) return `Opera: ${sys.opera}`;
+  if (sys.safari) return `Safari: ${sys.safari}`;
   return 'unkonwn';
 }
 
@@ -76,7 +76,7 @@ export function getPcExplore() {
  * @return {String}
  */
 export function getSystemOS() {
-  const appVersion = (navigator && navigator.appVersion.toLowerCase()) || '';
+  const appVersion = navigator?.appVersion.toLowerCase() || '';
 
   if (/mac/i.test(appVersion)) return 'mac';
   if (/win/i.test(appVersion)) return 'windows';

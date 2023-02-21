@@ -1,9 +1,8 @@
 # fe-books
 
-> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。
+> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat)，然后根据整理判断（chatGPT选型能力一般，检索还是可以的）
 
 <a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
-
 
 ------------------
 
@@ -469,6 +468,7 @@
 <a href="https://turbo.build/pack" target="_blank">TurboPack</a> | `turbopack` | 基于Rust的高性能打包工具。
 <a href="https://parceljs.docschina.org/" target="_blank">parceljs 配置文档</a> | `parceljs` | 轻量打包。
 <a href="https://www.snowpack.dev/" target="_blank">snowpack 官网</a> | `snowpack` | 无bundle的轻量前端项目构建工具。
+<a href="https://swc.rs/" target="_blank">swc</a> | `swc` | 用Rust写的、号称比babel快20倍且支持其所有功能的ts/js编译器。
 <a href="http://babeljs.io/" target="_blank">babel</a> | `babel` | 应用面不能再广的ES编译器。
 <a href="https://github.com/fb55/htmlparser2#readme" target="_blank">htmlparser2</a> | `htmlparser2` | 一款html的转AST工具。
 <a href="https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md" target="_blank">parse5</a> | `parse5` | 一款html的转AST工具。
@@ -613,6 +613,8 @@
 <a href="https://vitejs.cn/vitepress/" target="_blank">VitePress</a> | `vitepress` | 用markdown写文档/博客，VuePress小兄弟，用vite构建
 <a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> | `hexo` | 用markdown写文档/博客
 <a href="https://d.umijs.org/" target="_blank">dumi</a> | `dumi` | 适合写前端开发文档的工具，markdown，蚂蚁
+<a href="https://jsdoc.app/" target="_blank">jsdoc</a> | `jsdoc` | 最经典的js代码注释生成文档的工具
+<a href="https://github.com/jsdoc2md/jsdoc-to-markdown" target="_blank">jsdoc-to-markdown</a> | `jsdoc-to-markdown` | js注释（jsdoc格式）生成markdown文档
 <a href="https://www.materialui.co/colors" target="_blank">materialui</a> | `materialui` | 快速色值选择
 <a href="https://carbon.now.sh/" target="_blank">carbon</a> | `carbon` | 生成写博客时代码的美腻截图
 <a href="https://tinypng.com/" target="_blank">tinypng</a> | `Tinypng` | 压缩png和jpeg图片
@@ -694,11 +696,22 @@
 <a href="https://github.com/chaitin/xray" target="_blank"> xray </a> | `xray ` | 一款完善的安全评估工具，支持常见 web 安全问题扫描和自定义 poc，不过不开源。
 
 
+### 1.11 AI人工智能库
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://tensorflow.google.cn/js" target="_blank">TensorFlowJS</a> | `tensorflow` | 在浏览器或Node.js下构建和运行机器学习和深度学习模式的库
+<a href="https://github.com/openai/openai-node" target="_blank">OpenAI Nodejs</a> | `openai` | OpenAI 的 Nodejs API 调用封装库
+<a href="https://github.com/openai/openai-quickstart-node" target="_blank">OpenAI node quick start</a> | `openai` | OpenAI Nodejs的起步文档及案例
+<a href="https://github.com/openai/whisper" target="_blank">Whisper</a> | `whisper` | OpenAI 语音识别模型（转文字）
+<a href="https://github.com/humanloop/awesome-chatgpt" target="_blank">awesome chatGPT</a> | `chatgpt` | chatGPT/GPT3 工具、demo及文档集合
+<a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank">awesome chatGPT prompts</a> | `chatgpt` | chatGPT问答训练实践集合
 
 
-### 1.11 IDE插件
 
-#### 1.11.1 VS Code
+### 1.12 IDE插件
+
+#### 1.12.1 VS Code
 
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -727,7 +740,7 @@
 <a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager" target="_blank">Project Manager</a> | `project-manager` | 本地项目管理
 <a href="https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster" target="_blank">JavaScript Booster</a> | `javascript-booster` | js/ts快速重构优化工具，比如将var换为const/let。
 
-### 1.12 生活篇
+### 1.13 生活篇
 
 
 地址 | 标签 | 说明
@@ -815,6 +828,7 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2023.02.18：增加AI库；修改utils类型；
 - 2023.01.07：修复utils webApi bug；
 - 2022.12.27：utils方法更新；新增链接；
 - 2022.11.27：更新/调整链接；
