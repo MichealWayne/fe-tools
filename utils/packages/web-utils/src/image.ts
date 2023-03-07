@@ -1,13 +1,21 @@
 /**
  * @module Image
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-05-31 15:25:47
+ * @LastEditTime 2023-03-02 19:45:25
  */
 
 /**
  * @function isSupportWebP
  * @description 页面当前所处环境是否支持webp格式图片
  * @return {Boolean}
+ * @example
+const imgEl = document.createElement('img');
+if (isSupportWebP()) {
+  imgEl.src = 'image.webp';
+} else {
+  imgEl.src = 'image.png';
+}
+document.body.appendChild(imgEl);
  */
 export function isSupportWebP() {
   return (
@@ -15,7 +23,6 @@ export function isSupportWebP() {
     document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') === 0
   );
 }
-
 
 /**
  * Returns a canvas with the cropped piece only.
@@ -25,6 +32,20 @@ export function isSupportWebP() {
  * @param {number} y top
  * @param {number} width width
  * @param {number} height height
+ * @example
+// 从一个图片元素中裁剪出一个 100x100 大小的矩形，起始坐标为 (50, 50)
+const image = document.querySelector('img');
+const croppedCanvas = cropImage(image, 50, 50, 100, 100);
+
+// 将裁剪后的 canvas 元素插入到页面中
+document.body.appendChild(croppedCanvas);
+
+// 从一个 canvas 元素中裁剪出一个 200x100 大小的矩形，起始坐标为 (0, 0)
+const canvas = document.querySelector('canvas');
+const croppedCanvas = cropImage(canvas, 0, 0, 200, 100);
+
+// 将裁剪后的 canvas 元素插入到页面中
+document.body.appendChild(croppedCanvas);
  */
 export function cropImage(
   src: HTMLImageElement | HTMLCanvasElement,
@@ -33,6 +54,10 @@ export function cropImage(
   width: number,
   height: number
 ) {
+  if (width < 0 || height < 0) {
+    throw new Error('Invalid dimensions');
+  }
+
   const canvas = document.createElement('canvas');
   canvas.width = width;
   canvas.height = height;

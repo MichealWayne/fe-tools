@@ -1,0 +1,49 @@
+name: PUBLISH FE-TOOLS DOCS
+on:
+  push:
+    branches:
+      - master
+  # or set up your own custom triggers
+permissions:
+  contents: write # allows the 'Commit' step without tokens
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - run: mkdir -p ./docs
+
+      - name: Build
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'npm'
+      - run: cd utils && npm ci && npm run docs
+
+      - name: tar the new docs
+        run: tar -cvf newdocumentation.tar ./docs
+
+      - name: create a new document artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: newdocumentation
+          path: newdocumentation.tar
+  commit:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: mkdir -p ./docs
+      - name: Download the new documents artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: newdocumentation
+      - run: tar -xf newdocumentation.tar ./docs -C ./docs
+      - name: commit
+        run: |
+          git config --global user.email "${U_NAME}"
+          git config --global user.name "${U_EMAIL}"
+          git add -A
+          git commit -m "CI updated the documentation"
+          git push --quiet

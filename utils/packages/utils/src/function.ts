@@ -1,8 +1,8 @@
 /**
  * @module Function
- * @description function handler functions
- * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-09-26 11:09:50
+ * @author Wayne
+ * @createTime 2022-03-12 14:44:00
+ * @LastEditTime 2023-03-01 19:21:19
  */
 
 export const NOOP = () => '';
@@ -11,10 +11,12 @@ const DEFAULT_INTERVAL = 500;
 
 /**
  * @funciton attempt
- * @param {function} fn
- * @param  {...any} args
+ * @description 试执行传入的函数 fn，并返回其执行结果。
+ * @param {Function} fn
+ * @param {Unknown} args
+ * @return {Unknown}
  */
-export function attempt(fn: (...ks: unknown[]) => unknown, ...args: unknown[]) {
+export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args: T): Error | R {
   try {
     return fn(...args);
   } catch (err) {
@@ -39,7 +41,7 @@ export function defer(fn: (...ks: unknown[]) => unknown, ...args: unknown[]) {
  * @param {promise array} ps
  * @return {Promise}
  */
-export function runPromisesInSeries(ps: any[]) {
+export function runPromisesInSeries(ps: Array<(...args: unknown[]) => Promise<any>>) {
   return ps.reduce((p, next) => p?.then(next), Promise.resolve());
 }
 
@@ -109,12 +111,8 @@ export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
  * const multiplyAndAdd5 = compose(add5, multiply);
  * multiplyAndAdd5(5, 2);
  */
-export function compose(...fns: Array<(...args: unknown[]) => unknown>) {
-  return fns.reduce(
-    (f, g) =>
-      (...args) =>
-        f(g(...args))
-  );
+export function compose<T>(...fns: Array<(arg: T) => T>): (arg: T) => T {
+  return fns.reduce((f, g) => arg => f(g(arg)));
 }
 
 /**
@@ -127,12 +125,8 @@ export function compose(...fns: Array<(...args: unknown[]) => unknown>) {
  * const multiplyAndAdd5 = pipe(add5, multiply);
  * multiplyAndAdd5(5, 2);
  */
-export function pipe(...fns: Array<(...args: unknown[]) => unknown>) {
-  return fns.reduce(
-    (f, g) =>
-      (...args) =>
-        g(f(...args))
-  );
+export function pipe<T extends unknown[]>(...fns: Array<(arg: T) => T>) {
+  return fns.reduce((f, g) => (arg: T) => g(f(arg)));
 }
 
 /**
@@ -144,11 +138,11 @@ export function pipe(...fns: Array<(...args: unknown[]) => unknown>) {
  * @example
  * curry(Math.pow)(2)(10)
  */
-export function curry(
-  fn: (...ks: unknown[]) => unknown,
-  arity = fn.length,
-  ...args: unknown[]
-): unknown {
+export function curry<T extends unknown[], R>(
+  fn: (...fnArgs: T) => R,
+  arity: number = fn.length,
+  ...args: T
+) {
   return arity <= args.length ? fn(...args) : (curry as any).bind(null, fn, arity, ...args);
 }
 
@@ -157,7 +151,7 @@ export function curry(
  * @description 打印函数名称
  * @param {function} fn
  */
-export function functionName(fn: (...ks: unknown[]) => unknown) {
+export function functionName<T extends (...ks: unknown[]) => unknown>(fn: T): void {
   return console.debug(fn.name, fn);
 }
 
@@ -166,11 +160,13 @@ export function functionName(fn: (...ks: unknown[]) => unknown) {
  * @description 函数执行promise化
  * @param {function} fn
  */
-export function promisify(fn: (...ks: unknown[]) => unknown) {
-  return (...args: unknown[]) =>
+export function promisify<T extends unknown[], R>(
+  fn: (...args: [args: T, errHandler?: (err: Error | null, result?: R) => void]) => void
+): (...args: T) => Promise<R> {
+  return (...args: T) =>
     new Promise((resolve, reject) => {
-      fn(...args, (err: Error, result: unknown) => {
-        err ? reject(err) : resolve(result);
+      fn(args, (err: Error | null, result?: R) => {
+        err ? reject(err) : resolve(result as R);
       });
     });
 }
@@ -191,16 +187,14 @@ export function sleep(ms: number) {
  * @param {Number} intervalTime
  * @returns {Function}
  */
-export function throttle(
-  fn: {
-    apply: (arg0: unknown, ...arg1: unknown[]) => void;
-  },
+export function throttle<F extends (...args: any[]) => any>(
+  fn: F,
   intervalTime = DEFAULT_INTERVAL
-) {
+): (...args: Parameters<F>) => void {
   let flag = true;
-  return function (_this: unknown, ...args: unknown[]) {
+  return function (this: any, ...args: Parameters<F>) {
     if (flag) {
-      fn.apply(_this, args);
+      fn.apply(this, args);
       flag = false;
       setTimeout(() => {
         flag = true;
@@ -209,6 +203,8 @@ export function throttle(
   };
 }
 
+type DebouncedFn<T extends unknown[]> = (...args: T) => void;
+
 /**
  * @function debounce
  * @description 防抖函数
@@ -216,20 +212,18 @@ export function throttle(
  * @param {Number} intervalTime
  * @returns {Function}
  */
-export function debounce(
-  fn: {
-    apply: (arg0: unknown, arg1: unknown[]) => void;
-  },
+export function debounce<T extends unknown[]>(
+  fn: (...args: T) => void,
   intervalTime = DEFAULT_INTERVAL
-) {
-  let timeId: null | ReturnType<typeof setTimeout> = null;
-  return function (_this: unknown, ...args: unknown[]) {
+): DebouncedFn<T> {
+  let timeId: ReturnType<typeof setTimeout> | null = null;
+  return function debouncedFn(this: unknown, ...args: T) {
     if (timeId) {
       clearTimeout(timeId);
     }
     timeId = setTimeout(() => {
       timeId = null;
-      fn.apply(_this, args);
+      fn.apply(this, args);
     }, intervalTime);
   };
 }

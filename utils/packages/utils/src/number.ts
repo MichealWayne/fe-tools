@@ -1,6 +1,9 @@
 /**
  * @module Number
  * @description number functions
+ * @author Wayne
+ * @Date 2023-02-09 15:08:11
+ * @LastEditTime 2023-02-23 11:28:34
  */
 
 /**

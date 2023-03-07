@@ -36,6 +36,7 @@ export function type(val?: unknown): string {
  * isString(test2);  // true
  */
 export function isUndefined(val?: unknown): val is undefined {
+  // eslint-disable-next-line no-undefined
   return val === undefined;
 }
 

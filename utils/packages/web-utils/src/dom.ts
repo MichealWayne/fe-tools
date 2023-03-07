@@ -1,7 +1,7 @@
 /**
- * @module dom
+ * @module DOM
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-02-21 10:38:09
+ * @LastEditTime 2023-03-02 17:08:16
  */
 
 import { isUndefined } from 'utils';
@@ -10,6 +10,12 @@ import { isUndefined } from 'utils';
  * @function isBrowser
  * @description 当前页面是否在浏览器环境下
  * @return {Boolean}
+ * @example
+ * if (isBrowser()) {
+ *   console.log('在浏览器环境下');
+ * } else {
+ *   console.log('可能在Nodejs环境下')
+ * }
  */
 export function isBrowser() {
   return ![typeof window, typeof document].includes('undefined');
@@ -19,6 +25,10 @@ export function isBrowser() {
  * @function isBrowserTab
  * @description 当前页面是否为显示状态
  * @return {Boolean}
+ * @example
+ if (!isBrowserTab()) {
+  // 取消一些请求事件等处理
+ }
  */
 export function isBrowserTab() {
   return !document.hidden;
@@ -27,9 +37,27 @@ export function isBrowserTab() {
 /**
  * @function hasClass
  * @description 判断节点elem是否包含某个class
- * @param {Element} elem
+ * @param {HTMLElement} elem
  * @param {String} className
  * @return {Boolean}
+ * @example
+ // 测试用例1：测试样式类名存在情况
+ const elem = document.createElement('div');
+ elem.className = 'test-class';
+ const result1 = hasClass(elem, 'test-class'); // true
+ const result2 = hasClass(elem, 'other-class'); // false
+
+ // 测试用例2：测试样式类名前后有其他类名情况
+ elem.className = 'prev-class test-class next-class';
+ const result3 = hasClass(elem, 'test-class'); // true
+ const result4 = hasClass(elem, 'prev-class'); // false
+ const result5 = hasClass(elem, 'next-class'); // false
+
+ // 测试用例3：测试样式类名前后有多余空格情况
+ elem.className = '  test-class  ';
+ const result6 = hasClass(elem, 'test-class'); // true
+ const result7 = hasClass(elem, '  test-class  '); // false
+ const result8 = hasClass(elem, 'test-class  '); // false
  */
 export function hasClass(elem: HTMLElement, className: string) {
   return new RegExp(`(\\s|^)${className}(\\s|$)`).test(elem.className);
@@ -38,8 +66,12 @@ export function hasClass(elem: HTMLElement, className: string) {
 /**
  * @function addClass
  * @description 给DOM节点elem添加class
- * @param {Element} elem
+ * @param {HTMLElement} elem
  * @param {String} className
+ * @example
+const div = document.createElement('div');
+div.className = 'foo';
+addClass(div, 'bar');
  */
 export function addClass(elem: HTMLElement, className: string) {
   if (!hasClass(elem, className)) {
@@ -50,21 +82,37 @@ export function addClass(elem: HTMLElement, className: string) {
 /**
  * @function removeClass
  * @description 移除DOM节点的某个class
- * @param {Element} elem
+ * @param {HTMLElement} elem
  * @param {String} className
+ * @example
+ const elem = document.createElement('div');
+ elem.className = 'foo bar';
+ removeClass(elem, 'foo');
+ console.log(elem.className); // 'bar'
  */
 export function removeClass(elem: HTMLElement, className: string) {
   if (hasClass(elem, className)) {
-    const reg = new RegExp(`(\\s|^)${className}(\\s|$)`);
-    elem.className = elem.className.replace(reg, ' ');
+    const CLASS_NAME_REGEX = new RegExp(`(\\s|^)${className}(\\s|$)`);
+    elem.className = elem.className.replace(CLASS_NAME_REGEX, ' ');
   }
 }
 
 /**
  * @function insertAfter
  * @description 在指定元素之后插入新元素
- * @param {DOMElement} elem
+ * @param {HTMLElement} elem
  * @param {String} htmlString
+ * @example
+// 在一个元素之后插入一个新元素
+const parent = document.getElementById('parent');
+const newElem = document.createElement('div');
+newElem.textContent = 'Inserted after parent';
+insertAfter(parent, newElem.outerHTML);
+
+// 在一个元素之后插入 HTML 字符串
+const target = document.getElementById('target');
+const html = '<div>Inserted after target</div>';
+insertAfter(target, html);
  */
 export function insertAfter(elem: HTMLElement, htmlString: string) {
   return elem.insertAdjacentHTML('afterend', htmlString);
@@ -73,8 +121,19 @@ export function insertAfter(elem: HTMLElement, htmlString: string) {
 /**
  * @function insertBefore
  * @description 在指定元素之前插入新元素
- * @param {DOMElement} el
+ * @param {HTMLElement} el
  * @param {String} htmlString
+  * @example
+// 在一个元素之前插入一个新元素
+const parent = document.getElementById('parent');
+const newElem = document.createElement('div');
+newElem.textContent = 'Inserted before parent';
+insertBefore(parent, newElem.outerHTML);
+
+// 在一个元素之谦插入 HTML 字符串
+const target = document.getElementById('target');
+const html = '<div>Inserted before target</div>';
+insertBefore(target, html);
  */
 export function insertBefore(el: HTMLElement, htmlString: string) {
   return el.insertAdjacentHTML('beforebegin', htmlString);
@@ -83,8 +142,16 @@ export function insertBefore(el: HTMLElement, htmlString: string) {
 /**
  * @function elementContains
  * @description 检查是否包含子元素
- * @param {DOMElement} parent
- * @param {DOMElement} child
+ * @param {HTMLElement} parent
+ * @param {HTMLElement} child
+ * @example
+const parent = document.getElementById('parent');
+const child = document.getElementById('child');
+if (elementContains(parent, child)) {
+  console.log('Parent contains child');
+} else {
+  console.log('Parent does not contain child');
+}
  */
 export function elementContains(parent: HTMLElement, child: HTMLElement) {
   return parent !== child && parent.contains(child);
@@ -93,7 +160,10 @@ export function elementContains(parent: HTMLElement, child: HTMLElement) {
 /**
  * @function hide
  * @description 隐藏元素
- * @param  {...DOMElement} el
+ * @param  {...HTMLElement} el
+ * @example
+const elementsToHide = document.querySelectorAll('.hide-me');
+hide(...elementsToHide);
  */
 export function hide(...el: HTMLElement[]) {
   [...el].forEach(e => (e.style.display = 'none'));
@@ -102,7 +172,18 @@ export function hide(...el: HTMLElement[]) {
 /**
  * @function nodeListToArray
  * @description dom列表伪数组转为数组
- * @param {DOMElement[]} nodeList
+ * @param {HTMLElement[]} nodeList
+ * @example
+// 获取所有 div 元素，得到的是一个类数组对象 NodeList
+const divs = document.querySelectorAll('div');
+
+// 调用函数将 NodeList 转换为数组
+const divArray = nodeListToArray(divs);
+
+// 现在可以使用数组的方法对 divArray 进行操作了
+divArray.forEach(div => {
+  // ...
+});
  */
 export function nodeListToArray(nodeList: HTMLElement[]) {
   return [...nodeList];
@@ -110,22 +191,27 @@ export function nodeListToArray(nodeList: HTMLElement[]) {
 
 /**
  * @function setAttribute
- * @param {Element} elem
+ * @description 设置指定 HTML 元素的属性值
+ * @param {HTMLElement} elem
  * @param {String} key
  * @param {String} value
+ * @example
+const elem = document.getElementById('myElement');
+setAttribute(elem, 'style', 'color: red; font-size: 16px;');
+
+const elem = document.getElementById('myInput');
+setAttribute(elem, 'value', 'hello world');
  */
 export function setAttribute(elem: HTMLElement, key: string, value: string) {
-  let { tagName } = elem;
+  const tagName = (elem.tagName || '').toLowerCase();
   switch (key) {
     case 'style':
       elem.style.cssText = value;
       break;
     case 'value':
-      tagName = (tagName || '').toLowerCase();
       if (tagName === 'input' || tagName === 'textarea') {
         (elem as HTMLInputElement).value = value;
       } else {
-        // if it is not a input or textarea, use `setAttribute` to set
         elem.setAttribute(key, value);
       }
       break;
@@ -137,16 +223,26 @@ export function setAttribute(elem: HTMLElement, key: string, value: string) {
 
 /**
  * @function escapeHTML
+ * @description 将字符串中的 HTML 特殊字符转义成对应的实体字符，以避免 XSS 攻击等问题。
  * @param {String} str
+ * @example
+  const inputBox = document.getElementById('input-box');
+  const outputBox = document.getElementById('output-box');
+
+  inputBox.addEventListener('input', () => {
+    const escapedText = escapeHTML(inputBox.value);
+    outputBox.innerText = escapedText;
+  });
  */
 export function escapeHTML(str: string) {
-  return str.replace(
+  return str?.replace(
     /[&<>'"]/g,
     tag =>
       ({
         '&': '&amp;',
-        '<': '%lt;',
-        '>': '%gt;',
+        '<': '&lt;',
+        '>': '&gt;',
+        // eslint-disable-next-line quotes
         "'": '&#39;',
         '"': '&quot;',
       }[tag] || tag)
@@ -157,11 +253,16 @@ export function escapeHTML(str: string) {
 
 /**
  * @function getOffsetPos
- * @description 获取一个元素的距离文档(document)的位置，类似jQ中的offset()
- * @param {DOMElement} elem 父节点
- * @returns { {left: number, top: number} }
+ * @description 获取一个元素的距离文档(document)左上角的位置，类似jQ中的offset()
+ * @param {HTMLElement} elem 父节点
+ * @return { {left: number, top: number} }
+ * @example
+ const elem = document.getElementById('my-elem');
+const offsetPos = getOffsetPos(elem);
+console.log(offsetPos.left, offsetPos.top);
+
  */
-export function getOffsetPos(elem: HTMLElement | null) {
+export function getOffsetPos(elem?: HTMLElement) {
   const pos = {
     left: 0,
     top: 0,
@@ -170,6 +271,7 @@ export function getOffsetPos(elem: HTMLElement | null) {
   while (elem) {
     pos.left += elem.offsetLeft;
     pos.top += elem.offsetTop;
+    // eslint-disable-next-line no-param-reassign
     elem = elem.offsetParent as HTMLElement;
   }
 
@@ -180,6 +282,9 @@ export function getOffsetPos(elem: HTMLElement | null) {
  * @function getScrollTop
  * @description 获取滚动条距顶部的距离
  * @return {Number} 滚动高度
+ * @example
+ const scrollTop = getScrollTop();
+ console.log(scrollTop);
  */
 export function getScrollTop() {
   return document.documentElement?.scrollTop || document.body.scrollTop;
@@ -187,8 +292,12 @@ export function getScrollTop() {
 
 /**
  * @function getScrollPosition
+ * @description 获取文档滚动的位置
  * @param {Element} elem
  * @returns { {x: number, y: number} }
+ * @example
+  const scrollPos = getScrollPosition();
+ console.log(scrollPos.x, scrollPos.y);
  */
 export function getScrollPosition(elem = window) {
   return {
@@ -278,7 +387,7 @@ export function smoothScroll(elemSelector: string) {
  * @description 禁止网页复制粘贴
  */
 export function disableCopy() {
-  const html = document.querySelector('html') || ({} as any);
+  const html = document.querySelector('html')!;
   html.oncopy = () => false;
   html.onpaste = () => false;
 }

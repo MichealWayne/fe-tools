@@ -1,6 +1,8 @@
 /**
  * @module String
- * @description string functions
+ * @author Wayne
+ * @Date 2022-07-11 13:34:54
+ * @LastEditTime 2023-03-01 22:18:07
  */
 
 /**
@@ -43,7 +45,12 @@ export function decapitalize([first, ...rest]: string) {
  * @function splitLines
  * @description 字符换行分割
  * @param {String} str
- * @return {String}
+ * @return {String[]}
+ * @example
+ splitLines('line 1\nline 2\nline 3\n'); // ['line 1', 'line 2', 'line 3', '']
+ splitLines('line 1\r\nline 2\r\nline 3\r\n'); // ['line 1', 'line 2', 'line 3', '']
+ splitLines('line 1\nline 2\r\nline 3\n\r'); // ['line 1', 'line 2', 'line 3', '']
+ splitLines(''); // ['']
  */
 export function splitLines(str: string) {
   return str.split(/\r?\n/);

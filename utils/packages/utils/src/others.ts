@@ -1,5 +1,8 @@
 /**
  * @module Others
+ * @author Wayne
+ * @Date 2023-02-06 21:17:44
+ * @LastEditTime 2023-02-23 11:28:14
  */
 
 // 复杂比较请见https://github.com/omichelsen/compare-versions

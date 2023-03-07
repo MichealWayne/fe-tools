@@ -1,7 +1,8 @@
 /**
- * @module URL
- * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-01-07 10:43:48
+ * @module Url
+ * @notice 如无兼容要求，可直接用URL对象进行处理
+ * @Date 2022-08-24 14:18:25
+ * @LastEditTime 2023-03-02 19:57:23
  */
 
 /**
@@ -47,6 +48,9 @@ export function getUrlParam(name: string, decode?: string) {
  * @description 将参数对象转为 url 字符串
  * @param {object} 参数对象
  * @returns {string} url 修改后的URL
+ * @example
+const url = `https://example.com/api?${paramsJoinUrl({ age: 25, city: 'New York' })}`;
+console.log(url); // "https://example.com/api?age=25&city=New%20York"
  */
 export const paramsJoinUrl = (params: { [key: string]: string }): string => {
   const param = [];
@@ -63,6 +67,10 @@ export const paramsJoinUrl = (params: { [key: string]: string }): string => {
  * @param {string} url 原始URL
  * @returns {string} url 修改后的URL
  * @desc 📝 获取 url 中?之前的部分
+ * @example
+ console.log(getBaseUrl());
+ console.log(getBaseUrl('https://example.com/page.html?query=string')); // https://example.com/page.html
+ console.log(getBaseUrl('https://example.com/')); // https://example.com/
  */
 export const getBaseUrl = (url: string = location.href.toString()): string =>
   url.includes('?') ? url.split('?')[0] : url;
