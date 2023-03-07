@@ -3,15 +3,22 @@
 /**
  * @module Platform
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-02-21 11:14:15
+ * @LastEditTime 2023-03-01 22:04:00
  */
 
+/**
+ * @description 全小写的浏览器用户代理字符串（User Agent String，简称 UA），即navigator.userAgent的小写转换字符串
+ */
 export const ua = navigator.userAgent.toLowerCase();
 
 /**
  * @function isPC
- * @description 当前页面是否处于PC环境下
+ * @description 判断当前页面是否处于PC环境下
  * @return {Boolean}
+ * @example
+ * if (isPC()) {
+ *    console.log('当前处在PC环境下')
+ * }
  */
 export function isPC() {
   return [

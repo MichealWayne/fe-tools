@@ -1,4 +1,4 @@
-# fe-books
+# fe-tools
 
 > 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat)，然后根据整理判断（chatGPT选型能力一般，检索还是可以的）
 
@@ -19,8 +19,9 @@
 - [1.8 Hybird和跨端](#18-hybird和跨端)
 - [1.9 辅助工具](#19-辅助工具)
 - [1.10 测试、安全及加密](#110-测试安全及加密)
-- [1.11 IDE插件](#111-ide插件)
-- [1.12 生活篇](#112-生活篇)
+- [1.11 AI人工智能库](#111-AI人工智能库)
+- [1.12 IDE插件](#112-ide插件)
+- [1.13 生活篇](#113-生活篇)
 
 
 ### 1.1 HTML/CSS/JavaScript/WASM/Dart
@@ -589,6 +590,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://chat.openai.com/chat" target="_blank">chatGPT</a> | `chatGPT ` | 基于OpenAPI的问答机器人，用来查技术问题也挺好。
+<a href="https://codegeex.cn/zh-CN" target="_blank">CodeGeeX</a> | `CodeGeeX ` | 用于平替Copilot的编程助手，AI、免费。
 <a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a> | `stackoverflow` | 技术问题排忧解难的友好社区。
 <a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析npm软件包的体积和加载性能的网站。
 <a href="https://npmgraph.js.org/" target="_blank">npmgraph</a> | `npmgraph` | 分析npm软件包依赖关系的工具网站。
@@ -828,6 +830,7 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2023.03.05：增加utils文档配置；
 - 2023.02.18：增加AI库；修改utils类型；
 - 2023.01.07：修复utils webApi bug；
 - 2022.12.27：utils方法更新；新增链接；

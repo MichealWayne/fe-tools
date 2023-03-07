@@ -37,6 +37,7 @@ export function isUrl(str: string) {
 
 /**
  * @function isPhoneNumber
+ * @description 中国大陆手机号验证。（如果要国际通用请用三方库或/^\+?\d+$/）
  * @param {String} str
  * @return {Boolean}
  */

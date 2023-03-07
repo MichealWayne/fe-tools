@@ -73,7 +73,7 @@ export function daysLater(date = new Date(), days = 1) {
 
 /**
  * @function getFormattedRemainTime
- * @description 获取倒计时日期信息
+ * @description 该函数的作用是计算两个日期之间的时间差，并返回以日、小时、分钟和秒为单位的格式化结果
  * @param {Date} startTime
  * @param {Date} endTime
  * @return {string}
