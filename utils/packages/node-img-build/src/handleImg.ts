@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2021-04-27 14:47:13
- * @LastEditTime 2023-02-21 11:16:27
+ * @LastEditTime 2023-03-07 13:52:59
  */
 import path from 'path';
 import gmConstructor from 'gm';

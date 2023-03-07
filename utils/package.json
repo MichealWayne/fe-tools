@@ -19,6 +19,7 @@
   "homepage": "https://github.com/MichealWayne/fe-tools",
   "devDependencies": {
     "@jest/types": "^26.3.0",
+    "@types/gm": "^1.25.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^15.12.4",
     "@typescript-eslint/eslint-plugin": "^4.33.0",

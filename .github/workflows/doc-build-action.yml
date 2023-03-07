@@ -20,7 +20,15 @@ jobs:
         with:
           node-version: 16.x
           # cache: 'npm'
-      - run: cd utils && npm ci && npm run docs
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - run: cd utils && pnpm install && npm run docs
 
       - name: tar the new docs
         run: tar -cvf newdocumentation.tar ./docs
