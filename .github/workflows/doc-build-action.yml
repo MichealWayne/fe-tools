@@ -42,6 +42,9 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
       - run: mkdir -p ./docs
       - name: Download the new documents artifact
         uses: actions/download-artifact@v3
@@ -50,8 +53,8 @@ jobs:
       - run: tar -xf newdocumentation.tar ./docs -C ./docs
       - name: commit
         run: |
-          git config --global user.email "username@users.noreply.github.com"
-          git config --global user.name "Continuous Integration"
+          git config --global user.email "michealwayne@163.com"
+          git config --global user.name "MichealWayne"
           git add -A
           git commit -m "CI updated the documentation"
-          git push --quiet
+          git push --quiet origin master
