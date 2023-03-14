@@ -3,8 +3,43 @@
  * @description number functions
  * @author Wayne
  * @Date 2023-02-09 15:08:11
- * @LastEditTime 2023-02-23 11:28:34
+ * @LastEditTime 2023-03-14 11:10:01
  */
+
+import { isNumber } from './type';
+
+/**
+ * @function isInt
+ * @description 判断是否为整数
+ * @param {unknown} val 
+ * @return {boolean}
+ * @example
+ console.log(isInt(5)); // true
+console.log(isInt(2.5)); // false
+console.log(isInt('3')); // false
+console.log(isInt(null)); // false
+console.log(isInt(undefined)); // false
+ */
+export const isInt = (val: unknown): val is number => {
+  return isNumber(val) && val % 1 === 0;
+};
+
+/**
+ * @function isFloat
+ * @description 判断是否为浮点数
+ * @param {unknown} val 
+ * @return {boolean}
+ * @example
+isFloat(3.14); // true
+isFloat(-0.5); // true
+isFloat(2); // false
+isFloat('3.14'); // false
+isFloat(null); // false
+isFloat(undefined); // false
+ */
+export const isFloat = (val: unknown): val is number => {
+  return isNumber(val) && val % 1 !== 0;
+};
 
 /**
  * @function isValidNumber

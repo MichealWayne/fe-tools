@@ -2,7 +2,7 @@
  * @module Url
  * @notice 如无兼容要求，可直接用URL对象进行处理
  * @Date 2022-08-24 14:18:25
- * @LastEditTime 2023-03-02 19:57:23
+ * @LastEditTime 2023-03-14 11:17:01
  */
 
 /**
@@ -25,19 +25,22 @@ export function parseQueryString(url = window.location.href) {
 
 /**
  * @function getUrlParam
- * @description 获取页面地址中query字段对应的信息，如兼容可以的话（iOS8、Android4.4）建议直接使用URL()
+ * @description 获取页面地址中query字段对应的信息
  * @param {String} name
- * @param {String | undefined} decode
+ * @param {Function | undefined} decode
  * @return {String | null}
+ * @example
+ * const name = getUrlParam('name');
  */
-export function getUrlParam(name: string, decode?: string) {
-  const reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+export function getUrlParam(name: string, decode?: (s: string) => string) {
+  const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
   const res = window.location.search.substring(1).match(reg);
   if (res !== null) {
     if (!decode) {
       return decodeURI(res[2]);
     } else {
-      return eval(decode + '(r[2])');
+      // eslint-disable-next-line no-eval
+      return decode(res[2]);
     }
   }
   return null;

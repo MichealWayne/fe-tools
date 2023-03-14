@@ -1,31 +1,28 @@
 {
-    "name":"fe-tools utils",
-    "$schema": "https://typedoc.org/schema.json",
-    "entryPoints": [
-        "./packages/utils/src/*.ts", 
-        "./packages/node-utils/src/index.ts", 
-        "./packages/web-utils/src/*.ts",
-        "./packages/canvas-utils/src/index.ts",
-        "./packages/node-img-build/src/handleImg.ts",
-    ],
-    "tsconfig": "./tsconfig.json",
-    // "entryPointStrategy": "packages",
-    "out": "../docs",
-    "disableSources": false,
-    "exclude": ["*.mock.ts", "*.test.ts"],
-    "includeVersion": true,
+  "name": "fe-tools utils",
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "./packages/utils/src/*.ts",
+    "./packages/node-utils/src/index.ts",
+    "./packages/web-utils/src/*.ts",
+    "./packages/canvas-utils/src/index.ts",
+    "./packages/node-img-build/src/handleImg.ts"
+  ],
+  "tsconfig": "./tsconfig.json",
+  // "entryPointStrategy": "packages",
+  "out": "../docs",
+  "disableSources": false,
+  "exclude": ["*.mock.ts", "*.test.ts"],
+  "includeVersion": true,
 
-    "plugin": ["typedoc-plugin-extras", "typedoc-theme-yaf"],
-    "versions": {
-        "stable": "1.0.0-beta01",
-        "dev": "1.0.0-beta01",
-     },
+  "plugin": ["typedoc-plugin-extras", "typedoc-theme-yaf"],
+  "versions": {
+    "stable": "1.0.0-beta01",
+    "dev": "1.0.0-beta01"
+  },
 
-    "theme": "yaf",
+  "theme": "yaf",
 
-    // extra config
-    "customTitle": "Kingfisher Common",
-    "customDescription": "同花顺公共基础库",
-    "favicon": "https://testfund.10jqka.com.cn/public/test/kingfisher2.png",
-    "footerLastModified": true,
+  // extra config
+  "footerLastModified": true
 }
