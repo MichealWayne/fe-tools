@@ -1,7 +1,7 @@
 /**
  * @module os
  * @Date 2020-08-20 21:55:46
- * @LastEditTime 2023-01-07 13:59:19
+ * @LastEditTime 2023-03-14 10:53:15
  */
 
 import os from 'os';
@@ -142,11 +142,11 @@ export function getProcesses(nProcess: number | AnyCallbackFunc, callback: AnyCa
     nProcess = 0;
   }
 
-  let command = 'ps -eo pcpu,pmem,time,args | sort -k 1 -r | head -n' + 10;
+  let command = 'ps -eo pcpu,pmem,time,args | sort -k 1 -r | head -n ' + 10;
   //command = 'ps aux | head -n '+ 11
   //command = 'ps aux | head -n '+ (nProcess + 1)
   if (nProcess > 0)
-    command = 'ps -eo pcpu,pmem,time,args | sort -k 1 -r | head -n' + (nProcess + 1);
+    command = 'ps -eo pcpu,pmem,time,args | sort -k 1 -r | head -n ' + (nProcess + 1);
 
   childrenProcess.exec(command, function (error, stdout) {
     const lines = stdout.split('\n');

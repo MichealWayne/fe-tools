@@ -1,7 +1,7 @@
 /**
  * @module fsFuncs
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-01-07 13:59:11
+ * @LastEditTime 2023-03-14 10:48:57
  */
 
 import fs from 'fs';
@@ -37,7 +37,7 @@ export function travelFolderSync(
  * @function mkdirsSync
  * @description make folder(sync)
  * @param {String} dirPath
- * @param {String} mode
+ * @return {Boolean}
  */
 export function mkdirsSync(dirPath: string) {
   try {
@@ -105,7 +105,7 @@ export function rmdirsSync(targetPath: string) {
     let files = [];
     if (fs.existsSync(targetPath)) {
       files = fs.readdirSync(targetPath);
-      files.forEach(function (file) {
+      files.forEach(function (file: string) {
         const curPath = `${targetPath}/${file}`;
         if (fs.statSync(curPath).isDirectory()) {
           // recurse
@@ -145,7 +145,7 @@ export function writeFile(filePath: string, fileData: string, replaceBool?: bool
     } else {
       fs.appendFileSync(filePath, fileData);
     }
-    resolve(1);
+    resolve(true);
   });
 }
 
@@ -155,8 +155,8 @@ export function writeFile(filePath: string, fileData: string, replaceBool?: bool
  * @param {String} filePath
  * @param {Object} obj
  */
-export function writeJson(filePath: string, obj: { [key: string]: unknown }) {
-  writeFile(filePath, `${JSON.stringify(obj, null, 2)}\n`);
+export function writeJson(filePath: string, obj: { [key: string]: unknown }, spaceLen = 2) {
+  writeFile(filePath, `${JSON.stringify(obj, null, spaceLen)}\n`);
 }
 
 /**

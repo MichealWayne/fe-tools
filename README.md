@@ -1,6 +1,6 @@
 # fe-tools
 
-> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat)，然后根据整理判断（chatGPT选型能力一般，检索还是可以的）
+> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。（一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat)，然后根据整理判断（chatGPT选型能力一般，检索还是可以的））
 
 <a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
 
@@ -137,6 +137,7 @@
 <a href="https://lodash.com/docs/" target="_blank">LoDash</a> | `lodash` | 广为人知的函数式工具库。
 <a href="https://github.com/ramda/ramda" target="_blank">ramda</a> | `ramda` | 比较著名的函数式工具库。
 <a href="https://gcanti.github.io/fp-ts/" target="_blank">fp-ts</a> | `fp-ts` | 遵循函数式编程范式的ts封装库。
+<a href="https://github.com/rayepps/radash" target="_blank">radash</a> | `radash` | ts函数式工具库。
 <a href="https://underscorejs.org/" target="_blank">UnderscoreJS</a> | `underscorejs` | 红极一时的函数式工具库。
 <a href="http://www.css88.com/jqapi-1.9/" target="_blank">jQueryJs</a> | `jQuery` | 早年红极一时的js封装库。
 <a href="http://www.css88.com/doc/zeptojs_api/" target="_blank">ZeptoJs</a> | `Zepto` | 轻量级“jQuery”，移动端使用的比较多。
@@ -419,6 +420,7 @@
 <a href="http://reactdesktop.js.org/" target="_blank">React Desktop</a> | `react-desktop` | 模拟Mac或windows桌面交互的React封装组件。
 <a href="https://www.reactboilerplate.com/" target="_blank">React Boilerplate</a> | `react-boilerplate` | 性能优先的一个典型的React项目模板。
 <a href="https://github.com/sstur/react-rte" target="_blank">React RTE</a> | `react-rte` | 富文本编辑器，基于draftJS。
+<a href="https://react.i18next.com/" target="_blank">React i18Next</a> | `react-i18next` | 多语言解决方案。
 
 ### 1.7 Nodejs和构建
 地址 | 标签 | 说明
@@ -813,12 +815,17 @@ webp、base64等图片处理封装。
 
 #### canvas-utils Canvas图形绘制封装
 
+#### 启动utils项目步骤
+
+- utils目录下执行`pnpm install`安装依赖；
+- 构建：`npm run build:prod`
+- 构建文档：`nom run docs`
 
 > todo: 小程序封装，构建封装。
 
 ### 2.2 --nodejs 服务端、脚本--
 
-已拆分至packages和fe-templates。
+已拆分至 packages/node-utils 和 fe-templates。
 
 #### 2.3 fe-templates 典型项目模版
 
@@ -830,6 +837,7 @@ webp、base64等图片处理封装。
 
 
 ### 更新信息
+- 2023.03.12：更新utils文档及example注释；
 - 2023.03.05：增加utils文档配置；
 - 2023.02.18：增加AI库；修改utils类型；
 - 2023.01.07：修复utils webApi bug；

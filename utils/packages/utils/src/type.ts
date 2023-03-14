@@ -2,7 +2,7 @@
  * @module Type
  * @description value type functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-06-22 10:37:28
+ * @LastEditTime 2023-03-14 11:03:24
  */
 
 /**
@@ -121,49 +121,54 @@ export function isFunction(val?: unknown): val is Function {
 }
 
 /**
- * @function isPromise
+ * @function isPrimitive
  * @description **isPromise(val)** if the variable value is isPromise.(https://github.com/then/is-promise)
  * @param {unknown} val variable value
  * @return {Boolean}
  * @example
  * const test1 = new Promise(resolve => resolve(1))),
  *     test2 = { then: () => '', catch: () => '', };
- * isPromise(test1);  // true
- * isPromise(test2);  // true
+ * isPrimitive(test1);  // true
+ * isPrimitive(test2);  // true
  */
-export const isPromise = <T = any>(val?: unknown): val is Promise<T> =>
+export const isPrimitive = <T = any>(val?: unknown): val is Promise<T> =>
   !!val &&
   (typeof val === 'object' || typeof val === 'function') &&
   typeof (val as PromiseLike<T>).then === 'function';
 
 /**
+ * @function isDate
+ * @description 判断传入的参数是否为 Date 类型
+ * @param {unknown} value 
+ * @return {Boolean} 
+ * @example
+console.log(isDate(new Date())); // true
+console.log(isDate('2022-03-14')); // false
+console.log(isDate(1647312000000)); // false
+console.log(isDate({ year: 2022, month: 3, day: 14 })); // false
+ */
+export const isDate = (value: unknown): value is Date => {
+  return Object.prototype.toString.call(value) === '[object Date]';
+};
+
+/**
  * @function equals
+ * @description 判断两个参数是否相等
  * @param {any} a
  * @param {any} b
  * @return {boolean}
+ * @example
+const a = [1, 2, 3];
+const b = [1, 2, 3];
+const result = equals(a, b); // true
  */
 export function equals(a: any, b: any): boolean {
   if (a === b) return true;
   if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
-  if (!a || !b || (typeof a !== 'object' && typeof b !== 'object')) return a === b;
-  if (a.__proto__ !== b.__proto__) return false;
+  if (isPrimitive(a) || isPrimitive(b)) return a === b;
+  if (a?.constructor !== b?.constructor) return false;
 
   const keys = Object.keys(a);
   if (keys.length !== Object.keys(b).length) return false;
   return keys.every(k => equals(a[k], b[k]));
-}
-
-/**
- * @function size
- * @param {any} val
- */
-export function size(val: unknown) {
-  // eslint-disable-next-line no-nested-ternary
-  return isArray(val)
-    ? val.length
-    : val && isObject(val)
-    ? val.size || val.length || Object.keys(val).length
-    : typeof val === 'string'
-    ? new Blob([val]).size
-    : 0;
 }

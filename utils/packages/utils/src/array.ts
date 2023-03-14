@@ -2,8 +2,10 @@
  * @module Array
  * @description array functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-09-26 11:02:58
+ * @LastEditTime 2023-03-14 11:06:38
  */
+
+import { isArray, isObject } from './type';
 
 export type NumberArr = number[];
 
@@ -65,6 +67,43 @@ export function arraySum(arr: number[]): number {
  *   allEqual([2, 2, 2]); // true
  */
 export const allEqual = (arr: AnyArr): boolean => arr.every(val => val === arr[0]);
+
+/**
+ * @function size
+ * @description 获取数组/字符串/Map/Set/对象属性/Blob对象数量
+ * @param {any} val
+ * @return {number}
+ * @example
+const arr = [1, 2, 3, 4, 5];
+const arrSize = size(arr); // 5
+
+const str = 'Hello, world!';
+const strSize = size(str); // 14
+
+const myMap = new Map();
+myMap.set('key1', 'value1');
+myMap.set('key2', 'value2');
+const mapSize = size(myMap); // 2
+
+const mySet = new Set([1, 2, 3, 4, 5]);
+const setSize = size(mySet); // 5
+
+const obj = { a: 1, b: 2, c: 3 };
+const objSize = size(obj); // 3
+
+const blob = new Blob(['Hello, world!'], { type: 'text/plain' });
+const blobSize = size(blob); // 13
+ */
+export function size(val: unknown) {
+  // eslint-disable-next-line no-nested-ternary
+  return isArray(val)
+    ? val.length
+    : val && isObject(val)
+    ? val.size || val.length || Object.keys(val).length
+    : typeof val === 'string'
+    ? new Blob([val]).size
+    : 0;
+}
 
 /**
  * @function arrayToCSV
@@ -336,12 +375,12 @@ export function filterNonUnique(arr: AnyArr) {
 /**
  * @function initializeArrayWithValues
  * @description 初始化数组
- * @param {number} n
+ * @param {number} len
  * @param {number} value
  * @return {array}
  */
-export function initializeArrayWithValues(n: number, value = 0) {
-  return Array(n).fill(value);
+export function initializeArrayWithValues(len: number, value = 0) {
+  return Array(len).fill(value);
 }
 
 /**
