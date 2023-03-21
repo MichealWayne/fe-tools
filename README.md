@@ -1,8 +1,8 @@
 # fe-tools
 
-> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。（一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat)，然后根据整理判断（chatGPT选型能力一般，检索还是可以的））
+> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。
 
-<a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/2019/07/18/tools/%E3%80%90%E5%B7%A5%E5%85%B7%E3%80%91%E5%89%8D%E7%AB%AF%E5%B8%B8%E7%94%A8%E7%BD%91%E7%AB%99%E9%9B%86%E5%90%88/" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
+<a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/fe-tools/stable/#fe-tools" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
 
 ------------------
 
@@ -23,7 +23,7 @@
 - [1.12 IDE插件](#112-ide插件)
 - [1.13 生活篇](#113-生活篇)
 
-
+> 注：一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat)，然后根据整理判断（chatGPT选型能力目前还一般，检索还是可以的）
 ### 1.1 HTML/CSS/JavaScript/WASM/Dart
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -53,8 +53,6 @@
 <a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网。
 <a href="https://www.wasm.com.cn/" target="_blank">Web Assembly中文网</a> | `wasm` | Web Assembly(wasm)中文网。
 <a href="https://docs.krustlet.dev/" target="_blank">Krustlet 官网</a> | `krustlet` | 一款 Web Assembly 框架。
-
-
 
 ### 1.2 兼容/查询
 地址 | 标签 | 说明
@@ -376,8 +374,6 @@
 <a href="https://github.com/vuejs/vue-class-component#readme" target="_blank">vue-class-component 仓库</a> | `vue-class-component` | Vue的Component装饰器封装，用于jsx/tsx的vue组件写法。
 <a href="https://formilyjs.org/" target="_blank">Formily 文档</a> | `formilyjs` | Element/Antd的表单DSL解决方案。
 
-
-
 ### 1.6 React
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -451,9 +447,6 @@
 <a href="https://github.com/node-schedule/node-schedule" target="_blank">node-schedule</a> | `node-schedule` | 适用于nodejs的定时任务工具。
 <a href="https://www.npmjs.com/package/source-map-support" target="_blank">source-map-support</a> | `source-map-support` | 在 nodejs 环境下支持 SourceMap 的模块工具。
 
-
-
-
 #### 1.7.1 构建
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -482,7 +475,6 @@
 <a href="https://github.com/addyosmani/critical#readme" target="_blank">critical</a> | `critical` | 一款从HTML中提取相关CSS的工具。
 <a href="https://modernjs.dev/" target="_blank">ModernJS</a> | `modernjs` | web前端工程化体系工具，字节跳动。
 <a href="https://github.com/javascript-obfuscator/javascript-obfuscator" target="_blank">javascript-obfuscator</a> | `obfuscator` | js代码混淆插件。
-
 
 #### 1.7.2 服务端
 地址 | 标签 | 说明
@@ -551,8 +543,6 @@
 <a href="https://weda.cloud.tencent.com/" target="_blank">微搭</a> | `weda` | 腾讯低代码引擎，微搭。
 <a href="https://aisuda.bce.baidu.com/amis/zh-CN/docs/index">amis</a> | `amis` | 百度开源低代码引擎，适用于偏中后台项目。
 
-
-
 ### 1.8 Hybird和跨端
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -576,6 +566,7 @@
 <a href="https://wechat-miniprogram.github.io/kbone/docs/" target="_blank">Kbone文档</a> | `小程序/跨端` | 跨web/小程序跨端构建插件，成本低，适配各类web框架，腾讯。
 <a href="https://hippyjs.org/" target="_blank">Hippy文档</a> | `跨端` | 腾讯的一款混合跨端框架。
 <a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
+<a href="https://openkraken.com/" target="_blank">北海Kraken</a> | `Kraken` | 高性能 Web 渲染引擎，基于 Flutter 构建，可以用web范式写法写Flutter，阿里。
 <a href="https://github.com/remaxjs/remax" target="_blank">Remax文档</a> | `remax` | React语法跨web/小程序工具，类似于taro-next(3)的跨端模式，对小程序友好，支付宝。
 <a href="https://ant-move.github.io/guide/" target="_blank"> Antmove </a> | `antmove` | 小程序转换器，基于支付宝/微信小程序转换为多端小程序，高德。
 <a href="https://guoshuyu.cn/home/wx/Flutter-1.html" target="_blank">Flutter文档</a> | `跨端` | 超火的Dart语法的跨端开发工具。
@@ -710,7 +701,7 @@
 <a href="https://github.com/openai/whisper" target="_blank">Whisper</a> | `whisper` | OpenAI 语音识别模型（转文字）
 <a href="https://github.com/humanloop/awesome-chatgpt" target="_blank">awesome chatGPT</a> | `chatgpt` | chatGPT/GPT3 工具、demo及文档集合
 <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank">awesome chatGPT prompts</a> | `chatgpt` | chatGPT问答训练实践集合
-
+<a href="https://alibaba.github.io/pipcook/#/zh-cn/" target="_blank">pipcook</a> | `pipcook` | 对web开发者友好的机器学习工具集，阿里
 
 
 ### 1.12 IDE插件
@@ -757,10 +748,49 @@
 ------------------
 
 
+## 2.fe-tools方法/工具库
+
+### 2.1 utils说明
+
+前端开发常用的通用工具方法，适用于浏览器/Nodejs。文档见[https://blog.michealwayne.cn/fe-tools/stable/](https://blog.michealwayne.cn/fe-tools/stable/)
+
+#### 模块
+
+- [utils](./utils/packages/utils/)：基础工具方法集合，与环境无关；
+- [web-utils](./utils/packages/web-utils/)：web基础工具方法集合。浏览器端DOM操作，CSS操作，事件处理等封装，适用于浏览器；
+- [node-utils](./utils/packages/node-utils/)：Nodejs文件，事件处理等封装；
+- [node-img-build](./utils/packages/node-img-build/)：webp、base64等图片处理封装，基于gm；
+- [canvas-utils](./utils/packages/canvas-utils/)：Canvas图形绘制封装，可在web/node-canvas中使用。
+
+#### 启动utils项目步骤
+
+（需要在`./utils`目录下）
+
+- 执行`pnpm install`安装依赖；
+- 构建：`npm run build:prod`
+- 构建文档：`npm run docs`
+
+> todo: 小程序封装，构建封装。
+
+#### 2.2 fe-templates 一些前端项目模版
+
+- ~~gulp+webpack（已废弃）~~
+- [webpack](./fe-templates/webpack/)
+- [webpack + ts](./fe-templates/webpack%2Bts/)
+- [vue2](./fe-templates/vue/)
+- [react](./fe-templates/react/)
+
+#### 2.3 ~~styles基础样式库~~
+
+请移至 CSS 推荐规范[MooCSS](https://github.com/MichealWayne/Moo-CSS)及通用样式库[moo-css-base npm](https://www.npmjs.com/package/moo-css-base)，[moo-css-base github](https://github.com/MichealWayne/Moo-CSS/tree/master/moo-css-base)
+
+------------------
+
 ## FE-Tools - Chrome插件
 
 ![chrome-ext.png](https://blog.michealwayne.cn/images/fe-tools/chrome-ext.png)
 
+辅助前端开发的一个小插件。
 ### 功能：
 - 工具网站搜索（`√`）
 - 本地收藏夹网站搜索（`√`）
@@ -780,88 +810,3 @@
 ### 安装方式
 
 clone本仓库到本地，在`“扩展程序”界面`点击`“加载已解压的拓展程序”`选择本地仓库目录下的chrome-extension目录。
-
-------------------
-
-## 2.fe-tools方法/工具库
-
-```
-└─fe-templates 
-    ├─react
-    ├─vue
-    ├─webpack+ts
-    └─webpack   
-└─utils
-    ├─utils
-    ├─webAPI
-    ├─node-utils
-    └─node-img-build
-```
-
-
-### 2.1 utils说明
-
-#### utils 基础工具库
-前端开发常用样式、方法，适用于浏览器/Nodejs。
-
-#### webAPI 浏览器端封装库
-浏览器端DOM操作，CSS操作，事件处理等封装，适用于浏览器。
-
-#### node-utils Nodejs基础工具库
-Nodejs文件，事件处理等封装。
-
-#### node-img-build Nodejs图片工具
-webp、base64等图片处理封装。
-
-#### canvas-utils Canvas图形绘制封装
-
-#### 启动utils项目步骤
-
-- utils目录下执行`pnpm install`安装依赖；
-- 构建：`npm run build:prod`
-- 构建文档：`nom run docs`
-
-> todo: 小程序封装，构建封装。
-
-### 2.2 --nodejs 服务端、脚本--
-
-已拆分至 packages/node-utils 和 fe-templates。
-
-#### 2.3 fe-templates 典型项目模版
-
-- gulp+webpack
-- webpack
-- webpack + ts
-- vue
-- react
-
-
-### 更新信息
-- 2023.03.12：更新utils文档及example注释；
-- 2023.03.05：增加utils文档配置；
-- 2023.02.18：增加AI库；修改utils类型；
-- 2023.01.07：修复utils webApi bug；
-- 2022.12.27：utils方法更新；新增链接；
-- 2022.11.27：更新/调整链接；
-- 2022.11.12：更新链接；
-- 2022.10.15：更新链接；调整react模版；
-- 2022.09.24：更新链接；
-- 2022.09.12：调整utils（utils/webApi）；调整fe-template；
-- 2022.08.28：更新utils（node-utils）、调整utils（utils）;
-- 2022.08.14：修改链接（调整部分无用链接）；
-- 2022.07.23：调整utils；更新链接；
-- 2022.06.18：更新utils（node-utils）；更新链接；
-- 2022.05.17：更新utils（webApi、增加描述）；更新链接；
-- 2022.04.26：修复utils；更新链接；
-- 2022.03.26：更新utils；更新链接；
-- 2022.02.19：调整/更新链接；
-- 2022.01.16：调整/更新链接；typebuild项目模版依赖处理；
-- 2021.12.26：调整/更新链接；
-- 2021.09.30：更新/增加链接；模版依赖修复；
-- 2021.08.31：修改封装函数；增加链接；
-- 2021.07.31：更新/增加链接；
-- 2021.03.20：更新Moo-datas；
-- 2020.12.22：Chrome拓展插件增加正则模块；
-- 2020.12.07：优化Chrome拓展插件，增加简易Postman；
-- 2020.09.15：js utils库转为ts utils；
-- 2019.04.28：新增storage封装；新增下拉刷新、数字键盘原生组件；

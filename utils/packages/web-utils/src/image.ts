@@ -1,8 +1,71 @@
 /**
  * @module Image
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-03-02 19:45:25
+ * @LastEditTime 2023-03-14 13:52:39
  */
+
+/**
+ * @function isImageLoaded
+ * @description 加载图片（通常用于预加载）
+ * @param {string} imgUrl
+ * @return {Promise<boolean>}
+ * @example
+isImageLoaded('https://example.com/image.jpg')
+  .then(function(result) {
+    console.log('图片加载完成');
+    console.log(result);
+  })
+  .catch(function(result) {
+    console.log('图片加载失败');
+    console.log(result);
+  });
+ */
+export function isImageLoaded(imgUrl: string) {
+  return new Promise(function (resolve, reject) {
+    const img = new Image();
+    img.src = imgUrl;
+
+    img.onload = function () {
+      resolve(true);
+    };
+
+    img.onerror = function () {
+      reject(false);
+    };
+  });
+}
+
+/**
+ * @function getImageSize
+ * @description 获取图片的原始尺寸大小（用了naturalWidth/naturalHeight）
+ * @param {string} imgUrl 
+ * @return {{width: number, height: number}} 
+ * @example
+getImageSize('https://example.com/image.jpg')
+  .then(function(result) {
+    console.log('图片大小：', result.width, 'x', result.height);
+  })
+  .catch(function(error) {
+    console.log('无法获取图片大小：', error);
+  });
+  */
+export function getImageSize(imgUrl: string) {
+  return new Promise(function (resolve, reject) {
+    const img = new Image();
+    img.src = imgUrl;
+
+    img.onload = function () {
+      resolve({
+        width: img.naturalWidth,
+        height: img.naturalHeight,
+      });
+    };
+
+    img.onerror = function (e) {
+      reject(e || '无法加载图片');
+    };
+  });
+}
 
 /**
  * @function isSupportWebP
@@ -66,7 +129,6 @@ export function cropImage(
   ctx.drawImage(src, x, y, width, height, 0, 0, width, height);
   return canvas;
 }
-
 
 /**
  * @function compressImage
