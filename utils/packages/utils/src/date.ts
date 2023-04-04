@@ -3,7 +3,7 @@
  * @description date functions.
  * @notice 存在复杂的日期处理场景建议直接使用date-fns
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-12-27 13:17:32
+ * @LastEditTime 2023-04-04 10:33:40
  */
 
 /**
@@ -12,7 +12,7 @@
  * @param {Date} date
  * @return {Number}
  * @example
- *   dayOfYear(new Date('2022/02/20')); // 51
+ * dayOfYear(new Date('2022/02/20')); // 51
  */
 export function dayOfYear(date = new Date()) {
   return Math.floor((+date - +new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
@@ -24,7 +24,7 @@ export function dayOfYear(date = new Date()) {
  * @param {Date} date
  * @return {String}
  * @example
- *  getColonTimeFromDate(new Date()); // '15:58:40'
+ * getColonTimeFromDate(new Date()); // '15:58:40'
  */
 export function getColonTimeFromDate(date = new Date()) {
   return date.toTimeString().slice(0, 8);
@@ -35,7 +35,11 @@ export function getColonTimeFromDate(date = new Date()) {
  * @description 判断两个日期差了几天
  * @param {Date} dateInitial
  * @param {Date} dateFinal
- * @return {Number}
+ * @return {number}
+ * @example
+ * const dateInitial = new Date('2023-01-01');
+ * const dateFinal = new Date('2023-01-05');
+ * getDaysDiffBetweenDates(dateInitial, dateFinal);  // 4
  */
 export function getDaysDiffBetweenDates(dateInitial: Date, dateFinal: Date) {
   return (+dateFinal - +dateInitial) / (1000 * 60 * 60 * 24);
@@ -64,7 +68,9 @@ export function isBeforeDate(dateA: Date, dateB = new Date()) {
 /**
  * @function daysLater
  * @description 获取几天后的日期
- * @return {String}
+ * @param {Date} date
+ * @param {number} days
+ * @return {string}
  */
 export function daysLater(date = new Date(), days = 1) {
   date.setDate(date.getDate() + days);
@@ -77,6 +83,10 @@ export function daysLater(date = new Date(), days = 1) {
  * @param {Date} startTime
  * @param {Date} endTime
  * @return {string}
+ * @example
+ * const dateInitial = new Date('2023-03-22T08:00:00.000Z');
+ * const dateFinal = new Date('2023-03-23T14:15:30.000Z');
+ * getFormattedRemainTime(dateInitial, dateFinal); // { day: 1, hour: 6, minute: 15, second: 30, }
  */
 export function getFormattedRemainTime(dateInitial: Date, dateFinal: Date) {
   const time = +dateFinal - +dateInitial;

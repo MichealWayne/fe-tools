@@ -2,7 +2,7 @@
  * @module Function
  * @author Wayne
  * @createTime 2022-03-12 14:44:00
- * @LastEditTime 2023-03-14 10:47:06
+ * @LastEditTime 2023-04-03 21:23:30
  */
 
 export const NOOP = () => '';
@@ -14,15 +14,7 @@ export const NOOP = () => '';
  * @param {Unknown} args
  * @return {Unknown}
  * @example
-function add(a: number, b: number) {
-  return a + b;
-}
-
-const result = attempt(add, 1, 2);
-console.log(result);
-
-// 输出：
-// 3
+attempt((a, b) => a + b, 1, 2); // 3
  */
 export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args: T): Error | R {
   try {
@@ -215,8 +207,9 @@ function add(a: number, b: number) {
 
 functionName(add);
  */
-export function functionName<T extends (...ks: unknown[]) => unknown>(fn: T): void {
-  return console.debug(fn.name, fn);
+export function functionName<T extends (...ks: unknown[]) => unknown>(fn: T) {
+  console.debug(fn.name, fn);
+  return fn.name;
 }
 
 /**

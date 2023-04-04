@@ -2,7 +2,7 @@
  * @module CSS
  * @author Wayne
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-03-07 09:55:24
+ * @LastEditTime 2023-04-03 20:43:51
  */
 
 import { isUndefined } from 'utils';
@@ -10,7 +10,7 @@ import { isUndefined } from 'utils';
 /**
  * @function getPrefix
  * @description 可以用于判断当前浏览器是否需要添加 CSS3 属性的前缀，例如，在实现某些动画效果时，不同浏览器可能需要不同的前缀。
- * @return {String} css前缀，'webkit'/'o'/''
+ * @return {string} css前缀，'webkit'/'o'/''
  * @example
 const prefix = getPrefix();
 const testEl = document.createElement('div');

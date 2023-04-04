@@ -2,7 +2,7 @@
  * @module Type
  * @description value type functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-03-14 11:03:24
+ * @LastEditTime 2023-04-03 20:48:39
  */
 
 /**
@@ -36,8 +36,7 @@ export function type(val?: unknown): string {
  * isString(test2);  // true
  */
 export function isUndefined(val?: unknown): val is undefined {
-  // eslint-disable-next-line no-undefined
-  return val === undefined;
+  return typeof val === 'undefined';
 }
 
 /**

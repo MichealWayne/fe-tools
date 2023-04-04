@@ -3,7 +3,7 @@
  * @module Check.plus
  * @description check password functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-12-27 13:25:08
+ * @LastEditTime 2023-04-03 21:31:53
  */
 
 // todo 优化验证
@@ -66,9 +66,9 @@ export function checkPwdStrength(pwd: string, TipEnum = DefaultPwdStrengthTips) 
     (pattern7 !== null && pattern8 !== null)
   ) {
     return PwdStrengthTypes.average;
-  } else {
-    return PwdStrengthTypes.weak;
   }
+
+  return PwdStrengthTypes.weak;
 }
 
 enum DefaultIdcardTips {
@@ -170,13 +170,10 @@ export function checkIdcard(idcard: string, TipEnum = DefaultIdcardTips) {
           idcard.charAt(11);
         if (birthdayValue > checkFullGrownDate) {
           return TipEnum.not18;
-        } else {
-          return TipEnum.success;
         }
-      } else {
-        return TipEnum.fail;
+        return TipEnum.success;
       }
-      break;
+      return TipEnum.fail;
     case 18:
       //18位身份号码检测
       //出生日期的合法性检查
@@ -223,11 +220,10 @@ export function checkIdcard(idcard: string, TipEnum = DefaultIdcardTips) {
             idcard.charAt(13);
 
           return birthdayValue > checkFullGrownDate ? TipEnum.not18 : TipEnum.success;
-        } else {
-          return TipEnum.fail;
         }
-      } else return TipEnum.fail;
-      break;
+        return TipEnum.fail;
+      }
+      return TipEnum.fail;
     default:
       return TipEnum.fail;
   }

@@ -2,7 +2,7 @@
  * @module Array
  * @description array functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-03-14 11:06:38
+ * @LastEditTime 2023-04-03 21:27:48
  */
 
 import { isArray, isObject } from './type';
@@ -13,11 +13,11 @@ export type AnyArr = unknown[];
 
 /**
  * @function arrayMax
- * @description 求最大值
+ * @description 求数组最大值
  * @param {number[]} arr
  * @return {number}
  * @example
- *   arrayMax([1, 2, 3, 0, -1, -5]); // -> 3
+ * arrayMax([1, 2, 3, 0, -1, -5]); // -> 3
  */
 export function arrayMax(arr: NumberArr): number {
   return Math.max(...arr);
@@ -25,11 +25,11 @@ export function arrayMax(arr: NumberArr): number {
 
 /**
  * @function arrayMin
- * @description 求最小值
+ * @description 求数组最小值
  * @param {number[]} arr
  * @return {number}
  * @example
- *   arrayMax([1, 2, 3, 0, -1, -5]); // -> -5
+ * arrayMax([1, 2, 3, 0, -1, -5]); // -> -5
  */
 export function arrayMin(arr: NumberArr): number {
   return Math.min(...arr);
@@ -37,10 +37,10 @@ export function arrayMin(arr: NumberArr): number {
 
 /**
  * @function arrayAverage
- * @description 求平均值
+ * @description 求数组平均值
  * @param {number[]} arr
  * @example
- *   arrayMax([1, 2, 3, 0, -1, -5]); // -> 0
+ * arrayMax([1, 2, 3, 0, -1, -5]); // -> 0
  */
 export function arrayAverage(arr: number[]): number {
   return arr.reduce((acc, val) => acc + val, 0) / arr.length;
@@ -48,10 +48,10 @@ export function arrayAverage(arr: number[]): number {
 
 /**
  * @function arraySum
- * @description 求和
+ * @description 数组求和
  * @param {number[]} arr
  * @example
- *   arrayMax([1, 2, 3]); // -> 6
+ * arrayMax([1, 2, 3]); // -> 6
  */
 export function arraySum(arr: number[]): number {
   return arr.reduce((acc, val) => acc + val, 0);
@@ -63,8 +63,8 @@ export function arraySum(arr: number[]): number {
  * @param {array} arr
  * @return {boolean}
  * @example
- *   allEqual([0, 1, 2]); // false
- *   allEqual([2, 2, 2]); // true
+ * allEqual([0, 1, 2]); // false
+ * allEqual([2, 2, 2]); // true
  */
 export const allEqual = (arr: AnyArr): boolean => arr.every(val => val === arr[0]);
 
@@ -133,7 +133,7 @@ export function castArray(val: unknown): unknown[] {
  * @param {number} size
  * @return {array}
  * @example
- *   chunk([1,2,3,4,5], 3);  // [[1,2,3],[4,5]]
+ * chunk([1,2,3,4,5], 3);  // [[1,2,3],[4,5]]
  */
 export function chunk(arr: AnyArr, size: number): unknown[] {
   return Array.from(
@@ -173,7 +173,7 @@ export function countOccurrences(arr: AnyArr, val: unknown): number {
  * @param {unknown[]} arr
  * @return {array}
  * @example
- *   deepFlatten([[1, 2, 3], 4, [5, 6, [7, 8, [9]]]]);  // -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+ * deepFlatten([[1, 2, 3], 4, [5, 6, [7, 8, [9]]]]);  // -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
  */
 export function deepFlatten(arr: unknown[]): unknown[] {
   return [].concat(...arr.map((v: any) => (Array.isArray(v) ? deepFlatten(v) : v)));
@@ -186,8 +186,8 @@ export function deepFlatten(arr: unknown[]): unknown[] {
  * @param {number} depth
  * @return {array}
  * @example
- *   flatten([1, 2, [3, 4, [5, 6]]]); // -> [1, 2, 3, 4, [5, 6]]
- *   flatten([1, 2, [3, 4, [5, 6]]], 2); // -> [1, 2, 3, 4, 5, 6]
+ * flatten([1, 2, [3, 4, [5, 6]]]); // -> [1, 2, 3, 4, [5, 6]]
+ * flatten([1, 2, [3, 4, [5, 6]]], 2); // -> [1, 2, 3, 4, 5, 6]
  */
 export function flatten(arr: AnyArr, depth = 1): unknown[] {
   return arr.reduce(
@@ -202,11 +202,11 @@ export function flatten(arr: AnyArr, depth = 1): unknown[] {
  * @description 判断两个数组项是否相同
  * @param {unknown[]} arr1
  * @param {unknown[]} arr2
- * @return {Boolean}
+ * @return {boolean}
  * @example
- *   difference([1, 2, 3], [1, 1, 2, 2, 3]);  // -> false
- *   difference([1, 2, 3], [1, 2, 3, 4]);  // -> false
- *   difference([1, 2, 3], [1, 2, 4]);  // -> true
+ * difference([1, 2, 3], [1, 1, 2, 2, 3]);  // -> false
+ * difference([1, 2, 3], [1, 2, 3, 4]);  // -> false
+ * difference([1, 2, 3], [1, 2, 4]);  // -> true
  */
 export function difference(arr1: AnyArr, arr2: AnyArr) {
   const s = new Set(arr2);
@@ -235,9 +235,11 @@ export function differenceBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => unk
  * @param {function} func
  * @return {array}
  */
-export function dropWhile(_arr: AnyArr, fn: (v: any) => unknown): unknown[] {
+export function dropWhile(_arr: AnyArr, fn: (v: unknown) => unknown): unknown[] {
   let arr = _arr;
-  while (arr.length && !fn(arr[0])) arr = arr.slice(1);
+  while (arr.length && !fn(arr[0])) {
+    arr = arr.slice(1);
+  }
   return arr;
 }
 
@@ -248,7 +250,7 @@ export function dropWhile(_arr: AnyArr, fn: (v: any) => unknown): unknown[] {
  * @param {any} val
  * @return {array}
  * @example
- *   indexOfAll([1,2,3,4,2,2], 2);  // -> [1, 4, 5]
+ * indexOfAll([1,2,3,4,2,2], 2);  // -> [1, 4, 5]
  */
 export function indexOfAll(arr: any[], val: unknown): unknown[] {
   return arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
@@ -261,7 +263,7 @@ export function indexOfAll(arr: any[], val: unknown): unknown[] {
  * @param {array} arr2
  * @return {array}
  * @example
- *   intersection([1, 2, 3, 4], [1, 2]);  // => [1, 2]
+ * intersection([1, 2, 3, 4], [1, 2]);  // => [1, 2]
  */
 export function intersection(arr1: AnyArr, arr2: AnyArr): unknown[] {
   const s = new Set(arr2);

@@ -373,6 +373,7 @@
 <a href="https://github.com/vitejs/vite" target="_blank">ViteJS 文档</a> | `vitejs` | 无bundle的Vue轻量前端项目构建工具。
 <a href="https://github.com/vuejs/vue-class-component#readme" target="_blank">vue-class-component 仓库</a> | `vue-class-component` | Vue的Component装饰器封装，用于jsx/tsx的vue组件写法。
 <a href="https://formilyjs.org/" target="_blank">Formily 文档</a> | `formilyjs` | Element/Antd的表单DSL解决方案。
+<a href="https://github.com/privatenumber/vue-2-3" target="_blank">vue-2-3</a> | `vue-2-3` | vue2和vue3共存的一种解决方案封装。
 
 ### 1.6 React
 地址 | 标签 | 说明
@@ -583,6 +584,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://chat.openai.com/chat" target="_blank">chatGPT</a> | `chatGPT ` | 基于OpenAPI的问答机器人，用来查技术问题也挺好。
+<a href="https://www.cursor.so/" target="_blank">Cursor</a> | `cursor ` | 基于OpenAPI GPT-4的编程助手，感觉好像比copilot还流畅一点。
 <a href="https://codegeex.cn/zh-CN" target="_blank">CodeGeeX</a> | `CodeGeeX ` | 用于平替Copilot的编程助手，AI、免费。
 <a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a> | `stackoverflow` | 技术问题排忧解难的友好社区。
 <a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析npm软件包的体积和加载性能的网站。
