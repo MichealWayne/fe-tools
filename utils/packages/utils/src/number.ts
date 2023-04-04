@@ -3,7 +3,7 @@
  * @description number functions
  * @author Wayne
  * @Date 2023-02-09 15:08:11
- * @LastEditTime 2023-03-14 11:10:01
+ * @LastEditTime 2023-04-03 21:14:30
  */
 
 import { isNumber } from './type';
@@ -11,14 +11,14 @@ import { isNumber } from './type';
 /**
  * @function isInt
  * @description 判断是否为整数
- * @param {unknown} val 
+ * @param {unknown} val
  * @return {boolean}
  * @example
- console.log(isInt(5)); // true
-console.log(isInt(2.5)); // false
-console.log(isInt('3')); // false
-console.log(isInt(null)); // false
-console.log(isInt(undefined)); // false
+ * console.log(isInt(5)); // true
+ * console.log(isInt(2.5)); // false
+ * console.log(isInt('3')); // false
+ * console.log(isInt(null)); // false
+ * console.log(isInt(undefined)); // false
  */
 export const isInt = (val: unknown): val is number => {
   return isNumber(val) && val % 1 === 0;
@@ -27,15 +27,15 @@ export const isInt = (val: unknown): val is number => {
 /**
  * @function isFloat
  * @description 判断是否为浮点数
- * @param {unknown} val 
+ * @param {unknown} val
  * @return {boolean}
  * @example
-isFloat(3.14); // true
-isFloat(-0.5); // true
-isFloat(2); // false
-isFloat('3.14'); // false
-isFloat(null); // false
-isFloat(undefined); // false
+ * isFloat(3.14); // true
+ * isFloat(-0.5); // true
+ * isFloat(2); // false
+ * isFloat('3.14'); // false
+ * isFloat(null); // false
+ * isFloat(undefined); // false
  */
 export const isFloat = (val: unknown): val is number => {
   return isNumber(val) && val % 1 !== 0;
@@ -47,10 +47,10 @@ export const isFloat = (val: unknown): val is number => {
  * @param {unknown} val
  * @return {Boolean}
  * @example
- *   isValidNumber(1); // true
- *   isValidNumber('1'); // false
- *   isValidNumber(NaN); // false
- *   isValidNumber(Infinity); // false
+ * isValidNumber(1); // true
+ * isValidNumber('1'); // false
+ * isValidNumber(NaN); // false
+ * isValidNumber(Infinity); // false
  */
 export function isValidNumber(val: unknown) {
   return !isNaN(parseFloat(val as string)) && isFinite(val as number) && Number(val) === val;
@@ -59,10 +59,15 @@ export function isValidNumber(val: unknown) {
 /**
  * @function isApproximatelyEqual
  * @description 两个数字是否约等于
- * @param {Number} val1
- * @param {Number} val2
- * @param {Number} epsilon
- * @return {Boolean}
+ * @param {number} val1
+ * @param {number} val2
+ * @param {number} epsilon
+ * @return {boolean}
+ * @example
+ * const val1 = 0.1 + 0.2;
+ * const val2 = 0.3;
+ * isApproximatelyEqual(val1, val2); // true
+ * isApproximatelyEqual(val1, val2, 0.0001); // false
  */
 export function isApproximatelyEqual(val1: number, val2: number, epsilon = 0.001) {
   return Math.abs(val1 - val2) < epsilon;
@@ -71,7 +76,9 @@ export function isApproximatelyEqual(val1: number, val2: number, epsilon = 0.001
 /**
  * @function average
  * @description 计算平均数
- * @param  {Number[]} nums
+ * @param  {number[]} nums
+ * @example
+ * average(1, 2, 3); // 2
  */
 export function average(...nums: number[]) {
   return nums.reduce((acc, val) => acc + val, 0) / nums.length;
@@ -80,9 +87,11 @@ export function average(...nums: number[]) {
 /**
  * @function randomIntegerInRange
  * @description 求范围中的随机整数
- * @param {Number} min
- * @param {Number} max
- * @return {Number}
+ * @param {number} min
+ * @param {number} max
+ * @return {number}
+ * @example
+ * randomNumberInRange(1, 10); // 一个1～10的随机整数
  */
 export function randomIntegerInRange(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -91,9 +100,11 @@ export function randomIntegerInRange(min: number, max: number) {
 /**
  * @function randomNumberInRange
  * @description 求范围中的随机数（浮点数）
- * @param {Number} min
- * @param {Number} max
- * @return {Number}
+ * @param {number} min
+ * @param {number} max
+ * @return {number}
+ * @example
+ * randomNumberInRange(1, 10); // 一个1～10的随机数
  */
 export function randomNumberInRange(min: number, max: number) {
   return Math.random() * (max - min + 1) + min;
@@ -102,10 +113,12 @@ export function randomNumberInRange(min: number, max: number) {
 /**
  * @function randomIntArrayInRange
  * @description 求范围中的随机整数数组
- * @param {Number} min
- * @param {Number} max
- * @param {Number} num
- * @return {Number[]}
+ * @param {number} min
+ * @param {number} max
+ * @param {number} num
+ * @return {number[]}
+ * @example
+ * randomIntArrayInRange(1, 10, 2); // [一个1～10的随机数, 另一个1～10的随机数]
  */
 export function randomIntArrayInRange(min: number, max: number, num = 1) {
   return Array.from({ length: num }, () => Math.floor(Math.random() * (max - min + 1)) + min);
@@ -114,9 +127,13 @@ export function randomIntArrayInRange(min: number, max: number, num = 1) {
 /**
  * @function round
  * @description 数字取位
- * @param {Number} n
- * @param {Number} decimals
- * @return {Number}
+ * @param {number} n
+ * @param {number} decimals
+ * @return {number}
+ * @example
+ * round(5.6, 0); // 6
+ * round(10, -1); // 10
+ * round(12345.6789); // 12346
  */
 export function round(num: number, decimals: number) {
   const _decimals = decimals || 0;
@@ -126,34 +143,32 @@ export function round(num: number, decimals: number) {
 /**
  * @function sum
  * @description 数字求和
- * @param  {Number[]} arr
- * @return {Number}
+ * @param  {number[]} arr
+ * @return {number}
+ * @example
+ * sum(1, 2, 3); // 6
  */
 export function sum(...arr: number[]) {
   return [...arr].reduce((acc, val) => acc + val, 0);
 }
 
 /**
- * @function isNumberEqual
- * @param {number} num1
- * @param {number} num2
- * @param {number} precision?
- */
-export function isNumberEqual(num1: number, num2: number, precision = 0.00001) {
-  return Math.abs(num1 - num2) < precision;
-}
-
-/**
  * @function clamp
  * @description 通过区间约束范围值
- * @param {Number} num
- * @param {Number} min
- * @param {Number} max
+ * @param {number} num
+ * @param {number} min
+ * @param {number} max
+ * @return {number}
+ * @example
+ * clamp(5, 0, 10); // 5
+ * clamp(-5, 0, 10); // 0
+ * clamp(15, 0, 10); // 10
  */
 export function clamp(num: number, min: number, max: number) {
   if (num < min) {
     return min;
-  } else if (num > max) {
+  }
+  if (num > max) {
     return max;
   }
   return num;

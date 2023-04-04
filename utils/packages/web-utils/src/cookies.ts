@@ -2,8 +2,10 @@
  * @module Cookie
  * @author Wayne
  * @Date 2020-04-11 21:53:56
- * @LastEditTime 2023-03-14 11:14:06
+ * @LastEditTime 2023-04-03 20:42:53
  */
+
+// 涉及大量cookie操作可以考虑使用js-cookie(https://github.com/js-cookie/js-cookie)
 
 /**
  * @function getCookie
@@ -23,7 +25,7 @@ export function getCookie(name: string) {
 
 /**
  * @function getSec
- * @param {String?} str
+ * @param {string?} str
  * @explain
  *  's20'是代表20秒
  *  h是指小时，如12小时则是：'h12'
@@ -58,14 +60,9 @@ export function setCookie(name: string, value: string, time?: string, domain = '
   const exp = new Date();
   exp.setTime(exp.getTime() + strsec * 1);
 
-  document.cookie =
-    name +
-    '=' +
-    value +
-    ';expires=' +
-    exp.toUTCString() +
-    (domain ? ';domain=' + domain : '') +
-    (path ? ';path=' + path : '');
+  document.cookie = `${name}=${value};expires=${exp.toUTCString()}${
+    domain ? ';domain=' + domain : ''
+  }${path ? ';path=' + path : ''}`;
 }
 
 /**
@@ -80,5 +77,7 @@ export function delCookie(name: string) {
   exp.setTime(exp.getTime() - 1);
 
   const cval = getCookie(name);
-  if (cval != null) document.cookie = name + '=' + cval + ';expires=' + exp.toUTCString();
+  if (cval !== null) {
+    document.cookie = `${name}=${cval};expires=${exp.toUTCString()}`;
+  }
 }

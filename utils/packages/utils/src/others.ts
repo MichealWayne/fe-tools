@@ -2,7 +2,7 @@
  * @module Others
  * @author Wayne
  * @Date 2023-02-06 21:17:44
- * @LastEditTime 2023-02-23 11:28:14
+ * @LastEditTime 2023-04-03 20:54:03
  */
 
 // 复杂比较请见https://github.com/omichelsen/compare-versions
@@ -161,16 +161,20 @@ const keyCodeMap = {
 export function getKeyName(keycode: keyof typeof keyCodeMap) {
   if (keyCodeMap[keycode]) {
     return keyCodeMap[keycode];
-  } else {
-    console.warn(`Unknow Key(Key Code:${keycode})`);
-    return '';
   }
+
+  console.warn(`Unknow Key(Key Code:${keycode})`);
+  return '';
 }
 
 /**
  * @function digitUppercase
- * @param  {Number} num
- * @return {String}
+ * @description 数字金额转中文
+ * @param  {number} num
+ * @return {string}
+ * @example
+ * digitUppercase(1000); // '壹仟元整'
+ * digitUppercase(-123.45); // '欠壹佰贰拾叁元肆角伍分'
  */
 export function digitUppercase(num: number) {
   const fraction = ['角', '分'];
@@ -181,6 +185,7 @@ export function digitUppercase(num: number) {
   ];
   const head = num < 0 ? '欠' : '';
   num = Math.abs(num);
+
   let resStr = '';
   for (let i = 0, len = fraction.length; i < len; i++) {
     resStr += (digit[Math.floor(num * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
