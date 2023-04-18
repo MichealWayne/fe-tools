@@ -1,6 +1,6 @@
 # fe-tools
 
-> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。
+> 前端开发常用文档/网站地址、样式/js方法封装库（ts）、典型项目模板。[English README>>](./README-en.md)
 
 <a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/fe-tools/stable/#fe-tools" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
 
