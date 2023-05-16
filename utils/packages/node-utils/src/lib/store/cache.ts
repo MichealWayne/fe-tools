@@ -7,7 +7,9 @@ import { writeJson, readJson, writeFile, readFile } from '../fs/fsFuncs';
 function isAsync(fn: any) {
   return fn[Symbol.toStringTag] === 'AsyncFunction';
 }
-
+/**
+ * @class Cache
+ */
 export default class Cache {
   dir: string;
   originals: any;
@@ -49,9 +51,8 @@ export default class Cache {
     }
     if (ext === '.json') {
       return readJson(this.getFilename(key, ext));
-    } else {
-      return readFile(this.getFilename(key, ext));
     }
+    return readFile(this.getFilename(key, ext));
   }
 
   write(key: string, ext: string, content: string) {
@@ -61,13 +62,11 @@ export default class Cache {
     const filename = this.getFilename(key, ext);
     if (ext === '.json') {
       return writeJson(filename, content as any);
-    } else {
-      return writeFile(filename, content);
     }
+    return writeFile(filename, content);
   }
 
-  // @todo remove any
-  wrapAsync(original: any, identity: any) {
+  wrapAsync(original: Function, identity: Function) {
     const cache = this;
     return async function (this: any, ...args: unknown[]) {
       const { key, ext } = identity.call(this, ...args);
@@ -81,7 +80,7 @@ export default class Cache {
     };
   }
 
-  wrapNormal(original: any, identity: any) {
+  wrapNormal(original: Function, identity: Function) {
     const cache = this;
     return function (this: any, ...args: unknown[]) {
       const { key, ext } = identity.call(this, ...args);
