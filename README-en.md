@@ -1,4 +1,3 @@
-
 # fe-tools
 
 > Common documentation/websites for front-end development, style/JS method libraries (TS), and typical project templates.
@@ -46,7 +45,7 @@ Contents:
 | http://es6-features.org/ | ES6 | Easy-to-understand ECMAScript 6 feature demos. |
 | http://es6.ruanyifeng.com/ | ES6 | The most frequently used ECMAScript 6 documentation in China, especially suitable for beginners. |
 | http://www.html5plus.org/doc/h5p.html | html5 | HTML5 web API query, such as camera/geolocation. |
-| https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect | html | Safari webview HTML tag query, used for mobile web development, such as some iOS-specific attributes or behaviors can be found here. |
+| [https://developer.apple.com/library/archive/](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect) | html | Safari webview HTML tag query, used for mobile web development, such as some iOS-specific attributes or behaviors can be found here. |
 | https://webkit.org/status/ | webkit | WebKit official website documentation, js/css feature status support query. |
 | https://dart.dev/ | dart | Dart language English official website. |
 | https://www.dartcn.com/guides/language/language-tour | dart | Dart language Chinese learning website. |
@@ -732,9 +731,19 @@ Contents:
 | https://github.com/f/awesome-chatgpt-prompts | chatgpt | Collection of chatGPT Q&A training practices |
 | https://alibaba.github.io/pipcook/#/zh-cn/ | pipcook | Machine learning toolset friendly to web developers, from Alibaba |
 
-### 1.12 IDE Plugins
+### 1.12 WebAssembly
 
-### 1.12.1 VS Code
+| Link | Tag | Description |
+---- | ---- | ----
+<a href="https://www.assemblyscript.org/" target="_blank">AssemblyScript</a> | `assemblyscript` | write wasm by TypeScript
+<a href="https://wasmtime.dev/" target="_blank">Wasmtime</a> | `wasmtime` | fast and safety wasm runtime, from bytedance
+<a href="https://mbebenita.github.io/WasmExplorer/" target="_blank"> WasmExplorer </a> | `WasmExplorer` | online wasm playground
+
+
+
+### 1.13 IDE Plugins
+
+### 1.13.1 VS Code
 
 | Link | Tag | Description |
 | --- | --- | --- |
@@ -763,7 +772,7 @@ Contents:
 | https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager | project-manager | Local project management tool |
 | https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster | javascript-booster | JS/TS quick refactoring and optimization tool, such as changing var to const/let. |
 
-### 1.13 Life
+### 1.14 Life
 
 | Address | Tag | Description |
 | --- | --- | --- |
