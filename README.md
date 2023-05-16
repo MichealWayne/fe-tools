@@ -111,6 +111,7 @@
 <a href="https://www.iconfont.cn/" target="_blank">iconfont</a> | `iconfont` | 字体图标库，阿里。
 <a href="http://necolas.github.io/normalize.css/" target="_blank">normalize</a> | `normalize` | 相对较优的CSS reset替代方案。
 <a href="https://tailwindcss.com/" target="_blank">Tailwind官网</a> | `tailwind` | 模块化的UI库。
+<a href="https://unocss.dev/" target="_blank">Unocss官网</a> | `unocss` | 原子、按需的css模块化引擎、有借鉴tailwind。
 
 
 #### 1.3.4 其他
@@ -418,6 +419,7 @@
 <a href="https://www.reactboilerplate.com/" target="_blank">React Boilerplate</a> | `react-boilerplate` | 性能优先的一个典型的React项目模板。
 <a href="https://github.com/sstur/react-rte" target="_blank">React RTE</a> | `react-rte` | 富文本编辑器，基于draftJS。
 <a href="https://react.i18next.com/" target="_blank">React i18Next</a> | `react-i18next` | 多语言解决方案。
+<a href="https://chatui.io/" target="_blank">chatUI</a> | `chatui.io ` | 服务于对话领域的解决方案，阿里。
 
 ### 1.7 Nodejs和构建
 地址 | 标签 | 说明
@@ -706,9 +708,18 @@
 <a href="https://alibaba.github.io/pipcook/#/zh-cn/" target="_blank">pipcook</a> | `pipcook` | 对web开发者友好的机器学习工具集，阿里
 
 
-### 1.12 IDE插件
+### 1.12 WebAssembly
 
-#### 1.12.1 VS Code
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://www.assemblyscript.org/" target="_blank">AssemblyScript</a> | `assemblyscript` | 用TypeScript写wasm
+<a href="https://wasmtime.dev/" target="_blank">Wasmtime</a> | `wasmtime` | 一个快速安全的wasm运行时，字节
+<a href="https://mbebenita.github.io/WasmExplorer/" target="_blank"> WasmExplorer </a> | `WasmExplorer` | 一个在线的wasm playground
+
+
+### 1.13 IDE插件
+
+#### 1.13.1 VS Code
 
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -737,7 +748,7 @@
 <a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager" target="_blank">Project Manager</a> | `project-manager` | 本地项目管理
 <a href="https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster" target="_blank">JavaScript Booster</a> | `javascript-booster` | js/ts快速重构优化工具，比如将var换为const/let。
 
-### 1.13 生活篇
+### 1.14 生活篇
 
 
 地址 | 标签 | 说明

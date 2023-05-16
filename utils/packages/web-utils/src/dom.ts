@@ -1,7 +1,7 @@
 /**
  * @module DOM
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-03-02 17:08:16
+ * @LastEditTime 2023-04-12 10:23:21
  */
 
 import { isUndefined } from 'utils';
@@ -387,9 +387,11 @@ export function smoothScroll(elemSelector: string) {
  * @description 禁止网页复制粘贴
  */
 export function disableCopy() {
-  const html = document.querySelector('html')!;
-  html.oncopy = () => false;
-  html.onpaste = () => false;
+  const html = document.querySelector('html');
+  if (html) {
+    html.oncopy = () => false;
+    html.onpaste = () => false;
+  }
 }
 
 /**
