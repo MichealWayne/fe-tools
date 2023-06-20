@@ -699,6 +699,9 @@
 
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://langchain-langchain.vercel.app/" target="_blank">LangChain</a> | `langchain` | 著名的大语言模型集成工具，供了一套工具、组件和接口，可简化构建高级语言模型应用程序的过程
+<a href="https://github.com/Significant-Gravitas/Auto-GPT" target="_blank">Auto-GPT</a> | `autoGPT` | 预训练语言生成模型，可以自动完成摘要生成、推荐系统和对话生成等任务，
+<a href="https://github.com/reworkd/AgentGPT" target="_blank">AgentGPT</a> | `agentGPT` | 基于语言模型的人工代理，可以根据特定场景的要求，生成合适的回答
 <a href="https://tensorflow.google.cn/js" target="_blank">TensorFlowJS</a> | `tensorflow` | 在浏览器或Node.js下构建和运行机器学习和深度学习模式的库
 <a href="https://github.com/openai/openai-node" target="_blank">OpenAI Nodejs</a> | `openai` | OpenAI 的 Nodejs API 调用封装库
 <a href="https://github.com/openai/openai-quickstart-node" target="_blank">OpenAI node quick start</a> | `openai` | OpenAI Nodejs的起步文档及案例

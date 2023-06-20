@@ -2,7 +2,7 @@
  * @module Type
  * @description value type functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-04-03 20:48:39
+ * @LastEditTime 2023-06-17 13:45:30
  */
 
 /**
@@ -152,7 +152,7 @@ export const isDate = (value: unknown): value is Date => {
 
 /**
  * @function equals
- * @description 判断两个参数是否相等
+ * @description 判断两个参数是否相等，**注意是值相等**，不然可以用Object.is()
  * @param {any} a
  * @param {any} b
  * @return {boolean}

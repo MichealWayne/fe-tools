@@ -2,7 +2,7 @@
  * @module Math
  * @description math functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-04-03 21:21:12
+ * @LastEditTime 2023-06-17 14:10:57
  */
 
 /**
@@ -27,6 +27,8 @@ export function factorial(n: number): number {
  * @description 计算两个数的最大公约数
  * @param {number} x
  * @param {number} y
+ * @return {number}
+ * @example gcd(12, 18); // 6
  */
 export function gcd(x: number, y: number): number {
   return !y ? x : gcd(y, x % y);
@@ -60,9 +62,12 @@ export function isOdd(num: number) {
 
 /**
  * @function lcm
+ * @description 用于计算两个数字的最小公倍数
  * @need gcd
  * @param {number} x
  * @param {number} y
+ * @example
+ * lcm(12, 18); // 36
  */
 export function lcm(x: number, y: number) {
   return Math.abs(x * y) / gcd(x, y);

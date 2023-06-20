@@ -2,7 +2,7 @@
  * @module tip
  * @author Wayne
  * @Date 2022-06-21 14:16:08
- * @LastEditTime 2023-01-07 13:59:22
+ * @LastEditTime 2023-05-30 13:47:25
  */
 import Colors from './colors';
 import { getTimeStr } from './util';
@@ -20,6 +20,11 @@ const TIP_MAP = {
   strongWarn: 'BgYellow',
 };
 
+/**
+ * @function tipFunHoc
+ * @param key
+ * @returns
+ */
 const tipFunHoc = (key: string) => {
   const useColor = TIP_MAP[key as keyof typeof TIP_MAP];
   return (info: string | Error, timeFlag?: boolean) => {
