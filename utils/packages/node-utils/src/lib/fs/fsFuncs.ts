@@ -1,13 +1,13 @@
 /**
  * @module fsFuncs
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-03-14 10:48:57
+ * @LastEditTime 2023-06-17 14:18:38
  */
 
 import fs from 'fs';
 import { join, dirname } from 'path';
 
-import Tip from '../util/tip.js';
+import Tip from '../util/tip';
 
 /**
  * @function travelFolderSync

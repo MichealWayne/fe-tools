@@ -201,16 +201,9 @@ export function loadavg(time = 1) {
   return v;
 }
 
-export function cpuFree(callback: AnyCallbackFunc) {
-  getCPUUsage(callback, true);
-}
-
-export function cpuUsage(callback: AnyCallbackFunc) {
-  getCPUUsage(callback, false);
-}
-
 /**
- * @function 获取CPU使用情况
+ * @function getCPUUsage
+ * @description 获取CPU使用情况
  * @param callback
  * @param {Boolean} free
  */
@@ -231,6 +224,24 @@ export function getCPUUsage(callback: AnyCallbackFunc, free?: boolean) {
     if (free === true) callback(perc);
     else callback(1 - perc);
   }, 1000);
+}
+
+/**
+ * @function cpuFree
+ * @description cpu空闲比例（0～1）
+ * @param callback
+ */
+export function cpuFree(callback: AnyCallbackFunc) {
+  getCPUUsage(callback, true);
+}
+
+/**
+ * @function cpuUsage
+ * @description cpu已使用比例（0～1）
+ * @param callback
+ */
+export function cpuUsage(callback: AnyCallbackFunc) {
+  getCPUUsage(callback, false);
 }
 
 /**

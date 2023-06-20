@@ -3,14 +3,14 @@
  * @description date functions.
  * @notice 存在复杂的日期处理场景建议直接使用date-fns
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-04-04 10:33:40
+ * @LastEditTime 2023-06-17 14:16:45
  */
 
 /**
  * @function dayOfYear
  * @description 此日期是当年中的第几天
  * @param {Date} date
- * @return {Number}
+ * @return {number}
  * @example
  * dayOfYear(new Date('2022/02/20')); // 51
  */
@@ -22,7 +22,7 @@ export function dayOfYear(date = new Date()) {
  * @function getColonTimeFromDate
  * @description 获取hh:mm:ss时间
  * @param {Date} date
- * @return {String}
+ * @return {string}
  * @example
  * getColonTimeFromDate(new Date()); // '15:58:40'
  */

@@ -2,7 +2,7 @@
  * @module Easing
  * @description Animation easing functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2022-08-30 10:54:15
+ * @LastEditTime 2023-06-17 14:15:52
  */
 
 export type EasingFunction = (amount: number) => number;
@@ -12,12 +12,17 @@ export type EasingFunction = (amount: number) => number;
  * @see https://www.febucci.com/2018/08/easing-functions/
  */
 const Easing = {
+  // 线性缓动函数
   Linear: {
     None: (amount: number) => amount,
   },
+  // 二次缓动函数
   Quadratic: {
+    // 缓慢加速
     In: (amount: number) => amount * amount,
+    // 缓慢减速
     Out: (amount: number) => amount * (2 - amount),
+    // 先加速后减速
     InOut: (amount: number) => {
       if ((amount *= 2) < 1) {
         return 0.5 * amount * amount;
@@ -26,9 +31,13 @@ const Easing = {
       return -0.5 * (--amount * (amount - 2) - 1);
     },
   },
+  // 三次缓动函数
   Cubic: {
+    // 缓慢加速
     In: (amount: number) => amount * amount * amount,
+    // 缓慢减速
     Out: (amount: number) => --amount * amount * amount + 1,
+    // 先加速后减速
     InOut: (amount: number) => {
       if ((amount *= 2) < 1) {
         return 0.5 * amount * amount * amount;
@@ -36,9 +45,13 @@ const Easing = {
       return 0.5 * ((amount -= 2) * amount * amount + 2);
     },
   },
+  // 四次缓动函数
   Quartic: {
+    // 缓慢加速
     In: (amount: number) => amount * amount * amount * amount,
+    // 缓慢减速
     Out: (amount: number) => 1 - --amount * amount * amount * amount,
+    // 先加速后减速
     InOut: (amount: number) => {
       if ((amount *= 2) < 1) {
         return 0.5 * amount * amount * amount * amount;
@@ -47,9 +60,13 @@ const Easing = {
       return -0.5 * ((amount -= 2) * amount * amount * amount - 2);
     },
   },
+  // 五次缓动函数
   Quintic: {
+    // 缓慢加速
     In: (amount: number) => amount * amount * amount * amount * amount,
+    // 缓慢减速
     Out: (amount: number) => --amount * amount * amount * amount * amount + 1,
+    // 先加速后减速
     InOut: (amount: number) => {
       if ((amount *= 2) < 1) {
         return 0.5 * amount * amount * amount * amount * amount;
@@ -58,14 +75,22 @@ const Easing = {
       return 0.5 * ((amount -= 2) * amount * amount * amount * amount + 2);
     },
   },
+  // 正弦曲线缓动函数
   Sinusoidal: {
+    // 从零开始加速，然后减速到最大值
     In: (amount: number) => 1 - Math.cos((amount * Math.PI) / 2),
+    // 从最大值开始减速，然后加速到零
     Out: (amount: number) => Math.sin((amount * Math.PI) / 2),
+    // 先加速后减速
     InOut: (amount: number) => 0.5 * (1 - Math.cos(Math.PI * amount)),
   },
+  // 指数曲线缓动函数
   Exponential: {
+    // 从零开始加速，然后指数增长到最大值
     In: (amount: number) => (amount === 0 ? 0 : Math.pow(1024, amount - 1)),
+    // 从最大值开始指数衰减，然后减速到零
     Out: (amount: number) => (amount === 1 ? 1 : 1 - Math.pow(2, -10 * amount)),
+    // 先加速后减速
     InOut: (amount: number) => {
       if (amount === 0) {
         return 0;

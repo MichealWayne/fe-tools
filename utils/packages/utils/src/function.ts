@@ -2,7 +2,7 @@
  * @module Function
  * @author Wayne
  * @createTime 2022-03-12 14:44:00
- * @LastEditTime 2023-04-03 21:23:30
+ * @LastEditTime 2023-06-17 14:11:45
  */
 
 export const NOOP = () => '';
@@ -11,8 +11,8 @@ export const NOOP = () => '';
  * @funciton attempt
  * @description 试执行传入的函数 fn，并返回其执行结果。
  * @param {Function} fn
- * @param {Unknown} args
- * @return {Unknown}
+ * @param {unknown} args
+ * @return {unknown}
  * @example
 attempt((a, b) => a + b, 1, 2); // 3
  */
@@ -28,7 +28,7 @@ export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args
  * @function defer
  * @description 将指定的函数延迟执行，将其放到事件队列的最后，等待当前执行栈中的代码全部执行完毕后再执行
  * @param {Function} fn
- * @param  {...any} args
+ * @param  {...unknown[]} args
  * @return {number}
  * @example
 function printHello() {

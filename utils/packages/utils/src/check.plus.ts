@@ -3,7 +3,7 @@
  * @module Check.plus
  * @description check password functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-04-03 21:31:53
+ * @LastEditTime 2023-06-20 13:39:30
  */
 
 // todo 优化验证
@@ -19,8 +19,8 @@ enum DefaultPwdStrengthTips {
 
 enum PwdStrengthTypes {
   weak = 1,
-  average = 2,
-  strong = 3,
+  average,
+  strong,
 }
 
 /**
