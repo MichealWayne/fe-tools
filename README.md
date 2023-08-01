@@ -331,6 +331,7 @@
 <a href="https://github.com/tamino-martinius/node-ts-dedent#readme" target="_blank">ts-dedent</a> | `ts-dedent` | node端打印正常换行的log。
 <a href="https://github.com/kawamataryo/suppress-ts-errors" target="_blank">suppress-ts-error</a> | `suppress-ts-error` | 自动为项目中所有的类型报错添加 @ts-expect-error 或 @ts-ignore 注释。
 <a href="https://github.com/sindresorhus/type-fest" target="_blank">type-fest</a> | `type-fest` | 经典的工具类型封装库。
+<a href="https://microsoft.github.io/TypeChat/" target="_blank"> TypeChat </a> | `typechat` | 基于OpenAi GPT模型的ts类型生产工具，微软。
 
 
 
@@ -709,6 +710,8 @@
 <a href="https://github.com/humanloop/awesome-chatgpt" target="_blank">awesome chatGPT</a> | `chatgpt` | chatGPT/GPT3 工具、demo及文档集合
 <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank">awesome chatGPT prompts</a> | `chatgpt` | chatGPT问答训练实践集合
 <a href="https://alibaba.github.io/pipcook/#/zh-cn/" target="_blank">pipcook</a> | `pipcook` | 对web开发者友好的机器学习工具集，阿里
+<a href="https://github.com/mljs/distance" target="_blank">ml-distance</a> | `ml-distance` | 计算向量之间的距离或相似度，可用于Embeddings处理
+<a href="https://promptperfect.jinaai.cn/">Prompt Prefect</a> | `prompt-prefect` | 一个优化Prompt的在线工具
 
 
 ### 1.12 WebAssembly
@@ -803,6 +806,8 @@
 ------------------
 
 ## FE-Tools - Chrome插件
+
+> 具体项目及源码地址：[https://github.com/MichealWayne/fe-tools-chrome-plugin](https://github.com/MichealWayne/fe-tools-chrome-plugin)
 
 ![chrome-ext.png](https://blog.michealwayne.cn/images/fe-tools/chrome-ext.png)
 
