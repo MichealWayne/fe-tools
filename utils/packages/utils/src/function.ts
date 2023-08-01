@@ -2,7 +2,7 @@
  * @module Function
  * @author Wayne
  * @createTime 2022-03-12 14:44:00
- * @LastEditTime 2023-06-17 14:11:45
+ * @LastEditTime 2023-07-22 11:25:38
  */
 
 export const NOOP = () => '';
@@ -150,31 +150,37 @@ export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
 /**
  * @function compose
  * @description 组合函数
- * @param  {...Function[]} fns
- * @return {unknown}
+ * @param  {...function} fns
  * @example
-const add5 = x => x + 5;
-const multiply = (x, y) => x * y;
-const multiplyAndAdd5 = compose(add5, multiply);
-multiplyAndAdd5(5, 2);
+ * const add5 = x => x + 5;
+ * const multiply = (x, y) => x * y;
+ * const multiplyAndAdd5 = compose(add5, multiply);
+ * multiplyAndAdd5(5, 2);
  */
-export function compose<T>(...fns: Array<(arg: T) => T>): (arg: T) => T {
-  return fns.reduce((f, g) => arg => f(g(arg)));
+export function compose<T>(...fns: Array<(...arg: T[]) => T>): (arg: T) => T {
+  return fns.reduce(
+    (f, g) =>
+      (...arg) =>
+        f(g(...arg))
+  );
 }
 
 /**
  * @function pipe
  * @description 管道执行函数
- * @param  {...Function[]} fns
- * @return {unknown}
+ * @param  {...function} fns
  * @example
- * const add5 = x => x + 5;
- * const multiply = (x, y) => x * y;
- * const multiplyAndAdd5 = pipe(add5, multiply);
- * multiplyAndAdd5(5, 2);
+ * const add = (x, y) => x + y;
+ * const multiply2 = (x) => x * 2;
+ * const multiplyAndAdd = pipe(add, multiply2);
+ * multiplyAndAdd(5, 2);
  */
-export function pipe<T extends unknown[]>(...fns: Array<(arg: T) => T>) {
-  return fns.reduce((f, g) => (arg: T) => g(f(arg)));
+export function pipe<T extends unknown[]>(...fns: Array<(...arg: T[]) => T>) {
+  return fns.reduce(
+    (f, g) =>
+      (...arg: T[]) =>
+        g(f(...arg))
+  );
 }
 
 /**

@@ -342,6 +342,8 @@ Contents:
 | https://github.com/tamino-martinius/node-ts-dedent#readme | ts-dedent | Print normal line breaks for logs on the node side. |
 | https://github.com/kawamataryo/suppress-ts-errors | suppress-ts-error | Automatically add @ts-expect-error or @ts-ignore comments to all type errors in the project. |
 | https://github.com/sindresorhus/type-fest | type-fest | Classic tool type encapsulation library. |
+| https://microsoft.github.io/TypeChat/ | typechat | Based on OpenAi GPT model ts type production tools, Microsoft. |
+
 
 ### 1.4.12 Others
 
@@ -733,6 +735,8 @@ Contents:
 | https://github.com/humanloop/awesome-chatgpt | chatgpt | Collection of chatGPT/GPT3 tools, demos, and documentation |
 | https://github.com/f/awesome-chatgpt-prompts | chatgpt | Collection of chatGPT Q&A training practices |
 | https://alibaba.github.io/pipcook/#/zh-cn/ | pipcook | Machine learning toolset friendly to web developers, from Alibaba |
+| https://github.com/mljs/distance | ml-distance | Calculate vector distance or similarity between, can be used for Embeddings processing |
+| https://promptperfect.jinaai.cn/ | prompt-prefect | An optimized Prompt online tools |
 
 ### 1.12 WebAssembly
 
