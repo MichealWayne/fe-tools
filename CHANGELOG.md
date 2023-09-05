@@ -1,4 +1,6 @@
 ### 更新信息
+- 2023.09.02：更新chrome-extension适配manifest v3产物；更新部分链接
+- 2023.07.23：增加部分ai（LLM/gpt）相关处理utils；
 - 2023.06.17：更新utils-utils；增加部分大模型相关链接
 - 2023.05.14：更新 README links；
 - 2023.04.16：更新utils；增加英文md；

@@ -4,7 +4,7 @@
  * @LastEditTime 2023-07-22 11:38:53
  */
 import { estimateTokenLength } from '../llm/prompts';
-const MAX_TOKEN_LEN = 4000; // 3.5 4096
+const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
 
 /**
  * @function getCodeReviewPrompt

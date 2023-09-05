@@ -148,7 +148,7 @@
 <a href="https://github.com/alibaba/GCanvas" target="_blank">GCanvas</a> | `gcanvas` | 轻量的跨平台图形引擎（web/weex/react-native），阿里。
 <a href="https://github.com/jayphelps/core-decorators" target="_blank">core-decorators</a> | `core-decorators` | 丰富的装饰器封装库，基于ES2016/2017的装饰器语法。
 <a href="https://github.com/prettymuchbryce/http-status-codes" target="_blank">http-status-codes</a> | `http-status-codes` | 枚举 HTTP 状态代码的常量。支持 RFC1945（HTTP/1.0、RFC2616 (HTTP/1.1) 和 RFC2518 (WebDAV)）中定义的所有状态代码。常用于ajax请求处理，ts。
-
+<a href="https://zod.dev/README_ZH" target="_blank">Zodjs</a> | `zod` | 以 TypeScript 为首的模式声明和验证库，可用于数字格式校验及生成ts声明。
 
 
 #### 1.4.2 数据工具
@@ -376,6 +376,8 @@
 <a href="https://github.com/vuejs/vue-class-component#readme" target="_blank">vue-class-component 仓库</a> | `vue-class-component` | Vue的Component装饰器封装，用于jsx/tsx的vue组件写法。
 <a href="https://formilyjs.org/" target="_blank">Formily 文档</a> | `formilyjs` | Element/Antd的表单DSL解决方案。
 <a href="https://github.com/privatenumber/vue-2-3" target="_blank">vue-2-3</a> | `vue-2-3` | vue2和vue3共存的一种解决方案封装。
+<a href="https://docs-swrv.netlify.app/" target="_blank">SWRV</a> | `swrv` | 用于数据请求的 Vue 钩子库，处理了请求缓存、状态等等。
+<a href="https://www.attojs.org/" target="_blank">Vue Request</a> | `vue-request` | 用于数据请求的 Vue 钩子库，比swrv能力要稍微丰富一些。
 
 ### 1.6 React
 地址 | 标签 | 说明
@@ -404,6 +406,7 @@
 <a href="https://mobile.ant.design/index-cn" target="_blank">antd-mobile 文档</a> | `antd-mobile` | 移动版的antd，UI组件库。
 <a href="https://www.styled-components.com/" target="_blank">styled-components 文档</a> | `styled-components` | react的css-in-js实现。
 <a href="https://github.com/cristianbote/goober" target="_blank"> goober 文档</a> | `goober` | 只有1kb大小的css-in-js库。
+<a href="https://chatui.io/" target="_blank">chatUI</a> | `chatui.io ` | 服务于对话领域的解决方案（前端组件），阿里。
 <a href="https://github.com/twobin/react-lazyload" target="_blank">react-lazyload 文档</a> | `react-lazyload` | react版的图片/组件加载插件。
 <a href="https://github.com/jamiebuilds/react-loadable#readme" target="_blank">react-loadable</a> | `react-loadable` | 实现react组件构建时代代码抽离和动态加载。
 <a href="https://github.com/STRML/react-draggable" target="_blank">react-draggable</a> | `react-draggable` | 一个用于拖拽操作的React封装组件。
@@ -420,7 +423,9 @@
 <a href="https://www.reactboilerplate.com/" target="_blank">React Boilerplate</a> | `react-boilerplate` | 性能优先的一个典型的React项目模板。
 <a href="https://github.com/sstur/react-rte" target="_blank">React RTE</a> | `react-rte` | 富文本编辑器，基于draftJS。
 <a href="https://react.i18next.com/" target="_blank">React i18Next</a> | `react-i18next` | 多语言解决方案。
-<a href="https://chatui.io/" target="_blank">chatUI</a> | `chatui.io ` | 服务于对话领域的解决方案，阿里。
+<a href="https://swr.vercel.app/" target="_blank">SWR</a> | `swr` | 用于数据请求的 React Hooks 库，处理了请求缓存、状态等等。
+
+
 
 ### 1.7 Nodejs和构建
 地址 | 标签 | 说明
