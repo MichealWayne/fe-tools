@@ -153,6 +153,8 @@ Contents:
 | https://github.com/alibaba/GCanvas | gcanvas | A lightweight, cross-platform graphic engine (web/weex/react-native), developed by Alibaba. |
 | https://github.com/jayphelps/core-decorators | core-decorators | A rich decorator encapsulation library based on ES2016/2017 decorator syntax. |
 | https://github.com/prettymuchbryce/http-status-codes | http-status-codes | Constants for enumerating HTTP status codes. Supports all status codes defined in RFC1945 (HTTP/1.0), RFC2616 (HTTP/1.1), and RFC2518 (WebDAV). Commonly used for ajax request processing, TypeScript. |
+| https://zod.dev/README_ZH | zod | 
+A schema declaration and verification library headed by TypeScript, which can be used for digital format verification and generation of ts declarations. |
 
 ### 1.4.2 Data Tools
 
@@ -386,6 +388,8 @@ Contents:
 | https://github.com/vuejs/vue-class-component#readme | vue-class-component | Component decorator encapsulation for Vue, used for jsx/tsx Vue component writing. |
 | https://formilyjs.org/ | formilyjs | Element/Antd form DSL solution. |
 | https://github.com/privatenumber/vue-2-3 | vue-2-3 | A solution encapsulation for coexistence of Vue2 and Vue3. |
+| https://docs-swrv.netlify.app/ | SWRV | Vue hook library for data requests, handling request caching, status, and more. |
+| https://www.attojs.org/ | vue-request | The Vue hook library for data requests is slightly richer than swrv. |
 
 ### 1.6 React
 
@@ -431,6 +435,7 @@ Contents:
 | https://www.reactboilerplate.com/ | react-boilerplate | A typical React project template that prioritizes performance. |
 | https://github.com/sstur/react-rte | react-rte | Rich text editor based on draftJS. |
 | https://react.i18next.com/ | react-i18next | Multi-language solution. |
+| https://swr.vercel.app/ | swr | React Hooks library for data requests, handling request caching, state, and more. |
 
 ### 1.7 Nodejs and building
 
