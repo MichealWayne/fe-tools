@@ -4,7 +4,7 @@
  * @dependenies http-proxy
  * @author Wayne
  * @Date 2018-04-18 14:16:36
- * @LastEditTime 2023-01-07 13:59:15
+ * @LastEditTime 2023-10-05 13:32:37
  */
 
 import fs from 'fs';
@@ -41,6 +41,8 @@ enum HTTP_RES_CODES {
   SUCCESS = 200,
 }
 
+const DEFAULT_PORT = 8080;
+
 /**
  * @function startServer
  * @description server function
@@ -48,7 +50,11 @@ enum HTTP_RES_CODES {
  * @param {Number} port listening port
  * @param {Function} callback Server started callback;
  */
-const startServer = (serverPath: string, port = 1234, callback?: (...args: unknown[]) => void) => {
+const startServer = (
+  serverPath: string,
+  port = DEFAULT_PORT,
+  callback?: (...args: unknown[]) => void
+) => {
   const Folder = serverPath || path.join(__dirname, '../');
   const dport = port;
   const config = {
