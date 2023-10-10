@@ -1,7 +1,7 @@
 /**
  * @module os
  * @Date 2020-08-20 21:55:46
- * @LastEditTime 2023-03-14 10:53:15
+ * @LastEditTime 2023-10-05 13:28:24
  */
 
 import os from 'os';
@@ -12,7 +12,7 @@ type AnyCallbackFunc = (...args: unknown[]) => any;
 /**
  * @function platform
  * @description 获取当前宿主平台标识
- * @return {String} NodeJS.Platform
+ * @return {string} NodeJS.Platform
  */
 export function platform() {
   return process.platform;
@@ -185,7 +185,7 @@ export function allLoadavg() {
 
 /**
  * @function loadavg
- * @description Returns the load average usage for 1, 5 or 15 minutes.
+ * @description 获取系统负载均衡。Returns the load average usage for 1, 5 or 15 minutes.
  * @param {Number} time
  * @returns
  */
@@ -247,7 +247,7 @@ export function cpuUsage(callback: AnyCallbackFunc) {
 /**
  * @function getCPUInfo
  * @description 获取CPU情况
- * @returns
+ * @returns {{idle: number, total: number}}
  */
 export function getCPUInfo() {
   const cpus = os.cpus();

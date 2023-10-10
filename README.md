@@ -28,26 +28,26 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN 文档手册</a> | `html/css/js` | Mozilla出品的一个很全很有用的前端查询/学习网站。
+<a href="https://developer.mozilla.org/en-US/plus/ai-help" target="_blank">MDN AI助手</a> | `html/css/js` | 基于gpt3.5的MDN文档问答机器人。
 <a href="https://www.w3.org/" target="_blank">W3C官网</a> | `html/css/js` | W3C官方标准。
-<a href="https://www.w3schools.com/" target="_blank">W3C学习网站</a> | `w3cshool` | W3C School，国际热门的web开发学习网站。
-<a href="https://www.w3.org/Style/CSS/" target="_blank">W3C CSS</a> | `w3c-css` | W3C CSS文档。
-<a href="https://www.html.cn/book/css/all-properties.html" target="_blank">html中文网-css教程手册</a> | `css` | HTML中文网-快速查询css属性及基本使用。
+<a href="https://www.w3schools.com/" target="_blank">W3C学习网站</a> | `w3cshool` | W3C School，国际热门的web开发学习网站，适合入门。
+<a href="https://www.w3.org/Style/CSS/" target="_blank">W3C CSS</a> | `w3c-css` | W3C CSS规范文档。
+<a href="https://www.runoob.com/cssref/css-reference.html" target="_blank">css属性参考手册</a> | `css` | 快速查询css属性及基本使用。
 <a href="https://www.canvasapi.cn/" target="_blank">canvas api速查手册</a> | `canvas` | canvas API方法集合。
-<a href="https://www.w3.org/Graphics/SVG/" target="_blank">W3C官网-SVG</a> | `svg` | W3C官网，SVG文档。
-<a href="http://www.t086.com/code/vml/" target="_blank">VML 参考手册</a> | `VML(IE)` | *早期（如果你要兼容IE6/7）微软开发的在低端IE上运行的图形绘制DSL、类似“SVG”。
+<a href="https://www.w3.org/Graphics/SVG/" target="_blank">W3C官网-SVG</a> | `svg` | W3C官网，SVG文档（左侧RECOMMENDATIONS）。
+<a href="http://www.t086.com/code/vml/" target="_blank">VML 参考手册</a> | `VML(IE)` | *早期（如果你仍要兼容IE6/7）微软开发的在低端IE上运行的图形绘制DSL、类似“SVG”。
 <a href="https://www.typescriptlang.org/docs/handbook/intro.html" target="_blank">TypeScript官方手册</a> | `typescript` | TypeScript官方手册。
 <a href="https://github.com/type-challenges/type-challenges" target="_blank">TypeScript Challenges</a> | `ts-challenges` | TypeScript Challenges，在线学习/检验自己的ts类型编程水平。
 <a href="https://www.ecma-international.org/publications-and-standards/standards/" target="_blank">ECMA standards | `ecma` | ECMAScript 协议标准。
 <a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank">ECMA International(6)</a> | `ES6` | ECMAScript6官方文档。
-<a href="https://ecma262.docschina.org/" target="_blank">ECMA International(6) 汉化 | `ES6` | ECMAScript6官方文档，部分中文翻译。
+<a href="https://ecma262.docschina.org/" target="_blank">ECMA International(6) 汉化 | `ES6` | ECMAScript6官方文档的中文翻译版（只有少部分且挺久没更新了）。
 <a href="http://es6-features.org/" target="_blank">ECMA6 features | `ES6` | 通俗易懂的ECMAScript6特性demos。
-<a href="http://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 国内使用频率最高的ECMAScript6文档，特别适合新手。
+<a href="https://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 国内使用频率最高的ECMAScript6文档，特别适合新手。
 <a href="http://www.html5plus.org/doc/h5p.html" target="_blank">Web API Reference</a> | `html5` | HTML5 web API查询，如摄像头/地理位置。
 <a href="https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect" target="_blank">Safari HTML Ref查询</a> | `html` | Safari webview的HTML标签查询，用于移动web开发，比如某些iOS特殊的属性或表现可以查这个。
 <a href="https://webkit.org/status/" target="_blank">WebKit 特性状态查询</a> | `webkit` | WebKit 官网文档，js/css特性状态支持情况查询。
 <a href="https://dart.dev/" target="_blank">Dart官网</a> | `dart` | dart语言英文官网。
 <a href="https://www.dartcn.com/guides/language/language-tour" target="_blank">Dart中文网</a> | `dart` | dart语言中文学习网。
-<a href="https://github.com/dart-archive/ts2dart" target="_blank">ts2dart</a> | `ts2dart` | 一款 TypeScript 转 Dart 语言的工具库（当然会存在一些问题）。
 <a href="https://www.rfc-editor.org/" target="_blank">RFC规范官网</a> | `rfc/http` | RFC协议官网，可查询HTTP协议等内容。
 <a href="https://www.iana.org/assignments/media-types/media-types.xhtml" target="_blank">Media Types</a> | `MIME` | 媒体类型列表，MIME。
 <a href="https://webassembly.org/" target="_blank">Web Assembly官网</a> | `wasm` | Web Assembly(wasm)英文官网。
@@ -58,7 +58,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://caniuse.com/" target="_blank">can i use</a> | `caniuse` | 使用频率最高的兼容支持查询网站。
-<a href="http://kangax.github.io/compat-table/es6/" target="_blank">ES兼容查询</a> | `js` | ECMAScript兼容查询。
+<a href="https://github.com/compat-table/compat-table" target="_blank">ES兼容查询</a> | `js` | ECMAScript兼容查询。
 <a href="https://wechat-miniprogram.github.io/miniprogram-compat/" target="_blank">微信小程序ES兼容查询</a> | `weapp` | 微信小程序ES api及对应小程序环境版本兼容查询。
 <a href="http://iosfonts.com/" target="_blank">iOS字体</a> | `ios font` | iOS系统自带字体支持情况查询。
 <a href="https://www.bootcss.com/p/websafecolors/" target="_blank">Web安全色查询</a> | `web color` | *为了尽量让用户看到色彩相同的网页,请尽量使用216色的web安全色。
@@ -72,7 +72,6 @@
 <a href="https://lesscss.org/" target="_blank">less文档</a> | `less` | 易上手的CSS预处理工具。
 <a href="https://sass-guidelin.es/zh/" target="_blank">sass 文档</a> | `sass` | 热门的CSS预处理工具。
 <a href="http://stylus-lang.com/" target="_blank">stylus 文档</a> | `stylus` | 功能丰富的CSS预处理工具。
-<a href="https://stylus-lang.com/" target="_blank">stylus 文档</a> | `stylus` | stylus官方文档。
 <a href="http://www.zhangxinxu.com/jq/stylus/" target="_blank">stylus 文档(张旭鑫)</a> | `stylus` | stylus中文文档。
 <a href="https://asmcss.com/" target="_blank">Assembler CSS 文档</a> | `asmcss` | Assembler CSS 官方文档，Just-in-time。
 
@@ -149,6 +148,8 @@
 <a href="https://github.com/jayphelps/core-decorators" target="_blank">core-decorators</a> | `core-decorators` | 丰富的装饰器封装库，基于ES2016/2017的装饰器语法。
 <a href="https://github.com/prettymuchbryce/http-status-codes" target="_blank">http-status-codes</a> | `http-status-codes` | 枚举 HTTP 状态代码的常量。支持 RFC1945（HTTP/1.0、RFC2616 (HTTP/1.1) 和 RFC2518 (WebDAV)）中定义的所有状态代码。常用于ajax请求处理，ts。
 <a href="https://zod.dev/README_ZH" target="_blank">Zodjs</a> | `zod` | 以 TypeScript 为首的模式声明和验证库，可用于数字格式校验及生成ts声明。
+<a href="https://github.com/dart-archive/ts2dart" target="_blank">ts2dart</a> | `ts2dart` | 一款 TypeScript 转 Dart 语言的工具库（会存在一些问题），有挺多年没维护了。
+<a href="https://github.com/inversify/InversifyJS" target="_blank"> InversifyJS </a> | `inversify` | 一款 js/ts IoC的封装库。
 
 
 #### 1.4.2 数据工具

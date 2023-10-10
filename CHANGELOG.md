@@ -1,4 +1,5 @@
 ### 更新信息
+- 2023.10.05：调整部分无效链接；nodejs-utils小幅调整；
 - 2023.09.02：更新chrome-extension适配manifest v3产物；更新部分链接
 - 2023.07.23：增加部分ai（LLM/gpt）相关处理utils；
 - 2023.06.17：更新utils-utils；增加部分大模型相关链接

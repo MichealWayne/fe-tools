@@ -33,7 +33,7 @@ Contents:
 | https://www.w3.org/ | html/css/js | The official W3C standard. |
 | https://www.w3schools.com/ | w3cshool | W3C School, an international popular web development learning website. |
 | https://www.w3.org/Style/CSS/ | w3c-css | W3C CSS documentation. |
-| https://www.html.cn/book/css/all-properties.html | css | HTML Chinese website - Quickly query CSS properties and basic usage. |
+| https://www.runoob.com/cssref/css-reference.html | css | Quickly query CSS properties and basic usage. |
 | https://www.canvasapi.cn/ | canvas | Collection of canvas API methods. |
 | https://www.w3.org/Graphics/SVG/ | svg | W3C website, SVG documentation. |
 | http://www.t086.com/code/vml/ | VML(IE) | *Early DSL for graphics drawing developed by Microsoft that runs on low-end IE, similar to "SVG" (if you need to be compatible with IE6/7). |
@@ -61,7 +61,7 @@ Contents:
 | Address | Tag | Description |
 | --- | --- | --- |
 | https://caniuse.com/ | caniuse | The most frequently used website for compatibility support queries. |
-| http://kangax.github.io/compat-table/es6/ | js | ECMAScript compatibility query. |
+| https://github.com/compat-table/compat-table | js | ECMAScript compatibility query. |
 | https://wechat-miniprogram.github.io/miniprogram-compat/ | weapp | Compatibility query for WeChat mini-program ES API and corresponding mini-program environment versions. |
 | http://iosfonts.com/ | ios font | iOS system built-in font support query. |
 | https://www.bootcss.com/p/websafecolors/ | web color | *To ensure that users see the same color on web pages as much as possible, please use the 216 colors of web-safe colors as much as possible. |
