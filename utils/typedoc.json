@@ -6,6 +6,7 @@
     "./packages/node-utils/src/index.ts",
     "./packages/web-utils/src/*.ts",
     "./packages/canvas-utils/src/index.ts",
+    "./packages/ai-utils/src/index.ts",
     "./packages/node-img-build/src/handleImg.ts"
   ],
   "tsconfig": "./tsconfig.json",

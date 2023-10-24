@@ -71,6 +71,10 @@ export function isBeforeDate(dateA: Date, dateB = new Date()) {
  * @param {Date} date
  * @param {number} days
  * @return {string}
+ * @example
+ * const date = new Date('2023-01-01');
+ * const days = 5;
+ * daysLater(date, days); // '2023-01-06'
  */
 export function daysLater(date = new Date(), days = 1) {
   date.setDate(date.getDate() + days);

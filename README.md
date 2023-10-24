@@ -104,7 +104,7 @@
 <a href="https://nostalgic-css.github.io/NES.css/" target="_blank">NES.css</a> | `NES.css` | 游戏机像素风格的前端样式框架。
 <a href="https://www.getpapercss.com" target="_blank">paper.css</a> | `paper.css` | 手绘风格的前端样式框架。
 <a href="http://www.uiplayground.in/css3-icons/" target="_blank">css3 icon</a> | `css3 icon` | 纯CSS实现的图标。
-<a href="http://bootstrap.css88.com/css/" target="_blank">Bootstrap 文档</a> | `bootstrap` | 红极一时的前端样式框架。
+<a href="http://bootstrap.css88.com/css/" target="_blank">Bootstrap 文档</a> | `bootstrap` | 红极一时的响应式前端样式框架。
 <a href="https://www.layui.com/doc/" target="_blank">layui 文档</a> | `layui` | 一款采用自身模块规范编写的前端 UI 框架。
 <a href="https://fontawesome.com/" target="_blank">fontawesome</a> | `fontawesome` | 字体图标库。
 <a href="https://www.iconfont.cn/" target="_blank">iconfont</a> | `iconfont` | 字体图标库，阿里。
@@ -125,7 +125,6 @@
 <a href="http://blog.michealwayne.cn/Moo-CSS/docs/moocss/#m%E6%A8%A1%E5%9D%97" target="_blank">Moo-CSS</a> | `moo-css` | 一种CSS写法方案。
 <a href="https://github.com/l-hammer/You-need-to-know-css" target="_blank">CSS tricks for web developers</a> | `You-need-to-know-css` | CSS技巧集合。
 <a href="https://logotyp.us/" target="_blank"> logotyp.us </a> | `logotyp` | 国内外知名企业/商业的logo集合。
-
 
 
 ### 1.4 JS插件/库
@@ -246,13 +245,12 @@
 #### 1.4.5 工具
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="http://requirejs.org/" target="_blank">RequireJs</a> | `requirejs` | js模块化工具。
-<a href="http://yslove.net/seajs/" target="_blank">SeaJs</a> | `seajs` | js模块化工具。
+<a href="http://requirejs.org/" target="_blank">RequireJs</a> | `requirejs` | js模块化工具（webpack后很少有项目会用到）。
+<a href="http://yslove.net/seajs/" target="_blank">SeaJs</a> | `seajs` | js模块化工具（webpack后很少有项目会用到）。
 <a href="http://browserify.org/" target="_blank">Browserify</a> | `browserify` | 浏览器端使用类似于 node 的 require() 方式。
 <a href="https://github.com/rickharrison/validate.js" target="_blank">validate.js</a> | `validate.js` | form表单校验工具。
 <a href="https://github.com/validatorjs/validator.js" target="_blank">validator.js</a> | `validator.js` | 有名的内容校验工具，比如邮箱验证、数值验证等。
 <a href="https://cn.rx.js.org/" target="_blank">RxJS中文官网</a> | `RxJS` | ReactiveX编程理念的js异步编程库。
-<a href="https://github.com/kelektiv/node.bcrypt.js#readme" target="_blank">Bcrypt</a> | `bcrypt` | 用于密码散列处理的库。
 <a href="https://github.com/Marak/Faker.js#readme" target="_blank">Faker</a> | `faker` | 用于在浏览器/Nodejs中生成假数据（注意作者已删源码）。
 <a href="https://joi.dev/" target="_blank">Joi官网</a> | `joi` | 面向js的强大schema描述语言与数据验证器。
 <a href="https://github.com/JedWatson/classnames#readme" target="_blank">classnames</a> | `classnames` | className条件组合的工具，多用于React。
@@ -390,7 +388,7 @@
 <a href="http://react-guide.github.io/react-router-cn/" target="_blank">react-router</a> | `react-router` | 用于react的前端路由控制。
 <a href="https://github.com/facebookexperimental/Recoil" target="_blank">Recoil 文档</a> | `recoil` | 简单、对hook友好的数据流控制工具。
 <a href="https://www.redux.org.cn/docs/introduction/" target="_blank">redux 文档</a> | `redux` | 广泛使用的数据流控制工具，reducer+flux。
-<a href="http://facebook.github.io/flux/" target="_blank">flux 文档</a> | `flux` | 数据流控制工具。
+<a href="http://facebook.github.io/flux/" target="_blank">flux 文档</a> | `flux` | 数据流控制工具（现在已经很少在用了）。
 <a href="https://cn.mobx.js.org/" target="_blank">mobx 文档</a> | `mobx` | 轻量数据流控制工具。
 <a href="https://dvajs.com/" target="_blank">dvajs 文档</a> | `dvajs` | 基于 redux 和 redux-saga 的数据流方案，蚂蚁。
 <a href="https://umijs.org/zh/" target="_blank">UmiJs 文档</a> | `umijs` | 可插拔的企业级 react 应用框架，蚂蚁。
@@ -533,6 +531,7 @@
 <a href="https://qiankun.umijs.org/zh/" target="_blank">qiankun</a> | `qiankun` | 蚂蚁系微前端框架，基于single-spa。
 <a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank">Module Federation</a> | `module-federation` | 构建时共享模块为主要特点的微前端解决方案，webpack（5）的实现。
 <a href="https://fronts.js.org/" target="_blank">R/Fronts</a> | `fronts` | 渐进式微前端框架，基于webpack module-federation。
+<a href="https://wujie-micro.github.io/doc/" target="_blank">无界Wujie</a> | `wujie` | 基于web component+iframe的微前端框架，腾讯。
 <a href="https://github.com/jsdom/jsdom" target="_blank">jsdom</a> | `jsdom` | 在node环境上实现DOM操作的封装库。
 
 #### 1.7.5 云和Serverless
@@ -552,6 +551,8 @@
 <a href="https://lowcode-engine.cn/" target="_blank">lowcode-engine</a> | `lowcode-engine` | 阿里开源低代码引擎。
 <a href="https://weda.cloud.tencent.com/" target="_blank">微搭</a> | `weda` | 腾讯低代码引擎，微搭。
 <a href="https://aisuda.bce.baidu.com/amis/zh-CN/docs/index">amis</a> | `amis` | 百度开源低代码引擎，适用于偏中后台项目。
+<a href="https://opentiny.design/tiny-engine#/home">TinyEngine</a> | `tiny-engine` | 华为2023开源低代码引擎，具备图元编排能力。
+<a href="https://netease.github.io/tango/">Tango</a> | `tango` | 网易云音乐2023开源低代码引擎，不受私有 DSL 和协议限制。
 
 ### 1.8 Hybird和跨端
 地址 | 标签 | 说明
@@ -612,6 +613,7 @@
 <a href="https://www.colorzilla.com/gradient-editor/" target="_blank">gradient-editor</a> | `gradient-editor` | CSS渐变样式生成工具。
 <a href="https://valine.js.org/cdn.html" target="_blank">valineJS</a> | `valine` | 评论系统工具。
 <a href="http://gittalk.com.cutestat.com/" target="_blank">GitTalk</a> | `gittalk` | github的评论工具。
+<a href="https://codemirror.net/" target="_blank">CodeMirror</a> | `codemirror` | web代码文本编辑器，带有大量的语言模式和插件功能。
 <a href="https://github.com/Coding/WebIDE" target="_blank">webIDE</a> | `webide` | web上写代码。
 <a href="https://hiroppy.github.io/fusuma/" target="_blank">Fusuma</a> | `fusuma` | 用markdown写web ppt。
 <a href="https://stackedit.io/" target="_blank">stackedit</a> | `stackedit ` | 在浏览器中运行的Markdown编辑器。
@@ -664,6 +666,12 @@
 
 
 #### 1.10.2 安全及加密知识
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/brix/crypto-js" target="_blank">CryptoJS</a> | `crypto-js` | 一个可以说是最常用的 JavaScript 加密库，支持主流的哈希算法、加密算法,例如 SHA、MD5、AES 等。
+<a href="https://github.com/emn178/js-sha256" target="_blank">js-sha256</a> | `js-sha256` | 一个用于 SHA256 哈希运算的轻量级库。
+<a href="https://github.com/kelektiv/node.bcrypt.js#readme" target="_blank">Bcrypt</a> | `bcrypt` | 用于密码散列处理的库。
+
 <p><a href="https://github.com/veeral-patel/how-to-secure-anything" target="_blank">《How to Secure Anything》</a></p>
 <p><a href="https://github.com/brix/crypto-js" target="_blank">crypto-js 前端数据加密工具</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1136202" target="_blank">《浅谈前端安全》</a></p>
@@ -678,7 +686,8 @@
 #### 1.10.3 Debug
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://github.com/Tencent/vConsole" target="_blank">vConsole</a> | `vconsole` | 被誉为移动端的web开发者工具。
+<a href="https://github.com/Tencent/vConsole" target="_blank">vConsole</a> | `vconsole` | 被誉为移动端的web开发者工具，腾讯。
+<a href="https://eruda.liriliri.io/" target="_blank">Eruda</a> | `eruda` | 类似vConsole的移动端web调试工具，相对轻量。
 <a href="https://www.fundebug.com/" target="_blank">FunDebug</a> | `FunDebug` | 简单的项目debug监控工具，有免费版
 <a href="http://www.webfunny.cn/" target="_blank">Webfunny</a> | `webfunny_monitor` | 统一的前端异常监控解决方案。
 <a href="https://github.com/typicode/json-server" target="_blank">json-server</a> | `json-server` | 一款通过本地起服务的快速mock工具。
@@ -745,7 +754,7 @@
 <a href="https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets" target="_blank">Rainbow Brackets</a> | `rainbow-brackets` |  开发必备，括号颜色区分。
 <a href="https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-stylefmt" target="_blank">stylefmt</a> | `stylefmt` |  css格式化。
 <a href="https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome" target="_blank">Debugger For Chrome</a> | `debugger-for-chrome` |  vscode和chrome联调插件，本地开发必备。
-<a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank">Eslint</a> | `eslint` |  js检查。
+<a href="https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint" target="_blank">Eslint插件</a> | `eslint` |  js检查。
 <a href="https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint" target="_blank">stylelint</a> | `stylelint` |  css/less/scss检查。
 <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin" target="_blank">TypeScript Tslint Plugin</a> | `typescript-tslint-plugin` |  TypeScript检查。
 <a href="https://marketplace.visualstudio.com/items?itemName=octref.vetur" target="_blank">vetur</a> | `vetur` |  Vue开发工具。
@@ -786,6 +795,7 @@
 - [node-utils](./utils/packages/node-utils/)：Nodejs文件，事件处理等封装；
 - [node-img-build](./utils/packages/node-img-build/)：webp、base64等图片处理封装，基于gm；
 - [canvas-utils](./utils/packages/canvas-utils/)：Canvas图形绘制封装，可在web/node-canvas中使用。
+- [ai-utils](./utils/packages/ai-utils/)：AI 大模型相关封装、包括代码检查等一些应用。
 
 #### 启动utils项目步骤
 
