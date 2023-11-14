@@ -23,7 +23,8 @@
 - [1.12 IDE插件](#112-ide插件)
 - [1.13 生活篇](#113-生活篇)
 
-> 注：一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat)，然后根据整理判断（chatGPT选型能力目前还一般，检索还是可以的）
+> 注：一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats)，然后根据整理判断（chatGPT选型能力目前还一般，检索还是可以的）
+
 ### 1.1 HTML/CSS/JavaScript/WASM/Dart
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -149,6 +150,7 @@
 <a href="https://zod.dev/README_ZH" target="_blank">Zodjs</a> | `zod` | 以 TypeScript 为首的模式声明和验证库，可用于数字格式校验及生成ts声明。
 <a href="https://github.com/dart-archive/ts2dart" target="_blank">ts2dart</a> | `ts2dart` | 一款 TypeScript 转 Dart 语言的工具库（会存在一些问题），有挺多年没维护了。
 <a href="https://github.com/inversify/InversifyJS" target="_blank"> InversifyJS </a> | `inversify` | 一款 js/ts IoC的封装库。
+<a href="https://github.com/young-steveo/bottlejs" target="_blank"> BottleJs </a> | `bottlejs ` | 一轻量 js/ts 依赖注入容器库。特点是延迟加载。
 
 
 #### 1.4.2 数据工具
