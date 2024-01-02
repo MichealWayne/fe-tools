@@ -390,6 +390,8 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/privatenumber/vue-2-3 | vue-2-3 | A solution encapsulation for coexistence of Vue2 and Vue3. |
 | https://docs-swrv.netlify.app/ | SWRV | Vue hook library for data requests, handling request caching, status, and more. |
 | https://www.attojs.org/ | vue-request | The Vue hook library for data requests is slightly richer than swrv. |
+| https://www.vueusejs.com/ | vue-use | Utility set based on Vue composite API, in addition to commonly used request animation package, but also packaged browser, electron utils.
+
 
 ### 1.6 React
 
