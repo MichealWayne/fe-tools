@@ -10,7 +10,7 @@ const CONFIG = require(join(__dirname, '../package.json'));
 const dirname = process.cwd();
 
 const platform = os.platform();
-const isWIN = platform.includes('win');
+const isWIN = platform.includes('win32');
 
 /**
  * render package.json -> README.md

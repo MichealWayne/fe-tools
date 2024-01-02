@@ -379,6 +379,7 @@
 <a href="https://github.com/privatenumber/vue-2-3" target="_blank">vue-2-3</a> | `vue-2-3` | vue2和vue3共存的一种解决方案封装。
 <a href="https://docs-swrv.netlify.app/" target="_blank">SWRV</a> | `swrv` | 用于数据请求的 Vue 钩子库，处理了请求缓存、状态等等。
 <a href="https://www.attojs.org/" target="_blank">Vue Request</a> | `vue-request` | 用于数据请求的 Vue 钩子库，比swrv能力要稍微丰富一些。
+<a href="https://www.vueusejs.com/" target="_blank">Vue Use</a> | `vue-use` | 基于Vue组合式API的实用工具集，除了常用的请求动画等封装外、还封装了浏览器、electron utils。
 
 ### 1.6 React
 地址 | 标签 | 说明

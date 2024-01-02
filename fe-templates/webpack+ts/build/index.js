@@ -1,15 +1,16 @@
-/**
+/*
  * @script production build
  */
 
 const fs = require('fs');
 const os = require('os');
 const callfile = require('child_process');
-const join = require('path').join;
+const { join } = require('path');
 const CONFIG = require(join(__dirname, '../package.json'));
 const dirname = process.cwd();
+
 const platform = os.platform();
-const isWIN = ~platform.indexOf('win');
+const isWIN = platform.includes('win32');
 
 /**
  * render package.json -> README.md
@@ -18,7 +19,7 @@ const renderREADME = () => {
   const _mdPath = join(__dirname, '../README.md');
   if (fs.existsSync(_mdPath)) {
     let _readmeData = fs.readFileSync(_mdPath);
-    const _info = `------
+    let _info = `------
 		
 # ${CONFIG.name}
 - version: ${CONFIG.version}
@@ -30,7 +31,7 @@ const renderREADME = () => {
 ------`;
     _readmeData = _info + String(_readmeData).replace(/------(([\s\S])*?)------/, '');
 
-    const buildMD = fs.writeFileSync(_mdPath, _readmeData, {
+    let buildMD = fs.writeFileSync(_mdPath, _readmeData, {
       encoding: 'utf8',
     });
     if (buildMD) console.log(`${_mdPath}修改成功。`);

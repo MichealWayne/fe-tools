@@ -1,6 +1,7 @@
 # 典型项目构建
 
 - `react`：React16 页面项目模版
+- `vite-vue3+ts`：vite+vue3+ts项目模版
 - `vue`：Vue2 页面项目模板
 - `webpack`：原生 js+webpack 项目模版
 - `ts+webpack`：原生 ts+webpack 项目模版
@@ -9,10 +10,10 @@
 
 ## todo
 
-- vite 模版
 - rollup 模版
 - 多包模版
 
 ## 更新信息
 
+- 2023.12.30: 增加 `vite-vue3+ts` 模版；修改 `build/`脚本；
 - 2022.07.02: 删除 gulp+webpack 模版
