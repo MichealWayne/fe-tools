@@ -1,7 +1,8 @@
 # 典型项目构建
 
+- `vite-react-ts`: React 17 + Vite + ts 项目模版
 - `react`：React16 页面项目模版
-- `vite-vue3+ts`：vite+vue3+ts项目模版
+- `vite-vue3+ts`：Vue3 + Vite + ts 项目模版
 - `vue`：Vue2 页面项目模板
 - `webpack`：原生 js+webpack 项目模版
 - `ts+webpack`：原生 ts+webpack 项目模版
