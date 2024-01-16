@@ -242,6 +242,7 @@
 <a href="https://zelark.github.io/nano-id-cc/" target="_blank">nano-id</a> | `nanoid` | 小型（130 字节）、安全、URL友好、唯一的字符串 ID 生成器。
 <a href="https://github.com/uuidjs/uuid" target="_blank">uuid</a> | `uuid` | 生成符合 RFC 的 UUID 库。
 <a href="https://github.com/pvorb/node-md5" target="_blank">md5.js</a> | `md5` | 获取字符、Buffer的md5。
+<a href="https://github.com/indutny/hash.js" target="_blank">hash.js</a> | `hash` | js的hash字符串处理。
 
 
 #### 1.4.5 工具
@@ -306,6 +307,7 @@
 <a href="https://roughjs.com/" target="_blank">Rough.js</a> | `roughjs` | 一个有意思的canvas绘图库（画出的图形具有手绘风格）。
 <a href="https://github.com/BabylonJS/Babylon.js" target="_blank">BabylonJS</a> | `BabylonJS` | 一个功能强大，美观，简单且开放的游戏和渲染引擎。
 <a href="https://github.com/sarcadass/granim.js#readme" target="_blank">GranimJs</a> | `granimjs` | 用于创建流体和交互式渐变的动画js库，仅17k。
+<a href="https://catdad.github.io/canvas-confetti/" target="_blank">canvas-confetti</a> | `confetti` | 轻量的js canvas礼花特效库。
 
 #### 1.4.9 移动端手势
 地址 | 标签 | 说明
@@ -812,11 +814,12 @@
 
 #### 2.2 fe-templates 一些前端项目模版
 
-- ~~gulp+webpack（已废弃）~~
 - [webpack](./fe-templates/webpack/)
 - [webpack + ts](./fe-templates/webpack%2Bts/)
+- [vite + vue3](./fe-templates/vite-vue3+ts/)
 - [vue2](./fe-templates/vue/)
-- [react](./fe-templates/react/)
+- [vite + react 17](./fe-templates/vite-react+ts/)
+- [react16](./fe-templates/react/)
 
 #### 2.3 ~~styles基础样式库~~
 

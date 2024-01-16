@@ -1,4 +1,5 @@
 ### 更新信息
+- 2024.01.14：增加vite-react+ts模版；node-utils小更新；
 - 2023.12.30：增加vite-vue3+ts模版；fe-templates部分问题修复；
 - 2023.11.11：调整ai-utils文档暴露方法；
 - 2023.10.22：调整无效链接并更新目录；文档增加ai-utils；

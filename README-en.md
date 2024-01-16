@@ -250,6 +250,8 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://zelark.github.io/nano-id-cc/ | nanoid | A small (130-byte), secure, URL-friendly, unique string ID generator. |
 | https://github.com/uuidjs/uuid | uuid | A library for generating RFC-compliant UUIDs. |
 | https://github.com/pvorb/node-md5 | md5 | Get the md5 of characters and buffers. |
+| https://github.com/indutny/hash.js | hash | Hash functions in pure javascript. |
+
 
 ### 1.4.5 Tools
 
@@ -316,6 +318,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://roughjs.com/ | roughjs | An interesting canvas drawing library (drawn graphics have a hand-drawn style). |
 | https://github.com/BabylonJS/Babylon.js | BabylonJS | A powerful, beautiful, simple, and open game and rendering engine. |
 | https://github.com/sarcadass/granim.js#readme | granimjs | A 17k animation JS library for creating fluid and interactive gradients. |
+| https://catdad.github.io/canvas-confetti/ | canvas-confetti | performant confetti animation in the browser. |
 
 ### 1.4.9 Mobile Gesture
 

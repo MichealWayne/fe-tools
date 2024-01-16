@@ -1,0 +1,6 @@
+# Browsers that we support 
+# document: https://github.com/browserslist/browserslist
+
+last 2 versions
+android 4
+ios 8
