@@ -1,14 +1,16 @@
 ### 更新信息
-- 2024.01.14：增加vite-react+ts模版；node-utils小更新；
-- 2023.12.30：增加vite-vue3+ts模版；fe-templates部分问题修复；
-- 2023.11.11：调整ai-utils文档暴露方法；
-- 2023.10.22：调整无效链接并更新目录；文档增加ai-utils；
-- 2023.10.05：调整部分无效链接；nodejs-utils小幅调整；
-- 2023.09.02：更新chrome-extension适配manifest v3产物；更新部分链接
-- 2023.07.23：增加部分ai（LLM/gpt）相关处理utils；
-- 2023.06.17：更新utils-utils；增加部分大模型相关链接
+
+- 2024.02.04：修改 util functions(增加 check 方法，部分方法实现或注释调整)；
+- 2024.01.14：增加 vite-react+ts 模版；node-utils 小更新；
+- 2023.12.30：增加 vite-vue3+ts 模版；fe-templates 部分问题修复；
+- 2023.11.11：调整 ai-utils 文档暴露方法；
+- 2023.10.22：调整无效链接并更新目录；文档增加 ai-utils；
+- 2023.10.05：调整部分无效链接；nodejs-utils 小幅调整；
+- 2023.09.02：更新 chrome-extension 适配 manifest v3 产物；更新部分链接
+- 2023.07.23：增加部分 ai（LLM/gpt）相关处理 utils；
+- 2023.06.17：更新 utils-utils；增加部分大模型相关链接
 - 2023.05.14：更新 README links；
-- 2023.04.16：更新utils；增加英文md；
+- 2023.04.16：更新 utils；增加英文 md；
 - 2023.03.19：更新 README 及 datas 数据处理；
 - 2023.03.12：更新 utils 文档及 example 注释；
 - 2023.03.05：增加 utils 文档配置；
