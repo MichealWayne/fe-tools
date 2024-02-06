@@ -3,7 +3,7 @@
  * @module Check
  * @description check functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-04-04 10:20:39
+ * @LastEditTime 2024-02-05 16:01:41
  */
 
 /**
@@ -24,7 +24,7 @@ export function isEmail(str: string) {
 
 /**
  * @function isIdCard
- * @description 中国大陆身份证验证。简单验证，如仔细验证可用check.plus checkIdcard
+ * @description 中国大陆身份证验证。简单验证，如仔细验证可用check.plus.ts/checkIdcard()
  * @param {string} str
  * @return {boolean}
  */
@@ -67,4 +67,34 @@ export function isUrl(str: string) {
  */
 export function isPhoneNumber(str: string) {
   return /^0*(86)*(1)\d{10}$/.test(str);
+}
+
+/**
+ * @function isPostalCode
+ * @description 校验(中国)邮政编码
+ * @param {string} postalCode
+ * @returns {boolean}
+ * @example
+ * isPostalCode('311100'); // true
+ * isPostalCode('31110'); // false
+ * isPostalCode('3111000'); // false
+ * isPostalCode('031110'); // false
+ */
+export function isPostalCode(postalCode: string) {
+  return /^[1-9]\d{5}(?!\d)$/.test(postalCode);
+}
+
+/**
+ * @function isBankCard
+ * @description 校验银行卡号
+ * @param {string} bankCard
+ * @returns {boolean}
+ * @example
+ * isBankCard('123456789012345'); // true
+ * isBankCard('023456789012345'); // false
+ * isBankCard('1234567890123456'); // false
+ * isBankCard('12345678901234'); // false
+ */
+export function isBankCard(bankCard: string) {
+  return /^[1-9]([0-9]{15}|[0-9]{18})$/.test(bankCard);
 }

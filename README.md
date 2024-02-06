@@ -696,6 +696,7 @@
 <a href="https://www.fundebug.com/" target="_blank">FunDebug</a> | `FunDebug` | 简单的项目debug监控工具，有免费版
 <a href="http://www.webfunny.cn/" target="_blank">Webfunny</a> | `webfunny_monitor` | 统一的前端异常监控解决方案。
 <a href="https://github.com/typicode/json-server" target="_blank">json-server</a> | `json-server` | 一款通过本地起服务的快速mock工具。
+<a href="https://www.pagespy.org/" target="_blank">Page Spy</a> | `page-spy` | 一款集程度较高的远程web调试工具，货拉拉技术团队。
 
 #### 1.10.4 质量检测
 地址 | 标签 | 说明

@@ -2,7 +2,7 @@
  * @module Color
  * @description handle color format
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-04-04 10:31:43
+ * @LastEditTime 2024-02-04 16:21:16
  */
 
 /**
@@ -42,9 +42,8 @@ export function getColorRgbArr(color: string): number[] {
       sColorChange.push(parseInt(`0x${sColor.slice(i, i + 2)}`, 16));
     }
     return sColorChange;
-  } else {
-    return [];
   }
+  return [];
 }
 
 /**
@@ -72,5 +71,6 @@ export function getColorRgba(str: string, rate = 1): string {
  */
 export function isTransparentColor(colorStr: string): boolean {
   if (!colorStr) return false;
-  return colorStr.replace(' ', '').indexOf('0)') > -1;
+  const regex = /^rgba\((\d+),(\d+),(\d+),([0-9]+)/i;
+  return regex.test(colorStr.replace(/\s/g, '')) && parseFloat(RegExp.$4) === 0;
 }
