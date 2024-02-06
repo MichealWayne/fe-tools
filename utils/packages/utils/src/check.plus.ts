@@ -3,8 +3,44 @@
  * @module Check.plus
  * @description check password functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-06-20 13:39:30
+ * @LastEditTime 2024-02-04 16:09:05
  */
+
+/**
+ * @function validatePassport
+ * @description (中国)护照号码校验
+ * @param {string} passport
+ * @returns {boolean}
+ * @example
+ * validatePassport('G12345678'); // true
+ * validatePassport('D012345678'); // true
+ * validatePassport('140123456'); // true
+ * validatePassport('A12345678'); // false
+ * validatePassport('111234567'); // false
+ * validatePassport('G1234567'); // false
+ * validatePassport('G1234567A'); // false
+ */
+export function validatePassport(passport: string) {
+  const reg =
+    /(^[EeKkGgDdSsPpHh]\d{8}$)|(^(([Ee][a-fA-F])|([DdSsPp][Ee])|([Kk][Jj])|([Mm][Aa])|(1[45]))\d{7}$)/;
+  return reg.test(passport);
+}
+
+/**
+ * @function validateLicensePlate
+ * @description (中国)车牌号校验
+ * @param {string} licensePlate
+ * @returns {boolean}
+ * @example
+ * validateLicensePlate('京A12345'); // true
+ * validateLicensePlate('A12345'); // false
+ * validateLicensePlate('浙123456'); // false
+ */
+export function validateLicensePlate(licensePlate: string) {
+  const reg =
+    /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领]{1}[A-HJ-NP-Z]{1}(([0-9]{5}[DF])|([DF][A-HJ-NP-Z0-9][0-9]{4}))$/;
+  return reg.test(licensePlate);
+}
 
 // todo 优化验证
 
@@ -25,6 +61,7 @@ enum PwdStrengthTypes {
 
 /**
  * @function checkPwdStrength
+ * @description 检验密码强度（数字+字母+符号）
  * @param {string} pwd
  * @return {PwdStrengthTypes | string}
  */
@@ -120,6 +157,13 @@ const AREA_MAP = {
   91: '国外',
 };
 // eslint-disable-next-line complexity
+/**
+ * @function checkIdcard
+ * @description 身份证正确性校验
+ * @param idcard
+ * @param TipEnum
+ * @returns
+ */
 export function checkIdcard(idcard: string, TipEnum = DefaultIdcardTips) {
   const now = new Date();
   const y = String(now.getFullYear());

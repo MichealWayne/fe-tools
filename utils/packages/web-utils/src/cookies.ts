@@ -1,8 +1,9 @@
 /**
  * @module Cookie
+ * @note 目前不建议操作cookie，可见google Chrome《为停用第三方 Cookie 做好准备》：https://developers.google.com/privacy-sandbox/3pcd?hl=zh-cn
  * @author Wayne
  * @Date 2020-04-11 21:53:56
- * @LastEditTime 2023-04-03 20:42:53
+ * @LastEditTime 2024-02-04 16:23:43
  */
 
 // 涉及大量cookie操作可以考虑使用js-cookie(https://github.com/js-cookie/js-cookie)

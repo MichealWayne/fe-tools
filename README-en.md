@@ -711,6 +711,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://www.fundebug.com/ | FunDebug | A simple project debug monitoring tool, with a free version. |
 | http://www.webfunny.cn/ | webfunny_monitor | A unified front-end exception monitoring solution. |
 | https://github.com/typicode/json-server | json-server | A fast mock tool that runs locally. |
+| https://www.pagespy.org/ | Page spy | A set of higher degree of remote web debugging tools, Huolala tech. |
 
 ### 1.10.4 Quality Check
 
