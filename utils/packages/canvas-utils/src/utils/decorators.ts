@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /**
- *  @module decorators
+ * @module canvasDecorators
  * @author Wayne
  * @Date 2022-02-08 14:53:40
- * @LastEditTime 2022-07-05 13:37:45
+ * @LastEditTime 2024-02-18 13:25:09
  */
 
 import { isFunction } from 'utils';

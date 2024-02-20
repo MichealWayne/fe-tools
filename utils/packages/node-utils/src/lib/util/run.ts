@@ -1,7 +1,8 @@
 /**
+ * @module nodeRun
  * @author Wayne
  * @Date 2022-08-24 19:58:13
- * @LastEditTime 2023-10-05 13:25:56
+ * @LastEditTime 2024-02-18 13:21:24
  */
 import { spawn, spawnSync } from 'child_process';
 import { fileURLToPath } from 'url';

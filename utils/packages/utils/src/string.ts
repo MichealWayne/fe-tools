@@ -2,7 +2,7 @@
  * @module String
  * @author Wayne
  * @Date 2022-07-11 13:34:54
- * @LastEditTime 2023-06-17 14:06:50
+ * @LastEditTime 2024-02-18 10:50:43
  */
 
 /**
@@ -159,4 +159,44 @@ isChinese('你好hello'); // false
  */
 export function isChinese(str: string) {
   return /^[\u4E00-\u9FA5]{1,}$/.test(str);
+}
+
+/**
+ * @function camelize
+ * @description 将字符串转换成驼峰命名方式
+ * @param {String} str 待判断的字符串 test-data
+ * @returns {String} 返回转换后的字符串 testData
+ * @example
+// Test case 1: Basic functionality
+const input1 = "hello-world";
+const expectedOutput1 = "helloWorld";
+const actualOutput1 = camelize(input1);
+console.log(actualOutput1 === expectedOutput1); // true
+
+// Test case 2: Input with underscore separator
+const input2 = "foo_bar";
+const expectedOutput2 = "fooBar";
+const actualOutput2 = camelize(input2);
+console.log(actualOutput2 === expectedOutput2); // true
+
+// Test case 3: Input with multiple separators in a row
+const input3 = "foo---bar";
+const expectedOutput3 = "fooBar";
+const actualOutput3 = camelize(input3);
+console.log(actualOutput3 === expectedOutput3); // true
+
+// Test case 4: Input with uppercase letters
+const input4 = "foo-bar-BAZ";
+const expectedOutput4 = "fooBarBAZ";
+const actualOutput4 = camelize(input4);
+console.log(actualOutput4 === expectedOutput4); // true
+
+// Test case 5: Input with numbers
+const input5 = "foo-123-bar";
+const expectedOutput5 = "foo123Bar";
+const actualOutput5 = camelize(input5);
+console.log(actualOutput5 === expectedOutput5); // true
+ */
+export function camelize(str: string): string {
+  return str.replace(/[-|_](\w)/g, (_, c) => c.toUpperCase());
 }

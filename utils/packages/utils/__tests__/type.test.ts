@@ -5,12 +5,13 @@ import {
   isArray,
   isString,
   isObject,
+  isNumber,
   isFunction,
-  isPromise,
-  isEmptyObj,
+  isPrimitive,
+  isDate,
   equals,
-  size,
 } from '../src/type';
+import { isEmptyObj } from '../src/object';
 
 describe('string test', () => {
   it('type()', async () => {
@@ -80,6 +81,14 @@ describe('string test', () => {
     expect(isUndefined({ length: 0 })).toEqual(false);
   });
 
+  it('isDate()', async () => {
+    expect(isDate(new Date())).toBe(true);
+    expect(isDate('2020-01-01')).toBe(false);
+    expect(isDate(1577836800000)).toBe(false);
+    expect(isDate(null)).toBe(false);
+    expect(isDate(undefined)).toBe(false);
+    expect(isDate(true)).toBe(false);
+  });
   it('isString()', async () => {
     expect(isString('')).toEqual(true);
     expect(isString(String())).toEqual(true);
@@ -92,6 +101,18 @@ describe('string test', () => {
     expect(isString(false)).toEqual(false);
     expect(isString(null)).toEqual(false);
     expect(isString(undefined)).toEqual(false);
+  });
+
+  it('isNumber()', async () => {
+    expect(isNumber(1)).toBe(true);
+    expect(isNumber(0)).toBe(true);
+    expect(isNumber(-1)).toBe(true);
+    expect(isNumber(1.1)).toBe(true);
+    expect(isNumber('1')).toBe(false);
+    expect(isNumber(true)).toBe(false);
+    expect(isNumber(null)).toBe(false);
+    expect(isNumber(undefined)).toBe(false);
+    expect(isNumber(NaN)).toBe(false);
   });
 
   it('isObject()', async () => {
@@ -125,24 +146,20 @@ describe('string test', () => {
     expect(isFunction(undefined)).toEqual(false);
   });
 
-  it('isPromise()', async () => {
-    expect(isPromise(() => '')).toEqual(false);
-    expect(isPromise()).toEqual(false);
+  it('isPrimitive()', async () => {
+    expect(isPrimitive(() => '')).toEqual(false);
+    expect(isPrimitive()).toEqual(false);
     expect(
-      isPromise({
+      isPrimitive({
         then: () => '',
       })
     ).toEqual(true); // PromiseLike
     expect(
-      isPromise({
+      isPrimitive({
         then: () => '',
         catch: () => '',
       })
     ).toEqual(true); // PromiseLike
-    expect(isPromise(new Promise(resolve => resolve(1)))).toEqual(true);
-    expect(isPromise(new Promise((resolve, reject) => reject(1)))).toEqual(true);
-    expect(isPromise(Promise.resolve(1))).toEqual(true);
-    expect(isPromise(Promise.reject(1))).toEqual(true);
   });
 
   it('isEmptyObj()', async () => {
@@ -157,6 +174,7 @@ describe('string test', () => {
     expect(equals({ a: 1 }, { a: 1 })).toEqual(true);
     expect(equals({ a: 1 }, { a: 1, b: 2 })).toEqual(false);
     expect(equals({ a: 1 }, [1])).toEqual(false);
+    expect(equals({ then: () => '' }, { then: () => '' })).toEqual(false);
     expect(equals(new Date(), new Date())).toEqual(true);
     expect(equals(null, undefined)).toEqual(false);
     expect(equals(Object, Array)).toEqual(false);
@@ -165,12 +183,5 @@ describe('string test', () => {
     expect(equals({}, () => '')).toEqual(false);
     expect(equals(undefined, undefined)).toEqual(true);
     expect(equals(undefined, 0)).toEqual(false);
-  });
-
-  it('size()', async () => {
-    expect(size([1, 1])).toEqual(2);
-    expect(size({ a: 1 })).toEqual(1);
-    expect(size('123')).toEqual(3);
-    expect(size(1)).toEqual(0);
   });
 });

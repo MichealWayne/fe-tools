@@ -362,6 +362,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://www.infernojs.org/ | infernojs | Lightweight class React library, jsx. |
 | https://emberjs.com/ | emberjs | A powerful web development framework with scaffolding, template. |
 | https://github.com/akxcv/vuera | vuera | A library for mixing Vue/React components, which means Vue can use React components and React can use Vue components. |
+| https://github.com/devilwjp/veaury | veaury | A library for mixing Vue3/React components, better than vuera |
 | https://quark-design.hellobike.com/ | quark | A mobile cross-framework UI component library based on Web Components, Hallo. |
 | https://github.com/web3/web3.js | web3js | Standard js encapsulation library for Ethereum. |
 

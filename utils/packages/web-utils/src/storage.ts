@@ -1,7 +1,7 @@
 /**
  * @model Stroage
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-02-21 10:40:59
+ * @LastEditTime 2024-02-18 13:10:05
  */
 
 import { PlainObject } from 'utils';
@@ -23,7 +23,7 @@ function deserialize(value: unknown) {
   }
 }
 
-const STORAGE_CONSTROLER = {
+const STORAGE_CONST_ROLER = {
   local: localStorage,
   session: sessionStorage,
 };
@@ -36,7 +36,7 @@ const STORAGE_CONSTROLER = {
  *      Storage('session').get('a');
  */
 function Storage(type = 'local') {
-  const _controller = STORAGE_CONSTROLER[type as keyof typeof STORAGE_CONSTROLER];
+  const _controller = STORAGE_CONST_ROLER[type as keyof typeof STORAGE_CONST_ROLER];
 
   return {
     /**

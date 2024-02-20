@@ -349,6 +349,7 @@
 <a href="https://www.infernojs.org/" target="_blank">Infernojs</a> | `infernojs` | 轻量的类React库，jsx。
 <a href="https://emberjs.com/" target="_blank">Emberjs</a> | `emberjs` | 脚手架强大的web开发框架，template。
 <a href="https://github.com/akxcv/vuera" target="_blank">Vuera</a> | `vuera` | 用来混用Vue/React组件的库、即Vue中可以使用React组件、React中可以使用Vue组件。
+<a href="https://github.com/devilwjp/veaury" target="_blank">Veaury</a> | `veaury` | 用来混用Vue3/React组件的库、比vuera功能完善。
 <a href="https://quark-design.hellobike.com/" target="_blank">Quark</a> | `quark` | 基于 Web Components 的移动端跨框架 UI 组件库，哈啰。
 <a href="https://github.com/web3/web3.js" target="_blank">Web3js</a> | `web3js` | 以太坊标准js封装库。
 

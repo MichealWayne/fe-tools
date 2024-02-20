@@ -1,9 +1,9 @@
 /**
- * @module DOM
+ * @module canvasDomUtils
  * @description dom operate
  * @author Wayne
  * @Date 2022-06-06 10:08:50
- * @LastEditTime 2023-01-31 10:45:43
+ * @LastEditTime 2024-02-18 13:25:45
  */
 
 import { getElementSize } from 'web-utils';

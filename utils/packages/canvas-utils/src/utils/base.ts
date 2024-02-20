@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /**
- * @module utils
+ * @module canvasUtils
  * @description basic functions
  * @author Wayne
  * @createTime 2019-07-15
@@ -71,7 +71,7 @@ export function cloneObjDeep(fromObj: SimpleObj, toObj: SimpleObj): Record<any, 
   for (const i in fromObj) {
     if (isObject(toObj[i]) && !isEmptyObj(toObj[i])) {
       // obj
-      cloneObjDeep(fromObj[i], toObj[i]);
+      cloneObjDeep(fromObj[i] as SimpleObj, toObj[i] as SimpleObj);
       continue;
     }
 

@@ -3,7 +3,7 @@
  * @description number functions
  * @author Wayne
  * @Date 2023-02-09 15:08:11
- * @LastEditTime 2024-02-04 19:51:31
+ * @LastEditTime 2024-02-18 11:01:57
  */
 
 import { isNumber } from './type';
@@ -23,6 +23,21 @@ import { isNumber } from './type';
 export const isInt = (val: unknown): val is number => {
   return isNumber(val) && val % 1 === 0;
 };
+
+/**
+ * @function isOdd
+ * @description 判断一个数字是不是偶数
+ * @param {number} num
+ * @return {boolean}
+ * @example
+ * isOdd(2); // true
+ * isOdd(0); // true
+ * isOdd(1); // false
+ * isOdd(-2); // true
+ */
+export function isOdd(num: number) {
+  return num % 2 === 0;
+}
 
 /**
  * @function isFloat
