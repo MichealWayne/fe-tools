@@ -1,3 +1,10 @@
+/**
+ * @module nodeStore
+ * @author Wayne
+ * @Date 2022-08-31 16:05:14
+ * @LastEditTime 2024-02-18 13:20:20
+ */
+
 /* eslint-disable @typescript-eslint/no-this-alias */
 import path from 'path';
 import fs from 'fs';

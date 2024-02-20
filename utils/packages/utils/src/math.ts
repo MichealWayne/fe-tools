@@ -2,7 +2,7 @@
  * @module Math
  * @description math functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-06-17 14:10:57
+ * @LastEditTime 2024-02-18 11:02:05
  */
 
 /**
@@ -43,21 +43,6 @@ export function gcd(x: number, y: number): number {
  */
 export function isDivisible(dividend: number, divisor: number) {
   return dividend % divisor === 0;
-}
-
-/**
- * @function isOdd
- * @description 判断一个数字是不是偶数
- * @param {number} num
- * @return {boolean}
- * @example
- * isOdd(2); // true
- * isOdd(0); // true
- * isOdd(1); // false
- * isOdd(-2); // true
- */
-export function isOdd(num: number) {
-  return num % 2 === 0;
 }
 
 /**

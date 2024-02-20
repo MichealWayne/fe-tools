@@ -3,7 +3,7 @@
  * @description object functions
  * @author Wayne
  * @Date 2022-07-05 13:53:42
- * @LastEditTime 2023-04-03 21:08:02
+ * @LastEditTime 2024-02-18 13:23:23
  */
 
 import { isObject } from './type';
@@ -103,6 +103,6 @@ export function hasOwnProp(obj: unknown, key: string): boolean {
  * isEmptyObj({a:1}); // false
  * isEmptyObj(null); // false
  */
-export function isEmptyObj(obj?: PlainObject | null): boolean {
+export function isEmptyObj(obj?: unknown): boolean {
   return isObject(obj) && Object.keys(obj).length === 0;
 }

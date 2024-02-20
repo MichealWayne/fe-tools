@@ -3,13 +3,14 @@
  * @description curve functions.
  * @author Wayne
  * @Date 2022-06-06 10:06:08
- * @LastEditTime 2022-06-07 15:27:14
+ * @LastEditTime 2024-02-18 13:24:52
  */
 
 import { PointPosition } from '../types';
 
-// @todo Factory use
-
+/**
+ * @class Vector
+ */
 class Vector {
   x = 0;
   y = 0;

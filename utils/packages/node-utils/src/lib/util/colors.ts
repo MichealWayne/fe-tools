@@ -1,9 +1,9 @@
 /**
- * @module colors
+ * @module terminalColors
  * @description console colors
  * @author Wayne
  * @Date 2022-06-21 14:09:06
- * @LastEditTime 2022-07-05 09:49:29
+ * @LastEditTime 2024-02-18 13:21:05
  */
 
 const COLORS_MAP = {

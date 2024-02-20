@@ -3,7 +3,7 @@
  * @module Check
  * @description check functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-02-05 16:01:41
+ * @LastEditTime 2024-02-18 10:43:54
  */
 
 /**
@@ -27,6 +27,13 @@ export function isEmail(str: string) {
  * @description 中国大陆身份证验证。简单验证，如仔细验证可用check.plus.ts/checkIdcard()
  * @param {string} str
  * @return {boolean}
+ * @example
+ * isIdCard('610527199201015209'); // true
+ * isIdCard('11010519491231002X'); // true
+ * isIdCard('1101051949123100'); // false
+ * isIdCard('11010519490231123X'); // false
+ * isIdCard('11010519491231002A'); // false
+ * isIdCard('123456789012345'); // false
  */
 export function isIdCard(str: string) {
   return /^(^[1-9]\d{7}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}$)|(^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])((\d{4})|\d{3}[Xx])$)$/.test(
@@ -43,7 +50,7 @@ export function isIdCard(str: string) {
  * isUrl('https://www.example.com');  // true
  * isUrl('https://subdomain.example.com/path/page.html?query=string'); // true
  * isUrl('ftp://ftp.example.com'); // true
- * isUrl('example.com'); // false
+ * isUrl('example.com'); // true
  * isUrl('http://example'); // false
  */
 export function isUrl(str: string) {
@@ -90,9 +97,9 @@ export function isPostalCode(postalCode: string) {
  * @param {string} bankCard
  * @returns {boolean}
  * @example
- * isBankCard('123456789012345'); // true
+ * isBankCard('6222600584855931'); // true
  * isBankCard('023456789012345'); // false
- * isBankCard('1234567890123456'); // false
+ * isBankCard('1234567890123456'); // true
  * isBankCard('12345678901234'); // false
  */
 export function isBankCard(bankCard: string) {

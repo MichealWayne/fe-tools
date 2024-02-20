@@ -2,7 +2,7 @@
  * @module Type
  * @description value type functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-06-17 13:45:30
+ * @LastEditTime 2023-06-17 10:26:44
  */
 
 /**
@@ -121,7 +121,7 @@ export function isFunction(val?: unknown): val is Function {
 
 /**
  * @function isPrimitive
- * @description **isPromise(val)** if the variable value is isPromise.(https://github.com/then/is-promise)
+ * @description **isPrimitive(val)** if the variable value is isPromise.(https://github.com/then/is-promise)
  * @param {unknown} val variable value
  * @return {Boolean}
  * @example

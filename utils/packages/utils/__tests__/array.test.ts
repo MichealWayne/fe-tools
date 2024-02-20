@@ -3,7 +3,6 @@ import {
   arrayMin,
   arrayAverage,
   arraySum,
-  all,
   allEqual,
   arrayToCSV,
   castArray,
@@ -54,23 +53,6 @@ test('arraySum test', () => {
   expect(arraySum([-5, -1, -3])).toBe(-9);
   expect(arraySum([1])).toBe(1);
   expect(arraySum([])).toBe(0);
-});
-
-test('all test', () => {
-  expect(all([1, 2, 3], a => a > 0)).toBe(true);
-  expect(all([1, 2, 3], a => a < 2)).toBe(false);
-  expect(all([1, 2, 3])).toBe(true);
-  expect(all([5, 5, 5], a => a === 5)).toBe(true);
-  expect(all([5, 5, 5], a => a !== 1)).toBe(true);
-  expect(all([5, 5, 5])).toBe(true);
-  expect(all([-5, -1, -3], a => a > 0)).toBe(false);
-  expect(all([-5, -1, -3], a => a < 0)).toBe(true);
-  expect(all([-5, -1, -3])).toBe(true);
-  expect(all([1], a => a === 1)).toBe(true);
-  expect(all([1], a => a > 1)).toBe(false);
-  expect(all([1])).toBe(true);
-  expect(all([])).toBe(true);
-  expect(all([], a => a > 1)).toBe(true);
 });
 
 test('allEqual test', () => {
@@ -154,8 +136,8 @@ test('differenceBy test', () => {
 });
 
 test('dropWhile test', () => {
-  expect(JSON.stringify(dropWhile([1, 2, 3, 4, 5], a => a > 3))).toBe('[4,5]');
-  expect(JSON.stringify(dropWhile([1, 2, 3, 4, 5], a => a > 5))).toBe('[]');
+  expect(JSON.stringify(dropWhile([1, 2, 3, 4, 5], (a: any) => a > 3))).toBe('[4,5]');
+  expect(JSON.stringify(dropWhile([1, 2, 3, 4, 5], (a: any) => a > 5))).toBe('[]');
   expect(JSON.stringify(dropWhile(['', null, undefined, NaN, 0, 1], a => a))).toBe('[1]');
 });
 

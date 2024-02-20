@@ -1,7 +1,8 @@
 /**
+ * @module promptApplications
  * @author Wayne
  * @Date 2023-07-22 11:34:04
- * @LastEditTime 2024-01-01 15:04:19
+ * @LastEditTime 2024-02-18 13:27:11
  */
 import { estimateTokenLength } from '../llm/prompts';
 const MAX_TOKEN_LEN = 4000; // GPT3.5 4096

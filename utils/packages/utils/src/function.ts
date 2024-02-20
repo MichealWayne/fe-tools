@@ -2,7 +2,7 @@
  * @module Function
  * @author Wayne
  * @createTime 2022-03-12 14:44:00
- * @LastEditTime 2023-07-22 11:25:38
+ * @LastEditTime 2024-02-18 10:59:13
  */
 
 export const NOOP = () => '';
@@ -175,7 +175,7 @@ export function compose<T>(...fns: Array<(...arg: T[]) => T>): (arg: T) => T {
  * const multiplyAndAdd = pipe(add, multiply2);
  * multiplyAndAdd(5, 2);
  */
-export function pipe<T extends unknown[]>(...fns: Array<(...arg: T[]) => T>) {
+export function pipe<T extends unknown[]>(...fns: Array<(...arg: any[]) => any>) {
   return fns.reduce(
     (f, g) =>
       (...arg: T[]) =>

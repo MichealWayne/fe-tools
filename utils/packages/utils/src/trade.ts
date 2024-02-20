@@ -3,7 +3,7 @@
  * @description trade functions
  * @author Wayne
  * @Date 2022-04-11 21:45:54
- * @LastEditTime 2023-06-17 14:09:19
+ * @LastEditTime 2024-02-18 11:22:19
  */
 
 /**
@@ -13,7 +13,7 @@
  * @extends to:https://github.com/navyxie/bankcardinfo
  * @return {boolean}
  * @example
- luhnCheck('79927398713'); // false
+ luhnCheck(79927398713); // true
  */
 export function luhnCheck(num: number) {
   const arr = String(num)

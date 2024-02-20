@@ -2,7 +2,7 @@
  * @module Others
  * @author Wayne
  * @Date 2023-02-06 21:17:44
- * @LastEditTime 2023-04-03 20:54:03
+ * @LastEditTime 2024-02-18 11:53:45
  */
 
 // 复杂比较请见https://github.com/omichelsen/compare-versions
@@ -15,19 +15,17 @@
  * |return|Comparison result |
  */
 
-/* example
- * compareVersion('1.1.8', '1.0.4'); // -> 1
- * compareVersion('1.0.2', '1.0.2'); // -> 0
- * compareVersion('2.0', '2.0.0'); // -> 0
- * compareVersion('3.0.1', '3.0.0.2'); // -> 1
- * compareVersion('1.1.1', '1.2.3'); // -> -1
- */
-
 /**
  * @function compareVersion
  * @param {string} v1Str
  * @param {string} v2Str
  * @return {1|0|-1}
+ * @example
+ * compareVersion('1.1.8', '1.0.4'); // -> 1
+ * compareVersion('1.0.2', '1.0.2'); // -> 0
+ * compareVersion('2.0', '2.0.0'); // -> 0
+ * compareVersion('3.0.1', '3.0.0.2'); // -> 1
+ * compareVersion('1.1.1', '1.2.3'); // -> -1
  */
 export function compareVersion(v1Str: string, v2Str: string) {
   const v1 = v1Str.split('.');

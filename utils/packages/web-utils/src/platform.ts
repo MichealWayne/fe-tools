@@ -3,7 +3,7 @@
 /**
  * @module Platform
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-03-01 22:04:00
+ * @LastEditTime 2024-02-18 11:54:57
  */
 
 /**
@@ -98,6 +98,8 @@ export function getSystemOS() {
  * @function getPlatform
  * @description 获取当前页面所处的移动设备标识
  * @return {String}
+ * @example
+ * getPlatform(); // 'iphone' or 'gphone'
  */
 export function getPlatform() {
   const info = {
