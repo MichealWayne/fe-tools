@@ -2,7 +2,7 @@
  * @module String
  * @author Wayne
  * @Date 2022-07-11 13:34:54
- * @LastEditTime 2024-02-18 10:50:43
+ * @LastEditTime 2024-03-10 10:06:48
  */
 
 /**
@@ -27,8 +27,8 @@ export function byteSize(str: string) {
 capitalize('hello'); // 'Hello'
 capitalize('world'); // 'World'
  */
-export function capitalize([first, ...rest]: string[]) {
-  return first.toUpperCase() + rest.join('');
+export function capitalize(paramString: string): string {
+  return paramString.charAt(0).toUpperCase() + paramString.slice(1);
 }
 
 /**

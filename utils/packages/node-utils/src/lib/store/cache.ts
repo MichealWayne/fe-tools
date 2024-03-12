@@ -2,14 +2,14 @@
  * @module nodeStore
  * @author Wayne
  * @Date 2022-08-31 16:05:14
- * @LastEditTime 2024-02-18 13:20:20
+ * @LastEditTime 2024-03-10 13:35:03
  */
 
 /* eslint-disable @typescript-eslint/no-this-alias */
 import path from 'path';
 import fs from 'fs';
 
-import { writeJson, readJson, writeFile, readFile } from '../fs/fsFuncs';
+import { writeJson, readJson, writeFile, readFileSync } from '../fs/fsFuncs';
 
 function isAsync(fn: any) {
   return fn[Symbol.toStringTag] === 'AsyncFunction';
@@ -59,7 +59,7 @@ export default class Cache {
     if (ext === '.json') {
       return readJson(this.getFilename(key, ext));
     }
-    return readFile(this.getFilename(key, ext));
+    return readFileSync(this.getFilename(key, ext));
   }
 
   write(key: string, ext: string, content: string) {

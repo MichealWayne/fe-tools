@@ -472,6 +472,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/chalk/chalk | chalk | Console command line output style tool, mainly controls color. |
 | https://github.com/node-schedule/node-schedule | node-schedule | Timing task tool for Nodejs. |
 | https://www.npmjs.com/package/source-map-support | source-map-support | Module tool that supports SourceMap in the nodejs environment. |
+| https://github.com/wclr/yalc | yalc | An effective alternative to npm link, using real npm packages instead of various links. |
 
 ### 1.7.1 Building
 

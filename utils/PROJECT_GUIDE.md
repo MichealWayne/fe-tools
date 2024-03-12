@@ -1,4 +1,4 @@
-# utils
+# fe-tools utils
 
 前端常用 js 工具集。
 

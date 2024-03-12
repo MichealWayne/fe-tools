@@ -1,11 +1,85 @@
 /**
  * @author Wayne
  * @Date 2023-02-15 14:06:30
- * @LastEditTime 2024-02-20 10:52:18
+ * @LastEditTime 2024-03-10 10:14:09
  */
-import { camelize, splitLines, isChinese, truncateString } from '../src/string';
+import {
+  byteSize,
+  capitalize,
+  capitalizeEveryWord,
+  decapitalize,
+  palindrome,
+  stripHTMLTags,
+  camelize,
+  splitLines,
+  isChinese,
+  truncateString,
+  fromCamelCase,
+  reverseString,
+} from '../src/string';
 
 describe('string test', () => {
+  it('byteSize()', async () => {
+    expect(byteSize('Hello, world!')).toEqual(13);
+    expect(byteSize('你好，世界！')).toEqual(14);
+  });
+
+  it('capitalize()', async () => {
+    expect(capitalize('hello')).toEqual('Hello');
+    expect(capitalize('world')).toEqual('World');
+  });
+
+  it('capitalizeEveryWord()', async () => {
+    expect(capitalizeEveryWord('hello world')).toEqual('Hello World');
+    expect(capitalizeEveryWord('the quick brown fox')).toEqual('The Quick Brown Fox');
+  });
+
+  it('decapitalize()', async () => {
+    expect(decapitalize('Hello')).toEqual('hello');
+    expect(decapitalize('World')).toEqual('world');
+  });
+
+  describe('reverseString', () => {
+    it('should handle empty strings correctly', () => {
+      const str = '';
+      expect(reverseString(str)).toEqual('');
+    });
+  });
+
+  describe('fromCamelCase', () => {
+    it('should convert camel case to snake case with default separator', () => {
+      const result = fromCamelCase('camelCaseString');
+      expect(result).toBe('camel_case_string');
+    });
+
+    it('should convert camel case to kebab case with specified separator', () => {
+      const result = fromCamelCase('camelCaseString', '-');
+      expect(result).toBe('camel-case-string');
+    });
+
+    it('should handle empty input', () => {
+      const result = fromCamelCase('');
+      expect(result).toBe('');
+    });
+  });
+
+  describe('palindrome', () => {
+    it('should return true for a single word palindrome', () => {
+      expect(palindrome('racecar')).toBeTruthy();
+    });
+    it('should return false for a single word non-palindrome', () => {
+      expect(palindrome('hello')).toBeFalsy();
+    });
+  });
+
+  describe('stripHTMLTags', () => {
+    it('should remove HTML tags from a string', () => {
+      const input = 'This is <b>bold</b> and <i>italic</i> text';
+      const expectedOutput = 'This is bold and italic text';
+      expect(stripHTMLTags(input)).toEqual(expectedOutput);
+    });
+  });
+
   it('camelize()', async () => {
     expect(camelize('')).toEqual('');
     expect(camelize('test-data')).toEqual('testData');
@@ -26,34 +100,36 @@ describe('string test', () => {
     it('should split lines of text with \\n', () => {
       const input = 'line 1\nline 2\nline 3\n';
       const expectedOutput = ['line 1', 'line 2', 'line 3', ''];
-      expect(splitLines(input)).toEqual(expectedOutput);
+      expect(JSON.stringify(splitLines(input))).toEqual(JSON.stringify(expectedOutput));
     });
 
     it('should split lines of text with \\r\\n', () => {
       const input = 'line 1\r\nline 2\r\nline 3\r\n';
       const expectedOutput = ['line 1', 'line 2', 'line 3', ''];
-      expect(splitLines(input)).toEqual(expectedOutput);
+      expect(JSON.stringify(splitLines(input))).toEqual(JSON.stringify(expectedOutput));
     });
 
     it('should split lines of text with mixed line endings', () => {
       const input = 'line 1\nline 2\r\nline 3\n\r';
       const expectedOutput = ['line 1', 'line 2', 'line 3', ''];
-      expect(splitLines(input)).toEqual(expectedOutput);
+      expect(JSON.stringify(splitLines(input))).toEqual(JSON.stringify(expectedOutput));
     });
 
     it('should return an array with a single empty string for an empty input', () => {
       const input = '';
       const expectedOutput = [''];
-      expect(splitLines(input)).toEqual(expectedOutput);
+      expect(JSON.stringify(splitLines(input))).toEqual(JSON.stringify(expectedOutput));
     });
 
-    expect(splitLines('')).toEqual(['']);
-    expect(splitLines('123\r\n456')).toEqual(['123', '456']);
-    expect(splitLines('123\n456')).toEqual(['123', '456']);
+    expect(JSON.stringify(splitLines(''))).toEqual(JSON.stringify(['']));
+    expect(JSON.stringify(splitLines('123\r\n456'))).toEqual(JSON.stringify(['123', '456']));
+    expect(JSON.stringify(splitLines('123\n456'))).toEqual(JSON.stringify(['123', '456']));
     expect(
-      splitLines(`123
+      JSON.stringify(
+        splitLines(`123
 456`)
-    ).toEqual(['123', '456']);
+      )
+    ).toEqual(JSON.stringify(['123', '456']));
   });
 
   it('isChinese()', async () => {

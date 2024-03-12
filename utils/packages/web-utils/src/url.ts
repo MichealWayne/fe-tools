@@ -2,7 +2,7 @@
  * @module Url
  * @notice 如无兼容要求，可直接用URL对象进行处理
  * @Date 2022-08-24 14:18:25
- * @LastEditTime 2023-03-14 11:17:01
+ * @LastEditTime 2024-03-10 13:55:30
  */
 
 /**
@@ -38,10 +38,9 @@ export function getUrlParam(name: string, decode?: (s: string) => string) {
   if (res !== null) {
     if (!decode) {
       return decodeURI(res[2]);
-    } else {
-      // eslint-disable-next-line no-eval
-      return decode(res[2]);
     }
+    // eslint-disable-next-line no-eval
+    return decode(res[2]);
   }
   return null;
 }
@@ -93,7 +92,12 @@ export const getUrlDomain = (url: string = location.href.toString()): string => 
 /**
  * @function httpsRedirect
  * @description page http -> https
+ * @param {string?} url
  */
-export function httpsRedirect() {
-  if (location.protocol !== 'https:') location.replace(`https://${location.href.split('//')[1]}`);
+export function httpsRedirect(url: string = location.href) {
+  if (!url.startsWith('https://')) {
+    const newUrl = new URL(url);
+    newUrl.protocol = 'https';
+    location.replace(newUrl.toString());
+  }
 }

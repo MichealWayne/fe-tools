@@ -2,7 +2,7 @@
  * @module Function
  * @author Wayne
  * @createTime 2022-03-12 14:44:00
- * @LastEditTime 2024-02-18 10:59:13
+ * @LastEditTime 2024-03-11 21:26:45
  */
 
 export const NOOP = () => '';
@@ -42,8 +42,12 @@ console.log('This is printed first.');
 // This is printed first.
 // Hello, world!
  */
-export function defer(fn: (...ks: unknown[]) => unknown, ...args: unknown[]) {
-  return setTimeout(fn, 1, ...args);
+export async function defer(
+  fn: (...args: unknown[]) => unknown,
+  ...args: unknown[]
+): Promise<void> {
+  await new Promise(resolve => setTimeout(resolve, 0));
+  fn(...args);
 }
 
 /**

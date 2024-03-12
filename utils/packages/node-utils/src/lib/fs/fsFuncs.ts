@@ -1,7 +1,7 @@
 /**
  * @module fsFuncs
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-06-17 14:18:38
+ * @LastEditTime 2024-03-10 13:34:14
  */
 
 import fs from 'fs';
@@ -35,25 +35,28 @@ export function travelFolderSync(
 
 /**
  * @function mkdirsSync
- * @description make folder(sync)
+ * @description 同步进行文件夹创建（容错）
  * @param {String} dirPath
  * @return {Boolean}
  */
 export function mkdirsSync(dirPath: string) {
   try {
-    if (!fs.existsSync(dirPath)) {
-      let pathTemp;
-      const dirs = dirPath.split(/[/\\]/);
-      for (let i = 0, len = dirs.length; i < len; i++) {
-        const dirName = dirs[i];
-        pathTemp = pathTemp ? join(pathTemp, dirName) : dirName;
-        if (!fs.existsSync(pathTemp)) {
-          try {
-            fs.mkdirSync(pathTemp);
-          } catch (e) {
-            Tip.log(`Error!create director fail! path=${pathTemp} errorMsg:${e}`);
-            return false;
-          }
+    if (fs.existsSync(dirPath)) {
+      return true;
+    }
+
+    let pathTemp = '';
+    const dirs = dirPath.split(/[/\\]/);
+
+    for (const dirName of dirs) {
+      pathTemp = pathTemp ? join(pathTemp, dirName) : dirName;
+
+      if (!fs.existsSync(pathTemp)) {
+        try {
+          fs.mkdirSync(pathTemp);
+        } catch (e) {
+          Tip.log(`Error! Create directory failed! Path=${pathTemp} Error: ${e}`);
+          return false;
         }
       }
     }
@@ -102,23 +105,23 @@ export function setFolderSync(folderPath: string, noTip?: boolean) {
  */
 export function rmdirsSync(targetPath: string) {
   try {
-    let files = [];
     if (fs.existsSync(targetPath)) {
-      files = fs.readdirSync(targetPath);
-      files.forEach(function (file: string) {
+      const files = fs.readdirSync(targetPath);
+
+      for (const file of files) {
         const curPath = `${targetPath}/${file}`;
+
         if (fs.statSync(curPath).isDirectory()) {
-          // recurse
           if (!rmdirsSync(curPath)) return false;
         } else {
           fs.unlinkSync(curPath);
         }
-        return true;
-      });
+      }
+
       fs.rmdirSync(targetPath);
     }
   } catch (err) {
-    Tip.error(`Error! remove director fail!(rmdirsSync) path=${targetPath}, error=${err}`);
+    Tip.error(`Error! Remove directory failed! Path=${targetPath}, Error: ${err}`);
     return false;
   }
   return true;
@@ -160,12 +163,12 @@ export function writeJson(filePath: string, obj: { [key: string]: unknown }, spa
 }
 
 /**
- * @function readFile
- * @description 读取文件内容
+ * @function readFileSync
+ * @description 读取文件内容（同步）
  * @param {String} filePath
  * @returns {String}
  */
-export function readFile(filePath: string) {
+export function readFileSync(filePath: string) {
   if (fs.existsSync(filePath)) {
     return fs.readFileSync(filePath, 'utf8');
   }
@@ -176,10 +179,10 @@ export function readFile(filePath: string) {
  * @function readJson
  * @description 读取JSON文件内容
  * @param {String} filePath
- * @returns {String}
+ * @returns {Object}
  */
 export function readJson(filePath: string) {
-  const content = readFile(filePath);
+  const content = readFileSync(filePath);
   if (content) {
     return JSON.parse(content);
   }
@@ -193,6 +196,6 @@ export default {
   mkdirsSync,
   rmdirsSync,
   writeFile,
-  readFile,
+  readFileSync,
   readJson,
 };
