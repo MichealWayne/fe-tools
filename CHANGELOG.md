@@ -1,5 +1,6 @@
 ### 更新信息
 
+- 2024.03.10：修改 utils & web util functions(部分方法类型声明及参数处理优化, Storage)
 - 2024.02.04：修改 util functions(增加 check 方法，部分方法实现或注释调整)；
 - 2024.01.14：增加 vite-react+ts 模版；node-utils 小更新；
 - 2023.12.30：增加 vite-vue3+ts 模版；fe-templates 部分问题修复；

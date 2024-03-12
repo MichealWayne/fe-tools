@@ -460,6 +460,7 @@
 <a href="https://github.com/chalk/chalk" target="_blank">chalk</a> | `chalk ` | 控制台命令行输出样式工具，主要控制颜色。
 <a href="https://github.com/node-schedule/node-schedule" target="_blank">node-schedule</a> | `node-schedule` | 适用于nodejs的定时任务工具。
 <a href="https://www.npmjs.com/package/source-map-support" target="_blank">source-map-support</a> | `source-map-support` | 在 nodejs 环境下支持 SourceMap 的模块工具。
+<a href="https://github.com/wclr/yalc" target="_blank">yalc</a> | `yalc` | npm link 的有效替代品，使用真实的 npm package 代替各种 link。
 
 #### 1.7.1 构建
 地址 | 标签 | 说明

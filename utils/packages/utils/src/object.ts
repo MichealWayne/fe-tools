@@ -3,7 +3,7 @@
  * @description object functions
  * @author Wayne
  * @Date 2022-07-05 13:53:42
- * @LastEditTime 2024-02-18 13:23:23
+ * @LastEditTime 2024-03-10 13:22:44
  */
 
 import { isObject } from './type';
@@ -23,7 +23,7 @@ export type PlainObject = {
  */
 export function forOwn(
   obj: PlainObject,
-  fn: (val?: unknown, key?: string, obj?: PlainObject) => unknown
+  fn: (val?: unknown, key?: string, obj?: PlainObject) => void
 ) {
   return Object.keys(obj).forEach(key => fn(obj[key], key, obj));
 }

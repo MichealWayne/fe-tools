@@ -2,7 +2,7 @@
  * @module Array
  * @description array functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-04-03 21:27:48
+ * @LastEditTime 2024-03-11 15:11:16
  */
 
 import { isArray, isObject } from './type';
@@ -120,9 +120,9 @@ export function arrayToCSV(arr: AnyArr[], delimiter?: string): string {
  * @function castArray
  * @description 未知类型的数据val转数组
  * @param {unknown} val
- * @return {array}
+ * @return {unknown[]}
  */
-export function castArray(val: unknown): unknown[] {
+export function castArray<T>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val];
 }
 
@@ -135,7 +135,7 @@ export function castArray(val: unknown): unknown[] {
  * @example
  * chunk([1,2,3,4,5], 3);  // [[1,2,3],[4,5]]
  */
-export function chunk(arr: AnyArr, size: number): unknown[] {
+export function chunk<T>(arr: T[], size: number): T[][] {
   return Array.from(
     {
       length: Math.ceil(arr.length / size),
@@ -150,7 +150,7 @@ export function chunk(arr: AnyArr, size: number): unknown[] {
  * @param {unknown[]} arr
  * @return {array}
  */
-export function compact(arr: AnyArr): unknown[] {
+export function compact<T>(arr: T[]): T[] {
   return arr.filter(Boolean);
 }
 
@@ -163,7 +163,7 @@ export function compact(arr: AnyArr): unknown[] {
  * @example
  *   countOccurrences([1,2,4,5,2,6,3], 2);  // -> 2
  */
-export function countOccurrences(arr: AnyArr, val: unknown): number {
+export function countOccurrences<T>(arr: T[], val: T): number {
   return arr.reduce((a: number, v) => (v === val ? a + 1 : a), 0);
 }
 
@@ -391,14 +391,20 @@ export function initializeArrayWithValues(len: number, value = 0) {
  * @param {array} arr
  * @param {function} func
  * @return {array}
+ * @example
+ * const arr = [1,2,3,4,5]
+ * remove(arr, (v) => v % 2 === 0);  // [2,4] (arr变成了[1,3,5])
  */
-export function remove(arr: AnyArr, fn: (v: unknown) => unknown) {
-  return Array.isArray(arr)
-    ? arr.filter(fn).reduce((acc, val) => {
-        arr.splice(arr.indexOf(val), 1);
-        return acc.concat(val);
-      }, [])
-    : [];
+export function remove<T>(arr: T[], fn: (v: T) => boolean): T[] {
+  const result: T[] = [];
+  if (Array.isArray(arr)) {
+    const filtered = arr.filter(fn);
+    filtered.forEach(val => {
+      arr.splice(arr.indexOf(val), 1);
+      result.push(val);
+    });
+  }
+  return result;
 }
 
 /**

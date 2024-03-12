@@ -3,7 +3,7 @@
  * @module Check.plus
  * @description check password functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-02-04 16:09:05
+ * @LastEditTime 2024-03-11 15:51:45
  */
 
 /**
@@ -42,8 +42,6 @@ export function validateLicensePlate(licensePlate: string) {
   return reg.test(licensePlate);
 }
 
-// todo 优化验证
-
 enum DefaultPwdStrengthTips {
   formatErr = '密码长度必须在6-12位之间',
   allnumberErr = '密码不能使用全数字',
@@ -70,42 +68,29 @@ export function checkPwdStrength(pwd: string, TipEnum = DefaultPwdStrengthTips) 
   if (!pwd || pwd.length < 6 || pwd.length > 12) {
     return TipEnum.formatErr;
   }
-  const pattern1 = pwd.match(/^([\w`=\\\[\];\',.\/~!@#$%^&*()_+|{}:<>?]){6,12}$/i);
-  const pattern2 = pwd.match(/^([\w`=\\\[\];\',.\/~!@#$%^&*()_+|{}:"<>?])\1{5,11}$/i);
-  const pattern3 = pwd.match(/^[a-zA-Z]*$/);
-  const pattern4 = pwd.match(/^\d*$/);
-  const pattern5 = pwd.match(/^[-`=\\\[\];',.\/~!@#$%^&*()_+|{}:\"<>?]*$/);
-  const pattern6 = pwd.match(/[-`=\\\[\];',.\/~!@#$%^&*()_+|{}:\"<>?]/);
-  const pattern7 = pwd.match(/\d/);
-  const pattern8 = pwd.match(/[a-zA-Z]/);
 
-  if (!pattern1) {
+  const hasNumber = /\d/.test(pwd);
+  const hasLetter = /[a-zA-Z]/.test(pwd);
+  const hasSymbol = /[-`=\\\[\];',.\/~!@#$%^&*()_+|{}:"<>?]/.test(pwd);
+  const hasRepeatedSymbol = /(.)\1{5,11}/.test(pwd);
+
+  if (!hasNumber || !hasLetter || !hasSymbol) {
     return TipEnum.illegalityErr;
   }
-  if (!pattern2) {
+  if (hasRepeatedSymbol) {
     return TipEnum.samesymbolErr;
   }
-  if (pattern4) {
+  if (/^\d*$/.test(pwd)) {
     return TipEnum.allnumberErr;
   }
-  if (pattern3) {
+  if (/^[a-zA-Z]*$/.test(pwd)) {
     return TipEnum.allwordErr;
   }
-  if (pattern5) {
+  if (/^[-`=\\\[\];',.\/~!@#$%^&*()_+|{}:"<>?]*$/.test(pwd)) {
     return TipEnum.allsymbolErr;
   }
 
-  if (pattern6 !== null && pattern7 !== null && pattern8 !== null) {
-    return PwdStrengthTypes.strong;
-  } else if (
-    (pattern6 !== null && pattern7 !== null) ||
-    (pattern6 !== null && pattern8 !== null) ||
-    (pattern7 !== null && pattern8 !== null)
-  ) {
-    return PwdStrengthTypes.average;
-  }
-
-  return PwdStrengthTypes.weak;
+  return hasSymbol && hasNumber && hasLetter ? PwdStrengthTypes.strong : PwdStrengthTypes.average;
 }
 
 enum DefaultIdcardTips {

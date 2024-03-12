@@ -1,10 +1,12 @@
 /**
  * @model Stroage
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-02-18 13:10:05
+ * @LastEditTime 2024-03-10 13:50:06
  */
 
 import { PlainObject } from 'utils';
+
+const DEFAULT_EXPIRATION = 1000 * 60 * 60 * 24 * 7; // 7 days
 
 /**
  * @function deserialize
@@ -50,10 +52,14 @@ function Storage(type = 'local') {
         | string
         | {
             [key: string]: unknown;
-          }
+          },
+      expiration: number = DEFAULT_EXPIRATION
     ) {
-      if (typeof value === 'object') value = JSON.stringify(value);
-      _controller.setItem(key, value);
+      const item = {
+        value: typeof value === 'object' ? JSON.stringify(value) : value,
+        expiration: expiration === 0 ? 0 : Date.now() + expiration * 1000,
+      };
+      _controller.setItem(key, JSON.stringify(item));
     },
 
     /**
@@ -62,14 +68,27 @@ function Storage(type = 'local') {
      */
     get(key?: string) {
       if (key) {
-        const _val = _controller.getItem(key);
+        const itemStr = _controller.getItem(key);
+        if (!itemStr) return null;
 
-        return deserialize(_val);
+        const item = JSON.parse(itemStr);
+        if (item.expiration !== 0 && Date.now() > item.expiration) {
+          _controller.removeItem(key);
+          return null;
+        }
+
+        return deserialize(item.value);
       } else {
         const _obj: PlainObject = {};
         for (const i in _controller) {
           if (i && typeof _controller[i] === 'string') {
-            _obj[i] = deserialize(_controller[i]);
+            const item = JSON.parse(_controller[i]);
+            if (item.expiration !== 0 && Date.now() > item.expiration) {
+              _controller.removeItem(i);
+              continue;
+            }
+
+            _obj[i] = deserialize(item.value);
           }
         }
         return _obj;

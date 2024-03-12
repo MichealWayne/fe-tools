@@ -3,7 +3,7 @@
  * @description number functions
  * @author Wayne
  * @Date 2023-02-09 15:08:11
- * @LastEditTime 2024-02-18 11:01:57
+ * @LastEditTime 2024-03-10 13:15:09
  */
 
 import { isNumber } from './type';
@@ -119,7 +119,7 @@ export function randomIntegerInRange(min: number, max: number) {
  * @param {number} max
  * @return {number}
  * @example
- * randomNumberInRange(1, 10); // 一个1～10的随机数
+ * randomNumberInRange(1, 10); // 一个1～10的随机浮点数
  */
 export function randomNumberInRange(min: number, max: number) {
   return Math.random() * (max - min + 1) + min;

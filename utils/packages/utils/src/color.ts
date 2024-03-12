@@ -2,7 +2,7 @@
  * @module Color
  * @description handle color format
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-02-04 16:21:16
+ * @LastEditTime 2024-03-11 15:57:02
  */
 
 /**
@@ -27,22 +27,20 @@ export function randomHexColor() {
 export function getColorRgbArr(color: string): number[] {
   const reg = /^#[\da-f]{3}([\da-f]{3})?$/i;
 
-  let sColor = color.toLowerCase();
-  if (sColor && reg.test(sColor)) {
-    if (sColor.length === 4) {
-      let sColorNew = '#';
-      for (let i = 1; i < 4; i++) {
-        sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1));
-      }
-      sColor = sColorNew;
-    }
+  // 处理简写
+  const normalizedColor =
+    color.length === 4
+      ? `#${color[1]}${color[1]}${color[2]}${color[2]}${color[3]}${color[3]}`
+      : color;
 
-    const sColorChange = [];
-    for (let i = 1; i < 7; i += 2) {
-      sColorChange.push(parseInt(`0x${sColor.slice(i, i + 2)}`, 16));
-    }
-    return sColorChange;
+  if (reg.test(normalizedColor)) {
+    return [
+      parseInt(normalizedColor.slice(1, 3), 16),
+      parseInt(normalizedColor.slice(3, 5), 16),
+      parseInt(normalizedColor.slice(5, 7), 16),
+    ];
   }
+
   return [];
 }
 
