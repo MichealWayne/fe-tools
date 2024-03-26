@@ -2,7 +2,7 @@
  * @module Function
  * @author Wayne
  * @createTime 2022-03-12 14:44:00
- * @LastEditTime 2024-03-11 21:26:45
+ * @LastEditTime 2024-03-25 20:18:30
  */
 
 export const NOOP = () => '';
@@ -42,10 +42,7 @@ console.log('This is printed first.');
 // This is printed first.
 // Hello, world!
  */
-export async function defer(
-  fn: (...args: unknown[]) => unknown,
-  ...args: unknown[]
-): Promise<void> {
+export async function defer(fn: (...arg: unknown[]) => unknown, ...args: unknown[]): Promise<void> {
   await new Promise(resolve => setTimeout(resolve, 0));
   fn(...args);
 }
@@ -187,23 +184,46 @@ export function pipe<T extends unknown[]>(...fns: Array<(...arg: any[]) => any>)
   );
 }
 
+interface Curry1<T1, R> {
+  (): Curry1<T1, R>;
+  (t1: T1): R;
+}
+
+interface Curry2<T1, T2, R> {
+  (): Curry2<T1, T2, R>;
+  (t1: T1): Curry1<T2, R>;
+  (t1: T1, t2: T2): R;
+}
+
+interface Curry3<T1, T2, T3, R> {
+  (): Curry3<T1, T2, T3, R>;
+  (t1: T1): Curry2<T2, T3, R>;
+  (t1: T1, t2: T2): Curry1<T3, R>;
+  (t1: T1, t2: T2, t3: T3): R;
+}
+interface Curry {
+  <T1, R>(fn: (t1: T1) => R): Curry1<T1, R>;
+  <T1, T2, R>(fn: (t1: T1, t2: T2) => R): Curry2<T1, T2, R>;
+  <T1, T2, T3, R>(fn: (t1: T1, t2: T2, t3: T3) => R): Curry3<T1, T2, T3, R>;
+}
+
 /**
  * @function curry
  * @description 柯里化
  * @param {Function} fn
- * @param {number} arity
- * @param  {...any} args
  * @return {Function}
  * @example
  * curry(Math.pow)(2)(10)
  */
-export function curry<T extends unknown[], R>(
-  fn: (...fnArgs: T) => R,
-  arity: number = fn.length,
-  ...args: T
-) {
-  return arity <= args.length ? fn(...args) : (curry as any).bind(null, fn, arity, ...args);
-}
+export const curry: Curry = (callback: any) => {
+  return (...args: any) => {
+    if (args.length < callback.length) {
+      return curry(callback.bind(null, ...args));
+    } else {
+      return callback(...args);
+    }
+  };
+};
 
 /**
  * @function functionName

@@ -3,7 +3,7 @@
  * @description number functions
  * @author Wayne
  * @Date 2023-02-09 15:08:11
- * @LastEditTime 2024-03-10 13:15:09
+ * @LastEditTime 2024-03-25 19:52:36
  */
 
 import { isNumber } from './type';
@@ -151,8 +151,8 @@ export function randomIntArrayInRange(min: number, max: number, num = 1) {
  * round(12345.6789); // 12346
  * round(12345.6789, 2); // 12345.68
  */
-export function round(num: number, decimals: number) {
-  const _decimals = decimals || 0;
+export function round(num: number, decimals = 0) {
+  const _decimals = decimals;
   return Number(`${Math.round(+`${num}e${_decimals}`)}e-${_decimals}`);
 }
 

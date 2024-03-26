@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2023-02-18 10:28:42
- * @LastEditTime 2024-03-10 10:15:40
+ * @LastEditTime 2024-03-25 20:18:43
  */
 
 import {
@@ -12,9 +12,38 @@ import {
   pipe,
   throttle,
   debounce,
+  functionName,
+  curry,
 } from '../src/function';
 
 describe('function test', () => {
+  it('should return a function if the number of arguments is less than the arity', () => {
+    const add = (a: number, b: number): number => a + b;
+    const curriedAdd = curry(add);
+    expect(typeof curriedAdd).toEqual('function');
+  });
+
+  it('should return the result if the number of arguments is equal to the arity', () => {
+    const add = (a: number, b: number): number => a + b;
+    const curriedAdd = curry(add);
+    expect(curriedAdd(1)(2)).toEqual(3);
+  });
+
+  it('should return a new function with additional arguments if the number of arguments is greater than the arity', () => {
+    const add = (a: number, b: number): number => a + b;
+    const curriedAdd = curry(add);
+    const curriedAddWithAdditionalArg = curriedAdd(1);
+    expect(typeof curriedAddWithAdditionalArg).toEqual('function');
+    expect(curriedAddWithAdditionalArg(2)).toEqual(3);
+  });
+
+  it('should log the name and function of a given function', () => {
+    const mockFn = jest.fn();
+    const result = functionName(mockFn);
+    expect(console.debug).toHaveBeenCalledWith(mockFn.name, mockFn);
+    expect(result).toBe(mockFn.name);
+  });
+
   it('NOOP()', async () => {
     expect(NOOP()).toEqual('');
   });
@@ -29,7 +58,7 @@ describe('function test', () => {
     // };
     // expect(attempt(fn2)).toThrowError();
 
-    expect(attempt(() => {})).toBe(undefined);
+    expect(attempt(() => '')).toBe('');
   });
 
   it('pipe', async () => {
