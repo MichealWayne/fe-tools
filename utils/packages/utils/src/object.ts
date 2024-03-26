@@ -3,7 +3,7 @@
  * @description object functions
  * @author Wayne
  * @Date 2022-07-05 13:53:42
- * @LastEditTime 2024-03-10 13:22:44
+ * @LastEditTime 2024-03-25 19:44:43
  */
 
 import { isObject } from './type';
@@ -50,15 +50,17 @@ export function objectFromPairs(arr: [string, unknown][]) {
  * @param {function} fn
  * @return {object}
  * @example
- * objectFromPairs(["apple", "banana", "orange"]); // { apple: "", banana: "", orange: "" }
+ * mapObject(['a', 'b', 'c'], v => v + '1') // { a: 'a1', b: 'b1', c: 'c1' }
  */
-export function mapObject(arr: string[], fn: (...args: unknown[]) => unknown) {
-  const _arr = arr.map(fn);
-  const obj: PlainObject = {};
-  return arr.reduce((_acc, val, index) => {
-    obj[val] = _arr[index];
+export function mapObject<T, U>(
+  arr: T[],
+  fn: (value: T, index: number, array: T[]) => U
+): Record<T extends string ? T : string, U> {
+  return arr.reduce((obj, value, index) => {
+    const key = value as keyof typeof obj;
+    obj[key] = fn(value, index, arr);
     return obj;
-  }, obj);
+  }, {} as Record<T extends string ? T : string, U>);
 }
 
 /**
@@ -89,7 +91,10 @@ export function pick(obj: PlainObject, keys: string[]) {
  * hasOwnProp(obj, 'b'); // false
  * hasOwnProp(obj, 'toString'); // false
  */
-export function hasOwnProp(obj: unknown, key: string): boolean {
+export function hasOwnProperty<T extends Record<string, unknown>>(
+  obj: T,
+  key: PropertyKey
+): key is keyof T {
   return Object.prototype.hasOwnProperty.call(obj, key);
 }
 

@@ -3,7 +3,7 @@
  * @module Check.plus
  * @description check password functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-03-11 15:51:45
+ * @LastEditTime 2024-03-26 10:04:41
  */
 
 /**
@@ -12,7 +12,7 @@
  * @param {string} passport
  * @returns {boolean}
  * @example
- * validatePassport('G12345678'); // true
+ * validatePassport('G12345678'); // false
  * validatePassport('D012345678'); // true
  * validatePassport('140123456'); // true
  * validatePassport('A12345678'); // false
@@ -32,6 +32,7 @@ export function validatePassport(passport: string) {
  * @param {string} licensePlate
  * @returns {boolean}
  * @example
+ * validateLicensePlate('A12345X'); // true
  * validateLicensePlate('京A12345'); // true
  * validateLicensePlate('A12345'); // false
  * validateLicensePlate('浙123456'); // false
@@ -42,14 +43,23 @@ export function validateLicensePlate(licensePlate: string) {
   return reg.test(licensePlate);
 }
 
-enum DefaultPwdStrengthTips {
-  formatErr = '密码长度必须在6-12位之间',
-  allnumberErr = '密码不能使用全数字',
-  allwordErr = '密码不能使用全字母',
-  allsymbolErr = '密码不能使用全符号',
-  samesymbolErr = '密码不能使用全部相同符号',
-  illegalityErr = '密码不能包含非法字符，如双引号等',
-}
+type PwdStrengthTips = {
+  formatErr: string;
+  allnumberErr: string;
+  allwordErr: string;
+  allsymbolErr: string;
+  samesymbolErr: string;
+  illegalityErr: string;
+};
+
+const DEFAULT_PWD_STRENGTH_TIPS: PwdStrengthTips = {
+  formatErr: '密码长度必须在6-12位之间',
+  allnumberErr: '密码不能使用全数字',
+  allwordErr: '密码不能使用全字母',
+  allsymbolErr: '密码不能使用全符号',
+  samesymbolErr: '密码不能使用全部相同字符',
+  illegalityErr: '密码不能包含非法字符，如双引号等',
+};
 
 enum PwdStrengthTypes {
   weak = 1,
@@ -57,40 +67,53 @@ enum PwdStrengthTypes {
   strong,
 }
 
+const isAllSameChar = (pwd: string) => /(^.)\1+$/.test(pwd);
+const hasNumber = (pwd: string) => /\d/.test(pwd);
+const hasLetter = (pwd: string) => /[a-zA-Z]/.test(pwd);
+const hasSymbol = (pwd: string) => /[\W_]/.test(pwd);
+
 /**
  * @function checkPwdStrength
  * @description 检验密码强度（数字+字母+符号）
- * @param {string} pwd
+ * @param {string} pwd 待检查的密码
+ * @param {PwdStrengthTips} tips 自定义密码强度提示信息
  * @return {PwdStrengthTypes | string}
  */
-// eslint-disable-next-line complexity
-export function checkPwdStrength(pwd: string, TipEnum = DefaultPwdStrengthTips) {
+export function checkPwdStrength(
+  pwd: string,
+  tips: PwdStrengthTips = DEFAULT_PWD_STRENGTH_TIPS
+): PwdStrengthTypes | string {
+  const { formatErr, allnumberErr, allwordErr, allsymbolErr, samesymbolErr, illegalityErr } = tips;
+
   if (!pwd || pwd.length < 6 || pwd.length > 12) {
-    return TipEnum.formatErr;
+    return formatErr;
   }
 
-  const hasNumber = /\d/.test(pwd);
-  const hasLetter = /[a-zA-Z]/.test(pwd);
-  const hasSymbol = /[-`=\\\[\];',.\/~!@#$%^&*()_+|{}:"<>?]/.test(pwd);
-  const hasRepeatedSymbol = /(.)\1{5,11}/.test(pwd);
-
-  if (!hasNumber || !hasLetter || !hasSymbol) {
-    return TipEnum.illegalityErr;
-  }
-  if (hasRepeatedSymbol) {
-    return TipEnum.samesymbolErr;
-  }
-  if (/^\d*$/.test(pwd)) {
-    return TipEnum.allnumberErr;
-  }
-  if (/^[a-zA-Z]*$/.test(pwd)) {
-    return TipEnum.allwordErr;
-  }
-  if (/^[-`=\\\[\];',.\/~!@#$%^&*()_+|{}:"<>?]*$/.test(pwd)) {
-    return TipEnum.allsymbolErr;
+  if (isAllSameChar(pwd)) {
+    return samesymbolErr;
   }
 
-  return hasSymbol && hasNumber && hasLetter ? PwdStrengthTypes.strong : PwdStrengthTypes.average;
+  const hasNum = hasNumber(pwd);
+  const hasLtr = hasLetter(pwd);
+  const hasSym = hasSymbol(pwd);
+
+  if (!hasNum || !hasLtr || !hasSym) {
+    return illegalityErr;
+  }
+
+  if (hasNum && !hasLtr && !hasSym) {
+    return allnumberErr;
+  }
+
+  if (!hasNum && hasLtr && !hasSym) {
+    return allwordErr;
+  }
+
+  if (!hasNum && !hasLtr && hasSym) {
+    return allsymbolErr;
+  }
+
+  return hasSym && hasNum && hasLtr ? PwdStrengthTypes.strong : PwdStrengthTypes.average;
 }
 
 enum DefaultIdcardTips {
