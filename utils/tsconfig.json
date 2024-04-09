@@ -11,17 +11,11 @@
     "allowJs": true,
     "strict": true,
     "noImplicitAny": true,
-    "lib": [
-      "ES6",
-      "ES7",
-      "DOM"
-    ],
+    "lib": ["ES6", "ES7", "DOM"],
     "outDir": "./dist",
-    "types": [
-      "jest",
-      "node"
-    ],
+    "types": ["jest", "node"],
     "paths": {
+      "env": ["./packages/env/src/index.ts"],
       "utils": ["./packages/utils/src/index.ts"],
       "node-utils": ["./packages/node-utils/src/index.ts"],
       "web-utils": ["packages/web-utils/src/index.ts"]
@@ -34,10 +28,10 @@
     "temp",
     "node_modules",
     "**/node_modules",
-    "scripts/*", 
-    "demo/*", 
-    "src/**/**/demo/*", 
-    "src/packages/**/demo", 
+    "scripts/*",
+    "demo/*",
+    "src/**/**/demo/*",
+    "src/packages/**/demo",
     "**/demo/*"
   ]
 }

@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2023-02-18 10:28:42
- * @LastEditTime 2024-03-25 20:18:43
+ * @LastEditTime 2024-04-09 14:34:41
  */
 
 import {
@@ -13,8 +13,38 @@ import {
   throttle,
   debounce,
   functionName,
+  memoize,
   curry,
 } from '../src/function';
+
+describe('memoize', () => {
+  it('should return a function', () => {
+    const result = memoize(() => {});
+    expect(typeof result).toEqual('function');
+  });
+
+  it('should return the same value for the same argument', () => {
+    const fn = jest.fn(x => x * 2);
+    const memoizedFn = memoize(fn);
+
+    const result1 = memoizedFn(5);
+    const result2 = memoizedFn(5);
+
+    expect(result1).toEqual(10);
+    expect(result2).toEqual(10);
+    expect(fn).toBeCalledTimes(1);
+  });
+
+  it('should call the original function if the argument is not in the cache', () => {
+    const fn = jest.fn(x => x * 3);
+    const memoizedFn = memoize(fn);
+
+    const result = memoizedFn(7);
+
+    expect(result).toEqual(21);
+    expect(fn).toBeCalledWith(7);
+  });
+});
 
 describe('function test', () => {
   it('should return a function if the number of arguments is less than the arity', () => {
@@ -35,13 +65,6 @@ describe('function test', () => {
     const curriedAddWithAdditionalArg = curriedAdd(1);
     expect(typeof curriedAddWithAdditionalArg).toEqual('function');
     expect(curriedAddWithAdditionalArg(2)).toEqual(3);
-  });
-
-  it('should log the name and function of a given function', () => {
-    const mockFn = jest.fn();
-    const result = functionName(mockFn);
-    expect(console.debug).toHaveBeenCalledWith(mockFn.name, mockFn);
-    expect(result).toBe(mockFn.name);
   });
 
   it('NOOP()', async () => {

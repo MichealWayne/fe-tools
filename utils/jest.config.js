@@ -1,3 +1,8 @@
+/*
+ * @author Wayne
+ * @Date 2022-04-12 10:40:18
+ * @LastEditTime 2024-04-09 14:30:52
+ */
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 
@@ -21,7 +26,10 @@ module.exports = {
     '\\.(ts|tsx)$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  moduleNameMapper: {},
+  moduleNameMapper: {
+    // env: `<rootDir>/packages/env/__tests__/webEnv.mock.ts`,
+    // utils: '<rootDir>/packages/utils/src/index.ts',
+  },
   testMatch: [
     TEST_API ? `**/${TEST_API}/__tests__/*.test.{ts,tsx}` : '**/__tests__/**/*.test.{ts,tsx}',
   ],
