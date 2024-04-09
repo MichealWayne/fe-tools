@@ -1,0 +1,23 @@
+{
+  "name": "fe-tools-env",
+  "version": "0.1.0",
+  "description": "environment variable.",
+  "author": "Wayne",
+  "license": "ISC",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.es.js",
+  "types": "index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib",
+    "index.d.ts"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

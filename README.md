@@ -383,6 +383,9 @@
 <a href="https://docs-swrv.netlify.app/" target="_blank">SWRV</a> | `swrv` | 用于数据请求的 Vue 钩子库，处理了请求缓存、状态等等。
 <a href="https://www.attojs.org/" target="_blank">Vue Request</a> | `vue-request` | 用于数据请求的 Vue 钩子库，比swrv能力要稍微丰富一些。
 <a href="https://www.vueusejs.com/" target="_blank">Vue Use</a> | `vue-use` | 基于Vue组合式API的实用工具集，除了常用的请求动画等封装外、还封装了浏览器、electron utils。
+<a href="https://github.com/devilwjp/vuereact-combined#readme" target="_blank">Vue React Combined</a> | `vuereact-combined` | Vue2和React快捷集合的工具包。
+<a href="https://github.com/devilwjp/veaury" target="_blank"> Veaury </a> | `veaury` | Vue3 和 React 快捷集合的工具包。
+
 
 ### 1.6 React
 地址 | 标签 | 说明
@@ -798,6 +801,7 @@
 
 #### 模块
 
+- [env](./utils/packages/env/)：环境判断常量；
 - [utils](./utils/packages/utils/)：基础工具方法集合，与环境无关；
 - [web-utils](./utils/packages/web-utils/)：web基础工具方法集合。浏览器端DOM操作，CSS操作，事件处理等封装，适用于浏览器；
 - [node-utils](./utils/packages/node-utils/)：Nodejs文件，事件处理等封装；
