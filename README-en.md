@@ -626,6 +626,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://www.typescriptlang.org/dt/search?search= | joi | A website for querying TypeScript declaration files of various libraries. |
 | http://deerchao.net/tutorials/regex/regex.htm | regexp | A beginner's tutorial on regular expressions. |
 | https://regexper.com/ | regexper | A visual online regular expression verification website. |
+| https://extendsclass.com/regex-tester.html | cyrilex | An online visual regex tester and debugger. |
 | http://wproxy.org/whistle/install.html | whistle | A web debugging proxy tool. |
 | https://astexplorer.net/ | astexplorer | An online ast parsing tool for languages such as css/html/js/ts. |
 | https://github.com/typicode/husky#readme | Husky | A git tool on NodeJS. |
