@@ -444,6 +444,8 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/sstur/react-rte | react-rte | Rich text editor based on draftJS. |
 | https://react.i18next.com/ | react-i18next | Multi-language solution. |
 | https://swr.vercel.app/ | swr | React Hooks library for data requests, handling request caching, state, and more. |
+| https://formik.org/ | formik | Highly encapsulated, out-of-the-box form wrapper library for React Forms. |
+
 
 ### 1.7 Nodejs and building
 

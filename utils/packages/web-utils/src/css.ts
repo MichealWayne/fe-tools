@@ -2,7 +2,7 @@
  * @module CSS
  * @author Wayne
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-04-03 20:43:51
+ * @LastEditTime 2024-04-27 17:21:02
  */
 
 import { isUndefined } from 'utils';
@@ -63,4 +63,22 @@ export function getStyle(el: any, property: string) {
   const matches = value?.match(/^(\d+)(\.\d+)?px$/);
   // eslint-disable-next-line no-undefined
   return matches ? +matches[1] : undefined;
+}
+
+/**
+ * @function getElementSize
+ * @description **getElementStyle(el, property)** 获取元素的尺寸数据、如width/height
+ * @param {HTMLElement} elem element
+ * @param {string} property css property
+ * @return {number | undefined}
+ * @example
+ *  const bodyWidth = getElementStyle(document.querySelector('body'), 'width')
+ */
+export function getElementSize(elem: HTMLElement, property: string): number {
+  // IE currentStyle
+  const value = (elem as any).currentStyle
+    ? (elem as any).currentStyle[property]
+    : document.defaultView?.getComputedStyle(elem, null).getPropertyValue(property);
+  const matches = value?.match(/^(\d+)(\.\d+)?px$/);
+  return matches ? +matches[1] : 0;
 }

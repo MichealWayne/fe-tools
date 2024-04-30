@@ -2,7 +2,7 @@
  * @module Url
  * @notice 如无兼容要求，可直接用URL对象进行处理
  * @Date 2022-08-24 14:18:25
- * @LastEditTime 2024-03-10 13:55:30
+ * @LastEditTime 2024-04-27 17:27:17
  */
 
 /**
@@ -66,9 +66,9 @@ export const paramsJoinUrl = (params: { [key: string]: string }): string => {
 
 /**
  * @function getBaseUrl
+ * @description 获取基础地址（ url 中?之前的部分）
  * @param {string} url 原始URL
  * @returns {string} url 修改后的URL
- * @desc 📝 获取 url 中?之前的部分
  * @example
  console.log(getBaseUrl());
  console.log(getBaseUrl('https://example.com/page.html?query=string')); // https://example.com/page.html
@@ -101,3 +101,13 @@ export function httpsRedirect(url: string = location.href) {
     location.replace(newUrl.toString());
   }
 }
+
+/**
+ * @function uniqueSlash
+ * @description 将路径中重复的正斜杆替换成单个斜杆隔开的字符串
+ * @param {string} path 要处理的路径
+ * @returns {string} 将/去重后的结果
+ * @example
+ * uniqueSlash('http://www.example.com//foo//bar'); // 'http://www.example.com/foo/bar'
+ */
+export const uniqueSlash = (path: string) => path.replace(/(https?:\/)|(\/)+/g, '$1$2');

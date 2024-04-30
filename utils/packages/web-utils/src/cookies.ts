@@ -3,7 +3,7 @@
  * @note 目前不建议操作cookie，可见google Chrome《为停用第三方 Cookie 做好准备》：https://developers.google.com/privacy-sandbox/3pcd?hl=zh-cn
  * @author Wayne
  * @Date 2020-04-11 21:53:56
- * @LastEditTime 2024-02-04 16:23:43
+ * @LastEditTime 2024-04-29 17:16:07
  */
 
 // 涉及大量cookie操作可以考虑使用js-cookie(https://github.com/js-cookie/js-cookie)
@@ -63,7 +63,7 @@ export function setCookie(name: string, value: string, time?: string, domain = '
 
   document.cookie = `${name}=${value};expires=${exp.toUTCString()}${
     domain ? ';domain=' + domain : ''
-  }${path ? ';path=' + path : ''}`;
+  }${path ? ';path=' + path : '/'}`;
 }
 
 /**
