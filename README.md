@@ -613,6 +613,7 @@
 <a href="https://www.typescriptlang.org/dt/search?search=" target="_blank">Ts声明文件查询</a> | `joi` | 各类库的TypeScript声明文件查询网站。
 <a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank">正则表达式30分钟</a> | `regexp` | 正则上手教程。
 <a href="https://regexper.com/" target="_blank">在线正则验证</a> | `regexper` | 可视化在线正则验证网站。
+<a href="https://extendsclass.com/regex-tester.html" target="_blank">cyrilex</a> | `cyrilex` | 一个在线可视化的正则表达式测试工具和调试器。
 <a href="http://wproxy.org/whistle/install.html" target="_blank">whistle</a> | `whistle` | web调试代理工具。
 <a href="https://astexplorer.net/" target="_blank">AST explorer</a> | `astexplorer` | css/html/js/ts等语言的在线ast解析工具。
 <a href="https://github.com/typicode/husky#readme" target="_blank">husky</a> | `Husky` | NodeJS上的git工具。
