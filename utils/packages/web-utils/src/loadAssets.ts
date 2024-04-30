@@ -2,8 +2,10 @@
  * @module loadAssets
  * @author Wayne
  * @Date 2024-04-07 13:45:27
- * @LastEditTime 2024-04-07 14:14:16
+ * @LastEditTime 2024-04-29 17:25:32
  */
+
+import { runPromisesInSeries } from 'utils';
 
 /**
  * @function loadScript
@@ -22,7 +24,7 @@ export function loadScript(url: string, isCrossOrigin = true) {
     const script = document.createElement('script');
     script.src = url;
     script.onload = resolve;
-    script.onerror = reject;
+    script.onerror = err => reject({ err, url });
     script.setAttribute('type', 'text/javascript');
     if (isCrossOrigin) {
       script.setAttribute('crossorigin', 'anonymous');
@@ -36,14 +38,16 @@ export function loadScript(url: string, isCrossOrigin = true) {
  * @description 动态加载js列表
  * @param {string[]} urls
  * @param {boolean} isCrossOrigin
+ * @param {boolean} isAsync
  * @returns {Promise<any[]>}
  * @example
  * loadScriptList(['a.js', 'b.js', 'c.js']).then(() => {
  *   // use a.js, b.js, c.js
  * })
  */
-export function loadScriptList(urls: string[], isCrossOrigin = true) {
-  return Promise.all(urls.map(url => loadScript(url, isCrossOrigin)));
+export function loadScriptList(urls: string[], isCrossOrigin = true, isAsync = true) {
+  if (isAsync) return Promise.all(urls.map(url => loadScript(url, isCrossOrigin)));
+  return runPromisesInSeries(urls.map(url => () => loadScript(url, isCrossOrigin)));
 }
 
 /**
@@ -125,4 +129,28 @@ export function loadImage(imgUrl: string) {
  */
 export function loadImageList(imageUrls: string[]) {
   return Promise.all(imageUrls.map(item => loadImage(item)));
+}
+
+/**
+ * @function loadCsv
+ * @description 前端下载csv数据表(可以配置utils里arrayToCSV)
+ * @param {string} csvStr
+ * @param {string} name
+ * @param {string} type
+ */
+export function loadCSV(csvStr: string, name = 'data', type = 'csv') {
+  let blobContent = new Blob(['\ufeff' + csvStr], {
+    type: `text/plain,charset=utf-8`,
+  });
+
+  let blobUrl = window.URL.createObjectURL(blobContent);
+  let eleLink = document.createElement('a');
+
+  eleLink.download = `${name}.${type}`;
+  eleLink.style.display = 'none';
+  eleLink.href = blobUrl;
+
+  document.body.appendChild(eleLink);
+  eleLink.click();
+  document.body.removeChild(eleLink);
 }

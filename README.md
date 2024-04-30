@@ -432,6 +432,7 @@
 <a href="https://github.com/sstur/react-rte" target="_blank">React RTE</a> | `react-rte` | 富文本编辑器，基于draftJS。
 <a href="https://react.i18next.com/" target="_blank">React i18Next</a> | `react-i18next` | 多语言解决方案。
 <a href="https://swr.vercel.app/" target="_blank">SWR</a> | `swr` | 用于数据请求的 React Hooks 库，处理了请求缓存、状态等等。
+<a href="https://formik.org/" target="_blank">Formik</a> | `formik` | 高度封装、开箱即用的 React form 表单封装库。
 
 
 

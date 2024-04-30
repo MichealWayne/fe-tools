@@ -2,7 +2,7 @@
  * @module Others
  * @author Wayne
  * @Date 2023-02-06 21:17:44
- * @LastEditTime 2024-02-18 11:53:45
+ * @LastEditTime 2024-04-27 18:48:06
  */
 
 // 复杂比较请见https://github.com/omichelsen/compare-versions
@@ -17,6 +17,7 @@
 
 /**
  * @function compareVersion
+ * @description 版本比较
  * @param {string} v1Str
  * @param {string} v2Str
  * @return {1|0|-1}

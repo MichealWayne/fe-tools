@@ -3,7 +3,7 @@
 /**
  * @module Platform
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-02-18 11:54:57
+ * @LastEditTime 2024-04-29 16:52:27
  */
 
 /**
@@ -90,6 +90,7 @@ export function getSystemOS() {
   if (/linux/i.test(appVersion)) return 'linux';
   if (/iphone/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) return 'ios';
   if (/android/i.test(ua)) return 'android';
+  if (/harmonyos/i.test(ua)) return 'harmony';
   if (/win/i.test(appVersion) && /phone/i.test(ua)) return 'windowsPhone';
   return 'unkonwn';
 }
