@@ -40,7 +40,7 @@
 <a href="https://www.typescriptlang.org/docs/handbook/intro.html" target="_blank">TypeScript官方手册</a> | `typescript` | TypeScript官方手册。
 <a href="https://github.com/type-challenges/type-challenges" target="_blank">TypeScript Challenges</a> | `ts-challenges` | TypeScript Challenges，在线学习/检验自己的ts类型编程水平。
 <a href="https://www.ecma-international.org/publications-and-standards/standards/" target="_blank">ECMA standards | `ecma` | ECMAScript 协议标准。
-<a href="http://www.ecma-international.org/ecma-262/6.0/" target="_blank">ECMA International(6)</a> | `ES6` | ECMAScript6官方文档。
+<a href="https://www.ecma-international.org/ecma-262/6.0/" target="_blank">ECMA International(6)</a> | `ES6` | ECMAScript6官方文档。
 <a href="https://ecma262.docschina.org/" target="_blank">ECMA International(6) 汉化 | `ES6` | ECMAScript6官方文档的中文翻译版（只有少部分且挺久没更新了）。
 <a href="http://es6-features.org/" target="_blank">ECMA6 features | `ES6` | 通俗易懂的ECMAScript6特性demos。
 <a href="https://es6.ruanyifeng.com/" target="_blank">ES6入门（阮一峰）</a> | `ES6` | 国内使用频率最高的ECMAScript6文档，特别适合新手。
@@ -209,6 +209,7 @@
 <a href="http://lab.ejci.net/favico.js/" target="_blank">favico.js</a> | `favicojs` | 一款让pc网站图标动起来的插件。
 <a href="https://alvarotrigo.com/fullPage/" target="_blank">fullPage.js</a> | `fullpagejs` | 一款快速搭建全屏滚动页面的插件。
 <a href="https://github.com/buuing/lucky-canvas" target="_blank">Lucky Canvas</a> | `lucky-canvas` | 一款支持web、小程序跨平台的 ( 大转盘 / 九宫格 / 老虎机 ) 抽奖插件。
+<a href="https://mattboldt.com/demos/typed-js/" target="_blank">Typedjs</a> | `typed.js` | 一款模拟打字机效果的js UI库。
 
 ##### 视/音频
 地址 | 标签 | 说明
@@ -217,7 +218,7 @@
 <a href="https://videojs.com/" target="_blank">video.js</a> | `videojs` | 一款视频控制插件。
 <a href="https://github.com/bilibili/flv.js" target="_blank">flv.js</a> | `flvjs` | 一款无需flash的flv播放插件。
 <a href="https://github.com/goldfire/howler.js#documentation" target="_blank">howler.js</a> | `howlerjs` | 视、音频控制插件。
-<a href="http://jplayer.org/" target="_blank">jplayer</a> | `jplayer` | jQuery的视、音频控制插件。
+<a href="https://jplayer.org/" target="_blank">jplayer</a> | `jplayer` | jQuery的视、音频控制插件。
 <a href="https://github.com/zohararad/audio5js" target="_blank">audio5.js</a> | `audio5js` | 一款音频控制插件。
 
 ##### 图片
@@ -236,7 +237,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://vocajs.com/" target="_blank">Voca.js</a> | `vocajs` | 字符串的驼峰/修饰/填充/截断/转义/大小写更改等等。
-<a href="http://alexcorvi.github.io/anchorme.js/" target="_blank">anchorme.js</a> | `anchormejs` | 自动将文本中的链接/URL/电子邮件转化为可点击的锚点链接。
+<a href="https://alexcorvi.github.io/anchorme.js/" target="_blank">anchorme.js</a> | `anchormejs` | 自动将文本中的链接/URL/电子邮件转化为可点击的锚点链接。
 <a href="https://github.com/jprichardson/string.js" target="_blank">String.js</a> | `stringjs` | 字符串的截取删除等操作库（很久没维护了）。
 <a href="https://github.com/ljharb/qs" target="_blank">qs.js</a> | `qsjs` | URL参数处理库。
 <a href="https://zelark.github.io/nano-id-cc/" target="_blank">nano-id</a> | `nanoid` | 小型（130 字节）、安全、URL友好、唯一的字符串 ID 生成器。
@@ -248,9 +249,9 @@
 #### 1.4.5 工具
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="http://requirejs.org/" target="_blank">RequireJs</a> | `requirejs` | js模块化工具（webpack后很少有项目会用到）。
+<a href="https://requirejs.org/" target="_blank">RequireJs</a> | `requirejs` | js模块化工具（webpack后很少有项目会用到）。
 <a href="http://yslove.net/seajs/" target="_blank">SeaJs</a> | `seajs` | js模块化工具（webpack后很少有项目会用到）。
-<a href="http://browserify.org/" target="_blank">Browserify</a> | `browserify` | 浏览器端使用类似于 node 的 require() 方式。
+<a href="https://browserify.org/" target="_blank">Browserify</a> | `browserify` | 浏览器端使用类似于 node 的 require() 方式。
 <a href="https://github.com/rickharrison/validate.js" target="_blank">validate.js</a> | `validate.js` | form表单校验工具。
 <a href="https://github.com/validatorjs/validator.js" target="_blank">validator.js</a> | `validator.js` | 有名的内容校验工具，比如邮箱验证、数值验证等。
 <a href="https://cn.rx.js.org/" target="_blank">RxJS中文官网</a> | `RxJS` | ReactiveX编程理念的js异步编程库。
@@ -319,7 +320,7 @@
 #### 1.4.10 加载
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="http://pazguille.github.io/aload/" target="_blank">aload.js</a> | `aload.js` | 异步图片/js/css加载工具。
+<a href="https://pazguille.github.io/aload/" target="_blank">aload.js</a> | `aload.js` | 异步图片/js/css加载工具。
 <a href="http://callmecavs.com/layzr.js/" target="_blank">layzr.js</a> | `layzr.js` | 轻量图片懒加载工具。
 <a href="https://github.com/aFarkas/lazysizes" target="_blank">lazysizes.js</a> | `lazysizes` | 高性能的图片/iframe懒加载工具。
 <a href="https://infinite-scroll.com/" target="_blank">infinite-scroll.js</a> | `infinite-scroll` | “无限”滚动的加载插件。

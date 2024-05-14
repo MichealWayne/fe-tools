@@ -21,9 +21,9 @@ const timingFunction = (pos: number) => {
   const IS_LT_HALF = (pos /= THRESHOLD_VAL) < 1;
   if (IS_LT_HALF) {
     return THRESHOLD_VAL * Math.pow(pos, 3);
-  } else {
-    return THRESHOLD_VAL * (Math.pow(pos - 2, 3) + 2);
   }
+
+  return THRESHOLD_VAL * (Math.pow(pos - 2, 3) + 2);
 };
 
 /**
@@ -43,14 +43,14 @@ let createAnimationFrame = function () {
       return requestAnimationFrame;
     };
     return requestAnimationFrame;
-  } else {
-    // abnormal webview or nodejs
-    return function (step: (num: number) => void, delay: number) {
-      setTimeout(function () {
-        step(+new Date());
-      }, delay);
-    };
   }
+
+  // abnormal webview or nodejs
+  return function (step: (num: number) => void, delay: number) {
+    setTimeout(function () {
+      step(+new Date());
+    }, delay);
+  };
 };
 
 interface AnimationOptions {

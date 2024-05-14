@@ -109,5 +109,5 @@ export const cloneArray = (fromArr: unknown[], toArr: unknown[]): unknown[] => {
  * @param {string} detail 错误单元细节
  */
 export function throwError(info: unknown, part = '', detail = ''): never {
-  throw new Error(`Error!${info}.(FundCharts-${part} ${detail})`);
+  throw new Error(`Error!${info}.(${part} ${detail})`);
 }

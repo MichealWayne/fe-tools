@@ -1,5 +1,6 @@
 ### 更新信息
 
+- 2024.05.14：ai utils增加单测prompt；主页链接调整
 - 2024.04.27：web utils资源加载方法、ua环境判断优化
 - 2024.04.07：utils 增加 env环境判断、web utils 增加资源加载相关方法
 - 2024.03.10：修改 utils & web util functions(部分方法类型声明及参数处理优化, Storage)
