@@ -13,9 +13,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      - run: mkdir -p ./docs
-      - run: rm -rf ./docs
-      - run: mkdir -p ./docs
+      - run: mkdir -p ./docs && rm -rf ./docs && mkdir -p ./docs
 
       - name: Build
         uses: actions/setup-node@v3
