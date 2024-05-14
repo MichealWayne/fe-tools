@@ -214,6 +214,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | http://lab.ejci.net/favico.js/ | favicojs | A plugin for animating the pc website icon. |
 | https://alvarotrigo.com/fullPage/ | fullpagejs | A plugin for quickly building full-screen scrolling pages. |
 | https://github.com/buuing/lucky-canvas | lucky-canvas | A lottery plugin that supports web and cross-platform compatibility with mini-programs (large turntables/nine-square grids/slot machines). |
+| https://mattboldt.com/demos/typed-js/ | typed.js | A js UI library that simulates typewriter effects. |
 
 ### Video/Audio
 
