@@ -822,14 +822,21 @@
 
 > todo: 小程序封装，构建封装。
 
-#### 2.2 fe-templates 一些前端项目模版
+#### 2.2 project-templates 一些前后端项目模版
 
-- [webpack](./fe-templates/webpack/)
-- [webpack + ts](./fe-templates/webpack%2Bts/)
-- [vite + vue3](./fe-templates/vite-vue3+ts/)
-- [vue2](./fe-templates/vue/)
-- [vite + react 17](./fe-templates/vite-react+ts/)
-- [react16](./fe-templates/react/)
+`frontend` 前端项目模版
+
+- [webpack](./project-templates/frontend/webpack/)
+- [webpack + ts](./project-templates/frontend/webpack%2Bts/)
+- [vite + vue3](./project-templates/frontend/vite-vue3+ts/)
+- [vue2](./project-templates/frontend/vue/)
+- [vite + react 17](./project-templates/frontend/vite-react+ts/)
+- [react16](./project-templates/frontend/react/)
+
+`backend` 后端项目模版
+
+- [koa2](./project-templates/backend/koa2/)
+
 
 #### 2.3 ~~styles基础样式库~~
 
