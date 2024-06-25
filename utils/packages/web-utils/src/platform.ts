@@ -2,8 +2,9 @@
 /* eslint-disable no-cond-assign */
 /**
  * @module Platform
+ * @notice 存在复杂的判断场景可以直接使用ua-parser-js
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-04-29 16:52:27
+ * @LastEditTime 2024-06-23 10:49:58
  */
 
 /**
@@ -96,19 +97,18 @@ export function getSystemOS() {
 }
 
 /**
- * @function getPlatform
+ * @function getMobilePlatform
  * @description 获取当前页面所处的移动设备标识
  * @return {String}
  * @example
- * getPlatform(); // 'iphone' or 'gphone'
+ * getMobilePlatform(); // 'iphone' or 'gphone'
  */
-export function getPlatform() {
+export function getMobilePlatform() {
   const info = {
     versions: {
       iPhone: ua.indexOf('iphone') > -1 || ua.indexOf('mac') > -1,
       iPad: ua.indexOf('ipad') > -1,
     },
-    language: navigator.language.toLowerCase(),
   };
 
   return info.versions.iPhone || info.versions.iPad ? 'iphone' : 'gphone';

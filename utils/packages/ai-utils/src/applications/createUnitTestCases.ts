@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2024-05-11 10:40:18
- * @LastEditTime 2024-05-11 10:47:53
+ * @LastEditTime 2024-06-23 11:12:51
  */
 import { estimateTokenLength } from '../llm/prompts';
 const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
@@ -21,10 +21,13 @@ Your current role is: UnitTest code generator
 - the test environment is Node.js
 - only generate code with no explain
 - write the\`prepareChatMessages\` and \`getFirstAnswerMsg\` and \`setChatMessages\` and \`setModel\` method's unit test cases
-Here is your target code to generate tests:
-\`\`\`
-{{your_code_here}}
-\`\`\`
+
+The target code to generate tests can be found below:
+<input>
+${patch}
+</input>
+
+Let’s work this out in a step-by-step way to be sure we have the right answer.
 `;
 }
 

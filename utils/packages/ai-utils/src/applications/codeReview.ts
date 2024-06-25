@@ -2,7 +2,7 @@
  * @module promptApplications
  * @author Wayne
  * @Date 2023-07-22 11:34:04
- * @LastEditTime 2024-02-18 13:27:11
+ * @LastEditTime 2024-06-23 11:09:49
  */
 import { estimateTokenLength } from '../llm/prompts';
 const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
@@ -15,10 +15,32 @@ const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
  */
 export function getCodeReviewPromptTxt(patch: string) {
   return `### code review ###
-  As the front-end experts, please help me do a brief code review, Answer me in TypeScript/JavaScript if any bug risk and improvement suggestion are welcome(Please say chinese):
-    ${patch}.
-Make sure the result FORMAT is JSON data, use double quotes and property names are string literals,
-strictly using this FORMAT and naming: {"score": ..,"details":[{"line":.., "column":.., "suggestion": ..}..]}, and the suggestion is tidy.`;
+As the front-end expert and good at front-end code reviewer, perform a brief code review on the provided patch. Respond in TypeScript/JavaScript if any bug risks or improvement suggestions are identified, and provide your analysis in Chinese.
+
+Ensure the result uses the following JSON format:
+
+\`\`\` json
+{
+  "score": ..,
+  "details": [
+    {
+      "line": ..,
+      "column": ..,
+      "suggestion": ..
+    }
+    ...
+  ]
+}
+\`\`\`
+
+Your suggestions should be concise and tidy.
+
+The code patch to be reviewed can be found below:
+<input>
+${patch}
+</input>
+
+Let’s work this out in a step-by-step way to be sure we have the right answer.`;
 }
 
 export function genCodeReviewPrompt(codeStr: string, maxLen = MAX_TOKEN_LEN) {

@@ -271,6 +271,9 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/lukeed/clsx | clsx | A lightweight (228B) tool for combining className conditions, often used in React. |
 | https://github.com/pillarjs/path-to-regexp#readme | path-to-regexp | A URL or path validation tool with wide usage. |
 | https://craig.is/killing/mice | Mousetrap | A keyboard event registration and capture encapsulation library that supports Windows/Mac keyboards. |
+| https://uaparser.dev/ | UaParserJs | Detect user's Browser, Engine, OS, CPU, and Device type/model. Runs either in browser or node.js. |
+| https://github.com/ericclemmons/click-to-component | click-to-component | Option+Click React components in your browser to instantly open the source in VS Code |
+
 
 ### 1.4.6 Data Visualization (Charts)
 
@@ -524,6 +527,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/parallel-js/parallel.js | paralleljs | Tool for parallel processing of JS, usable in both the browser and Node server. |
 | https://parall.ax/products/jspdf | js-pdf | Tool for generating PDFs through Node. |
 | http://doc.pm2.io/en/plus/overview/ | pm2 | Node process management. |
+| https://github.com/rvagg/node-worker-farm | node-worker-farm | The very common Node.js multiprocess computing library. |
 | https://github.com/Marak/colors.js | colorsjs | Node log console output color control. |
 | https://log4js-node.github.io/log4js-node/ | log4js | Log tool. |
 | https://nwjs.io/ | nwjs | Application runtime environment based on NodeJs and Chromium, allowing you to call all Node.js modules directly from the DOM. |
@@ -540,7 +544,8 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/luin/ioredis | ioredis | Redis invocation JS encapsulation library. |
 | https://github.com/websockets/ws | ws | A nodejs package for WebSocket. |
 | https://github.com/digitalocean/nginxconfig.io | http://nginxconfig.io/ | Tool for generating nginx configurations online. |
-| https://github.com/davidmarkclements/fast-safe-stringify#readme | fast-safe-stringify | Securely and quickly serialize JSON, replacing JSON.stringify. |
+| https://github.com/davidmarkclements/fast-safe-stringify#readme | fast-safe-stringify | Securely and quickly serialize JSON, replacing JSON.stringify. | Used to send mail library, support SMTP/SES/Sendmail/Stream mode |
+
 
 ### 1.7.3 GraphQL
 
