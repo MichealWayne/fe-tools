@@ -49,7 +49,7 @@
   - isPC：是否为 pc 环境
   - getPcExplore：获取 pc 浏览器版本
   - getSystemOS：获取系统版本
-  - getPlatform：获取移动端平台
+  - getMobilePlatform：获取移动端平台标志
   - getMobileOS：获取移动端系统及其版本
 - [rem.ts](./rem.ts)
 - [storage.ts](./storage.ts)

@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2023-08-10 11:26:38
- * @LastEditTime 2023-08-10 13:19:13
+ * @LastEditTime 2024-06-23 11:16:33
  */
 
 /**
@@ -26,7 +26,10 @@ export function getSqlPrompt(engine?: string, schema?: string) {
   const finalPrompt = [basicPrompt.join('\n')];
 
   if (schema) {
-    finalPrompt.push(`This is my db schema:\n\n${schema}`);
+    finalPrompt.push(`This is my db schema:
+<input>
+${schema}
+</input>`);
     finalPrompt.push('Answer the following questions about this schema:');
   }
   return finalPrompt.join('\n');

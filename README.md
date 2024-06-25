@@ -261,6 +261,8 @@
 <a href="https://github.com/lukeed/clsx" target="_blank"> clsx </a> | `clsx ` | 轻量(228B)className条件组合的工具，多用于React。
 <a href="https://github.com/pillarjs/path-to-regexp#readme" target="_blank">path-to-regexp</a> | `path-to-regexp` | URL或路径校验工具，使用面极广。
 <a href="https://craig.is/killing/mice" target="_blank">Mousetrap</a> | `Mousetrap` | 键盘事件注册捕获封装库，支持Windows/Mac键盘。
+<a href="https://uaparser.dev/" target="_blank">UaParserJs</a> | `ua-parser-js` | 检测用户的浏览器，引擎，操作系统，CPU和设备。可运行在浏览器或node.js。
+<a href="https://github.com/ericclemmons/click-to-component" target="_blank">click-to-component</a> | `click-to-component` | 浏览器运行时快速定位React组件源码(VSCode打开)的工具。
 
 
 #### 1.4.6 数据可视化(图表)
@@ -510,6 +512,7 @@
 <a href="https://github.com/parallel-js/parallel.js" target="_blank">ParallelJs</a> | `paralleljs` | 并行处理js的工具，可用于浏览器和node服务端。
 <a href="https://parall.ax/products/jspdf" target="_blank">js-pdf</a> | `js-pdf` | 通过node操作生成pdf的工具。
 <a href="http://doc.pm2.io/en/plus/overview/" target="_blank">pm2</a> | `pm2` | node进程管理。
+<a href="https://github.com/rvagg/node-worker-farm" target="_blank">node-worker-farm</a> | `node-worker-farm` | 很常用的 Node.js 多进程计算库。
 <a href="https://github.com/Marak/colors.js" target="_blank">colors.js</a> | `colorsjs` | node log控制台输出颜色控制。
 <a href="https://log4js-node.github.io/log4js-node/" target="_blank">log4.js</a> | `log4js` | log日志工具。
 <a href="https://nwjs.io/" target="_blank">nw.js</a> | `nwjs` | 基于nodeJs和chromium的应用程序运行环境，允许您直接从DOM调用所有Node.js模块。
@@ -527,7 +530,7 @@
 <a href="https://github.com/websockets/ws" target="_blank">ws</a> | `ws` | WebSocket的一个nodejs包。
 <a href="https://github.com/digitalocean/nginxconfig.io" target="_blank">nginxconfig.io</a> | `nginxconfig.io` | 在线生成nginx配置的工具。
 <a href="https://github.com/davidmarkclements/fast-safe-stringify#readme" target="_blank">fast-safe-stringify</a> | `fast-safe-stringify` | 安全快速地序列化JSON，替代JSON.stringify。
-
+<a href="https://nodemailer.com/" target="_blank">NodeMailer</a> | `node-mailer` | 用来发邮件的库、支持SMTP/SES/Sendmail/Stream方式。
 
 #### 1.7.3 GraphQL
 地址 | 标签 | 说明
