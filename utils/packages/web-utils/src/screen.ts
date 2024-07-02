@@ -2,7 +2,7 @@
  * @module Screen
  * @author Wayne
  * @Date 2022-08-31 16:05:14
- * @LastEditTime 2024-02-18 13:20:14
+ * @LastEditTime 2024-06-29 21:24:17
  */
 
 /**
@@ -41,7 +41,7 @@ export function isFullScreen() {
 
 /**
  * @function isFullScreenEnabled
- * @description 是否支持全屏操作
+ * @description 当前浏览器环境是否支持全屏操作
  * @returns {boolean}
  */
 export function isFullScreenEnabled() {

@@ -2,7 +2,7 @@
  * @module String
  * @author Wayne
  * @Date 2022-07-11 13:34:54
- * @LastEditTime 2024-03-10 10:06:48
+ * @LastEditTime 2024-06-29 14:13:28
  */
 
 /**
@@ -11,8 +11,9 @@
  * @param {string} str
  * @return {number}
  * @example
-byteSize('Hello, world!'); // 13
-byteSize('你好，世界！'); // 14
+ * byteSize('Hello, world!'); // 13
+ * byteSize('你好，世界！'); // 14
+ * byteSize('😊'); // 4
  */
 export function byteSize(str: string) {
   return new Blob([str]).size;
@@ -24,8 +25,9 @@ export function byteSize(str: string) {
  * @param {string} paramString
  * @return {string}
  * @example
-capitalize('hello'); // 'Hello'
-capitalize('world'); // 'World'
+ * capitalize('hello'); // 'Hello'
+ * capitalize('world'); // 'World'
+ * capitalize('hello world'); // 'Hello world'
  */
 export function capitalize(paramString: string): string {
   return paramString.charAt(0).toUpperCase() + paramString.slice(1);
@@ -37,8 +39,8 @@ export function capitalize(paramString: string): string {
  * @param {string} str
  * @return {string}
  * @example
-capitalizeEveryWord('hello world'); // 'Hello World'
-capitalizeEveryWord('the quick brown fox'); // 'The Quick Brown Fox'
+ * capitalizeEveryWord('hello world'); // 'Hello World'
+ * capitalizeEveryWord('the quick brown fox'); // 'The Quick Brown Fox'
  */
 export function capitalizeEveryWord(str: string) {
   return str.replace(/\b[a-z]/g, char => char.toUpperCase());
@@ -50,8 +52,9 @@ export function capitalizeEveryWord(str: string) {
  * @param {string} paramString
  * @return {string}
  * @example
-decapitalize('Hello'); // 'hello'
-decapitalize('World'); // 'world'
+ * decapitalize('Hello'); // 'hello'
+ * decapitalize('World'); // 'world'
+ * decapitalize('Hello World'); // 'hello World'
  */
 export function decapitalize([first, ...rest]: string) {
   return first.toLowerCase() + rest.join('');
@@ -63,10 +66,10 @@ export function decapitalize([first, ...rest]: string) {
  * @param {string} str
  * @return {string[]}
  * @example
- splitLines('line 1\nline 2\nline 3\n'); // ['line 1', 'line 2', 'line 3', '']
- splitLines('line 1\r\nline 2\r\nline 3\r\n'); // ['line 1', 'line 2', 'line 3', '']
- splitLines('line 1\nline 2\r\nline 3\n\r'); // ['line 1', 'line 2', 'line 3', '']
- splitLines(''); // ['']
+ * splitLines('line 1\nline 2\nline 3\n'); // ['line 1', 'line 2', 'line 3', '']
+ * splitLines('line 1\r\nline 2\r\nline 3\r\n'); // ['line 1', 'line 2', 'line 3', '']
+ * splitLines('line 1\nline 2\r\nline 3\n\r'); // ['line 1', 'line 2', 'line 3', '']
+ * splitLines(''); // ['']
  */
 export function splitLines(str: string) {
   return str.split(/\r?\n/);
@@ -78,8 +81,9 @@ export function splitLines(str: string) {
  * @param {string} str
  * @return {string}
  * @example
-stripHTMLTags('<p>Hello, world!</p>'); // 'Hello, world!'
-stripHTMLTags('<div><h1>Title</h1><p>Paragraph</p></div>'); // 'TitleParagraph'
+ * stripHTMLTags('<p>Hello, world!</p>'); // 'Hello, world!'
+ * stripHTMLTags('<div><h1>Title</h1><p>Paragraph</p></div>'); // 'TitleParagraph'
+ * stripHTMLTags('<a href="#">Home</a>'); // 'Home'
  */
 export function stripHTMLTags(str: string) {
   return str.replace(/<[^>]*>/g, '');
@@ -91,9 +95,10 @@ export function stripHTMLTags(str: string) {
  * @param {string} str
  * @return {boolean}
  * @example
-palindrome('racecar'); // true
-palindrome('hello'); // false
-palindrome('A man, a plan, a canal: Panama'); // true
+ * palindrome('racecar'); // true
+ * palindrome('hello'); // false
+ * palindrome('A man, a plan, a canal: Panama'); // true
+ * palindrome('1001'); // true
  */
 export function palindrome(str: string) {
   const _str = str.toLowerCase().replace(/[\W_]/g, '');
@@ -107,9 +112,9 @@ export function palindrome(str: string) {
  * @param {string} separator
  * @return {string}
  * @example
-fromCamelCase('helloWorld'); // 'hello_world'
-fromCamelCase('HelloWorld'); // 'hello_world'
-fromCamelCase('HelloWorld', '-'); // 'hello-world'
+ * fromCamelCase('helloWorld'); // 'hello_world'
+ * fromCamelCase('HelloWorld'); // 'hello_world'
+ * fromCamelCase('HelloWorld', '-'); // 'hello-world'
  */
 export function fromCamelCase(str: string, separator = '_') {
   return str
@@ -124,9 +129,9 @@ export function fromCamelCase(str: string, separator = '_') {
  * @param {string} str
  * @return {string}
  * @example
-reverseString('hello'); // 'olleh'
-reverseString('world'); // 'dlrow'
-reverseString('hello world'); // 'dlrow olleh'
+ * reverseString('hello'); // 'olleh'
+ * reverseString('world'); // 'dlrow'
+ * reverseString('hello world'); // 'dlrow olleh'
  */
 export function reverseString(str: string) {
   return [...str].reverse().join('');
@@ -139,9 +144,9 @@ export function reverseString(str: string) {
  * @param {number} num
  * @return {string}
  * @example
-truncateString('hello world', 5); // 'hello...'
-truncateString('hello world'); // 'hello worl...'
-truncateString('hello world', 11); // 'hello world'
+ * truncateString('hello world', 5); // 'hello...'
+ * truncateString('hello world'); // 'hello worl...'
+ * truncateString('hello world', 11); // 'hello world'
  */
 export function truncateString(str: string, num = 10) {
   return str?.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
@@ -153,9 +158,11 @@ export function truncateString(str: string, num = 10) {
  * @param {string} str
  * @return {boolean}
  * @example
-isChinese('你好'); // true
-isChinese('hello'); // false
-isChinese('你好hello'); // false
+ * isChinese('你好'); // true
+ * isChinese('hello'); // false
+ * isChinese('你好hello'); // false
+ * isChinese('你好，世界！'); // true
+ * isChinese('你好，世界！hello'); // false
  */
 export function isChinese(str: string) {
   return /^[\u4E00-\u9FA5]{1,}$/.test(str);

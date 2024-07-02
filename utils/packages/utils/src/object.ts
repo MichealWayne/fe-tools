@@ -3,7 +3,7 @@
  * @description object functions
  * @author Wayne
  * @Date 2022-07-05 13:53:42
- * @LastEditTime 2024-03-25 19:44:43
+ * @LastEditTime 2024-06-29 14:06:53
  */
 
 import { isObject } from './type';
@@ -20,6 +20,7 @@ export type PlainObject = {
  * @return {string[]}
  * @example
  * forOwn({a:1,b:2,c:3}, (val) => console.log(val)); // ['a','b','c']
+ * forOwn({a:1,b:2,c:3}, (val, key) => console.log(key)); // [1,2,3]
  */
 export function forOwn(
   obj: PlainObject,
@@ -34,7 +35,8 @@ export function forOwn(
  * @param {[string, unknown][]} arr
  * @return {object}
  * @example
- *   objectFromPairs([['a', 1], ['b', [2]]]); // -> {a:1, b:[2]}
+ * objectFromPairs([['a', 1], ['b', [2]]]); // -> {a:1, b:[2]}
+ * objectFromPairs([['a', 1], ['b', [2]], ['c', {d:3}]]); // -> {a:1, b:[2], c:{d:3}}
  */
 export function objectFromPairs(arr: [string, unknown][]) {
   return arr.reduce((a: PlainObject, v) => {
@@ -51,6 +53,7 @@ export function objectFromPairs(arr: [string, unknown][]) {
  * @return {object}
  * @example
  * mapObject(['a', 'b', 'c'], v => v + '1') // { a: 'a1', b: 'b1', c: 'c1' }
+ * mapObject(['a', 'b', 'c'], (v, i) => i) // { a: 0, b: 1, c: 2 }
  */
 export function mapObject<T, U>(
   arr: T[],
@@ -71,6 +74,7 @@ export function mapObject<T, U>(
  * @return {object}
  * @example
  * pick({a:1,b:2,c:3}, ['a','b']); // {a:1,b:2}
+ * pick({a:1,b:2,c:3}, ['a','d']); // {a:1}
  */
 export function pick(obj: PlainObject, keys: string[]) {
   return keys.reduce((acc: PlainObject, curr) => {
@@ -107,6 +111,8 @@ export function hasOwnProperty<T extends Record<string, unknown>>(
  * isEmptyObj({}); // true
  * isEmptyObj({a:1}); // false
  * isEmptyObj(null); // false
+ * isEmptyObj(undefined); // false
+ * isEmptyObj([]); // false
  */
 export function isEmptyObj(obj?: unknown): boolean {
   return isObject(obj) && Object.keys(obj).length === 0;

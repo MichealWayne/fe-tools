@@ -2,15 +2,15 @@
 
 浏览器相关封装。
 
-- [cookies.ts](./cookies.ts)：cookie 封装
+- [cookies.ts](./src/cookies.ts)：cookie 封装
   - getCookie：获取 cookie
   - setCookie：设置 cookie
   - delCookie：删除 cookie
-- [css.ts](./css.ts)
+- [css.ts](./src/css.ts)
   - getPrefix：获取浏览器前缀
   - getStyle：获取元素样式
   - getElementSize：获取元素的尺寸数据、如 width/height
-- [dom.ts](./dom.ts)
+- [dom.ts](./src/dom.ts)
   - isBrowser：是否浏览器环境
   - isBrowserTab：当前页面是否为显示状态
   - hasClass：元素是否有此 class
@@ -31,13 +31,13 @@
   - animateScrollTo：平滑滚动（dom 动画）
   - smoothScroll：平滑滚动（依赖 webapi）
   - disableCopy：禁止复制
-- [image.ts](./image.ts)
+- [image.ts](./src/image.ts)
   - isImageLoaded：加载图片（通常用于预加载）
   - getImageSize：获取图片的原始尺寸大小
   - isSupportWebP：是否支持 webp 格式图片
   - cropImage：图片裁剪
   - compressImage：图片压缩
-- [loadAssets.ts](./loadAssets.ts)
+- [loadAssets.ts](./src/loadAssets.ts)
   - loadScript：动态加载 js
   - loadScriptList：动态加载 js 列表
   - loadCss：动态加载 css
@@ -45,15 +45,15 @@
   - loadImage：加载图片
   - loadImageList：加载图片列表
   - loadCSV：下载 csv 文件
-- [platform.ts](./platform.ts)
+- [platform.ts](./src/platform.ts)
   - isPC：是否为 pc 环境
   - getPcExplore：获取 pc 浏览器版本
   - getSystemOS：获取系统版本
   - getMobilePlatform：获取移动端平台标志
   - getMobileOS：获取移动端系统及其版本
-- [rem.ts](./rem.ts)
-- [storage.ts](./storage.ts)
-- [url.ts](./url.ts)
+- [rem.ts](./src/rem.ts)
+- [storage.ts](./src/storage.ts)
+- [url.ts](./src/url.ts)
   - parseQueryString：获取 url search 参数对象
   - getUrlParam：获取 url search 字段值
   - paramsJoinUrl：将参数对象转为 url 字符串
@@ -61,3 +61,5 @@
   - getUrlDomain：获取 url 域名信息
   - httpsRedirect：强制 https 重定向
   - uniqueSlash：将路径中重复的正斜杆替换成单个斜杆隔开的字符串
+- [keyboard.ts](./src/keyboard.ts)
+  - getKeyName：获取 pc 按键值

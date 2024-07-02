@@ -663,6 +663,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://imagemagick.org/index.php | imagemagick | An image processing tool widely used in the background. |
 | https://github.com/javierbyte/img2css | img2css | An interesting library that presents images in CSS using box-shadow. |
 | https://www.whatfontis.com/ | whatfontis | A font recognition tool for images, limited to English fonts and registration is required. |
+| https://www.toptal.com/developers/keycode | keycode | Enter a key and get its corresponding js keyCode for the online website |
 | https://ps.gaoding.com/#/ | ps | Powerful online Photoshop. |
 | https://avocode.com/convert-psd-to-sketch?ref=producthunt | avocode | One-click conversion of psd to sketch. |
 | https://jakearchibald.github.io/svgomg/ | svgomg | Online svg optimization and preview. |

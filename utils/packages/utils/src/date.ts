@@ -3,7 +3,7 @@
  * @description date functions.
  * @notice 存在复杂的日期处理场景建议直接使用date-fns
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-06-17 14:16:45
+ * @LastEditTime 2024-06-29 13:57:20
  */
 
 /**
@@ -13,6 +13,7 @@
  * @return {number}
  * @example
  * dayOfYear(new Date('2022/02/20')); // 51
+ * dayOfYear(new Date('2024/12/31')); // 366
  */
 export function dayOfYear(date = new Date()) {
   return Math.floor((+date - +new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
@@ -25,6 +26,8 @@ export function dayOfYear(date = new Date()) {
  * @return {string}
  * @example
  * getColonTimeFromDate(new Date()); // '15:58:40'
+ * getColonTimeFromDate(); // '15:58:40'
+ * getColonTimeFromDate(new Date('2022-02-20 11:10:20')); // '11:10:20'
  */
 export function getColonTimeFromDate(date = new Date()) {
   return date.toTimeString().slice(0, 8);
@@ -50,6 +53,9 @@ export function getDaysDiffBetweenDates(dateInitial: Date, dateFinal: Date) {
  * @param {Date} dateA
  * @param {Date} dateB
  * @return {boolean}
+ * @example
+ * isAfterDate(new Date('2023-01-01'), new Date('2023-01-02')); // false
+ * isAfterDate(new Date('2023-01-01'), new Date('2022-01-02')); // true
  */
 export function isAfterDate(dateA: Date, dateB = new Date()) {
   return dateA > dateB;
@@ -60,6 +66,9 @@ export function isAfterDate(dateA: Date, dateB = new Date()) {
  * @param {Date} date1
  * @param {Date} date2
  * @return {boolean}
+ * @example
+ * isBeforeDate(new Date('2023-01-01'), new Date('2023-01-02')); // true
+ * isBeforeDate(new Date('2023-01-01'), new Date('2022-01-02')); // false
  */
 export function isBeforeDate(dateA: Date, dateB = new Date()) {
   return dateA < dateB;

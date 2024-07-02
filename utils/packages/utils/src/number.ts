@@ -3,7 +3,7 @@
  * @description number functions
  * @author Wayne
  * @Date 2023-02-09 15:08:11
- * @LastEditTime 2024-03-25 19:52:36
+ * @LastEditTime 2024-06-29 14:04:30
  */
 
 import { isNumber } from './type';
@@ -14,11 +14,11 @@ import { isNumber } from './type';
  * @param {unknown} val
  * @return {boolean}
  * @example
- * console.log(isInt(5)); // true
- * console.log(isInt(2.5)); // false
- * console.log(isInt('3')); // false
- * console.log(isInt(null)); // false
- * console.log(isInt(undefined)); // false
+ * isInt(5); // true
+ * isInt(2.5); // false
+ * isInt('3'); // false
+ * isInt(null); // false
+ * isInt(undefined); // false
  */
 export const isInt = (val: unknown): val is number => {
   return isNumber(val) && val % 1 === 0;

@@ -1,7 +1,7 @@
 /**
  * @module os
  * @Date 2020-08-20 21:55:46
- * @LastEditTime 2023-12-26 10:37:51
+ * @LastEditTime 2024-06-29 21:28:11
  */
 
 import os from 'os';
@@ -174,8 +174,10 @@ export function getProcesses(nProcess: number | AnyCallbackFunc, callback: AnyCa
   });
 }
 
-/*
- * Returns All the load average usage for 1, 5 or 15 minutes.
+/**
+ * @function allLoadavg
+ * @description 获取所有负载均衡。Returns All the load average usage for 1, 5 or 15 minutes.
+ * @returns {string}
  */
 export function allLoadavg() {
   const loads = os.loadavg();

@@ -2,7 +2,7 @@
  * @module Math
  * @description math functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-02-18 11:02:05
+ * @LastEditTime 2024-06-29 14:03:19
  */
 
 /**
@@ -10,6 +10,9 @@
  * @description 获取斐波那契数列第n项的值
  * @param {number} n
  * @return {number}
+ * @example
+ * factorial(5); // 120
+ * factorial(0); // 1
  */
 export function factorial(n: number): number {
   // eslint-disable-next-line no-nested-ternary
@@ -28,7 +31,10 @@ export function factorial(n: number): number {
  * @param {number} x
  * @param {number} y
  * @return {number}
- * @example gcd(12, 18); // 6
+ * @example
+ * gcd(12, 18); // 6
+ * gcd(12, 0); // 12
+ * gcd(1, 1); // 1
  */
 export function gcd(x: number, y: number): number {
   return !y ? x : gcd(y, x % y);
@@ -40,6 +46,9 @@ export function gcd(x: number, y: number): number {
  * @param {number} dividend
  * @param {number} divisor
  * @return {boolean}
+ * @example
+ * isDivisible(12, 3); // true
+ * isDivisible(12, 5); // false
  */
 export function isDivisible(dividend: number, divisor: number) {
   return dividend % divisor === 0;
@@ -53,6 +62,7 @@ export function isDivisible(dividend: number, divisor: number) {
  * @param {number} y
  * @example
  * lcm(12, 18); // 36
+ * lcm(12, 0); // 0
  */
 export function lcm(x: number, y: number) {
   return Math.abs(x * y) / gcd(x, y);
