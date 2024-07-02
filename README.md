@@ -647,6 +647,7 @@
 <a href="https://imagemagick.org/index.php" target="_blank">ImageMagick</a> | `imagemagick` | 后台运用极广的图片处理工具。
 <a href="https://github.com/javierbyte/img2css" target="_blank">img2css</a> | `img2css` | 一个有趣的库，利用box-shadow将图片以CSS的方式呈现。
 <a href="https://www.whatfontis.com/" target="_blank">whatfontis.com</a> | `whatfontis` | 识别图片上的字体不过限于英文字体，需要注册。
+<a href="https://www.toptal.com/developers/keycode" target="_blank">keycode</a> | `keycode` | 一个输入按键并获取其对应js keyCode的在线网站。
 <a href="https://ps.gaoding.com/#/" target="_blank">ps.gaoding.com</a> | `ps` | 强大的在线Photoshop。
 <a href="https://avocode.com/convert-psd-to-sketch?ref=producthunt" target="_blank">convert-psd-to-sketch avocode</a> | `avocode` | psd一键转sketch。
 <a href="https://jakearchibald.github.io/svgomg/" target="_blank">svgomg</a> | `svgomg` | 在线svg优化及预览。

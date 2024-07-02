@@ -1,6 +1,6 @@
 # utils
 
-- [array.ts](./array.ts)
+- [array.ts](./src/array.ts)
   - arrayMax：求数组最大值
   - arrayMin：求数组最小值
   - arrayAverage：求数组平均值
@@ -32,24 +32,24 @@
   - digitize：数字分隔为数字列表
   - fibonacci：斐波那次序列
   - median：找中位数
-- [await-to.ts](./await-to.ts)
+- [await-to.ts](./src/await-to.ts)
   - to: async-await/promise 操作相关
-- [check.ts](./check.ts)
+- [check.ts](./src/check.ts)
   - isEmail：验证电子邮件地址的格式
   - isIdCard：中国大陆身份证验证
   - isUrl：检查是否能够正确地验证 URL 的格式
   - isPhoneNumber：中国大陆手机号验证
   - isPostalCode：校验(中国)邮政编码
-- [check.plus.ts](./check.plus.ts)
+- [check.plus.ts](./src/check.plus.ts)
   - validatePassport：(中国)护照号码校验
   - validateLicensePlate：(中国)车牌号校验
   - checkPwdStrength：检验密码强度（数字+字母+符号）
   - checkIdcard：身份证正确性校验
-- [color.ts](./color.ts)
+- [color.ts](./src/color.ts)
   - randomHexColor：随机十六进制格式颜色
   - getColorRgb：十六进制格式颜色转 rgb
   - isTransparentColor：rgb/rgba 色值是否为透明色
-- [date.ts](./date.ts)
+- [date.ts](./src/date.ts)
   - dayOfYear：此日期是当年中的第几天
   - getColonTimeFromDate：获取 hh:mm:ss 时间
   - getDaysDiffBetweenDates：判断两个日期差了几天
@@ -57,7 +57,7 @@
   - isBeforeDate：判断一个日期是否在另一个日期之前
   - daysLater：获取几天后的日期
   - getFormattedRemainTime：计算两个日期之间的时间差，并返回格式化结果
-- [Easing.ts](./Easing.ts)
+- [Easing.ts](./src/Easing.ts)
   - Linear：一阶线性函数
   - Quadratic：二阶缓冲函数
   - Cubic：三阶缓冲函数
@@ -69,7 +69,7 @@
   - Elastic：伸缩缓冲函数
   - Back：倒退缓冲函数
   - Bounce：弹跳缓冲函数
-- [function.ts](./function.ts)
+- [function.ts](./src/function.ts)
   - NOOP：一个无操作函数，执行后返回空字符串
   - attempt：尝试执行传入的函数，并返回其执行结果或错误
   - defer：将指定的函数延迟执行，直到当前执行栈中的代码全部执行完毕后再执行
@@ -86,12 +86,12 @@
   - sleep：延迟 ms 执行，返回一个 Promise
   - throttle：节流函数，限制函数执行的频率
   - debounce：防抖函数，确保函数在指定时间内最多执行一次
-- [math.ts](./math.ts)
+- [math.ts](./src/math.ts)
   - factorial：阶乘
   - gcd：公约数
   - isDivisible：是否能整除
   - lcm：最小公倍数
-- [number.ts](./number.ts)
+- [number.ts](./src/number.ts)
   - isInt：判断是否为整数
   - isOdd：判断一个数字是否为偶数
   - isFloat：判断是否为浮点数
@@ -104,14 +104,14 @@
   - round：数字取位
   - sum：数字求和
   - clamp：通过区间约束范围值
-- [object.ts](./object.ts)
+- [object.ts](./src/object.ts)
   - forOwn：对象遍历处理
   - objectFromPairs：数组字典转对象
   - mapObject：数组转对象
   - pick：过滤对象
   - hasOwnProp：检查一个对象是否具有指定的属性
   - isEmptyObj：是否为空对象
-- [string.ts](./string.ts)
+- [string.ts](./src/string.ts)
   - byteSize：计算字符串的字节数
   - capitalize：将字符串的第一个字母转换为大写字母
   - capitalizeEveryWord：将字符串中的每个单词的第一个字母转换为大写字母
@@ -124,11 +124,11 @@
   - truncateString：如果字符串的长度大于指定数值，则返回截取后的字符串加上省略号
   - isChinese：判断字符串是否全部是中文
   - camelize：将字符串转换成驼峰命名方式
-- [trade.ts](./trade.ts)
+- [trade.ts](./src/trade.ts)
   - luhnCheck：银行卡号校验
   - toCurrency：货币转换
-- [tween.ts](./tween.ts)
-- [type.ts](./type.ts)
+- [tween.ts](./src/tween.ts)
+- [type.ts](./src/type.ts)
   - type：获取变量值的类型
   - isUndefined：判断变量值是否为 `undefined`
   - isArray：判断变量值是否为数组
@@ -139,7 +139,6 @@
   - isPrimitive：判断变量值是否为原始类型（包括 `Promise`）
   - isDate：判断传入的参数是否为 `Date` 类型
   - equals：判断两个参数是否值相等
-- [others.ts](./others.ts)
+- [others.ts](./src/others.ts)
   - compareVersion：版本比较
-  - getKeyName：获取 pc 按键值
   - digitUppercase：金额文字化

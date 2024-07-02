@@ -52,7 +52,7 @@ jobs:
           name: newdocumentation
       - run: tar -xf newdocumentation.tar ./docs -C ./docs
       - run: rm newdocumentation.tar
-      - run: mv -f ./datas ./docs 
+      - run: mkdir ./datas && mv -f ./datas ./docs 
       - name: commit
         run: |
           git config --global user.email "michealwayne@163.com"

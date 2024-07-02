@@ -2,9 +2,14 @@
  * @module Function
  * @author Wayne
  * @createTime 2022-03-12 14:44:00
- * @LastEditTime 2024-03-25 20:18:30
+ * @LastEditTime 2024-06-29 14:02:07
  */
 
+/**
+ * @function NOOP
+ * @description 空函数(常用于默认函数)
+ * @returns {''}
+ */
 export const NOOP = () => '';
 
 /**
@@ -14,7 +19,8 @@ export const NOOP = () => '';
  * @param {unknown} args
  * @return {unknown}
  * @example
-attempt((a, b) => a + b, 1, 2); // 3
+ * attempt((a, b) => a + b, 1, 2); // 3
+ * attempt((a, b) => a + b, 1); // Error: Expected 2 arguments, but got 1.
  */
 export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args: T): Error | R {
   try {
@@ -209,11 +215,13 @@ interface Curry {
 
 /**
  * @function curry
- * @description 柯里化
+ * @description 函数柯里化
  * @param {Function} fn
  * @return {Function}
  * @example
- * curry(Math.pow)(2)(10)
+ * curry(Math.pow)(2)(10); // 1024
+ * curry(Math.pow)(2, 10); // 1024
+ * curry((a, b) => a + b)(1)(2); // 3
  */
 export const curry: Curry = (callback: any) => {
   return (...args: any) => {

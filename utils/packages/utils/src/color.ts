@@ -2,7 +2,7 @@
  * @module Color
  * @description handle color format
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-03-11 15:57:02
+ * @LastEditTime 2024-06-29 13:55:18
  */
 
 /**
@@ -10,7 +10,7 @@
  * @description 生成随机十六进制颜色
  * @return {String}
  * @example
- * const color = randomHexColor(); // 随机的十六进制颜色
+ * randomHexColor(); // '#ff0000'(randomly)
  */
 export function randomHexColor() {
   return '#' + ('00000' + ((Math.random() * 0x1000000) << 0).toString(16)).slice(-6);
@@ -23,6 +23,7 @@ export function randomHexColor() {
  * @return {number[]} rgb array
  * @example
  * getColorRgbArr('#ff0000'); // [255,0,0]
+ * getColorRgbArr('#f00'); // [255,0,0]
  */
 export function getColorRgbArr(color: string): number[] {
   const reg = /^#[\da-f]{3}([\da-f]{3})?$/i;
@@ -51,6 +52,9 @@ export function getColorRgbArr(color: string): number[] {
  * @param {number} rate
  * @return {string}
  * @need getColorRgb
+ * @example
+ * getColorRgba('#ff0000', 0.5); // 'rgba(255,0,0,0.5)'
+ * getColorRgba('#ff0000'); // 'rgba(255,0,0,1)'
  */
 export function getColorRgba(str: string, rate = 1): string {
   const rgbStr = getColorRgbArr(str).join(',');
@@ -64,8 +68,9 @@ export function getColorRgba(str: string, rate = 1): string {
  * @param {string} colorStr
  * @return {boolean}
  * @example
- * console.log(isTransparentColor('rgba(0, 0, 0, 0)')); // true
- * console.log(isTransparentColor('rgba(255, 255, 255, 1)')); // false
+ * isTransparentColor('rgba(0, 0, 0, 0)'); // true
+ * isTransparentColor('rgba(255, 255, 255, 1)'); // false
+ * isTransparentColor('rgba(255, 255, 255, 0)'); // true
  */
 export function isTransparentColor(colorStr: string): boolean {
   if (!colorStr) return false;

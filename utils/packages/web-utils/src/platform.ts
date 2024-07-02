@@ -4,7 +4,7 @@
  * @module Platform
  * @notice 存在复杂的判断场景可以直接使用ua-parser-js
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-06-23 10:49:58
+ * @LastEditTime 2024-06-29 21:03:49
  */
 
 /**
@@ -87,13 +87,15 @@ export function getSystemOS() {
   const appVersion = navigator?.appVersion.toLowerCase() || '';
 
   if (/mac/i.test(appVersion)) return 'mac';
-  if (/win/i.test(appVersion)) return 'windows';
+  if (/win/i.test(appVersion)) {
+    if (/phone/i.test(ua)) return 'windowsPhone'; // 合并windows和windowsPhone的检查
+    return 'windows';
+  }
   if (/linux/i.test(appVersion)) return 'linux';
   if (/iphone/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) return 'ios';
   if (/android/i.test(ua)) return 'android';
   if (/harmonyos/i.test(ua)) return 'harmony';
-  if (/win/i.test(appVersion) && /phone/i.test(ua)) return 'windowsPhone';
-  return 'unkonwn';
+  return 'unknown';
 }
 
 /**

@@ -2,7 +2,7 @@
  * @module Array
  * @description array functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-03-11 15:11:16
+ * @LastEditTime 2024-06-29 13:52:21
  */
 
 import { isArray, isObject } from './type';
@@ -18,6 +18,7 @@ export type AnyArr = unknown[];
  * @return {number}
  * @example
  * arrayMax([1, 2, 3, 0, -1, -5]); // -> 3
+ * arrayMax([1, 2, 3]); // -> 3
  */
 export function arrayMax(arr: NumberArr): number {
   return Math.max(...arr);
@@ -30,6 +31,7 @@ export function arrayMax(arr: NumberArr): number {
  * @return {number}
  * @example
  * arrayMax([1, 2, 3, 0, -1, -5]); // -> -5
+ * arrayMax([1, 2, 3]); // -> 1
  */
 export function arrayMin(arr: NumberArr): number {
   return Math.min(...arr);
@@ -41,6 +43,7 @@ export function arrayMin(arr: NumberArr): number {
  * @param {number[]} arr
  * @example
  * arrayMax([1, 2, 3, 0, -1, -5]); // -> 0
+ * arrayMax([1, 2, 3]); // -> 2
  */
 export function arrayAverage(arr: number[]): number {
   return arr.reduce((acc, val) => acc + val, 0) / arr.length;
@@ -52,6 +55,7 @@ export function arrayAverage(arr: number[]): number {
  * @param {number[]} arr
  * @example
  * arrayMax([1, 2, 3]); // -> 6
+ * arrayMax([-1, 2, 3]); // -> 4
  */
 export function arraySum(arr: number[]): number {
   return arr.reduce((acc, val) => acc + val, 0);
@@ -65,6 +69,8 @@ export function arraySum(arr: number[]): number {
  * @example
  * allEqual([0, 1, 2]); // false
  * allEqual([2, 2, 2]); // true
+ * allEqual([2, 2, '2']); // false
+ * allEqual([NaN, NaN, NaN]); // false
  */
 export const allEqual = (arr: AnyArr): boolean => arr.every(val => val === arr[0]);
 
@@ -111,9 +117,11 @@ export function size(val: unknown) {
  * @param {unknown[][]} arr
  * @param {string} delimiter
  * @return {string}
+ * @example
+ * arrayToCSV([['a', 'b'], ['c', 'd']], ','); // '"a","b"\n"c","d"'
  */
-export function arrayToCSV(arr: AnyArr[], delimiter?: string): string {
-  return arr.map(v => v.map(x => `"${x}"`).join(delimiter || ',')).join('\n');
+export function arrayToCSV(arr: AnyArr[], delimiter = ','): string {
+  return arr.map(v => v.map(x => `"${x}"`).join(delimiter)).join('\n');
 }
 
 /**
@@ -121,6 +129,9 @@ export function arrayToCSV(arr: AnyArr[], delimiter?: string): string {
  * @description 未知类型的数据val转数组
  * @param {unknown} val
  * @return {unknown[]}
+ * @example
+ * castArray('foo'); // ['foo']
+ * castArray([1]); // [1]
  */
 export function castArray<T>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val];
@@ -134,6 +145,8 @@ export function castArray<T>(val: T | T[]): T[] {
  * @return {array}
  * @example
  * chunk([1,2,3,4,5], 3);  // [[1,2,3],[4,5]]
+ * chunk([1,2,3,4,5], 2);  // [[1,2],[3,4],[5]]
+ * chunk([1,2,3,4,5], 1);  // [[1],[2],[3],[4],[5]]
  */
 export function chunk<T>(arr: T[], size: number): T[][] {
   return Array.from(
@@ -149,6 +162,9 @@ export function chunk<T>(arr: T[], size: number): T[][] {
  * @description 数组筛选出“真”值项。（false、0、NaN、Undefined、null非真）
  * @param {unknown[]} arr
  * @return {array}
+ * @example
+ * compact([0, 1, false, 2, '', 3]);  // -> [1, 2, 3]
+ * compact([0, 1, false, 2, '', 3, null, undefined, NaN]);  // -> [1, 2, 3]
  */
 export function compact<T>(arr: T[]): T[] {
   return arr.filter(Boolean);
@@ -162,6 +178,7 @@ export function compact<T>(arr: T[]): T[] {
  * @return {number}
  * @example
  *   countOccurrences([1,2,4,5,2,6,3], 2);  // -> 2
+ *  countOccurrences([1,2,4,5,2,6,3], 3);  // -> 1
  */
 export function countOccurrences<T>(arr: T[], val: T): number {
   return arr.reduce((a: number, v) => (v === val ? a + 1 : a), 0);
@@ -206,7 +223,7 @@ export function flatten(arr: AnyArr, depth = 1): unknown[] {
  * @example
  * difference([1, 2, 3], [1, 1, 2, 2, 3]);  // -> false
  * difference([1, 2, 3], [1, 2, 3, 4]);  // -> false
- * difference([1, 2, 3], [1, 2, 4]);  // -> true
+ * difference([1, 2, 3], [1, 2, 3]);  // -> true
  */
 export function difference(arr1: AnyArr, arr2: AnyArr) {
   const s = new Set(arr2);
@@ -222,6 +239,7 @@ export function difference(arr1: AnyArr, arr2: AnyArr) {
  * @return {Boolean}
  * @example
  *   differenceBy([1, 2, 3], [2, 4, 6], x => x > 0);  // -> false
+ *  differenceBy([1, 2, 3], [2, 4, 6], x => x > 1);  // -> true
  */
 export function differenceBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => unknown): unknown[] {
   const s = new Set(arr2.map(fn));
@@ -234,6 +252,8 @@ export function differenceBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => unk
  * @param {unknown[]} arr
  * @param {function} func
  * @return {array}
+ * @example
+ * dropWhile([1, 2, 3, 4], n => n >= 3);  // -> [3, 4]
  */
 export function dropWhile(_arr: AnyArr, fn: (v: unknown) => unknown): unknown[] {
   let arr = _arr;
@@ -251,6 +271,7 @@ export function dropWhile(_arr: AnyArr, fn: (v: unknown) => unknown): unknown[] 
  * @return {array}
  * @example
  * indexOfAll([1,2,3,4,2,2], 2);  // -> [1, 4, 5]
+ * indexOfAll([1,2,3,4,2,2], 5);  // -> []
  */
 export function indexOfAll(arr: any[], val: unknown): unknown[] {
   return arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
@@ -264,6 +285,7 @@ export function indexOfAll(arr: any[], val: unknown): unknown[] {
  * @return {array}
  * @example
  * intersection([1, 2, 3, 4], [1, 2]);  // => [1, 2]
+ * intersection([1, 2, 3, 4], [1, 5]);  // => [1]
  */
 export function intersection(arr1: AnyArr, arr2: AnyArr): unknown[] {
   const s = new Set(arr2);
@@ -277,6 +299,8 @@ export function intersection(arr1: AnyArr, arr2: AnyArr): unknown[] {
  * @param {array} arr2
  * @param {function} fn
  * @return {array}
+ * @example
+ * intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor);  // [2.1]
  */
 export function intersectionBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => unknown): unknown[] {
   const s = new Set(arr2.map(fn));
@@ -290,6 +314,8 @@ export function intersectionBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => u
  * @param {array} arr2
  * @param {function} fn
  * @return {array}
+ * @example
+ * intersectionWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Math.round(b));  // [1.5, 3, 0]
  */
 export function intersectionWith(
   arr1: AnyArr,
@@ -304,7 +330,9 @@ export function intersectionWith(
  * @description 反向筛选
  * @param {function} func
  * @return {function}
- * @example [1, 2, 3, 4, 5].filter(negate(n => n % 2 === 0)); // [1,2,3]
+ * @example
+ * [1, 2, 3, 4, 5].filter(negate(n => n % 2 === 0)); // [1,2,3]
+ * [1, 2, 3, 4, 5].filter(negate(n => n % 2 === 1)); // [2,4]
  */
 export function negate(fn: (...args: unknown[]) => unknown) {
   return function (...args: unknown[]) {
@@ -317,6 +345,8 @@ export function negate(fn: (...args: unknown[]) => unknown) {
  * @description 从数组arr中随机取一项
  * @param {unknown[]} arr
  * @return {unknown}
+ * @example
+ * sample([3, 7, 9, 11]);  // -> 9(randomly)
  */
 export function sample(arr: AnyArr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -328,6 +358,8 @@ export function sample(arr: AnyArr) {
  * @param {array} param0
  * @param {number} num
  * @return {array}
+ * @example
+ * sampleSize([1, 2, 3], 2);  // [3,1] (randomly)
  */
 export function sampleSize([...arr], num = 1) {
   let m = arr.length;
@@ -343,6 +375,8 @@ export function sampleSize([...arr], num = 1) {
  * @description 数组arr数据项打乱
  * @param {array} arr
  * @return {array}
+ * @example
+ * shuffle([1, 2, 3]);  // [2,3,1] (randomly)
  */
 export function shuffle([...arr]) {
   let m = arr.length;
@@ -359,6 +393,8 @@ export function shuffle([...arr]) {
  * @param {array} arr
  * @param {number} nth
  * @return {array}
+ * @example
+ * everyNth([1,2,3,4,5,6], 2);  // [1,3,5]
  */
 export function everyNth(arr: AnyArr, nth: number) {
   return arr.filter((_e, i) => i % nth === 0);
@@ -369,6 +405,8 @@ export function everyNth(arr: AnyArr, nth: number) {
  * @description 筛选出数组中没有重复数字的数据项
  * @param {array} arr
  * @return {array}
+ * @example
+ * filterNonUnique([1,2,2,3,4,4,5]);  // [1,3,5]
  */
 export function filterNonUnique(arr: AnyArr) {
   return arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
@@ -380,6 +418,9 @@ export function filterNonUnique(arr: AnyArr) {
  * @param {number} len
  * @param {number} value
  * @return {array}
+ * @example
+ * initializeArrayWithValues(5, 2);  // [2,2,2,2,2]
+ * initializeArrayWithValues(5);  // [0,0,0,0,0]
  */
 export function initializeArrayWithValues(len: number, value = 0) {
   return Array(len).fill(value);
@@ -411,8 +452,9 @@ export function remove<T>(arr: T[], fn: (v: T) => boolean): T[] {
  * @funciton digitize
  * @description 数字分隔为数字列表
  * @param {number} num
- * @example digitize(12345); // [1, 2, 3, 4, 5]
  * @return {number[]}
+ * @example
+ * digitize(12345); // [1, 2, 3, 4, 5]
  */
 export function digitize(num: number) {
   return [...num.toString()].map(i => parseInt(i, 10));
@@ -423,6 +465,8 @@ export function digitize(num: number) {
  * @description 斐波那次序列
  * @param {number} n
  * @return {array}
+ * @example
+ * fibonacci(5); // [0, 1, 1, 2, 3]
  */
 export function fibonacci(n: number) {
   return Array(n)
@@ -435,6 +479,9 @@ export function fibonacci(n: number) {
  * @description 找中位数
  * @param {number[]} arr
  * @return {number}
+ * @example
+ * median([1, 2, 3, 4, 5]); // 3
+ * median([1, 2, 3, 4, 5, 6]); // 3.5
  */
 export function median(arr: NumberArr) {
   const mid = Math.floor(arr.length / 2);
