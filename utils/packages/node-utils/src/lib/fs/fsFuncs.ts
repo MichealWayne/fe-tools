@@ -1,7 +1,7 @@
 /**
  * @module fsFuncs
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-03-10 13:34:14
+ * @LastEditTime 2024-07-07 14:05:59
  */
 
 import fs from 'fs';
@@ -13,12 +13,12 @@ import Tip from '../util/tip';
  * @function travelFolderSync
  * @description 遍历文件夹输出文件信息
  * @param {String} dirPath
- * @param {Function} callback
+ * @param {Function} fileCallback
  * @param {Function} folderCallback
  */
 export function travelFolderSync(
   dirPath: string,
-  callback: (pathName?: string) => void,
+  fileCallback: (pathName?: string) => void,
   folderCallback: (pathName?: string) => void
 ) {
   fs.readdirSync(dirPath).forEach(file => {
@@ -26,9 +26,9 @@ export function travelFolderSync(
 
     if (fs.statSync(pathName).isDirectory()) {
       folderCallback(pathName);
-      travelFolderSync(pathName, callback, folderCallback);
+      travelFolderSync(pathName, fileCallback, folderCallback);
     } else {
-      callback(pathName);
+      fileCallback(pathName);
     }
   });
 }
