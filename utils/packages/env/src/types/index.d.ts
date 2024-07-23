@@ -1,13 +1,7 @@
 /**
  * @author Wayne
  * @Date 2022-07-11 13:32:33
- * @LastEditTime 2024-04-09 14:22:14
- */
-/**
- * @typed kingfisher-env
- * @author Wayne
- * @createTime 2022-03-11 09:54:36
- * @lastModified 2022-03-31 15:59:15
+ * @LastEditTime 2024-07-21 09:18:33
  */
 
 export declare const GLOBAL: {
@@ -21,6 +15,7 @@ export declare const isByteDanceMicroApp: boolean;
 export declare const isBaiduSmartProgram: boolean;
 export declare const isKuaiShouMiniProgram: boolean;
 export declare const isWeChatMiniProgram: boolean;
+export declare const isWeex: boolean;
 
 declare enum RunTimeIdMap {
   WEB = 'web',
@@ -46,6 +41,7 @@ declare const _default: {
   isBaiduSmartProgram: boolean;
   isKuaiShouMiniProgram: boolean;
   isWeChatMiniProgram: boolean;
+  isWeex: boolean;
   RunTimeIdMap: typeof RunTimeIdMap;
   RUNTIME_NAME: RunTimeIdMap;
 };

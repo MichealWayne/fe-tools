@@ -2,7 +2,7 @@
  * @module tip
  * @author Wayne
  * @Date 2022-06-21 14:16:08
- * @LastEditTime 2023-05-30 13:47:25
+ * @LastEditTime 2024-07-22 19:51:09
  */
 import Colors from './colors';
 import { getTimeStr } from './util';

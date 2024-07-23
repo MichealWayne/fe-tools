@@ -3,7 +3,7 @@
  * @description console colors
  * @author Wayne
  * @Date 2022-06-21 14:09:06
- * @LastEditTime 2024-02-18 13:21:05
+ * @LastEditTime 2024-07-22 19:50:08
  */
 
 const COLORS_MAP = {

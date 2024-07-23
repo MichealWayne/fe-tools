@@ -56,9 +56,9 @@ export function getListExtremum(arr: number[]): ListExtremum {
 
 /**
  * @function getAxisLimit
- * @description set grid charts scale rate range
+ * @description 获取网格最大范围值。set grid charts scale rate range
  * @param {Number} range
- * @return {number}
+ * @return {Number}
  */
 export function getAxisLimit(range?: number): number {
   if (!range) {
@@ -66,26 +66,25 @@ export function getAxisLimit(range?: number): number {
   }
   if (range > 2) {
     return Math.ceil(range / 4) * 4;
-  } else {
-    return range * 1.2;
   }
+
+  // 为了美观、顶部留出一定空间
+  return range * 1.2;
 }
 
 /**
  * @function getPointsAngle
- * @description 获得两个点的角度值
+ * @description 根据两个点获取角度值
  * @param {PointPosition} point1
  * @param {PointPosition} point2
  * @return {Number}
  * @example
  *   const angle = getPointsAngle({ x: 0, y: 0 }, { x: 1, y: 1 })
  */
-export function getPointsAngle(point1: PointPosition, point2: PointPosition): number {
-  const x1 = point1.x;
-  const y1 = point1.y;
-  const x2 = point2.x;
-  const y2 = point2.y;
-
+export function getPointsAngle(
+  { x: x1, y: y1 }: PointPosition,
+  { x: x2, y: y2 }: PointPosition
+): number {
   const angle = Math.atan2(x2 - x1, y1 - y2);
   return angle < 0 ? Math.PI * 2 + angle : angle;
 }
@@ -99,10 +98,9 @@ export function getPointsAngle(point1: PointPosition, point2: PointPosition): nu
  * @example
  *   const distance = getPointsDistance({ x: 0, y: 0 }, { x: 1, y: 1 })
  */
-export function getPointsDistance(point1: PointPosition, point2: PointPosition): number {
-  const x1 = point1.x;
-  const y1 = point1.y;
-  const x2 = point2.x;
-  const y2 = point2.y;
+export function getPointsDistance(
+  { x: x1, y: y1 }: PointPosition,
+  { x: x2, y: y2 }: PointPosition
+): number {
   return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
 }

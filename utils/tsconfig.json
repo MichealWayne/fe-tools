@@ -21,7 +21,13 @@
       "web-utils": ["packages/web-utils/src/index.ts"]
     }
   },
-  "include": ["packages/**/src", "types/*", "types", "node_modules/@types/*"],
+  "include": [
+    "packages/**/src",
+    "types/*",
+    "types",
+    "node_modules/@types/*",
+    "packages/web-utils/__tests__/url.test.ts"
+  ],
   "exclude": [
     "__tests__",
     "dist",

@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2023-02-18 10:28:42
- * @LastEditTime 2024-04-09 14:34:41
+ * @LastEditTime 2024-07-22 19:40:03
  */
 
 import {
@@ -15,6 +15,8 @@ import {
   functionName,
   memoize,
   curry,
+  sleep,
+  defer,
 } from '../src/function';
 
 describe('memoize', () => {
