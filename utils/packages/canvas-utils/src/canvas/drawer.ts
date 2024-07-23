@@ -12,19 +12,21 @@ import { PointPosition } from '../types';
 /**
  * @function drawLine
  * @description 画直线
- * @param {canvas object} ctx canvas context
+ * @param {CanvasRenderingContext2D} ctx canvas context
  * @param {PointPosition} point1
  * @param {PointPosition} point2
+ * @example
+ *  drawLine(ctx, { x: 10, y: 10 }, { x: 100, y: 100 });
  */
 export function drawLine(
   ctx: CanvasRenderingContext2D,
-  point1: PointPosition,
-  point2: PointPosition
+  { x: x1, y: y1 }: PointPosition,
+  { x: x2, y: y2 }: PointPosition
 ): void {
   ctx.beginPath();
 
-  ctx.moveTo(point1.x, point1.y);
-  ctx.lineTo(point2.x, point2.y);
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
 
   ctx.closePath();
   ctx.stroke();
@@ -32,19 +34,21 @@ export function drawLine(
 
 /**
  * @function _getBeveling
- * @description 求斜边长度，drawDashLine方法有用到
+ * @description 求斜边长度，勾股定理。drawDashLine方法有用到
  * @param {number} x x's width
  * @param {number} y y's width
  * @return {number}
  * @private
+ * @example
+ * _getBeveling(3, 4); // -> 5
  */
-function _getBeveling(x: number, y: number) {
+function _getBeveling(x: number, y: number): number {
   return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
 }
 
 /**
  * @function drawDashLine
- * @description 画虚线
+ * @description 画虚线，可控制虚线宽度
  * @param {CanvasRenderingContext2D} ctx canvas context
  * @param {PointPosition} point1
  * @param {PointPosition} point2
@@ -52,15 +56,10 @@ function _getBeveling(x: number, y: number) {
  */
 export function drawDashLine(
   ctx: CanvasRenderingContext2D,
-  point1: PointPosition,
-  point2: PointPosition,
+  { x: x1, y: y1 }: PointPosition,
+  { x: x2, y: y2 }: PointPosition,
   dashLen = 5
 ): void {
-  const x1 = point1.x;
-  const y1 = point1.y;
-  const x2 = point2.x;
-  const y2 = point2.y;
-
   const beveling = _getBeveling(x2 - x1, y2 - y1); // 斜边的总长度
   const num = ~~(beveling / dashLen); // 计算有多少个线段
 
@@ -106,6 +105,30 @@ export function drawPoint(
 }
 
 /**
+ * @function drawRotateText
+ * @description 绘制旋转文字
+ * @param {CanvasRenderingContext2D} ctx 画布
+ * @param {Number} x 切换中心点的x坐标
+ * @param {Number} y 切换中心点的y坐标
+ * @param {Number} degree 旋转角度
+ * @param {Number|String} text 文字内容
+ */
+export function drawRotateText(
+  ctx: CanvasRenderingContext2D,
+  rotatePoint: PointPosition,
+  degree: number,
+  text: string | number
+) {
+  ctx.save();
+
+  ctx.translate(rotatePoint.x, rotatePoint.y);
+  ctx.rotate((degree * Math.PI) / 180);
+  ctx.fillText(String(text), 0, 0);
+
+  ctx.restore();
+}
+
+/**
  * @function clearArc
  * @description 实现圆形清除
  * @param {CanvasRenderingContext2D} ctx canvas context
@@ -139,10 +162,10 @@ export function clearArc(ctx: CanvasRenderingContext2D, point: PointPosition, wi
 
 /**
  * @function retinaScale
- * @description 适配移动端机型，for web
+ * @description Canvas元素适配移动端机型，for web
  * @param {HTMLCanvasElement} canvas
- * @param {object|null} ctx canvas context
- * @return {number} retina pixel ratio
+ * @param {CanvasRenderingContext2D} ctx canvas context
+ * @return {Number} retina pixel ratio
  */
 export function retinaScale(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D): number {
   const pixelRatio = window.devicePixelRatio || 1;

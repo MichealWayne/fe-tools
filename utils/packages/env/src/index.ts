@@ -2,7 +2,7 @@
  * @constants hostEnv
  * @author Wayne
  * @createTime 2022-03-11 10:01:22
- * @LastEditTime 2024-04-09 14:21:20
+ * @LastEditTime 2024-07-22 13:30:21
  */
 /* eslint-disable no-undef */
 
@@ -76,6 +76,10 @@ export const isBaiduSmartProgram =
 export const isKuaiShouMiniProgram =
   typeof ks !== 'undefined' && ks !== null && typeof ks.showToast !== 'undefined';
 
+// Weex
+const isWeex =
+  typeof GLOBAL.WXEnvironment !== 'undefined' && Boolean(GLOBAL.WXEnvironment.platform);
+
 /** node */
 
 // nodejs 环境
@@ -114,6 +118,7 @@ export default {
   isBaiduSmartProgram,
   isKuaiShouMiniProgram,
   isNode,
+  isWeex,
   ENV_MAP,
   RunTimeIdMap,
   RUNTIME_NAME,
