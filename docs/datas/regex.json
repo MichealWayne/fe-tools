@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": "mail",
     "name": "邮箱",
     "description": "只允许英文字母、数字、下划线、英文句号、以及中划线组成",
@@ -20,7 +21,7 @@
     "id": "url",
     "name": "URL地址",
     "description": "",
-    "regexStr": "^((http:\/\/)|(https:\/\/))?([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}(\/?)"
+    "regexStr": "^((http://)|(https://))?([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}(/?)"
   },
   {
     "id": "ipv4",
@@ -50,7 +51,7 @@
     "id": "Integer",
     "name": "整数数字",
     "description": "",
-    "regexStr": "^-?[1-9]\\d*$"
+    "regexStr": "^-?[1-9]\\d*$|^0$"
   },
   {
     "id": "PositiveInteger",
@@ -182,7 +183,7 @@
     "id": "dateFormat",
     "name": "日期格式",
     "description": "日期格式符合mm/dd/yyyy规范",
-    "regexStr": "^(0?[1-9]|[12][0-9]|3[01])([\/\\-])(0?[1-9]|1[012])\\2([0-9][0-9][0-9][0-9])(([-])([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9])?$"
+    "regexStr": "^(0?[1-9]|[12][0-9]|3[01])([/\\-])(0?[1-9]|1[012])\\2([0-9][0-9][0-9][0-9])(([-])([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9])?$"
   },
   {
     "id": "timeFormat",
@@ -200,7 +201,7 @@
     "id": "base64",
     "name": "BASE64",
     "description": "BASE64字符串",
-    "regexStr": "^\\s*data:(?:[a-z]+\/[a-z0-9-+.]+(?:;[a-z-]+=[a-z0-9-]+)?)?(?:;base64)?,([a-z0-9!$&',()*+;=\\-._~:@\/?%\\s]*?)\\s*$"
+    "regexStr": "^\\s*data:(?:[a-z]+/[a-z0-9-+.]+(?:;[a-z-]+=[a-z0-9-]+)?)?(?:;base64)?,([a-z0-9!$&',()*+;=\\-._~:@/?%\\s]*?)\\s*$"
   },
   {
     "id": "hexColor",
@@ -221,6 +222,30 @@
     "regexStr": ".*?(?:gif|png|jpg|jpeg|webp|svg|psd|bmp|tif)$"
   },
   {
+    "id": "audio",
+    "name": "音频文件",
+    "description": "",
+    "regexStr": ".*?(?:mp3|wav|wma|amr|aac|flac|ape)$"
+  },
+  {
+    "id": "doc",
+    "name": "文档文件",
+    "description": "",
+    "regexStr": ".*?(?:doc|docx|xls|xlsx|ppt|pptx|pdf|txt|md)$"
+  },
+  {
+    "id": "rar",
+    "name": "压缩文件",
+    "description": "",
+    "regexStr": ".*?(?:rar|zip|7z|tar|gz)$"
+  },
+  {
+    "id": "html",
+    "name": "HTML标签",
+    "description": "",
+    "regexStr": "^<([a-z]+)([^<]+)*(?:>(.*)<\\/\\1>|\\s+\\/>)$"
+  },
+  {
     "id": "newEnergyLicense",
     "name": "新能源车牌",
     "description": "",
@@ -233,15 +258,111 @@
     "regexStr": "^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-HJ-NP-Z]{1}(?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4})))|(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学警港澳]{1})$"
   },
   {
+    "id": "vehicleLicense",
+    "name": "全部车牌",
+    "description": "新能源和普通车牌",
+    "regexStr": "^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z](?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4})))|(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学警港澳])$"
+  },
+  {
     "id": "A-SHARE",
     "name": "股票-A股",
     "description": "股票代码",
     "regexStr": "^(s[hz]|S[HZ])(000[\\d]{3}|002[\\d]{3}|300[\\d]{3}|600[\\d]{3}|60[\\d]{4})$"
   },
   {
+    "id": "B-SHARE",
+    "name": "股票-B股",
+    "description": "股票代码",
+    "regexStr": "^(s[hz]|S[HZ])(200[\\d]{3}|900[\\d]{3})$"
+  },
+  {
+    "id": "H-SHARE",
+    "name": "股票-H股",
+    "description": "股票代码",
+    "regexStr": "^(s[hz]|S[HZ])(100[\\d]{3}|300[\\d]{3})$"
+  },
+  {
+    "id": "fund",
+    "name": "基金",
+    "description": "基金代码",
+    "regexStr": "^(s[hz]|S[HZ])\\d{6}$"
+  },
+  {
+    "id": "ETF",
+    "name": "ETF",
+    "description": "ETF代码",
+    "regexStr": "^(s[hz]|S[HZ])5\\d{4}$"
+  },
+  {
+    "id": "LOF",
+    "name": "LOF",
+    "description": "LOF代码",
+    "regexStr": "^(s[hz]|S[HZ])1\\d{5}$"
+  },
+  {
+    "id": "QDII",
+    "name": "QDII",
+    "description": "QDII代码",
+    "regexStr": "^(s[hz]|S[HZ])16\\d{4}$"
+  },
+  {
+    "id": "bond",
+    "name": "债券",
+    "description": "债券代码",
+    "regexStr": "^(s[hz]|S[HZ])1\\d{5}$"
+  },
+  {
     "id": "wechatId",
     "name": "微信号",
     "description": "",
     "regexStr": "^[a-zA-Z][-_a-zA-Z0-9]{5,19}$"
+  },
+  {
+    "id": "qq",
+    "name": "QQ号",
+    "description": "",
+    "regexStr": "^[1-9][0-9]{4,10}$"
+  },
+  {
+    "id": "postalCode",
+    "name": "邮政编码",
+    "description": "",
+    "regexStr": "^[1-9]\\d{5}$"
+  },
+  {
+    "id": "idCard",
+    "name": "身份证",
+    "description": "",
+    "regexStr": "^\\d{15}|\\d{18}$"
+  },
+  {
+    "id": "passport",
+    "name": "护照",
+    "description": "",
+    "regexStr": "^[a-zA-Z0-9]{5,17}$"
+  },
+  {
+    "id": "MACAddress",
+    "name": "MAC地址",
+    "description": "符合MAC地址格式",
+    "regexStr": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
+  },
+  {
+    "id": "FilePath",
+    "name": "文件路径",
+    "description": "符合常见文件路径格式",
+    "regexStr": "^([a-zA-Z]:)?(\\\\[a-zA-Z0-9_-]+)+\\\\?$"
+  },
+  {
+    "id": "UUID",
+    "name": "UUID",
+    "description": "符合UUID格式",
+    "regexStr": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+  },
+  {
+    "id": "ChineseName",
+    "name": "中文姓名",
+    "description": "仅包含中文字符",
+    "regexStr": "^[\u4e00-\u9fa5·]{2,}$"
   }
 ]
