@@ -1,13 +1,13 @@
 /**
  * @author Wayne
  * @Date 2024-07-07 13:42:13
- * @LastEditTime 2024-07-08 14:01:30
+ * @LastEditTime 2024-08-25 10:14:32
  */
 /**
  * @function readFile
  * @description 读取文件内容
- * @param {File} file
- * @returns {Promise<string>}
+ * @param {File} file 文件对象
+ * @returns {Promise<string>} 文件内容
  * @example
  * readFile(file).then(content => console.log('file content', content));    // e.g input[type="file"] onchange
  */
@@ -25,8 +25,8 @@ export function readFile(file: File): Promise<string> {
 /**
  * @function readFileAsDataURL
  * @description 读取文件内容为Data URL(image、video、audio本地预览等)
- * @param {File} file
- * @returns {Promise<string>}
+ * @param {File} file 文件对象
+ * @returns {Promise<string>} 文件内容
  * @example
  * readFileAsDataURL(file).then(dataURL => console.log('file dataURL', dataURL));  // e.g input[type="file"] onchange
  */
@@ -42,9 +42,9 @@ export function readFileAsDataURL(file: File): Promise<string> {
 /**
  * @function downloadFile
  * @description 保存/下载文件
- * @param {string} content
- * @param {string} filename
- * @param {string} contentType
+ * @param {string} content 文件内容
+ * @param {string} filename 文件名
+ * @param {string} contentType 文件类型
  * @example
  * downloadFile('file content', 'file.txt', 'text/plain');
  * downloadFile('data:image/png;base64,...', 'image.png', 'image/png');
@@ -66,8 +66,8 @@ export function downloadFile(content: string, filename: string, contentType: str
 /**
  * @function getFileExtension
  * @description 根据文件名获取文件扩展名
- * @param {string} filename
- * @returns {string}
+ * @param {string} filename 文件名
+ * @returns {string} 文件扩展名
  * @example
  * getFileExtension('file.txt');    // 'txt'
  * getFileExtension('file');        // ''

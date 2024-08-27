@@ -3,13 +3,13 @@
  * @description trade functions
  * @author Wayne
  * @Date 2022-04-11 21:45:54
- * @LastEditTime 2024-06-29 14:13:56
+ * @LastEditTime 2024-08-25 13:55:11
  */
 
 /**
  * @function luhnCheck
  * @description 用于验证信用卡号是否有效（Luhn算法）
- * @param {number | string} num
+ * @param {number | string} num 信用卡号
  * @extends to:https://github.com/navyxie/bankcardinfo
  * @return {boolean}
  * @example
@@ -31,10 +31,10 @@ export function luhnCheck(num: number) {
 /**
  * @function toCurrency
  * @description 将数字转换为货币格式的字符串
- * @param {Number} n
- * @param {currency string} curr
- * @param {country string} LanguageFormat
- * @return {string}
+ * @param {Number} n 数字
+ * @param {currency string} curr 货币类型
+ * @param {country string} LanguageFormat 语言格式
+ * @return {string} 货币格式的字符串
  * @example
  * toCurrency(1234.56, 'USD', 'en-US');  // '$1,234.56'
  * toCurrency(1234.56, 'USD', 'zh-CN');  // 'US$1,234.56'

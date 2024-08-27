@@ -13,8 +13,8 @@ import { PointPosition } from '../types';
  * @function drawLine
  * @description 画直线
  * @param {CanvasRenderingContext2D} ctx canvas context
- * @param {PointPosition} point1
- * @param {PointPosition} point2
+ * @param {PointPosition} point1 起点
+ * @param {PointPosition} point2 终点
  * @example
  *  drawLine(ctx, { x: 10, y: 10 }, { x: 100, y: 100 });
  */
@@ -37,7 +37,7 @@ export function drawLine(
  * @description 求斜边长度，勾股定理。drawDashLine方法有用到
  * @param {number} x x's width
  * @param {number} y y's width
- * @return {number}
+ * @return {number} 斜边长度
  * @private
  * @example
  * _getBeveling(3, 4); // -> 5
@@ -50,8 +50,8 @@ function _getBeveling(x: number, y: number): number {
  * @function drawDashLine
  * @description 画虚线，可控制虚线宽度
  * @param {CanvasRenderingContext2D} ctx canvas context
- * @param {PointPosition} point1
- * @param {PointPosition} point2
+ * @param {PointPosition} point1 起点
+ * @param {PointPosition} point2 终点
  * @param {number} dashLen dash line width
  */
 export function drawDashLine(

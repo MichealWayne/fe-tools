@@ -2,7 +2,7 @@
  * @module promptApplications
  * @author Wayne
  * @Date 2023-07-22 11:34:04
- * @LastEditTime 2024-06-23 11:09:49
+ * @LastEditTime 2024-08-25 14:05:40
  */
 import { estimateTokenLength } from '../llm/prompts';
 const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
@@ -43,6 +43,13 @@ ${patch}
 Let’s work this out in a step-by-step way to be sure we have the right answer.`;
 }
 
+/**
+ * @function genCodeReviewPrompt
+ * @description 生成检测的prompt
+ * @param {string} codeStr 代码字符串
+ * @param {number} maxLen token最大长度, 默认4000
+ * @returns {string} prompt信息
+ */
 export function genCodeReviewPrompt(codeStr: string, maxLen = MAX_TOKEN_LEN) {
   const promptTxt = getCodeReviewPromptTxt(codeStr);
 

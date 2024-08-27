@@ -3,7 +3,7 @@
  * @description number functions
  * @author Wayne
  * @Date 2023-02-09 15:08:11
- * @LastEditTime 2024-06-29 14:04:30
+ * @LastEditTime 2024-08-25 13:50:37
  */
 
 import { isNumber } from './type';
@@ -11,8 +11,8 @@ import { isNumber } from './type';
 /**
  * @function isInt
  * @description 判断是否为整数
- * @param {unknown} val
- * @return {boolean}
+ * @param {unknown} val 任意值
+ * @return {boolean} 是否为整数
  * @example
  * isInt(5); // true
  * isInt(2.5); // false
@@ -27,8 +27,8 @@ export const isInt = (val: unknown): val is number => {
 /**
  * @function isOdd
  * @description 判断一个数字是不是偶数
- * @param {number} num
- * @return {boolean}
+ * @param {number} num 数字
+ * @return {boolean} 是否为偶数
  * @example
  * isOdd(2); // true
  * isOdd(0); // true
@@ -42,8 +42,8 @@ export function isOdd(num: number) {
 /**
  * @function isFloat
  * @description 判断是否为浮点数
- * @param {unknown} val
- * @return {boolean}
+ * @param {unknown} val 任意值
+ * @return {boolean} 是否为浮点数
  * @example
  * isFloat(3.14); // true
  * isFloat(-0.5); // true
@@ -59,8 +59,8 @@ export const isFloat = (val: unknown): val is number => {
 /**
  * @function isValidNumber
  * @description 是否是合法的数字
- * @param {unknown} val
- * @return {Boolean}
+ * @param {unknown} val 任意值
+ * @return {Boolean} 是否是合法的数字
  * @example
  * isValidNumber(1); // true
  * isValidNumber('1'); // false
@@ -74,10 +74,10 @@ export function isValidNumber(val: unknown) {
 /**
  * @function isApproximatelyEqual
  * @description 两个数字是否约等于
- * @param {number} val1
- * @param {number} val2
- * @param {number} epsilon
- * @return {boolean}
+ * @param {number} val1 数字1
+ * @param {number} val2 数字2
+ * @param {number} epsilon 误差范围，默认为0.001
+ * @return {boolean} 两个数字是否约等于
  * @example
  * const val1 = 0.1 + 0.2;
  * const val2 = 0.3;
@@ -91,7 +91,8 @@ export function isApproximatelyEqual(val1: number, val2: number, epsilon = 0.001
 /**
  * @function average
  * @description 计算平均数
- * @param  {number[]} nums
+ * @param  {number[]} nums 数字数组
+ * @return {number} 平均数
  * @example
  * average(1, 2, 3); // 2
  */
@@ -102,9 +103,9 @@ export function average(...nums: number[]) {
 /**
  * @function randomIntegerInRange
  * @description 求范围中的随机整数
- * @param {number} min
- * @param {number} max
- * @return {number}
+ * @param {number} min 范围最小值
+ * @param {number} max  范围最大值
+ * @return {number} 随机整数
  * @example
  * randomNumberInRange(1, 10); // 一个1～10的随机整数
  */
@@ -115,9 +116,9 @@ export function randomIntegerInRange(min: number, max: number) {
 /**
  * @function randomNumberInRange
  * @description 求范围中的随机数（浮点数）
- * @param {number} min
- * @param {number} max
- * @return {number}
+ * @param {number} min 范围最小值
+ * @param {number} max 范围最大值
+ * @return {number} 随机浮点数
  * @example
  * randomNumberInRange(1, 10); // 一个1～10的随机浮点数
  */
@@ -128,10 +129,10 @@ export function randomNumberInRange(min: number, max: number) {
 /**
  * @function randomIntArrayInRange
  * @description 求范围中的随机整数数组
- * @param {number} min
- * @param {number} max
- * @param {number} num
- * @return {number[]}
+ * @param {number} min 范围最小值
+ * @param {number} max 范围最大值
+ * @param {number} num 数组长度
+ * @return {number[]} 随机整数数组
  * @example
  * randomIntArrayInRange(1, 10, 2); // [一个1～10的随机数, 另一个1～10的随机数]
  */
@@ -142,9 +143,9 @@ export function randomIntArrayInRange(min: number, max: number, num = 1) {
 /**
  * @function round
  * @description 数字取位
- * @param {number} n
- * @param {number} decimals
- * @return {number}
+ * @param {number} num 数字
+ * @param {number} decimals 保留小数位数，默认为0
+ * @return {number} 取位后的数字
  * @example
  * round(5.6, 0); // 6
  * round(10, -1); // 10
@@ -159,8 +160,8 @@ export function round(num: number, decimals = 0) {
 /**
  * @function sum
  * @description 数字求和
- * @param  {number[]} arr
- * @return {number}
+ * @param  {number[]} arr 数字数组
+ * @return {number} 数字求和结果
  * @example
  * sum(1, 2, 3); // 6
  */
@@ -171,10 +172,10 @@ export function sum(...arr: number[]) {
 /**
  * @function clamp
  * @description 通过区间约束范围值
- * @param {number} num
- * @param {number} min
- * @param {number} max
- * @return {number}
+ * @param {number} num 数字
+ * @param {number} min 最小值
+ * @param {number} max 最大值
+ * @return {number} 约束后的数字
  * @example
  * clamp(5, 0, 10); // 5
  * clamp(-5, 0, 10); // 0

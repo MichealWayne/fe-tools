@@ -2,7 +2,7 @@
  * @module loadAssets
  * @author Wayne
  * @Date 2024-04-07 13:45:27
- * @LastEditTime 2024-04-29 17:25:32
+ * @LastEditTime 2024-08-25 10:14:05
  */
 
 import { runPromisesInSeries } from 'utils';
@@ -10,9 +10,9 @@ import { runPromisesInSeries } from 'utils';
 /**
  * @function loadScript
  * @description 动态加载js
- * @param {string} url
- * @param {boolean} isCrossOrigin
- * @returns {Promise<any>}
+ * @param {string} url js地址
+ * @param {boolean} isCrossOrigin 是否跨域
+ * @returns {Promise<any>} js加载完成后的回调
  * @example
  * loadScript('https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js').then(()=>{
  *   // use echart api
@@ -36,10 +36,10 @@ export function loadScript(url: string, isCrossOrigin = true) {
 /**
  * @function loadScriptList
  * @description 动态加载js列表
- * @param {string[]} urls
- * @param {boolean} isCrossOrigin
- * @param {boolean} isAsync
- * @returns {Promise<any[]>}
+ * @param {string[]} urls js地址列表
+ * @param {boolean} isCrossOrigin 是否跨域
+ * @param {boolean} isAsync 是否异步加载
+ * @returns {Promise<any[]>} js加载完成后的回调
  * @example
  * loadScriptList(['a.js', 'b.js', 'c.js']).then(() => {
  *   // use a.js, b.js, c.js
@@ -53,8 +53,8 @@ export function loadScriptList(urls: string[], isCrossOrigin = true, isAsync = t
 /**
  * @function loadCss
  * @description 动态加载css
- * @param {string} url
- * @returns {Promise<void>}
+ * @param {string} url css地址
+ * @returns {Promise<void>} css加载完成后的回调
  * @example
  * loadCss('a.css').then(() => {
  *   // use bootstrap css
@@ -87,8 +87,8 @@ export function loadCss(cssPath: string) {
 /**
  * @function loadCssList
  * @description 动态加载css列表
- * @param {string[]} cssList
- * @returns {Promise<any>}
+ * @param {string[]} cssList css地址列表
+ * @returns {Promise<any>} css加载完成后的回调
  * @example
  * loadCssList(['a.css', 'b.css', 'c.css']).then(() => {
  *   // use a.css, b.css, c.css
@@ -101,8 +101,8 @@ export function loadCssList(cssList: string[]): Promise<any> {
 /**
  * @function loadImage
  * @description 动态加载图片资源（常用于预加载）
- * @param {string} imgUrl
- * @returns {Promise<HTMLImageElement>}
+ * @param {string} imgUrl 图片地址
+ * @returns {Promise<HTMLImageElement>} 图片加载完成后的回调
  * @example
  * loadImage('a.png').then(img => {
  *   // use img
@@ -120,8 +120,8 @@ export function loadImage(imgUrl: string) {
 /**
  * @function loadImageList
  * @description 动态加载图片资源列表（常用于预加载）
- * @param {string[]} imageUrls
- * @returns {Promise<HTMLImageElement[]>}
+ * @param {string[]} imageUrls 图片地址列表
+ * @returns {Promise<HTMLImageElement[]>}   图片加载完成后的回调
  * @example
  * loadImageList(['a.png', 'b.png', 'c.png']).then(imgs => {
  *   // use imgs
@@ -134,9 +134,9 @@ export function loadImageList(imageUrls: string[]) {
 /**
  * @function loadCsv
  * @description 前端下载csv数据表(可以配置utils里arrayToCSV)
- * @param {string} csvStr
- * @param {string} name
- * @param {string} type
+ * @param {string} csvStr csv字符串
+ * @param {string} name 文件名
+ * @param {string} type 文件类型
  */
 export function loadCSV(csvStr: string, name = 'data', type = 'csv') {
   let blobContent = new Blob(['\ufeff' + csvStr], {

@@ -2,7 +2,7 @@
  * @module CSS
  * @author Wayne
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-04-27 17:21:02
+ * @LastEditTime 2024-08-25 10:14:19
  */
 
 import { isUndefined } from 'utils';
@@ -48,18 +48,18 @@ export function getPrefix() {
 /**
  * @function getStyle
  * @description **getStyle(el, property)** get DOM style（获取指定元素的 CSS 样式属性值）
- * @param {DOM Object} el element（为了IE不能用Element）
- * @param {String} property css property
- * @return {Number | Undefined}
+ * @param {DOM Object} elem DOM元素（为了IE不能用Element）
+ * @param {string} property css属性
+ * @return {number | undefined} 返回属性值
  @example
 // 获取元素宽度：
 const element = document.getElementById('my-element');
 const width = getStyle(element, 'width');
  */
-export function getStyle(el: any, property: string) {
+export function getStyle(elem: any, property: string) {
   const value =
-    el.currentStyle?.[property] ||
-    document.defaultView!.getComputedStyle(el, null).getPropertyValue(property);
+    elem.currentStyle?.[property] ||
+    document.defaultView!.getComputedStyle(elem, null).getPropertyValue(property);
   const matches = value?.match(/^(\d+)(\.\d+)?px$/);
   // eslint-disable-next-line no-undefined
   return matches ? +matches[1] : undefined;
@@ -68,9 +68,9 @@ export function getStyle(el: any, property: string) {
 /**
  * @function getElementSize
  * @description **getElementStyle(el, property)** 获取元素的尺寸数据、如width/height
- * @param {HTMLElement} elem element
- * @param {string} property css property
- * @return {number | undefined}
+ * @param {HTMLElement} elem DOM元素
+ * @param {string} property css属性
+ * @return {number | undefined} 返回尺寸数值
  * @example
  *  const bodyWidth = getElementStyle(document.querySelector('body'), 'width')
  */

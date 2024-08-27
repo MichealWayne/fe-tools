@@ -3,14 +3,14 @@
  * @module Check
  * @description check functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-02-18 10:43:54
+ * @LastEditTime 2024-08-25 13:23:11
  */
 
 /**
  * @function isEmail
  * @description 验证电子邮件地址的格式
- * @param {string} str
- * @return {boolean}
+ * @param {string} str 电子邮件地址
+ * @return {boolean} 是否为电子邮件地址
  * @example
  * isEmail('example@domain.com'); // true
  * isEmail('example@');  // false
@@ -25,8 +25,8 @@ export function isEmail(str: string) {
 /**
  * @function isIdCard
  * @description 中国大陆身份证验证。简单验证，如仔细验证可用check.plus.ts/checkIdcard()
- * @param {string} str
- * @return {boolean}
+ * @param {string} str 身份证号码
+ * @return {boolean} 是否为身份证号码
  * @example
  * isIdCard('610527199201015209'); // true
  * isIdCard('11010519491231002X'); // true
@@ -44,8 +44,8 @@ export function isIdCard(str: string) {
 /**
  * @function isUrl
  * @description 检查是否能够正确地验证 URL 的格式
- * @param {string} str
- * @return {boolean}
+ * @param {string} str url地址
+ * @return {boolean} 是否为url地址
  * @example
  * isUrl('https://www.example.com');  // true
  * isUrl('https://subdomain.example.com/path/page.html?query=string'); // true
@@ -60,8 +60,8 @@ export function isUrl(str: string) {
 /**
  * @function isPhoneNumber
  * @description 中国大陆手机号验证。（如果要国际通用请用三方库或/^\+?\d+$/）
- * @param {string} str
- * @return {boolean}
+ * @param {string} str 手机号码
+ * @return {boolean} 是否为手机号码
  * @example
  * isPhoneNumber('08613812345678'); // true
  * isPhoneNumber('8613812345678'); // true
@@ -79,8 +79,8 @@ export function isPhoneNumber(str: string) {
 /**
  * @function isPostalCode
  * @description 校验(中国)邮政编码
- * @param {string} postalCode
- * @returns {boolean}
+ * @param {string} postalCode 邮政编码
+ * @returns {boolean} 是否为邮政编码
  * @example
  * isPostalCode('311100'); // true
  * isPostalCode('31110'); // false
@@ -94,8 +94,8 @@ export function isPostalCode(postalCode: string) {
 /**
  * @function isBankCard
  * @description 校验银行卡号
- * @param {string} bankCard
- * @returns {boolean}
+ * @param {string} bankCard 银行卡号
+ * @returns {boolean} 是否为银行卡号
  * @example
  * isBankCard('6222600584855931'); // true
  * isBankCard('023456789012345'); // false

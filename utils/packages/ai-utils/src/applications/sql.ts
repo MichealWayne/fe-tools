@@ -1,15 +1,15 @@
 /**
  * @author Wayne
  * @Date 2023-08-10 11:26:38
- * @LastEditTime 2024-06-23 11:16:33
+ * @LastEditTime 2024-08-25 14:03:50
  */
 
 /**
  * @function getSqlPrompt
  * @description 获取SQL的prompt信息
- * @param {string} engine
- * @param {string} schema
- * @returns {string}
+ * @param {string} engine 数据库引擎
+ * @param {string} schema 数据库schema
+ * @returns {string} 完整的SQL处理prompt信息
  */
 export function getSqlPrompt(engine?: string, schema?: string) {
   const basicPrompt = [

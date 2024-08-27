@@ -1,11 +1,17 @@
 /**
  * @author Wayne
  * @Date 2024-05-11 10:40:18
- * @LastEditTime 2024-06-23 11:12:51
+ * @LastEditTime 2024-08-25 14:04:36
  */
 import { estimateTokenLength } from '../llm/prompts';
 const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
 
+/**
+ * @function getCreateUnitTestCases
+ * @description 获取单元测试的prompt
+ * @param {string} patch
+ * @returns {string}
+ */
 export function getCreateUnitTestCases(patch: string) {
   return `### Unit Test ###
 You are an expert software tester tasked with thoroughly testing a given piece of code, you are proficient in JavaScript/TypeScript. 
@@ -31,6 +37,13 @@ Let’s work this out in a step-by-step way to be sure we have the right answer.
 `;
 }
 
+/**
+ * @function genUnitTestCasesPrompt
+ * @description 生成单元测试的prompt
+ * @param {string} codeStr 代码字符串
+ * @param {number} maxLen token最大长度, 默认4000
+ * @returns {string} prompt信息
+ */
 export function genUnitTestCasesPrompt(codeStr: string, maxLen = MAX_TOKEN_LEN) {
   const promptTxt = getCreateUnitTestCases(codeStr);
 
