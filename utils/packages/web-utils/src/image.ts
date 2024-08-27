@@ -1,14 +1,14 @@
 /**
  * @module Image
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2023-03-14 13:52:39
+ * @LastEditTime 2024-08-25 10:14:40
  */
 
 /**
  * @function isImageLoaded
  * @description 加载图片（通常用于预加载）
- * @param {string} imgUrl
- * @return {Promise<boolean>}
+ * @param {string} imgUrl 图片地址
+ * @return {Promise<boolean>} 图片加载状态
  * @example
 isImageLoaded('https://example.com/image.jpg')
   .then(function(result) {
@@ -29,8 +29,8 @@ export function isImageLoaded(imgUrl: string) {
       resolve(true);
     };
 
-    img.onerror = function () {
-      reject(false);
+    img.onerror = function (error) {
+      reject(error);
     };
   });
 }
@@ -38,8 +38,8 @@ export function isImageLoaded(imgUrl: string) {
 /**
  * @function getImageSize
  * @description 获取图片的原始尺寸大小（用了naturalWidth/naturalHeight）
- * @param {string} imgUrl 
- * @return {{width: number, height: number}} 
+ * @param {string} imgUrl  图片地址
+ * @return {{width: number, height: number}}  图片尺寸
  * @example
 getImageSize('https://example.com/image.jpg')
   .then(function(result) {
@@ -70,7 +70,7 @@ export function getImageSize(imgUrl: string) {
 /**
  * @function isSupportWebP
  * @description 页面当前所处环境是否支持webp格式图片
- * @return {Boolean}
+ * @return {boolean} 是否支持webp格式图片
  * @example
 const imgEl = document.createElement('img');
 if (isSupportWebP()) {
@@ -88,13 +88,13 @@ export function isSupportWebP() {
 }
 
 /**
- * Returns a canvas with the cropped piece only.
- * @param {HTMLImageElement|Image|HTMLCanvasElement} src image
- *        or canvas to crop
- * @param {number} x left
- * @param {number} y top
- * @param {number} width width
- * @param {number} height height
+ * @function imageToBlob
+ * @description 将图片转为Blob对象，可用于上传
+ * @param {HTMLImageElement|Image|HTMLCanvasElement} src 图片/canvase元素
+ * @param {number} x 位置x，裁剪图片起始坐标
+ * @param {number} y 位置y，裁剪图片起始坐标
+ * @param {number} width 裁剪图片宽度
+ * @param {number} height 裁剪图片高度
  * @example
 // 从一个图片元素中裁剪出一个 100x100 大小的矩形，起始坐标为 (50, 50)
 const image = document.querySelector('img');
@@ -134,8 +134,8 @@ export function cropImage(
  * @function compressImage
  * @description 进行图片压缩并输出base64
  * @param {HTMLImageElement} img: 图片元素
- * @param {Number} rate: 压缩比例
- * @return {String} base64图片
+ * @param {number} rate: 压缩比例
+ * @return {string} base64图片
  * @example
  *   const img = new Image();
  *   img.src = 'https://blog.michealwayne.cn/favicon.png';

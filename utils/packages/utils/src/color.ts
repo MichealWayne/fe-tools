@@ -2,13 +2,13 @@
  * @module Color
  * @description handle color format
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-06-29 13:55:18
+ * @LastEditTime 2024-08-25 13:24:54
  */
 
 /**
  * @function randomHexColor
  * @description 生成随机十六进制颜色
- * @return {String}
+ * @return {string} 随机颜色值
  * @example
  * randomHexColor(); // '#ff0000'(randomly)
  */
@@ -19,8 +19,8 @@ export function randomHexColor() {
 /**
  * @function getColorRgbArr
  * @description 颜色格式转换。hexadecimal color to 255.#ff0000 -> [255, 0, 0];
- * @param {string} color hexadecimal number color
- * @return {number[]} rgb array
+ * @param {string} color 原始十六进制颜色值
+ * @return {number[]} 转换后的颜色值
  * @example
  * getColorRgbArr('#ff0000'); // [255,0,0]
  * getColorRgbArr('#f00'); // [255,0,0]
@@ -48,9 +48,9 @@ export function getColorRgbArr(color: string): number[] {
 /**
  * @function getColorRgba
  * @description hexadecimal color string -> rgba
- * @param {string} str hex color string
- * @param {number} rate
- * @return {string}
+ * @param {string} str 原始十六进制颜色值
+ * @param {number} rate 透明度,默认为1,取值范围[0,1]
+ * @return {string} rgba颜色值，如'rgba(255,0,0,0.5)'
  * @need getColorRgb
  * @example
  * getColorRgba('#ff0000', 0.5); // 'rgba(255,0,0,0.5)'
@@ -65,8 +65,8 @@ export function getColorRgba(str: string, rate = 1): string {
 /**
  * @function isTransparentColor
  * @description rgb/rgba色值是否为透明色
- * @param {string} colorStr
- * @return {boolean}
+ * @param {string} colorStr 颜色值
+ * @return {boolean} 是否为透明色
  * @example
  * isTransparentColor('rgba(0, 0, 0, 0)'); // true
  * isTransparentColor('rgba(255, 255, 255, 1)'); // false

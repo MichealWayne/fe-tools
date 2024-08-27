@@ -4,7 +4,7 @@
  * @module Platform
  * @notice 存在复杂的判断场景可以直接使用ua-parser-js
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-06-29 21:03:49
+ * @LastEditTime 2024-08-25 10:16:53
  */
 
 /**
@@ -14,8 +14,8 @@ export const ua = navigator.userAgent.toLowerCase();
 
 /**
  * @function isPC
- * @description 判断当前页面是否处于PC环境下
- * @return {Boolean}
+ * @description 判断当前页面是否处于PC环境下（主要通过判断是否存在移动设备的关键字）
+ * @return {boolean} 是否是PC环境
  * @example
  * if (isPC()) {
  *    console.log('当前处在PC环境下')
@@ -37,9 +37,8 @@ export function isPC() {
 /**
  * @function getPcExplore
  * @description 获取当前PC浏览器标识
- * @return {String}
+ * @return {string} 浏览器标识，如：'IE: 11.0'、'Chrome: 83.0.4103.116'、'Firefox: 77.0'、'Opera: 69.0.3686.77'、'Safari: 13.1.1'
  */
-
 export function getPcExplore() {
   const sys: {
     [propKey: string]: string | null;
@@ -81,7 +80,7 @@ export function getPcExplore() {
 /**
  * @function getSystemOS
  * @description 获取当前页面所在的系统标识
- * @return {String}
+ * @return {string} 系统标识，如：'mac'、'windows'、'linux'、'ios'、'android'、'harmony'、'unknown'
  */
 export function getSystemOS() {
   const appVersion = navigator?.appVersion.toLowerCase() || '';
@@ -101,7 +100,7 @@ export function getSystemOS() {
 /**
  * @function getMobilePlatform
  * @description 获取当前页面所处的移动设备标识
- * @return {String}
+ * @return {string} 移动设备标识，如：'iphone'、'gphone'
  * @example
  * getMobilePlatform(); // 'iphone' or 'gphone'
  */
@@ -119,7 +118,7 @@ export function getMobilePlatform() {
 /**
  * @function getMobileOS
  * @description 获取当前页面所处的移动设备系统
- * @return {String}
+ * @return {string} 移动设备系统，如：{'android': 0, 'ios': 11.2}
  */
 export function getMobileOS() {
   const os = {

@@ -1,7 +1,7 @@
 /**
  * @module os
  * @Date 2020-08-20 21:55:46
- * @LastEditTime 2024-07-22 19:50:38
+ * @LastEditTime 2024-08-25 13:58:14
  */
 
 import os from 'os';
@@ -131,8 +131,8 @@ export function harddrive(callback: AnyCallbackFunc) {
 /**
  * @function getProcesses
  * @description 获取进程运行情况
- * @param nProcess
- * @param callback
+ * @param {number | AnyCallbackFunc} nProcess 进程数
+ * @param {Function} callback 回调函数
  */
 // Return process running current
 export function getProcesses(nProcess: number | AnyCallbackFunc, callback: AnyCallbackFunc) {
@@ -177,7 +177,7 @@ export function getProcesses(nProcess: number | AnyCallbackFunc, callback: AnyCa
 /**
  * @function allLoadavg
  * @description 获取所有负载均衡。Returns All the load average usage for 1, 5 or 15 minutes.
- * @returns {string}
+ * @returns {string} 返回负载均衡
  */
 export function allLoadavg() {
   const loads = os.loadavg();
@@ -188,8 +188,8 @@ export function allLoadavg() {
 /**
  * @function loadavg
  * @description 获取系统负载均衡。Returns the load average usage for 1, 5 or 15 minutes.
- * @param {Number} time
- * @returns
+ * @param {Number} time 时间
+ * @returns {Number} 返回负载均衡
  */
 export function loadavg(time = 1) {
   if (time !== 5 && time !== 15) time = 1;
@@ -206,8 +206,8 @@ export function loadavg(time = 1) {
 /**
  * @function getCPUUsage
  * @description 获取CPU使用情况
- * @param callback
- * @param {Boolean} free
+ * @param {function} callback 回调函数
+ * @param {Boolean} free 是否空闲
  */
 export function getCPUUsage(callback: AnyCallbackFunc, free?: boolean) {
   const stats1 = getCPUInfo();
@@ -231,7 +231,7 @@ export function getCPUUsage(callback: AnyCallbackFunc, free?: boolean) {
 /**
  * @function cpuFree
  * @description cpu空闲比例（0～1）
- * @param callback
+ * @param {function} callback 回调函数
  */
 export function cpuFree(callback: AnyCallbackFunc) {
   getCPUUsage(callback, true);
@@ -240,7 +240,7 @@ export function cpuFree(callback: AnyCallbackFunc) {
 /**
  * @function cpuUsage
  * @description cpu已使用比例（0～1）
- * @param callback
+ * @param {function} callback 回调函数
  */
 export function cpuUsage(callback: AnyCallbackFunc) {
   getCPUUsage(callback, false);
@@ -249,7 +249,7 @@ export function cpuUsage(callback: AnyCallbackFunc) {
 /**
  * @function getCPUInfo
  * @description 获取CPU情况
- * @returns {{idle: number, total: number}}
+ * @returns {{idle: number, total: number}} 返回CPU情况, idle: 空闲, total: 总数
  */
 export function getCPUInfo() {
   const cpus = os.cpus();

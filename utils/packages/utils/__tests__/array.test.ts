@@ -13,6 +13,7 @@ import {
   flatten,
   difference,
   differenceBy,
+  drop,
   dropWhile,
   indexOfAll,
   intersection,
@@ -133,6 +134,12 @@ test('difference test', () => {
 test('differenceBy test', () => {
   expect(JSON.stringify(differenceBy([null, undefined, NaN], ['', undefined], a => !a))).toBe('[]');
   expect(JSON.stringify(differenceBy([1, 2, 3], [2, 3, 4], a => a))).toBe('[1]');
+});
+
+test('drop test', () => {
+  expect(JSON.stringify(drop([1, 2, 3, 4, 5], 2))).toBe('[3,4,5]');
+  expect(JSON.stringify(drop([1, 2, 3, 4, 5], 0))).toBe('[1,2,3,4,5]');
+  expect(JSON.stringify(drop([1, 2, 3, 4, 5], 5))).toBe('[]');
 });
 
 test('dropWhile test', () => {

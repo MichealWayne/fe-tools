@@ -2,7 +2,7 @@
  * @module Function
  * @author Wayne
  * @createTime 2022-03-12 14:44:00
- * @LastEditTime 2024-07-22 19:20:48
+ * @LastEditTime 2024-08-25 13:37:59
  */
 
 /**
@@ -15,9 +15,9 @@ export const NOOP = () => '';
 /**
  * @funciton attempt
  * @description 试执行传入的函数 fn，并返回其执行结果。
- * @param {Function} fn
- * @param {unknown} args
- * @return {unknown}
+ * @param {Function} fn 要执行的函数
+ * @param {unknown} args 函数的参数
+ * @return {unknown} 返回执行结果或者错误
  * @example
  * attempt((a, b) => a + b, 1, 2); // 3
  * attempt((a, b) => a + b, 1); // Error: Expected 2 arguments, but got 1.
@@ -33,9 +33,9 @@ export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args
 /**
  * @function defer
  * @description 将指定的函数延迟执行，将其放到事件队列的最后，等待当前执行栈中的代码全部执行完毕后再执行
- * @param {Function} fn
- * @param  {...unknown[]} args
- * @return {number}
+ * @param {Function} fn 要延迟执行的函数
+ * @param  {...unknown[]} args 函数的参数
+ * @return {number} 返回一个定时器的ID
  * @example
 function printHello() {
   console.log('Hello, world!');
@@ -56,8 +56,8 @@ export async function defer(fn: (...arg: unknown[]) => unknown, ...args: unknown
 /**
  * @function runPromisesInSeries
  * @description 队列执行promise
- * @param {Promise[]} ps
- * @return {Promise}
+ * @param {Promise[]} ps promise数组
+ * @return {Promise} 返回一个promise
  * @example
 async function fetchData(url: string) {
   const response = await fetch(url);
@@ -78,8 +78,8 @@ export function runPromisesInSeries(ps: Array<(...args: unknown[]) => Promise<an
 /**
  * @function timeTaken
  * @description 测量执行一个函数所需要的时间
- * @param {Function} fn
- * @return {any}
+ * @param {Function} fn 要执行的函数
+ * @return {any} 返回函数执行的结果
  * @example
 async function fetchData(url: string) {
   const response = await fetch(url);
@@ -99,8 +99,8 @@ export function timeTaken(fn: (...ks: unknown[]) => unknown, ...args: unknown[])
 /**
  * @function memoize
  * @description 缓存函数
- * @param {Function} fn
- * @return {Function}
+ * @param {Function} fn 要缓存的函数
+ * @return {Function} 返回一个缓存函数
  * @example
 function expensiveCalculation(n: number) {
   console.log('Calculating...');
@@ -123,8 +123,8 @@ export function memoize(fn: (...args: unknown[]) => unknown) {
 /**
  * @function once
  * @description 单例执行的函数处理
- * @param {Function} fn
- * @return {Function}
+ * @param {Function} fn 要执行的函数
+ * @return {Function} 返回一个只执行一次的函数
  * @example
 function log () { console.log('log'); }
 const logOnce = once(log);
@@ -144,7 +144,7 @@ export function once(fn: (...args: unknown[]) => unknown) {
 /**
  * @function chainAsync
  * @description 链式执行函数
- * @param {...Function[]} fns
+ * @param {...Function[]} fns 函数数组
  * @example 
 chainAsync([next => { console.log(1); setTimeout(next, 1000)}, next => { console.log(2);} ])
  */
@@ -157,7 +157,8 @@ export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
 /**
  * @function compose
  * @description 组合函数
- * @param  {...function} fns
+ * @param  {...function} fns 函数数组
+ * @return {Function} 返回一个组合函数
  * @example
  * const add5 = x => x + 5;
  * const multiply = (x, y) => x * y;
@@ -175,7 +176,8 @@ export function compose<T>(...fns: Array<(...arg: T[]) => T>): (arg: T) => T {
 /**
  * @function pipe
  * @description 管道执行函数
- * @param  {...function} fns
+ * @param  {...function} fns 函数数组
+ * @return {Function} 返回一个管道函数
  * @example
  * const add = (x, y) => x + y;
  * const multiply2 = (x) => x * 2;
@@ -216,8 +218,8 @@ interface Curry {
 /**
  * @function curry
  * @description 函数柯里化
- * @param {Function} fn
- * @return {Function}
+ * @param {Function} fn 要柯里化的函数
+ * @return {Function} 返回一个柯里化函数
  * @example
  * curry(Math.pow)(2)(10); // 1024
  * curry(Math.pow)(2, 10); // 1024
@@ -227,17 +229,17 @@ export const curry: Curry = (callback: any) => {
   return (...args: any) => {
     if (args.length < callback.length) {
       return curry(callback.bind(null, ...args));
-    } else {
-      return callback(...args);
     }
+
+    return callback(...args);
   };
 };
 
 /**
  * @function functionName
  * @description 打印函数名称
- * @param {function} fn
- * @return {null}
+ * @param {function} fn 函数
+ * @return {string|null} 函数名称,如果没有则返回null
  * @example
 function add(a: number, b: number) {
   return a + b;
@@ -253,8 +255,8 @@ export function functionName<T extends (...ks: unknown[]) => unknown>(fn: T) {
 /**
  * @function promisify
  * @description 函数执行promise化
- * @param {Function} fn
- * @return {Function}
+ * @param {Function} fn 要promise化的函数 
+ * @return {Function} 返回一个promise函数
  * @example
 import fs from 'fs';
 const readFileAsync = promisify(fs.readFile);
@@ -279,8 +281,8 @@ export function promisify<T extends unknown[], R>(
 /**
  * @function sleep
  * @description 延迟ms执行
- * @param {number} ms
- * @return {Promise<null>}
+ * @param {number} ms 延迟时间
+ * @return {Promise<null>} 返回一个promise
  * @example
 async function main() {
   console.log("Doing something...");
@@ -298,9 +300,9 @@ const DEFAULT_INTERVAL = 500;
 /**
  * @function throttle
  * @description 节流函数
- * @param {Function} fn
- * @param {Number} intervalTime
- * @returns {Function}
+ * @param {Function} fn 要执行的函数
+ * @param {Number} intervalTime 间隔时间
+ * @returns {Function} 返回一个节流函数
  * @example
 function log(message: string) {
   console.log(message);
@@ -331,9 +333,9 @@ type DebouncedFn<T extends unknown[]> = (...args: T) => void;
 /**
  * @function debounce
  * @description 防抖函数
- * @param {Function} fn
- * @param {Number} intervalTime
- * @returns {Function}
+ * @param {Function} fn 要执行的函数
+ * @param {Number} intervalTime 间隔时间
+ * @returns {Function} 返回一个防抖函数
  * @example
 function search(query: string) {
   // 发送请求，搜索指定的查询字符串

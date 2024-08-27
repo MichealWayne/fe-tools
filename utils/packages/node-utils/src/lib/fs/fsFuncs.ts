@@ -1,7 +1,7 @@
 /**
  * @module fsFuncs
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-07-07 14:05:59
+ * @LastEditTime 2024-08-25 14:01:22
  */
 
 import fs from 'fs';
@@ -12,9 +12,9 @@ import Tip from '../util/tip';
 /**
  * @function travelFolderSync
  * @description 遍历文件夹输出文件信息
- * @param {String} dirPath
- * @param {Function} fileCallback
- * @param {Function} folderCallback
+ * @param {String} dirPath 文件夹路径
+ * @param {Function} fileCallback 文件回调
+ * @param {Function} folderCallback 文件夹回调
  */
 export function travelFolderSync(
   dirPath: string,
@@ -36,8 +36,8 @@ export function travelFolderSync(
 /**
  * @function mkdirsSync
  * @description 同步进行文件夹创建（容错）
- * @param {String} dirPath
- * @return {Boolean}
+ * @param {String} dirPath 文件夹路径
+ * @return {Boolean} 是否创建成功
  */
 export function mkdirsSync(dirPath: string) {
   try {
@@ -69,9 +69,9 @@ export function mkdirsSync(dirPath: string) {
 
 /**
  * @function fsExistsSync
- * @description find folder or file
- * @param {String} path: folder or file path
- * @return {Boolean} if exist, true | false
+ * @description  判断文件是否存在(同步)
+ * @param {String} path 文件路径
+ * @return {Boolean} 是否存在
  */
 export function fsExistsSync(folderPath: string) {
   try {
@@ -85,9 +85,9 @@ export function fsExistsSync(folderPath: string) {
 
 /**
  * @function setFolderSync
- * @description find folder, if not exist, build it
- * @param {String} folderPath: folder path
- * @param {String} notip: no tip log
+ * @description 同步创建文件夹
+ * @param {String} folderPath 文件夹路径
+ * @param {String} notip 是否提示
  */
 export function setFolderSync(folderPath: string, noTip?: boolean) {
   if (!fs.existsSync(folderPath)) {
@@ -100,8 +100,8 @@ export function setFolderSync(folderPath: string, noTip?: boolean) {
 /**
  * @function rmdirsSync
  * @description 同步删除指定目录下的所前目录和文件,包括当前目录
- * @param {String} targetPath
- * @returns
+ * @param {String} targetPath 目标目录
+ * @returns {Boolean} 是否删除成功
  */
 export function rmdirsSync(targetPath: string) {
   try {
@@ -129,11 +129,11 @@ export function rmdirsSync(targetPath: string) {
 
 /**
  * @function writeFile
- * @description find file, if not exist, build it.origin setFile
- * @param {String} filePath file path
- * @param {String} fileData file data
- * @param {Boolean} replaceBool replace original data or add
- * @return {Promise}
+ * @description 写文件,如果文件不存在则创建
+ * @param {String} filePath 文件路径
+ * @param {String} fileData  文件内容
+ * @param {Boolean} replaceBool 是否替换
+ * @return {Promise} 是否写入成功
  */
 export function writeFile(filePath: string, fileData: string, replaceBool?: boolean) {
   return new Promise((resolve, reject) => {
@@ -155,8 +155,8 @@ export function writeFile(filePath: string, fileData: string, replaceBool?: bool
 /**
  * @function writeJson
  * @description 写JSON文件
- * @param {String} filePath
- * @param {Object} obj
+ * @param {String} filePath 文件路径
+ * @param {Object} obj JSON对象
  */
 export function writeJson(filePath: string, obj: { [key: string]: unknown }, spaceLen = 2) {
   writeFile(filePath, `${JSON.stringify(obj, null, spaceLen)}\n`);
@@ -165,8 +165,8 @@ export function writeJson(filePath: string, obj: { [key: string]: unknown }, spa
 /**
  * @function readFileSync
  * @description 读取文件内容（同步）
- * @param {String} filePath
- * @returns {String}
+ * @param {String} filePath 文件路径
+ * @returns {String} 文件内容
  */
 export function readFileSync(filePath: string) {
   if (fs.existsSync(filePath)) {
@@ -178,8 +178,8 @@ export function readFileSync(filePath: string) {
 /**
  * @function readJson
  * @description 读取JSON文件内容
- * @param {String} filePath
- * @returns {Object}
+ * @param {String} filePath 文件路径
+ * @returns {Object} JSON对象
  */
 export function readJson(filePath: string) {
   const content = readFileSync(filePath);

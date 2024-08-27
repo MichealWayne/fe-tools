@@ -2,14 +2,14 @@
  * @module nodeBase64
  * @author Wayne
  * @Date 2024-01-16 10:11:22
- * @LastEditTime 2024-07-22 19:46:57
+ * @LastEditTime 2024-08-25 13:56:01
  */
 
 /**
  * @function base64Encode
  * @description 字符串转base64
- * @param {string} str
- * @returns {string}
+ * @param {string} str 字符串
+ * @returns {string} base64字符串
  * @example
  * base64Encode('hello world'); // 'aGVsbG8gd29ybGQ='
  */
@@ -21,8 +21,8 @@ export function base64Encode(str: string) {
 /**
  * @function base64Decode
  * @description base64字符串解码
- * @param {string} base64Str
- * @returns {string}
+ * @param {string} base64Str base64字符串
+ * @returns {string} 解码后的字符串
  * @example
  * base64Decode('aGVsbG8gd29ybGQ='); // 'hello world'
  */

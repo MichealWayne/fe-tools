@@ -2,11 +2,12 @@
  * @module keyboard
  * @author Wayne
  * @Date 2024-04-07 13:45:27
- * @LastEditTime 2024-06-29 13:37:51
+ * @LastEditTime 2024-08-25 10:14:47
  */
 
 /**
  * pc keycode map
+ * @see https://keycode.info/
  */
 const keyCodeMap = {
   8: 'Backspace',
@@ -115,8 +116,8 @@ const keyCodeMap = {
 /**
  * @function getKeyName
  * @description 通过将键码转换为更易于理解的键名
- * @param  {number} keycode
- * @return {string}
+ * @param  {number} keycode 键码
+ * @return {string} 键名
  * @example
  * getKeyName(13); // 'Enter'
  */

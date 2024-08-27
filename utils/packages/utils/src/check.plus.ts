@@ -3,14 +3,14 @@
  * @module Check.plus
  * @description check password functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-03-26 10:04:41
+ * @LastEditTime 2024-08-25 13:22:23
  */
 
 /**
  * @function validatePassport
  * @description (中国)护照号码校验
- * @param {string} passport
- * @returns {boolean}
+ * @param {string} passport 护照号码
+ * @returns {boolean} 是否为护照号码
  * @example
  * validatePassport('G12345678'); // false
  * validatePassport('D012345678'); // true
@@ -29,8 +29,8 @@ export function validatePassport(passport: string) {
 /**
  * @function validateLicensePlate
  * @description (中国)车牌号校验
- * @param {string} licensePlate
- * @returns {boolean}
+ * @param {string} licensePlate 车牌号
+ * @returns {boolean} 是否为车牌号
  * @example
  * validateLicensePlate('A12345X'); // true
  * validateLicensePlate('京A12345'); // true
@@ -77,7 +77,7 @@ const hasSymbol = (pwd: string) => /[\W_]/.test(pwd);
  * @description 检验密码强度（数字+字母+符号）
  * @param {string} pwd 待检查的密码
  * @param {PwdStrengthTips} tips 自定义密码强度提示信息
- * @return {PwdStrengthTypes | string}
+ * @return {PwdStrengthTypes | string} 密码强度类型或提示信息
  */
 export function checkPwdStrength(
   pwd: string,
@@ -168,9 +168,9 @@ const AREA_MAP = {
 /**
  * @function checkIdcard
  * @description 身份证正确性校验
- * @param idcard
- * @param TipEnum
- * @returns
+ * @param {string} idcard 身份证号码
+ * @param {object} TipEnum 提示信息
+ * @returns {DefaultIdcardTips} 身份证验证结果
  */
 export function checkIdcard(idcard: string, TipEnum = DefaultIdcardTips) {
   const now = new Date();

@@ -1,7 +1,7 @@
 /**
  * @model Stroage
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-03-10 13:50:06
+ * @LastEditTime 2024-08-25 10:20:04
  */
 
 import { PlainObject } from 'utils';
@@ -10,7 +10,8 @@ const DEFAULT_EXPIRATION = 1000 * 60 * 60 * 24 * 7; // 7 days
 
 /**
  * @function deserialize
- * @param value
+ * @description 尝试将字符串转换为JSON对象，反序列化
+ * @param {unknown} value 需要反序列化的值
  * @return {JSON | undefined}
  */
 function deserialize(value: unknown) {

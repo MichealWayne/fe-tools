@@ -1,7 +1,7 @@
 /**
  * @module DOM
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-04-27 17:19:43
+ * @LastEditTime 2024-08-25 10:14:25
  */
 
 import { isUndefined } from 'utils';
@@ -9,7 +9,7 @@ import { isUndefined } from 'utils';
 /**
  * @function isBrowser
  * @description 当前页面是否在浏览器环境下
- * @return {Boolean}
+ * @return {boolean} 是否在浏览器环境下
  * @example
  * if (isBrowser()) {
  *   console.log('在浏览器环境下');
@@ -24,7 +24,7 @@ export function isBrowser() {
 /**
  * @function isBrowserTab
  * @description 当前页面是否为显示状态
- * @return {Boolean}
+ * @return {boolean} 是否为显示状态
  * @example
  if (!isBrowserTab()) {
   // 取消一些请求事件等处理
@@ -37,9 +37,9 @@ export function isBrowserTab() {
 /**
  * @function hasClass
  * @description 判断节点elem是否包含某个class
- * @param {HTMLElement} elem
- * @param {String} className
- * @return {Boolean}
+ * @param {HTMLElement} elem DOM节点
+ * @param {string} className 样式类名
+ * @return {boolean} 节点是否包含对应类名
  * @example
  // 测试用例1：测试样式类名存在情况
  const elem = document.createElement('div');
@@ -66,8 +66,8 @@ export function hasClass(elem: HTMLElement, className: string) {
 /**
  * @function addClass
  * @description 给DOM节点elem添加class
- * @param {HTMLElement} elem
- * @param {String} className
+ * @param {HTMLElement} elem DOM节点
+ * @param {String} className 样式类名
  * @example
 const div = document.createElement('div');
 div.className = 'foo';
@@ -82,8 +82,8 @@ export function addClass(elem: HTMLElement, className: string) {
 /**
  * @function removeClass
  * @description 移除DOM节点的某个class
- * @param {HTMLElement} elem
- * @param {String} className
+ * @param {HTMLElement} elem DOM节点
+ * @param {string} className 样式类名
  * @example
  const elem = document.createElement('div');
  elem.className = 'foo bar';
@@ -100,8 +100,9 @@ export function removeClass(elem: HTMLElement, className: string) {
 /**
  * @function insertAfter
  * @description 在指定元素之后插入新元素
- * @param {HTMLElement} elem
- * @param {String} htmlString
+ * @param {HTMLElement} elem DOM节点
+ * @param {string} htmlString HTML字符串
+ * @return {HTMLElement} 插入的元素
  * @example
 // 在一个元素之后插入一个新元素
 const parent = document.getElementById('parent');
@@ -121,8 +122,9 @@ export function insertAfter(elem: HTMLElement, htmlString: string) {
 /**
  * @function insertBefore
  * @description 在指定元素之前插入新元素
- * @param {HTMLElement} el
- * @param {String} htmlString
+ * @param {HTMLElement} elem DOM节点 
+ * @param {string} htmlString HTML字符串
+ * @return {HTMLElement} 插入的元素
   * @example
 // 在一个元素之前插入一个新元素
 const parent = document.getElementById('parent');
@@ -135,15 +137,16 @@ const target = document.getElementById('target');
 const html = '<div>Inserted before target</div>';
 insertBefore(target, html);
  */
-export function insertBefore(el: HTMLElement, htmlString: string) {
-  return el.insertAdjacentHTML('beforebegin', htmlString);
+export function insertBefore(elem: HTMLElement, htmlString: string) {
+  return elem.insertAdjacentHTML('beforebegin', htmlString);
 }
 
 /**
  * @function elementContains
  * @description 检查是否包含子元素
- * @param {HTMLElement} parent
- * @param {HTMLElement} child
+ * @param {HTMLElement} parent 父元素
+ * @param {HTMLElement} child 子元素
+ * @return {boolean} 是否包含子元素
  * @example
 const parent = document.getElementById('parent');
 const child = document.getElementById('child');
@@ -160,19 +163,20 @@ export function elementContains(parent: HTMLElement, child: HTMLElement) {
 /**
  * @function hide
  * @description 隐藏元素
- * @param  {...HTMLElement} el
+ * @param  {...HTMLElement} elems DOM节点列表
  * @example
 const elementsToHide = document.querySelectorAll('.hide-me');
 hide(...elementsToHide);
  */
-export function hide(...el: HTMLElement[]) {
-  [...el].forEach(e => (e.style.display = 'none'));
+export function hide(...elems: HTMLElement[]) {
+  [...elems].forEach(e => (e.style.display = 'none'));
 }
 
 /**
  * @function nodeListToArray
  * @description dom列表伪数组转为数组
- * @param {HTMLElement[]} nodeList
+ * @param {HTMLElement[]} nodeList DOM节点列表
+ * @return {HTMLElement[]} DOM节点数组
  * @example
 // 获取所有 div 元素，得到的是一个类数组对象 NodeList
 const divs = document.querySelectorAll('div');
@@ -192,9 +196,9 @@ export function nodeListToArray(nodeList: HTMLElement[]) {
 /**
  * @function setAttribute
  * @description 设置指定 DOM 元素的属性值
- * @param {HTMLElement} elem
- * @param {String} key
- * @param {String} value
+ * @param {HTMLElement} elem DOM节点
+ * @param {String} key 属性名
+ * @param {String} value 属性值
  * @example
 const elem = document.getElementById('myElement');
 setAttribute(elem, 'style', 'color: red; font-size: 16px;');
@@ -224,7 +228,7 @@ export function setAttribute(elem: HTMLElement, key: string, value: string) {
 /**
  * @function escapeHTML
  * @description 将字符串中的 HTML 特殊字符转义成对应的实体字符，以避免 XSS 攻击等问题。
- * @param {String} str
+ * @param {string} str 需要转义的字符串
  * @example
   const inputBox = document.getElementById('input-box');
   const outputBox = document.getElementById('output-box');
@@ -255,7 +259,7 @@ export function escapeHTML(str: string) {
  * @function getOffsetPos
  * @description 获取一个元素的距离文档(document)左上角的位置，类似jQ中的offset()
  * @param {HTMLElement} elem 父节点
- * @return { {left: number, top: number} }
+ * @return { {left: number, top: number} } 元素的位置
  * @example
  const elem = document.getElementById('my-elem');
 const offsetPos = getOffsetPos(elem);
@@ -281,7 +285,7 @@ export function getOffsetPos(elem?: HTMLElement) {
 /**
  * @function getScrollTop
  * @description 获取滚动条距顶部的距离
- * @return {Number} 滚动高度
+ * @return {number} 滚动高度
  * @example
  const scrollTop = getScrollTop();
  console.log(scrollTop);
@@ -293,8 +297,8 @@ export function getScrollTop() {
 /**
  * @function getScrollPosition
  * @description 获取文档滚动的位置
- * @param {Element} elem
- * @returns { {x: number, y: number} }
+ * @param {Element} elem 滚动的元素
+ * @returns { {x: number, y: number} } 滚动的位置
  * @example
   const scrollPos = getScrollPosition();
  console.log(scrollPos.x, scrollPos.y);
@@ -310,7 +314,7 @@ export function getScrollPosition(elem = window) {
  * @function setScrollTop
  * @description 设置滚动条距顶部的距离
  * @param {Number} height 滚动高度
- * @return {Number} value
+ * @return {Number} 滚动高度
  */
 export function setScrollTop(height: number) {
   window.scrollTo(0, height);
@@ -343,8 +347,8 @@ export const requestAnimFrame = (function () {
  * @function animateScrollTo
  * @description 在${duration}时间内，滚动条平滑滚动到${to}指定位置
  *  (need getScrollTop, setScrollTop,requestAnimFrame)
- * @param {Number} to 滚动高度
- * @param {Number} duration 滚动时间
+ * @param {number} to 滚动高度
+ * @param {number} duration 滚动时间
  */
 export function animateScrollTo(to: number, duration: number) {
   if (duration < 0) {
@@ -374,7 +378,7 @@ export function animateScrollTo(to: number, duration: number) {
 /**
  * @function smoothScroll
  * @description 指定元素滚动到可视区域
- * @param {DOMElement} elemSelector
+ * @param {DOMElement} elemSelector DOM元素
  */
 export function smoothScroll(elemSelector: string) {
   document.querySelector(elemSelector)?.scrollIntoView({
