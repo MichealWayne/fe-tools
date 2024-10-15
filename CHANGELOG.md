@@ -1,6 +1,6 @@
 ### 更新信息
 
-- 2024.10.13：utils 更新（增加web utils方法）；
+- 2024.10.13：utils 更新（增加web utils方法）；更新regex.json；
 - 2024.08.25：utils 优化（增加方法参数注释）；
 - 2024.07.21：utils 更新（canvas-utils、env）；
 - 2024.06.16：主页链接调整
