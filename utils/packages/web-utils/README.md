@@ -1,4 +1,4 @@
-# webAPI
+# web utils
 
 浏览器相关封装。
 
@@ -10,6 +10,8 @@
   - getPrefix：获取浏览器前缀
   - getStyle：获取元素样式
   - getElementSize：获取元素的尺寸数据、如 width/height
+- [clipboard.ts](./src/clipboard.ts)
+  - copyToClipboard：拷贝文案到剪贴板
 - [dom.ts](./src/dom.ts)
   - isBrowser：是否浏览器环境
   - isBrowserTab：当前页面是否为显示状态
@@ -31,6 +33,12 @@
   - animateScrollTo：平滑滚动（dom 动画）
   - smoothScroll：平滑滚动（依赖 webapi）
   - disableCopy：禁止复制
+- [file.ts](./src/file.ts)
+  - readFile：读取文件内容，返回字符串
+  - readFileAsDataURL：读取文件内容为 Data URL
+  - downloadFile：保存/下载文件
+  - downloadImageFileByUrl：根据 URL 下载图片文件
+  - getFileExtension：根据文件名获取文件扩展名
 - [image.ts](./src/image.ts)
   - isImageLoaded：加载图片（通常用于预加载）
   - getImageSize：获取图片的原始尺寸大小
@@ -63,3 +71,5 @@
   - uniqueSlash：将路径中重复的正斜杆替换成单个斜杆隔开的字符串
 - [keyboard.ts](./src/keyboard.ts)
   - getKeyName：获取 pc 按键值
+- [others.ts](./src/others.ts)
+  - isBase64：判断字符串是否是 base64

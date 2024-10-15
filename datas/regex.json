@@ -7,13 +7,13 @@
   },
   {
     "id": "phone",
-    "name": "手机号",
-    "description": "",
+    "name": "(中国大陆)手机号",
+    "description": "11位数字的手机号",
     "regexStr": "^1(3|4|5|6|7|8|9)\\d{9}$"
   },
   {
     "id": "tel",
-    "name": "电话",
+    "name": "(中国大陆)电话",
     "description": "固定电话",
     "regexStr": "(\\(\\d{3,4}\\)|\\d{3,4}-|\\s)?\\d{8}"
   },
@@ -157,13 +157,13 @@
   },
   {
     "id": "english2",
-    "name": "英文",
+    "name": "大写英文",
     "description": "由26个大写英文字母组成的字符串",
     "regexStr": "^[A-Z]+$"
   },
   {
     "id": "english3",
-    "name": "英文",
+    "name": "小写英文",
     "description": "由26个小写英文字母组成的字符串",
     "regexStr": "^[a-z]+$"
   },
@@ -364,5 +364,11 @@
     "name": "中文姓名",
     "description": "仅包含中文字符",
     "regexStr": "^[\u4e00-\u9fa5·]{2,}$"
+  },
+  {
+    "id": "emptyLine",
+    "name": "空白行",
+    "description": "是否包含空白行",
+    "regexStr": "^[\\s\\S]*\\n"
   }
 ]

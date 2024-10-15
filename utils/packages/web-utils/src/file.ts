@@ -1,11 +1,11 @@
 /**
  * @author Wayne
  * @Date 2024-07-07 13:42:13
- * @LastEditTime 2024-08-25 10:14:32
+ * @LastEditTime 2024-10-13 13:31:20
  */
 /**
  * @function readFile
- * @description 读取文件内容
+ * @description 读取文件内容，返回字符串
  * @param {File} file 文件对象
  * @returns {Promise<string>} 文件内容
  * @example
@@ -61,6 +61,43 @@ export function downloadFile(content: string, filename: string, contentType: str
     document.body.removeChild(a);
     window.URL.revokeObjectURL(url);
   }, 0);
+}
+
+/**
+ * @function downloadImageFileByUrl
+ * @description 根据URL下载图片文件
+ * @param {string} url 图片URL
+ * @param {string} filename 文件名
+ * @param {string} imageType 图片类型
+ * @returns {Promise<boolean>} 是否下载成功
+ * @example
+ * downloadImageFileByUrl('https://example.com/image.jpg', 'image.jpg');
+ * downloadImageFileByUrl('https://example.com/image.png', 'image.png', 'image/png');
+ */
+export function downloadImageFileByUrl(url: string, filename: string, imageType = 'image/jpeg') {
+  return new Promise((resolve, reject) => {
+    const canvas = document.createElement('canvas');
+    const img = document.createElement('img');
+    img.setAttribute('crossOrigin', 'Anonymous');
+    img.src = url;
+    img.onload = _ => {
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      const context = canvas.getContext('2d')!;
+      context.drawImage(img, 0, 0, img.width, img.height);
+
+      canvas.toBlob(blob => {
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob!);
+        link.download = filename;
+        link.click();
+        URL.revokeObjectURL(link.href);
+        resolve(true);
+      }, imageType);
+    };
+    img.onerror = e => reject(e);
+  });
 }
 
 /**
