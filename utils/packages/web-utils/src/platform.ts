@@ -2,9 +2,9 @@
 /* eslint-disable no-cond-assign */
 /**
  * @module Platform
- * @notice 存在复杂的判断场景可以直接使用ua-parser-js
+ * @notice 存在复杂的判断场景可以直接使用ua-parser-js / mobile-detect.js
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-08-25 10:16:53
+ * @LastEditTime 2024-12-01 11:06:34
  */
 
 /**
@@ -31,6 +31,7 @@ export function isPC() {
     'windows ce',
     'ipad',
     'ipod',
+    'mobile', // 通用移动设备关键字
   ].every(agent => ua.indexOf(agent) < 0);
 }
 
@@ -93,13 +94,13 @@ export function getSystemOS() {
   if (/linux/i.test(appVersion)) return 'linux';
   if (/iphone/i.test(ua) || /ipad/i.test(ua) || /ipod/i.test(ua)) return 'ios';
   if (/android/i.test(ua)) return 'android';
-  if (/harmonyos/i.test(ua)) return 'harmony';
+  if (/harmony/i.test(ua)) return 'harmony'; // 华为鸿蒙系统: HarmonyOS/OpenHarmony
   return 'unknown';
 }
 
 /**
  * @function getMobilePlatform
- * @description 获取当前页面所处的移动设备标识
+ * @description 获取当前页面所处的移动设备标识（适用于纯移动端业务进行简单的iPhone还是安卓手机判断）
  * @return {string} 移动设备标识，如：'iphone'、'gphone'
  * @example
  * getMobilePlatform(); // 'iphone' or 'gphone'
@@ -107,8 +108,8 @@ export function getSystemOS() {
 export function getMobilePlatform() {
   const info = {
     versions: {
-      iPhone: ua.indexOf('iphone') > -1 || ua.indexOf('mac') > -1,
-      iPad: ua.indexOf('ipad') > -1,
+      iPhone: ua.includes('iphone') || ua.includes('mac'),
+      iPad: ua.includes('ipad'),
     },
   };
 
@@ -137,4 +138,28 @@ export function getMobileOS() {
     return os;
   }
   return os;
+}
+
+/**
+ * @function getMobileBrandIdentify
+ * @description 获取当前移动设备的品牌标识（部分手机）
+ * @returns {string} 手机品牌标识，如：'iphone'、'huawei'、'oppo'、'vivo'、'xiaomi'、'samsung'、'unknown'
+ */
+export function getMobileBrandIdentify() {
+  const brandMatchers = [
+    { regex: /iphone/, brand: 'iphone' },
+    { regex: /huawei|honor/, brand: 'huawei' },
+    { regex: /oppo|pacm00/, brand: 'oppo' },
+    { regex: /vivo/, brand: 'vivo' },
+    { regex: /mi\s|redmi|mix\s/, brand: 'xiaomi' },
+    { regex: /sm-/, brand: 'samsung' },
+  ];
+
+  for (const matcher of brandMatchers) {
+    if (ua.match(matcher.regex)) {
+      return matcher.brand;
+    }
+  }
+
+  return 'unknown';
 }

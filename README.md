@@ -126,6 +126,7 @@
 <a href="http://blog.michealwayne.cn/Moo-CSS/docs/moocss/#m%E6%A8%A1%E5%9D%97" target="_blank">Moo-CSS</a> | `moo-css` | 一种CSS写法方案。
 <a href="https://github.com/l-hammer/You-need-to-know-css" target="_blank">CSS tricks for web developers</a> | `You-need-to-know-css` | CSS技巧集合。
 <a href="https://logotyp.us/" target="_blank"> logotyp.us </a> | `logotyp` | 国内外知名企业/商业的logo集合。
+<a href="https://uiverse.io/" target="_blank"> uiverse.io </a> | `uiverse` | css样式组件集合，号称“最大的UI开源库”。
 
 
 ### 1.4 JS插件/库
@@ -417,7 +418,8 @@
 <a href="https://mobile.ant.design/index-cn" target="_blank">antd-mobile 文档</a> | `antd-mobile` | 移动版的antd，UI组件库。
 <a href="https://www.styled-components.com/" target="_blank">styled-components 文档</a> | `styled-components` | react的css-in-js实现。
 <a href="https://github.com/cristianbote/goober" target="_blank"> goober 文档</a> | `goober` | 只有1kb大小的css-in-js库。
-<a href="https://chatui.io/" target="_blank">chatUI</a> | `chatui.io ` | 服务于对话领域的解决方案（前端组件），阿里。
+<a href="https://chatui.io/" target="_blank">chatUI</a> | `chatui.io` | 服务于对话领域的解决方案（前端组件），阿里。
+<a href="https://x.ant.design/index-cn" target="_blank">Ant Design X</a> | `ant-design-x` | 服务于对话领域的解决方案（前端组件），蚂蚁。
 <a href="https://github.com/twobin/react-lazyload" target="_blank">react-lazyload 文档</a> | `react-lazyload` | react版的图片/组件加载插件。
 <a href="https://github.com/jamiebuilds/react-loadable#readme" target="_blank">react-loadable</a> | `react-loadable` | 实现react组件构建时代代码抽离和动态加载。
 <a href="https://github.com/STRML/react-draggable" target="_blank">react-draggable</a> | `react-draggable` | 一个用于拖拽操作的React封装组件。
