@@ -1,8 +1,29 @@
 /**
  * @author Wayne
  * @Date 2024-10-13 13:39:56
- * @LastEditTime 2024-10-13 13:40:36
+ * @LastEditTime 2024-12-01 11:18:59
  */
+
+/**
+ * @function readClipboardText
+ * @description 读取剪贴板文案
+ * @returns {Promise<string>} 剪贴板文案
+ */
+export function readClipboardText() {
+  return new Promise<string>((resolve, reject) => {
+    try {
+      navigator.clipboard
+        .readText()
+        .then(resolve)
+        .catch(e => {
+          console.error('Failed to read clipboard contents(getClipboardText): ', e);
+          reject(e);
+        });
+    } catch (error) {
+      reject(error);
+    }
+  });
+}
 
 /**
  * @function copyToClipboard

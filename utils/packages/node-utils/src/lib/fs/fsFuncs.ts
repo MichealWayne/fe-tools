@@ -1,7 +1,7 @@
 /**
  * @module fsFuncs
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-08-25 14:01:22
+ * @LastEditTime 2024-12-01 13:52:12
  */
 
 import fs from 'fs';
@@ -13,8 +13,8 @@ import Tip from '../util/tip';
  * @function travelFolderSync
  * @description 遍历文件夹输出文件信息
  * @param {String} dirPath 文件夹路径
- * @param {Function} fileCallback 文件回调
- * @param {Function} folderCallback 文件夹回调
+ * @param {(filePath: string) => any} fileCallback 文件回调
+ * @param {(folderPath: string) => any} folderCallback 文件夹回调
  */
 export function travelFolderSync(
   dirPath: string,

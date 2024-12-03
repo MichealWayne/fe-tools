@@ -2,7 +2,7 @@
  * @module nodeBase64
  * @author Wayne
  * @Date 2024-01-16 10:11:22
- * @LastEditTime 2024-08-25 13:56:01
+ * @LastEditTime 2024-12-01 11:23:13
  */
 
 /**
@@ -29,4 +29,14 @@ export function base64Encode(str: string) {
 export function base64Decode(base64Str: string) {
   const buff = Buffer.from(base64Str, 'base64');
   return buff.toString('utf-8');
+}
+
+/**
+ * @function isBase64Str
+ * @description 判断字符串是否是base64
+ * @param {string} str
+ * @returns {boolean} 是否是base64
+ */
+export function isBase64Str(str: string): boolean {
+  return Buffer.from(str, 'base64').toString('base64') === str;
 }

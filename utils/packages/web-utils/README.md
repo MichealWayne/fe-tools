@@ -11,6 +11,7 @@
   - getStyle：获取元素样式
   - getElementSize：获取元素的尺寸数据、如 width/height
 - [clipboard.ts](./src/clipboard.ts)
+  - readClipboardText：读取剪贴板文案
   - copyToClipboard：拷贝文案到剪贴板
 - [dom.ts](./src/dom.ts)
   - isBrowser：是否浏览器环境
@@ -59,6 +60,7 @@
   - getSystemOS：获取系统版本
   - getMobilePlatform：获取移动端平台标志
   - getMobileOS：获取移动端系统及其版本
+  - getMobileBrandIdentify：获取当前移动设备的品牌标识（部分手机）
 - [rem.ts](./src/rem.ts)
 - [storage.ts](./src/storage.ts)
 - [url.ts](./src/url.ts)
