@@ -414,6 +414,7 @@
 <a href="https://github.com/welldone-software/why-did-you-render#readme" target="_blank">why-did-you-render</a> | `why-did-you-render` | 用来检测React组件是否需要重新渲染的工具。
 <a href="https://www.framer.com/motion/" target="_blank">framer-motion 官网</a> | `framer-motion` | 非常强大的React动画/交互手势库，来自Farmer API。
 <a href="http://danilowoz.com/create-content-loader/" target="_blank">react-content-loader 文档</a> | `create-content-loader` | react版SVG骨架屏插件。
+<a href="https://ui.shadcn.com/" target="_blank"> shadcn-ui 文档</a> | `shadcn` | shadcn，原子、灵活的UI组件库。
 <a href="https://ant.design/docs/react/getting-started-cn" target="_blank">antd 文档</a> | `antd` | ant design，PC UI组件库。
 <a href="https://mobile.ant.design/index-cn" target="_blank">antd-mobile 文档</a> | `antd-mobile` | 移动版的antd，UI组件库。
 <a href="https://www.styled-components.com/" target="_blank">styled-components 文档</a> | `styled-components` | react的css-in-js实现。

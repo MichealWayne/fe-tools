@@ -1,5 +1,6 @@
 ### 更新信息
 
+- 2024.12.22：utils 更新（env/utils）；前端模版更新（vite+react+ts）
 - 2024.12.01：utils 更新（增加 web/node utils 方法）；
 - 2024.10.13：utils 更新（增加 web utils 方法）；更新 regex.json；
 - 2024.08.25：utils 优化（增加方法参数注释）；

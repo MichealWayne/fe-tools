@@ -2,6 +2,7 @@
 /**
  * @module Check
  * @description check functions
+ * @notice 其他判断可见check.plus.ts，或工具中regex.json
  * @Date 2020-04-11 21:55:46
  * @LastEditTime 2024-08-25 13:23:11
  */

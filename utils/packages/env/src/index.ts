@@ -2,7 +2,7 @@
  * @constants hostEnv
  * @author Wayne
  * @createTime 2022-03-11 10:01:22
- * @LastEditTime 2024-07-22 13:30:21
+ * @LastEditTime 2024-12-22 11:10:14
  */
 /* eslint-disable no-undef */
 
@@ -80,6 +80,10 @@ export const isKuaiShouMiniProgram =
 const isWeex =
   typeof GLOBAL.WXEnvironment !== 'undefined' && Boolean(GLOBAL.WXEnvironment.platform);
 
+// React Native
+export const isReactNative =
+  typeof navigator !== 'undefined' && navigator.product === 'ReactNative';
+
 /** node */
 
 // nodejs 环境
@@ -95,6 +99,8 @@ export enum RunTimeIdMap {
   KUAISHOU_MINIAPP = 'kuaishou_miniapp',
   NODEJS = 'node',
   JS_RUNTIME = 'js_runtime',
+  WEEX = 'weex',
+  REACT_NATIVE = 'react_native',
 }
 
 // 环境标识
@@ -106,6 +112,8 @@ export const RUNTIME_NAME =
   (isBaiduSmartProgram && RunTimeIdMap.BAIDU_MINIAPP) ||
   (isKuaiShouMiniProgram && RunTimeIdMap.KUAISHOU_MINIAPP) ||
   (isNode && RunTimeIdMap.NODEJS) ||
+  (isWeex && RunTimeIdMap.WEEX) ||
+  (isReactNative && RunTimeIdMap.REACT_NATIVE) ||
   RunTimeIdMap.JS_RUNTIME;
 
 export default {
@@ -119,6 +127,7 @@ export default {
   isKuaiShouMiniProgram,
   isNode,
   isWeex,
+  isReactNative,
   ENV_MAP,
   RunTimeIdMap,
   RUNTIME_NAME,

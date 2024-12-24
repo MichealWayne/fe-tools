@@ -428,6 +428,8 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/welldone-software/why-did-you-render#readme | why-did-you-render | Tool for detecting whether React components need to be re-rendered. |
 | https://www.framer.com/motion/ | framer-motion | Very powerful React animation/interaction gesture library, from Farmer API. |
 | http://danilowoz.com/create-content-loader/ | create-content-loader | React version of SVG skeleton screen plugin. |
+<a href="https://ui.shadcn.com/" target="_blank"> shadcn-ui 文档</a> | `shadcn` | shadcn，原子、灵活的UI组件库。
+| https://ui.shadcn.com/ | shadcn | shadcn, Accessible. Customizable UI component | 
 | https://ant.design/docs/react/getting-started-cn | antd | Ant design, PC UI component library. |
 | https://mobile.ant.design/index-cn | antd-mobile | Mobile version of antd, UI component library. |
 | https://www.styled-components.com/ | styled-components | CSS-in-JS implementation for React. |
