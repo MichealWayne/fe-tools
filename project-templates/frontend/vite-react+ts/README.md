@@ -1,4 +1,4 @@
-# React+Vite demo
+# React+TailwindCSS+Vite demo
 
 ## 使用
 

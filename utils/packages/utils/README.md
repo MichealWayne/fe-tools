@@ -32,6 +32,7 @@
   - digitize：数字分隔为数字列表
   - fibonacci：斐波那次序列
   - median：找中位数
+  - unique：数组去重
 - [await-to.ts](./src/await-to.ts)
   - to: async-await/promise 操作相关
 - [check.ts](./src/check.ts)

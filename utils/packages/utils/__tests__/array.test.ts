@@ -19,6 +19,7 @@ import {
   intersection,
   intersectionBy,
   negate,
+  unique,
 } from '../src/array';
 
 /**
@@ -173,4 +174,10 @@ test('negate test', () => {
   expect(JSON.stringify([1, 2, 3, 4, 5].filter(negate(n => (n as number) % 2 === 0)))).toBe(
     '[1,3,5]'
   );
+});
+
+test('unique test', () => {
+  expect(JSON.stringify(unique([1, 2, 3, 4, 5, 3, 2, 1]))).toBe('[1,2,3,4,5]');
+  expect(JSON.stringify(unique([null, undefined, NaN, '', 0, 1, 0, 1]))).toBe('[null,null,1]');
+  expect(JSON.stringify(unique([]))).toBe('[]');
 });

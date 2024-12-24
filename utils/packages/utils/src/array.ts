@@ -2,7 +2,7 @@
  * @module Array
  * @description array functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-08-25 10:34:03
+ * @LastEditTime 2024-12-22 09:47:07
  */
 
 import { isArray, isObject } from './type';
@@ -417,6 +417,18 @@ export function shuffle([...arr]) {
  */
 export function everyNth(arr: AnyArr, nth: number) {
   return arr.filter((_e, i) => i % nth === 0);
+}
+
+/**
+ * @function unique
+ * @description 数组去重
+ * @param {array} arr 数组
+ * @return {array} 去重后的数组
+ * @example
+ * unique([1,2,2,3,4,4,5]);  // [1,2,3,4,5]
+ */
+export function unique(arr: AnyArr) {
+  return [...new Set(arr)];
 }
 
 /**

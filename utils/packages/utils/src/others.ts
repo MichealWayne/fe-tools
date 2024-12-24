@@ -2,7 +2,7 @@
  * @module Others
  * @author Wayne
  * @Date 2023-02-06 21:17:44
- * @LastEditTime 2024-08-25 13:53:08
+ * @LastEditTime 2024-12-22 11:19:14
  */
 
 // 复杂比较请见https://github.com/omichelsen/compare-versions
@@ -71,7 +71,8 @@ export function digitUppercase(num: number): string {
   if (cents > 0) {
     const jiao = Math.floor(cents / 10);
     const fen = cents % 10;
-    resStr += (jiao > 0 ? digit[jiao] + '角' : '') + (fen > 0 ? digit[fen] + '分' : '');
+    resStr +=
+      (jiao > 0 ? digit[jiao] + fraction[0] : '') + (fen > 0 ? digit[fen] + fraction[1] : '');
   } else {
     resStr = '整';
   }
