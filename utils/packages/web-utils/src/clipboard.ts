@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2024-10-13 13:39:56
- * @LastEditTime 2024-12-01 11:18:59
+ * @LastEditTime 2025-01-12 11:29:31
  */
 
 /**
@@ -38,8 +38,16 @@ export function copyToClipboard(text: string) {
     copyInput.value = text;
     document.body.appendChild(copyInput);
     copyInput.select();
+
+    // 执行复制，document.execCommand是不推荐的API，但兼容IE
     document.execCommand('copy');
     copyInput.remove();
     resolve(true);
+  }).catch(() => {
+    // 如果复制失败，尝试使用navigator.clipboard
+    navigator.clipboard
+      .writeText(text)
+      .then(() => true)
+      .catch(() => false);
   });
 }
