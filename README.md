@@ -23,7 +23,7 @@
 - [1.12 IDE插件](#112-ide插件)
 - [1.13 生活篇](#113-生活篇)
 
-> 注：一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats)，然后根据整理判断（chatGPT选型能力目前还一般，检索还是可以的）
+> 注：一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/)，然后根据回答信息进行综合判断
 
 ### 1.1 HTML/CSS/JavaScript/WASM/Dart
 地址 | 标签 | 说明
@@ -748,6 +748,19 @@
 <a href="https://alibaba.github.io/pipcook/#/zh-cn/" target="_blank">pipcook</a> | `pipcook` | 对web开发者友好的机器学习工具集，阿里
 <a href="https://github.com/mljs/distance" target="_blank">ml-distance</a> | `ml-distance` | 计算向量之间的距离或相似度，可用于Embeddings处理
 <a href="https://promptperfect.jinaai.cn/">Prompt Prefect</a> | `prompt-prefect` | 一个优化Prompt的在线工具
+
+#### 1.11.1 AI编程开发工具
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://www.cursor.com/">Cursor</a> | `cursor` | 面向专业开发极其友好的AI IDE，当前火爆
+<a href="https://github.com/PatrickJS/awesome-cursorrules">awesome-cursorrules</a> | `cursorrules` | 让Cursor提升效率的各类工程cursorrules集合
+<a href="https://windsurfai.org/zh">Windsurf</a> | `windsurf` | 面向专业开发极其友好的AI IDE，个人认为当前对新人比Cursor更友好，当前火爆
+<a href="https://github.com/SchneiderSam/awesome-windsurfrules">awesome-windsurfrules</a> | `windsurfrules` | 让Windsurf提升效率的各类工程cursorrules集合
+<a href="https://bolt.new/">Bolt.new</a> | `bolt` | 生成和有能力部署项目的AI Agent平台，当前火爆
+<a href="https://v0.dev/">V0</a> | `v0` | Vercel出品，生成和有能力部署项目的AI Agent平台，当前火爆
+<a href="https://www.copycoder.ai/">CopyCoder</a> | `copycoder` | 通过上传应用程序截图或 UI 设计图，Prompt，配合上述Cursor、Bolt这些 AI 代码生成工具使用
+<a href="https://github.com/cline/cline">Cline</a> | `cline` | 开源VSCode插件，agent，支持AI生成/修复代码，当前火爆
 
 
 ### 1.12 WebAssembly
