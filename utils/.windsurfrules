@@ -1,0 +1,166 @@
+# Windsurf Rules for Utils Monorepo
+
+## 1. Monorepo Architecture
+
+### Package Management
+
+- Use pnpm for workspace management
+- Leverage Lerna for monorepo coordination
+- Maintain consistent versioning across packages
+- Keep a centralized `tsconfig.json` for shared TypeScript configurations
+
+### Package Structure
+
+- Each utility package should be self-contained
+- Packages located in `utils/packages/`:
+  - `ai-utils`: AI and machine learning utilities
+  - `canvas-utils`: Canvas and graphics-related utilities
+  - `env`: Environment configuration utilities
+  - `node-img-build`: Node.js image processing tools
+  - `node-utils`: Node.js specific utilities
+  - `utils`: General-purpose utility functions
+  - `web-utils`: Web-specific utility functions
+
+## 2. Development Workflow
+
+### TypeScript Configuration
+
+- Strict TypeScript mode enabled
+- Use `typedoc.json` for consistent documentation generation
+- Enforce type safety across all packages
+
+### Linting and Formatting
+
+- Use ESLint with `.eslintrc.js` configuration
+- Enforce Prettier formatting via `.prettierrc.js`
+- Utilize `.editorconfig` for consistent editor settings
+- Ignore specified files with `.eslintignore` and `.prettierignore`
+
+### Testing
+
+- Use Jest as the primary testing framework
+- Centralized `jest.config.js` for consistent test configuration
+- Aim for >80% code coverage
+- Write unit tests for each utility function
+- Practice Test-Driven Development (TDD)
+
+## 3. Package-Specific Guidelines
+
+### General Utility Packages
+
+- Keep functions pure and side-effect free
+- Prefer functional programming paradigms
+- Minimize external dependencies
+- Provide clear and concise documentation for each function
+
+### AI Utils
+
+- Focus on lightweight, efficient machine learning utilities
+- Leverage existing libraries like `ml-distance`
+- Implement type-safe AI-related helper functions
+
+### Web and Node.js Utils
+
+- Provide cross-platform compatibility
+- Handle edge cases and provide robust error handling
+- Create modular, reusable functions
+
+## 4. Documentation
+
+### Code Documentation
+
+- Use JSDoc for comprehensive function documentation
+- Include type annotations
+- Provide usage examples in function comments
+- Generate documentation using TypeDoc
+
+### README Files
+
+- Each package must have a clear README
+- Include installation instructions
+- Provide usage examples
+- List dependencies and peer dependencies
+
+## 5. Versioning and Publishing
+
+### Semantic Versioning
+
+- Follow Semantic Versioning (SemVer) principles
+- Use conventional commits for clear changelog generation
+- Configure `.czrc` for consistent commit messages
+
+### Publishing
+
+- Use `.npmrc` for npm registry configuration
+- Automate package publishing
+- Ensure all tests pass before publishing
+
+## 6. Performance Considerations
+
+### Function Design
+
+- Optimize for time and space complexity
+- Prefer immutable operations
+- Use lazy evaluation where possible
+- Implement caching mechanisms for computationally expensive functions
+
+### Bundle Size
+
+- Keep utility functions lightweight
+- Use tree-shaking friendly code
+- Avoid unnecessary imports
+
+## 7. Security
+
+### Dependency Management
+
+- Regularly update dependencies
+- Use npm audit or equivalent tools
+- Be cautious with external packages
+- Implement security scanning in CI/CD
+
+### Code Security
+
+- Avoid hardcoding sensitive information
+- Use environment variables
+- Implement input validation
+- Handle potential security risks in utility functions
+
+## 8. Continuous Integration
+
+### CI/CD Workflow
+
+- Automate testing across different environments
+- Run linters, type checks, and tests on every pull request
+- Generate and deploy documentation automatically
+- Implement code coverage reporting
+
+## 9. Experimental Features
+
+### Feature Management
+
+- Use feature flags for experimental utilities
+- Clearly mark experimental functions
+- Provide migration paths for API changes
+- Maintain backward compatibility when possible
+
+## 10. Contribution Guidelines
+
+### Code Review
+
+- Mandatory code reviews for all contributions
+- Enforce coding standards
+- Encourage knowledge sharing
+- Provide constructive feedback
+
+### Community
+
+- Welcome contributions from the community
+- Maintain a clear and inclusive contribution guide
+- Respond to issues and pull requests promptly
+
+## 11. Licensing
+
+- Current license: ISC
+- Ensure all packages comply with the project's licensing terms
+- Include license information in each package

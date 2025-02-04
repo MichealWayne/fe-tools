@@ -1,0 +1,41 @@
+# AI Guidelines
+
+## Project-Specific Guidelines
+
+You are working on a React project with the following details:
+
+- Language: TypeScript
+- Framework: React.js
+- Styling: Tailwind CSS
+- Routing: No routing
+- API Integration: Axios for API calls
+
+## Project Rules
+
+- Use React.js pages and components structure.
+- Use Tailwind CSS for all styling needs.
+- Use Axios for all API requests.
+- Follow the project's specific coding conventions and naming conventions.
+
+## Code Formatting
+
+- Use 2 spaces for indentation.
+- Use single quotes for strings unless double quotes are necessary.
+- Use arrow functions for all functional components.
+- Destructure props and use path aliases for TypeScript imports.
+- Use consistent naming conventions for components and files (e.g., PascalCase for components).
+
+## Performance
+
+- Implement Next.js Image component for all images.
+- Use React.memo and useCallback for optimizing component re-renders.
+- Implement code splitting with React.lazy and Suspense.
+- Optimize API calls with caching and debouncing.
+
+## Security
+
+- Sanitize all user inputs using a library like DOMPurify.
+- Validate data types and escape content where necessary.
+- Use secure authentication practices (e.g., JWT, OAuth).
+- Follow OWASP guidelines for preventing XSS and CSRF attacks.
+- Ensure all API calls are secure and follow best practices.
