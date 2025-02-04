@@ -757,10 +757,13 @@
 <a href="https://github.com/PatrickJS/awesome-cursorrules">awesome-cursorrules</a> | `cursorrules` | 让Cursor提升效率的各类工程cursorrules集合
 <a href="https://windsurfai.org/zh">Windsurf</a> | `windsurf` | 面向专业开发极其友好的AI IDE，个人认为当前对新人比Cursor更友好，当前火爆
 <a href="https://github.com/SchneiderSam/awesome-windsurfrules">awesome-windsurfrules</a> | `windsurfrules` | 让Windsurf提升效率的各类工程cursorrules集合
+<a href="https://www.trae.ai/">Trae</a> | `trae` | 对标Cursor的AI IDE，免费、目前还不支持Windows系统，字节
 <a href="https://bolt.new/">Bolt.new</a> | `bolt` | 生成和有能力部署项目的AI Agent平台，当前火爆
+<a href="https://github.com/stackblitz/bolt.new">Bolt.new开源项目</a> | `bolt` | 开源版本的Bolt项目，支持切换模型
 <a href="https://v0.dev/">V0</a> | `v0` | Vercel出品，生成和有能力部署项目的AI Agent平台，当前火爆
 <a href="https://www.copycoder.ai/">CopyCoder</a> | `copycoder` | 通过上传应用程序截图或 UI 设计图，Prompt，配合上述Cursor、Bolt这些 AI 代码生成工具使用
 <a href="https://github.com/cline/cline">Cline</a> | `cline` | 开源VSCode插件，agent，支持AI生成/修复代码，当前火爆
+
 
 
 ### 1.12 WebAssembly

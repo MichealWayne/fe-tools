@@ -1,0 +1,107 @@
+# Windsurf Project Rules for FE-Tools
+
+## 1. Project Structure
+
+- Monorepo architecture with multiple packages
+- Main directories:
+  - `chrome-extension/`: Chrome extension related code
+  - `datas/`: Data-related resources
+  - `project-templates/`: Reusable project templates
+  - `utils/`: Utility packages and functions
+
+## 2. Package Management
+
+- Use npm/yarn for package management
+- Maintain consistent versioning across packages
+- Prefer TypeScript for type safety
+- Keep dependencies minimal and up-to-date
+
+## 3. Coding Standards
+
+### TypeScript/JavaScript
+
+- Use TypeScript for all new packages
+- Follow strict TypeScript configuration
+- Enforce ESLint and Prettier rules
+- Prefer functional and immutable programming patterns
+
+### Naming Conventions
+
+- Use camelCase for variables and functions
+- Use PascalCase for classes and interfaces
+- Prefix interfaces with `I` (e.g., `IConfig`)
+- Use meaningful and descriptive names
+
+## 4. Package Specific Rules
+
+### AI Utils Package
+
+- Located in `utils/packages/ai-utils/`
+- Focus on utility functions for AI-related tasks
+- Current dependencies:
+  - `ml-distance` for machine learning utilities
+- Maintain lightweight and modular design
+
+## 5. Testing
+
+- Implement unit tests for all utility functions
+- Use Jest as the primary testing framework
+- Aim for >80% code coverage
+- Write tests before implementing features (TDD)
+
+## 6. Documentation
+
+- Maintain clear and concise README files
+- Use JSDoc for inline code documentation
+- Keep CHANGELOG.md updated with version changes
+- Provide usage examples in documentation
+
+## 7. Version Control
+
+- Use conventional commits
+- Branching strategy:
+  - `main`: Stable releases
+  - `develop`: Integration branch
+  - Feature branches: `feature/description`
+  - Hotfix branches: `hotfix/description`
+
+## 8. Performance & Optimization
+
+- Minimize bundle sizes
+- Use code splitting and lazy loading
+- Optimize AI utility functions for speed and memory efficiency
+
+## 9. Security
+
+- Never commit sensitive information
+- Use environment variables for configuration
+- Regularly update dependencies to patch security vulnerabilities
+
+## 10. Continuous Integration
+
+- Automate build and test processes
+- Use GitHub Actions for CI/CD
+- Run linters, type checks, and tests on every pull request
+
+## 11. Accessibility & Internationalization
+
+- Design with accessibility in mind
+- Support multiple languages in documentation and UI
+- Follow WCAG guidelines
+
+## 12. Code Review
+
+- Mandatory code reviews for all pull requests
+- At least one approval required before merging
+- Focus on code quality, performance, and maintainability
+
+## 13. Experimental Features
+
+- Use feature flags for experimental functionalities
+- Clearly mark experimental code
+- Provide opt-in mechanisms for users
+
+## 14. Licensing
+
+- Current license: ISC
+- Ensure all contributions comply with the project's licensing terms

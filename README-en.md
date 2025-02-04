@@ -773,7 +773,9 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/PatrickJS/awesome-cursorrules | awesome-cursorrules | A collection of engineering cursorrules that make Cursor more efficient | 
 | https://windsurfai.org/ | Windsurf | Extremely friendly AI IDE for professional development, personally think that the current more friendly to newcomers than Cursor, currently hot | 
 | https://github.com/SchneiderSam/awesome-windsurfrules| awesome-windsurfrules | A collection of engineering windsurfrules that make Windsurf more efficient | 
+| https://www.trae.ai/ | trae | Cursor AI IDE, free, not currently supported for Windows |
 | https://bolt.new/ | Bolt | The AI Agent platform that generates and has the ability to deploy projects is currently hot | 
+| https://bolt.new/ | Bolt(diy) | The open source version of the Bolt project supports the switching model |
 | https://v0.dev/ | V0 | Vercel's AI Agent platform, which produces, generates and has the ability to deploy projects, is currently hot |
 | https://www.copycoder.ai/ | CopyCoder | By uploading the application screenshot or UI design drawing, Prompt, with the above Cursor, Bolt AI code generation tools to use |
 | https://github.com/cline/cline | `cline` | Open source VSCode plugin, agent, supports AI to generate/repair code |
