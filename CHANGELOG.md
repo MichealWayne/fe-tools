@@ -1,5 +1,8 @@
 ### 更新信息
 
+- 2025.03.02：增加 nextjs 相关库/更新 AI 编程工具(README.md/README-en.md)
+- 2025.02.04：增加 windsurfrules
+- 2025.01.12：增加 AI 编程工具(README.md/README-en.md)
 - 2024.12.22：utils 更新（env/utils）；前端模版更新（vite+react+ts）
 - 2024.12.01：utils 更新（增加 web/node utils 方法）；
 - 2024.10.13：utils 更新（增加 web utils 方法）；更新 regex.json；

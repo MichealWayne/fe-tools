@@ -19,11 +19,11 @@
 - [1.8 Hybird和跨端](#18-hybird和跨端)
 - [1.9 辅助工具](#19-辅助工具)
 - [1.10 测试、安全及加密](#110-测试安全及加密)
-- [1.11 AI人工智能库](#111-AI人工智能库)
+- [1.11 AI人工智能库及编程工具](#111-AI人工智能库)
 - [1.12 IDE插件](#112-ide插件)
 - [1.13 生活篇](#113-生活篇)
 
-> 注：一些选型可以考虑先问 [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/)，然后根据回答信息进行综合判断
+> 注：一些选型可以考虑先问 [Deepseek](https://chat.deepseek.com/) / [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/)，然后根据回答信息进行综合判断
 
 ### 1.1 HTML/CSS/JavaScript/WASM/Dart
 地址 | 标签 | 说明
@@ -168,6 +168,9 @@
 <a href="http://openexchangerates.github.io/accounting.js/" target="_blank">accounting.js</a> | `accounting.js` | 数字，金钱的格式化工具。
 <a href="http://openexchangerates.github.io/money.js/" target="_blank">money.js</a> | `money.js` | 金钱的汇率转换工具。
 <a href="https://github.com/MikeMcl/decimal.js#readme" target="_blank">decimal.js</a> | `decimal.js` | Js精度处理库。
+<a href="https://tanstack.com/query/latest" target="_blank">Tanstack Query</a> | `transtack-query | 异步状态管理库，支持TS/JS、React、Solid、Vue、Svelte和Angular。
+
+
 
 #### 1.4.3 请求、cookie和缓存
 地址 | 标签 | 说明
@@ -439,6 +442,21 @@
 <a href="https://react.i18next.com/" target="_blank">React i18Next</a> | `react-i18next` | 多语言解决方案。
 <a href="https://swr.vercel.app/" target="_blank">SWR</a> | `swr` | 用于数据请求的 React Hooks 库，处理了请求缓存、状态等等。
 <a href="https://formik.org/" target="_blank">Formik</a> | `formik` | 高度封装、开箱即用的 React form 表单封装库。
+
+#### 1.6.1 Nextjs
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://next.i18next.com/" target="_blank"> Next i18next </a> | `next-i18next` | 用于在Nextjs中处理国际化多语言的库。
+<a href="https://next-auth.js.org/" target="_blank">NextAuth.js</a> | `next-auth` | Next.js 官方推荐的身份验证库，支持 OAuth、JWT 和数据库集成，完美适配 SSR。
+<a href="https://github.com/garmeeh/next-seo" target="_blank">NextSEO</a> | `next-seo` | 专为 Next.js 设计的 SEO 工具，支持动态元标签管理和结构化数据生成。
+<a href="https://next-intl-docs.vercel.app/" target="_blank">next-intl</a> | `i18n` | 更现代的国际化方案，支持 App Router 和 Pages Router，内置 SSR 多语言加载。
+<a href="https://nextui.org/" target="_blank">NextUI</a> | `ui-library` | 为 Next.js 优化的现代组件库，内置 SSR 支持和主题系统。
+<a href="https://github.com/vercel/next.js/tree/canary/packages/next-mdx" target="_blank">@next/mdx</a> | `mdx` | 官方 MDX 支持库，可在页面中直接混合 Markdown 和 React 组件。
+<a href="https://next-redux-wrapper.js.org/" target="_blank">next-redux-wrapper</a> | `state-management` | Redux 与 Next.js 的桥梁库，自动处理 SSR 场景的 store 同步。
+<a href="https://github.com/vercel-labs/next-plugin-injection" target="_blank">@next/plugin-injection</a> | `security` | 官方安全插件，自动注入 CSP 等安全头（需 Next.js 13.4+）。
+<a href="https://nextjs.org/docs/app/api-reference/file-conventions/metadata" target="_blank">Metadata API</a> | `seo` | Next.js 13+ 原生 SEO 方案，替代部分 next-seo 的功能。
+<a href="https://github.com/onivim/next-og" target="_blank">next-og</a> | `seo` | 动态生成 Open Graph 图片，支持 Edge Runtime。
 
 
 
@@ -757,13 +775,15 @@
 <a href="https://github.com/PatrickJS/awesome-cursorrules">awesome-cursorrules</a> | `cursorrules` | 让Cursor提升效率的各类工程cursorrules集合
 <a href="https://windsurfai.org/zh">Windsurf</a> | `windsurf` | 面向专业开发极其友好的AI IDE，个人认为当前对新人比Cursor更友好，当前火爆
 <a href="https://github.com/SchneiderSam/awesome-windsurfrules">awesome-windsurfrules</a> | `windsurfrules` | 让Windsurf提升效率的各类工程cursorrules集合
-<a href="https://www.trae.ai/">Trae</a> | `trae` | 对标Cursor的AI IDE，免费、目前还不支持Windows系统，字节
+<a href="https://www.trae.ai/">Trae</a> | `trae` | 对标Cursor的AI IDE，免费，字节
 <a href="https://bolt.new/">Bolt.new</a> | `bolt` | 生成和有能力部署项目的AI Agent平台，当前火爆
 <a href="https://github.com/stackblitz/bolt.new">Bolt.new开源项目</a> | `bolt` | 开源版本的Bolt项目，支持切换模型
 <a href="https://v0.dev/">V0</a> | `v0` | Vercel出品，生成和有能力部署项目的AI Agent平台，当前火爆
 <a href="https://www.copycoder.ai/">CopyCoder</a> | `copycoder` | 通过上传应用程序截图或 UI 设计图，Prompt，配合上述Cursor、Bolt这些 AI 代码生成工具使用
 <a href="https://github.com/cline/cline">Cline</a> | `cline` | 开源VSCode插件，agent，支持AI生成/修复代码，当前火爆
-
+<a href="https://copyweb.ai">CopyWeb</a> | `copyweb` | 通过上传应用程序截图或Figma UI 设计稿生成页面，还原效果较好就是免费额度少了点。
+<a href="https://mastergo.com/">MasterGo</a> | `mastergo` | 设计平台为主，但能较好还原成网页，营销静态类效果不错，国产。
+<a href="https://mgx.dev/">MGX</a> | `mgx` | 多 Al Agent 开发平台——从规划、数据分析到编码、测试和部署构建全栈应用，目前比Devin好一点。
 
 
 ### 1.12 WebAssembly
