@@ -172,6 +172,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | http://openexchangerates.github.io/accounting.js/ | accounting.js | A tool for formatting numbers and money. |
 | http://openexchangerates.github.io/money.js/ | money.js | A tool for converting money exchange rates. |
 | https://github.com/MikeMcl/decimal.js#readme | decimal.js | A js library for precision processing. |
+| https://tanstack.com/query/latest | transtack-query | Powerful asynchronous state management for TS/JS, React, Solid, Vue, Svelte and Angular |
 
 ### 1.4.3 Requests, Cookies, and Caching
 
@@ -452,6 +453,19 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://react.i18next.com/ | react-i18next | Multi-language solution. |
 | https://swr.vercel.app/ | swr | React Hooks library for data requests, handling request caching, state, and more. |
 | https://formik.org/ | formik | Highly encapsulated, out-of-the-box form wrapper library for React Forms. |
+
+#### 1.6.1 Next.js
+
+| https://next.i18next.com/ | next-i18next | A library for handling internationalization and multilingual support in Next.js. |
+| https://next-auth.js.org/ | next-auth | The official authentication library recommended by Next.js, supporting OAuth, JWT, and database integration, perfectly suited for SSR. |
+| https://github.com/garmeeh/next-seo | next-seo | An SEO tool designed for Next.js, supporting dynamic meta tag management and structured data generation. |
+| https://next-intl-docs.vercel.app/ | i18n | A modern internationalization solution, supporting both App Router and Pages Router, with built-in multilingual loading for SSR. |
+| https://nextui.org/ | ui-library | A modern component library optimized for Next.js, featuring built-in SSR support and a theming system. |
+| https://github.com/vercel/next.js/tree/canary/packages/next-mdx | mdx | The official MDX support library, allowing you to mix Markdown and React components directly in pages. |
+| https://next-redux-wrapper.js.org/ | state-management | A bridge library between Redux and Next.js, automatically handling store synchronization in SSR scenarios. |
+| https://github.com/vercel-labs/next-plugin-injection | security | The official security plugin, automatically injecting security headers like CSP (requires Next.js 13.4+). |
+| https://nextjs.org/docs/app/api-reference/file-conventions/metadata | seo | The native SEO solution for Next.js 13+, replacing some functionalities of next-seo. |
+| https://github.com/onivim/next-og | seo | Dynamically generates Open Graph images, supporting Edge Runtime. |
 
 
 ### 1.7 Nodejs and building
@@ -773,13 +787,15 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/PatrickJS/awesome-cursorrules | awesome-cursorrules | A collection of engineering cursorrules that make Cursor more efficient | 
 | https://windsurfai.org/ | Windsurf | Extremely friendly AI IDE for professional development, personally think that the current more friendly to newcomers than Cursor, currently hot | 
 | https://github.com/SchneiderSam/awesome-windsurfrules| awesome-windsurfrules | A collection of engineering windsurfrules that make Windsurf more efficient | 
-| https://www.trae.ai/ | trae | Cursor AI IDE, free, not currently supported for Windows |
+| https://www.trae.ai/ | trae | Cursor AI IDE, free |
 | https://bolt.new/ | Bolt | The AI Agent platform that generates and has the ability to deploy projects is currently hot | 
 | https://bolt.new/ | Bolt(diy) | The open source version of the Bolt project supports the switching model |
 | https://v0.dev/ | V0 | Vercel's AI Agent platform, which produces, generates and has the ability to deploy projects, is currently hot |
 | https://www.copycoder.ai/ | CopyCoder | By uploading the application screenshot or UI design drawing, Prompt, with the above Cursor, Bolt AI code generation tools to use |
 | https://github.com/cline/cline | `cline` | Open source VSCode plugin, agent, supports AI to generate/repair code |
-
+| https://copyweb.ai | copyweb | Generate pages by uploading application screenshots or Figma UI designs, with good effect restoration but limited free quota.
+| https://mastergo.com/ | mastergo | Primarily a design platform, but can effectively convert designs into web pages, with good marketing static effects, and it's domestic.
+| https://mgx.dev/ | mgx | A multi-Agent development platform for building full-stack applications from planning, data analysis to coding, testing, and deployment, currently a bit better than Devin. |
 
 
 
