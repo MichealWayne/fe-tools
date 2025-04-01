@@ -1,6 +1,6 @@
 # 典型项目构建
 
-- `vite-react-ts`: React 17 + Vite + ts 项目模版
+- `vite-react-ts`: React 18 + Vite + TailwindCSS3 + ts 项目模版
 - `react`：React16 页面项目模版
 - `vite-vue3+ts`：Vue3 + Vite + ts 项目模版
 - `vue`：Vue2 页面项目模板
