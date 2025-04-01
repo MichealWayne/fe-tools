@@ -167,7 +167,8 @@
         let url;
 
         if (type === 'translate') {
-          url = 'index.html?type=translate&value=' + encodeURIComponent(selection);
+          url = 'https://fanyi.youdao.com/indexLLM.html#/';
+          // @todo 有道翻译API暂时关闭 url = 'index.html?type=translate&value=' + encodeURIComponent(selection);
         } else if (type === 'search') {
           url = 'index.html?message=' + selection;
         }

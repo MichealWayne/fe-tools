@@ -905,7 +905,10 @@
 - 快速翻译（`√`）
 - 简易Postman（`√`）
 - 常用正则查询（`√`）
-- 工具函数库搜索
+- 工具函数库搜索（`√`）
+- JSON转换（`√`）
+- SVG编辑器（`√`）
+- 时间日期转换（`√`）
 - 搜索自定义拓展
 
 [前往>>](https://github.com/MichealWayne/fe-tools/tree/master/chrome-extension)
