@@ -2,10 +2,10 @@
  * @module promptApplications
  * @author Wayne
  * @Date 2023-07-22 11:34:04
- * @LastEditTime 2024-08-25 14:05:40
+ * @LastEditTime 2025-04-06 11:33:49
  */
 import { estimateTokenLength } from '../llm/prompts';
-const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
+const MAX_TOKEN_LEN = 30000; // GPT-4o 32k
 
 /**
  * @function getCodeReviewPrompt
@@ -15,7 +15,9 @@ const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
  */
 export function getCodeReviewPromptTxt(patch: string) {
   return `### code review ###
-As the front-end expert and good at front-end code reviewer, perform a brief code review on the provided patch. Respond in TypeScript/JavaScript if any bug risks or improvement suggestions are identified, and provide your analysis in Chinese.
+As the front-end expert and good at front-end code reviewer, 
+Your task is to perform a brief code review on the provided patch. 
+Respond in TypeScript/JavaScript if any bug risks or improvement suggestions are identified, and provide your analysis in Chinese.
 
 Ensure the result uses the following JSON format:
 
@@ -47,7 +49,7 @@ Let’s work this out in a step-by-step way to be sure we have the right answer.
  * @function genCodeReviewPrompt
  * @description 生成检测的prompt
  * @param {string} codeStr 代码字符串
- * @param {number} maxLen token最大长度, 默认4000
+ * @param {number} maxLen token最大长度, 默认30000
  * @returns {string} prompt信息
  */
 export function genCodeReviewPrompt(codeStr: string, maxLen = MAX_TOKEN_LEN) {

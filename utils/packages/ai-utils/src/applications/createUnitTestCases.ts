@@ -1,10 +1,10 @@
 /**
  * @author Wayne
  * @Date 2024-05-11 10:40:18
- * @LastEditTime 2024-08-25 14:04:36
+ * @LastEditTime 2025-04-06 11:20:17
  */
 import { estimateTokenLength } from '../llm/prompts';
-const MAX_TOKEN_LEN = 4000; // GPT3.5 4096
+const MAX_TOKEN_LEN = 30000; // GPT-4o 32k
 
 /**
  * @function getCreateUnitTestCases
@@ -41,7 +41,7 @@ Let’s work this out in a step-by-step way to be sure we have the right answer.
  * @function genUnitTestCasesPrompt
  * @description 生成单元测试的prompt
  * @param {string} codeStr 代码字符串
- * @param {number} maxLen token最大长度, 默认4000
+ * @param {number} maxLen token最大长度, 默认30000
  * @returns {string} prompt信息
  */
 export function genUnitTestCasesPrompt(codeStr: string, maxLen = MAX_TOKEN_LEN) {
