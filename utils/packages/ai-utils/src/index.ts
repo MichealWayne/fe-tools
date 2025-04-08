@@ -1,12 +1,14 @@
 /**
  * @author Wayne
  * @Date 2023-09-05 09:38:19
- * @LastEditTime 2024-05-11 10:54:24
+ * @LastEditTime 2025-04-06 11:34:36
  */
 // gpt application
 export * from './applications/codeReview';
-export * from './applications/sql';
+export * from './applications/createSQL';
 export * from './applications/createUnitTestCases';
+export * from './applications/enhancePrompt';
+export * from './applications/createReactComponent';
 
 // llm utils
 export * from './llm/prompts';
