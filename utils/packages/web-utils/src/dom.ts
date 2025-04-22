@@ -1,36 +1,21 @@
 /**
  * @module DOM
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-08-25 10:14:25
+ * @LastEditTime 2025-04-20 13:48:40
  */
 
 import { isUndefined } from 'utils';
 
 /**
- * @function isBrowser
- * @description 当前页面是否在浏览器环境下
- * @return {boolean} 是否在浏览器环境下
- * @example
- * if (isBrowser()) {
- *   console.log('在浏览器环境下');
- * } else {
- *   console.log('可能在Nodejs环境下')
- * }
- */
-export function isBrowser() {
-  return ![typeof window, typeof document].includes('undefined');
-}
-
-/**
- * @function isBrowserTab
+ * @function isPageVisible
  * @description 当前页面是否为显示状态
  * @return {boolean} 是否为显示状态
  * @example
- if (!isBrowserTab()) {
+ if (!isPageVisible()) {
   // 取消一些请求事件等处理
  }
  */
-export function isBrowserTab() {
+export function isPageVisible() {
   return !document.hidden;
 }
 

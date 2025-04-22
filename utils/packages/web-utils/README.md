@@ -14,8 +14,7 @@
   - readClipboardText：读取剪贴板文案
   - copyToClipboard：拷贝文案到剪贴板
 - [dom.ts](./src/dom.ts)
-  - isBrowser：是否浏览器环境
-  - isBrowserTab：当前页面是否为显示状态
+  - isPageVisible：当前页面是否为显示状态
   - hasClass：元素是否有此 class
   - addClass：元素添加 class
   - removeClass：元素删除此 class
@@ -46,6 +45,10 @@
   - isSupportWebP：是否支持 webp 格式图片
   - cropImage：图片裁剪
   - compressImage：图片压缩
+- [lifecycle.ts](./src/lifecycle.ts)
+  - onPageLoad：注册页面加载完成事件（DOMContentLoaded）
+  - onPageUnload：注册页面卸载事件（unload）
+  - onBeforeUnload：注册页面关闭前挽留事件（beforeunload）
 - [loadAssets.ts](./src/loadAssets.ts)
   - loadScript：动态加载 js
   - loadScriptList：动态加载 js 列表
@@ -55,6 +58,7 @@
   - loadImageList：加载图片列表
   - loadCSV：下载 csv 文件
 - [platform.ts](./src/platform.ts)
+  - isBrowser：是否浏览器环境
   - isPC：是否为 pc 环境
   - getPcExplore：获取 pc 浏览器版本
   - getSystemOS：获取系统版本
