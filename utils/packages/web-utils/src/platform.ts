@@ -4,13 +4,28 @@
  * @module Platform
  * @notice 存在复杂的判断场景可以直接使用ua-parser-js / mobile-detect.js
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-12-01 11:06:34
+ * @LastEditTime 2025-04-20 13:45:42
  */
 
 /**
  * @description 全小写的浏览器用户代理字符串（User Agent String，简称 UA），即navigator.userAgent的小写转换字符串
  */
 export const ua = navigator.userAgent.toLowerCase();
+
+/**
+ * @function isBrowser
+ * @description 当前页面是否在浏览器环境下
+ * @return {boolean} 是否在浏览器环境下
+ * @example
+ * if (isBrowser()) {
+ *   console.log('在浏览器环境下');
+ * } else {
+ *   console.log('可能在Nodejs环境下')
+ * }
+ */
+export function isBrowser() {
+  return ![typeof window, typeof document].includes('undefined');
+}
 
 /**
  * @function isPC
