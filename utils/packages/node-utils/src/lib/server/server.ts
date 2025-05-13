@@ -4,16 +4,14 @@
  * @dependenies http-proxy
  * @author Wayne
  * @Date 2018-04-18 14:16:36
- * @LastEditTime 2023-10-05 13:32:37
+ * @LastEditTime 2025-05-11 19:23:14
  */
-
 import fs from 'fs';
 import path from 'path';
-import http from 'http';
-
+import http, { IncomingMessage, ServerResponse } from 'http';
 import Tip from '../util/tip';
 
-const EXT_MAP = {
+const EXT_MAP: Record<string, string> = {
   css: 'text/css',
   html: 'text/html',
   js: 'text/javascript',
@@ -21,7 +19,6 @@ const EXT_MAP = {
   pdf: 'application/pdf',
   txt: 'text/plain',
   xml: 'text/xml',
-
   gif: 'image/gif',
   ico: 'image/x-icon',
   jpeg: 'image/jpeg',
@@ -29,7 +26,6 @@ const EXT_MAP = {
   png: 'image/png',
   svg: 'image/svg+xml',
   tiff: 'image/tiff',
-
   swf: 'application/x-shockwave-flash',
   wav: 'audio/x-wav',
   wma: 'audio/x-ms-wma',
@@ -43,65 +39,73 @@ enum HTTP_RES_CODES {
 
 const DEFAULT_PORT = 8080;
 
+function getContentType(ext: string): string {
+  return EXT_MAP[ext] || 'application/octet-stream';
+}
+
 /**
  * @function startServer
- * @description server function
- * @param {String} path server folder path
- * @param {Number} port listening port
- * @param {Function} callback Server started callback;
+ * @description 启动本地静态资源服务器
+ * @param {string} serverPath 静态资源根目录
+ * @param {number} port 监听端口
+ * @param {(url: string, server: http.Server) => void} [callback] 启动回调
  */
 const startServer = (
   serverPath: string,
   port = DEFAULT_PORT,
-  callback?: (...args: unknown[]) => void
+  callback?: (url: string, server: http.Server) => void
 ) => {
-  const Folder = serverPath || path.join(__dirname, '../');
-  const dport = port;
-  const config = {
-    port: dport,
-    url: `http://localhost: ${dport}`,
-  };
+  const folderPath = serverPath || path.join(__dirname, '../');
+  const listenPort = port;
+  const url = `http://localhost:${listenPort}`;
 
-  const serve = http
-    .createServer((req, res) => {
-      let reqUrl = req.url!;
+  const server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
+    let reqUrl = req.url || '/';
+    if (reqUrl.endsWith('/')) reqUrl += 'index.html';
+    if (reqUrl.includes('?')) reqUrl = reqUrl.split('?')[0];
 
-      if (reqUrl.charAt(reqUrl.length - 1) === '/') reqUrl += 'index.html';
-      if (reqUrl.includes('?')) {
-        [reqUrl] = reqUrl.split('?');
+    let pathname: string;
+    try {
+      pathname = new URL(reqUrl, url).pathname;
+    } catch {
+      pathname = reqUrl;
+    }
+
+    // 静态资源路径
+    const ext = path.extname(pathname).slice(1).toLowerCase();
+    const filePath = path.join(folderPath, pathname);
+
+    Tip.log(`Request: ${reqUrl} -> ${filePath}`);
+
+    if (req.method === 'HEAD') {
+      res.writeHead(HTTP_RES_CODES.SUCCESS, {
+        'content-type': getContentType(ext),
+      });
+      res.end();
+      return;
+    }
+
+    fs.readFile(filePath, (err, data) => {
+      if (err) {
+        Tip.error(`File not found: ${filePath} (${err})`);
+        res.writeHead(HTTP_RES_CODES.NOT_FOUND, {
+          'content-type': 'text/html; charset=utf-8',
+        });
+        res.end(`<h1>${HTTP_RES_CODES.NOT_FOUND} Not Found</h1>`);
+        return;
       }
 
-      const { pathname } = new URL(reqUrl);
-
-      // extension
-      const ext = path.extname(pathname)?.slice(1) || 'unknown';
-      Tip.log(reqUrl);
-
-      const filePath = path.join(Folder, reqUrl);
-
-      fs.readFile(filePath, (err, data) => {
-        if (err) {
-          Tip.error(err);
-          res.writeHead(HTTP_RES_CODES.NOT_FOUND, {
-            'content-type': 'text/html;charset="utf-8"',
-          });
-          res.write(`<h1>${HTTP_RES_CODES.NOT_FOUND} not find</h1>`);
-          res.end();
-          return false;
-        }
-
-        res.writeHead(HTTP_RES_CODES.SUCCESS, {
-          'content-type': `${EXT_MAP[ext as keyof typeof EXT_MAP]}text/plain;charset="utf-8"`,
-        });
-        res.write(data);
-        res.end();
-        return true;
+      res.writeHead(HTTP_RES_CODES.SUCCESS, {
+        'content-type': getContentType(ext) + '; charset=utf-8',
       });
-    })
-    .listen(config.port);
+      res.end(data);
+    });
+  });
 
-  Tip.safe(`Server start!listen: ${config.port}(${config.url})`);
-  if (callback) callback(config.url, serve);
+  server.listen(listenPort, () => {
+    Tip.safe(`Server started! Listening: ${listenPort} (${url})`);
+    if (callback) callback(url, server);
+  });
 };
 
 export default startServer;

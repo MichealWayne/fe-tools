@@ -1,7 +1,7 @@
 /**
  * @module fsFuncs
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-12-01 13:52:12
+ * @LastEditTime 2025-05-11 19:21:32
  */
 
 import fs from 'fs';
@@ -21,6 +21,10 @@ export function travelFolderSync(
   fileCallback: (pathName?: string) => void,
   folderCallback: (pathName?: string) => void
 ) {
+  if (!fs.existsSync(dirPath)) {
+    Tip.error(`Directory not found: ${dirPath}`);
+    return;
+  }
   fs.readdirSync(dirPath).forEach(file => {
     const pathName = join(dirPath, file);
 
@@ -87,9 +91,9 @@ export function fsExistsSync(folderPath: string) {
  * @function setFolderSync
  * @description 同步创建文件夹
  * @param {String} folderPath 文件夹路径
- * @param {String} notip 是否提示
+ * @param {boolean} notip 是否提示
  */
-export function setFolderSync(folderPath: string, noTip?: boolean) {
+export function setFolderSync(folderPath: string, noTip = false) {
   if (!fs.existsSync(folderPath)) {
     mkdirsSync(folderPath);
   } else if (!noTip) {
@@ -99,7 +103,7 @@ export function setFolderSync(folderPath: string, noTip?: boolean) {
 
 /**
  * @function rmdirsSync
- * @description 同步删除指定目录下的所前目录和文件,包括当前目录
+ * @description 同步删除指定目录下的所前目录和文件,包括当前目录(Node14可使用fs.rmSync)
  * @param {String} targetPath 目标目录
  * @returns {Boolean} 是否删除成功
  */
@@ -135,18 +139,16 @@ export function rmdirsSync(targetPath: string) {
  * @param {Boolean} replaceBool 是否替换
  * @return {Promise} 是否写入成功
  */
-export function writeFile(filePath: string, fileData: string, replaceBool?: boolean) {
+export function writeFile(filePath: string, fileData: string, replace = true) {
   return new Promise((resolve, reject) => {
     const dirPath = dirname(filePath);
     setFolderSync(dirPath, true);
 
-    if (!fileData) reject();
-    if (fsExistsSync(filePath)) {
-      const nowData = fs.readFileSync(filePath);
-
-      fs.writeFileSync(filePath, replaceBool ? fileData : nowData + fileData);
-    } else {
+    if (!fileData) reject(new Error('fileData is empty'));
+    if (fsExistsSync(filePath) && !replace) {
       fs.appendFileSync(filePath, fileData);
+    } else {
+      fs.writeFileSync(filePath, fileData);
     }
     resolve(true);
   });
@@ -176,17 +178,21 @@ export function readFileSync(filePath: string) {
 }
 
 /**
- * @function readJson
+ * @function readJsonFile
  * @description 读取JSON文件内容
  * @param {String} filePath 文件路径
  * @returns {Object} JSON对象
  */
-export function readJson(filePath: string) {
-  const content = readFileSync(filePath);
-  if (content) {
-    return JSON.parse(content);
+export function readJsonFile(filePath: string) {
+  try {
+    const content = readFileSync(filePath);
+    if (content) {
+      return JSON.parse(content);
+    }
+  } catch (err) {
+    Tip.error(`Failed to parse JSON file: ${filePath}, error: ${err}`);
+    return {};
   }
-  return {};
 }
 
 export default {
@@ -197,5 +203,5 @@ export default {
   rmdirsSync,
   writeFile,
   readFileSync,
-  readJson,
+  readJsonFile,
 };

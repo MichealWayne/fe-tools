@@ -785,6 +785,15 @@
 <a href="https://mastergo.com/">MasterGo</a> | `mastergo` | 设计平台为主，但能较好还原成网页，营销静态类效果不错，国产。
 <a href="https://mgx.dev/">MGX</a> | `mgx` | 多 Al Agent 开发平台——从规划、数据分析到编码、测试和部署构建全栈应用，目前比Devin好一点。
 
+#### 1.11.2 AI工具平台
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://mcp.so/">MCP.so</a> | `mcp.so` | 开放MCP工具集合
+<a href="https://21st.dev/">21st.dev</a> | `21st` | AI友好的前端React组件集合
+<a href="https://github.com/langgenius/dify">Dify</a> | `dify` | AI workflow编排平台，有开放平台
+<a href="https://www.coze.cn/">Coze</a> | `coze` | AI workflow编排开放平台(不开源)，国产，字节
+
 
 ### 1.12 WebAssembly
 
