@@ -798,6 +798,15 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://mgx.dev/ | mgx | A multi-Agent development platform for building full-stack applications from planning, data analysis to coding, testing, and deployment, currently a bit better than Devin. |
 
 
+#### 1.11.2 AI tools&platform
+
+地址 | 标签 | 说明
+---- | ---- | ----
+| https://mcp.so/ | MCPso | MCP toolkit |
+| https://21st.dev/ | 21st | AI-friendly collection of front-end React components |
+| https://github.com/langgenius/dify | Dify | The AI workflow orchestration platform |
+| https://www.coze.cn/ | Coze | The AI workflow orchestration platform |
+
 
 ### 1.12 WebAssembly
 

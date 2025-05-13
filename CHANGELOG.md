@@ -1,5 +1,5 @@
 ### 更新信息
-
+- 2025.05.11：utils更新（web-utils&node-utils）
 - 2025.04.20：更新 Chrome 插件（新增 json/svg/date 处理功能）；utils更新（web-utils增加方法）
 - 2025.04.06：utils 更新（ai-utils增加功能）；更新tools.json
 - 2025.03.02：增加 nextjs 相关库/更新 AI 编程工具(README.md/README-en.md)

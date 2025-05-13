@@ -2,7 +2,7 @@
  * @module Url
  * @notice 如无兼容要求，可直接用URL对象进行处理
  * @Date 2022-08-24 14:18:25
- * @LastEditTime 2024-08-25 10:21:38
+ * @LastEditTime 2025-05-13 19:09:57
  */
 
 /**
@@ -92,19 +92,6 @@ export const getUrlDomain = (url: string = location.href.toString()): string => 
   const baseUrl = /^(http|https):\/\/[^\/]+/.exec(url)?.[0] || '';
   return baseUrl;
 };
-
-/**
- * @function httpsRedirect
- * @description 强制跳转到https, http -> https
- * @param {string?} url 跳转地址
- */
-export function httpsRedirect(url: string = location.href) {
-  if (!url.startsWith('https://')) {
-    const newUrl = new URL(url);
-    newUrl.protocol = 'https';
-    location.replace(newUrl.toString());
-  }
-}
 
 /**
  * @function uniqueSlash

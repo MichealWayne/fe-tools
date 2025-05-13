@@ -45,6 +45,9 @@
   - isSupportWebP：是否支持 webp 格式图片
   - cropImage：图片裁剪
   - compressImage：图片压缩
+- [navigate.ts](./src/navigate.ts)
+  - navigateTo：跳转 url
+  - httpsRedirect：强制 https 重定向
 - [lifecycle.ts](./src/lifecycle.ts)
   - onPageLoad：注册页面加载完成事件（DOMContentLoaded）
   - onPageUnload：注册页面卸载事件（unload）
@@ -73,7 +76,6 @@
   - paramsJoinUrl：将参数对象转为 url 字符串
   - getBaseUrl：获取基础地址（ url 中?之前的部分）
   - getUrlDomain：获取 url 域名信息
-  - httpsRedirect：强制 https 重定向
   - uniqueSlash：将路径中重复的正斜杆替换成单个斜杆隔开的字符串
 - [keyboard.ts](./src/keyboard.ts)
   - getKeyName：获取 pc 按键值
