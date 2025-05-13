@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2024-07-22 19:44:12
- * @LastEditTime 2024-07-22 19:44:54
+ * @LastEditTime 2025-05-11 19:49:35
  */
 import {
   parseQueryString,
@@ -9,9 +9,9 @@ import {
   paramsJoinUrl,
   getBaseUrl,
   getUrlDomain,
-  httpsRedirect,
   uniqueSlash,
 } from '../src/url';
+import { httpsRedirect } from '../src/navigate';
 
 describe('parseQueryString', () => {
   it('should return an empty object if the URL has no query string', () => {
