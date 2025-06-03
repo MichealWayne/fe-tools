@@ -1,0 +1,41 @@
+# AI Guidelines
+
+## Project-Specific Guidelines
+
+You are working on a Fastify + TypeScript project with the following details:
+
+- Framework: Fastify
+- Language: TypeScript
+- Database: PostgreSQL
+- Routing: Fastify Router
+- Middleware: Fastify BodyParser
+
+## Project Rules
+
+- Use Fastify middleware for handling requests and responses.
+- Use PostgreSQL for database operations.
+- Use Fastify Router for defining API routes.
+- Follow the project's specific coding conventions and naming conventions.
+
+## Code Formatting
+
+- Use 2 spaces for indentation.
+- Use single quotes for strings unless double quotes are necessary.
+- Use arrow functions for all asynchronous operations.
+- Destructure props and use path aliases for TypeScript imports.
+- Use consistent naming conventions for components and files (e.g., PascalCase for classes).
+
+## Performance
+
+- Implement efficient data structures and algorithms.
+- Use caching strategies for API calls.
+- Optimize database queries and connections.
+- Use environment variables for configuration.
+
+## Security
+
+- Sanitize all user inputs using a library like DOMPurify.
+- Validate data types and escape content where necessary.
+- Use secure authentication practices (e.g., JWT, OAuth).
+- Follow OWASP guidelines for preventing XSS and CSRF attacks.
+- Ensure all API calls are secure and follow best practices.

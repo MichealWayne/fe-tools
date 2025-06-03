@@ -1,0 +1,56 @@
+{
+  "name": "fastify-template",
+  "version": "1.0.0",
+  "port": "3000",
+  "author": "Wayne",
+  "description": "Fastify node.js server template with TypeScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc && node dist/",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "rm -rf dist/* && tsc",
+    "build:prod": "tsc && rm -rf node_modules && npm install --production",
+    "install:prod": "npm install --production",
+    "docker:start": "npm install && node dist/",
+    "lint": "eslint . --ext .ts",
+    "test": "jest"
+  },
+  "keywords": [
+    "fastify",
+    "nodejs",
+    "typescript"
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "supertest": "^6.3.3",
+    "ts-jest": "^29.1.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@fastify/cors": "^8.2.0",
+    "@fastify/error": "^4.2.0",
+    "@fastify/helmet": "^10.1.0",
+    "@fastify/rate-limit": "^8.0.0",
+    "@fastify/swagger": "^8.0.0",
+    "@fastify/swagger-ui": "^1.0.0",
+    "@types/dotenv": "^6.1.1",
+    "@types/log4js": "^0.0.33",
+    "dotenv": "^16.5.0",
+    "fastify": "^4.0.0",
+    "log4js": "^6.9.1",
+    "pino-pretty": "^10.0.0",
+    "reflect-metadata": "^0.1.13",
+    "zod": "^3.25.49"
+  }
+}
