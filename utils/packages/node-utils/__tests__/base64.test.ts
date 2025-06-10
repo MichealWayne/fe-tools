@@ -1,4 +1,9 @@
-import { base64Encode, base64Decode } from '../src/lib/util/base64';
+/**
+ * @author Wayne
+ * @Date 2024-08-27 15:12:00
+ * @LastEditTime 2025-06-08 15:31:09
+ */
+import { base64Encode, base64Decode } from '../src/common/base64';
 
 describe('base64Encode', () => {
   it('should encode a string to base64', () => {

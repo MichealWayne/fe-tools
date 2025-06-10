@@ -1,130 +1,181 @@
 /**
  * @author Wayne
  * @Date 2021-04-27 14:47:13
- * @LastEditTime 2023-03-07 13:52:59
+ * @LastEditTime 2025-06-08 15:48:52
  */
 import path from 'path';
+import fs from 'fs';
 import gmConstructor from 'gm';
 
-import NodeUtils from 'node-utils';
-
-const { Tip } = NodeUtils;
+import config from './config';
+import log from './log';
 
 const gm = gmConstructor.subClass({ imageMagick: true });
 
 /**
- * @function getGmFile
- * @description 获得gm格式图片
- * @param {String} filePath
- * @param {String} imgName
- * @param {Function} callback?
- * @return {Promise}
+ * Options for blur image
+ */
+export interface BlurOptions {
+  /** Colors to keep in the blur image (default: 8) */
+  color?: number;
+  /** Blur radius (default: 7) */
+  blurRadius?: number;
+  /** Blur sigma (default: 3) */
+  blurSigma?: number;
+}
+
+/**
+ * Options for webp conversion
+ */
+export interface WebpOptions {
+  /** Quality of the webp image (0-100) */
+  quality?: number;
+}
+
+/**
+ * @function getGmStream
+ * @description Get image as GM stream
+ * @param {String} filePath - Directory containing the image
+ * @param {String} imgName - Image filename
+ * @returns {Promise<{data: gmConstructor.ImageInfo, gmStream: gmConstructor.State}>}
  */
 export function getGmStream(
   filePath: string,
-  imgName: string,
-  callback?: (data: gmConstructor.ImageInfo, gm?: gmConstructor.State) => void
-) {
-  const gmInstance = gm(path.join(filePath, imgName));
+  imgName: string
+): Promise<{ data: gmConstructor.ImageInfo; gmStream: gmConstructor.State }> {
+  const fullPath = path.join(filePath, imgName);
 
-  if (callback) {
-    return gmInstance.identify((err, data) => {
-      if (err) {
-        Tip.error(err);
-        return false;
-      }
-
-      return callback.call(gm, data);
-    });
+  // Check if file exists first
+  if (!fs.existsSync(fullPath)) {
+    return Promise.reject(new Error(`Image file not found: ${fullPath}`));
   }
 
-  return gmInstance;
+  const gmInstance = gm(fullPath);
+
+  return new Promise((resolve, reject) => {
+    gmInstance.identify((err, data) => {
+      if (err) {
+        log.error(err);
+        reject(err);
+        return;
+      }
+
+      resolve({ data, gmStream: gmInstance });
+    });
+  });
 }
 
 /**
  * @function toWebpImg
- * @description 图片转为webp格式（文件名中的_2x.会被替换）
- * @param {String} filepath: 图片所在目录;
- * @param {String} filename: 图片文件名;
- * @param {String} outpath: 输出目录;
- * @param {Function} callback: callback（可选）;
- * @return {Promise}
+ * @description Convert image to webp format (replacing _2x. in filename)
+ * @param {String} filePath - Directory containing the image
+ * @param {String} imgName - Image filename
+ * @param {String} outPath - Output directory
+ * @param {WebpOptions} options - Options for webp conversion
+ * @returns {Promise<string>} - Path to the generated webp file
  */
 export function toWebpImg(
   filePath: string,
   imgName: string,
   outPath: string,
-  callback?: (webPath: string) => void
-) {
+  options: WebpOptions = {}
+): Promise<string> {
+  const { quality = config.webpQuality } = options;
   const webpPath = path.join(outPath, `${imgName.replace('_2x.', '.').split('.')[0]}.webp`);
 
-  return gm(path.join(filePath, imgName))
-    .setFormat('webp')
-    .write(webpPath, err => {
-      if (err) {
-        Tip.error(err);
-        return false;
-      }
+  // Ensure output directory exists
+  if (!fs.existsSync(outPath)) {
+    fs.mkdirSync(outPath, { recursive: true });
+  }
 
-      Tip.safe(`${webpPath}生成成功。`, true);
-      if (callback) callback(webpPath);
-    });
+  return new Promise((resolve, reject) => {
+    gm(path.join(filePath, imgName))
+      .setFormat('webp')
+      .quality(quality)
+      .write(webpPath, err => {
+        if (err) {
+          log.error(err);
+          reject(err);
+          return;
+        }
+
+        log.success(`Generated ${webpPath}`);
+        resolve(webpPath);
+      });
+  });
 }
 
 /**
  * @function toBlurImg
- * @description 生成模糊图（gm格式）
- * @param {GmFile} gmfile: gm格式图
- * @param {Object} config: 配置信息
- *                  color: 颜色总数
- *                  blurRadius: 模糊半径
- *                  blurSigma: 模糊Sigma值
- * @return {GmFile}
+ * @description Generate blurred image (gm format)
+ * @param {gmConstructor.State} gmStream - GM image stream
+ * @param {BlurOptions} options - Blur configuration
+ * @returns {gmConstructor.State | false} - Blurred GM stream or false if error
  */
 export function toBlurImg(
   gmStream: gmConstructor.State,
-  { color = 8, blurRadius = 7, blurSigma = 3 }
-) {
-  if (!gmStream) return false;
+  options: BlurOptions = {}
+): gmConstructor.State | false {
+  if (!gmStream) {
+    log.error('Invalid GM stream provided');
+    return false;
+  }
+
+  const {
+    color = config.blur.color,
+    blurRadius = config.blur.radius,
+    blurSigma = config.blur.sigma,
+  } = options;
 
   return gmStream.colors(color).blur(blurRadius, blurSigma);
 }
 
 /**
  * @function toBase64
- * @description 图片转base64
- * @param {gmConstructor.State} gmStream
- * @param {String} type
- * @param {Function} callback
- * @return {Promise}
+ * @description Convert image to base64
+ * @param {gmConstructor.State} gmStream - GM image stream
+ * @param {String} type - Image format (jpg, png, etc.)
+ * @returns {Promise<string>} - Base64 string with data URI prefix
  */
-export function toBase64(
-  gmStream: gmConstructor.State,
-  type = 'jpg',
-  callback?: (base64: string) => void
-) {
-  return gmStream.toBuffer(type, (err, buffer) => {
-    if (err) {
-      Tip.error(err);
-      return false;
-    }
+export function toBase64(gmStream: gmConstructor.State, type = 'jpg'): Promise<string> {
+  if (!gmStream) {
+    return Promise.reject(new Error('Invalid GM stream provided'));
+  }
 
-    const _url = `data:image/${type};base64,${buffer.toString('base64')}`;
-    if (callback) callback(_url);
+  return new Promise((resolve, reject) => {
+    gmStream.toBuffer(type, (err, buffer) => {
+      if (err) {
+        log.error(err);
+        reject(err);
+        return;
+      }
+
+      const dataUri = `data:image/${type};base64,${buffer.toString('base64')}`;
+      resolve(dataUri);
+    });
   });
 }
 
 /**
  * @function resizeImg
- * @description 图片改变尺寸
- * @param {gmConstructor.State} gmStream
- * @param {Number} width
- * @param {Number} height
- * @param {Promise}
+ * @description Resize image
+ * @param {gmConstructor.State} gmStream - GM image stream
+ * @param {Number} width - Target width
+ * @param {Number} height - Target height (optional)
+ * @returns {gmConstructor.State | false} - Resized GM stream or false if error
  */
-export function resizeImg(gmStream: gmConstructor.State, width: number, height?: number) {
+export function resizeImg(
+  gmStream: gmConstructor.State,
+  width: number,
+  height?: number
+): gmConstructor.State | false {
+  if (!gmStream) {
+    log.error('Invalid GM stream provided');
+    return false;
+  }
+
   if (!width) {
-    Tip.error('Error! no width config.');
+    log.error('Width must be specified for resizing');
     return false;
   }
 
@@ -135,10 +186,65 @@ export function resizeImg(gmStream: gmConstructor.State, width: number, height?:
   return gmStream.resize(width);
 }
 
+/**
+ * @function generate1xFrom2x
+ * @description Generate 1x image from 2x image
+ * @param {String} filePath - Directory containing the image
+ * @param {String} imgName - Image filename (must contain _2x)
+ * @param {String} outPath - Output directory
+ * @returns {Promise<string>} - Path to the generated 1x file
+ */
+export function generate1xFrom2x(
+  filePath: string,
+  imgName: string,
+  outPath: string
+): Promise<string> {
+  if (!imgName.includes('_2x.')) {
+    return Promise.reject(new Error('Image name must contain _2x. to generate 1x version'));
+  }
+
+  // Ensure output directory exists
+  if (!fs.existsSync(outPath)) {
+    fs.mkdirSync(outPath, { recursive: true });
+  }
+
+  const outputName = imgName.replace('_2x.', '.');
+  const outputPath = path.join(outPath, outputName);
+
+  return new Promise((resolve, reject) => {
+    getGmStream(filePath, imgName)
+      .then(({ data, gmStream }) => {
+        const width = Math.floor((data.size?.width || 0) / 2);
+        const height = Math.floor((data.size?.height || 0) / 2);
+
+        if (!width || !height) {
+          reject(new Error('Could not determine image dimensions'));
+          return;
+        }
+
+        gmStream
+          .resize(width, height)
+          .quality(config.quality)
+          .write(outputPath, err => {
+            if (err) {
+              log.error(err);
+              reject(err);
+              return;
+            }
+
+            log.success(`Generated 1x image: ${outputPath}`);
+            resolve(outputPath);
+          });
+      })
+      .catch(reject);
+  });
+}
+
 export default {
   getGmStream,
   toWebpImg,
   toBlurImg,
   toBase64,
   resizeImg,
+  generate1xFrom2x,
 };

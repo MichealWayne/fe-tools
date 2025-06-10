@@ -4,12 +4,12 @@
  * @dependenies http-proxy
  * @author Wayne
  * @Date 2018-04-18 14:16:36
- * @LastEditTime 2025-05-11 19:23:14
+ * @LastEditTime 2025-06-09 19:18:33
  */
 import fs from 'fs';
 import path from 'path';
 import http, { IncomingMessage, ServerResponse } from 'http';
-import Tip from '../util/tip';
+import Tip from '../logging/tip';
 
 const EXT_MAP: Record<string, string> = {
   css: 'text/css',

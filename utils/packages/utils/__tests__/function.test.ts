@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2023-02-18 10:28:42
- * @LastEditTime 2024-07-22 19:40:03
+ * @LastEditTime 2025-06-09 19:18:36
  */
 
 import {
@@ -17,11 +17,21 @@ import {
   curry,
   sleep,
   defer,
+  timeTaken,
+  chainAsync,
+  compose,
+  promisify,
 } from '../src/function';
+
+describe('functionName', () => {
+  it('empty function', () => {
+    expect(functionName(() => '')).toEqual('');
+  });
+});
 
 describe('memoize', () => {
   it('should return a function', () => {
-    const result = memoize(() => {});
+    const result = memoize(() => '');
     expect(typeof result).toEqual('function');
   });
 
@@ -106,48 +116,38 @@ describe('function test', () => {
     expect(await result).toBeUndefined();
   });
 
-  //   it('(runPromisesInSeries)Array with one function as argument', async () => {
-  //     const fn = jest.fn(async (x: number) => x * 2);
-  //     const result = await runPromisesInSeries([fn]);
-  //     expect(fn).toHaveBeenCalledTimes(1);
-  //     expect(fn).toHaveBeenCalledWith(undefined);
-  //     expect(result).toBeInstanceOf(Promise);
-  //     expect(await result).toBeUndefined();
-  //   });
+  it('(runPromisesInSeries)Array with one function as argument', async () => {
+    const fn = jest.fn(async () => 2);
+    const result = await runPromisesInSeries([fn]);
+    expect(fn).toHaveBeenCalledTimes(1);
+    expect(await result).toBe(2);
+  });
 
-  //   it('(runPromisesInSeries)Array with multiple functions as argument', async () => {
-  //     const fns = [
-  //       jest.fn(async (x: number) => x * 2),
-  //       jest.fn(async (x: number) => x + 1),
-  //       jest.fn(async (x: number) => x - 3),
-  //     ];
-  //     const result = await runPromisesInSeries(fns);
-  //     expect(fns[0]).toHaveBeenCalledTimes(1);
-  //     expect(fns[0]).toHaveBeenCalledWith(undefined);
-  //     expect(fns[1]).toHaveBeenCalledTimes(1);
-  //     expect(fns[1]).toHaveBeenCalledWith(2);
-  //     expect(fns[2]).toHaveBeenCalledTimes(1);
-  //     expect(fns[2]).toHaveBeenCalledWith(3);
-  //     expect(result).toBeInstanceOf(Promise);
-  //     expect(await result).toBeUndefined();
-  //   });
+  it('(runPromisesInSeries)Array with multiple functions as argument', async () => {
+    const fns = [jest.fn(async () => 2), jest.fn(async x => x + 1), jest.fn(async x => x - 3)];
+    const result = await runPromisesInSeries(fns);
+    expect(fns[0]).toHaveBeenCalledTimes(1);
+    expect(fns[1]).toHaveBeenCalledTimes(1);
+    expect(fns[1]).toHaveBeenCalledWith(2);
+    expect(fns[2]).toHaveBeenCalledTimes(1);
+    expect(fns[2]).toHaveBeenCalledWith(3);
+    expect(await result).toBe(0);
+  });
 
-  //   it('(runPromisesInSeries)Functions in the array return different types of Promise', async () => {
-  //     const fns = [
-  //       jest.fn(async (x: number) => x * 2),
-  //       jest.fn(async (x: number) => `${x + 1}`),
-  //       jest.fn(async () => ({ message: 'Hello' })),
-  //     ];
-  //     const result = await runPromisesInSeries(fns);
-  //     expect(fns[0]).toHaveBeenCalledTimes(1);
-  //     expect(fns[0]).toHaveBeenCalledWith(undefined);
-  //     expect(fns[1]).toHaveBeenCalledTimes(1);
-  //     expect(fns[1]).toHaveBeenCalledWith(2);
-  //     expect(fns[2]).toHaveBeenCalledTimes(1);
-  //     expect(fns[2]).toHaveBeenCalledWith('3');
-  //     expect(result).toBeInstanceOf(Promise);
-  //     expect(await result).toBeUndefined();
-  //   });
+  it('(runPromisesInSeries)Functions in the array return different types of Promise', async () => {
+    const fns = [
+      jest.fn(async () => 2),
+      jest.fn(async x => `${x + 1}`),
+      jest.fn(async x => ({ message: x })),
+    ];
+    const result = await runPromisesInSeries(fns);
+    expect(fns[0]).toHaveBeenCalledTimes(1);
+    expect(fns[1]).toHaveBeenCalledTimes(1);
+    expect(fns[1]).toHaveBeenCalledWith(2);
+    expect(fns[2]).toHaveBeenCalledTimes(1);
+    expect(fns[2]).toHaveBeenCalledWith('3');
+    expect(await result).toEqual({ message: '3' });
+  });
 
   it('once()', async () => {
     const _tempObj = {
@@ -225,5 +225,109 @@ describe('function test', () => {
       expect(mockFn).toHaveBeenCalledTimes(1);
       done();
     }, 1000);
+  });
+
+  it('defer()', async () => {
+    const mockFn = jest.fn();
+    await defer(mockFn, 'test');
+    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(mockFn).toHaveBeenCalledWith('test');
+  });
+
+  it('sleep()', async () => {
+    const start = Date.now();
+    await sleep(50);
+    const elapsed = Date.now() - start;
+    expect(elapsed).toBeGreaterThanOrEqual(45); // Allow a small margin of error
+  });
+
+  it('timeTaken()', () => {
+    const consoleSpy = jest.spyOn(console, 'time');
+    const consoleEndSpy = jest.spyOn(console, 'timeEnd');
+    const mockFn = jest.fn(() => 'result');
+
+    const result = timeTaken(mockFn, 'test');
+
+    expect(consoleSpy).toHaveBeenCalledWith('timeTaken');
+    expect(consoleEndSpy).toHaveBeenCalledWith('timeTaken');
+    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(mockFn).toHaveBeenCalledWith('test');
+    expect(result).toBe('result');
+
+    consoleSpy.mockRestore();
+    consoleEndSpy.mockRestore();
+  });
+
+  it('chainAsync()', done => {
+    let count = 0;
+
+    // Define a specific type for the next function
+    type NextFn = () => void;
+
+    const fn1 = jest.fn(function (this: unknown, ...args: unknown[]) {
+      count++;
+      setTimeout(() => {
+        expect(count).toBe(1);
+        (args[0] as NextFn)();
+      }, 10);
+    });
+
+    const fn2 = jest.fn(function (this: unknown, ...args: unknown[]) {
+      count++;
+      setTimeout(() => {
+        expect(count).toBe(2);
+        (args[0] as NextFn)();
+      }, 10);
+    });
+
+    const fn3 = jest.fn(function () {
+      count++;
+      setTimeout(() => {
+        expect(count).toBe(3);
+        done();
+      }, 10);
+    });
+
+    chainAsync([fn1, fn2, fn3]);
+  });
+
+  it('compose()', () => {
+    const add2 = (x: number) => x + 2;
+    const multiply3 = (x: number) => x * 3;
+    const divideBy2 = (x: number) => x / 2;
+
+    // (5 / 2) * 3 + 2 = 9.5
+    const composed = compose(add2, multiply3, divideBy2);
+    expect(composed(5)).toBe(9.5);
+  });
+
+  it('promisify()', async () => {
+    // Create a mock Node.js-style function
+    type NodeCallback = (err: Error | null, result?: number) => void;
+
+    const mockNodeFn = jest.fn(function (args: unknown[], callback?: NodeCallback) {
+      setTimeout(() => {
+        if (typeof args[0] === 'number' && args[0] < 0) {
+          callback && callback(new Error('Value must be positive'));
+        } else {
+          callback && callback(null, typeof args[0] === 'number' ? args[0] * 2 : 0);
+        }
+      }, 10);
+    });
+
+    const promisified = promisify(mockNodeFn);
+
+    // Test success case
+    const result = await promisified([5]);
+    expect(result).toBe(10);
+
+    // Test error case
+    try {
+      await promisified([-1]);
+      fail('Expected promisified function to throw an error');
+    } catch (error) {
+      expect(error).toBeInstanceOf(Error);
+      expect((error as Error).message).toBe('Value must be positive');
+    }
   });
 });

@@ -7,7 +7,7 @@
 import fs from 'fs';
 import { join, dirname } from 'path';
 
-import Tip from '../util/tip';
+import Tip from '../logging/tip';
 
 /**
  * @function travelFolderSync

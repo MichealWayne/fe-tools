@@ -19,5 +19,11 @@
   },
   "dependencies": {
     "gm": "1.23.1"
-  }
+  },
+  "keywords": [
+    "image",
+    "webp",
+    "resize",
+    "blur"
+  ]
 }

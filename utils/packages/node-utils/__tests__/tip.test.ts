@@ -1,4 +1,9 @@
-import Tip from '../src/lib/util/tip';
+/**
+ * @author Wayne
+ * @Date 2024-08-27 15:12:00
+ * @LastEditTime 2025-06-08 16:51:05
+ */
+import Tip from '../src/logging/tip';
 
 describe('tipFunHoc', () => {
   it('should log the info string without time if timeFlag is not provided', () => {

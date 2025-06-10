@@ -2,10 +2,10 @@
  * @module tip
  * @author Wayne
  * @Date 2022-06-21 14:16:08
- * @LastEditTime 2024-07-22 19:51:09
+ * @LastEditTime 2025-06-09 19:18:34
  */
 import Colors from './colors';
-import { getTimeStr } from './util';
+import { getTimeStr } from '../common';
 
 /**
  * @param {String} info : log info string;
