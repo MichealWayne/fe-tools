@@ -4,32 +4,99 @@
  * @LastEditTime 2023-10-22 10:40:59
  */
 import fs from 'fs';
+import path from 'path';
 
-const IMG_REG = /\.(jpg|gif|jpeg|png|webp|bmp)+$/;
+const IMG_REG = /\.(jpg|gif|jpeg|png|webp|bmp)+$/i;
+
+export interface ImageListOptions {
+  /** Only include 2x images */
+  only2x?: boolean;
+  /** Include all images (not just 2x) */
+  includeAllImages?: boolean;
+  /** Include specific extensions only */
+  extensions?: string[];
+  /** Recursive search in subdirectories */
+  recursive?: boolean;
+}
 
 /**
- * @function getImgFiles
- * @description 获得图片文件数组
- * @example return: ['a_2x.jpg', 'b_2x.png']
- * @param {String} imgFolderPath: image folder path;
- * @param {Boolean} notdoublebool: 不筛选'2x.'图;
- * @returns {string[]}
+ * Check if a file is an image based on its extension
+ * @param filename - File name to check
+ * @param extensions - Optional list of extensions to filter by
+ * @returns boolean
  */
-function getImgList(imgFolderPath: string, notDoubleImg?: boolean) {
+function isImage(filename: string, extensions?: string[]): boolean {
+  if (typeof filename !== 'string') {
+    return false;
+  }
+
+  if (extensions && extensions.length > 0) {
+    return extensions.some(ext =>
+      filename
+        .toLowerCase()
+        .endsWith(ext.toLowerCase().startsWith('.') ? ext.toLowerCase() : `.${ext.toLowerCase()}`)
+    );
+  }
+
+  return IMG_REG.test(filename);
+}
+
+/**
+ * Check if a file is a 2x image
+ * @param filename - File name to check
+ * @returns boolean
+ */
+function is2xImage(filename: string): boolean {
+  return filename.includes('_2x.');
+}
+
+/**
+ * Get a list of image files from a directory
+ * @param imgFolderPath - Path to the directory containing images
+ * @param options - Options for filtering images
+ * @returns Array of image filenames
+ */
+function getImgList(imgFolderPath: string, options: ImageListOptions = {}): string[] {
   const imgArr: string[] = [];
+  const { only2x = false, includeAllImages = false, extensions = [], recursive = false } = options;
 
-  if (!imgFolderPath) return imgArr;
-  const files = fs.readdirSync(imgFolderPath, 'utf-8');
+  if (!imgFolderPath || !fs.existsSync(imgFolderPath)) {
+    console.error(`Directory not found: ${imgFolderPath}`);
+    return imgArr;
+  }
 
-  for (const i in files) {
-    if (typeof files[i] !== 'string' || !files[i].match(IMG_REG)) {
-      continue;
-    }
-    if (!imgArr.includes(files[i]) && (files[i].includes('_2x.') || notDoubleImg)) {
-      imgArr.push(files[i]);
+  function processDirectory(dirPath: string, relativePath = '') {
+    try {
+      const files = fs.readdirSync(dirPath, 'utf-8');
+
+      for (const item of files) {
+        const fullPath = path.join(dirPath, item);
+        const relativeItemPath = path.join(relativePath, item);
+        const stats = fs.statSync(fullPath);
+
+        if (stats.isDirectory() && recursive) {
+          processDirectory(fullPath, relativeItemPath);
+          continue;
+        }
+
+        if (!isImage(item, extensions)) {
+          continue;
+        }
+
+        const is2x = is2xImage(item);
+
+        if (includeAllImages || !only2x || (only2x && is2x)) {
+          if (!imgArr.includes(relativeItemPath)) {
+            imgArr.push(relativePath ? relativeItemPath : item);
+          }
+        }
+      }
+    } catch (error) {
+      console.error(`Error reading directory ${dirPath}:`, error);
     }
   }
 
+  processDirectory(imgFolderPath);
   return imgArr;
 }
 

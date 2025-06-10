@@ -1,9 +1,9 @@
 /**
  * @author Wayne
  * @Date 2024-07-22 19:50:07
- * @LastEditTime 2024-07-21 11:31:20
+ * @LastEditTime 2025-06-08 15:31:24
  */
-import colors from '../src/lib/util/colors';
+import colors from '../src/logging/colors';
 
 describe('COLORS_MAP', () => {
   it('should have the correct properties', () => {

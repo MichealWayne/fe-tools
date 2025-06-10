@@ -17,7 +17,17 @@ import {
   cpuUsage,
   getCPUUsage,
   getCPUInfo,
-} from '../src/lib/util/os';
+} from '../src/system/os';
+
+// Mock setup
+beforeEach(() => {
+  // Reset mocks between tests
+  jest.resetAllMocks();
+});
+
+// Create a properly typed mock for exec
+const mockExec = jest.fn() as jest.Mock & { __promisify__: any };
+mockExec.__promisify__ = jest.fn();
 
 describe('platform', () => {
   it('should return the current platform', () => {
@@ -73,7 +83,10 @@ describe('freeCommand', () => {
     const callback = jest.fn();
     const stdout =
       '             total       used       free     shared    buffers     cached\nMem:          8000       4000       4000          0          0       2000\n-/+ buffers/cache:       2000       6000\nSwap:         2000          0       2000\n';
-    childrenProcess.exec = jest.fn((command, cb) => {
+
+    // Use the properly typed mock
+    childrenProcess.exec = mockExec;
+    mockExec.mockImplementation((command, cb) => {
       cb(null, stdout);
     });
 
@@ -89,7 +102,10 @@ describe('harddrive', () => {
     const callback = jest.fn();
     const stdout =
       'Filesystem     1K-blocks    Used Available Use% Mounted on\n/dev/sda1       10239876 1234567   9000000  14% /\n';
-    childrenProcess.exec = jest.fn((command, cb) => {
+
+    // Use the properly typed mock
+    childrenProcess.exec = mockExec;
+    mockExec.mockImplementation((command, cb) => {
       cb(null, stdout);
     });
 
@@ -105,7 +121,10 @@ describe('getProcesses', () => {
     const callback = jest.fn();
     const stdout =
       ' 0.0  0.0 00:00:00 /usr/lib/systemd/systemd --switched-root --system --deserialize 21\n 0.0  0.0 00:00:00 [kthreadd]\n';
-    childrenProcess.exec = jest.fn((command, cb) => {
+
+    // Use the properly typed mock
+    childrenProcess.exec = mockExec;
+    mockExec.mockImplementation((command, cb) => {
       cb(null, stdout);
     });
 
@@ -124,11 +143,15 @@ describe('getProcesses', () => {
     const callback = jest.fn();
     const stdout =
       ' 0.0  0.0 00:00:00 /usr/lib/systemd/systemd --switched-root --system --deserialize 21\n 0.0  0.0 00:00:00 [kthreadd]\n';
-    childrenProcess.exec = jest.fn((command, cb) => {
+
+    // Use the properly typed mock
+    childrenProcess.exec = mockExec;
+    mockExec.mockImplementation((command, cb) => {
       cb(null, stdout);
     });
 
-    getProcesses(callback);
+    // Pass default count parameter (10) explicitly
+    getProcesses(10, callback);
 
     expect(childrenProcess.exec).toHaveBeenCalledWith(
       'ps -eo pcpu,pmem,time,args | sort -k 1 -r | head -n 10',
@@ -183,7 +206,12 @@ describe('getCPUUsage', () => {
     const callback = jest.fn();
     const stats1 = { idle: 100, total: 200 };
     const stats2 = { idle: 50, total: 250 };
-    getCPUInfo = jest.fn().mockReturnValueOnce(stats1).mockReturnValueOnce(stats2);
+
+    // Use spyOn instead of direct assignment
+    jest
+      .spyOn(module.exports, 'getCPUInfo')
+      .mockReturnValueOnce(stats1)
+      .mockReturnValueOnce(stats2);
 
     getCPUUsage(callback);
 
@@ -195,7 +223,12 @@ describe('getCPUUsage', () => {
     const callback = jest.fn();
     const stats1 = { idle: 100, total: 200 };
     const stats2 = { idle: 50, total: 250 };
-    getCPUInfo = jest.fn().mockReturnValueOnce(stats1).mockReturnValueOnce(stats2);
+
+    // Use spyOn instead of direct assignment
+    jest
+      .spyOn(module.exports, 'getCPUInfo')
+      .mockReturnValueOnce(stats1)
+      .mockReturnValueOnce(stats2);
 
     getCPUUsage(callback, true);
 
@@ -209,7 +242,12 @@ describe('cpuFree', () => {
     const callback = jest.fn();
     const stats1 = { idle: 100, total: 200 };
     const stats2 = { idle: 50, total: 250 };
-    getCPUInfo = jest.fn().mockReturnValueOnce(stats1).mockReturnValueOnce(stats2);
+
+    // Use spyOn instead of direct assignment
+    jest
+      .spyOn(module.exports, 'getCPUInfo')
+      .mockReturnValueOnce(stats1)
+      .mockReturnValueOnce(stats2);
 
     cpuFree(callback);
 
@@ -223,7 +261,12 @@ describe('cpuUsage', () => {
     const callback = jest.fn();
     const stats1 = { idle: 100, total: 200 };
     const stats2 = { idle: 50, total: 250 };
-    getCPUInfo = jest.fn().mockReturnValueOnce(stats1).mockReturnValueOnce(stats2);
+
+    // Use spyOn instead of direct assignment
+    jest
+      .spyOn(module.exports, 'getCPUInfo')
+      .mockReturnValueOnce(stats1)
+      .mockReturnValueOnce(stats2);
 
     cpuUsage(callback);
 

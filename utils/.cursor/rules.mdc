@@ -1,0 +1,268 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# fe-tools 项目 Cursor 规范
+
+## 代码规范
+
+### 基本格式
+
+- 使用 2 个空格缩进
+- 行宽最大为 100 个字符
+- 使用单引号表示字符串
+- 始终使用分号结束语句
+- 使用 ES5 风格的尾随逗号
+- 箭头函数参数尽可能避免括号（单参数）
+- 括号内使用空格
+
+```javascript
+// 正确示例
+const example = (param1, param2) => {
+  const result = param1 + param2;
+  return result;
+};
+
+// 错误示例
+const example=(param1,param2)=>{
+  const result=param1+param2
+  return result
+}
+```
+
+### TypeScript 规范
+
+- 严格模式开启
+- 强制类型安全
+- 禁止使用 any 类型（特殊情况除外）
+- 导出函数时，尽可能显式定义返回类型
+- 类型定义优先使用接口而非类型别名
+
+```typescript
+// 正确示例
+export function sum(a: number, b: number): number {
+  return a + b;
+}
+
+// 错误示例
+export function sum(a, b) {
+  return a + b;
+}
+```
+
+## JSDoc 注释规范
+
+### 模块注释
+
+每个文件顶部需要包含模块注释，包括模块名称、描述、创建日期和最后修改时间。
+
+```typescript
+/**
+ * @module ModuleName
+ * @description 模块简短描述
+ * @Date YYYY-MM-DD HH:MM:SS
+ * @LastEditTime YYYY-MM-DD HH:MM:SS
+ */
+```
+
+### 函数注释
+
+每个导出的函数必须包含完整的 JSDoc 注释，包括以下部分：
+
+1. 函数名称（@function）
+2. 描述（@description）
+3. 参数（@param）
+4. 返回值（@return）
+5. 示例（@example）
+
+```typescript
+/**
+ * @function functionName
+ * @description 函数功能的简短描述
+ * @param {ParamType} paramName 参数描述
+ * @return {ReturnType} 返回值描述
+ * @example
+ * functionName(param); // -> expectedResult
+ * functionName(anotherParam); // -> anotherExpectedResult
+ */
+export function functionName(paramName: ParamType): ReturnType {
+  // 实现
+}
+```
+
+### 参数和返回值注释
+
+- 参数注释必须包含类型、名称和描述
+- 返回值注释必须包含类型和描述
+- 对于复杂参数或返回值，应提供详细解释
+
+```typescript
+/**
+ * @param {number} age 用户年龄（必须为正整数）
+ * @return {boolean} 是否为合法年龄（18岁及以上返回true，否则返回false）
+ */
+```
+
+### 示例注释
+
+- 每个函数必须提供至少一个使用示例
+- 复杂函数应提供多个使用示例，涵盖不同场景
+- 示例应包括输入和预期输出
+
+```typescript
+/**
+ * @example
+ * // 基本用法
+ * arrayMax([1, 2, 3]); // -> 3
+ * 
+ * // 包含负数
+ * arrayMax([1, 2, 3, 0, -1, -5]); // -> 3
+ */
+```
+
+### 类型定义注释
+
+对于导出的类型、接口和枚举，应提供完整的注释：
+
+```typescript
+/**
+ * @typedef {Object} UserInfo
+ * @property {string} name 用户名称
+ * @property {number} age 用户年龄
+ * @property {string[]} [interests] 用户兴趣（可选）
+ */
+export type UserInfo = {
+  name: string;
+  age: number;
+  interests?: string[];
+};
+```
+
+## 函数设计原则
+
+### 纯函数
+
+- 优先使用纯函数，避免副作用
+- 函数应返回新值而非修改现有值
+- 避免依赖外部状态
+
+```typescript
+// 正确示例（纯函数）
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+// 错误示例（有副作用）
+let sum = 0;
+function addToSum(value: number): void {
+  sum += value;
+}
+```
+
+### 函数命名
+
+- 使用驼峰命名法（camelCase）
+- 动词开头，清晰表达功能
+- 常用动词前缀：get、set、is、has、can、should、compute、calculate、validate、parse、format
+
+```typescript
+// 正确示例
+getUser()
+isValidEmail()
+hasPermission()
+formatDate()
+
+// 错误示例
+user()
+emailCheck()
+permission()
+date()
+```
+
+### 错误处理
+
+- 显式处理可能的错误情况
+- 对异步函数使用 try/catch 或 await-to 模式
+- 提供清晰的错误消息
+
+```typescript
+// 使用 await-to 模式
+import { to } from './await-to';
+
+async function fetchUser(id: string) {
+  const [err, user] = await to(api.getUser(id));
+  if (err) {
+    console.error('获取用户失败:', err);
+    return null;
+  }
+  return user;
+}
+```
+
+## 包结构原则
+
+- 每个工具包必须有清晰的职责边界
+- 避免包之间的循环依赖
+- 最小化外部依赖
+- 工具函数应该小而专注
+- 相关功能应该组织在同一个文件中
+
+## 测试规范
+
+- 每个函数都应有单元测试
+- 测试文件命名应与源文件对应（例如：array.ts -> array.test.ts）
+- 测试应覆盖正常用例和边缘情况
+- 使用 Jest 作为测试框架
+- 目标代码覆盖率不低于 80%
+
+```typescript
+// 测试示例
+describe('array', () => {
+  describe('arrayMax', () => {
+    it('should return the maximum value in an array of numbers', () => {
+      expect(arrayMax([1, 2, 3])).toBe(3);
+      expect(arrayMax([1, 2, 3, 0, -1, -5])).toBe(3);
+    });
+
+    it('should return -Infinity for an empty array', () => {
+      expect(arrayMax([])).toBe(-Infinity);
+    });
+  });
+});
+```
+
+## 版本控制规范
+
+- 使用语义化版本（SemVer）
+- 提交信息应遵循约定式提交规范
+- 主要版本号：不兼容的 API 变更
+- 次要版本号：向下兼容的功能性新增
+- 修订版本号：向下兼容的问题修正
+
+```
+feat: 添加了新功能
+fix: 修复了问题
+docs: 更新了文档
+style: 代码格式调整，不影响代码含义
+refactor: 代码重构，不新增功能也不修复问题
+perf: 性能优化
+test: 增加或修改测试
+build: 构建系统或外部依赖项修改
+ci: CI配置文件和脚本修改
+chore: 其他不修改src或测试文件的更改
+```
+
+## 文档生成规范
+
+- 使用 TypeDoc 生成 API 文档
+- 所有公开 API 必须有完整文档
+- 文档应包含使用示例
+- 定期更新文档以反映最新代码
+
+## 安全规范
+
+- 避免使用 eval 和 Function 构造函数
+- 输入验证确保类型安全
+- 避免硬编码敏感信息
+- 使用环境变量管理配置

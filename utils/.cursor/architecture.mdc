@@ -1,0 +1,122 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# fe-tools utils 项目架构文档
+
+## 项目概述
+
+fe-tools utils 是一个前端常用工具集合，采用 monorepo 结构组织代码，包含多个独立的工具包，涵盖基础JavaScript工具函数、浏览器工具、Node.js工具、Canvas操作、AI相关工具等多个方面。
+
+## 项目结构
+
+```mermaid
+graph TD
+    A[fe-tools utils] --> B[packages]
+    B --> C[utils]
+    B --> D[web-utils]
+    B --> E[node-utils]
+    B --> F[canvas-utils]
+    B --> G[ai-utils]
+    B --> H[node-img-build]
+    B --> I[env]
+    
+    C --> C1[基础工具函数]
+    D --> D1[浏览器环境工具函数]
+    E --> E1[Node.js基础工具函数]
+    F --> F1[Canvas操作工具函数]
+    G --> G1[AI相关工具函数]
+    H --> H1[Node.js图片处理工具函数]
+    I --> I1[环境配置]
+    
+    A --> J[单元测试]
+    A --> K[TypeScript配置]
+    A --> L[文档生成]
+```
+
+## 包结构
+
+项目采用monorepo结构，基于lerna和pnpm管理多个包。主要包括以下几个工具包：
+
+1. **utils**: 基础工具函数集合，环境无关的通用JavaScript工具
+   - 数组处理：`array.ts`
+   - 异步处理：`await-to.ts`
+   - 数据校验：`check.ts`, `check.plus.ts`
+   - 颜色处理：`color.ts`
+   - 日期处理：`date.ts`
+   - 缓动函数：`Easing.ts`
+   - 函数工具：`function.ts`
+   - 数学计算：`math.ts`
+   - 数字处理：`number.ts`
+   - 对象处理：`object.ts`
+   - 字符串处理：`string.ts`
+   - 交易相关：`trade.ts`
+   - 动画处理：`tween.ts`
+   - 类型判断：`type.ts`
+   - 其他工具：`others.ts`
+
+2. **web-utils**: 浏览器环境工具函数
+   - Cookie操作：`cookies.ts`
+   - CSS操作：`css.ts`
+   - 剪贴板操作：`clipboard.ts`
+   - DOM操作：`dom.ts`
+   - 文件操作：`file.ts`
+   - 图片处理：`image.ts`
+   - 页面导航：`navigate.ts`
+   - 生命周期：`lifecycle.ts`
+   - 资源加载：`loadAssets.ts`
+   - 平台判断：`platform.ts`
+   - 响应式：`rem.ts`
+   - 本地存储：`storage.ts`
+   - URL处理：`url.ts`
+   - 键盘事件：`keyboard.ts`
+   - 其他功能：`others.ts`
+
+3. **node-utils**: Node.js基础工具函数
+
+4. **canvas-utils**: Canvas操作工具函数
+
+5. **ai-utils**: AI相关工具函数
+   - 代码检测：`codeReview`
+   - SQL创建：`createSQL`
+   - 单元测试创建：`createUnitTestCases`
+   - 提示词增强：`enhancePrompt`
+   - LLM相关：`prompts`
+   - Python工具：`python`
+
+6. **node-img-build**: Node.js图片处理工具函数
+
+7. **env**: 环境配置相关
+
+## 技术栈
+
+- 语言：TypeScript
+- 构建工具：tsc (TypeScript编译器)
+- 包管理：pnpm + lerna (monorepo管理)
+- 测试框架：Jest
+- 文档生成：TypeDoc
+
+## 开发流程
+
+1. **安装依赖**：使用`pnpm install`安装项目依赖
+
+2. **运行测试**：使用`npm run test`执行单元测试
+
+3. **构建项目**：使用`npm run build`构建项目
+
+4. **生成文档**：使用`npm run docs`生成API文档
+
+## 文档生成
+
+项目使用TypeDoc生成API文档，配置在`typedoc.json`中，支持以下入口点：
+- utils包下的所有TS文件
+- node-utils包的入口文件
+- web-utils包下的所有TS文件
+- canvas-utils包的入口文件
+- ai-utils包的入口文件
+- node-img-build包的handleImg.ts文件
+
+## 总结
+
+fe-tools utils是一个前端工具集合项目，提供了丰富的工具函数，涵盖基础JavaScript、浏览器环境、Node.js环境、Canvas操作、AI处理等多个方面，采用TypeScript开发，确保类型安全，并提供完善的单元测试和API文档。
