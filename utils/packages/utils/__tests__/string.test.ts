@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2023-02-15 14:06:30
- * @LastEditTime 2024-03-10 10:14:09
+ * @LastEditTime 2025-06-14 16:54:04
  */
 import {
   byteSize,
@@ -16,6 +16,8 @@ import {
   truncateString,
   fromCamelCase,
   reverseString,
+  ellipsis,
+  maskString,
 } from '../src/string';
 
 describe('string test', () => {
@@ -157,6 +159,68 @@ describe('string test', () => {
       expect(result).toBe('');
       expect(truncateString('hello world', 5)).toBe('hello...');
       expect(truncateString('hello world', 11)).toBe('hello world');
+    });
+  });
+
+  describe('ellipsis', () => {
+    test('should truncate string with default ellipsis when length > maxLength', () => {
+      expect(ellipsis('hello world', 5)).toBe('he...');
+    });
+
+    test('should use custom ellipsis when provided', () => {
+      expect(ellipsis('hello world', 5, '***')).toBe('he***');
+    });
+
+    test('should not truncate when string length <= maxLength', () => {
+      expect(ellipsis('hello', 10)).toBe('hello');
+      expect(ellipsis('hello', 5)).toBe('hello');
+    });
+
+    test('should handle empty string', () => {
+      expect(ellipsis('', 5)).toBe('');
+    });
+
+    test('should handle null/undefined', () => {
+      expect(ellipsis(null as any, 5)).toBe('');
+      expect(ellipsis(undefined as any, 5)).toBe('');
+    });
+
+    test('should handle non-Latin characters correctly', () => {
+      expect(ellipsis('你好世界', 2)).toBe('...');
+      expect(ellipsis('你好世界', 3)).toBe('你...');
+      expect(ellipsis('你好世界', 3, '…')).toBe('你…');
+    });
+  });
+
+  describe('maskString', () => {
+    test('should mask middle part of a phone number with default parameters', () => {
+      expect(maskString('13812345678')).toBe('138****5678');
+    });
+
+    test('should mask with custom visible parts and mask character', () => {
+      expect(maskString('123456789', 2, 2, '#')).toBe('12#####89');
+    });
+
+    test('should not mask when string length <= startVisible + endVisible', () => {
+      expect(maskString('1234', 2, 2)).toBe('1234');
+      expect(maskString('12345', 3, 3)).toBe('12345');
+    });
+
+    test('should handle empty string', () => {
+      expect(maskString('')).toBe('');
+    });
+
+    test('should handle null/undefined', () => {
+      expect(maskString(null as any)).toBe('');
+      expect(maskString(undefined as any)).toBe('');
+    });
+
+    test('should handle email addresses', () => {
+      expect(maskString('user@example.com', 2, 8)).toBe('us********example.com');
+    });
+
+    test('should handle Chinese characters', () => {
+      expect(maskString('张三李四', 1, 1)).toBe('张**四');
     });
   });
 });
