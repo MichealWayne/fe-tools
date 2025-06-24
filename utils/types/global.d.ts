@@ -16,3 +16,19 @@ declare const swan: any;
 declare const getApp: any;
 declare const getCurrentPages: any;
 declare const getLaunchOptionsSync: any;
+
+// Wake Lock API type declarations
+interface WakeLockSentinel {
+  released: boolean;
+  addEventListener(type: 'release', listener: EventListener): void;
+  removeEventListener(type: 'release', listener: EventListener): void;
+  release(): Promise<void>;
+}
+
+interface WakeLock {
+  request(type: 'screen'): Promise<WakeLockSentinel>;
+}
+
+interface Navigator {
+  wakeLock?: WakeLock;
+}
