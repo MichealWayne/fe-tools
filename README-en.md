@@ -228,6 +228,7 @@ A schema declaration and verification library headed by TypeScript, which can be
 | https://github.com/goldfire/howler.js#documentation | howlerjs | A video and audio control plugin. |
 | http://jplayer.org/ | jplayer | A jQuery video and audio control plugin. |
 | https://github.com/zohararad/audio5js | audio5js | An audio control plugin. |
+| https://github.com/katspaugh/wavesurfer.js | Wavesurfer.js | An lightful audio waveform player. |
 
 ### Images
 
@@ -767,8 +768,9 @@ A schema declaration and verification library headed by TypeScript, which can be
 
 | Address | Tag | Description |
 | --- | --- | --- |
-| https://langchain-langchain.vercel.app/ | `langchain` | Building applications with LLMs through composability
-| https://github.com/Significant-Gravitas/Auto-GPT | `autoGPT` | An experimental open-source attempt to make GPT-4 fully autonomous.
+| https://ai-sdk.dev/ | `ai-sdk` | TypeScript's AI toolkit offers various toolkits and UI interfaces |
+| https://langchain-langchain.vercel.app/ | `langchain` | Building applications with LLMs through composability |
+| https://github.com/Significant-Gravitas/Auto-GPT | `autoGPT` | An experimental open-source attempt to make GPT-4 fully autonomous. |
 | https://github.com/reworkd/AgentGPT | `agentGPT` | Assemble, configure, and deploy autonomous AI Agents in your browser.
 | https://tensorflow.google.cn/js | tensorflow | A library for building and running machine learning and deep learning models in the browser or Node.js |
 | https://github.com/openai/openai-node | openai | OpenAI's Node.js API call encapsulation library |
