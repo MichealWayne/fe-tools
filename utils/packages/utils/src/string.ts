@@ -2,7 +2,7 @@
  * @module String
  * @author Wayne
  * @Date 2022-07-11 13:34:54
- * @LastEditTime 2024-08-25 13:54:44
+ * @LastEditTime 2025-06-14 16:54:27
  */
 
 /**
@@ -150,6 +150,57 @@ export function reverseString(str: string) {
  */
 export function truncateString(str: string, num = 10) {
   return str?.length > num ? str.slice(0, num > 3 ? num - 3 : num) + '...' : str;
+}
+
+/**
+ * @function ellipsis
+ * @description 当字符串超过指定长度时进行截断并添加自定义后缀
+ * @param {string} str 字符串
+ * @param {number} maxLength 最大长度，默认为10
+ * @param {string} ellipsisStr 省略符号，默认为"..."
+ * @return {string} 返回处理后的字符串
+ * @example
+ * ellipsis('hello world', 5); // 'hello...'
+ * ellipsis('hello world', 5, '***'); // 'hello***'
+ * ellipsis('hello world', 20); // 'hello world'
+ * ellipsis('你好世界', 2); // '你好...'
+ */
+export function ellipsis(str: string, maxLength = 10, ellipsisStr = '...') {
+  if (!str) return '';
+
+  const ellipsisLength = ellipsisStr.length;
+  if (str.length <= maxLength) return str;
+
+  return str.slice(0, maxLength - ellipsisLength) + ellipsisStr;
+}
+
+/**
+ * @function maskString
+ * @description 用于隐藏字符串中的部分信息，保留起始和结尾字符
+ * @param {string} str 要处理的字符串
+ * @param {number} startVisible 开头保留的字符数，默认为3
+ * @param {number} endVisible 结尾保留的字符数，默认为4
+ * @param {string} maskChar 遮罩字符，默认为"*"
+ * @return {string} 返回处理后的字符串
+ * @example
+ * maskString('13812345678'); // '138****5678'
+ * maskString('user@example.com', 2, 8); // 'us********example.com'
+ * maskString('123456789', 2, 2, '#'); // '12#####89'
+ * maskString('张三李四', 1, 1); // '张**四'
+ */
+export function maskString(str: string, startVisible = 3, endVisible = 4, maskChar = '*') {
+  if (!str) return '';
+
+  const len = str.length;
+
+  // 如果字符串长度小于等于开头和结尾保留的字符数之和，直接返回原字符串
+  if (len <= startVisible + endVisible) return str;
+
+  const start = str.slice(0, startVisible);
+  const end = str.slice(len - endVisible);
+  const middle = maskChar.repeat(len - startVisible - endVisible);
+
+  return start + middle + end;
 }
 
 /**

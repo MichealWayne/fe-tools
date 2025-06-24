@@ -2,7 +2,7 @@
  * @module Screen
  * @author Wayne
  * @Date 2022-08-31 16:05:14
- * @LastEditTime 2024-08-25 10:19:02
+ * @LastEditTime 2025-06-11 09:51:26
  */
 
 /**
@@ -90,4 +90,45 @@ export function exitFullscreen() {
   } else if ((document as any).webkitExitFullscreen) {
     (document as any).webkitExitFullscreen();
   }
+}
+
+/**
+ * @function wakeScreenLock
+ * @description 唤醒屏幕锁定、保持屏幕常亮(IE和iOS18以下兼容性不好)
+ * @docs https://developer.mozilla.org/zh-CN/docs/Web/API/Navigator/wakeLock
+ * @returns {Promise<void>} 唤醒屏幕锁定的Promise
+ * @example
+ * const wakeScreenLock = wakeScreenLock();
+ * wakeScreenLock.then(() => {
+ *   console.log('屏幕锁定');
+ * }).catch((error) => {
+ *   console.error(error);
+ */
+export function wakeScreenLock() {
+  if (typeof navigator.wakeLock === 'undefined') {
+    return Promise.reject(new Error('浏览器不支持屏幕锁定API'));
+  }
+  return navigator.wakeLock.request('screen');
+}
+
+/**
+ * @function keepScreenOn
+ * @description 保持屏幕常亮
+ * @returns {Promise<void>} 保持屏幕常亮的Promise
+ * @example
+ * const keepScreenOn = keepScreenOn();
+ * keepScreenOn.then(() => {
+ *   console.log('屏幕常亮');
+ * }).catch((error) => {
+ *   console.error(error);
+ * });
+ */
+export function keepScreenOn() {
+  if (typeof navigator.wakeLock === 'undefined') {
+    return new Error('浏览器不支持屏幕锁定API');
+  }
+  document.addEventListener('visibilitychange', wakeScreenLock);
+  return () => {
+    document.removeEventListener('visibilitychange', wakeScreenLock);
+  };
 }

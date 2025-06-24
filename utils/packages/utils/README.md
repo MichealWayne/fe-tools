@@ -117,6 +117,7 @@
   - capitalize：将字符串的第一个字母转换为大写字母
   - capitalizeEveryWord：将字符串中的每个单词的第一个字母转换为大写字母
   - decapitalize：将字符串的第一个字母转换为小写字母
+  - ellipsis: 当字符串超过指定长度时进行截断并添加自定义后缀
   - splitLines：字符换行分割
   - stripHTMLTags：从字符串中删除 HTML 标签
   - palindrome：判断一个字符串是否为回文

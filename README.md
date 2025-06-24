@@ -224,6 +224,7 @@
 <a href="https://github.com/goldfire/howler.js#documentation" target="_blank">howler.js</a> | `howlerjs` | 视、音频控制插件。
 <a href="https://jplayer.org/" target="_blank">jplayer</a> | `jplayer` | jQuery的视、音频控制插件。
 <a href="https://github.com/zohararad/audio5js" target="_blank">audio5.js</a> | `audio5js` | 一款音频控制插件。
+<a href="https://github.com/katspaugh/wavesurfer.js" target="_blank">Wavesurfer.js</a> | `wavesurfer` | 一款音频波形播放器。
 
 ##### 图片
 地址 | 标签 | 说明
@@ -754,6 +755,7 @@
 
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://ai-sdk.dev/" target="_blank">AI SDK</a> | `ai-sdk` | TypeScript的AI工具包，提供各类工具包、UI界面
 <a href="https://langchain-langchain.vercel.app/" target="_blank">LangChain</a> | `langchain` | 著名的大语言模型集成工具，供了一套工具、组件和接口，可简化构建高级语言模型应用程序的过程
 <a href="https://github.com/Significant-Gravitas/Auto-GPT" target="_blank">Auto-GPT</a> | `autoGPT` | 预训练语言生成模型，可以自动完成摘要生成、推荐系统和对话生成等任务，
 <a href="https://github.com/reworkd/AgentGPT" target="_blank">AgentGPT</a> | `agentGPT` | 基于语言模型的人工代理，可以根据特定场景的要求，生成合适的回答

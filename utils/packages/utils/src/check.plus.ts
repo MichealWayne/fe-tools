@@ -3,7 +3,7 @@
  * @module Check.plus
  * @description check password functions
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-08-25 13:22:23
+ * @LastEditTime 2025-06-15 19:27:39
  */
 
 /**
@@ -164,118 +164,126 @@ const AREA_MAP = {
   82: '澳门',
   91: '国外',
 };
-// eslint-disable-next-line complexity
+
+// 身份证验证相关的常量
+const IDCARD_REGEX = {
+  // 15位身份证正则
+  LEAP_YEAR_15:
+    /^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}$/,
+  NORMAL_YEAR_15:
+    /^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}$/,
+  // 18位身份证正则
+  LEAP_YEAR_18:
+    /^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}[0-9Xx]$/,
+  NORMAL_YEAR_18:
+    /^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}[0-9Xx]$/,
+};
+
+// 校验位权重
+const CHECK_CODE_WEIGHTS = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+const CHECK_CODE_MAP = '10X98765432';
+
+/**
+ * 检查是否为闰年
+ */
+function isLeapYear(year: number): boolean {
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+/**
+ * 获取18岁生日日期字符串
+ */
+function getFullGrownDate(): string {
+  const now = new Date();
+  const year = now.getFullYear() - 18;
+  const month =
+    String(now.getMonth() + 1).length === 1 ? `0${now.getMonth() + 1}` : String(now.getMonth() + 1);
+  const day = String(now.getDate()).length === 1 ? `0${now.getDate()}` : String(now.getDate());
+  return `${year}${month}${day}`;
+}
+
+/**
+ * 验证15位身份证
+ */
+function validate15DigitIdcard(
+  idcard: string,
+  checkFullGrownDate: string,
+  TipEnum: typeof DefaultIdcardTips
+): DefaultIdcardTips {
+  const year = parseInt(idcard.substring(6, 8), 10) + 1900;
+  const regex = isLeapYear(year) ? IDCARD_REGEX.LEAP_YEAR_15 : IDCARD_REGEX.NORMAL_YEAR_15;
+
+  if (!regex.test(idcard)) {
+    return TipEnum.fail;
+  }
+
+  const birthdayValue = idcard.substring(6, 12);
+  const fullBirthday =
+    parseInt(birthdayValue, 10) < 10 ? `20${birthdayValue}` : `19${birthdayValue}`;
+
+  return fullBirthday > checkFullGrownDate ? TipEnum.not18 : TipEnum.success;
+}
+
+/**
+ * 验证18位身份证
+ */
+function validate18DigitIdcard(
+  idcard: string,
+  checkFullGrownDate: string,
+  TipEnum: typeof DefaultIdcardTips
+): DefaultIdcardTips {
+  const year = parseInt(idcard.substring(6, 10), 10);
+  const regex = isLeapYear(year) ? IDCARD_REGEX.LEAP_YEAR_18 : IDCARD_REGEX.NORMAL_YEAR_18;
+
+  if (!regex.test(idcard)) {
+    return TipEnum.fail;
+  }
+
+  // 计算校验位
+  const idcardList = idcard.split('');
+  let sum = 0;
+  for (let i = 0; i < 17; i++) {
+    sum += parseInt(idcardList[i], 10) * CHECK_CODE_WEIGHTS[i];
+  }
+  const checkCode = CHECK_CODE_MAP[sum % 11];
+
+  if (checkCode.toUpperCase() !== idcardList[17].toUpperCase()) {
+    return TipEnum.fail;
+  }
+
+  const birthdayValue = idcard.substring(6, 14);
+  return birthdayValue > checkFullGrownDate ? TipEnum.not18 : TipEnum.success;
+}
+
 /**
  * @function checkIdcard
  * @description 身份证正确性校验
  * @param {string} idcard 身份证号码
  * @param {object} TipEnum 提示信息
  * @returns {DefaultIdcardTips} 身份证验证结果
+ * @example
+ * checkIdcard('11010519491231002X'); // '身份证验证通过'
+ * checkIdcard('11010519491231002'); // '请填写正确的身份证号码'
+ * checkIdcard('11010519491231002X', {
+ *   success: '身份证验证通过',
+ *   fail: '请填写正确的身份证号码',
+ *   not18: '未满18岁暂不支持开户',
+ * });
  */
-export function checkIdcard(idcard: string, TipEnum = DefaultIdcardTips) {
-  const now = new Date();
-  const y = String(now.getFullYear());
-  let mo = String(now.getMonth());
-  let d = String(now.getDate());
-  if (mo.length < 2) {
-    mo = `0${mo}`;
-  }
-  if (d.length < 2) {
-    d = `0${d}`;
-  }
-  const checkFullGrownDate = parseInt(y, 10) - 18 + mo + d;
-  let birthdayValue;
-  let Y, JYM;
-  let S, M;
-  let ereg;
-
-  const idcardList = idcard.split('');
-
+export function checkIdcard(idcard: string, TipEnum = DefaultIdcardTips): DefaultIdcardTips {
   // 地区检验
-  if (!AREA_MAP[parseInt(idcard.substring(0, 2), 10) as keyof typeof AREA_MAP]) return TipEnum.fail;
-  // 身份号码位数及格式检验
+  if (!AREA_MAP[parseInt(idcard.substring(0, 2), 10) as keyof typeof AREA_MAP]) {
+    return TipEnum.fail;
+  }
+
+  const checkFullGrownDate = getFullGrownDate();
+
+  // 根据身份证长度选择验证方法
   switch (idcard.length) {
     case 15:
-      if (
-        (parseInt(idcard.substring(6, 2), 10) + 1900) % 4 === 0 ||
-        ((parseInt(idcard.substring(6, 2), 10) + 1900) % 100 === 0 &&
-          (parseInt(idcard.substring(6, 2), 10) + 1900) % 4 === 0)
-      ) {
-        ereg =
-          /^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}$/; //测试出生日期的合法性
-      } else {
-        ereg =
-          /^[1-9][0-9]{5}[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}$/; //测试出生日期的合法性
-      }
-      if (ereg.test(idcard)) {
-        birthdayValue = idcard.charAt(6) + idcard.charAt(7);
-        if (parseInt(birthdayValue, 10) < 10) {
-          birthdayValue = `20${birthdayValue}`;
-        } else {
-          birthdayValue = `19${birthdayValue}`;
-        }
-        birthdayValue =
-          birthdayValue +
-          idcard.charAt(8) +
-          idcard.charAt(9) +
-          idcard.charAt(10) +
-          idcard.charAt(11);
-        if (birthdayValue > checkFullGrownDate) {
-          return TipEnum.not18;
-        }
-        return TipEnum.success;
-      }
-      return TipEnum.fail;
+      return validate15DigitIdcard(idcard, checkFullGrownDate, TipEnum);
     case 18:
-      //18位身份号码检测
-      //出生日期的合法性检查
-      //闰年月日:((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))
-      //平年月日:((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))
-      if (
-        parseInt(idcard.substring(6, 4), 10) % 4 === 0 ||
-        (parseInt(idcard.substring(6, 4), 10) % 100 === 0 &&
-          parseInt(idcard.substring(6, 4), 10) % 4 === 0)
-      ) {
-        ereg =
-          /^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|[1-2][0-9]))[0-9]{3}[0-9Xx]$/; //闰年出生日期的合法性正则表达式
-      } else {
-        ereg =
-          /^[1-9][0-9]{5}(19|20)[0-9]{2}((01|03|05|07|08|10|12)(0[1-9]|[1-2][0-9]|3[0-1])|(04|06|09|11)(0[1-9]|[1-2][0-9]|30)|02(0[1-9]|1[0-9]|2[0-8]))[0-9]{3}[0-9Xx]$/; //平年出生日期的合法性正则表达式
-      }
-      if (ereg.test(idcard)) {
-        // 测试出生日期的合法性, 计算校验位
-        S =
-          (parseInt(idcardList[0]) + parseInt(idcardList[10])) * 7 +
-          (parseInt(idcardList[1]) + parseInt(idcardList[11])) * 9 +
-          (parseInt(idcardList[2]) + parseInt(idcardList[12])) * 10 +
-          (parseInt(idcardList[3]) + parseInt(idcardList[13])) * 5 +
-          (parseInt(idcardList[4]) + parseInt(idcardList[14])) * 8 +
-          (parseInt(idcardList[5]) + parseInt(idcardList[15])) * 4 +
-          (parseInt(idcardList[6]) + parseInt(idcardList[16])) * 2 +
-          parseInt(idcardList[7]) * 1 +
-          parseInt(idcardList[8]) * 6 +
-          parseInt(idcardList[9]) * 3;
-        Y = S % 11;
-        M = 'F';
-        JYM = '10X98765432';
-        // 判断校验位
-        M = JYM.substring(Y, 1);
-        if (M === idcardList[17]) {
-          birthdayValue =
-            idcard.charAt(6) +
-            idcard.charAt(7) +
-            idcard.charAt(8) +
-            idcard.charAt(9) +
-            idcard.charAt(10) +
-            idcard.charAt(11) +
-            idcard.charAt(12) +
-            idcard.charAt(13);
-
-          return birthdayValue > checkFullGrownDate ? TipEnum.not18 : TipEnum.success;
-        }
-        return TipEnum.fail;
-      }
-      return TipEnum.fail;
+      return validate18DigitIdcard(idcard, checkFullGrownDate, TipEnum);
     default:
       return TipEnum.fail;
   }
