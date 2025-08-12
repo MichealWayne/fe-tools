@@ -7,6 +7,11 @@ const tailwindcss = require('tailwindcss');
 export default defineConfig({
   base: './',
   plugins: [react()],
+  server: {
+    port: 3000,
+    strictPort: false,
+    open: true,
+  },
   css: {
     postcss: {
       plugins: [

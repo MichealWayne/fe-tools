@@ -1,83 +1,79 @@
-# web utils
+# @fe-tools/web-utils
 
-浏览器相关封装。
+封装了浏览器环境下的常用工具方法，简化前端开发。
 
-- [cookies.ts](./src/cookies.ts)：cookie 封装
-  - getCookie：获取 cookie
-  - setCookie：设置 cookie
-  - delCookie：删除 cookie
-- [css.ts](./src/css.ts)
-  - getPrefix：获取浏览器前缀
-  - getStyle：获取元素样式
-  - getElementSize：获取元素的尺寸数据、如 width/height
-- [clipboard.ts](./src/clipboard.ts)
-  - readClipboardText：读取剪贴板文案
-  - copyToClipboard：拷贝文案到剪贴板
-- [dom.ts](./src/dom.ts)
-  - isPageVisible：当前页面是否为显示状态
-  - hasClass：元素是否有此 class
-  - addClass：元素添加 class
-  - removeClass：元素删除此 class
-  - insertAfter：在元素之后插入新元素
-  - insertBefore：在元素之前插入新元素
-  - elementContains：检查是否包含子元素
-  - hide：隐藏元素（列表）
-  - nodeListToArray：元素列表转数组格式
-  - setAttribute：元素设置属性
-  - escapeHTML：将字符串中的 HTML 特殊字符转义成对应的实体字符，以避免 XSS 攻击等问题
-  - getOffsetPos：获取一个元素的距离文档(document)的位置
-  - getScrollTop：获取滚动条距顶部的距离
-  - getScrollPosition：获取滚动条距顶部和左侧的距离
-  - setScrollTop：设置滚动条距顶部的距离
-  - requestAnimFrame：requestAnimationFrame 的兼容调用方式（包括服务端）
-  - animateScrollTo：平滑滚动（dom 动画）
-  - smoothScroll：平滑滚动（依赖 webapi）
-  - disableCopy：禁止复制
-- [file.ts](./src/file.ts)
-  - readFile：读取文件内容，返回字符串
-  - readFileAsDataURL：读取文件内容为 Data URL
-  - downloadFile：保存/下载文件
-  - downloadImageFileByUrl：根据 URL 下载图片文件
-  - getFileExtension：根据文件名获取文件扩展名
-- [image.ts](./src/image.ts)
-  - isImageLoaded：加载图片（通常用于预加载）
-  - getImageSize：获取图片的原始尺寸大小
-  - isSupportWebP：是否支持 webp 格式图片
-  - cropImage：图片裁剪
-  - compressImage：图片压缩
-- [navigate.ts](./src/navigate.ts)
-  - navigateTo：跳转 url
-  - httpsRedirect：强制 https 重定向
-- [lifecycle.ts](./src/lifecycle.ts)
-  - onPageLoad：注册页面加载完成事件（DOMContentLoaded）
-  - onPageUnload：注册页面卸载事件（unload）
-  - onBeforeUnload：注册页面关闭前挽留事件（beforeunload）
-- [loadAssets.ts](./src/loadAssets.ts)
-  - loadScript：动态加载 js
-  - loadScriptList：动态加载 js 列表
-  - loadCss：动态加载 css
-  - loadCssList：动态加载 css 列表
-  - loadImage：加载图片
-  - loadImageList：加载图片列表
-  - loadCSV：下载 csv 文件
-- [platform.ts](./src/platform.ts)
-  - isBrowser：是否浏览器环境
-  - isPC：是否为 pc 环境
-  - getPcExplore：获取 pc 浏览器版本
-  - getSystemOS：获取系统版本
-  - getMobilePlatform：获取移动端平台标志
-  - getMobileOS：获取移动端系统及其版本
-  - getMobileBrandIdentify：获取当前移动设备的品牌标识（部分手机）
-- [rem.ts](./src/rem.ts)
-- [storage.ts](./src/storage.ts)
-- [url.ts](./src/url.ts)
-  - parseQueryString：获取 url search 参数对象
-  - getUrlParam：获取 url search 字段值
-  - paramsJoinUrl：将参数对象转为 url 字符串
-  - getBaseUrl：获取基础地址（ url 中?之前的部分）
-  - getUrlDomain：获取 url 域名信息
-  - uniqueSlash：将路径中重复的正斜杆替换成单个斜杆隔开的字符串
-- [keyboard.ts](./src/keyboard.ts)
-  - getKeyName：获取 pc 按键值
-- [others.ts](./src/others.ts)
-  - isBase64：判断字符串是否是 base64
+## 功能模块
+
+### Cookies (文件: `src/cookies.ts`)
+
+- **getCookie**, **setCookie**, **delCookie** - 管理浏览器 Cookie。
+
+### CSS (文件: `src/css.ts`)
+
+- **getPrefix** - 获取浏览器前缀。
+- **getStyle** - 获取元素计算样式。
+- **getElementSize** - 获取元素尺寸。
+
+### Clipboard (文件: `src/clipboard.ts`)
+
+- **readClipboardText** - 读取剪贴板文本。
+- **copyToClipboard** - 复制文本到剪贴板。
+
+### DOM (文件: `src/dom.ts`)
+
+- 提供 DOM 操作如添加/移除 class、元素插入、滚动控制、可见性判断、XSS 防护等。
+
+### File (文件: `src/file.ts`)
+
+- **readFile**, **readFileAsDataURL** - 读取文件内容。
+- **downloadFile**, **downloadImageFileByUrl** - 文件下载。
+- **getFileExtension** - 获取文件扩展名。
+
+### Image (文件: `src/image.ts`)
+
+- **isImageLoaded** - 图片预加载。
+- **getImageSize** - 获取图片原始尺寸。
+- **isSupportWebP** - 检查 WebP 支持。
+- **cropImage**, **compressImage** - 图片裁剪与压缩。
+
+### Navigate (文件: `src/navigate.ts`)
+
+- **navigateTo** - 页面跳转。
+- **httpsRedirect** - 强制 HTTPS 重定向。
+
+### Lifecycle (文件: `src/lifecycle.ts`)
+
+- **onPageLoad**, **onPageUnload**, **onBeforeUnload** - 页面生命周期事件监听。
+
+### Load Assets (文件: `src/loadAssets.ts`)
+
+- **loadScript/Css/Image** - 动态加载 JS/CSS/图片资源。
+
+### Platform (文件: `src/platform.ts`)
+
+- **isBrowser**, **isPC** - 环境判断。
+- 获取浏览器、系统、移动设备信息。
+
+### Rem (文件: `src/rem.ts`)
+
+- 提供 REM 布局相关的工具函数。
+
+### Storage (文件: `src/storage.ts`)
+
+- 封装了 localStorage 和 sessionStorage 的操作。
+
+### URL (文件: `src/url.ts`)
+
+- **parseQueryString**, **getUrlParam** - URL 参数解析。
+- **paramsJoinUrl** - 参数拼接为 URL。
+- **getBaseUrl** - 获取基础地址（ url 中?之前的部分）。
+- **getUrlDomain** - 获取 URL 域名。
+- **uniqueSlash** - 规范化路径分隔符。
+
+### Keyboard (文件: `src/keyboard.ts`)
+
+- **getKeyName** - 获取键盘按键名称。
+
+### Others (文件: `src/others.ts`)
+
+- **isBase64** - 判断字符串是否为 Base64 编码。

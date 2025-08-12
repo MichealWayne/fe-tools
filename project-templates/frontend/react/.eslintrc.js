@@ -2,7 +2,15 @@
 
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react'],
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  extends: ['eslint:recommended'],
   env: {
     browser: true,
     node: true,
@@ -52,7 +60,8 @@ module.exports = {
     'spaced-comment': [0],
     'no-alert': [0],
     'linebreak-style': ['off', 'windows'],
-    '@typescript-eslint/no-shadow': ['error'],
-    '@typescript-eslint/no-unused-vars': ['error'],
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn'],
   },
 };

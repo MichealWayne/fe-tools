@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2024-01-02 13:45:57
- * @LastEditTime 2024-01-16 09:46:22
+ * @LastEditTime 2025-08-04 21:49:53
  */
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
@@ -17,6 +17,8 @@ export default defineConfig({
   server: {
     host: true,
     port: 3000,
+    strictPort: false,
+    open: true,
   },
   build: {
     sourcemap: !IS_PROD_ENV,

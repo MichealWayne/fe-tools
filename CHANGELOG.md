@@ -1,5 +1,7 @@
 ### 更新信息
 
+- 2025.08.10：更新ai-utils；更新主页链接；更新子目录README；
+- 2025.07.20：更新前端模版依赖；
 - 2025.06.02：增加 fastify 模版(beta)
 - 2025.05.11：utils 更新（web-utils&node-utils）
 - 2025.04.20：更新 Chrome 插件（新增 json/svg/date 处理功能）；utils 更新（web-utils 增加方法）
