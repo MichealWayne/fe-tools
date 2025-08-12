@@ -1,59 +1,56 @@
 /**
  * @author Wayne
  * @Date 2024-04-06 10:40:18
- * @LastEditTime 2025-04-06 11:32:07
+ * @LastEditTime 2025-08-10 15:02:12
  */
-import { estimateTokenLength } from '../llm/prompts';
+import { createPromptGenerator } from '../utils/prompt/generator';
+import { applyTemplate } from '../utils/prompt/applyTemplate';
+import { STANDARD_PROMPT_TEMPLATE } from '../templates';
+
 const MAX_TOKEN_LEN = 10000; // GPT-4o 32k, prompt text should be shorter
 
 /**
- * @function enhancePrompt
- * @description 将prompt增强为更专业的prompt
- * @param {string} prompt
+ * @function enhancePromptTxt
+ * @description 将prompt增强为更专业的prompt (内部使用)
+ * @param {string} userPrompt
  * @returns {string}
  */
-export function enhancePrompt(prompt: string) {
-  return `### Enhance Prompt ###
-You are a professional prompt engineer specializing in crafting precise, effective prompts.
-Your task is to enhance prompts by making them more specific, actionable, and effective.
-
-I want you to improve the user prompt that is wrapped in \`<original_prompt>\` tags.
-
-For valid prompts:
-- Make instructions explicit and unambiguous
-- Add relevant context and constraints
-- Remove redundant information
-- Maintain the core intent
-- Ensure the prompt is self-contained
-- Use professional language
-
-For invalid or unclear prompts:
-- Respond with clear, professional guidance
-- Keep responses concise and actionable
-- Maintain a helpful, constructive tone
-- Focus on what the user should provide
-- Use a standard template for consistency
-
-IMPORTANT: Your response must ONLY contain the enhanced prompt text.
-Do not include any explanations, metadata, or wrapper tags.
-
-<original_prompt>
-  ${prompt}
-</original_prompt>`;
+function enhancePromptTxt(userPrompt: string): string {
+  return applyTemplate(STANDARD_PROMPT_TEMPLATE, {
+    role: 'Professional Prompt Engineer',
+    task_description:
+      "Enhance the user's prompt to make it more specific, actionable, and effective for interacting with an AI model.",
+    format_instructions:
+      'Respond ONLY with the enhanced prompt text. Do not include any explanations, metadata, or wrapper tags.',
+    input_content: userPrompt,
+    additional_instructions:
+      'For valid prompts:\n' +
+      '- Make instructions explicit and unambiguous.\n' +
+      '- Add relevant context and constraints.\n' +
+      '- Remove redundant information.\n' +
+      '- Maintain the core intent.\n' +
+      '- Ensure the prompt is self-contained.\n' +
+      '- Use professional language.\n\n' +
+      'For invalid or unclear prompts:\n' +
+      '- Respond with clear, professional guidance.\n' +
+      '- Keep responses concise and actionable.\n' +
+      '- Maintain a helpful, constructive tone.\n' +
+      '- Focus on what the user should provide.\n' +
+      '- Use a standard template for consistency.',
+  });
 }
 
 /**
- * @function genEnhancePromptPrompt
- * @description 生成增强prompt的prompt
- * @param {string} prompt prompt字符串
+ * @function genEnhancePrompt
+ * @description 生成用于增强Prompt的Prompt
+ * @param {string} prompt 用户的原始prompt字符串
  * @param {number} maxLen token最大长度, 默认10000
- * @returns {string} prompt信息
+ * @returns {string} 符合要求的Prompt文本，如果超过长度限制则返回空字符串
  */
-export function genEnhancePromptPrompt(prompt: string, maxLen = MAX_TOKEN_LEN) {
-  const promptTxt = enhancePrompt(prompt);
+export const genEnhancePrompt = createPromptGenerator(
+  { maxTokenLength: MAX_TOKEN_LEN },
+  enhancePromptTxt
+);
 
-  if (estimateTokenLength(promptTxt) > maxLen) {
-    return '';
-  }
-  return promptTxt;
-}
+// For backward compatibility, alias the old function name
+export { genEnhancePrompt as enhancePrompt };

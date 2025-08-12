@@ -1,20 +1,25 @@
-# 典型项目构建
+# 前端项目模板
 
-- `vite-react-ts`: React 18 + Vite + TailwindCSS3 + ts 项目模版
-- `react`：React16 页面项目模版
-- `vite-vue3+ts`：Vue3 + Vite + ts 项目模版
-- `vue`：Vue2 页面项目模板
-- `webpack`：原生 js+webpack 项目模版
-- `ts+webpack`：原生 ts+webpack 项目模版
+收录常见前端项目初始化模板，适用于不同技术栈。
 
-> 目前模版部分依赖版本较旧、不是特别建议使用，待近期更新
+## 模板列表
+
+- vite-react+ts: React 18 + Vite + TailwindCSS + TS
+- react: React 16 + Webpack
+- vite-vue3+ts: Vue 3 + Vite + TS
+- vue: Vue 2 + Webpack
+- webpack: JavaScript + Webpack
+- webpack+ts: TypeScript + Webpack
+
+> 部分模板依赖较旧，建议根据实际需求升级。
+
+## 使用方法
+
+1. 选择模板目录，复制到新项目
+2. 安装依赖
+3. 参考模板内 README 开发
 
 ## todo
 
-- rollup 模版
-- 多包模版
-
-## 更新信息
-
-- 2023.12.30: 增加 `vite-vue3+ts` 模版；修改 `build/`脚本；
-- 2022.07.02: 删除 gulp+webpack 模版
+- [ ] rollup 模板
+- [ ] 多包（Monorepo）模板

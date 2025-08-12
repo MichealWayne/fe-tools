@@ -5,7 +5,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const webpackMerge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.base');
 const CONFIGS = require('./configs');
 
@@ -20,7 +20,6 @@ const devConfig = options => ({
   stats: 'minimal',
 
   plugins: [
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DllReferencePlugin({
       context: __dirname,
@@ -31,14 +30,17 @@ const devConfig = options => ({
   devServer: {
     port: CONFIGS.port || 3000,
     hot: true,
-    contentBase: path.join(CONFIGS.root, 'src'),
-    overlay: true,
+    static: {
+      directory: path.join(CONFIGS.root, 'src'),
+    },
     historyApiFallback: {
       index: '/assets/',
       disableDotRule: true,
     },
-    inline: true,
-    proxy: CONFIGS.proxy,
+    proxy: CONFIGS.proxy ? Object.entries(CONFIGS.proxy).map(([context, options]) => ({
+      context: [context],
+      ...options
+    })) : [],
   },
 
   performance: {
@@ -46,4 +48,4 @@ const devConfig = options => ({
   },
 });
 
-module.exports = (options = {}) => webpackMerge(baseConfig(options), devConfig(options));
+module.exports = (options = {}) => merge(baseConfig(options), devConfig(options));

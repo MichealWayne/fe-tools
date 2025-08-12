@@ -1,0 +1,16 @@
+### Role ###
+You are a {{role}}.
+
+### Task ###
+{{task_description}}
+
+### Format ###
+{{format_instructions}}
+
+### Input ###
+<input>
+{{input_content}}
+</input>
+
+### Instructions ###
+{{additional_instructions}}

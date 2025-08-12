@@ -18,10 +18,11 @@ Contents:
 - [1.8 Hybrid and Cross-Platform](https://github.com/MichealWayne/fe-tools#18-hybird%E5%92%8C%E8%B7%A8%E7%AB%AF)
 - [1.9 Auxiliary Tools](https://github.com/MichealWayne/fe-tools#19-%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7)
 - [1.10 Testing, Security, and Encryption](https://github.com/MichealWayne/fe-tools#110-%E6%B5%8B%E8%AF%95%E5%AE%89%E5%85%A8%E5%8F%8A%E5%8A%A0%E5%AF%86)
-- [1.11 AI Artificial Intelligence Library and Programming Tools](https://github.com/MichealWayne/fe-tools#111-ai-artificial-intelligence-library-and-programming-tools)
+- [1.11 AI Artificial Intelligence Library](https://github.com/MichealWayne/fe-tools#111-ai-artificial-intelligence-library)
 - [1.12 WebAssembly](https://github.com/MichealWayne/fe-tools#112-webassembly)
-- [1.13 IDE Plugins](https://github.com/MichealWayne/fe-tools#113-ide%E6%8F%92%E4%BB%B6)
-- [1.14 Life Edition](https://github.com/MichealWayne/fe-tools#114-%E7%94%9F%E6%B4%BB%E7%AF%87)
+- [1.13 IDE Plugins](https://github.com/MichealWayne/fe-tools#113-ide-plugins)
+- [1.14 Web3/Blockchain](https://github.com/MichealWayne/fe-tools#114-web3blockchain)
+- [1.15 Life Edition](https://github.com/MichealWayne/fe-tools#115-life-edition)
 
 > Note: Some options can be considered by asking [Deepseek](https://chat.deepseek.com/) / [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/) first, and then judging based on the comprehensive information.
 
@@ -374,6 +375,14 @@ Contents:
 | https://github.com/akxcv/vuera                     | vuera                  | A library for mixing Vue/React components, which means Vue can use React components and React can use Vue components.                            |
 | https://github.com/devilwjp/veaury                 | veaury                 | A library for mixing Vue3/React components, better than vuera                                                                                    |
 | https://quark-design.hellobike.com/                | quark                  | A mobile cross-framework UI component library based on Web Components, Hallo.                                                                    |
+| https://astro.build/ | astro | Modern static site generator with multi-framework component support and zero JS runtime. |
+| https://qwik.builder.io/ | qwik | Resumable web framework with zero hydration and instant loading. |
+| https://fresh.deno.dev/ | fresh | Full-stack web framework based on Deno with zero configuration and edge-first. |
+| https://remix.run/ | remix | Full-stack web framework focused on web standards and modern UX. |
+| https://sveltekit.dev/ | sveltekit | Svelte's full-stack application framework, similar to Next.js. |
+| https://alpinejs.dev/ | alpinejs | Lightweight declarative framework with Vue-like syntax. |
+| https://lit.dev/ | lit | Simple library for building Web Components, by Google. |
+| https://github.com/BuilderIO/partytown | partytown | Library for relocating third-party scripts to web workers. |
 | https://github.com/web3/web3.js                    | web3js                 | Standard js encapsulation library for Ethereum.                                                                                                  |
 
 ### 1.5 Vue
@@ -460,6 +469,8 @@ Contents:
 
 #### 1.6.1 Next.js
 
+| Address                                                        | Tag                   | Description                                                                                                                                       |
+| -------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | https://next.i18next.com/ | next-i18next | A library for handling internationalization and multilingual support in Next.js. |
 | https://next-auth.js.org/ | next-auth | The official authentication library recommended by Next.js, supporting OAuth, JWT, and database integration, perfectly suited for SSR. |
 | https://github.com/garmeeh/next-seo | next-seo | An SEO tool designed for Next.js, supporting dynamic meta tag management and structured data generation. |
@@ -534,37 +545,37 @@ Contents:
 
 ### 1.7.2 Server
 
-| Address                                                         | Tag                    | Description                                                                                                                     |
-| --------------------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| http://www.expressjs.com.cn/                                    | express                | Lightweight web application development framework.                                                                              |
-| https://koajs.cn/#-application-                                 | koajs                  | Web application development framework.                                                                                          |
-| https://www.fastify.io/                                         | fastify                | Claimed to be the fastest lightweight web application development framework, with a focus on JSON schema acceleration.          |
-| http://www.midwayjs.org/                                        | midway                 | Web application development framework that supports Web/Full Stack/Microservices/RPC/Socket/Serverless, used by Alibaba Taobao. |
-| https://docs.feathersjs.com/                                    | feathersjs             | Lightweight web application development framework suitable for data streaming.                                                  |
-| https://docs.nestjs.com/                                        | nestjs                 | Powerful web application framework.                                                                                             |
-| https://github.com/nuysoft/Mock/wiki                            | mockjs                 | Interface data simulation tool that can be used on both client and server sides.                                                |
-| https://sheetjs.com/                                            | sheetjs                | Tool for manipulating Word through Node.                                                                                        |
-| https://github.com/parallel-js/parallel.js                      | paralleljs             | Tool for parallel processing of JS, usable in both the browser and Node server.                                                 |
-| https://parall.ax/products/jspdf                                | js-pdf                 | Tool for generating PDFs through Node.                                                                                          |
-| http://doc.pm2.io/en/plus/overview/                             | pm2                    | Node process management.                                                                                                        |
-| https://github.com/rvagg/node-worker-farm                       | node-worker-farm       | The very common Node.js multiprocess computing library.                                                                         |
-| https://github.com/Marak/colors.js                              | colorsjs               | Node log console output color control.                                                                                          |
-| https://log4js-node.github.io/log4js-node/                      | log4js                 | Log tool.                                                                                                                       |
-| https://nwjs.io/                                                | nwjs                   | Application runtime environment based on NodeJs and Chromium, allowing you to call all Node.js modules directly from the DOM.   |
-| https://github.com/archiverjs/node-archiver                     | node-archiver          | Supports ZIP/TAR document stream transmission and receiving plugins.                                                            |
-| https://github.com/thejoshwolfe/yazl                            | yazl                   | Compression zip plugin, corresponding to decompression at https://github.com/thejoshwolfe/yauzl.                                |
-| https://sailsjs.com/                                            | sailsjs                | User-friendly MVC Nodejs framework.                                                                                             |
-| https://helmetjs.github.io/                                     | helmet                 | Protects Express service applications by setting response header.                                                               |
-| https://github.com/expressjs/cors#readme                        | cors                   | Cors middleware for Nodejs.                                                                                                     |
-| https://github.com/expressjs/body-parser#readme                 | body-parser            | Request flow parsing middleware for Nodejs.                                                                                     |
-| http://restify.com/                                             | restify                | Web service framework for Nodejs.                                                                                               |
-| https://github.com/expressjs/multer#readme                      | multer                 | Middleware for handling uploaded files in Nodejs.                                                                               |
-| https://github.com/node-cache/node-cache                        | node-cache             | A Nodejs cache control module.                                                                                                  |
-| https://socket.io/                                              | http://socket.io/      | WebSocket solution.                                                                                                             |
-| https://github.com/luin/ioredis                                 | ioredis                | Redis invocation JS encapsulation library.                                                                                      |
-| https://github.com/websockets/ws                                | ws                     | A nodejs package for WebSocket.                                                                                                 |
-| https://github.com/digitalocean/nginxconfig.io                  | http://nginxconfig.io/ | Tool for generating nginx configurations online.                                                                                |
-| https://github.com/davidmarkclements/fast-safe-stringify#readme | fast-safe-stringify    | Securely and quickly serialize JSON, replacing JSON.stringify.                                                                  | Used to send mail library, support SMTP/SES/Sendmail/Stream mode |
+| Address                                                        | Tag                   | Description                                                                                                                                       |
+| -------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| http://www.expressjs.com.cn/                                    | express             | Lightweight web application development framework.                                                                              |
+| https://koajs.cn/#-application-                                 | koajs               | Web application development framework.                                                                                          |
+| https://www.fastify.io/                                         | fastify             | Claimed to be the fastest lightweight web application development framework, with a focus on JSON schema acceleration.          |
+| http://www.midwayjs.org/                                        | midway              | Web application development framework that supports Web/Full Stack/Microservices/RPC/Socket/Serverless, used by Alibaba Taobao. |
+| https://docs.feathersjs.com/                                    | feathersjs          | Lightweight web application development framework suitable for data streaming.                                                  |
+| https://docs.nestjs.com/                                        | nestjs              | Powerful web application framework.                                                                                             |
+| https://github.com/nuysoft/Mock/wiki                            | mockjs              | Interface data simulation tool that can be used on both client and server sides.                                                |
+| https://sheetjs.com/                                            | sheetjs             | Tool for manipulating Word through Node.                                                                                        |
+| https://github.com/parallel-js/parallel.js                      | paralleljs          | Tool for parallel processing of JS, usable in both the browser and Node server.                                                 |
+| https://parall.ax/products/jspdf                                | js-pdf              | Tool for generating PDFs through Node.                                                                                          |
+| http://doc.pm2.io/en/plus/overview/                             | pm2                 | Node process management.                                                                                                        |
+| https://github.com/rvagg/node-worker-farm                       | node-worker-farm    | The very common Node.js multiprocess computing library.                                                                         |
+| https://github.com/Marak/colors.js                              | colorsjs            | Node log console output color control.                                                                                          |
+| https://log4js-node.github.io/log4js-node/                      | log4js              | Log tool.                                                                                                                       |
+| https://nwjs.io/                                                | nwjs                | Application runtime environment based on NodeJs and Chromium, allowing you to call all Node.js modules directly from the DOM.   |
+| https://github.com/archiverjs/node-archiver                     | node-archiver       | Supports ZIP/TAR document stream transmission and receiving plugins.                                                            |
+| https://github.com/thejoshwolfe/yazl                            | yazl                | Compression zip plugin, corresponding to decompression at https://github.com/thejoshwolfe/yauzl.                                |
+| https://sailsjs.com/                                            | sailsjs             | User-friendly MVC Nodejs framework.                                                                                             |
+| https://helmetjs.github.io/                                     | helmet              | Protects Express service applications by setting response header.                                                               |
+| https://github.com/expressjs/cors#readme                        | cors                | Cors middleware for Nodejs.                                                                                                     |
+| https://github.com/expressjs/body-parser#readme                 | body-parser         | Request flow parsing middleware for Nodejs.                                                                                     |
+| http://restify.com/                                             | restify             | Web service framework for Nodejs.                                                                                               |
+| https://github.com/expressjs/multer#readme                      | multer              | Middleware for handling uploaded files in Nodejs.                                                                               |
+| https://github.com/node-cache/node-cache                        | node-cache          | A Nodejs cache control module.                                                                                                  |
+| https://socket.io/                                              | socket.io           | WebSocket solution.                                                                                                             |
+| https://github.com/luin/ioredis                                 | ioredis             | Redis invocation JS encapsulation library.                                                                                      |
+| https://github.com/websockets/ws                                | ws                  | A nodejs package for WebSocket.                                                                                                 |
+| https://github.com/digitalocean/nginxconfig.io                  | nginxconfig.io      | Tool for generating nginx configurations online.                                                                                |
+| https://github.com/davidmarkclements/fast-safe-stringify#readme | fast-safe-stringify | Securely and quickly serialize JSON, replacing JSON.stringify.                                                                  |
 
 ### 1.7.3 GraphQL
 
@@ -772,54 +783,194 @@ Contents:
 | https://github.com/nolanlawson/fuite        | fuite         | A tool for web memory detection, based on Puppeteer                                                                               |
 | https://github.com/chaitin/xray             | xray          | A comprehensive security assessment tool that supports common web security issue scanning and custom PoC, but is not open source. |
 
-### 1.11 AI Artificial Intelligence Library and Programming Tools
+### 1.11 AI Artificial Intelligence Library
 
-| Address                                          | Tag            | Description                                                                                                                                                                    |
-| ------------------------------------------------ | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| https://ai-sdk.dev/                              | `ai-sdk`       | TypeScript's AI toolkit offers various toolkits and UI interfaces                                                                                                              |
-| https://langchain-langchain.vercel.app/          | `langchain`    | Famous large language model integration tool that provides a set of tools, components, and interfaces to simplify the process of building advanced language model applications |
-| https://github.com/Significant-Gravitas/Auto-GPT | `autoGPT`      | Pre-trained language generation model that can automatically complete tasks such as summary generation, recommendation systems, and dialogue generation                        |
-| https://github.com/reworkd/AgentGPT              | `agentGPT`     | Language model-based artificial agent that can generate appropriate responses based on specific scenario requirements                                                          |
-| https://tensorflow.google.cn/js                  | tensorflow     | A library for building and running machine learning and deep learning models in the browser or Node.js                                                                         |
-| https://github.com/openai/openai-node            | openai         | OpenAI's Node.js API call encapsulation library                                                                                                                                |
-| https://github.com/openai/openai-quickstart-node | openai         | OpenAI Node.js Getting Started guide and examples                                                                                                                              |
-| https://github.com/openai/whisper                | whisper        | OpenAI speech recognition model (transcription)                                                                                                                                |
-| https://github.com/humanloop/awesome-chatgpt     | chatgpt        | Collection of chatGPT/GPT3 tools, demos, and documentation                                                                                                                     |
-| https://github.com/f/awesome-chatgpt-prompts     | chatgpt        | Collection of chatGPT Q&A training practices                                                                                                                                   |
-| https://alibaba.github.io/pipcook/#/zh-cn/       | pipcook        | Machine learning toolset friendly to web developers, from Alibaba                                                                                                              |
-| https://github.com/mljs/distance                 | ml-distance    | Calculate vector distance or similarity between, can be used for Embeddings processing                                                                                         |
-| https://promptperfect.jinaai.cn/                 | prompt-prefect | An optimized Prompt online tools                                                                                                                                               |
+#### 1.11.1 Large Language Model Integration Frameworks
 
-#### 1.11.1 AI Programming Development Tools
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://ai-sdk.dev/ | ai-sdk | TypeScript AI toolkit providing various toolkits and UI interfaces |
+| https://langchain-langchain.vercel.app/ | langchain | Famous large language model integration tool providing tools, components, and interfaces to simplify building advanced language model applications |
+| https://llamaindex.ai/ | llamaindex | Data framework for building LLM-based applications, focused on data indexing and retrieval |
+| https://github.com/microsoft/semantic-kernel | semantic-kernel | Microsoft open-source AI orchestration SDK supporting multiple programming languages |
+| https://github.com/Significant-Gravitas/Auto-GPT | autoGPT | Pre-trained language generation model that can automatically complete tasks like summary generation, recommendation systems, and dialogue generation |
+| https://github.com/reworkd/AgentGPT | agentGPT | Language model-based artificial agent that can generate appropriate responses based on specific scenario requirements |
+| https://github.com/TransformerOptimus/SuperAGI | superagi | Open-source autonomous AI agent framework with graphical interface |
+| https://github.com/e2b-dev/e2b | e2b | Cloud development environment for AI agents |
 
-| Address                                                    | Tag             | Description                                                                                                                                                        |
-| ---------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| https://docs.anthropic.com/zh-CN/docs/claude-code/overview | `claude-code`   | AI programming assistant by Anthropic, based on Claude model, supports code generation, explanation and debugging                                                  |
-| https://github.com/google-gemini/gemini-cli                | `gemini-cli`    | AI programming assistant by Google, based on Gemini model, supports command line interaction and code generation                                                   |
-| https://www.cursor.com/                                    | `cursor`        | Extremely friendly AI IDE for professional development, currently hot                                                                                              |
-| https://github.com/PatrickJS/awesome-cursorrules           | `cursorrules`   | A collection of engineering cursorrules that make Cursor more efficient                                                                                            |
-| https://windsurfai.org/zh                                  | `windsurf`      | Extremely friendly AI IDE for professional development, personally think more beginner-friendly than Cursor, currently hot                                         |
-| https://github.com/SchneiderSam/awesome-windsurfrules      | `windsurfrules` | A collection of engineering windsurfrules that make Windsurf more efficient                                                                                        |
-| https://www.trae.ai/                                       | `trae`          | AI IDE comparable to Cursor, free, ByteDance                                                                                                                       |
-| https://bolt.new/                                          | `bolt`          | AI Agent platform that generates and has the ability to deploy projects, currently hot                                                                             |
-| https://github.com/stackblitz/bolt.new                     | `bolt`          | Open source version of the Bolt project, supports switching models                                                                                                 |
-| https://v0.dev/                                            | `v0`            | Vercel's AI Agent platform that generates and has the ability to deploy projects, currently hot                                                                    |
-| https://www.copycoder.ai/                                  | `copycoder`     | Generate pages by uploading application screenshots or UI design drawings, for use with Cursor, Bolt AI code generation tools                                      |
-| https://github.com/cline/cline                             | `cline`         | Open source VSCode plugin, agent, supports AI generation/repair code, currently hot                                                                                |
-| https://copyweb.ai                                         | `copyweb`       | Generate pages by uploading application screenshots or Figma UI designs, good effect restoration but limited free quota                                            |
-| https://mastergo.com/                                      | `mastergo`      | Primarily a design platform, but can effectively convert designs into web pages, good marketing static effects, domestic                                           |
-| https://mgx.dev/                                           | `mgx`           | Multi-Agent development platform for building full-stack applications from planning, data analysis to coding, testing, and deployment, currently better than Devin |
+#### 1.11.2 API Wrapper Libraries
 
-#### 1.11.2 AI Tools & Platform
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://github.com/openai/openai-node | openai | OpenAI's Node.js API wrapper library |
+| https://github.com/openai/openai-quickstart-node | openai | OpenAI Node.js getting started documentation and examples |
+| https://github.com/anthropics/anthropic-sdk-typescript | anthropic | Anthropic Claude API TypeScript/JavaScript SDK |
+| https://github.com/google/generative-ai-js | google-ai | Google Gemini API JavaScript SDK |
+| https://github.com/cohere-ai/cohere-typescript | cohere | Cohere API TypeScript SDK |
+| https://github.com/mistralai/client-js | mistral | Mistral AI API JavaScript SDK |
+| https://github.com/replicate/replicate-javascript | replicate | Replicate API JavaScript SDK |
+| https://github.com/run-llama/LlamaIndexTS | llamaindex-ts | TypeScript version of LlamaIndex |
 
-| Address                            | Tag      | Description                                                                    |
-| ---------------------------------- | -------- | ------------------------------------------------------------------------------ |
-| https://mcp.so/                    | `mcp.so` | Open MCP toolkit collection                                                    |
-| https://21st.dev/                  | `21st`   | AI-friendly collection of frontend React components                            |
-| https://github.com/langgenius/dify | `dify`   | AI workflow orchestration platform, with open platform                         |
-| https://www.coze.cn/               | `coze`   | AI workflow orchestration open platform (not open source), domestic, ByteDance |
+#### 1.11.3 AI Application Development Tools
 
-### 1.12 WebAssembly
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://github.com/vercel/ai-chatbot | ai-chatbot | Vercel open-source full-stack chatbot template |
+| https://github.com/mckaywrigley/chatbot-ui | chatbot-ui | Open-source ChatGPT UI interface |
+| https://github.com/danny-avila/LibreChat | librechat | Enhanced ChatGPT clone supporting multiple AI models |
+| https://github.com/Yidadaa/ChatGPT-Next-Web | chatgpt-next-web | One-click deployment of your own cross-platform ChatGPT application |
+| https://github.com/homanp/superagent | superagent | Platform for building, deploying, and managing LLM-driven agents |
+| https://github.com/BuilderIO/ai-shell | ai-shell | CLI tool that converts natural language to shell commands |
+| https://github.com/geekan/MetaGPT | metagpt | Multi-agent framework that takes requirements and returns PRD, design, tasks, and code |
+| https://github.com/microsoft/autogen | autogen | Microsoft open-source multi-agent conversation framework |
+
+#### 1.11.4 Machine Learning Libraries
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://tensorflow.google.cn/js | tensorflow | Library for building and running machine learning and deep learning models in browser or Node.js |
+| https://github.com/ml5js/ml5-library | ml5 | Friendly machine learning library built on TensorFlow.js |
+| https://github.com/alibaba/pipcook | pipcook | Machine learning toolset friendly to web developers, by Alibaba |
+| https://github.com/mljs/ml | mljs | Machine learning library for JavaScript |
+| https://github.com/transcranial/keras-js | kerasjs | Run Keras models in the browser |
+| https://github.com/mljs/distance | ml-distance | Calculate distances or similarities between vectors, useful for embeddings processing |
+| https://github.com/xenova/transformers.js | transformersjs | Library for running Transformer models in the browser |
+
+#### 1.11.5 Speech and Vision AI
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://github.com/openai/whisper | whisper | OpenAI speech recognition model (speech-to-text) |
+| https://github.com/ricky0123/vad | vad | Real-time voice activity detection running in the browser |
+| https://github.com/microsoft/cognitive-services-speech-sdk-js | azure-speech | Microsoft Azure Speech Services JavaScript SDK |
+| https://github.com/aws-samples/amazon-transcribe-streaming-sdk | aws-transcribe | Amazon Transcribe streaming transcription SDK |
+| https://github.com/tensorflow/tfjs-models | tfjs-models | Collection of pre-trained TensorFlow.js models |
+| https://github.com/opencv/opencv.js | opencvjs | JavaScript version of OpenCV for computer vision |
+| https://github.com/justadudewhohacks/face-api.js | face-api | JavaScript face recognition API |
+| https://github.com/tensorflow/tfjs-models/tree/master/pose-detection | posenet | Real-time human pose estimation |
+
+#### 1.11.6 Vector Databases
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://github.com/chroma-core/chroma | chromadb | Open-source vector database |
+| https://github.com/milvus-io/milvus | milvus | Open-source vector database for scalable similarity search |
+| https://github.com/qdrant/qdrant | qdrant | Vector similarity search engine |
+| https://github.com/weaviate/weaviate | weaviate | Open-source vector search engine |
+| https://github.com/pinecone-io/pinecone-ts-client | pinecone | Pinecone vector database TypeScript client |
+| https://github.com/supabase/vecs | supabase-vecs | Supabase vector client |
+
+#### 1.11.7 Prompt Engineering and Optimization
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://promptperfect.jinaai.cn/ | prompt-perfect | Online tool for optimizing prompts |
+| https://github.com/microsoft/promptflow | promptflow | Microsoft open-source LLM application development suite |
+| https://github.com/hwchase17/langchain/tree/master/langchain/prompts | langchain-prompts | LangChain prompt template library |
+| https://github.com/dair-ai/Prompt-Engineering-Guide | prompt-guide | Prompt engineering guide and resources |
+| https://github.com/f/awesome-chatgpt-prompts | chatgpt-prompts | ChatGPT Q&A training practice collection |
+| https://github.com/humanloop/awesome-chatgpt | chatgpt-awesome | ChatGPT/GPT related tools, demos and documentation collection |
+
+#### 1.11.8 RAG (Retrieval Augmented Generation)
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://github.com/run-llama/llama_index | llamaindex-rag | Data framework optimized for RAG |
+| https://github.com/langchain-ai/langchain/tree/master/libs/langchain/langchain/chains/retrieval_qa | langchain-rag | LangChain retrieval Q&A chain |
+| https://github.com/mendableai/firecrawl | firecrawl | Convert websites to LLM-ready data |
+| https://github.com/embedchain/embedchain | embedchain | Create ChatGPT applications based on any dataset |
+| https://github.com/jerryjliu/llama_index/tree/main/llama-index-integrations | llamaindex-integrations | LlamaIndex integration packages |
+
+#### 1.11.9 AI Programming Development Tools
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://docs.anthropic.com/zh-CN/docs/claude-code/overview | claude-code | AI programming assistant by Anthropic, based on Claude model, supports code generation, explanation and debugging |
+| https://github.com/google-gemini/gemini-cli | gemini-cli | AI programming assistant by Google, based on Gemini model, supports command line interaction and code generation |
+| https://www.cursor.com/ | cursor | Extremely developer-friendly AI IDE, currently trending |
+| https://github.com/PatrickJS/awesome-cursorrules | cursorrules | Collection of engineering cursorrules to improve Cursor efficiency |
+| https://windsurfai.org/zh | windsurf | Extremely developer-friendly AI IDE, personally think more beginner-friendly than Cursor, currently trending |
+| https://github.com/SchneiderSam/awesome-windsurfrules | windsurfrules | Collection of engineering windsurfrules to improve Windsurf efficiency |
+| https://www.trae.ai/ | trae | AI IDE comparable to Cursor, free, by ByteDance |
+| https://bolt.new/ | bolt | AI Agent platform that generates and deploys projects, currently trending |
+| https://github.com/stackblitz/bolt.new | bolt | Open-source version of Bolt project, supports model switching |
+| https://v0.dev/ | v0 | Vercel's AI Agent platform that generates and deploys projects, currently trending |
+| https://www.copycoder.ai/ | copycoder | Generate pages by uploading app screenshots or UI designs, used with Cursor, Bolt AI code generation tools |
+| https://github.com/cline/cline | cline | Open-source VSCode plugin, agent, supports AI code generation/repair, currently trending |
+| https://copyweb.ai | copyweb | Generate pages by uploading app screenshots or Figma UI designs, good restoration effect but limited free quota |
+| https://mastergo.com/ | mastergo | Primarily design platform but can effectively convert to web pages, good for marketing static effects, domestic |
+| https://mgx.dev/ | mgx | Multi-Agent development platform for building full-stack applications from planning, data analysis to coding, testing and deployment, currently better than Devin |
+| https://github.com/features/copilot | copilot | GitHub official AI programming assistant |
+| https://codeium.com/ | codeium | Free AI code completion tool |
+| https://www.tabnine.com/ | tabnine | AI code completion tool supporting multiple IDEs |
+| https://github.com/paul-gauthier/aider | aider | GPT-based AI pair programming tool |
+| https://github.com/moyix/fauxpilot | fauxpilot | Open-source GitHub Copilot alternative |
+
+#### 1.11.10 AI Tool Platforms
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://mcp.so/ | mcp.so | Open MCP tool collection |
+| https://21st.dev/ | 21st | AI-friendly frontend React component collection |
+| https://github.com/langgenius/dify | dify | AI workflow orchestration platform with open platform |
+| https://www.coze.cn/ | coze | AI workflow orchestration open platform (not open source), domestic, ByteDance |
+| https://www.langflow.org/ | langflow | Visual AI application building platform |
+| https://flowise.ai/ | flowise | Drag-and-drop LLM application building tool |
+| https://github.com/FlowiseAI/Flowise | flowise-open | Open-source version of Flowise |
+
+### 1.12 Web3/Blockchain
+
+#### 1.12.1 Ethereum Development Libraries
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://docs.ethers.org/v6/ | ethers | Complete Ethereum library for JavaScript and TypeScript |
+| https://viem.sh/ | viem | TypeScript interface for Ethereum with excellent type safety |
+| https://wagmi.sh/ | wagmi | React hooks for Ethereum development |
+| https://web3js.org/ | web3js | Original Ethereum JavaScript library |
+| https://github.com/ethereum/ethereum-org-website | ethereum | Ethereum official website source code |
+
+#### 1.12.2 Wallet Integration
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://rainbowkit.com/ | rainbowkit | Best wallet connection library for React |
+| https://docs.family.co/connectkit | connectkit | Modern wallet connection components |
+| https://web3modal.com/ | web3modal | Universal wallet modal for Web3 |
+| https://metamask.io/sdk/ | metamask-sdk | MetaMask SDK for dApp integration |
+| https://walletconnect.com/web3modal | walletconnect | Cross-platform wallet connection protocol |
+
+#### 1.12.3 Development Frameworks
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://thirdweb.com/ | thirdweb | Complete Web3 development platform |
+| https://moralis.io/ | moralis | Web3 development platform with APIs |
+| https://hardhat.org/ | hardhat | Ethereum development environment |
+| https://trufflesuite.com/ | truffle | Ethereum development framework |
+| https://remix.ethereum.org/ | remix | Online Ethereum IDE |
+
+#### 1.12.4 Infrastructure and APIs
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://alchemy.com/ | alchemy | Ethereum node and API services |
+| https://infura.io/ | infura | Ethereum and IPFS infrastructure |
+| https://quicknode.com/ | quicknode | Blockchain infrastructure platform |
+| https://chain.link/ | chainlink | Decentralized oracle network |
+| https://thegraph.com/ | thegraph | Decentralized protocol for indexing blockchain data |
+
+#### 1.12.5 DeFi and NFT Tools
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://uniswap.org/ | uniswap | Decentralized exchange protocol |
+| https://opensea.io/ | opensea | NFT marketplace |
+| https://0x.org/ | 0x | Decentralized exchange infrastructure |
+| https://compound.finance/ | compound | DeFi lending protocol |
+| https://openzeppelin.com/ | openzeppelin | Secure smart contract library |
+
+### 1.13 WebAssembly
 
 | Link                                                                                   | Tag              | Description                                  |
 | -------------------------------------------------------------------------------------- | ---------------- | -------------------------------------------- |
@@ -827,9 +978,9 @@ Contents:
 | <a href="https://wasmtime.dev/" target="_blank">Wasmtime</a>                           | `wasmtime`       | fast and safety wasm runtime, from bytedance |
 | <a href="https://mbebenita.github.io/WasmExplorer/" target="_blank"> WasmExplorer </a> | `WasmExplorer`   | online wasm playground                       |
 
-### 1.13 IDE Plugins
+### 1.14 IDE Plugins
 
-### 1.13.1 VS Code
+### 1.14.1 VS Code
 
 | Link                                                                                                            | Tag                       | Description                                                                       |
 | --------------------------------------------------------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------- |
@@ -858,7 +1009,7 @@ Contents:
 | https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager                                 | project-manager           | Local project management tool                                                     |
 | https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster                             | javascript-booster        | JS/TS quick refactoring and optimization tool, such as changing var to const/let. |
 
-### 1.14 Life
+### 1.15 Life
 
 | Address                                   | Tag             | Description                              |
 | ----------------------------------------- | --------------- | ---------------------------------------- |

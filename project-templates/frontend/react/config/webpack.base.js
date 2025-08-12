@@ -7,7 +7,7 @@ const glob = require('glob');
 const path = require('path'),
   join = path.join;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const LessFunc = require('less-plugin-functions');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CONFIGS = require('./configs'),
@@ -44,7 +44,10 @@ module.exports = options => {
   const isMobile = (CONFIGS.platform || '').toLowerCase() !== 'pc';
   let plugins = [
     ...htmlWebpackPlugins,
-    new FriendlyErrorsWebpackPlugin(),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', 'ts', 'tsx'],
+      exclude: 'node_modules',
+    }),
     new MiniCssExtractPlugin({
       filename: `css/[name]${options.dev || options.prod ? '' : '.[contenthash:8]'}.css`,
       chunkFilename: `[id].css`,
@@ -54,8 +57,8 @@ module.exports = options => {
     entry: entryJSList,
     output: {
       path: join(projectRoot, CONFIGS.dist),
-      filename: 'js/[name].[hash:8].js',
-      chunkFilename: '[id].js?[hash:8]',
+      filename: 'js/[name].[contenthash:8].js',
+      chunkFilename: '[id].[contenthash:8].js',
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.jsx'],
@@ -71,7 +74,6 @@ module.exports = options => {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
           use: [
-            'cache-loader',
             {
               loader: 'babel-loader',
               options: {
@@ -84,9 +86,8 @@ module.exports = options => {
         {
           test: /\.(ts|tsx)$/,
           use: [
-            'cache-loader',
             {
-              loader: 'awesome-typescript-loader',
+              loader: 'ts-loader',
             },
           ],
         },
@@ -97,8 +98,15 @@ module.exports = options => {
           use: {
             loader: 'html-loader',
             options: {
-              root: path.resolve(projectRoot, 'src'),
-              attrs: ['img:src'],
+              sources: {
+                list: [
+                  {
+                    tag: 'img',
+                    attribute: 'src',
+                    type: 'src',
+                  },
+                ],
+              },
             },
           },
         },
@@ -112,7 +120,9 @@ module.exports = options => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: [require('autoprefixer')()],
+                postcssOptions: {
+                  plugins: [require('autoprefixer')()],
+                },
               },
             },
           ],
@@ -135,58 +145,60 @@ module.exports = options => {
             {
               loader: 'css-loader',
               options: {
-                modules: true,
-                localIdentName: '[local]_[hash:base64:8]',
+                modules: {
+                  localIdentName: '[local]_[hash:base64:8]',
+                },
               },
             },
             {
               loader: 'postcss-loader',
               options: {
-                plugins: [require('autoprefixer')()].concat(
-                  isMobile
-                    ? [
-                        require('postcss-px-to-viewport')({
-                          unitToConvert: 'px',
-                          viewportWidth: 750, // UI size
-                          unitPrecision: 5,
-                          propList: ['*'],
-                          viewportUnit: 'vw',
-                          fontViewportUnit: 'vw',
-                          selectorBlackList: ['ig-'], // ignore
-                          minPixelValue: 1,
-                          mediaQuery: true,
-                          replace: true,
-                        }),
-                      ]
-                    : []
-                ),
+                postcssOptions: {
+                  plugins: [require('autoprefixer')()].concat(
+                    isMobile
+                      ? [
+                          require('postcss-px-to-viewport')({
+                            unitToConvert: 'px',
+                            viewportWidth: 750, // UI size
+                            unitPrecision: 5,
+                            propList: ['*'],
+                            viewportUnit: 'vw',
+                            fontViewportUnit: 'vw',
+                            selectorBlackList: ['ig-'], // ignore
+                            minPixelValue: 1,
+                            mediaQuery: true,
+                            replace: true,
+                          }),
+                        ]
+                      : []
+                  ),
+                },
               },
             },
             {
               loader: 'less-loader',
               options: {
-                strictMath: true,
-                plugins: [new LessFunc()],
+                lessOptions: {
+                  strictMath: true,
+                  plugins: [new LessFunc()],
+                },
               },
             },
           ],
         },
 
-        // image or font
+        // image or font - using Asset Modules (webpack 5)
         {
           test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 10240,
-                name: 'images/[hash:8].[ext]',
-              },
+          type: 'asset',
+          parser: {
+            dataUrlCondition: {
+              maxSize: 10240, // 10kb
             },
-            {
-              loader: 'image-webpack-loader', // 压缩图片
-            },
-          ],
+          },
+          generator: {
+            filename: 'images/[contenthash:8][ext]',
+          },
         },
       ],
     },

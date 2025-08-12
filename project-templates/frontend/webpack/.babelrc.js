@@ -1,5 +1,13 @@
 // document: https://babeljs.io/docs/en/configuration
 
 module.exports = {
-  presets: [['env', { loose: true }], 'stage-2'],
+  presets: [
+    ['@babel/preset-env', { 
+      targets: 'defaults',
+      loose: true 
+    }]
+  ],
+  plugins: [
+    '@babel/plugin-transform-runtime'
+  ]
 };

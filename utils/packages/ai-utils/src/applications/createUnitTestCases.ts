@@ -1,54 +1,44 @@
 /**
  * @author Wayne
  * @Date 2024-05-11 10:40:18
- * @LastEditTime 2025-04-06 11:20:17
+ * @LastEditTime 2025-08-10 15:02:12
  */
-import { estimateTokenLength } from '../llm/prompts';
+import { createPromptGenerator } from '../utils/prompt/generator';
+import { applyTemplate } from '../utils/prompt/applyTemplate';
+import { STANDARD_PROMPT_TEMPLATE } from '../templates';
+
 const MAX_TOKEN_LEN = 30000; // GPT-4o 32k
 
 /**
- * @function getCreateUnitTestCases
- * @description 获取单元测试的prompt
- * @param {string} patch
+ * @function getCreateUnitTestCasesTxt
+ * @description 获取单元测试的prompt (内部使用)
+ * @param {string} codeToTest
  * @returns {string}
  */
-export function getCreateUnitTestCases(patch: string) {
-  return `### Unit Test ###
-You are an expert software tester tasked with thoroughly testing a given piece of code, you are proficient in JavaScript/TypeScript. 
-Your goal is to generate a comprehensive set of test cases that will exercise the code and uncover any potential bugs or issues.
-    
-First, carefully analyze the provided code. Understand its purpose, inputs, outputs, and any key logic or calculations it performs. Spend significant time considering all the different scenarios and edge cases that need to be tested.
-    
-Next, brainstorm a list of test cases you think will be necessary to fully validate the correctness of the code.
-Your current role is: UnitTest code generator
-##
-- use jest test framework
-- use typescript
-- the test environment is Node.js
-- only generate code with no explain
-- write the\`prepareChatMessages\` and \`getFirstAnswerMsg\` and \`setChatMessages\` and \`setModel\` method's unit test cases
-
-The target code to generate tests can be found below:
-<input>
-${patch}
-</input>
-
-Let’s work this out in a step-by-step way to be sure we have the right answer.
-`;
+function getCreateUnitTestCasesTxt(codeToTest: string): string {
+  return applyTemplate(STANDARD_PROMPT_TEMPLATE, {
+    role: 'Expert Software Tester proficient in JavaScript/TypeScript and the Jest testing framework',
+    task_description:
+      'Generate a comprehensive set of unit test cases for the provided code snippet. The tests should cover main functionality, edge cases, and potential error conditions.',
+    format_instructions:
+      'Provide only the Jest test code in TypeScript. Do not include any explanations or markdown code block wrappers in your final response.',
+    input_content: codeToTest,
+    additional_instructions:
+      '- The test environment is Node.js.\n' +
+      '- Focus on testing the `prepareChatMessages`, `getFirstAnswerMsg`, `setChatMessages`, and `setModel` methods if they exist in the input.\n' +
+      '- Ensure tests are clear, concise, and follow Jest best practices.\n' +
+      '- Analyze the code carefully before generating tests.',
+  });
 }
 
 /**
  * @function genUnitTestCasesPrompt
- * @description 生成单元测试的prompt
+ * @description 生成用于创建单元测试的Prompt
  * @param {string} codeStr 代码字符串
  * @param {number} maxLen token最大长度, 默认30000
- * @returns {string} prompt信息
+ * @returns {string} 符合要求的Prompt文本，如果超过长度限制则返回空字符串
  */
-export function genUnitTestCasesPrompt(codeStr: string, maxLen = MAX_TOKEN_LEN) {
-  const promptTxt = getCreateUnitTestCases(codeStr);
-
-  if (estimateTokenLength(promptTxt) > maxLen) {
-    return '';
-  }
-  return promptTxt;
-}
+export const genUnitTestCasesPrompt = createPromptGenerator(
+  { maxTokenLength: MAX_TOKEN_LEN },
+  getCreateUnitTestCasesTxt
+);

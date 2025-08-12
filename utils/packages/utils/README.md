@@ -1,146 +1,69 @@
-# utils
+# @fe-tools/utils
 
-- [array.ts](./src/array.ts)
-  - arrayMax：求数组最大值
-  - arrayMin：求数组最小值
-  - arrayAverage：求数组平均值
-  - arraySum：数组求和
-  - allEqual：判断数组中所有项是否都相等
-  - size：获取数组/字符串/Map/Set/对象属性/Blob 对象数量
-  - arrayToCSV：二维数据转 csv 字符串
-  - castArray：未知类型的数据 val 转数组
-  - chunk：数组分片
-  - compact：数组筛选出“真”值项
-  - countOccurrences：计算数据 val 在数组 arr 中出现的次数
-  - deepFlatten：数组深度扁平化
-  - flatten：可控制扁平化深度 depth 的数组扁平化
-  - difference：判断两个数组项是否相同
-  - differenceBy：每项比较通过方法 fn 进行判断，判断两个数组项是否相同
-  - dropWhile：数组 arr 通过 fn 处理进行遍历
-  - indexOfAll：查找数据 val 在数组 arr 中出现的所有位置
-  - intersection：在数组 arr1 中筛选出 arr2 也包含的数据项
-  - intersectionBy：在数组 arr1 中筛选出 arr2 也包含的数据项，通过方法 fn 进行筛选判断
-  - intersectionWith：在数组 arr1 中筛选出 arr2 也包含的数据项，通过方法 fn 进行筛选判断
-  - negate：反向筛选
-  - sample：从数组 arr 中随机取一项
-  - sampleSize：从数组 arr 中随机取几项
-  - shuffle：数组 arr 数据项打乱
-  - everyNth：数组 arr 间隔取值
-  - filterNonUnique：筛选出数组中没有重复数字的数据项
-  - initializeArrayWithValues：初始化数组
-  - remove：筛选数组
-  - digitize：数字分隔为数字列表
-  - fibonacci：斐波那次序列
-  - median：找中位数
-  - unique：数组去重
-- [await-to.ts](./src/await-to.ts)
-  - to: async-await/promise 操作相关
-- [check.ts](./src/check.ts)
-  - isEmail：验证电子邮件地址的格式
-  - isIdCard：中国大陆身份证验证
-  - isUrl：检查是否能够正确地验证 URL 的格式
-  - isPhoneNumber：中国大陆手机号验证
-  - isPostalCode：校验(中国)邮政编码
-- [check.plus.ts](./src/check.plus.ts)
-  - validatePassport：(中国)护照号码校验
-  - validateLicensePlate：(中国)车牌号校验
-  - checkPwdStrength：检验密码强度（数字+字母+符号）
-  - checkIdcard：身份证正确性校验
-- [color.ts](./src/color.ts)
-  - randomHexColor：随机十六进制格式颜色
-  - getColorRgb：十六进制格式颜色转 rgb
-  - isTransparentColor：rgb/rgba 色值是否为透明色
-- [date.ts](./src/date.ts)
-  - dayOfYear：此日期是当年中的第几天
-  - getColonTimeFromDate：获取 hh:mm:ss 时间
-  - getDaysDiffBetweenDates：判断两个日期差了几天
-  - isAfterDate：判断一个日期是否在另一个日期之后
-  - isBeforeDate：判断一个日期是否在另一个日期之前
-  - daysLater：获取几天后的日期
-  - getFormattedRemainTime：计算两个日期之间的时间差，并返回格式化结果
-- [Easing.ts](./src/Easing.ts)
-  - Linear：一阶线性函数
-  - Quadratic：二阶缓冲函数
-  - Cubic：三阶缓冲函数
-  - Quartic：四阶缓冲函数
-  - Quintic：五阶缓冲函数
-  - Sinusoidal：正弦函数
-  - Exponential：指数函数
-  - Circular：圆形函数
-  - Elastic：伸缩缓冲函数
-  - Back：倒退缓冲函数
-  - Bounce：弹跳缓冲函数
-- [function.ts](./src/function.ts)
-  - NOOP：一个无操作函数，执行后返回空字符串
-  - attempt：尝试执行传入的函数，并返回其执行结果或错误
-  - defer：将指定的函数延迟执行，直到当前执行栈中的代码全部执行完毕后再执行
-  - runPromisesInSeries：队列执行 promise
-  - timeTaken：测量执行一个函数所需要的时间
-  - memoize：缓存函数，避免重复计算
-  - once：确保函数只执行一次
-  - chainAsync：链式执行异步函数
-  - compose：组合函数，从右到左执行
-  - pipe：管道执行函数，从左到右执行
-  - curry：柯里化函数，支持部分函数应用
-  - functionName：打印函数名称
-  - promisify：将回调风格的函数转换成 Promise 风格的函数
-  - sleep：延迟 ms 执行，返回一个 Promise
-  - throttle：节流函数，限制函数执行的频率
-  - debounce：防抖函数，确保函数在指定时间内最多执行一次
-- [math.ts](./src/math.ts)
-  - factorial：阶乘
-  - gcd：公约数
-  - isDivisible：是否能整除
-  - lcm：最小公倍数
-- [number.ts](./src/number.ts)
-  - isInt：判断是否为整数
-  - isOdd：判断一个数字是否为偶数
-  - isFloat：判断是否为浮点数
-  - isValidNumber：判断是否是合法的数字
-  - isApproximatelyEqual：判断两个数字是否约等于
-  - average：计算平均数
-  - randomIntegerInRange：求范围中的随机整数
-  - randomNumberInRange：求范围中的随机数（浮点数）
-  - randomIntArrayInRange：求范围中的随机整数数组
-  - round：数字取位
-  - sum：数字求和
-  - clamp：通过区间约束范围值
-- [object.ts](./src/object.ts)
-  - forOwn：对象遍历处理
-  - objectFromPairs：数组字典转对象
-  - mapObject：数组转对象
-  - pick：过滤对象
-  - hasOwnProp：检查一个对象是否具有指定的属性
-  - isEmptyObj：是否为空对象
-- [string.ts](./src/string.ts)
-  - byteSize：计算字符串的字节数
-  - capitalize：将字符串的第一个字母转换为大写字母
-  - capitalizeEveryWord：将字符串中的每个单词的第一个字母转换为大写字母
-  - decapitalize：将字符串的第一个字母转换为小写字母
-  - ellipsis: 当字符串超过指定长度时进行截断并添加自定义后缀
-  - splitLines：字符换行分割
-  - stripHTMLTags：从字符串中删除 HTML 标签
-  - palindrome：判断一个字符串是否为回文
-  - fromCamelCase：将驼峰命名法的字符串转换为下划线命名法的字符串
-  - reverseString：反转字符串
-  - truncateString：如果字符串的长度大于指定数值，则返回截取后的字符串加上省略号
-  - isChinese：判断字符串是否全部是中文
-  - camelize：将字符串转换成驼峰命名方式
-- [trade.ts](./src/trade.ts)
-  - luhnCheck：银行卡号校验
-  - toCurrency：货币转换
-- [tween.ts](./src/tween.ts)
-- [type.ts](./src/type.ts)
-  - type：获取变量值的类型
-  - isUndefined：判断变量值是否为 `undefined`
-  - isArray：判断变量值是否为数组
-  - isString：判断变量值是否为字符串
-  - isNumber：判断变量值是否为数字
-  - isObject：判断变量值是否为对象
-  - isFunction：判断变量值是否为函数
-  - isPrimitive：判断变量值是否为原始类型（包括 `Promise`）
-  - isDate：判断传入的参数是否为 `Date` 类型
-  - equals：判断两个参数是否值相等
-- [others.ts](./src/others.ts)
-  - compareVersion：版本比较
-  - digitUppercase：金额文字化
+提供 JavaScript/TypeScript 开发中常用的通用工具函数库。
+
+## 功能列表
+
+### Array (数组) (文件: `src/array.ts`)
+
+- 包含数组操作如求最大值、最小值、平均值、求和、去重、分片、扁平化、筛选等。
+
+### Await & Promise (文件: `src/await-to.ts`)
+
+- **to** - 简化 async/await 错误处理。
+
+### Check (校验) (文件: `src/check.ts`)
+
+- 邮箱、身份证、URL、手机号、邮政编码等格式校验。
+
+### Check Plus (增强校验) (文件: `src/check.plus.ts`)
+
+- 护照、车牌号校验，密码强度检测，身份证正确性校验。
+
+### Color (颜色) (文件: `src/color.ts`)
+
+- 随机颜色生成，颜色格式转换，透明色判断。
+
+### Date (日期) (文件: `src/date.ts`)
+
+- 日期差计算，日期前后判断，时间格式化等。
+
+### Easing (缓动函数) (文件: `src/Easing.ts`)
+
+- 提供多种缓动函数，如线性、二次、三次、弹性、弹跳等。
+
+### Function (函数) (文件: `src/function.ts`)
+
+- 函数工具如防抖、节流、柯里化、组合、管道、延迟执行、性能计时等。
+
+### Math (数学) (文件: `src/math.ts`)
+
+- 阶乘、公约数、最小公倍数等数学计算。
+
+### Number (数字) (文件: `src/number.ts`)
+
+- 数字类型判断、随机数生成、范围约束、近似相等比较等。
+
+### Object (对象) (文件: `src/object.ts`)
+
+- 对象遍历、属性筛选、类型判断等。
+
+### String (字符串) (文件: `src/string.ts`)
+
+- 字符串操作如大小写转换、截断、反转、驼峰转换、HTML 标签移除等。
+
+### Trade (交易) (文件: `src/trade.ts`)
+
+- 银行卡号校验、货币格式化。
+
+### Tween (缓动) (文件: `src/tween.ts`)
+
+- 提供缓动动画相关的计算函数。
+
+### Type (类型) (文件: `src/type.ts`)
+
+- 精确的变量类型判断。
+
+### Others (其他) (文件: `src/others.ts`)
+
+- 版本比较、金额转大写等实用功能。

@@ -8,6 +8,7 @@ const glob = require('glob');
 const { resolve, join } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const LessFunc = require('less-plugin-functions');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CONFIG = require('./package.json');
@@ -48,6 +49,12 @@ module.exports = (options = {}) => {
 
   const plugins = [
     ...entryHtmlList,
+
+    // 临时注释掉ESLint插件
+    // new ESLintPlugin({
+    //   extensions: ['js'],
+    //   exclude: 'node_modules',
+    // }),
 
     new MiniCssExtractPlugin({
       filename: `css/[name]${options.dev ? '' : '.[chunkhash:8]'}.css`,
@@ -100,10 +107,9 @@ module.exports = (options = {}) => {
             {
               loader: 'babel-loader',
               options: {
-                presets: ['babel-preset-env'],
+                presets: [['@babel/preset-env', { targets: 'defaults' }]],
               },
             },
-            'eslint-loader',
           ],
         },
 
@@ -113,8 +119,15 @@ module.exports = (options = {}) => {
           use: {
             loader: 'html-loader',
             options: {
-              root: resolve(__dirname, 'src'),
-              attrs: ['img:src'],
+              sources: {
+                list: [
+                  {
+                    tag: 'img',
+                    attribute: 'src',
+                    type: 'src',
+                  },
+                ],
+              },
             },
           },
         },
@@ -128,7 +141,9 @@ module.exports = (options = {}) => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: [require('autoprefixer')()],
+                postcssOptions: {
+                  plugins: [require('autoprefixer')()],
+                },
               },
             },
           ],
@@ -143,14 +158,18 @@ module.exports = (options = {}) => {
             {
               loader: 'postcss-loader',
               options: {
-                plugins: [require('autoprefixer')()],
+                postcssOptions: {
+                  plugins: [require('autoprefixer')()],
+                },
               },
             },
             {
               loader: 'less-loader',
               options: {
-                strictMath: true,
-                plugins: [new LessFunc()],
+                lessOptions: {
+                  strictMath: true,
+                  plugins: [new LessFunc()],
+                },
               },
             },
           ],
@@ -159,15 +178,15 @@ module.exports = (options = {}) => {
         // image or font
         {
           test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: IMAGE_LIMIT,
-                name: 'images/[hash].[ext]',
-              },
+          type: 'asset',
+          parser: {
+            dataUrlCondition: {
+              maxSize: IMAGE_LIMIT,
             },
-          ],
+          },
+          generator: {
+            filename: 'images/[contenthash:8][ext]',
+          },
         },
       ],
     },
@@ -177,13 +196,13 @@ module.exports = (options = {}) => {
     devServer: {
       port: 3000,
       hot: true,
-      contentBase: join(__dirname, 'src'),
-      overlay: true,
+      static: {
+        directory: join(__dirname, 'src'),
+      },
       historyApiFallback: {
         index: '/assets/',
         disableDotRule: true,
       },
-      inline: true,
     },
 
     performance: {

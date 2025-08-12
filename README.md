@@ -19,9 +19,11 @@
 - [1.8 Hybird和跨端](#18-hybird和跨端)
 - [1.9 辅助工具](#19-辅助工具)
 - [1.10 测试、安全及加密](#110-测试安全及加密)
-- [1.11 AI人工智能库及编程工具](#111-AI人工智能库)
-- [1.12 IDE插件](#112-ide插件)
-- [1.13 生活篇](#113-生活篇)
+- [1.11 AI人工智能库](#111-AI人工智能库)
+- [1.12 WebAssembly](#112-webassembly)
+- [1.13 IDE插件](#113-ide插件)
+- [1.14 Web3/区块链](#114-web3区块链)
+- [1.15 生活篇](#115-生活篇)
 
 > 注：一些选型可以考虑先问 [Deepseek](https://chat.deepseek.com/) / [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/)，然后根据回答信息进行综合判断
 
@@ -359,6 +361,14 @@
 <a href="https://github.com/akxcv/vuera" target="_blank">Vuera</a> | `vuera` | 用来混用Vue/React组件的库、即Vue中可以使用React组件、React中可以使用Vue组件。
 <a href="https://github.com/devilwjp/veaury" target="_blank">Veaury</a> | `veaury` | 用来混用Vue3/React组件的库、比vuera功能完善。
 <a href="https://quark-design.hellobike.com/" target="_blank">Quark</a> | `quark` | 基于 Web Components 的移动端跨框架 UI 组件库，哈啰。
+<a href="https://astro.build/" target="_blank">Astro</a> | `astro` | 现代静态站点生成器，支持多框架组件，零JS运行时。
+<a href="https://qwik.builder.io/" target="_blank">Qwik</a> | `qwik` | 可恢复的web框架，零水合，即时加载。
+<a href="https://fresh.deno.dev/" target="_blank">Fresh</a> | `fresh` | 基于Deno的全栈web框架，零配置，边缘优先。
+<a href="https://remix.run/" target="_blank">Remix</a> | `remix` | 专注于web标准和现代UX的全栈web框架。
+<a href="https://sveltekit.dev/" target="_blank">SvelteKit</a> | `sveltekit` | Svelte的全栈应用框架，类似Next.js。
+<a href="https://alpinejs.dev/" target="_blank">Alpine.js</a> | `alpinejs` | 轻量级的声明式框架，类似Vue的语法。
+<a href="https://lit.dev/" target="_blank">Lit</a> | `lit` | 构建Web Components的简单库，Google。
+<a href="https://github.com/BuilderIO/partytown" target="_blank">Partytown</a> | `partytown` | 将第三方脚本迁移到web worker的库。
 <a href="https://github.com/web3/web3.js" target="_blank">Web3js</a> | `web3js` | 以太坊标准js封装库。
 
 
@@ -753,23 +763,103 @@
 
 ### 1.11 AI人工智能库
 
+#### 1.11.1 大语言模型集成框架
+
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://ai-sdk.dev/" target="_blank">AI SDK</a> | `ai-sdk` | TypeScript的AI工具包，提供各类工具包、UI界面
-<a href="https://langchain-langchain.vercel.app/" target="_blank">LangChain</a> | `langchain` | 著名的大语言模型集成工具，供了一套工具、组件和接口，可简化构建高级语言模型应用程序的过程
-<a href="https://github.com/Significant-Gravitas/Auto-GPT" target="_blank">Auto-GPT</a> | `autoGPT` | 预训练语言生成模型，可以自动完成摘要生成、推荐系统和对话生成等任务，
+<a href="https://langchain-langchain.vercel.app/" target="_blank">LangChain</a> | `langchain` | 著名的大语言模型集成工具，提供了一套工具、组件和接口，可简化构建高级语言模型应用程序的过程
+<a href="https://llamaindex.ai/" target="_blank">LlamaIndex</a> | `llamaindex` | 构建基于LLM的应用程序的数据框架，专注于数据索引和检索
+<a href="https://github.com/microsoft/semantic-kernel" target="_blank">Semantic Kernel</a> | `semantic-kernel` | 微软开源的AI编排SDK，支持多种编程语言
+<a href="https://github.com/Significant-Gravitas/Auto-GPT" target="_blank">Auto-GPT</a> | `autoGPT` | 预训练语言生成模型，可以自动完成摘要生成、推荐系统和对话生成等任务
 <a href="https://github.com/reworkd/AgentGPT" target="_blank">AgentGPT</a> | `agentGPT` | 基于语言模型的人工代理，可以根据特定场景的要求，生成合适的回答
-<a href="https://tensorflow.google.cn/js" target="_blank">TensorFlowJS</a> | `tensorflow` | 在浏览器或Node.js下构建和运行机器学习和深度学习模式的库
+<a href="https://github.com/TransformerOptimus/SuperAGI" target="_blank">SuperAGI</a> | `superagi` | 开源的自主AI代理框架，具有图形界面
+<a href="https://github.com/e2b-dev/e2b" target="_blank">E2B</a> | `e2b` | 用于AI代理的云端开发环境
+
+#### 1.11.2 API封装库
+
+地址 | 标签 | 说明
+---- | ---- | ----
 <a href="https://github.com/openai/openai-node" target="_blank">OpenAI NodeJS</a> | `openai` | OpenAI 的 NodeJS API 调用封装库
 <a href="https://github.com/openai/openai-quickstart-node" target="_blank">OpenAI node quick start</a> | `openai` | OpenAI NodeJS的起步文档及案例
-<a href="https://github.com/openai/whisper" target="_blank">Whisper</a> | `whisper` | OpenAI 语音识别模型（转文字）
-<a href="https://github.com/humanloop/awesome-chatgpt" target="_blank">awesome chatGPT</a> | `chatgpt` | chatGPT/GPT3 工具、demo及文档集合
-<a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank">awesome chatGPT prompts</a> | `chatgpt` | chatGPT问答训练实践集合
-<a href="https://alibaba.github.io/pipcook/#/zh-cn/" target="_blank">pipcook</a> | `pipcook` | 对web开发者友好的机器学习工具集，阿里
-<a href="https://github.com/mljs/distance" target="_blank">ml-distance</a> | `ml-distance` | 计算向量之间的距离或相似度，可用于Embeddings处理
-<a href="https://promptperfect.jinaai.cn/" target="_blank">Prompt Prefect</a> | `prompt-prefect` | 一个优化Prompt的在线工具
+<a href="https://github.com/anthropics/anthropic-sdk-typescript" target="_blank">Anthropic SDK</a> | `anthropic` | Anthropic Claude API的TypeScript/JavaScript SDK
+<a href="https://github.com/google/generative-ai-js" target="_blank">Google AI JS SDK</a> | `google-ai` | Google Gemini API的JavaScript SDK
+<a href="https://github.com/cohere-ai/cohere-typescript" target="_blank">Cohere SDK</a> | `cohere` | Cohere API的TypeScript SDK
+<a href="https://github.com/mistralai/client-js" target="_blank">Mistral AI SDK</a> | `mistral` | Mistral AI API的JavaScript SDK
+<a href="https://github.com/replicate/replicate-javascript" target="_blank">Replicate SDK</a> | `replicate` | Replicate API的JavaScript SDK
+<a href="https://github.com/run-llama/LlamaIndexTS" target="_blank">LlamaIndex TS</a> | `llamaindex-ts` | LlamaIndex的TypeScript版本
 
-#### 1.11.1 AI编程开发工具
+#### 1.11.3 AI应用开发工具
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/vercel/ai-chatbot" target="_blank">AI Chatbot</a> | `ai-chatbot` | Vercel开源的全栈聊天机器人模板
+<a href="https://github.com/mckaywrigley/chatbot-ui" target="_blank">Chatbot UI</a> | `chatbot-ui` | 开源的ChatGPT UI界面
+<a href="https://github.com/danny-avila/LibreChat" target="_blank">LibreChat</a> | `librechat` | 增强版ChatGPT克隆，支持多种AI模型
+<a href="https://github.com/Yidadaa/ChatGPT-Next-Web" target="_blank">ChatGPT-Next-Web</a> | `chatgpt-next-web` | 一键拥有你自己的跨平台ChatGPT应用
+<a href="https://github.com/homanp/superagent" target="_blank">Superagent</a> | `superagent` | 构建、部署和管理LLM驱动的代理的平台
+<a href="https://github.com/BuilderIO/ai-shell" target="_blank">AI Shell</a> | `ai-shell` | CLI工具，将自然语言转换为Shell命令
+<a href="https://github.com/geekan/MetaGPT" target="_blank">MetaGPT</a> | `metagpt` | 多代理框架，给定一行需求，返回PRD、设计、任务、代码
+<a href="https://github.com/microsoft/autogen" target="_blank">AutoGen</a> | `autogen` | 微软开源的多代理对话框架
+
+#### 1.11.4 机器学习库
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://tensorflow.google.cn/js" target="_blank">TensorFlowJS</a> | `tensorflow` | 在浏览器或Node.js下构建和运行机器学习和深度学习模式的库
+<a href="https://github.com/ml5js/ml5-library" target="_blank">ML5.js</a> | `ml5` | 友好的机器学习库，构建在TensorFlow.js之上
+<a href="https://github.com/alibaba/pipcook" target="_blank">pipcook</a> | `pipcook` | 对web开发者友好的机器学习工具集，阿里
+<a href="https://github.com/mljs/ml" target="_blank">ML.js</a> | `mljs` | JavaScript中的机器学习库
+<a href="https://github.com/transcranial/keras-js" target="_blank">Keras.js</a> | `kerasjs` | 在浏览器中运行Keras模型
+<a href="https://github.com/mljs/distance" target="_blank">ml-distance</a> | `ml-distance` | 计算向量之间的距离或相似度，可用于Embeddings处理
+<a href="https://github.com/xenova/transformers.js" target="_blank">Transformers.js</a> | `transformersjs` | 在浏览器中运行Transformer模型的库
+
+#### 1.11.5 语音和视觉AI
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/openai/whisper" target="_blank">Whisper</a> | `whisper` | OpenAI 语音识别模型（转文字）
+<a href="https://github.com/ricky0123/vad" target="_blank">VAD</a> | `vad` | 在浏览器中运行的实时语音活动检测
+<a href="https://github.com/microsoft/cognitive-services-speech-sdk-js" target="_blank">Azure Speech SDK</a> | `azure-speech` | 微软Azure语音服务JavaScript SDK
+<a href="https://github.com/aws-samples/amazon-transcribe-streaming-sdk" target="_blank">Amazon Transcribe SDK</a> | `aws-transcribe` | Amazon Transcribe流式转录SDK
+<a href="https://github.com/tensorflow/tfjs-models" target="_blank">TensorFlow.js Models</a> | `tfjs-models` | 预训练的TensorFlow.js模型集合
+<a href="https://github.com/opencv/opencv.js" target="_blank">OpenCV.js</a> | `opencvjs` | OpenCV的JavaScript版本，用于计算机视觉
+<a href="https://github.com/justadudewhohacks/face-api.js" target="_blank">face-api.js</a> | `face-api` | JavaScript人脸识别API
+<a href="https://github.com/tensorflow/tfjs-models/tree/master/pose-detection" target="_blank">PoseNet</a> | `posenet` | 实时人体姿态估计
+
+#### 1.11.6 向量数据库
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/chroma-core/chroma" target="_blank">ChromaDB</a> | `chromadb` | 开源的向量数据库
+<a href="https://github.com/milvus-io/milvus" target="_blank">Milvus</a> | `milvus` | 开源向量数据库，用于可扩展的相似性搜索
+<a href="https://github.com/qdrant/qdrant" target="_blank">Qdrant</a> | `qdrant` | 向量相似性搜索引擎
+<a href="https://github.com/weaviate/weaviate" target="_blank">Weaviate</a> | `weaviate` | 开源向量搜索引擎
+<a href="https://github.com/pinecone-io/pinecone-ts-client" target="_blank">Pinecone SDK</a> | `pinecone` | Pinecone向量数据库TypeScript客户端
+<a href="https://github.com/supabase/vecs" target="_blank">Supabase Vecs</a> | `supabase-vecs` | Supabase的向量客户端
+
+#### 1.11.7 Prompt工程和优化
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://promptperfect.jinaai.cn/" target="_blank">Prompt Perfect</a> | `prompt-perfect` | 一个优化Prompt的在线工具
+<a href="https://github.com/microsoft/promptflow" target="_blank">PromptFlow</a> | `promptflow` | 微软开源的LLM应用开发套件
+<a href="https://github.com/hwchase17/langchain/tree/master/langchain/prompts" target="_blank">LangChain Prompts</a> | `langchain-prompts` | LangChain的Prompt模板库
+<a href="https://github.com/dair-ai/Prompt-Engineering-Guide" target="_blank">Prompt Engineering Guide</a> | `prompt-guide` | Prompt工程指南和资源
+<a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank">awesome chatGPT prompts</a> | `chatgpt-prompts` | chatGPT问答训练实践集合
+<a href="https://github.com/humanloop/awesome-chatgpt" target="_blank">awesome chatGPT</a> | `chatgpt-awesome` | chatGPT/GPT相关工具、demo及文档集合
+
+#### 1.11.8 RAG (检索增强生成)
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/run-llama/llama_index" target="_blank">LlamaIndex RAG</a> | `llamaindex-rag` | 专为RAG优化的数据框架
+<a href="https://github.com/langchain-ai/langchain/tree/master/libs/langchain/langchain/chains/retrieval_qa" target="_blank">LangChain RAG</a> | `langchain-rag` | LangChain的检索问答链
+<a href="https://github.com/mendableai/firecrawl" target="_blank">Firecrawl</a> | `firecrawl` | 将网站转换为LLM就绪的数据
+<a href="https://github.com/embedchain/embedchain" target="_blank">EmbedChain</a> | `embedchain` | 基于任何数据集创建ChatGPT应用
+<a href="https://github.com/jerryjliu/llama_index/tree/main/llama-index-integrations" target="_blank">LlamaIndex Integrations</a> | `llamaindex-integrations` | LlamaIndex集成包
+
+#### 1.11.9 AI编程开发工具
 
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -788,8 +878,13 @@
 <a href="https://copyweb.ai" target="_blank">CopyWeb</a> | `copyweb` | 通过上传应用程序截图或Figma UI 设计稿生成页面，还原效果较好就是免费额度少了点。
 <a href="https://mastergo.com/" target="_blank">MasterGo</a> | `mastergo` | 设计平台为主，但能较好还原成网页，营销静态类效果不错，国产。
 <a href="https://mgx.dev/" target="_blank">MGX</a> | `mgx` | 多 Al Agent 开发平台——从规划、数据分析到编码、测试和部署构建全栈应用，目前比Devin好一点。
+<a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a> | `copilot` | GitHub官方AI编程助手
+<a href="https://codeium.com/" target="_blank">Codeium</a> | `codeium` | 免费的AI代码自动完成工具
+<a href="https://www.tabnine.com/" target="_blank">Tabnine</a> | `tabnine` | AI代码自动完成工具，支持多种IDE
+<a href="https://github.com/paul-gauthier/aider" target="_blank">Aider</a> | `aider` | 基于GPT的AI pair programming工具
+<a href="https://github.com/moyix/fauxpilot" target="_blank">FauxPilot</a> | `fauxpilot` | 开源的GitHub Copilot替代品
 
-#### 1.11.2 AI工具平台
+#### 1.11.10 AI工具平台
 
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -797,6 +892,9 @@
 <a href="https://21st.dev/">21st.dev</a> | `21st` | AI友好的前端React组件集合
 <a href="https://github.com/langgenius/dify">Dify</a> | `dify` | AI workflow编排平台，有开放平台
 <a href="https://www.coze.cn/">Coze</a> | `coze` | AI workflow编排开放平台(不开源)，国产，字节
+<a href="https://www.langflow.org/" target="_blank">Langflow</a> | `langflow` | 可视化AI应用构建平台
+<a href="https://flowise.ai/" target="_blank">Flowise</a> | `flowise` | 拖拽式LLM应用构建工具
+<a href="https://github.com/FlowiseAI/Flowise" target="_blank">Flowise开源</a> | `flowise-open` | Flowise的开源版本
 
 
 ### 1.12 WebAssembly
@@ -839,7 +937,33 @@
 <a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager" target="_blank">Project Manager</a> | `project-manager` | 本地项目管理
 <a href="https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster" target="_blank">JavaScript Booster</a> | `javascript-booster` | js/ts快速重构优化工具，比如将var换为const/let。
 
-### 1.14 生活篇
+### 1.15 Web3/区块链
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/ethers-io/ethers.js/" target="_blank">Ethers.js</a> | `ethers` | 轻量级以太坊JavaScript库，Web3.js的现代替代品。
+<a href="https://viem.sh/" target="_blank">Viem</a> | `viem` | 现代化的以太坊接口，TypeScript优先，性能更好。
+<a href="https://wagmi.sh/" target="_blank">Wagmi</a> | `wagmi` | React Hooks for Ethereum，基于ethers.js构建。
+<a href="https://rainbowkit.com/" target="_blank">RainbowKit</a> | `rainbowkit` | 最好的钱包连接体验React组件库。
+<a href="https://connectkit.family/" target="_blank">ConnectKit</a> | `connectkit` | 美观、现代的Web3钱包连接组件。
+<a href="https://docs.family.co/web3modal" target="_blank">Web3Modal</a> | `web3modal` | 单一的以太坊钱包连接库。
+<a href="https://thirdweb.com/" target="_blank">Thirdweb</a> | `thirdweb` | 构建Web3应用的完整开发框架。
+<a href="https://moralis.io/" target="_blank">Moralis</a> | `moralis` | Web3开发平台，提供API和基础设施。
+<a href="https://www.alchemy.com/" target="_blank">Alchemy</a> | `alchemy` | 领先的区块链开发平台和API提供商。
+<a href="https://infura.io/" target="_blank">Infura</a> | `infura` | 以太坊和IPFS的API网关服务。
+<a href="https://www.quicknode.com/" target="_blank">QuickNode</a> | `quicknode` | 快速、可靠的区块链基础设施API。
+<a href="https://hardhat.org/" target="_blank">Hardhat</a> | `hardhat` | 以太坊软件开发环境。
+<a href="https://trufflesuite.com/" target="_blank">Truffle</a> | `truffle` | 经典的以太坊开发框架。
+<a href="https://docs.soliditylang.org/" target="_blank">Solidity</a> | `solidity` | 以太坊智能合约编程语言。
+<a href="https://github.com/OpenZeppelin/openzeppelin-contracts" target="_blank">OpenZeppelin</a> | `openzeppelin` | 安全的智能合约标准库。
+<a href="https://metamask.io/sdk/" target="_blank">MetaMask SDK</a> | `metamask-sdk` | MetaMask官方开发工具包。
+<a href="https://walletconnect.com/" target="_blank">WalletConnect</a> | `walletconnect` | 连接去中心化应用与移动钱包的开放协议。
+<a href="https://docs.ipfs.tech/" target="_blank">IPFS</a> | `ipfs` | 去中心化存储网络JavaScript库。
+<a href="https://docs.ceramic.network/" target="_blank">Ceramic Network</a> | `ceramic` | 去中心化数据网络。
+<a href="https://gun.eco/" target="_blank">GUN</a> | `gun` | 去中心化数据同步协议。
+
+
+### 1.16 生活篇
 
 
 地址 | 标签 | 说明

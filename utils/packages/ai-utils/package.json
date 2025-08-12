@@ -12,9 +12,14 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.5",
+    "ts-jest": "^29.4.1"
+  },
   "dependencies": {
     "ml-distance": "^4.0.1"
   }
