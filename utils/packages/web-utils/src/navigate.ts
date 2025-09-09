@@ -25,9 +25,9 @@ export interface NavigateOptions {
 
 /**
  * @function navigateTo
- * @description 跳转到指定 URL，支持新标签页、替换等
- * @param {string} url 跳转地址
- * @param {NavigateOptions} [options] 跳转选项
+ * @description 跳转到指定URL，支持新标签页、替换等选项。Navigates to a specified URL with support for new tabs, replacement, and other options
+ * @param {string} url - 跳转地址。The URL to navigate to
+ * @param {NavigateOptions} [options] - 跳转选项。Navigation options
  * @example
  * navigateTo('https://example.com', { newTab: true });
  */
@@ -52,8 +52,8 @@ export function navigateTo(url: string, options: NavigateOptions = {}): void {
 
 /**
  * @function httpsRedirect
- * @description 强制跳转到https, http -> https
- * @param {string?} url 跳转地址
+ * @description 强制跳转到HTTPS协议，将HTTP转换为HTTPS。Forces redirect to HTTPS protocol, converting HTTP to HTTPS
+ * @param {string} [url] - 跳转地址（可选，默认为当前页面地址）。The URL to redirect (optional, defaults to current page URL)
  */
 export function httpsRedirect(url: string = location.href) {
   if (!url.startsWith('https://')) {

@@ -38,7 +38,7 @@ declare global {
 
   /**
    * @function refreshRem
-   * @description **window.flexible.refreshRem()**。重新根据屏幕调整rem
+   * @description 重新根据屏幕调整rem单位。Re-adjusts rem units based on screen size
    * @example
    * window.flexible.refreshRem();
    */

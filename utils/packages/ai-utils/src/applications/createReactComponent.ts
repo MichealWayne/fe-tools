@@ -1,7 +1,13 @@
 /**
+ * @fileoverview AI-powered React component generation utilities with TailwindCSS integration and best practices enforcement.
+ *
+ * This module provides intelligent React component generation using AI language models.
+ * It includes comprehensive component creation with TypeScript support, TailwindCSS styling,
+ * responsive design patterns, and adherence to modern React development best practices.
+ *
+ * @module CreateReactComponent
  * @author Wayne
- * @Date 2025-04-06 11:23:30
- * @LastEditTime 2025-08-10 15:02:10
+ * @since 1.0.0
  */
 import { createPromptGenerator } from '../utils/prompt/generator';
 import { applyTemplate } from '../utils/prompt/applyTemplate';

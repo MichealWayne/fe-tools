@@ -1,4 +1,14 @@
-// src/process/run.ts
+/**
+ * @fileoverview Process execution utilities for Node.js applications, providing comprehensive command execution with timeout, output capture, and error handling.
+ *
+ * This module provides robust process execution capabilities for Node.js applications.
+ * It includes both synchronous and asynchronous command execution, timeout handling,
+ * output capture options, and comprehensive error management for reliable process automation.
+ *
+ * @module Run
+ * @author Wayne
+ * @since 1.0.0
+ */
 import { spawn, spawnSync, type SpawnOptions, type SpawnSyncOptions } from 'child_process';
 import { fileURLToPath, URL as NodeURL } from 'url';
 import { EventEmitter } from 'events';
@@ -27,10 +37,40 @@ export interface RunResult {
 
 /**
  * @function runAsync
- * @description 异步执行命令
- * @param {string} cmd 命令
- * @param {string[]} args 参数
- * @param {object} options 选项
+ * @description 异步执行命令，带有综合错误处理和输出捕获。Asynchronously executes a command with comprehensive error handling, timeout support, and flexible output capture options.
+ * @param {string | NodeURL} cmd - 要执行的命令或文件URL。Command to execute or file URL
+ * @param {string[]} [args=[]] - 命令参数数组。Array of command arguments
+ * @param {RunOptions} [options={}] - 执行选项，包括超时、输出捕获和失败处理。Execution options including timeout, output capture, and failure handling
+ * @returns {Promise<RunResult>} 解析为执行结果的Promise，包含状态码、stdout、stderr和成功状态。Promise resolving to execution result with code, stdout, stderr, and success status
+ * @throws {Error} 如果命令失败且ignoreFailure为false，或者发生超时则拒绝。Rejects if command fails and ignoreFailure is false, or if timeout occurs
+ * @example
+ * // Basic command execution
+ * try {
+ *   const result = await runAsync('ls', ['-la']);
+ *   console.log('Directory listing:', result.stdout);
+ * } catch (error) {
+ *   console.error('Command failed:', error.message);
+ * }
+ *
+ * @example
+ * // Command with timeout and output capture
+ * const result = await runAsync('npm', ['install'], {
+ *   timeout: 30000,        // 30 second timeout
+ *   captureStdout: true,   // Capture output
+ *   ignoreFailure: false,  // Throw on failure
+ *   cwd: './project'       // Working directory
+ * });
+ *
+ * @example
+ * // Capture output as lines
+ * const result = await runAsync('git', ['log', '--oneline'], {
+ *   captureStdout: 'lines'
+ * });
+ * console.log(`Found ${result.stdout.length} commits`);
+ *
+ * @since 1.0.0
+ * @see {@link runSync} - Synchronous command execution
+ * @see {@link forceRunAsync} - Async execution with error suppression
  */
 export function runAsync(
   cmd: string | NodeURL,
@@ -116,11 +156,36 @@ export function runAsync(
 
 /**
  * @function forceRunAsync
- * @description 强制执行外部命令行（异步），如果命令行执行失败，则抛出错误，否则忽略错误。
- * @param {string | NodeURL} cmd 命令行
- * @param {string[]} args 参数
- * @param {RunOptions} options 配置项
- * @returns {Promise<RunResult>} 返回Promise
+ * @description 在特定忽略模式下异步执行命令，带有错误抑制。Executes a command asynchronously with error suppression for graceful handling of optional operations.
+ * @param {string | NodeURL} cmd - 要执行的命令或文件URL。Command to execute or file URL
+ * @param {string[]} [args=[]] - 命令参数数组。Array of command arguments
+ * @param {RunOptions} [options={}] - 执行选项。Execution options
+ * @returns {Promise<RunResult | void>} 解析为结果或void（如果错误被忽略）的Promise。Promise resolving to result or void if error is ignored
+ * @example
+ * // Execute with graceful error handling
+ * await forceRunAsync('optional-tool', ['--check']);
+ * // Will not throw if command fails, but logs error
+ *
+ * @example
+ * // Conditional command execution
+ * try {
+ *   await forceRunAsync('git', ['status'], {
+ *     cwd: './maybe-git-repo'
+ *   });
+ *   console.log('Git repository detected');
+ * } catch (error) {
+ *   console.log('Not a git repository, continuing...');
+ * }
+ *
+ * @example
+ * // Build pipeline with optional steps
+ * await forceRunAsync('npm', ['run', 'lint']);     // Optional linting
+ * await forceRunAsync('npm', ['run', 'test']);     // Optional testing
+ * await runAsync('npm', ['run', 'build']);         // Required build step
+ *
+ * @since 1.0.0
+ * @see {@link runAsync} - Standard async execution with error handling
+ * @see {@link IGNORE} - Special error message for ignored failures
  */
 export function forceRunAsync(
   cmd: string | NodeURL,
@@ -137,9 +202,32 @@ export function forceRunAsync(
 
 /**
  * @function runPromise
- * @description 在promise的catch错误处理中: 如果错误消息不是特定的IGNORE,则打印错误。调用exit()退出进程。
- * @param {Promise<any>} promise promise对象
- * @returns {Promise<any>} 返回promise对象
+ * @description 包装Promise并处理错误，在非忽略错误时退出进程。Wraps a promise with error handling that exits the process on non-ignored errors for critical operations.
+ * @param {Promise<T>} promise - 要包装的带有错误处理的Promise。Promise to wrap with error handling
+ * @returns {Promise<T | void>} 在错误时退出进程或返回结果的Promise。Promise that exits process on error or returns result
+ * @example
+ * // Critical operation that should exit on failure
+ * await runPromise(
+ *   runAsync('npm', ['run', 'build'])
+ * );
+ * // Process will exit if build fails
+ *
+ * @example
+ * // Database migration that must succeed
+ * await runPromise(
+ *   runAsync('npm', ['run', 'migrate'])
+ * );
+ * console.log('Migration completed successfully');
+ *
+ * @example
+ * // Chain critical operations
+ * await runPromise(runAsync('git', ['pull']));
+ * await runPromise(runAsync('npm', ['install']));
+ * await runPromise(runAsync('npm', ['run', 'deploy']));
+ *
+ * @since 1.0.0
+ * @see {@link exit} - Process exit function
+ * @see {@link IGNORE} - Special error message for ignored failures
  */
 export function runPromise<T>(promise: Promise<T>): Promise<T | void> {
   return promise.catch(error => {
@@ -152,10 +240,39 @@ export function runPromise<T>(promise: Promise<T>): Promise<T | void> {
 
 /**
  * @function runSync
- * @description 同步执行命令
- * @param {string} cmd 命令
- * @param {string[]} args 参数
- * @param {object} options 选项
+ * @description 同步执行命令并立即返回结果。Synchronously executes a command and returns the result immediately with comprehensive error handling.
+ * @param {string | NodeURL} cmd - 要执行的命令或文件URL。Command to execute or file URL
+ * @param {string[]} [args=[]] - 命令参数数组。Array of command arguments
+ * @param {SpawnSyncOptions} [options={}] - 同步执行选项。Synchronous execution options
+ * @returns {RunResult} 包含状态码、stdout、stderr和成功状态的执行结果。Execution result with code, stdout, stderr, and success status
+ * @example
+ * // Quick synchronous command
+ * const result = runSync('git', ['rev-parse', 'HEAD']);
+ * if (result.success) {
+ *   console.log('Current commit:', result.stdout.trim());
+ * } else {
+ *   console.error('Failed to get commit hash:', result.stderr);
+ * }
+ *
+ * @example
+ * // Check tool availability
+ * const dockerCheck = runSync('docker', ['--version']);
+ * if (dockerCheck.success) {
+ *   console.log('Docker is available');
+ * } else {
+ *   console.log('Docker not found, skipping containerization');
+ * }
+ *
+ * @example
+ * // Environment setup validation
+ * const nodeVersion = runSync('node', ['--version']);
+ * const npmVersion = runSync('npm', ['--version']);
+ *
+ * console.log(`Node: ${nodeVersion.stdout.trim()}`);
+ * console.log(`NPM: ${npmVersion.stdout.trim()}`);
+ *
+ * @since 1.0.0
+ * @see {@link runAsync} - Asynchronous command execution
  */
 export function runSync(
   cmd: string | NodeURL,
@@ -194,15 +311,32 @@ export function runSync(
 
 /**
  * @function exit
- * @description 退出进程
+ * @description 以错误代码1退出Node.js进程。Exits the Node.js process with error code 1 for critical failure scenarios.
+ * @returns {never} 该函数不会返回，因为它终止了进程。This function never returns as it terminates the process
+ * @example
+ * // Exit on critical error
+ * if (!configFile) {
+ *   console.error('Configuration file not found');
+ *   exit();
+ * }
+ *
+ * @example
+ * // Validation failure
+ * const args = parseArgs();
+ * if (!args.required) {
+ *   console.error('Missing required argument: --required');
+ *   exit();
+ * }
+ *
+ * @since 1.0.0
+ * @see {@link runPromise} - Promise wrapper that calls exit on error
  */
 export function exit(): never {
   process.exit(1);
 }
 
 /**
- * @function commandEvents
- * @description 命令事件发射器
+ * @description 命令事件发射器，用于监听命令执行过程中的事件。Command event emitter for monitoring command execution lifecycle and handling process events.
  */
 export const commandEvents = new EventEmitter();
 

@@ -10,9 +10,9 @@ const DEFAULT_EXPIRATION = 1000 * 60 * 60 * 24 * 7; // 7 days
 
 /**
  * @function deserialize
- * @description 尝试将字符串转换为JSON对象，反序列化
- * @param {unknown} value 需要反序列化的值
- * @return {JSON | undefined}
+ * @description 尝试将字符串转换为JSON对象，进行反序列化。Attempts to convert a string to a JSON object, performing deserialization
+ * @param {unknown} value - 需要反序列化的值。The value to deserialize
+ * @return {JSON | undefined} 反序列化后的JSON对象或undefined。The deserialized JSON object or undefined
  */
 function deserialize(value: unknown) {
   if (typeof value !== 'string') {

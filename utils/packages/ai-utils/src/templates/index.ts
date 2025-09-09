@@ -1,8 +1,13 @@
 /**
- * @module aiUtils
+ * @fileoverview Standard prompt templates for AI language model interactions with structured formatting and placeholder support.
+ *
+ * This module provides reusable prompt templates for consistent AI interactions.
+ * It includes standardized templates with placeholder variables for role-based prompts,
+ * task descriptions, format instructions, and input content organization.
+ *
+ * @module Templates
  * @author Wayne
- * @Date 2025-08-10
- * @LastEditTime 2025-08-10 15:02:13
+ * @since 1.0.0
  */
 
 // In a real-world scenario, this might be loaded from a file or a more dynamic source.

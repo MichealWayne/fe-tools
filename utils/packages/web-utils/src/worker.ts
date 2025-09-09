@@ -6,9 +6,10 @@
  */
 
 /**
- * 创建一个内联 Worker
- * @param workerFunction 要在 Worker 中执行的函数
- * @returns 返回创建的 Worker 实例
+ * @function createInlineWorker
+ * @description 创建一个内联Worker。Creates an inline Worker
+ * @param {function} workerFunction - 要在Worker中执行的函数。The function to execute in the Worker
+ * @returns {Worker} 返回创建的Worker实例。Returns the created Worker instance
  */
 export function createInlineWorker(workerFunction: () => any): Worker {
   // 将函数转为字符串

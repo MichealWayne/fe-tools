@@ -8,9 +8,9 @@
 
 /**
  * @function validatePassport
- * @description (中国)护照号码校验
- * @param {string} passport 护照号码
- * @returns {boolean} 是否为护照号码
+ * @description (中国)护照号码校验。Chinese passport number validation
+ * @param {string} passport - 护照号码。The passport number to validate
+ * @returns {boolean} 是否为护照号码。Whether it is a valid passport number
  * @example
  * validatePassport('G12345678'); // false
  * validatePassport('D012345678'); // true
@@ -28,9 +28,9 @@ export function validatePassport(passport: string) {
 
 /**
  * @function validateLicensePlate
- * @description (中国)车牌号校验
- * @param {string} licensePlate 车牌号
- * @returns {boolean} 是否为车牌号
+ * @description (中国)车牌号校验。Chinese license plate validation
+ * @param {string} licensePlate - 车牌号。The license plate number to validate
+ * @returns {boolean} 是否为车牌号。Whether it is a valid license plate number
  * @example
  * validateLicensePlate('A12345X'); // true
  * validateLicensePlate('京A12345'); // true
@@ -74,10 +74,10 @@ const hasSymbol = (pwd: string) => /[\W_]/.test(pwd);
 
 /**
  * @function checkPwdStrength
- * @description 检验密码强度（数字+字母+符号）
- * @param {string} pwd 待检查的密码
- * @param {PwdStrengthTips} tips 自定义密码强度提示信息
- * @return {PwdStrengthTypes | string} 密码强度类型或提示信息
+ * @description 检验密码强度（数字+字母+符号）。Validates password strength (numbers + letters + symbols)
+ * @param {string} pwd - 待检查的密码。The password to check
+ * @param {PwdStrengthTips} tips - 自定义密码强度提示信息。Custom password strength tip messages
+ * @return {PwdStrengthTypes | string} 密码强度类型或提示信息。Password strength type or tip message
  */
 export function checkPwdStrength(
   pwd: string,
@@ -184,14 +184,19 @@ const CHECK_CODE_WEIGHTS = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]
 const CHECK_CODE_MAP = '10X98765432';
 
 /**
- * 检查是否为闰年
+ * @function isLeapYear
+ * @description 检查是否为闰年。Checks if a year is a leap year
+ * @param {number} year - 要检查的年份。The year to check
+ * @returns {boolean} 如果是闰年则返回true，否则返回false。Returns true if the year is a leap year, otherwise false
  */
 function isLeapYear(year: number): boolean {
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 
 /**
- * 获取18岁生日日期字符串
+ * @function getFullGrownDate
+ * @description 获取18岁生日日期字符串。Gets the date string for 18 years ago
+ * @returns {string} 18岁生日日期字符串。The date string for 18 years ago
  */
 function getFullGrownDate(): string {
   const now = new Date();
@@ -203,7 +208,12 @@ function getFullGrownDate(): string {
 }
 
 /**
- * 验证15位身份证
+ * @function validate15DigitIdcard
+ * @description 验证15位身份证。Validates 15-digit ID card
+ * @param {string} idcard - 身份证号码。The ID card number to validate
+ * @param {string} checkFullGrownDate - 18岁生日日期字符串。The date string for 18 years ago
+ * @param {typeof DefaultIdcardTips} TipEnum - 提示信息枚举。Tip messages enum
+ * @returns {DefaultIdcardTips} 身份证验证结果。ID card validation result
  */
 function validate15DigitIdcard(
   idcard: string,
@@ -225,7 +235,12 @@ function validate15DigitIdcard(
 }
 
 /**
- * 验证18位身份证
+ * @function validate18DigitIdcard
+ * @description 验证18位身份证。Validates 18-digit ID card
+ * @param {string} idcard - 身份证号码。The ID card number to validate
+ * @param {string} checkFullGrownDate - 18岁生日日期字符串。The date string for 18 years ago
+ * @param {typeof DefaultIdcardTips} TipEnum - 提示信息枚举。Tip messages enum
+ * @returns {DefaultIdcardTips} 身份证验证结果。ID card validation result
  */
 function validate18DigitIdcard(
   idcard: string,
@@ -257,10 +272,10 @@ function validate18DigitIdcard(
 
 /**
  * @function checkIdcard
- * @description 身份证正确性校验
- * @param {string} idcard 身份证号码
- * @param {object} TipEnum 提示信息
- * @returns {DefaultIdcardTips} 身份证验证结果
+ * @description 身份证正确性校验。ID card validation
+ * @param {string} idcard - 身份证号码。The ID card number to validate
+ * @param {object} TipEnum - 提示信息。Tip messages for validation results
+ * @returns {DefaultIdcardTips} 身份证验证结果。ID card validation result
  * @example
  * checkIdcard('11010519491231002X'); // '身份证验证通过'
  * checkIdcard('11010519491231002'); // '请填写正确的身份证号码'

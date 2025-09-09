@@ -291,6 +291,7 @@
 <a href="https://js.cytoscape.org/" target="_blank">cytoscapejs</a> | `cytoscape` | 一款好用的关系图谱可视化库。
 <a href="http://mermaid-js.github.io/mermaid/#/" target="_blank">Mermaid</a> | `mermaid` | 一款好用的流程图生成可视化库。
 <a href="https://ecomfe.github.io/zrender-doc/public/" target="_blank">Zrender</a> | `zrender` | 2D渲染渲染引擎库，支持Canvas/SVG/VML，也是ECharts的渲染器。
+<a href="https://docs.mind-elixir.com/" target="_blank">Mind Elixir</a> | `mind-elixir` | 一款类似xmind效果的思维导图库。
 
 
 #### 1.4.7 数据可视化(地图)
@@ -642,7 +643,6 @@
 ---- | ---- | ----
 <a href="https://chat.openai.com/chat" target="_blank">chatGPT</a> | `chatGPT ` | 基于OpenAPI的问答机器人，用来查技术问题也挺好。
 <a href="https://www.cursor.so/" target="_blank">Cursor</a> | `cursor ` | 基于OpenAPI GPT-4的编程助手，感觉好像比copilot还流畅一点。
-<a href="https://codegeex.cn/zh-CN" target="_blank">CodeGeeX</a> | `CodeGeeX ` | 用于平替Copilot的编程助手，AI、免费。
 <a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a> | `stackoverflow` | 技术问题排忧解难的友好社区。
 <a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析npm软件包的体积和加载性能的网站。
 <a href="https://npmgraph.js.org/" target="_blank">npmgraph</a> | `npmgraph` | 分析npm软件包依赖关系的工具网站。
@@ -704,7 +704,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://mochajs.org/" target="_blank">MochaJS文档</a> | `mocha` | 一款单元测试工具。
-<a href="https://jestjs.io/zh-Hans/" target="_blank">JestJS文档</a> | `jest` | 一款单元测试工具。
+<a href="https://jestjs.io/zh-Hans/" target="_blank">JestJS文档</a> | `jest` | 一款单元测试工具，主流。
 <a href="https://www.cypress.io/" target="_blank">Cypress官网</a> | `cypress` | 一款单元测试集成平台工具。
 <a href="https://github.com/avajs/ava" target="_blank">AvaJs</a> | `avajs` | 一款快速的测试工具。
 <a href="http://karma-runner.github.io/latest/index.html" target="_blank">karma</a> | `karma` | 一款基于Node.js的JavaScript测试执行过程管理工具（Testacular的新名字）。
@@ -848,6 +848,7 @@
 <a href="https://github.com/dair-ai/Prompt-Engineering-Guide" target="_blank">Prompt Engineering Guide</a> | `prompt-guide` | Prompt工程指南和资源
 <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank">awesome chatGPT prompts</a> | `chatgpt-prompts` | chatGPT问答训练实践集合
 <a href="https://github.com/humanloop/awesome-chatgpt" target="_blank">awesome chatGPT</a> | `chatgpt-awesome` | chatGPT/GPT相关工具、demo及文档集合
+<a href="https://github.com/dqbd/tiktoken#readme" target="_blank"> tiktoken </a> | `tiktoken` | AI 模型计算库，用于预估调用成本（js版）
 
 #### 1.11.8 RAG (检索增强生成)
 
@@ -891,7 +892,7 @@
 <a href="https://mcp.so/">MCP.so</a> | `mcp.so` | 开放MCP工具集合
 <a href="https://21st.dev/">21st.dev</a> | `21st` | AI友好的前端React组件集合
 <a href="https://github.com/langgenius/dify">Dify</a> | `dify` | AI workflow编排平台，有开放平台
-<a href="https://www.coze.cn/">Coze</a> | `coze` | AI workflow编排开放平台(不开源)，国产，字节
+<a href="https://www.coze.cn/">Coze</a> | `coze` | AI workflow编排开放平台，国产，字节
 <a href="https://www.langflow.org/" target="_blank">Langflow</a> | `langflow` | 可视化AI应用构建平台
 <a href="https://flowise.ai/" target="_blank">Flowise</a> | `flowise` | 拖拽式LLM应用构建工具
 <a href="https://github.com/FlowiseAI/Flowise" target="_blank">Flowise开源</a> | `flowise-open` | Flowise的开源版本

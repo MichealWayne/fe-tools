@@ -303,6 +303,7 @@ Contents:
 | https://js.cytoscape.org/                                                   | cytoscape      | A user-friendly library for visualizing relationship charts.                                                                 |
 | http://mermaid-js.github.io/mermaid/#/                                      | mermaid        | A user-friendly library for generating flowcharts.                                                                           |
 | https://ecomfe.github.io/zrender-doc/public/                                | zrender        | A 2D rendering engine that supports Canvas/SVG/VML, also the rendering engine for ECharts.                                   |
+| https://docs.mind-elixir.com/.                                              | Mind Elixir    | A mind map library with effects similar to xmind.                                                                            |
 
 ### 1.4.7 Data Visualization (Maps)
 
@@ -657,7 +658,6 @@ Contents:
 | -------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | https://chat.openai.com/chat                                                                 | chatGPT                       | A question-answering robot based on OpenAPI, which is also good for looking up technical issues.                                              |
 | https://www.cursor.so/                                                                       | cursor                        | A programming assistant based on OpenAPI GPT-4, which feels even smoother than copilot.                                                       |
-| https://codegeex.cn/zh-CN                                                                    | CodeGeeX                      | A programming assistant for replacing Copilot, AI, and free.                                                                                  |
 | https://stackoverflow.com/                                                                   | stackoverflow                 | A friendly community for solving technical problems.                                                                                          |
 | https://bundlephobia.com/                                                                    | bundlephobia                  | A website for analyzing the size and loading performance of npm packages.                                                                     |
 | https://npmgraph.js.org/                                                                     | npmgraph                      | A tool website for analyzing the dependency relationships of npm packages.                                                                    |
@@ -870,6 +870,7 @@ Contents:
 | https://github.com/dair-ai/Prompt-Engineering-Guide | prompt-guide | Prompt engineering guide and resources |
 | https://github.com/f/awesome-chatgpt-prompts | chatgpt-prompts | ChatGPT Q&A training practice collection |
 | https://github.com/humanloop/awesome-chatgpt | chatgpt-awesome | ChatGPT/GPT related tools, demos and documentation collection |
+| https://github.com/dqbd/tiktoken#readme | tiktoken | AI model computing library for estimating call costs (js version) |
 
 #### 1.11.8 RAG (Retrieval Augmented Generation)
 
@@ -913,7 +914,7 @@ Contents:
 | https://mcp.so/ | mcp.so | Open MCP tool collection |
 | https://21st.dev/ | 21st | AI-friendly frontend React component collection |
 | https://github.com/langgenius/dify | dify | AI workflow orchestration platform with open platform |
-| https://www.coze.cn/ | coze | AI workflow orchestration open platform (not open source), domestic, ByteDance |
+| https://www.coze.cn/ | coze | AI workflow orchestration open platform, domestic, ByteDance |
 | https://www.langflow.org/ | langflow | Visual AI application building platform |
 | https://flowise.ai/ | flowise | Drag-and-drop LLM application building tool |
 | https://github.com/FlowiseAI/Flowise | flowise-open | Open-source version of Flowise |

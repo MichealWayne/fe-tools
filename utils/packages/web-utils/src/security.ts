@@ -1,7 +1,7 @@
 /**
  * @author Wayne
  * @Date 2023-05-28 15:45:10
- * @LastEditTime 2023-05-28 15:45:10
+ * @LastEditTime 2025-09-07 21:40:34
  * @description Web 安全工具函数
  */
 
@@ -10,9 +10,10 @@
  */
 
 /**
- * HTML 转义函数，防止 XSS 攻击
- * @param str 需要转义的字符串
- * @returns 转义后的字符串
+ * @function escapeHtml
+ * @description HTML转义函数，防止XSS攻击。HTML escape function to prevent XSS attacks
+ * @param {string} str - 需要转义的字符串。The string to escape
+ * @returns {string} 转义后的字符串。The escaped string
  */
 export function escapeHtml(str: string): string {
   if (!str) return '';
@@ -26,9 +27,10 @@ export function escapeHtml(str: string): string {
 }
 
 /**
- * HTML 反转义函数
- * @param str 需要反转义的字符串
- * @returns 反转义后的字符串
+ * @function unescapeHtml
+ * @description HTML反转义函数。HTML unescape function
+ * @param {string} str - 需要反转义的字符串。The string to unescape
+ * @returns {string} 反转义后的字符串。The unescaped string
  */
 export function unescapeHtml(str: string): string {
   if (!str) return '';
@@ -42,9 +44,10 @@ export function unescapeHtml(str: string): string {
 }
 
 /**
- * 过滤 URL，防止 JavaScript 伪协议攻击
- * @param url 需要过滤的 URL
- * @returns 过滤后的 URL
+ * @function sanitizeUrl
+ * @description 过滤URL，防止JavaScript伪协议攻击。Filters URLs to prevent JavaScript pseudo-protocol attacks
+ * @param {string} url - 需要过滤的URL。The URL to filter
+ * @returns {string} 过滤后的URL。The filtered URL
  */
 export function sanitizeUrl(url: string): string {
   if (!url) return '';

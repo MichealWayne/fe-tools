@@ -1,8 +1,13 @@
 /**
- * @module aiUtils
+ * @fileoverview AI-powered text summarization utilities with customizable length and style options.
+ *
+ * This module provides intelligent text summarization capabilities using AI language models.
+ * It includes support for various summary lengths, styles, and formats to create concise
+ * and informative summaries from long-form content while preserving key information.
+ *
+ * @module CreateSummary
  * @author Wayne
- * @Date 2025-08-10
- * @LastEditTime 2025-08-10 15:02:11
+ * @since 1.0.0
  */
 import { createPromptGenerator } from '../utils/prompt/generator';
 import { applyTemplate } from '../utils/prompt/applyTemplate';

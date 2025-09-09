@@ -1,7 +1,19 @@
 /**
+ * @fileoverview Main entry point for the utility library.
+ *
+ * This is the main entry point for the utility library, exporting all available utility functions.
+ * The library provides a comprehensive collection of utility functions organized into modules
+ * for common tasks such as array manipulation, string processing, object handling, type checking,
+ * mathematical operations, date handling, and more.
+ *
+ * @module Utils
  * @author Wayne
- * @Date 2022-07-05 13:31:31
- * @LastEditTime 2022-08-30 10:54:28
+ * @since 1.0.0
+ */
+
+/**
+ * @description Exports all utility functions from various modules.
+ * 导出所有模块的实用函数。
  */
 
 export * from './array';

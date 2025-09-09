@@ -5,11 +5,62 @@
  */
 /**
  * @function readFile
- * @description 读取文件内容，返回字符串
- * @param {File} file 文件对象
- * @returns {Promise<string>} 文件内容
+ * @description 使用FileReader API将文件内容读取为文本。Reads a file's content as text using the FileReader API
+ * @param {File} file - 要读取的File对象（来自input[type="file"]或拖放）。The File object to read (from input[type="file"] or drag-and-drop)
+ * @returns {Promise<string>} 解析为文件文本内容的Promise。Promise that resolves to the file's text content
+ * @throws {Error} 如果文件读取失败或文件损坏则抛出错误。Throws if file reading fails or file is corrupted
  * @example
- * readFile(file).then(content => console.log('file content', content));    // e.g input[type="file"] onchange
+ * // Handle file input change
+ * const fileInput = document.getElementById('file-input');
+ * fileInput.addEventListener('change', async (event) => {
+ *   const file = event.target.files[0];
+ *   if (file) {
+ *     try {
+ *       const content = await readFile(file);
+ *       document.getElementById('file-content').textContent = content;
+ *     } catch (error) {
+ *       console.error('Failed to read file:', error);
+ *     }
+ *   }
+ * });
+ *
+ * @example
+ * // Process multiple files with progress indication
+ * async function processFiles(files) {
+ *   const results = [];
+ *   for (let i = 0; i < files.length; i++) {
+ *     try {
+ *       const content = await readFile(files[i]);
+ *       results.push({ name: files[i].name, content });
+ *       updateProgress((i + 1) / files.length * 100);
+ *     } catch (error) {
+ *       console.error(`Failed to read ${files[i].name}:`, error);
+ *     }
+ *   }
+ *   return results;
+ * }
+ *
+ * @example
+ * // Validate file content before processing
+ * async function validateAndReadFile(file) {
+ *   // Check file size (e.g., max 5MB)
+ *   if (file.size > 5 * 1024 * 1024) {
+ *     throw new Error('File too large. Maximum size is 5MB.');
+ *   }
+ *
+ *   // Check file type
+ *   const allowedTypes = ['text/plain', 'text/csv', 'application/json'];
+ *   if (!allowedTypes.includes(file.type)) {
+ *     throw new Error('Unsupported file type.');
+ *   }
+ *
+ *   return await readFile(file);
+ * }
+ *
+ * @since 1.0.0
+ * @see {@link readFileAsDataURL} - Read file as data URL for images/media
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/FileReader} - Browser support: IE 10+, all modern browsers
+ * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html} - WCAG: Error handling and user feedback
  */
 export function readFile(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -24,9 +75,9 @@ export function readFile(file: File): Promise<string> {
 
 /**
  * @function readFileAsDataURL
- * @description 读取文件内容为Data URL(image、video、audio本地预览等)
- * @param {File} file 文件对象
- * @returns {Promise<string>} 文件内容
+ * @description 读取文件内容为Data URL（用于image、video、audio本地预览等）。Reads file content as Data URL (for local preview of images, videos, audio, etc.)
+ * @param {File} file - 文件对象。The File object
+ * @returns {Promise<string>} 文件内容的Promise。Promise that resolves to the file content
  * @example
  * readFileAsDataURL(file).then(dataURL => console.log('file dataURL', dataURL));  // e.g input[type="file"] onchange
  */
@@ -41,10 +92,10 @@ export function readFileAsDataURL(file: File): Promise<string> {
 
 /**
  * @function downloadFile
- * @description 保存/下载文件
- * @param {string} content 文件内容
- * @param {string} filename 文件名
- * @param {string} contentType 文件类型
+ * @description 保存/下载文件。Saves/downloads a file
+ * @param {string} content - 文件内容。The file content
+ * @param {string} filename - 文件名。The filename
+ * @param {string} contentType - 文件类型。The file content type
  * @example
  * downloadFile('file content', 'file.txt', 'text/plain');
  * downloadFile('data:image/png;base64,...', 'image.png', 'image/png');
@@ -65,11 +116,11 @@ export function downloadFile(content: string, filename: string, contentType: str
 
 /**
  * @function downloadImageFileByUrl
- * @description 根据URL下载图片文件
- * @param {string} url 图片URL
- * @param {string} filename 文件名
- * @param {string} imageType 图片类型
- * @returns {Promise<boolean>} 是否下载成功
+ * @description 根据URL下载图片文件。Downloads an image file by URL
+ * @param {string} url - 图片URL。The image URL
+ * @param {string} filename - 文件名。The filename
+ * @param {string} imageType - 图片类型。The image type
+ * @returns {Promise<boolean>} 是否下载成功。Whether the download was successful
  * @example
  * downloadImageFileByUrl('https://example.com/image.jpg', 'image.jpg');
  * downloadImageFileByUrl('https://example.com/image.png', 'image.png', 'image/png');

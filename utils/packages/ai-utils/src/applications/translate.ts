@@ -1,8 +1,13 @@
 /**
- * @module aiUtils
+ * @fileoverview AI-powered translation utilities supporting multiple languages with style and tone customization.
+ *
+ * This module provides intelligent translation capabilities using AI language models.
+ * It includes support for multiple languages, translation styles, tone adjustment,
+ * and context-aware translation with quality optimization for various use cases.
+ *
+ * @module Translate
  * @author Wayne
- * @Date 2025-08-10
- * @LastEditTime 2025-08-10 15:02:12
+ * @since 1.0.0
  */
 import { createPromptGenerator } from '../utils/prompt/generator';
 import { applyTemplate } from '../utils/prompt/applyTemplate';

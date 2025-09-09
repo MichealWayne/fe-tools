@@ -1,10 +1,13 @@
 /**
- * @module server
- * @description easy local server
- * @dependenies http-proxy
+ * @fileoverview Local HTTP server utilities for static file serving, providing easy development server setup with automatic MIME type detection and directory indexing.
+ *
+ * This module provides a simple HTTP server implementation for serving static files during development.
+ * It includes automatic MIME type detection, directory indexing, and customizable port configuration.
+ * The server supports common file types including HTML, CSS, JavaScript, images, and other web assets.
+ *
+ * @module Server
  * @author Wayne
- * @Date 2018-04-18 14:16:36
- * @LastEditTime 2025-06-09 19:18:33
+ * @since 1.0.0
  */
 import fs from 'fs';
 import path from 'path';
@@ -39,16 +42,63 @@ enum HTTP_RES_CODES {
 
 const DEFAULT_PORT = 8080;
 
+/**
+ * @function getContentType
+ * @description 根据文件扩展名获取MIME类型。Gets the appropriate MIME type for a file extension using the predefined extension mapping.
+ * @param {string} ext - 文件扩展名（不包含点）。File extension without the dot (e.g., 'html', 'css', 'js')
+ * @returns {string} 对应的MIME类型。The corresponding MIME type or 'application/octet-stream' as fallback
+ * @example
+ * // Get MIME types for common file extensions
+ * console.log(getContentType('html')); // 'text/html'
+ * console.log(getContentType('css'));  // 'text/css'
+ * console.log(getContentType('png'));  // 'image/png'
+ * console.log(getContentType('xyz'));  // 'application/octet-stream' (fallback)
+ */
 function getContentType(ext: string): string {
   return EXT_MAP[ext] || 'application/octet-stream';
 }
 
 /**
  * @function startServer
- * @description 启动本地静态资源服务器
- * @param {string} serverPath 静态资源根目录
- * @param {number} port 监听端口
- * @param {(url: string, server: http.Server) => void} [callback] 启动回调
+ * @description 启动本地静态文件服务器，支持自动MIME类型检测。Starts a local static file server with automatic MIME type detection and directory indexing for development purposes.
+ * @param {string} serverPath - 提供静态文件的根目录。Root directory to serve static files from
+ * @param {number} [port=8080] - 监听端口号。Port number to listen on (defaults to 8080)
+ * @param {(url: string, server: http.Server) => void} [callback] - 服务器启动时执行的可选回调函数。Optional callback executed when server starts successfully
+ * @example
+ * // Basic static server
+ * startServer('./public', 3000);
+ * // Serves files from ./public on http://localhost:3000
+ *
+ * @example
+ * // Server with callback for custom handling
+ * startServer('./dist', 8080, (url, server) => {
+ *   console.log(`Development server running at ${url}`);
+ *   console.log('Press Ctrl+C to stop');
+ *
+ *   // Graceful shutdown handling
+ *   process.on('SIGINT', () => {
+ *     server.close(() => {
+ *       console.log('Server stopped');
+ *       process.exit(0);
+ *     });
+ *   });
+ * });
+ *
+ * @example
+ * // Serve build output for preview
+ * import path from 'path';
+ * const buildDir = path.join(__dirname, '../build');
+ * startServer(buildDir, 4000, (url) => {
+ *   console.log(`Build preview available at ${url}`);
+ * });
+ *
+ * @example
+ * // Development server with auto-index
+ * startServer('./src', 5000);
+ * // Automatically serves index.html for directory requests
+ * // Supports: HTML, CSS, JS, JSON, images, fonts, and more
+ *
+ * @see {@link getContentType} - MIME type detection function
  */
 const startServer = (
   serverPath: string,

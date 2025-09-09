@@ -1,7 +1,13 @@
 /**
+ * @fileoverview Comprehensive AI utilities package providing language model interactions, prompt generation, and machine learning tools.
+ *
+ * This package provides a complete suite of AI utilities for modern applications.
+ * It includes prompt generation, template processing, vector operations, Python integration,
+ * and various AI-powered applications like code review, translation, and content generation.
+ *
+ * @module AIUtils
  * @author Wayne
- * @Date 2023-09-05 09:38:19
- * @LastEditTime 2025-08-10 15:02:09
+ * @since 1.0.0
  */
 // gpt application
 export * from './applications/codeReview';
