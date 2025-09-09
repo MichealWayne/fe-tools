@@ -1,7 +1,13 @@
 /**
+ * @fileoverview AI-powered unit test generation utilities with comprehensive test case coverage and framework support.
+ *
+ * This module provides intelligent unit test generation using AI language models.
+ * It includes support for multiple testing frameworks, comprehensive test case coverage,
+ * edge case detection, and best practices for creating maintainable and effective unit tests.
+ *
+ * @module CreateUnitTestCases
  * @author Wayne
- * @Date 2024-05-11 10:40:18
- * @LastEditTime 2025-08-10 15:02:12
+ * @since 1.0.0
  */
 import { createPromptGenerator } from '../utils/prompt/generator';
 import { applyTemplate } from '../utils/prompt/applyTemplate';
@@ -11,8 +17,8 @@ const MAX_TOKEN_LEN = 30000; // GPT-4o 32k
 
 /**
  * @function getCreateUnitTestCasesTxt
- * @description 获取单元测试的prompt (内部使用)
- * @param {string} codeToTest
+ * @description 获取单元测试生成的prompt文本（内部使用）。Generates a structured prompt for AI-powered unit test creation with comprehensive test case coverage and framework-specific patterns.
+ * @param {string} codeToTest - 需要测试的代码。Source code that needs unit test coverage (functions, classes, or modules)
  * @returns {string}
  */
 function getCreateUnitTestCasesTxt(codeToTest: string): string {

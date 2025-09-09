@@ -7,9 +7,9 @@
 
 /**
  * @function parseQueryString
- * @description 获取url中的query信息
- * @param {string} url 页面地址
- * @return {object} query信息对象
+ * @description 获取URL中的查询参数信息。Gets query parameter information from a URL
+ * @param {string} url - 页面地址。The page URL
+ * @return {object} 查询参数信息对象。Query parameter information object
  * @example
  * console.log(parseQueryString('https://github.com/?a=1&b=sss')); // {a: '1', b: 'sss'}
  * console.log(parseQueryString('https://github.com')); // {}
@@ -27,10 +27,10 @@ export function parseQueryString(url = window.location.href) {
 
 /**
  * @function getUrlParam
- * @description 获取页面地址中query字段对应的信息
- * @param {string} name query字段名称
- * @param {Function | undefined} decode 解码函数
- * @return {string | null} query字段对应的信息
+ * @description 获取页面地址中查询参数字段对应的信息。Gets information corresponding to a query parameter field in the page URL
+ * @param {string} name - 查询参数字段名称。The query parameter field name
+ * @param {Function | undefined} decode - 解码函数。The decode function
+ * @return {string | null} 查询参数字段对应的信息。Information corresponding to the query parameter field
  * @example
  * const name = getUrlParam('name');
  */

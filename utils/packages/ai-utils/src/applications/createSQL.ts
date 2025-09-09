@@ -1,7 +1,13 @@
 /**
+ * @fileoverview AI-powered SQL query generation utilities with database schema awareness and multi-engine support.
+ *
+ * This module provides intelligent SQL query generation using AI language models.
+ * It includes support for multiple database engines, schema-aware query construction,
+ * and optimization suggestions for complex database operations and data retrieval tasks.
+ *
+ * @module CreateSQL
  * @author Wayne
- * @Date 2023-08-10 11:26:38
- * @LastEditTime 2025-08-10 15:02:11
+ * @since 1.0.0
  */
 import { createPromptGenerator } from '../utils/prompt/generator';
 import { applyTemplate } from '../utils/prompt/applyTemplate';

@@ -1,8 +1,13 @@
 /**
- * @module aiUtils
+ * @fileoverview Template application utilities for dynamic prompt generation with placeholder replacement and validation.
+ *
+ * This module provides template processing capabilities for AI prompt generation.
+ * It includes functions for replacing placeholders in template strings, validating
+ * template syntax, and ensuring proper formatting for AI language model interactions.
+ *
+ * @module ApplyTemplate
  * @author Wayne
- * @Date 2025-08-10
- * @LastEditTime 2025-08-10 15:02:13
+ * @since 1.0.0
  */
 
 /**

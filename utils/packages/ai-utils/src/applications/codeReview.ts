@@ -1,8 +1,13 @@
 /**
- * @module promptApplications
+ * @fileoverview AI-powered code review utilities providing automated code analysis, bug detection, and improvement suggestions.
+ *
+ * This module provides comprehensive code review capabilities using AI language models.
+ * It includes functions for analyzing code patches, identifying potential issues, and generating
+ * structured feedback with scoring and detailed recommendations for code improvements.
+ *
+ * @module CodeReview
  * @author Wayne
- * @Date 2023-07-22 11:34:04
- * @LastEditTime 2025-08-10 15:02:10
+ * @since 1.0.0
  */
 import { createPromptGenerator } from '../utils/prompt/generator';
 import { applyTemplate } from '../utils/prompt/applyTemplate';
@@ -12,9 +17,22 @@ const MAX_TOKEN_LEN = 30000; // GPT-4o 32k
 
 /**
  * @function getCodeReviewPromptTxt
- * @description 获取检测的prompt (内部使用)
- * @param {string} patch
- * @return {string}
+ * @description 获取代码审查的prompt文本（内部使用）。Generates a structured prompt for AI-powered code review analysis with specific formatting requirements and evaluation criteria.
+ * @param {string} patch - 代码补丁内容。Code patch content to be reviewed (diff format or complete code)
+ * @returns {string} 格式化的代码审查prompt。Formatted prompt string for AI code review analysis
+ * @example
+ * // Generate prompt for code patch review
+ * const patch = `
+ * + function calculateTotal(items) {
+ * +   let total = 0;
+ * +   for (let i = 0; i < items.length; i++) {
+ * +     total += items[i].price;
+ * +   }
+ * +   return total;
+ * + }
+ * `;
+ * const prompt = getCodeReviewPromptTxt(patch);
+ * console.log(prompt); // Returns structured prompt for AI analysis
  */
 function getCodeReviewPromptTxt(patch: string) {
   return applyTemplate(STANDARD_PROMPT_TEMPLATE, {

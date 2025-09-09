@@ -7,8 +7,8 @@
 
 /**
  * @function getClientHeight
- * @description 获取可视窗口的高度
- * @returns {number} 可视窗口的高度
+ * @description 获取可视窗口的高度。Gets the height of the visible window
+ * @returns {number} 可视窗口的高度。The height of the visible window
  * @example
  * const height = getClientHeight();
  */
@@ -17,8 +17,8 @@ export const getClientHeight = (): number =>
 
 /**
  * @function getClientWidth
- * @description 获取可视窗口的宽度
- * @returns {number} 可视窗口的宽度
+ * @description 获取可视窗口的宽度。Gets the width of the visible window
+ * @returns {number} 可视窗口的宽度。The width of the visible window
  * @example
  * const clientW = getClientWidth();
  */
@@ -27,8 +27,8 @@ export const getClientWidth = (): number =>
 
 /**
  * @function isFullScreen
- * @description 是否在全屏状态
- * @returns {boolean} 是否在全屏状态
+ * @description 检查是否在全屏状态。Checks whether it is in full screen mode
+ * @returns {boolean} 是否在全屏状态。Whether it is in full screen mode
  */
 export function isFullScreen() {
   return (
@@ -41,8 +41,8 @@ export function isFullScreen() {
 
 /**
  * @function isFullScreenEnabled
- * @description 当前浏览器环境是否支持全屏操作
- * @returns {boolean} 是否支持全屏操作
+ * @description 检查当前浏览器环境是否支持全屏操作。Checks whether the current browser environment supports full screen operations
+ * @returns {boolean} 是否支持全屏操作。Whether full screen operations are supported
  */
 export function isFullScreenEnabled() {
   return (

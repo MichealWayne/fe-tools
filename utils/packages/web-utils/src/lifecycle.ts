@@ -7,9 +7,9 @@
 
 /**
  * @function onPageLoad
- * @description 注册页面加载完成事件（DOMContentLoaded）
- * @param {function} fn 页面加载完成时执行的回调
- * @returns {function} 移除监听的函数
+ * @description 注册页面加载完成事件（DOMContentLoaded）。Registers page load completion event (DOMContentLoaded)
+ * @param {function} fn - 页面加载完成时执行的回调。Callback function to execute when page loading is complete
+ * @returns {function} 移除监听的函数。Function to remove the event listener
  * @example
 onPageLoad(() => {
   console.log('Page loaded');
@@ -27,9 +27,9 @@ export function onPageLoad(fn: () => void): () => void {
 
 /**
  * @function onPageUnload
- * @description 注册页面卸载事件（unload）
- * @param {function} fn 页面卸载时执行的回调
- * @returns {function} 移除监听的函数
+ * @description 注册页面卸载事件（unload）。Registers page unload event (unload)
+ * @param {function} fn - 页面卸载时执行的回调。Callback function to execute when page is unloaded
+ * @returns {function} 移除监听的函数。Function to remove the event listener
  * @example
 onPageUnload(() => {
   console.log('Page unloaded');
@@ -42,9 +42,9 @@ export function onPageUnload(fn: () => void): () => void {
 
 /**
  * @function onBeforeUnload
- * @description 注册页面关闭前挽留事件（beforeunload）
- * @param {function} fn 页面关闭前执行的回调，可用于弹窗挽留
- * @returns {function} 移除监听的函数
+ * @description 注册页面关闭前挽留事件（beforeunload）。Registers page before unload retention event (beforeunload)
+ * @param {function} fn - 页面关闭前执行的回调，可用于弹窗挽留。Callback function executed before page closes, can be used for retention popups
+ * @returns {function} 移除监听的函数。Function to remove the event listener
  * @example
 onBeforeUnload((event) => {
   // 可以弹窗挽留，阻止页面关闭

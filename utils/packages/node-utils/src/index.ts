@@ -1,7 +1,13 @@
 /**
+ * @fileoverview Node.js utilities package providing comprehensive system monitoring, file operations, process management, and development tools.
+ *
+ * This package provides a complete suite of Node.js utilities for building robust applications.
+ * It includes file system operations, process execution, system monitoring, caching, logging,
+ * server utilities, and various helper functions commonly needed in Node.js development.
+ *
+ * @module NodeUtils
  * @author Wayne
- * @Date 2022-06-21 14:05:00
- * @LastEditTime 2025-06-08 15:39:25
+ * @since 1.0.0
  */
 
 export * from './fs/fsFuncs';

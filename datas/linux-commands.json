@@ -1,0 +1,3536 @@
+[{
+    "name": "ls",
+    "description": "列出目录内容",
+    "syntax": "ls [选项] [文件或目录]",
+    "examples": [{
+        "command": "ls",
+        "description": "列出当前目录的文件和文件夹"
+      },
+      {
+        "command": "ls -la",
+        "description": "以详细格式列出所有文件（包括隐藏文件）"
+      },
+      {
+        "command": "ls -lh",
+        "description": "以人类可读的格式显示文件大小"
+      }
+    ],
+    "options": [{
+        "flag": "-l",
+        "description": "使用长格式列出信息"
+      },
+      {
+        "flag": "-a",
+        "description": "显示所有文件，包括隐藏文件"
+      },
+      {
+        "flag": "-h",
+        "description": "以人类可读的格式显示文件大小"
+      },
+      {
+        "flag": "-t",
+        "description": "按修改时间排序"
+      },
+      {
+        "flag": "-r",
+        "description": "反向排序"
+      }
+    ],
+    "tag": ["文件操作", "目录操作"]
+  },
+  {
+    "name": "cd",
+    "description": "切换目录",
+    "syntax": "cd [目录路径]",
+    "examples": [{
+        "command": "cd /home/user",
+        "description": "切换到指定目录"
+      },
+      {
+        "command": "cd ..",
+        "description": "返回上级目录"
+      },
+      {
+        "command": "cd ~",
+        "description": "返回用户主目录"
+      }
+    ],
+    "options": [],
+    "tag": ["目录操作"]
+  },
+  {
+    "name": "pwd",
+    "description": "显示当前工作目录的完整路径",
+    "syntax": "pwd",
+    "examples": [{
+      "command": "pwd",
+      "description": "显示当前所在目录的完整路径"
+    }],
+    "options": [],
+    "tag": ["目录操作"]
+  },
+  {
+    "name": "mkdir",
+    "description": "创建目录",
+    "syntax": "mkdir [选项] 目录名",
+    "examples": [{
+        "command": "mkdir mydir",
+        "description": "创建名为mydir的目录"
+      },
+      {
+        "command": "mkdir -p path/to/dir",
+        "description": "递归创建目录结构"
+      }
+    ],
+    "options": [{
+        "flag": "-p",
+        "description": "递归创建目录，如果父目录不存在则一并创建"
+      },
+      {
+        "flag": "-m",
+        "description": "设置目录权限"
+      }
+    ],
+    "tag": ["目录操作"]
+  },
+  {
+    "name": "rm",
+    "description": "删除文件或目录",
+    "syntax": "rm [选项] 文件或目录",
+    "examples": [{
+        "command": "rm file.txt",
+        "description": "删除文件"
+      },
+      {
+        "command": "rm -rf directory",
+        "description": "强制递归删除目录及其内容"
+      }
+    ],
+    "options": [{
+        "flag": "-r",
+        "description": "递归删除目录及其内容"
+      },
+      {
+        "flag": "-f",
+        "description": "强制删除，不提示确认"
+      },
+      {
+        "flag": "-i",
+        "description": "删除前提示确认"
+      }
+    ],
+    "tag": ["文件操作", "目录操作"]
+  },
+  {
+    "name": "cp",
+    "description": "复制文件或目录",
+    "syntax": "cp [选项] 源文件 目标文件",
+    "examples": [{
+        "command": "cp file1.txt file2.txt",
+        "description": "复制文件"
+      },
+      {
+        "command": "cp -r dir1 dir2",
+        "description": "递归复制目录"
+      }
+    ],
+    "options": [{
+        "flag": "-r",
+        "description": "递归复制目录"
+      },
+      {
+        "flag": "-i",
+        "description": "覆盖前提示确认"
+      },
+      {
+        "flag": "-u",
+        "description": "只复制更新的文件"
+      }
+    ],
+    "tag": ["文件操作", "目录操作"]
+  },
+  {
+    "name": "mv",
+    "description": "移动或重命名文件和目录",
+    "syntax": "mv [选项] 源文件 目标文件",
+    "examples": [{
+        "command": "mv oldname.txt newname.txt",
+        "description": "重命名文件"
+      },
+      {
+        "command": "mv file.txt /path/to/destination/",
+        "description": "移动文件到指定目录"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "覆盖前提示确认"
+      },
+      {
+        "flag": "-u",
+        "description": "只移动更新的文件"
+      }
+    ],
+    "tag": ["文件操作", "目录操作"]
+  },
+  {
+    "name": "find",
+    "description": "在目录树中搜索文件和目录",
+    "syntax": "find [路径] [表达式]",
+    "examples": [{
+        "command": "find . -name \"*.txt\"",
+        "description": "在当前目录及子目录中查找所有.txt文件"
+      },
+      {
+        "command": "find /home -type d -name \"Documents\"",
+        "description": "查找名为Documents的目录"
+      }
+    ],
+    "options": [{
+        "flag": "-name",
+        "description": "按文件名搜索"
+      },
+      {
+        "flag": "-type",
+        "description": "按文件类型搜索（f=文件，d=目录）"
+      },
+      {
+        "flag": "-size",
+        "description": "按文件大小搜索"
+      },
+      {
+        "flag": "-mtime",
+        "description": "按修改时间搜索"
+      }
+    ],
+    "tag": ["文件操作", "目录操作", "搜索工具"]
+  },
+  {
+    "name": "grep",
+    "description": "在文件中搜索文本模式",
+    "syntax": "grep [选项] 模式 [文件]",
+    "examples": [{
+        "command": "grep \"hello\" file.txt",
+        "description": "在文件中搜索包含\"hello\"的行"
+      },
+      {
+        "command": "grep -r \"pattern\" /path/to/dir",
+        "description": "递归搜索目录中的模式"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "忽略大小写"
+      },
+      {
+        "flag": "-r",
+        "description": "递归搜索目录"
+      },
+      {
+        "flag": "-n",
+        "description": "显示行号"
+      },
+      {
+        "flag": "-v",
+        "description": "显示不匹配的行"
+      }
+    ],
+    "tag": ["文本处理", "搜索工具"]
+  },
+  {
+    "name": "chmod",
+    "description": "修改文件或目录的权限",
+    "syntax": "chmod [选项] 权限 文件",
+    "examples": [{
+        "command": "chmod 755 script.sh",
+        "description": "设置文件权限为755"
+      },
+      {
+        "command": "chmod +x file.sh",
+        "description": "给文件添加执行权限"
+      }
+    ],
+    "options": [{
+        "flag": "+x",
+        "description": "添加执行权限"
+      },
+      {
+        "flag": "-x",
+        "description": "移除执行权限"
+      },
+      {
+        "flag": "-R",
+        "description": "递归修改目录权限"
+      }
+    ],
+    "tag": ["用户权限"]
+  },
+  {
+    "name": "ps",
+    "description": "显示当前运行的进程",
+    "syntax": "ps [选项]",
+    "examples": [{
+        "command": "ps aux",
+        "description": "显示所有进程的详细信息"
+      },
+      {
+        "command": "ps -ef",
+        "description": "显示所有进程的完整信息"
+      }
+    ],
+    "options": [{
+        "flag": "aux",
+        "description": "显示所有用户的所有进程"
+      },
+      {
+        "flag": "-ef",
+        "description": "显示所有进程的完整格式"
+      }
+    ],
+    "tag": ["进程管理"]
+  },
+  {
+    "name": "kill",
+    "description": "终止进程",
+    "syntax": "kill [选项] 进程ID",
+    "examples": [{
+        "command": "kill 1234",
+        "description": "终止进程ID为1234的进程"
+      },
+      {
+        "command": "kill -9 1234",
+        "description": "强制终止进程"
+      }
+    ],
+    "options": [{
+        "flag": "-9",
+        "description": "强制终止进程"
+      },
+      {
+        "flag": "-15",
+        "description": "正常终止进程（默认）"
+      }
+    ],
+    "tag": ["进程管理"]
+  },
+  {
+    "name": "top",
+    "description": "实时显示系统进程信息",
+    "syntax": "top [选项]",
+    "examples": [{
+        "command": "top",
+        "description": "显示实时进程信息"
+      },
+      {
+        "command": "top -u username",
+        "description": "显示指定用户的进程"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "显示指定用户的进程"
+      },
+      {
+        "flag": "-p",
+        "description": "监控指定进程ID"
+      }
+    ],
+    "tag": ["系统监控", "进程管理"]
+  },
+  {
+    "name": "df",
+    "description": "显示文件系统磁盘空间使用情况",
+    "syntax": "df [选项] [文件系统]",
+    "examples": [{
+        "command": "df -h",
+        "description": "以人类可读格式显示磁盘使用情况"
+      },
+      {
+        "command": "df -T",
+        "description": "显示文件系统类型"
+      }
+    ],
+    "options": [{
+        "flag": "-h",
+        "description": "以人类可读格式显示"
+      },
+      {
+        "flag": "-T",
+        "description": "显示文件系统类型"
+      }
+    ],
+    "tag": ["磁盘与存储"]
+  },
+  {
+    "name": "du",
+    "description": "显示目录空间使用情况",
+    "syntax": "du [选项] [目录]",
+    "examples": [{
+        "command": "du -h",
+        "description": "以人类可读格式显示当前目录大小"
+      },
+      {
+        "command": "du -sh *",
+        "description": "显示当前目录下各文件和目录的大小"
+      }
+    ],
+    "options": [{
+        "flag": "-h",
+        "description": "以人类可读格式显示"
+      },
+      {
+        "flag": "-s",
+        "description": "只显示总计"
+      }
+    ],
+    "tag": ["磁盘与存储"]
+  },
+  {
+    "name": "tar",
+    "description": "打包和解包文件",
+    "syntax": "tar [选项] [文件名] [文件/目录]",
+    "examples": [{
+        "command": "tar -czf archive.tar.gz directory/",
+        "description": "创建gzip压缩的tar包"
+      },
+      {
+        "command": "tar -xzf archive.tar.gz",
+        "description": "解压gzip压缩的tar包"
+      }
+    ],
+    "options": [{
+        "flag": "-c",
+        "description": "创建新的归档文件"
+      },
+      {
+        "flag": "-x",
+        "description": "解压归档文件"
+      },
+      {
+        "flag": "-z",
+        "description": "使用gzip压缩"
+      },
+      {
+        "flag": "-f",
+        "description": "指定归档文件名"
+      }
+    ],
+    "tag": ["压缩与归档"]
+  },
+  {
+    "name": "wget",
+    "description": "从网络下载文件",
+    "syntax": "wget [选项] URL",
+    "examples": [{
+        "command": "wget https://example.com/file.zip",
+        "description": "下载文件"
+      },
+      {
+        "command": "wget -O newname.zip https://example.com/file.zip",
+        "description": "下载并重命名文件"
+      }
+    ],
+    "options": [{
+        "flag": "-O",
+        "description": "指定输出文件名"
+      },
+      {
+        "flag": "-c",
+        "description": "断点续传"
+      }
+    ],
+    "tag": ["文件传输", "网络工具"]
+  },
+  {
+    "name": "curl",
+    "description": "传输数据的工具，支持多种协议",
+    "syntax": "curl [选项] URL",
+    "examples": [{
+        "command": "curl https://api.example.com",
+        "description": "发送GET请求"
+      },
+      {
+        "command": "curl -X POST -d \"data\" https://api.example.com",
+        "description": "发送POST请求"
+      }
+    ],
+    "options": [{
+        "flag": "-X",
+        "description": "指定HTTP方法"
+      },
+      {
+        "flag": "-d",
+        "description": "发送POST数据"
+      },
+      {
+        "flag": "-H",
+        "description": "添加HTTP头"
+      }
+    ],
+    "tag": ["文件传输", "网络工具"]
+  },
+  {
+    "name": "ssh",
+    "description": "安全远程登录",
+    "syntax": "ssh [选项] [用户@]主机名",
+    "examples": [{
+        "command": "ssh user@server.com",
+        "description": "连接到远程服务器"
+      },
+      {
+        "command": "ssh -p 2222 user@server.com",
+        "description": "使用指定端口连接"
+      }
+    ],
+    "options": [{
+        "flag": "-p",
+        "description": "指定端口号"
+      },
+      {
+        "flag": "-i",
+        "description": "指定私钥文件"
+      }
+    ],
+    "tag": ["远程登录", "网络工具"]
+  },
+  {
+    "name": "chown",
+    "description": "修改文件或目录的所有者",
+    "syntax": "chown [选项] 所有者[:组] 文件",
+    "examples": [{
+        "command": "chown user file.txt",
+        "description": "修改文件所有者"
+      },
+      {
+        "command": "chown -R user:group directory/",
+        "description": "递归修改目录所有者和组"
+      }
+    ],
+    "options": [{
+      "flag": "-R",
+      "description": "递归修改目录及其内容"
+    }],
+    "tag": ["用户权限"]
+  },
+  {
+    "name": "cat",
+    "description": "显示文件内容",
+    "syntax": "cat [选项] [文件]",
+    "examples": [{
+        "command": "cat file.txt",
+        "description": "显示文件内容"
+      },
+      {
+        "command": "cat file1.txt file2.txt",
+        "description": "连接并显示多个文件内容"
+      },
+      {
+        "command": "cat -n file.txt",
+        "description": "显示文件内容并显示行号"
+      }
+    ],
+    "options": [{
+        "flag": "-n",
+        "description": "显示行号"
+      },
+      {
+        "flag": "-b",
+        "description": "对非空行显示行号"
+      },
+      {
+        "flag": "-A",
+        "description": "显示所有字符，包括不可见字符"
+      }
+    ],
+    "tag": ["文本处理", "文件操作"]
+  },
+  {
+    "name": "less",
+    "description": "分页显示文件内容",
+    "syntax": "less [选项] [文件]",
+    "examples": [{
+        "command": "less file.txt",
+        "description": "分页查看文件内容"
+      },
+      {
+        "command": "less +G file.txt",
+        "description": "从文件末尾开始查看"
+      }
+    ],
+    "options": [{
+        "flag": "+G",
+        "description": "从文件末尾开始"
+      },
+      {
+        "flag": "-N",
+        "description": "显示行号"
+      }
+    ],
+    "tag": ["文本处理", "文件操作"]
+  },
+  {
+    "name": "head",
+    "description": "显示文件开头部分",
+    "syntax": "head [选项] [文件]",
+    "examples": [{
+        "command": "head file.txt",
+        "description": "显示文件前10行"
+      },
+      {
+        "command": "head -n 20 file.txt",
+        "description": "显示文件前20行"
+      }
+    ],
+    "options": [{
+        "flag": "-n",
+        "description": "指定显示的行数"
+      },
+      {
+        "flag": "-c",
+        "description": "指定显示的字节数"
+      }
+    ],
+    "tag": ["文本处理", "文件操作"]
+  },
+  {
+    "name": "tail",
+    "description": "显示文件末尾部分",
+    "syntax": "tail [选项] [文件]",
+    "examples": [{
+        "command": "tail file.txt",
+        "description": "显示文件最后10行"
+      },
+      {
+        "command": "tail -f /var/log/syslog",
+        "description": "实时监控日志文件"
+      },
+      {
+        "command": "tail -n 50 file.txt",
+        "description": "显示文件最后50行"
+      }
+    ],
+    "options": [{
+        "flag": "-f",
+        "description": "实时监控文件变化"
+      },
+      {
+        "flag": "-n",
+        "description": "指定显示的行数"
+      },
+      {
+        "flag": "-c",
+        "description": "指定显示的字节数"
+      }
+    ],
+    "tag": ["文本处理", "文件操作", "日志查看"]
+  },
+  {
+    "name": "nano",
+    "description": "简单的文本编辑器",
+    "syntax": "nano [选项] [文件]",
+    "examples": [{
+        "command": "nano file.txt",
+        "description": "编辑文件"
+      },
+      {
+        "command": "nano +10 file.txt",
+        "description": "打开文件并跳转到第10行"
+      }
+    ],
+    "options": [{
+        "flag": "+行号",
+        "description": "打开文件时跳转到指定行"
+      },
+      {
+        "flag": "-w",
+        "description": "禁用自动换行"
+      }
+    ],
+    "tag": ["文本处理"]
+  },
+  {
+    "name": "vim",
+    "description": "高级文本编辑器",
+    "syntax": "vim [选项] [文件]",
+    "examples": [{
+        "command": "vim file.txt",
+        "description": "编辑文件"
+      },
+      {
+        "command": "vim +10 file.txt",
+        "description": "打开文件并跳转到第10行"
+      }
+    ],
+    "options": [{
+        "flag": "+行号",
+        "description": "打开文件时跳转到指定行"
+      },
+      {
+        "flag": "-r",
+        "description": "恢复文件"
+      }
+    ],
+    "tag": ["文本处理"]
+  },
+  {
+    "name": "which",
+    "description": "查找命令的位置",
+    "syntax": "which 命令名",
+    "examples": [{
+        "command": "which python",
+        "description": "查找python命令的路径"
+      },
+      {
+        "command": "which -a python",
+        "description": "查找所有python命令的路径"
+      }
+    ],
+    "options": [{
+      "flag": "-a",
+      "description": "显示所有匹配的路径"
+    }],
+    "tag": ["系统信息", "命令行工具"]
+  },
+  {
+    "name": "whereis",
+    "description": "查找命令的二进制文件、源码和手册页",
+    "syntax": "whereis [选项] 命令名",
+    "examples": [{
+        "command": "whereis ls",
+        "description": "查找ls命令相关文件"
+      },
+      {
+        "command": "whereis -b ls",
+        "description": "只查找二进制文件"
+      }
+    ],
+    "options": [{
+        "flag": "-b",
+        "description": "只查找二进制文件"
+      },
+      {
+        "flag": "-m",
+        "description": "只查找手册页"
+      },
+      {
+        "flag": "-s",
+        "description": "只查找源码文件"
+      }
+    ],
+    "tag": ["系统信息", "命令行工具"]
+  },
+  {
+    "name": "man",
+    "description": "显示命令手册页",
+    "syntax": "man [选项] 命令名",
+    "examples": [{
+        "command": "man ls",
+        "description": "查看ls命令的手册"
+      },
+      {
+        "command": "man 5 passwd",
+        "description": "查看passwd文件格式的手册"
+      }
+    ],
+    "options": [{
+        "flag": "-k",
+        "description": "按关键字搜索手册页"
+      },
+      {
+        "flag": "-f",
+        "description": "显示简短描述"
+      }
+    ],
+    "tag": ["系统信息", "命令行工具"]
+  },
+  {
+    "name": "history",
+    "description": "显示命令历史",
+    "syntax": "history [选项]",
+    "examples": [{
+        "command": "history",
+        "description": "显示命令历史"
+      },
+      {
+        "command": "history 10",
+        "description": "显示最近10条命令"
+      },
+      {
+        "command": "history -c",
+        "description": "清空命令历史"
+      }
+    ],
+    "options": [{
+        "flag": "-c",
+        "description": "清空历史记录"
+      },
+      {
+        "flag": "-d",
+        "description": "删除指定行的历史记录"
+      }
+    ],
+    "tag": ["命令行工具"]
+  },
+  {
+    "name": "alias",
+    "description": "创建命令别名",
+    "syntax": "alias [别名='命令']",
+    "examples": [{
+        "command": "alias ll='ls -la'",
+        "description": "创建ll别名"
+      },
+      {
+        "command": "alias",
+        "description": "显示所有别名"
+      }
+    ],
+    "options": [],
+    "tag": ["命令行工具", "脚本编程"]
+  },
+  {
+    "name": "unalias",
+    "description": "删除命令别名",
+    "syntax": "unalias 别名",
+    "examples": [{
+        "command": "unalias ll",
+        "description": "删除ll别名"
+      },
+      {
+        "command": "unalias -a",
+        "description": "删除所有别名"
+      }
+    ],
+    "options": [{
+      "flag": "-a",
+      "description": "删除所有别名"
+    }],
+    "tag": ["命令行工具", "脚本编程"]
+  },
+  {
+    "name": "echo",
+    "description": "输出文本",
+    "syntax": "echo [选项] [文本]",
+    "examples": [{
+        "command": "echo \"Hello World\"",
+        "description": "输出文本"
+      },
+      {
+        "command": "echo $PATH",
+        "description": "输出环境变量"
+      },
+      {
+        "command": "echo -e \"Line1\\nLine2\"",
+        "description": "输出带换行的文本"
+      }
+    ],
+    "options": [{
+        "flag": "-e",
+        "description": "启用转义字符解释"
+      },
+      {
+        "flag": "-n",
+        "description": "不输出尾随换行符"
+      }
+    ],
+    "tag": ["文本处理", "脚本编程"]
+  },
+  {
+    "name": "date",
+    "description": "显示或设置系统日期",
+    "syntax": "date [选项] [格式]",
+    "examples": [{
+        "command": "date",
+        "description": "显示当前日期和时间"
+      },
+      {
+        "command": "date +\"%Y-%m-%d %H:%M:%S\"",
+        "description": "按指定格式显示日期"
+      },
+      {
+        "command": "date -d \"yesterday\"",
+        "description": "显示昨天的日期"
+      }
+    ],
+    "options": [{
+        "flag": "+格式",
+        "description": "按指定格式显示"
+      },
+      {
+        "flag": "-d",
+        "description": "显示指定日期"
+      }
+    ],
+    "tag": ["系统时间"]
+  },
+  {
+    "name": "whoami",
+    "description": "显示当前用户名",
+    "syntax": "whoami",
+    "examples": [{
+      "command": "whoami",
+      "description": "显示当前登录用户名"
+    }],
+    "options": [],
+    "tag": ["用户管理"]
+  },
+  {
+    "name": "id",
+    "description": "显示用户和组ID",
+    "syntax": "id [选项] [用户名]",
+    "examples": [{
+        "command": "id",
+        "description": "显示当前用户的ID信息"
+      },
+      {
+        "command": "id username",
+        "description": "显示指定用户的ID信息"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "只显示用户ID"
+      },
+      {
+        "flag": "-g",
+        "description": "只显示组ID"
+      }
+    ],
+    "tag": ["用户管理"]
+  },
+  {
+    "name": "su",
+    "description": "切换用户",
+    "syntax": "su [选项] [用户名]",
+    "examples": [{
+        "command": "su",
+        "description": "切换到root用户"
+      },
+      {
+        "command": "su - username",
+        "description": "切换到指定用户并加载其环境"
+      }
+    ],
+    "options": [{
+        "flag": "-",
+        "description": "加载目标用户的完整环境"
+      },
+      {
+        "flag": "-c",
+        "description": "执行指定命令后退出"
+      }
+    ],
+    "tag": ["用户管理"]
+  },
+  {
+    "name": "sudo",
+    "description": "以其他用户身份执行命令",
+    "syntax": "sudo [选项] 命令",
+    "examples": [{
+        "command": "sudo apt update",
+        "description": "以root权限执行命令"
+      },
+      {
+        "command": "sudo -u username command",
+        "description": "以指定用户身份执行命令"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "指定执行命令的用户"
+      },
+      {
+        "flag": "-i",
+        "description": "模拟登录shell"
+      }
+    ],
+    "tag": ["用户管理", "系统安全"]
+  },
+  {
+    "name": "passwd",
+    "description": "修改用户密码",
+    "syntax": "passwd [选项] [用户名]",
+    "examples": [{
+        "command": "passwd",
+        "description": "修改当前用户密码"
+      },
+      {
+        "command": "sudo passwd username",
+        "description": "修改指定用户密码"
+      }
+    ],
+    "options": [{
+        "flag": "-l",
+        "description": "锁定用户账户"
+      },
+      {
+        "flag": "-u",
+        "description": "解锁用户账户"
+      }
+    ],
+    "tag": ["用户管理"]
+  },
+  {
+    "name": "mount",
+    "description": "挂载文件系统",
+    "syntax": "mount [选项] 设备 挂载点",
+    "examples": [{
+        "command": "mount /dev/sdb1 /mnt/usb",
+        "description": "挂载USB设备"
+      },
+      {
+        "command": "mount -t ntfs /dev/sdb1 /mnt/windows",
+        "description": "挂载NTFS文件系统"
+      }
+    ],
+    "options": [{
+        "flag": "-t",
+        "description": "指定文件系统类型"
+      },
+      {
+        "flag": "-o",
+        "description": "指定挂载选项"
+      }
+    ],
+    "tag": ["文件系统", "设备管理"]
+  },
+  {
+    "name": "umount",
+    "description": "卸载文件系统",
+    "syntax": "umount [选项] 挂载点或设备",
+    "examples": [{
+        "command": "umount /mnt/usb",
+        "description": "卸载挂载点"
+      },
+      {
+        "command": "umount -f /mnt/usb",
+        "description": "强制卸载"
+      }
+    ],
+    "options": [{
+        "flag": "-f",
+        "description": "强制卸载"
+      },
+      {
+        "flag": "-l",
+        "description": "懒惰卸载"
+      }
+    ],
+    "tag": ["文件系统", "设备管理"]
+  },
+  {
+    "name": "lsblk",
+    "description": "列出块设备信息",
+    "syntax": "lsblk [选项]",
+    "examples": [{
+        "command": "lsblk",
+        "description": "显示所有块设备"
+      },
+      {
+        "command": "lsblk -f",
+        "description": "显示文件系统信息"
+      }
+    ],
+    "options": [{
+        "flag": "-f",
+        "description": "显示文件系统信息"
+      },
+      {
+        "flag": "-a",
+        "description": "显示所有设备"
+      }
+    ],
+    "tag": ["设备管理", "磁盘与存储"]
+  },
+  {
+    "name": "fdisk",
+    "description": "磁盘分区工具",
+    "syntax": "fdisk [选项] 设备",
+    "examples": [{
+        "command": "fdisk -l",
+        "description": "列出所有磁盘分区"
+      },
+      {
+        "command": "sudo fdisk /dev/sda",
+        "description": "编辑磁盘分区"
+      }
+    ],
+    "options": [{
+        "flag": "-l",
+        "description": "列出分区表"
+      },
+      {
+        "flag": "-u",
+        "description": "以扇区为单位显示"
+      }
+    ],
+    "tag": ["设备管理", "磁盘与存储"]
+  },
+  {
+    "name": "free",
+    "description": "显示内存使用情况",
+    "syntax": "free [选项]",
+    "examples": [{
+        "command": "free -h",
+        "description": "以人类可读格式显示内存使用情况"
+      },
+      {
+        "command": "free -m",
+        "description": "以MB为单位显示"
+      }
+    ],
+    "options": [{
+        "flag": "-h",
+        "description": "以人类可读格式显示"
+      },
+      {
+        "flag": "-m",
+        "description": "以MB为单位显示"
+      },
+      {
+        "flag": "-g",
+        "description": "以GB为单位显示"
+      }
+    ],
+    "tag": ["内存管理"]
+  },
+  {
+    "name": "uptime",
+    "description": "显示系统运行时间和负载",
+    "syntax": "uptime [选项]",
+    "examples": [{
+        "command": "uptime",
+        "description": "显示系统运行时间和负载"
+      },
+      {
+        "command": "uptime -p",
+        "description": "以友好格式显示运行时间"
+      }
+    ],
+    "options": [{
+        "flag": "-p",
+        "description": "以友好格式显示"
+      },
+      {
+        "flag": "-s",
+        "description": "显示系统启动时间"
+      }
+    ],
+    "tag": ["系统信息"]
+  },
+  {
+    "name": "uname",
+    "description": "显示系统信息",
+    "syntax": "uname [选项]",
+    "examples": [{
+        "command": "uname -a",
+        "description": "显示所有系统信息"
+      },
+      {
+        "command": "uname -r",
+        "description": "显示内核版本"
+      }
+    ],
+    "options": [{
+        "flag": "-a",
+        "description": "显示所有信息"
+      },
+      {
+        "flag": "-r",
+        "description": "显示内核版本"
+      },
+      {
+        "flag": "-m",
+        "description": "显示机器硬件名"
+      }
+    ],
+    "tag": ["系统信息"]
+  },
+  {
+    "name": "lscpu",
+    "description": "显示CPU信息",
+    "syntax": "lscpu [选项]",
+    "examples": [{
+      "command": "lscpu",
+      "description": "显示CPU详细信息"
+    }],
+    "options": [{
+      "flag": "-e",
+      "description": "显示扩展的CPU信息"
+    }],
+    "tag": ["硬件信息"]
+  },
+  {
+    "name": "lsusb",
+    "description": "列出USB设备",
+    "syntax": "lsusb [选项]",
+    "examples": [{
+        "command": "lsusb",
+        "description": "列出所有USB设备"
+      },
+      {
+        "command": "lsusb -v",
+        "description": "显示详细信息"
+      }
+    ],
+    "options": [{
+        "flag": "-v",
+        "description": "显示详细信息"
+      },
+      {
+        "flag": "-t",
+        "description": "以树形结构显示"
+      }
+    ],
+    "tag": ["硬件信息", "设备管理"]
+  },
+  {
+    "name": "lspci",
+    "description": "列出PCI设备",
+    "syntax": "lspci [选项]",
+    "examples": [{
+        "command": "lspci",
+        "description": "列出所有PCI设备"
+      },
+      {
+        "command": "lspci -v",
+        "description": "显示详细信息"
+      }
+    ],
+    "options": [{
+        "flag": "-v",
+        "description": "显示详细信息"
+      },
+      {
+        "flag": "-k",
+        "description": "显示内核驱动"
+      }
+    ],
+    "tag": ["硬件信息", "设备管理"]
+  },
+  {
+    "name": "netstat",
+    "description": "显示网络连接信息",
+    "syntax": "netstat [选项]",
+    "examples": [{
+        "command": "netstat -tuln",
+        "description": "显示所有监听端口"
+      },
+      {
+        "command": "netstat -r",
+        "description": "显示路由表"
+      }
+    ],
+    "options": [{
+        "flag": "-t",
+        "description": "显示TCP连接"
+      },
+      {
+        "flag": "-u",
+        "description": "显示UDP连接"
+      },
+      {
+        "flag": "-l",
+        "description": "只显示监听端口"
+      },
+      {
+        "flag": "-n",
+        "description": "以数字形式显示地址"
+      }
+    ],
+    "tag": ["网络工具"]
+  },
+  {
+    "name": "ss",
+    "description": "显示套接字统计信息",
+    "syntax": "ss [选项]",
+    "examples": [{
+        "command": "ss -tuln",
+        "description": "显示所有监听端口"
+      },
+      {
+        "command": "ss -p",
+        "description": "显示进程信息"
+      }
+    ],
+    "options": [{
+        "flag": "-t",
+        "description": "显示TCP套接字"
+      },
+      {
+        "flag": "-u",
+        "description": "显示UDP套接字"
+      },
+      {
+        "flag": "-l",
+        "description": "只显示监听套接字"
+      },
+      {
+        "flag": "-p",
+        "description": "显示进程信息"
+      }
+    ],
+    "tag": ["网络工具"]
+  },
+  {
+    "name": "ping",
+    "description": "测试网络连通性",
+    "syntax": "ping [选项] 主机",
+    "examples": [{
+        "command": "ping google.com",
+        "description": "测试到google.com的连通性"
+      },
+      {
+        "command": "ping -c 4 192.168.1.1",
+        "description": "发送4个ping包"
+      }
+    ],
+    "options": [{
+        "flag": "-c",
+        "description": "指定发送包的数量"
+      },
+      {
+        "flag": "-i",
+        "description": "指定发送间隔"
+      }
+    ],
+    "tag": ["网络工具"]
+  },
+  {
+    "name": "traceroute",
+    "description": "跟踪数据包路由",
+    "syntax": "traceroute [选项] 主机",
+    "examples": [{
+      "command": "traceroute google.com",
+      "description": "跟踪到google.com的路由"
+    }],
+    "options": [{
+        "flag": "-n",
+        "description": "不解析主机名"
+      },
+      {
+        "flag": "-m",
+        "description": "设置最大跳数"
+      }
+    ],
+    "tag": ["网络工具"]
+  },
+  {
+    "name": "nslookup",
+    "description": "DNS查询工具",
+    "syntax": "nslookup [选项] [域名]",
+    "examples": [{
+        "command": "nslookup google.com",
+        "description": "查询域名的IP地址"
+      },
+      {
+        "command": "nslookup 8.8.8.8",
+        "description": "反向DNS查询"
+      }
+    ],
+    "options": [],
+    "tag": ["网络工具"]
+  },
+  {
+    "name": "dig",
+    "description": "DNS查询工具",
+    "syntax": "dig [选项] [域名] [记录类型]",
+    "examples": [{
+        "command": "dig google.com",
+        "description": "查询域名的A记录"
+      },
+      {
+        "command": "dig google.com MX",
+        "description": "查询MX记录"
+      }
+    ],
+    "options": [{
+        "flag": "+short",
+        "description": "简短输出"
+      },
+      {
+        "flag": "+trace",
+        "description": "跟踪查询过程"
+      }
+    ],
+    "tag": ["网络工具"]
+  },
+  {
+    "name": "iptables",
+    "description": "配置防火墙规则",
+    "syntax": "iptables [选项] [规则]",
+    "examples": [{
+        "command": "iptables -L",
+        "description": "列出所有规则"
+      },
+      {
+        "command": "iptables -A INPUT -p tcp --dport 22 -j ACCEPT",
+        "description": "允许SSH连接"
+      }
+    ],
+    "options": [{
+        "flag": "-L",
+        "description": "列出规则"
+      },
+      {
+        "flag": "-A",
+        "description": "添加规则"
+      },
+      {
+        "flag": "-D",
+        "description": "删除规则"
+      }
+    ],
+    "tag": ["系统安全", "网络配置"]
+  },
+  {
+    "name": "systemctl",
+    "description": "管理systemd服务",
+    "syntax": "systemctl [选项] 命令 [服务名]",
+    "examples": [{
+        "command": "systemctl status nginx",
+        "description": "查看服务状态"
+      },
+      {
+        "command": "systemctl start nginx",
+        "description": "启动服务"
+      },
+      {
+        "command": "systemctl enable nginx",
+        "description": "设置服务开机自启"
+      }
+    ],
+    "options": [{
+        "flag": "--user",
+        "description": "管理用户服务"
+      },
+      {
+        "flag": "--now",
+        "description": "立即执行操作"
+      }
+    ],
+    "tag": ["系统服务"]
+  },
+  {
+    "name": "service",
+    "description": "管理系统服务",
+    "syntax": "service 服务名 命令",
+    "examples": [{
+        "command": "service nginx start",
+        "description": "启动nginx服务"
+      },
+      {
+        "command": "service nginx status",
+        "description": "查看服务状态"
+      }
+    ],
+    "options": [],
+    "tag": ["系统服务"]
+  },
+  {
+    "name": "crontab",
+    "description": "管理定时任务",
+    "syntax": "crontab [选项]",
+    "examples": [{
+        "command": "crontab -l",
+        "description": "列出当前用户的定时任务"
+      },
+      {
+        "command": "crontab -e",
+        "description": "编辑定时任务"
+      }
+    ],
+    "options": [{
+        "flag": "-l",
+        "description": "列出定时任务"
+      },
+      {
+        "flag": "-e",
+        "description": "编辑定时任务"
+      },
+      {
+        "flag": "-r",
+        "description": "删除所有定时任务"
+      }
+    ],
+    "tag": ["定时任务"]
+  },
+  {
+    "name": "at",
+    "description": "安排一次性任务",
+    "syntax": "at [选项] 时间",
+    "examples": [{
+        "command": "at 15:30",
+        "description": "在15:30执行任务"
+      },
+      {
+        "command": "at now + 1 hour",
+        "description": "一小时后执行任务"
+      }
+    ],
+    "options": [{
+        "flag": "-l",
+        "description": "列出待执行任务"
+      },
+      {
+        "flag": "-d",
+        "description": "删除任务"
+      }
+    ],
+    "tag": ["定时任务"]
+  },
+  {
+    "name": "jobs",
+    "description": "显示活动作业",
+    "syntax": "jobs [选项]",
+    "examples": [{
+        "command": "jobs",
+        "description": "显示当前shell的作业"
+      },
+      {
+        "command": "jobs -l",
+        "description": "显示作业的进程ID"
+      }
+    ],
+    "options": [{
+        "flag": "-l",
+        "description": "显示进程ID"
+      },
+      {
+        "flag": "-p",
+        "description": "只显示进程ID"
+      }
+    ],
+    "tag": ["作业控制"]
+  },
+  {
+    "name": "bg",
+    "description": "将作业放到后台运行",
+    "syntax": "bg [作业号]",
+    "examples": [{
+        "command": "bg",
+        "description": "将当前作业放到后台"
+      },
+      {
+        "command": "bg %1",
+        "description": "将作业1放到后台"
+      }
+    ],
+    "options": [],
+    "tag": ["作业控制"]
+  },
+  {
+    "name": "fg",
+    "description": "将后台作业调到前台",
+    "syntax": "fg [作业号]",
+    "examples": [{
+        "command": "fg",
+        "description": "将最近的后台作业调到前台"
+      },
+      {
+        "command": "fg %1",
+        "description": "将作业1调到前台"
+      }
+    ],
+    "options": [],
+    "tag": ["作业控制"]
+  },
+  {
+    "name": "nohup",
+    "description": "运行命令，忽略挂起信号",
+    "syntax": "nohup 命令 [参数] &",
+    "examples": [{
+        "command": "nohup python script.py &",
+        "description": "后台运行Python脚本"
+      },
+      {
+        "command": "nohup ./long_running_task.sh > output.log 2>&1 &",
+        "description": "后台运行并重定向输出"
+      }
+    ],
+    "options": [],
+    "tag": ["作业控制", "脚本执行"]
+  },
+  {
+    "name": "screen",
+    "description": "终端多路复用器",
+    "syntax": "screen [选项] [命令]",
+    "examples": [{
+        "command": "screen",
+        "description": "创建新的screen会话"
+      },
+      {
+        "command": "screen -S session_name",
+        "description": "创建命名会话"
+      },
+      {
+        "command": "screen -r",
+        "description": "恢复会话"
+      }
+    ],
+    "options": [{
+        "flag": "-S",
+        "description": "指定会话名称"
+      },
+      {
+        "flag": "-r",
+        "description": "恢复会话"
+      },
+      {
+        "flag": "-ls",
+        "description": "列出所有会话"
+      }
+    ],
+    "tag": ["终端复用器"]
+  },
+  {
+    "name": "tmux",
+    "description": "终端多路复用器",
+    "syntax": "tmux [选项] [命令]",
+    "examples": [{
+        "command": "tmux",
+        "description": "创建新的tmux会话"
+      },
+      {
+        "command": "tmux new -s session_name",
+        "description": "创建命名会话"
+      },
+      {
+        "command": "tmux attach -t session_name",
+        "description": "连接到指定会话"
+      }
+    ],
+    "options": [{
+        "flag": "new",
+        "description": "创建新会话"
+      },
+      {
+        "flag": "attach",
+        "description": "连接到会话"
+      },
+      {
+        "flag": "list-sessions",
+        "description": "列出所有会话"
+      }
+    ],
+    "tag": ["终端复用器"]
+  },
+  {
+    "name": "sort",
+    "description": "对文本行进行排序",
+    "syntax": "sort [选项] [文件]",
+    "examples": [{
+        "command": "sort file.txt",
+        "description": "对文件内容排序"
+      },
+      {
+        "command": "sort -n numbers.txt",
+        "description": "按数值排序"
+      },
+      {
+        "command": "sort -r file.txt",
+        "description": "反向排序"
+      }
+    ],
+    "options": [{
+        "flag": "-n",
+        "description": "按数值排序"
+      },
+      {
+        "flag": "-r",
+        "description": "反向排序"
+      },
+      {
+        "flag": "-u",
+        "description": "去除重复行"
+      },
+      {
+        "flag": "-k",
+        "description": "指定排序字段"
+      }
+    ],
+    "tag": ["文本处理"]
+  },
+  {
+    "name": "uniq",
+    "description": "报告或删除重复行",
+    "syntax": "uniq [选项] [文件]",
+    "examples": [{
+        "command": "uniq file.txt",
+        "description": "删除相邻的重复行"
+      },
+      {
+        "command": "sort file.txt | uniq",
+        "description": "删除所有重复行"
+      },
+      {
+        "command": "uniq -c file.txt",
+        "description": "统计重复行数量"
+      }
+    ],
+    "options": [{
+        "flag": "-c",
+        "description": "显示每行出现的次数"
+      },
+      {
+        "flag": "-d",
+        "description": "只显示重复行"
+      },
+      {
+        "flag": "-u",
+        "description": "只显示不重复行"
+      }
+    ],
+    "tag": ["文本处理"]
+  },
+  {
+    "name": "wc",
+    "description": "统计文件的行数、字数、字符数",
+    "syntax": "wc [选项] [文件]",
+    "examples": [{
+        "command": "wc file.txt",
+        "description": "统计文件的行数、字数、字符数"
+      },
+      {
+        "command": "wc -l file.txt",
+        "description": "只统计行数"
+      },
+      {
+        "command": "wc -w file.txt",
+        "description": "只统计字数"
+      }
+    ],
+    "options": [{
+        "flag": "-l",
+        "description": "只统计行数"
+      },
+      {
+        "flag": "-w",
+        "description": "只统计字数"
+      },
+      {
+        "flag": "-c",
+        "description": "只统计字符数"
+      }
+    ],
+    "tag": ["文本处理"]
+  },
+  {
+    "name": "cut",
+    "description": "从文件的每一行中提取部分内容",
+    "syntax": "cut [选项] [文件]",
+    "examples": [{
+        "command": "cut -d':' -f1 /etc/passwd",
+        "description": "提取用户名（以冒号分隔的第一字段）"
+      },
+      {
+        "command": "cut -c1-10 file.txt",
+        "description": "提取每行的前10个字符"
+      }
+    ],
+    "options": [{
+        "flag": "-d",
+        "description": "指定分隔符"
+      },
+      {
+        "flag": "-f",
+        "description": "指定字段"
+      },
+      {
+        "flag": "-c",
+        "description": "指定字符位置"
+      }
+    ],
+    "tag": ["文本处理"]
+  },
+  {
+    "name": "awk",
+    "description": "文本处理工具",
+    "syntax": "awk [选项] '程序' [文件]",
+    "examples": [{
+        "command": "awk '{print $1}' file.txt",
+        "description": "打印每行的第一个字段"
+      },
+      {
+        "command": "awk -F':' '{print $1}' /etc/passwd",
+        "description": "以冒号为分隔符打印第一字段"
+      },
+      {
+        "command": "awk 'NR==5' file.txt",
+        "description": "打印第5行"
+      }
+    ],
+    "options": [{
+        "flag": "-F",
+        "description": "指定字段分隔符"
+      },
+      {
+        "flag": "-v",
+        "description": "定义变量"
+      }
+    ],
+    "tag": ["文本处理", "脚本编程"]
+  },
+  {
+    "name": "sed",
+    "description": "流编辑器，用于过滤和转换文本",
+    "syntax": "sed [选项] '命令' [文件]",
+    "examples": [{
+        "command": "sed 's/old/new/g' file.txt",
+        "description": "替换文本中的所有'old'为'new'"
+      },
+      {
+        "command": "sed -n '5,10p' file.txt",
+        "description": "打印第5到10行"
+      },
+      {
+        "command": "sed '/pattern/d' file.txt",
+        "description": "删除包含pattern的行"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "直接修改文件"
+      },
+      {
+        "flag": "-n",
+        "description": "静默模式，只输出处理的行"
+      },
+      {
+        "flag": "-e",
+        "description": "执行多个编辑命令"
+      }
+    ],
+    "tag": ["文本处理", "脚本编程"]
+  },
+  {
+    "name": "tr",
+    "description": "转换或删除字符",
+    "syntax": "tr [选项] 集合1 [集合2]",
+    "examples": [{
+        "command": "echo \"hello\" | tr 'a-z' 'A-Z'",
+        "description": "将小写字母转换为大写"
+      },
+      {
+        "command": "tr -d '0-9' < file.txt",
+        "description": "删除所有数字"
+      },
+      {
+        "command": "tr -s ' ' < file.txt",
+        "description": "压缩连续的空格为单个空格"
+      }
+    ],
+    "options": [{
+        "flag": "-d",
+        "description": "删除指定字符"
+      },
+      {
+        "flag": "-s",
+        "description": "压缩重复字符"
+      },
+      {
+        "flag": "-c",
+        "description": "使用字符集的补集"
+      }
+    ],
+    "tag": ["文本处理"]
+  },
+  {
+    "name": "diff",
+    "description": "比较文件差异",
+    "syntax": "diff [选项] 文件1 文件2",
+    "examples": [{
+        "command": "diff file1.txt file2.txt",
+        "description": "比较两个文件的差异"
+      },
+      {
+        "command": "diff -u file1.txt file2.txt",
+        "description": "以统一格式显示差异"
+      },
+      {
+        "command": "diff -r dir1 dir2",
+        "description": "递归比较目录"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "统一格式输出"
+      },
+      {
+        "flag": "-r",
+        "description": "递归比较目录"
+      },
+      {
+        "flag": "-i",
+        "description": "忽略大小写"
+      }
+    ],
+    "tag": ["文件比较"]
+  },
+  {
+    "name": "patch",
+    "description": "应用补丁文件",
+    "syntax": "patch [选项] [原文件] < 补丁文件",
+    "examples": [{
+        "command": "patch < changes.patch",
+        "description": "应用补丁"
+      },
+      {
+        "command": "patch -p1 < changes.patch",
+        "description": "应用补丁并去掉路径前缀"
+      }
+    ],
+    "options": [{
+        "flag": "-p",
+        "description": "去掉路径前缀"
+      },
+      {
+        "flag": "-R",
+        "description": "反向应用补丁"
+      }
+    ],
+    "tag": ["文件比较"]
+  },
+  {
+    "name": "zip",
+    "description": "创建ZIP压缩文件",
+    "syntax": "zip [选项] 压缩文件名 文件/目录",
+    "examples": [{
+        "command": "zip archive.zip file1.txt file2.txt",
+        "description": "压缩多个文件"
+      },
+      {
+        "command": "zip -r archive.zip directory/",
+        "description": "递归压缩目录"
+      }
+    ],
+    "options": [{
+        "flag": "-r",
+        "description": "递归压缩目录"
+      },
+      {
+        "flag": "-9",
+        "description": "最高压缩率"
+      }
+    ],
+    "tag": ["压缩与归档"]
+  },
+  {
+    "name": "unzip",
+    "description": "解压ZIP文件",
+    "syntax": "unzip [选项] 压缩文件名",
+    "examples": [{
+        "command": "unzip archive.zip",
+        "description": "解压ZIP文件"
+      },
+      {
+        "command": "unzip -d /path/to/dir archive.zip",
+        "description": "解压到指定目录"
+      },
+      {
+        "command": "unzip -l archive.zip",
+        "description": "列出压缩文件内容"
+      }
+    ],
+    "options": [{
+        "flag": "-d",
+        "description": "指定解压目录"
+      },
+      {
+        "flag": "-l",
+        "description": "列出文件内容"
+      },
+      {
+        "flag": "-o",
+        "description": "覆盖文件不提示"
+      }
+    ],
+    "tag": ["压缩与归档"]
+  },
+  {
+    "name": "gzip",
+    "description": "压缩文件",
+    "syntax": "gzip [选项] [文件]",
+    "examples": [{
+        "command": "gzip file.txt",
+        "description": "压缩文件（生成file.txt.gz）"
+      },
+      {
+        "command": "gzip -d file.txt.gz",
+        "description": "解压文件"
+      }
+    ],
+    "options": [{
+        "flag": "-d",
+        "description": "解压文件"
+      },
+      {
+        "flag": "-9",
+        "description": "最高压缩率"
+      },
+      {
+        "flag": "-k",
+        "description": "保留原文件"
+      }
+    ],
+    "tag": ["压缩与归档"]
+  },
+  {
+    "name": "gunzip",
+    "description": "解压gzip文件",
+    "syntax": "gunzip [选项] [文件]",
+    "examples": [{
+      "command": "gunzip file.txt.gz",
+      "description": "解压gzip文件"
+    }],
+    "options": [{
+      "flag": "-k",
+      "description": "保留压缩文件"
+    }],
+    "tag": ["压缩与归档"]
+  },
+  {
+    "name": "rsync",
+    "description": "远程同步工具",
+    "syntax": "rsync [选项] 源 目标",
+    "examples": [{
+        "command": "rsync -av source/ destination/",
+        "description": "同步目录"
+      },
+      {
+        "command": "rsync -av user@host:/path/to/source/ /local/dest/",
+        "description": "从远程同步"
+      },
+      {
+        "command": "rsync -av --delete source/ destination/",
+        "description": "同步并删除目标中多余文件"
+      }
+    ],
+    "options": [{
+        "flag": "-a",
+        "description": "归档模式，保持文件属性"
+      },
+      {
+        "flag": "-v",
+        "description": "详细输出"
+      },
+      {
+        "flag": "--delete",
+        "description": "删除目标中多余的文件"
+      },
+      {
+        "flag": "-z",
+        "description": "压缩传输"
+      }
+    ],
+    "tag": ["文件同步", "文件传输"]
+  },
+  {
+    "name": "scp",
+    "description": "安全复制文件",
+    "syntax": "scp [选项] 源 目标",
+    "examples": [{
+        "command": "scp file.txt user@host:/path/to/destination/",
+        "description": "复制文件到远程主机"
+      },
+      {
+        "command": "scp user@host:/path/to/file.txt ./",
+        "description": "从远程主机复制文件"
+      },
+      {
+        "command": "scp -r directory/ user@host:/path/",
+        "description": "递归复制目录"
+      }
+    ],
+    "options": [{
+        "flag": "-r",
+        "description": "递归复制目录"
+      },
+      {
+        "flag": "-P",
+        "description": "指定端口"
+      },
+      {
+        "flag": "-i",
+        "description": "指定私钥文件"
+      }
+    ],
+    "tag": ["文件传输", "远程登录"]
+  },
+  {
+    "name": "ln",
+    "description": "创建链接",
+    "syntax": "ln [选项] 目标 链接名",
+    "examples": [{
+        "command": "ln -s /path/to/file link_name",
+        "description": "创建符号链接"
+      },
+      {
+        "command": "ln file.txt hardlink.txt",
+        "description": "创建硬链接"
+      }
+    ],
+    "options": [{
+        "flag": "-s",
+        "description": "创建符号链接"
+      },
+      {
+        "flag": "-f",
+        "description": "强制创建链接"
+      }
+    ],
+    "tag": ["文件链接"]
+  },
+  {
+    "name": "file",
+    "description": "确定文件类型",
+    "syntax": "file [选项] [文件]",
+    "examples": [{
+        "command": "file document.pdf",
+        "description": "查看文件类型"
+      },
+      {
+        "command": "file -i file.txt",
+        "description": "显示MIME类型"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "显示MIME类型"
+      },
+      {
+        "flag": "-b",
+        "description": "简洁输出"
+      }
+    ],
+    "tag": ["文件操作"]
+  },
+  {
+    "name": "stat",
+    "description": "显示文件或文件系统状态",
+    "syntax": "stat [选项] [文件]",
+    "examples": [{
+        "command": "stat file.txt",
+        "description": "显示文件详细信息"
+      },
+      {
+        "command": "stat -f /",
+        "description": "显示文件系统信息"
+      }
+    ],
+    "options": [{
+        "flag": "-f",
+        "description": "显示文件系统信息"
+      },
+      {
+        "flag": "-c",
+        "description": "指定输出格式"
+      }
+    ],
+    "tag": ["文件操作"]
+  },
+  {
+    "name": "touch",
+    "description": "创建空文件或更新文件时间戳",
+    "syntax": "touch [选项] [文件]",
+    "examples": [{
+        "command": "touch newfile.txt",
+        "description": "创建空文件"
+      },
+      {
+        "command": "touch -t 202301011200 file.txt",
+        "description": "设置文件时间戳"
+      }
+    ],
+    "options": [{
+        "flag": "-t",
+        "description": "设置时间戳"
+      },
+      {
+        "flag": "-a",
+        "description": "只更新访问时间"
+      },
+      {
+        "flag": "-m",
+        "description": "只更新修改时间"
+      }
+    ],
+    "tag": ["文件操作"]
+  },
+  {
+    "name": "locate",
+    "description": "快速查找文件",
+    "syntax": "locate [选项] 模式",
+    "examples": [{
+        "command": "locate filename",
+        "description": "查找文件"
+      },
+      {
+        "command": "locate -i filename",
+        "description": "忽略大小写查找"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "忽略大小写"
+      },
+      {
+        "flag": "-c",
+        "description": "只显示匹配数量"
+      }
+    ],
+    "tag": ["文件查找", "搜索工具"]
+  },
+  {
+    "name": "updatedb",
+    "description": "更新locate数据库",
+    "syntax": "updatedb [选项]",
+    "examples": [{
+      "command": "sudo updatedb",
+      "description": "更新文件数据库"
+    }],
+    "options": [],
+    "tag": ["文件查找", "系统维护"]
+  },
+  {
+    "name": "xargs",
+    "description": "从标准输入构建和执行命令行",
+    "syntax": "xargs [选项] [命令]",
+    "examples": [{
+        "command": "find . -name \"*.txt\" | xargs rm",
+        "description": "删除所有.txt文件"
+      },
+      {
+        "command": "echo \"file1 file2 file3\" | xargs -n 1 echo",
+        "description": "每次处理一个参数"
+      }
+    ],
+    "options": [{
+        "flag": "-n",
+        "description": "指定每次使用的参数数量"
+      },
+      {
+        "flag": "-I",
+        "description": "指定替换字符串"
+      },
+      {
+        "flag": "-P",
+        "description": "并行执行"
+      }
+    ],
+    "tag": ["命令行工具", "脚本编程"]
+  },
+  {
+    "name": "tee",
+    "description": "将输入同时写入文件和标准输出",
+    "syntax": "tee [选项] [文件]",
+    "examples": [{
+        "command": "echo \"hello\" | tee output.txt",
+        "description": "同时输出到屏幕和文件"
+      },
+      {
+        "command": "ls | tee -a log.txt",
+        "description": "追加到文件"
+      }
+    ],
+    "options": [{
+      "flag": "-a",
+      "description": "追加到文件而不是覆盖"
+    }],
+    "tag": ["文本处理", "命令行工具"]
+  },
+  {
+    "name": "watch",
+    "description": "定期执行命令并显示结果",
+    "syntax": "watch [选项] 命令",
+    "examples": [{
+        "command": "watch df -h",
+        "description": "每2秒显示磁盘使用情况"
+      },
+      {
+        "command": "watch -n 5 'ps aux | grep python'",
+        "description": "每5秒显示Python进程"
+      }
+    ],
+    "options": [{
+        "flag": "-n",
+        "description": "指定执行间隔（秒）"
+      },
+      {
+        "flag": "-d",
+        "description": "高亮显示变化"
+      }
+    ],
+    "tag": ["系统监控"]
+  },
+  {
+    "name": "env",
+    "description": "显示环境变量或在指定环境中运行命令",
+    "syntax": "env [选项] [变量=值] [命令]",
+    "examples": [{
+        "command": "env",
+        "description": "显示所有环境变量"
+      },
+      {
+        "command": "env PATH=/usr/bin python script.py",
+        "description": "在指定环境中运行命令"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "忽略继承的环境"
+      },
+      {
+        "flag": "-u",
+        "description": "取消设置变量"
+      }
+    ],
+    "tag": ["环境变量"]
+  },
+  {
+    "name": "export",
+    "description": "设置环境变量",
+    "syntax": "export [变量名=值]",
+    "examples": [{
+        "command": "export PATH=$PATH:/new/path",
+        "description": "添加路径到PATH环境变量"
+      },
+      {
+        "command": "export EDITOR=vim",
+        "description": "设置默认编辑器"
+      }
+    ],
+    "options": [],
+    "tag": ["环境变量", "脚本编程"]
+  },
+  {
+    "name": "printenv",
+    "description": "打印环境变量",
+    "syntax": "printenv [变量名]",
+    "examples": [{
+        "command": "printenv",
+        "description": "显示所有环境变量"
+      },
+      {
+        "command": "printenv PATH",
+        "description": "显示PATH变量"
+      }
+    ],
+    "options": [],
+    "tag": ["环境变量"]
+  },
+  {
+    "name": "source",
+    "description": "在当前shell中执行脚本",
+    "syntax": "source 脚本文件",
+    "examples": [{
+        "command": "source ~/.bashrc",
+        "description": "重新加载bash配置"
+      },
+      {
+        "command": "source script.sh",
+        "description": "在当前shell中执行脚本"
+      }
+    ],
+    "options": [],
+    "tag": ["脚本执行", "环境变量"]
+  },
+  {
+    "name": "type",
+    "description": "显示命令类型",
+    "syntax": "type [选项] 命令名",
+    "examples": [{
+        "command": "type ls",
+        "description": "显示ls命令的类型"
+      },
+      {
+        "command": "type -a python",
+        "description": "显示所有python命令"
+      }
+    ],
+    "options": [{
+        "flag": "-a",
+        "description": "显示所有匹配的命令"
+      },
+      {
+        "flag": "-t",
+        "description": "只显示类型"
+      }
+    ],
+    "tag": ["命令行工具"]
+  },
+  {
+    "name": "basename",
+    "description": "提取路径的文件名部分",
+    "syntax": "basename 路径 [后缀]",
+    "examples": [{
+        "command": "basename /path/to/file.txt",
+        "description": "输出：file.txt"
+      },
+      {
+        "command": "basename /path/to/file.txt .txt",
+        "description": "输出：file"
+      }
+    ],
+    "options": [],
+    "tag": ["文件操作"]
+  },
+  {
+    "name": "dirname",
+    "description": "提取路径的目录部分",
+    "syntax": "dirname 路径",
+    "examples": [{
+      "command": "dirname /path/to/file.txt",
+      "description": "输出：/path/to"
+    }],
+    "options": [],
+    "tag": ["文件操作"]
+  },
+  {
+    "name": "realpath",
+    "description": "显示文件的绝对路径",
+    "syntax": "realpath [选项] 文件",
+    "examples": [{
+        "command": "realpath file.txt",
+        "description": "显示文件的绝对路径"
+      },
+      {
+        "command": "realpath ../dir",
+        "description": "解析相对路径"
+      }
+    ],
+    "options": [{
+      "flag": "-s",
+      "description": "不解析符号链接"
+    }],
+    "tag": ["文件操作"]
+  },
+  {
+    "name": "sleep",
+    "description": "暂停指定时间",
+    "syntax": "sleep 时间",
+    "examples": [{
+        "command": "sleep 5",
+        "description": "暂停5秒"
+      },
+      {
+        "command": "sleep 1m",
+        "description": "暂停1分钟"
+      },
+      {
+        "command": "sleep 0.5",
+        "description": "暂停0.5秒"
+      }
+    ],
+    "options": [],
+    "tag": ["脚本执行"]
+  },
+  {
+    "name": "timeout",
+    "description": "在指定时间后终止命令",
+    "syntax": "timeout [选项] 时间 命令",
+    "examples": [{
+        "command": "timeout 10s ping google.com",
+        "description": "10秒后终止ping命令"
+      },
+      {
+        "command": "timeout 5m ./long_script.sh",
+        "description": "5分钟后终止脚本"
+      }
+    ],
+    "options": [{
+        "flag": "-k",
+        "description": "发送KILL信号的延迟时间"
+      },
+      {
+        "flag": "-s",
+        "description": "指定发送的信号"
+      }
+    ],
+    "tag": ["脚本执行", "进程管理"]
+  },
+  {
+    "name": "apt",
+    "description": "Debian/Ubuntu包管理器",
+    "syntax": "apt [选项] 命令 [包名]",
+    "examples": [{
+        "command": "apt update",
+        "description": "更新包列表"
+      },
+      {
+        "command": "apt install package_name",
+        "description": "安装软件包"
+      },
+      {
+        "command": "apt remove package_name",
+        "description": "卸载软件包"
+      },
+      {
+        "command": "apt search keyword",
+        "description": "搜索软件包"
+      }
+    ],
+    "options": [{
+        "flag": "-y",
+        "description": "自动确认所有提示"
+      },
+      {
+        "flag": "--no-install-recommends",
+        "description": "不安装推荐的包"
+      }
+    ],
+    "tag": ["包管理"]
+  },
+  {
+    "name": "yum",
+    "description": "RedHat/CentOS包管理器",
+    "syntax": "yum [选项] 命令 [包名]",
+    "examples": [{
+        "command": "yum update",
+        "description": "更新所有包"
+      },
+      {
+        "command": "yum install package_name",
+        "description": "安装软件包"
+      },
+      {
+        "command": "yum remove package_name",
+        "description": "卸载软件包"
+      },
+      {
+        "command": "yum search keyword",
+        "description": "搜索软件包"
+      }
+    ],
+    "options": [{
+        "flag": "-y",
+        "description": "自动确认所有提示"
+      },
+      {
+        "flag": "--nogpgcheck",
+        "description": "跳过GPG检查"
+      }
+    ],
+    "tag": ["包管理"]
+  },
+  {
+    "name": "dnf",
+    "description": "Fedora包管理器",
+    "syntax": "dnf [选项] 命令 [包名]",
+    "examples": [{
+        "command": "dnf update",
+        "description": "更新所有包"
+      },
+      {
+        "command": "dnf install package_name",
+        "description": "安装软件包"
+      },
+      {
+        "command": "dnf remove package_name",
+        "description": "卸载软件包"
+      }
+    ],
+    "options": [{
+      "flag": "-y",
+      "description": "自动确认所有提示"
+    }],
+    "tag": ["包管理"]
+  },
+  {
+    "name": "snap",
+    "description": "Snap包管理器",
+    "syntax": "snap [选项] 命令 [包名]",
+    "examples": [{
+        "command": "snap install package_name",
+        "description": "安装snap包"
+      },
+      {
+        "command": "snap list",
+        "description": "列出已安装的snap包"
+      },
+      {
+        "command": "snap remove package_name",
+        "description": "卸载snap包"
+      }
+    ],
+    "options": [{
+        "flag": "--classic",
+        "description": "以经典模式安装"
+      },
+      {
+        "flag": "--edge",
+        "description": "安装edge版本"
+      }
+    ],
+    "tag": ["包管理"]
+  },
+  {
+    "name": "flatpak",
+    "description": "Flatpak包管理器",
+    "syntax": "flatpak [选项] 命令 [包名]",
+    "examples": [{
+        "command": "flatpak install app_id",
+        "description": "安装应用"
+      },
+      {
+        "command": "flatpak list",
+        "description": "列出已安装应用"
+      },
+      {
+        "command": "flatpak run app_id",
+        "description": "运行应用"
+      }
+    ],
+    "options": [{
+        "flag": "--user",
+        "description": "用户级安装"
+      },
+      {
+        "flag": "--system",
+        "description": "系统级安装"
+      }
+    ],
+    "tag": ["包管理"]
+  },
+  {
+    "name": "dpkg",
+    "description": "Debian包管理工具",
+    "syntax": "dpkg [选项] [包文件]",
+    "examples": [{
+        "command": "dpkg -i package.deb",
+        "description": "安装deb包"
+      },
+      {
+        "command": "dpkg -l",
+        "description": "列出已安装包"
+      },
+      {
+        "command": "dpkg -r package_name",
+        "description": "卸载包"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "安装包"
+      },
+      {
+        "flag": "-r",
+        "description": "卸载包"
+      },
+      {
+        "flag": "-l",
+        "description": "列出包"
+      }
+    ],
+    "tag": ["包管理"]
+  },
+  {
+    "name": "rpm",
+    "description": "RPM包管理工具",
+    "syntax": "rpm [选项] [包文件]",
+    "examples": [{
+        "command": "rpm -ivh package.rpm",
+        "description": "安装RPM包"
+      },
+      {
+        "command": "rpm -qa",
+        "description": "列出所有已安装包"
+      },
+      {
+        "command": "rpm -e package_name",
+        "description": "卸载包"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "安装包"
+      },
+      {
+        "flag": "-e",
+        "description": "卸载包"
+      },
+      {
+        "flag": "-q",
+        "description": "查询包"
+      },
+      {
+        "flag": "-v",
+        "description": "详细输出"
+      },
+      {
+        "flag": "-h",
+        "description": "显示进度"
+      }
+    ],
+    "tag": ["包管理"]
+  },
+  {
+    "name": "journalctl",
+    "description": "查看systemd日志",
+    "syntax": "journalctl [选项]",
+    "examples": [{
+        "command": "journalctl",
+        "description": "查看所有日志"
+      },
+      {
+        "command": "journalctl -u nginx",
+        "description": "查看特定服务日志"
+      },
+      {
+        "command": "journalctl -f",
+        "description": "实时跟踪日志"
+      },
+      {
+        "command": "journalctl --since \"2023-01-01\"",
+        "description": "查看指定时间后的日志"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "指定服务单元"
+      },
+      {
+        "flag": "-f",
+        "description": "实时跟踪"
+      },
+      {
+        "flag": "--since",
+        "description": "指定开始时间"
+      },
+      {
+        "flag": "--until",
+        "description": "指定结束时间"
+      },
+      {
+        "flag": "-n",
+        "description": "显示最近N行"
+      }
+    ],
+    "tag": ["日志查看", "系统日志"]
+  },
+  {
+    "name": "dmesg",
+    "description": "显示内核消息",
+    "syntax": "dmesg [选项]",
+    "examples": [{
+        "command": "dmesg",
+        "description": "显示内核消息"
+      },
+      {
+        "command": "dmesg | tail",
+        "description": "显示最新的内核消息"
+      },
+      {
+        "command": "dmesg -T",
+        "description": "显示带时间戳的消息"
+      }
+    ],
+    "options": [{
+        "flag": "-T",
+        "description": "显示人类可读的时间戳"
+      },
+      {
+        "flag": "-w",
+        "description": "等待新消息"
+      },
+      {
+        "flag": "-c",
+        "description": "清空消息缓冲区"
+      }
+    ],
+    "tag": ["日志查看", "系统日志"]
+  },
+  {
+    "name": "last",
+    "description": "显示用户登录历史",
+    "syntax": "last [选项] [用户名]",
+    "examples": [{
+        "command": "last",
+        "description": "显示所有用户登录历史"
+      },
+      {
+        "command": "last username",
+        "description": "显示特定用户登录历史"
+      },
+      {
+        "command": "last -n 10",
+        "description": "显示最近10次登录"
+      }
+    ],
+    "options": [{
+        "flag": "-n",
+        "description": "显示指定行数"
+      },
+      {
+        "flag": "-x",
+        "description": "显示系统关机和运行级别变化"
+      }
+    ],
+    "tag": ["用户管理", "系统日志"]
+  },
+  {
+    "name": "lastlog",
+    "description": "显示所有用户最后登录时间",
+    "syntax": "lastlog [选项]",
+    "examples": [{
+        "command": "lastlog",
+        "description": "显示所有用户最后登录时间"
+      },
+      {
+        "command": "lastlog -u username",
+        "description": "显示特定用户最后登录时间"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "指定用户"
+      },
+      {
+        "flag": "-t",
+        "description": "显示指定天数内的登录"
+      }
+    ],
+    "tag": ["用户管理", "系统日志"]
+  },
+  {
+    "name": "w",
+    "description": "显示当前登录用户及其活动",
+    "syntax": "w [选项] [用户名]",
+    "examples": [{
+        "command": "w",
+        "description": "显示所有登录用户"
+      },
+      {
+        "command": "w username",
+        "description": "显示特定用户信息"
+      }
+    ],
+    "options": [{
+        "flag": "-h",
+        "description": "不显示标题"
+      },
+      {
+        "flag": "-s",
+        "description": "简短格式"
+      }
+    ],
+    "tag": ["用户管理", "系统信息"]
+  },
+  {
+    "name": "who",
+    "description": "显示当前登录用户",
+    "syntax": "who [选项]",
+    "examples": [{
+        "command": "who",
+        "description": "显示当前登录用户"
+      },
+      {
+        "command": "who -b",
+        "description": "显示系统启动时间"
+      }
+    ],
+    "options": [{
+        "flag": "-b",
+        "description": "显示系统启动时间"
+      },
+      {
+        "flag": "-r",
+        "description": "显示运行级别"
+      }
+    ],
+    "tag": ["用户管理", "系统信息"]
+  },
+  {
+    "name": "users",
+    "description": "显示当前登录的用户名",
+    "syntax": "users",
+    "examples": [{
+      "command": "users",
+      "description": "显示当前登录的用户名"
+    }],
+    "options": [],
+    "tag": ["用户管理"]
+  },
+  {
+    "name": "htop",
+    "description": "交互式进程查看器",
+    "syntax": "htop [选项]",
+    "examples": [{
+        "command": "htop",
+        "description": "启动htop进程监视器"
+      },
+      {
+        "command": "htop -u username",
+        "description": "只显示特定用户的进程"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "只显示指定用户的进程"
+      },
+      {
+        "flag": "-p",
+        "description": "只显示指定PID的进程"
+      }
+    ],
+    "tag": ["系统监控", "进程管理"]
+  },
+  {
+    "name": "iotop",
+    "description": "显示I/O使用情况",
+    "syntax": "iotop [选项]",
+    "examples": [{
+        "command": "iotop",
+        "description": "显示I/O使用情况"
+      },
+      {
+        "command": "iotop -o",
+        "description": "只显示有I/O活动的进程"
+      }
+    ],
+    "options": [{
+        "flag": "-o",
+        "description": "只显示有I/O活动的进程"
+      },
+      {
+        "flag": "-a",
+        "description": "显示累积I/O"
+      }
+    ],
+    "tag": ["系统监控", "系统性能"]
+  },
+  {
+    "name": "vmstat",
+    "description": "显示虚拟内存统计信息",
+    "syntax": "vmstat [选项] [间隔] [次数]",
+    "examples": [{
+        "command": "vmstat",
+        "description": "显示系统统计信息"
+      },
+      {
+        "command": "vmstat 2 5",
+        "description": "每2秒显示一次，共5次"
+      }
+    ],
+    "options": [{
+        "flag": "-a",
+        "description": "显示活动和非活动内存"
+      },
+      {
+        "flag": "-d",
+        "description": "显示磁盘统计"
+      }
+    ],
+    "tag": ["系统监控", "内存管理"]
+  },
+  {
+    "name": "iostat",
+    "description": "显示I/O统计信息",
+    "syntax": "iostat [选项] [间隔] [次数]",
+    "examples": [{
+        "command": "iostat",
+        "description": "显示I/O统计信息"
+      },
+      {
+        "command": "iostat -x 2",
+        "description": "每2秒显示扩展统计"
+      }
+    ],
+    "options": [{
+        "flag": "-x",
+        "description": "显示扩展统计"
+      },
+      {
+        "flag": "-h",
+        "description": "人类可读格式"
+      }
+    ],
+    "tag": ["系统监控", "系统性能"]
+  },
+  {
+    "name": "sar",
+    "description": "系统活动报告",
+    "syntax": "sar [选项] [间隔] [次数]",
+    "examples": [{
+        "command": "sar -u 2 5",
+        "description": "每2秒显示CPU使用率，共5次"
+      },
+      {
+        "command": "sar -r",
+        "description": "显示内存使用情况"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "显示CPU使用率"
+      },
+      {
+        "flag": "-r",
+        "description": "显示内存使用情况"
+      },
+      {
+        "flag": "-n",
+        "description": "显示网络统计"
+      }
+    ],
+    "tag": ["系统监控", "系统性能"]
+  },
+  {
+    "name": "lsof",
+    "description": "列出打开的文件",
+    "syntax": "lsof [选项]",
+    "examples": [{
+        "command": "lsof",
+        "description": "列出所有打开的文件"
+      },
+      {
+        "command": "lsof -i :80",
+        "description": "列出使用80端口的进程"
+      },
+      {
+        "command": "lsof -u username",
+        "description": "列出特定用户打开的文件"
+      }
+    ],
+    "options": [{
+        "flag": "-i",
+        "description": "列出网络连接"
+      },
+      {
+        "flag": "-u",
+        "description": "指定用户"
+      },
+      {
+        "flag": "-p",
+        "description": "指定进程ID"
+      }
+    ],
+    "tag": ["系统诊断", "进程管理"]
+  },
+  {
+    "name": "strace",
+    "description": "跟踪系统调用",
+    "syntax": "strace [选项] 命令",
+    "examples": [{
+        "command": "strace ls",
+        "description": "跟踪ls命令的系统调用"
+      },
+      {
+        "command": "strace -p 1234",
+        "description": "跟踪指定进程的系统调用"
+      }
+    ],
+    "options": [{
+        "flag": "-p",
+        "description": "跟踪指定进程"
+      },
+      {
+        "flag": "-e",
+        "description": "只跟踪指定的系统调用"
+      },
+      {
+        "flag": "-o",
+        "description": "输出到文件"
+      }
+    ],
+    "tag": ["系统诊断", "调试工具"]
+  },
+  {
+    "name": "ltrace",
+    "description": "跟踪库函数调用",
+    "syntax": "ltrace [选项] 命令",
+    "examples": [{
+        "command": "ltrace ls",
+        "description": "跟踪ls命令的库函数调用"
+      },
+      {
+        "command": "ltrace -p 1234",
+        "description": "跟踪指定进程的库函数调用"
+      }
+    ],
+    "options": [{
+        "flag": "-p",
+        "description": "跟踪指定进程"
+      },
+      {
+        "flag": "-c",
+        "description": "统计调用次数"
+      }
+    ],
+    "tag": ["系统诊断", "调试工具"]
+  },
+  {
+    "name": "pstree",
+    "description": "以树形结构显示进程",
+    "syntax": "pstree [选项] [PID或用户名]",
+    "examples": [{
+        "command": "pstree",
+        "description": "显示所有进程树"
+      },
+      {
+        "command": "pstree username",
+        "description": "显示特定用户的进程树"
+      }
+    ],
+    "options": [{
+        "flag": "-p",
+        "description": "显示进程ID"
+      },
+      {
+        "flag": "-u",
+        "description": "显示用户名"
+      }
+    ],
+    "tag": ["进程管理"]
+  },
+  {
+    "name": "pgrep",
+    "description": "根据名称查找进程ID",
+    "syntax": "pgrep [选项] 模式",
+    "examples": [{
+        "command": "pgrep firefox",
+        "description": "查找firefox进程的PID"
+      },
+      {
+        "command": "pgrep -u username",
+        "description": "查找特定用户的进程"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "指定用户"
+      },
+      {
+        "flag": "-f",
+        "description": "匹配完整命令行"
+      }
+    ],
+    "tag": ["进程管理"]
+  },
+  {
+    "name": "pkill",
+    "description": "根据名称终止进程",
+    "syntax": "pkill [选项] 模式",
+    "examples": [{
+        "command": "pkill firefox",
+        "description": "终止所有firefox进程"
+      },
+      {
+        "command": "pkill -u username",
+        "description": "终止特定用户的所有进程"
+      }
+    ],
+    "options": [{
+        "flag": "-u",
+        "description": "指定用户"
+      },
+      {
+        "flag": "-f",
+        "description": "匹配完整命令行"
+      },
+      {
+        "flag": "-9",
+        "description": "发送KILL信号"
+      }
+    ],
+    "tag": ["进程管理"]
+  },
+  {
+    "name": "killall",
+    "description": "根据名称终止进程",
+    "syntax": "killall [选项] 进程名",
+    "examples": [{
+        "command": "killall firefox",
+        "description": "终止所有firefox进程"
+      },
+      {
+        "command": "killall -9 process_name",
+        "description": "强制终止进程"
+      }
+    ],
+    "options": [{
+        "flag": "-9",
+        "description": "发送KILL信号"
+      },
+      {
+        "flag": "-i",
+        "description": "交互式确认"
+      }
+    ],
+    "tag": ["进程管理"]
+  },
+  {
+    "name": "nproc",
+    "description": "显示可用的处理器数量",
+    "syntax": "nproc [选项]",
+    "examples": [{
+        "command": "nproc",
+        "description": "显示CPU核心数"
+      },
+      {
+        "command": "nproc --all",
+        "description": "显示所有处理器数量"
+      }
+    ],
+    "options": [{
+      "flag": "--all",
+      "description": "显示所有处理器"
+    }],
+    "tag": ["硬件信息", "系统信息"]
+  },
+  {
+    "name": "lshw",
+    "description": "显示硬件信息",
+    "syntax": "lshw [选项]",
+    "examples": [{
+        "command": "lshw",
+        "description": "显示所有硬件信息"
+      },
+      {
+        "command": "lshw -short",
+        "description": "简短格式显示"
+      },
+      {
+        "command": "lshw -class network",
+        "description": "只显示网络硬件"
+      }
+    ],
+    "options": [{
+        "flag": "-short",
+        "description": "简短格式"
+      },
+      {
+        "flag": "-class",
+        "description": "指定硬件类别"
+      },
+      {
+        "flag": "-html",
+        "description": "HTML格式输出"
+      }
+    ],
+    "tag": ["硬件信息"]
+  },
+  {
+    "name": "hwinfo",
+    "description": "显示详细硬件信息",
+    "syntax": "hwinfo [选项]",
+    "examples": [{
+        "command": "hwinfo --short",
+        "description": "简短格式显示硬件信息"
+      },
+      {
+        "command": "hwinfo --cpu",
+        "description": "只显示CPU信息"
+      }
+    ],
+    "options": [{
+        "flag": "--short",
+        "description": "简短格式"
+      },
+      {
+        "flag": "--cpu",
+        "description": "显示CPU信息"
+      },
+      {
+        "flag": "--memory",
+        "description": "显示内存信息"
+      }
+    ],
+    "tag": ["硬件信息"]
+  },
+  {
+    "name": "dmidecode",
+    "description": "显示DMI/SMBIOS硬件信息",
+    "syntax": "dmidecode [选项]",
+    "examples": [{
+        "command": "dmidecode",
+        "description": "显示所有DMI信息"
+      },
+      {
+        "command": "dmidecode -t memory",
+        "description": "只显示内存信息"
+      },
+      {
+        "command": "dmidecode -t processor",
+        "description": "只显示处理器信息"
+      }
+    ],
+    "options": [{
+        "flag": "-t",
+        "description": "指定信息类型"
+      },
+      {
+        "flag": "-s",
+        "description": "显示指定字符串"
+      }
+    ],
+    "tag": ["硬件信息"]
+  },
+  {
+    "name": "sensors",
+    "description": "显示硬件传感器信息",
+    "syntax": "sensors [选项]",
+    "examples": [{
+        "command": "sensors",
+        "description": "显示温度、风扇等传感器信息"
+      },
+      {
+        "command": "sensors -f",
+        "description": "以华氏度显示温度"
+      }
+    ],
+    "options": [{
+        "flag": "-f",
+        "description": "以华氏度显示温度"
+      },
+      {
+        "flag": "-A",
+        "description": "不显示适配器名称"
+      }
+    ],
+    "tag": ["硬件信息"]
+  },
+  {
+    "name": "lsmod",
+    "description": "显示已加载的内核模块",
+    "syntax": "lsmod",
+    "examples": [{
+        "command": "lsmod",
+        "description": "列出所有已加载的内核模块"
+      },
+      {
+        "command": "lsmod | grep usb",
+        "description": "查找USB相关模块"
+      }
+    ],
+    "options": [],
+    "tag": ["内核模块"]
+  },
+  {
+    "name": "modprobe",
+    "description": "加载或卸载内核模块",
+    "syntax": "modprobe [选项] 模块名",
+    "examples": [{
+        "command": "modprobe module_name",
+        "description": "加载内核模块"
+      },
+      {
+        "command": "modprobe -r module_name",
+        "description": "卸载内核模块"
+      }
+    ],
+    "options": [{
+        "flag": "-r",
+        "description": "卸载模块"
+      },
+      {
+        "flag": "-v",
+        "description": "详细输出"
+      }
+    ],
+    "tag": ["内核模块"]
+  },
+  {
+    "name": "insmod",
+    "description": "插入内核模块",
+    "syntax": "insmod 模块文件",
+    "examples": [{
+      "command": "insmod module.ko",
+      "description": "插入内核模块"
+    }],
+    "options": [],
+    "tag": ["内核模块"]
+  },
+  {
+    "name": "rmmod",
+    "description": "移除内核模块",
+    "syntax": "rmmod 模块名",
+    "examples": [{
+      "command": "rmmod module_name",
+      "description": "移除内核模块"
+    }],
+    "options": [{
+      "flag": "-f",
+      "description": "强制移除"
+    }],
+    "tag": ["内核模块"]
+  },
+  {
+    "name": "modinfo",
+    "description": "显示内核模块信息",
+    "syntax": "modinfo 模块名",
+    "examples": [{
+      "command": "modinfo usb_storage",
+      "description": "显示USB存储模块信息"
+    }],
+    "options": [{
+        "flag": "-d",
+        "description": "只显示描述"
+      },
+      {
+        "flag": "-a",
+        "description": "只显示作者"
+      }
+    ],
+    "tag": ["内核模块"]
+  },
+  {
+    "name": "ifconfig",
+    "description": "配置网络接口",
+    "syntax": "ifconfig [接口] [选项]",
+    "examples": [{
+        "command": "ifconfig",
+        "description": "显示所有网络接口"
+      },
+      {
+        "command": "ifconfig eth0",
+        "description": "显示特定接口信息"
+      },
+      {
+        "command": "ifconfig eth0 192.168.1.100",
+        "description": "设置IP地址"
+      }
+    ],
+    "options": [{
+        "flag": "up",
+        "description": "启用接口"
+      },
+      {
+        "flag": "down",
+        "description": "禁用接口"
+      }
+    ],
+    "tag": ["网络配置"]
+  },
+  {
+    "name": "ip",
+    "description": "显示和配置网络接口",
+    "syntax": "ip [选项] 对象 命令",
+    "examples": [{
+        "command": "ip addr show",
+        "description": "显示所有网络接口"
+      },
+      {
+        "command": "ip route show",
+        "description": "显示路由表"
+      },
+      {
+        "command": "ip link set eth0 up",
+        "description": "启用网络接口"
+      }
+    ],
+    "options": [{
+        "flag": "-4",
+        "description": "只显示IPv4"
+      },
+      {
+        "flag": "-6",
+        "description": "只显示IPv6"
+      },
+      {
+        "flag": "-s",
+        "description": "显示统计信息"
+      }
+    ],
+    "tag": ["网络配置"]
+  },
+  {
+    "name": "route",
+    "description": "显示和配置路由表",
+    "syntax": "route [选项]",
+    "examples": [{
+        "command": "route -n",
+        "description": "显示路由表"
+      },
+      {
+        "command": "route add default gw 192.168.1.1",
+        "description": "添加默认网关"
+      }
+    ],
+    "options": [{
+        "flag": "-n",
+        "description": "以数字形式显示"
+      },
+      {
+        "flag": "add",
+        "description": "添加路由"
+      },
+      {
+        "flag": "del",
+        "description": "删除路由"
+      }
+    ],
+    "tag": ["网络配置"]
+  },
+  {
+    "name": "arp",
+    "description": "显示和修改ARP表",
+    "syntax": "arp [选项]",
+    "examples": [{
+        "command": "arp -a",
+        "description": "显示ARP表"
+      },
+      {
+        "command": "arp -d 192.168.1.100",
+        "description": "删除ARP条目"
+      }
+    ],
+    "options": [{
+        "flag": "-a",
+        "description": "显示所有条目"
+      },
+      {
+        "flag": "-d",
+        "description": "删除条目"
+      }
+    ],
+    "tag": ["网络配置"]
+  },
+  {
+    "name": "iwconfig",
+    "description": "配置无线网络接口",
+    "syntax": "iwconfig [接口] [选项]",
+    "examples": [{
+        "command": "iwconfig",
+        "description": "显示无线接口信息"
+      },
+      {
+        "command": "iwconfig wlan0 essid \"MyWiFi\"",
+        "description": "连接到WiFi网络"
+      }
+    ],
+    "options": [{
+        "flag": "essid",
+        "description": "设置网络名称"
+      },
+      {
+        "flag": "key",
+        "description": "设置密钥"
+      }
+    ],
+    "tag": ["网络配置"]
+  },
+  {
+    "name": "iwlist",
+    "description": "显示无线网络信息",
+    "syntax": "iwlist [接口] 选项",
+    "examples": [{
+        "command": "iwlist scan",
+        "description": "扫描可用WiFi网络"
+      },
+      {
+        "command": "iwlist wlan0 scan",
+        "description": "扫描指定接口的WiFi"
+      }
+    ],
+    "options": [{
+        "flag": "scan",
+        "description": "扫描网络"
+      },
+      {
+        "flag": "freq",
+        "description": "显示频率信息"
+      }
+    ],
+    "tag": ["网络配置"]
+  }
+]

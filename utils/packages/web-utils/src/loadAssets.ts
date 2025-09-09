@@ -9,10 +9,10 @@ import { runPromisesInSeries } from 'utils';
 
 /**
  * @function loadScript
- * @description 动态加载js
- * @param {string} url js地址
- * @param {boolean} isCrossOrigin 是否跨域
- * @returns {Promise<any>} js加载完成后的回调
+ * @description 动态加载JavaScript文件。Dynamically loads JavaScript files
+ * @param {string} url - JavaScript文件地址。The JavaScript file URL
+ * @param {boolean} isCrossOrigin - 是否跨域。Whether it's cross-origin
+ * @returns {Promise<any>} JavaScript加载完成后的Promise。Promise that resolves when JavaScript loading is complete
  * @example
  * loadScript('https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js').then(()=>{
  *   // use echart api
@@ -35,11 +35,11 @@ export function loadScript(url: string, isCrossOrigin = true) {
 
 /**
  * @function loadScriptList
- * @description 动态加载js列表
- * @param {string[]} urls js地址列表
- * @param {boolean} isCrossOrigin 是否跨域
- * @param {boolean} isAsync 是否异步加载
- * @returns {Promise<any[]>} js加载完成后的回调
+ * @description 动态加载JavaScript文件列表。Dynamically loads a list of JavaScript files
+ * @param {string[]} urls - JavaScript文件地址列表。List of JavaScript file URLs
+ * @param {boolean} isCrossOrigin - 是否跨域。Whether it's cross-origin
+ * @param {boolean} isAsync - 是否异步加载。Whether to load asynchronously
+ * @returns {Promise<any[]>} JavaScript加载完成后的Promise数组。Promise array that resolves when JavaScript loading is complete
  * @example
  * loadScriptList(['a.js', 'b.js', 'c.js']).then(() => {
  *   // use a.js, b.js, c.js

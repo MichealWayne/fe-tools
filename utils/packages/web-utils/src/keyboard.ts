@@ -115,9 +115,9 @@ const keyCodeMap = {
 
 /**
  * @function getKeyName
- * @description 通过将键码转换为更易于理解的键名
- * @param  {number} keycode 键码
- * @return {string} 键名
+ * @description 通过将键码转换为更易于理解的键名。Converts key codes to more understandable key names
+ * @param {number} keycode - 键码。The key code
+ * @return {string} 键名。The key name
  * @example
  * getKeyName(13); // 'Enter'
  */

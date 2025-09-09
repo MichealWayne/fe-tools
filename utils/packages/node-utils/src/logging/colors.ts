@@ -1,9 +1,13 @@
 /**
- * @module terminalColors
- * @description console colors
+ * @fileoverview Terminal color utilities for Node.js console output, providing ANSI color codes and formatting functions for enhanced terminal display.
+ *
+ * This module provides comprehensive terminal color support using ANSI escape codes.
+ * It includes foreground colors, background colors, text formatting options, and utility functions
+ * for creating colored console output in Node.js applications.
+ *
+ * @module Colors
  * @author Wayne
- * @Date 2022-06-21 14:09:06
- * @LastEditTime 2024-07-22 19:50:08
+ * @since 1.0.0
  */
 
 const COLORS_MAP = {
@@ -34,6 +38,30 @@ const COLORS_MAP = {
   BgWhite: '\x1b[47m',
 };
 
+/**
+ * @function get
+ * @description 获取带自动重置格式的终端颜色代码。Gets a terminal color code with automatic reset formatting for consistent console output styling.
+ * @param {string} type - COLORS_MAP中的颜色类型。Color type from COLORS_MAP (e.g., 'FgRed', 'BgBlue', 'Bright')
+ * @returns {string} 带重置代码的格式化颜色字符串。Formatted color string with reset code for use with console.log
+ * @example
+ * // Basic color usage
+ * console.log(get('FgRed'), 'This text is red');
+ * console.log(get('BgYellow'), 'This has yellow background');
+ *
+ * @example
+ * // Multiple formatting
+ * console.log(get('Bright') + get('FgGreen'), 'Bright green text');
+ *
+ * @example
+ * // Error logging with red color
+ * console.log(get('FgRed'), 'Error: Connection failed');
+ *
+ * @example
+ * // Success message with green background
+ * console.log(get('BgGreen'), 'Success: Operation completed');
+ *
+ * @see {@link COLORS_MAP} - Available color constants
+ */
 const get = (type: string) => COLORS_MAP[type as keyof typeof COLORS_MAP] + COLORS_MAP.end;
 
 export default {

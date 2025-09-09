@@ -1,14 +1,14 @@
 /**
  * @module Image
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2024-08-25 10:14:40
+ * @LastEditTime 2025-09-07 21:24:32
  */
 
 /**
  * @function isImageLoaded
- * @description 加载图片（通常用于预加载）
- * @param {string} imgUrl 图片地址
- * @return {Promise<boolean>} 图片加载状态
+ * @description 加载图片（通常用于预加载）。Loads an image (typically used for preloading)
+ * @param {string} imgUrl - 图片地址。The image URL
+ * @return {Promise<boolean>} 图片加载状态。The image loading status
  * @example
 isImageLoaded('https://example.com/image.jpg')
   .then(function(result) {
@@ -37,9 +37,9 @@ export function isImageLoaded(imgUrl: string) {
 
 /**
  * @function getImageSize
- * @description 获取图片的原始尺寸大小（用了naturalWidth/naturalHeight）
- * @param {string} imgUrl  图片地址
- * @return {{width: number, height: number}}  图片尺寸
+ * @description 获取图片的原始尺寸大小（使用naturalWidth/naturalHeight）。Gets the original dimensions of an image (using naturalWidth/naturalHeight)
+ * @param {string} imgUrl - 图片地址。The image URL
+ * @return {{width: number, height: number}} 图片尺寸。The image dimensions
  * @example
 getImageSize('https://example.com/image.jpg')
   .then(function(result) {
@@ -69,8 +69,8 @@ export function getImageSize(imgUrl: string) {
 
 /**
  * @function isSupportWebP
- * @description 页面当前所处环境是否支持webp格式图片
- * @return {boolean} 是否支持webp格式图片
+ * @description 检测页面当前所处环境是否支持WebP格式图片。Detects whether the current environment supports WebP format images
+ * @return {boolean} 是否支持WebP格式图片。Whether WebP format images are supported
  * @example
 const imgEl = document.createElement('img');
 if (isSupportWebP()) {
@@ -88,13 +88,13 @@ export function isSupportWebP() {
 }
 
 /**
- * @function imageToBlob
- * @description 将图片转为Blob对象，可用于上传
- * @param {HTMLImageElement|Image|HTMLCanvasElement} src 图片/canvase元素
- * @param {number} x 位置x，裁剪图片起始坐标
- * @param {number} y 位置y，裁剪图片起始坐标
- * @param {number} width 裁剪图片宽度
- * @param {number} height 裁剪图片高度
+ * @function cropImage
+ * @description 裁剪图片，返回裁剪后的canvas元素。Crops an image and returns the cropped canvas element
+ * @param {HTMLImageElement|HTMLCanvasElement} src - 图片/canvas元素。The image/canvas element
+ * @param {number} x - 位置x，裁剪图片起始坐标。The x position, starting coordinate for cropping
+ * @param {number} y - 位置y，裁剪图片起始坐标。The y position, starting coordinate for cropping
+ * @param {number} width - 裁剪图片宽度。The width of the cropped image
+ * @param {number} height - 裁剪图片高度。The height of the cropped image
  * @example
 // 从一个图片元素中裁剪出一个 100x100 大小的矩形，起始坐标为 (50, 50)
 const image = document.querySelector('img');

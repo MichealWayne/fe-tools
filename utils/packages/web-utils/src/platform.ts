@@ -14,14 +14,50 @@ export const ua = navigator.userAgent.toLowerCase();
 
 /**
  * @function isBrowser
- * @description 当前页面是否在浏览器环境下
- * @return {boolean} 是否在浏览器环境下
+ * @description 检测代码是否在浏览器环境中运行（相对于Node.js/服务器端）。Detects if the code is running in a browser environment (vs Node.js/server-side)
+ * @returns {boolean} 如果在浏览器中运行则为true，如果在Node.js或其他非浏览器环境中则为false。True if running in browser, false if in Node.js or other non-browser environment
  * @example
+ * // Conditional code execution based on environment
  * if (isBrowser()) {
- *   console.log('在浏览器环境下');
+ *   // Browser-specific code
+ *   document.addEventListener('DOMContentLoaded', initializeApp);
+ *   localStorage.setItem('app_version', '1.0.0');
  * } else {
- *   console.log('可能在Nodejs环境下')
+ *   // Node.js/server-side code
+ *   const fs = require('fs');
+ *   console.log('Running in Node.js environment');
  * }
+ *
+ * @example
+ * // Universal/isomorphic code pattern
+ * function getStorageValue(key, defaultValue) {
+ *   if (isBrowser()) {
+ *     return localStorage.getItem(key) || defaultValue;
+ *   } else {
+ *     // Server-side fallback or different storage mechanism
+ *     return process.env[key] || defaultValue;
+ *   }
+ * }
+ *
+ * @example
+ * // Feature detection with environment check
+ * function initializeAnalytics() {
+ *   if (!isBrowser()) {
+ *     console.log('Analytics not available in server environment');
+ *     return;
+ *   }
+ *
+ *   // Browser-only analytics initialization
+ *   if (window.gtag) {
+ *     gtag('config', 'GA_MEASUREMENT_ID');
+ *   }
+ * }
+ *
+ * @since 1.0.0
+ * @see {@link isPC} - Detect PC vs mobile environment
+ * @see {@link getSystemOS} - Get operating system information
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Window} - Browser Window object
+ * @see {@link https://nodejs.org/api/globals.html} - Node.js global objects
  */
 export function isBrowser() {
   return ![typeof window, typeof document].includes('undefined');
@@ -29,8 +65,8 @@ export function isBrowser() {
 
 /**
  * @function isPC
- * @description 判断当前页面是否处于PC环境下（主要通过判断是否存在移动设备的关键字）
- * @return {boolean} 是否是PC环境
+ * @description 判断当前页面是否处于PC环境下（主要通过判断是否存在移动设备的关键字）。Determines whether the current page is in a PC environment (mainly by checking for mobile device keywords)
+ * @return {boolean} 是否是PC环境。Whether it is a PC environment
  * @example
  * if (isPC()) {
  *    console.log('当前处在PC环境下')
@@ -52,8 +88,8 @@ export function isPC() {
 
 /**
  * @function getPcExplore
- * @description 获取当前PC浏览器标识
- * @return {string} 浏览器标识，如：'IE: 11.0'、'Chrome: 83.0.4103.116'、'Firefox: 77.0'、'Opera: 69.0.3686.77'、'Safari: 13.1.1'
+ * @description 获取当前PC浏览器标识。Gets the current PC browser identifier
+ * @return {string} 浏览器标识，如：'IE: 11.0'、'Chrome: 83.0.4103.116'、'Firefox: 77.0'、'Opera: 69.0.3686.77'、'Safari: 13.1.1'。Browser identifier, such as: 'IE: 11.0', 'Chrome: 83.0.4103.116', 'Firefox: 77.0', 'Opera: 69.0.3686.77', 'Safari: 13.1.1'
  */
 export function getPcExplore() {
   const sys: {

@@ -1,7 +1,13 @@
 /**
+ * @fileoverview LLM prompt utilities and token management for AI language model interactions.
+ *
+ * This module provides essential utilities for working with large language models.
+ * It includes token estimation, prompt optimization, and various helper functions
+ * for managing AI model interactions and ensuring efficient prompt processing.
+ *
+ * @module LLMPrompts
  * @author Wayne
- * @Date 2023-07-17 15:09:05
- * @LastEditTime 2023-07-22 11:35:22
+ * @since 1.0.0
  */
 import { estimateTokenLength } from './token';
 

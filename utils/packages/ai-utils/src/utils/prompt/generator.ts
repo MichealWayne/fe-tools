@@ -1,8 +1,13 @@
 /**
- * @module aiUtils
+ * @fileoverview Prompt generation utilities with token management and reusable generator patterns for AI language models.
+ *
+ * This module provides higher-order functions for creating prompt generators with built-in
+ * token length validation, content generation patterns, and configuration management.
+ * It enables consistent prompt creation across different AI applications and use cases.
+ *
+ * @module PromptGenerator
  * @author Wayne
- * @Date 2025-08-10
- * @LastEditTime 2025-08-10 15:02:14
+ * @since 1.0.0
  */
 
 import { estimateTokenLength } from '../../llm/prompts/token';
