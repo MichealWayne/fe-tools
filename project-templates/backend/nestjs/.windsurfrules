@@ -1,0 +1,31 @@
+# AI Guidelines
+
+## Project-Specific Guidelines
+You are working on a NestJS + TypeScript project with the following details:
+- Framework: NestJS (platform: Express)
+- Language: TypeScript
+- Routing: Nest Controllers
+- Middleware/Guards: Global filters, pipes, and interceptors as needed
+- Logging: log4js
+
+## Project Rules
+- Use NestJS controllers for defining API routes.
+- Prefer providers/services for business logic.
+- Register global exception filter for unified JSON responses.
+- Keep logging centralized via log4js wrapper.
+
+## Code Formatting
+- Use 2 spaces for indentation.
+- Use single quotes for strings unless double quotes are necessary.
+- Use arrow functions for async operations where appropriate.
+- Keep consistent naming for modules/controllers/services.
+
+## Performance
+- Apply caching or interceptors when needed.
+- Avoid blocking operations in request lifecycle.
+- Use environment variables for configuration.
+
+## Security
+- Validate and sanitize inputs via pipes or class-validator (if added).
+- Follow OWASP guidelines for preventing XSS/CSRF.
+- Secure API endpoints and avoid leaking sensitive data in logs.

@@ -2,6 +2,7 @@
 
 - `koa2`: koa2 + typescript
 - `fastify`(beta): fastify + typescript
+- `nestjs`: nestjs + typescript
 
 ## 使用方法
 

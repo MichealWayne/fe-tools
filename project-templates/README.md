@@ -6,6 +6,7 @@
 
 ### 🎨 前端模板 (Frontend Templates)
 
+- **[nextjs+ts](./frontend/nextjs+ts/)** - React 18 + Next.js + TailwindCSS + TypeScript 现代化项目模板
 - **[vite-react+ts](./frontend/vite-react+ts/)** - React 18 + Vite + TailwindCSS + TypeScript 现代化项目模板
 - **[react](./frontend/react/)** - React 16 + Webpack 传统项目模板
 - **[vite-vue3+ts](./frontend/vite-vue3+ts/)** - Vue 3 + Vite + TypeScript 项目模板

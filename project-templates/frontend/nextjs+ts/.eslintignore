@@ -2,6 +2,8 @@
 node_modules/
 
 # Build outputs
+.next/
+out/
 dist/
 build/
 
@@ -21,3 +23,4 @@ build/
 # OS generated files
 .DS_Store
 Thumbs.db
+next.config.js
