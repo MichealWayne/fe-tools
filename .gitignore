@@ -26,3 +26,7 @@ coverage
 # temp
 temp
 bak
+
+# ai tools
+.codebuddy
+.kiro
