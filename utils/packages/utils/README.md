@@ -67,3 +67,48 @@
 ### Others (其他) (文件: `src/others.ts`)
 
 - 版本比较、金额转大写等实用功能。
+
+### Collection (集合操作) (文件: `src/collection.ts`)
+
+- **groupBy** - 按指定键对数组元素进行分组。
+- **partition** - 将数组分为满足条件和不满足条件的两部分。
+- **zip** - 将多个数组的对应元素组合成元组数组。
+- **unzip** - 将元组数组拆分为多个独立数组。
+- **cartesianProduct** - 计算多个数组的笛卡尔积。
+- **sortBy** - 按多个字段和顺序对数组进行排序。
+- **mergeSorted** - 合并多个已排序的数组。
+
+### Validators (验证器) (文件: `src/validators.ts`)
+
+- **isValidJSON** - 检查字符串是否为有效的 JSON 格式。
+- **isValidEmail** - 检查字符串是否为有效的电子邮件地址。
+- **isValidURL** - 检查字符串是否为有效的 URL。
+- **isCreditCard** - 检查字符串是否为有效的信用卡号。
+- **isValidPhoneNumber** - 检查字符串是否为有效的电话号码(支持多种格式)。
+- **isHexColor** - 检查字符串是否为有效的十六进制颜色值。
+- **isISBN** - 检查字符串是否为有效的 ISBN 号码。
+- **isMACAddress** - 检查字符串是否为有效的 MAC 地址。
+- **isPort** - 检查数字是否为有效的端口号。
+- **isLatLong** - 检查字符串是否为有效的经纬度坐标。
+- **isJWT** - 检查字符串是否为有效的 JWT Token。
+- **isSemVer** - 检查字符串是否为有效的语义化版本号。
+
+### Formatter (格式化工具) (文件: `src/formatter.ts`)
+
+- **formatFileSize** - 将字节数格式化为易读的文件大小(如 1.5 MB)。
+- **formatDuration** - 将毫秒数格式化为时长字符串(如 1h 30m 45s)。
+- **formatNumber** - 格式化数字,支持千分位分隔和小数位控制。
+- **formatRelativeTime** - 将时间戳格式化为相对时间(如"刚刚"、"5分钟前")。
+- **formatPhoneNumber** - 格式化电话号码为指定格式。
+- **formatCurrency** - 格式化货币金额,支持多币种和符号位置。
+- **formatPercentage** - 格式化百分比数值。
+- **truncateText** - 截断文本并添加省略号。
+
+### JSON (JSON 处理) (文件: `src/json.ts`)
+
+- **safeJSONParse** - 安全地解析 JSON 字符串,失败时返回默认值。
+- **safeJSONStringify** - 安全地序列化对象为 JSON,处理循环引用。
+- **flattenJSON** - 将嵌套的 JSON 对象扁平化为单层对象。
+- **unflattenJSON** - 将扁平化的 JSON 对象还原为嵌套结构。
+- **compareJSON** - 深度比较两个 JSON 对象是否相等。
+- **mergeJSON** - 深度合并多个 JSON 对象。

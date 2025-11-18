@@ -305,12 +305,12 @@ describe('function test', () => {
     // Create a mock Node.js-style function
     type NodeCallback = (err: Error | null, result?: number) => void;
 
-    const mockNodeFn = jest.fn(function (args: unknown[], callback?: NodeCallback) {
+    const mockNodeFn = jest.fn(function (args: number[], callback?: NodeCallback) {
       setTimeout(() => {
-        if (typeof args[0] === 'number' && args[0] < 0) {
+        if (args[0] < 0) {
           callback && callback(new Error('Value must be positive'));
         } else {
-          callback && callback(null, typeof args[0] === 'number' ? args[0] * 2 : 0);
+          callback && callback(null, args[0] * 2);
         }
       }, 10);
     });

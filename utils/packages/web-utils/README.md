@@ -77,3 +77,40 @@
 ### Others (文件: `src/others.ts`)
 
 - **isBase64** - 判断字符串是否为 Base64 编码。
+
+### Performance (性能监控) (文件: `src/performance.ts`)
+
+- **measureFPS** - 测量并监控页面帧率(FPS)。
+- **measureMemory** - 测量当前页面的内存使用情况。
+- **measureLoadTime** - 测量页面加载时间的各个阶段。
+- **getWebVitals** - 获取 Web Vitals 核心性能指标(LCP、FID、CLS)。
+- **createPerformanceObserver** - 创建性能观察器监听特定性能条目。
+- **getResourceTiming** - 获取资源加载时间详情。
+
+### Network (网络工具) (文件: `src/network.ts`)
+
+- **isOnline** - 检测当前网络连接状态。
+- **onlineStatusChange** - 监听网络状态变化。
+- **getNetworkType** - 获取网络连接类型(4G、5G、WiFi 等)。
+- **getNetworkSpeed** - 估算当前网络下载速度。
+- **retryRequest** - 带重试机制的请求函数。
+- **requestIdleCallbackPolyfill** - requestIdleCallback 的 polyfill 实现。
+- **cancelIdleCallbackPolyfill** - cancelIdleCallback 的 polyfill 实现。
+
+### Form (表单处理) (文件: `src/form.ts`)
+
+- **serializeForm** - 将表单序列化为对象或查询字符串。
+- **deserializeForm** - 将数据填充到表单中。
+- **validateForm** - 验证表单字段,支持自定义规则。
+- **autoSaveForm** - 自动保存表单数据到本地存储。
+- **formDiff** - 检测表单数据的变更。
+
+### I18n (国际化) (文件: `src/i18n.ts`)
+
+- **formatDate** - 根据区域设置格式化日期。
+- **formatNumber** - 根据区域设置格式化数字。
+- **formatCurrency** - 根据区域设置格式化货币。
+- **formatRelativeTime** - 根据区域设置格式化相对时间。
+- **pluralize** - 根据数量返回正确的复数形式。
+- **getLocale** - 获取用户的首选语言区域。
+- **getTextDirection** - 获取语言的文本方向(LTR/RTL)。
