@@ -1,9 +1,3 @@
-<!--
- * @author Wayne
- * @Date 2025-06-09 19:49:29
- * @LastEditTime 2025-06-09 19:52:08
--->
-
 # fe-tools
 
 A comprehensive collection of frontend JavaScript utility functions organized into focused packages.

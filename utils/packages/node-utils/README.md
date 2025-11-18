@@ -62,3 +62,20 @@
 - **base64Encode/Decode** - Base64 编解码。(文件: `src/common/base64.ts`)
 - **isBase64Str** - 判断字符串是否为 Base64。(文件: `src/common/base64.ts`)
 - **startServer** - 启动简易本地静态服务器。(文件: `src/common/server.ts`)
+
+### HTTP (HTTP 工具) (文件: `src/http/index.ts`)
+
+- **downloadFile** - 从 URL 下载文件到本地。
+- **uploadFile** - 上传文件到指定 URL。
+- **parseHeaders** - 解析 HTTP 头部字符串为对象。
+- **createSimpleProxy** - 创建简单的 HTTP 代理服务器。
+- **createHTTPServer** - 创建基础 HTTP 服务器。
+- **serveStatic** - 启动静态文件服务器。
+
+### Data (数据处理) (文件: `src/data/index.ts`)
+
+- **parseCSV** - 解析 CSV 字符串为对象数组。
+- **stringifyCSV** - 将对象数组转换为 CSV 字符串。
+- **parseXML** - 解析 XML 字符串为 JSON 对象。
+- **stringifyXML** - 将 JSON 对象转换为 XML 字符串。
+- **convertFormat** - 在不同数据格式间转换(JSON/CSV/XML)。

@@ -1,4 +1,9 @@
 /**
+ * @author Wayne
+ * @Date 2025-10-14 20:41:48
+ * @LastEditTime 2025-11-18 11:28:49
+ */
+/**
  * @fileoverview Node.js utilities package providing comprehensive system monitoring, file operations, process management, and development tools.
  *
  * This package provides a complete suite of Node.js utilities for building robust applications.
@@ -21,3 +26,6 @@ export * from './cache';
 export * from './common/base64';
 export * from './common/server';
 export * from './common';
+
+export * from './http';
+export * from './data';

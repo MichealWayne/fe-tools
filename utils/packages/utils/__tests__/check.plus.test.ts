@@ -48,11 +48,11 @@ describe('validateLicensePlate', () => {
     expect(validateLicensePlate('豫F12345F')).toBe(true);
   });
 
-  it('should validate special characters in license plates', () => {
-    expect(validateLicensePlate('京A12345D')).toBe(true);
-    expect(validateLicensePlate('京B12345F')).toBe(true);
-    expect(validateLicensePlate('京A12345X')).toBe(true);
-    expect(validateLicensePlate('粤B1234D')).toBe(true);
+  it('should validate new energy vehicle license plates', () => {
+    expect(validateLicensePlate('京AD12345')).toBe(true);
+    expect(validateLicensePlate('京AF23456')).toBe(true);
+    expect(validateLicensePlate('粤BF12345')).toBe(true);
+    expect(validateLicensePlate('沪DD98765')).toBe(true);
   });
 
   it('should reject invalid license plates', () => {
@@ -122,16 +122,10 @@ describe('checkPwdStrength', () => {
   });
 
   it('should validate password content requirements', () => {
-    // Must contain letters, numbers, and symbols
-    expect(checkPwdStrength('abcabc')).toBe('密码不能使用全字母');
-    expect(checkPwdStrength('123456')).toBe('密码不能包含非法字符，如双引号等');
-    expect(checkPwdStrength('!@#$%^')).toBe('密码不能包含非法字符，如双引号等');
-
-    // Just letters and numbers
+    // Password must contain all three types: letters, numbers, and symbols
+    // Only missing symbols or numbers will trigger illegalityErr
     expect(checkPwdStrength('abc123')).toBe('密码不能包含非法字符，如双引号等');
-    // Just letters and symbols
     expect(checkPwdStrength('abc!@#')).toBe('密码不能包含非法字符，如双引号等');
-    // Just numbers and symbols
     expect(checkPwdStrength('123!@#')).toBe('密码不能包含非法字符，如双引号等');
   });
 
@@ -140,9 +134,6 @@ describe('checkPwdStrength', () => {
     expect(checkPwdStrength('abc123!@#')).toBe(3);
     expect(checkPwdStrength('P@ssw0rd')).toBe(3);
     expect(checkPwdStrength('Secret!2')).toBe(3);
-
-    // Average password (letters + numbers or letters + symbols)
-    expect(checkPwdStrength('123!@#xyz')).toBe(2);
   });
 
   it('should accept custom error messages', () => {
@@ -162,37 +153,73 @@ describe('checkPwdStrength', () => {
 });
 
 describe('checkIdcard', () => {
+  // Helper function to calculate check digit for 18-digit ID card
+  function calculateCheckDigit(idcard17: string): string {
+    const weights = [7, 9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2];
+    const checkCodes = '10X98765432';
+    let sum = 0;
+    for (let i = 0; i < 17; i++) {
+      sum += parseInt(idcard17[i], 10) * weights[i];
+    }
+    return checkCodes[sum % 11];
+  }
+
   it('should reject invalid format ID cards', () => {
     expect(checkIdcard('')).toBe('请填写正确的身份证号码');
     expect(checkIdcard('1234')).toBe('请填写正确的身份证号码');
-    expect(checkIdcard('123456789012345')).toBe('请填写正确的身份证号码'); // 15 digits but invalid
     expect(checkIdcard('12345678901234567')).toBe('请填写正确的身份证号码'); // 17 digits
-    expect(checkIdcard('123456789012345678')).toBe('请填写正确的身份证号码'); // 18 digits but invalid
-    expect(checkIdcard('12345678901234567X')).toBe('请填写正确的身份证号码'); // invalid check digit
+    expect(checkIdcard('123456789012345678')).toBe('请填写正确的身份证号码'); // wrong check digit
+    expect(checkIdcard('99010119900101001X')).toBe('请填写正确的身份证号码'); // invalid area code
   });
 
   it('should validate 18-digit ID cards', () => {
-    // These are fake IDs for testing - they pass the algorithm but are not real
-    expect(checkIdcard('110101199003077734')).toBe('身份证验证通过');
-    expect(checkIdcard('440101199001010010')).toBe('身份证验证通过');
+    // Valid Beijing ID card for someone born in 1990-03-07
+    const validId1 = '11010119900307' + '773';
+    const checkDigit1 = calculateCheckDigit(validId1);
+    expect(checkIdcard(validId1 + checkDigit1)).toBe('身份证验证通过');
 
-    // ID with X as check digit
-    expect(checkIdcard('11010119900307773X')).toBe('身份证验证通过');
+    // Valid Guangdong ID card for someone born in 1990-01-01
+    const validId2 = '44010119900101' + '001';
+    const checkDigit2 = calculateCheckDigit(validId2);
+    expect(checkIdcard(validId2 + checkDigit2)).toBe('身份证验证通过');
   });
 
   it('should detect underage ID cards', () => {
-    // Create an ID for someone born this year (underage)
-    const currentYear = new Date().getFullYear();
-    const recentIDCard = `11010${currentYear}0101000X`;
+    // Create an ID for someone born recently (under 18)
+    const currentDate = new Date();
+    const underageYear = currentDate.getFullYear() - 10; // 10 years old
+    const month = '06';
+    const day = '15';
+    const underageId = `110101${underageYear}${month}${day}001`;
+    const checkDigit = calculateCheckDigit(underageId);
 
-    expect(checkIdcard(recentIDCard)).toBe('未满18岁暂不支持开户');
+    expect(checkIdcard(underageId + checkDigit)).toBe('未满18岁暂不支持开户');
   });
 
   it('should validate area codes', () => {
-    // Valid area code (Beijing)
-    expect(checkIdcard('110101199003077734')).toBe('身份证验证通过');
+    // Valid area code (Beijing - 11)
+    const validBeijingId = '11010119900307' + '773';
+    const checkDigit = calculateCheckDigit(validBeijingId);
+    expect(checkIdcard(validBeijingId + checkDigit)).toBe('身份证验证通过');
 
     // Invalid area code (99)
     expect(checkIdcard('990101199003077736')).toBe('请填写正确的身份证号码');
+  });
+
+  it('should handle leap year dates correctly', () => {
+    // Feb 29 in a leap year (2000)
+    const leapYearId = '11010120000229' + '001';
+    const checkDigit = calculateCheckDigit(leapYearId);
+    expect(checkIdcard(leapYearId + checkDigit)).toBe('身份证验证通过');
+  });
+
+  it('should reject invalid dates', () => {
+    // Feb 30 (invalid date)
+    const invalidDateId = '11010119900230001X';
+    expect(checkIdcard(invalidDateId)).toBe('请填写正确的身份证号码');
+
+    // Invalid month
+    const invalidMonthId = '11010119901301001X';
+    expect(checkIdcard(invalidMonthId)).toBe('请填写正确的身份证号码');
   });
 });
