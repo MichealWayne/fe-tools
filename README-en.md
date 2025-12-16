@@ -427,6 +427,7 @@ Contents:
 | https://facebook.github.io/create-react-app/                   | create-react-app      | React scaffold tool documentation.                                                                                                                |
 | https://github.com/facebook/react-devtools                     | react-devtools        | React Chrome development extension plugin.                                                                                                        |
 | http://react-guide.github.io/react-router-cn/                  | react-router          | Front-end routing control for React.                                                                                                              |
+| https://zustand.docs.pmnd.rs/getting-started/introduction      | zustand               | A popular, simple and lightweight data flow control tool.                                                                                         |
 | https://github.com/facebookexperimental/Recoil                 | recoil                | Simple and hook-friendly data flow control tool.                                                                                                  |
 | https://www.redux.org.cn/docs/introduction/                    | redux                 | Widely used data flow control tool, reducer+flux.                                                                                                 |
 | http://facebook.github.io/flux/                                | flux                  | Data flow control tool.                                                                                                                           |
@@ -614,6 +615,8 @@ Contents:
 | https://lowcode-engine.cn/                         | lowcode-engine | An open-source low-code engine from Alibaba.                                       |
 | https://weda.cloud.tencent.com/                    | weda           | Tencent low-code engine, Micro-Starter.                                            |
 | https://aisuda.bce.baidu.com/amis/zh-CN/docs/index | amis           | Baidu open-source low-code engine, suitable for projects with a back-office focus. |
+| https://shuffle.dev/                               | shuffle        | A popular low-code platform overseas.                                              |
+| https://webflow.com/                               | webflow        | A popular low-code platform overseas.                                              |
 
 ### 1.8 Hybrid and Cross-platform
 
@@ -632,7 +635,8 @@ Contents:
 | https://github.com/NativeScript/NativeScript                      | Cross-platform                      | Popular cross-platform development framework that supports Angular/Vue/Svelte/React.                                                                             |
 | https://github.com/ionic-team/ionic-framework                     | Cross-platform                      | A powerful cross-platform UI toolkit for building native-quality iOS, Android, and PWA apps using HTML, CSS, and JavaScript.                                     |
 | https://github.com/quasarframework/quasar                         | Cross-platform                      | Build top-quality, high-performance Vue responsive websites, PWAs, SSR, mobile, and desktop apps                                                                 |
-| https://weex.apache.org/zh/                                       | Cross-platform                      | A cross-platform tool that was popular a few years ago using Vue syntax, but is no longer maintained.                                                            |
+| https://lynxjs.org/zh/index.html                                  | Cross-platform                      | Bytedance's cross-platform framework for iOS, Android, HarmonyOS and Web.                                                                                  |
+| https://weexapp.com/zh/                                           | Cross-platform                      | A cross-platform tool that was popular a few years ago using Vue syntax, but is no longer maintained.                                                            |
 | https://alibaba.github.io/weex-ui/#/cn/                           | Cross-platform/Weex                 | Weex UI component library.                                                                                                                                       |
 | https://taro.jd.com/                                              | Mini Program/Cross-platform         | Cross-web/Mini Program/Native React syntax cross-platform tool, runtime cross-platform mode.                                                                     |
 | https://taro.jd.com/                                              | Mini Program/Cross-platform/Flutter | React syntax cross-platform tool for cross-web/Mini Program/Flutter, Alibaba.                                                                                    |
@@ -888,6 +892,7 @@ Contents:
 | ---- | ---- | ---- |
 | https://docs.anthropic.com/zh-CN/docs/claude-code/overview | claude-code | AI programming assistant by Anthropic, based on Claude model, supports code generation, explanation and debugging |
 | https://github.com/google-gemini/gemini-cli | gemini-cli | AI programming assistant by Google, based on Gemini model, supports command line interaction and code generation |
+| https://openai.com/zh-Hans-CN/codex/ | codex | AI programming assistant by OpenAI, supports command line interaction and code generation |
 | https://www.cursor.com/ | cursor | Extremely developer-friendly AI IDE, currently trending |
 | https://github.com/PatrickJS/awesome-cursorrules | cursorrules | Collection of engineering cursorrules to improve Cursor efficiency |
 | https://windsurfai.org/zh | windsurf | Extremely developer-friendly AI IDE, personally think more beginner-friendly than Cursor, currently trending |

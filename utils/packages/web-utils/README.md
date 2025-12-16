@@ -51,7 +51,7 @@
 
 ### Platform (文件: `src/platform.ts`)
 
-- **isBrowser**, **isPC** - 环境判断。
+- **isBrowser**, **isPC**, **isOpenHarmony** - 环境判断。
 - 获取浏览器、系统、移动设备信息。
 
 ### Rem (文件: `src/rem.ts`)
