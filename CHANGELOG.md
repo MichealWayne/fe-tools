@@ -1,5 +1,6 @@
 ### 更新信息
 
+- 2025.12.14：更新主页链接；更新utils
 - 2025.11.16：更新 utils（utils&web-utils&node-utils增加方法）；
 - 2025.10.12：更新前后端项目模版（+nextjs,+nestjs）；更新 chrome 插件；
 - 2025.09.07：更新 utils(注释)；增加 linux 命令行数据；更新主页链接；

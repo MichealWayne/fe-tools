@@ -4,7 +4,7 @@
  * @module Platform
  * @notice 存在复杂的判断场景可以直接使用ua-parser-js / mobile-detect.js
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2025-04-20 13:45:42
+ * @LastEditTime 2025-12-13 19:47:45
  */
 
 /**
@@ -84,6 +84,15 @@ export function isPC() {
     'ipod',
     'mobile', // 通用移动设备关键字
   ].every(agent => ua.indexOf(agent) < 0);
+}
+
+/**
+ * @function isOpenHarmony
+ * @description 判断当前页面是否处于OpenHarmony环境下。Determines whether the current page is in an OpenHarmony environment
+ * @returns
+ */
+export function isOpenHarmony() {
+  return ua.includes('openharmony');
 }
 
 /**

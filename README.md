@@ -414,6 +414,7 @@
 <a href="https://facebook.github.io/create-react-app/" target="_blank">create-react-app 文档</a> | `create-react-app` | react脚手架工具文档。
 <a href="https://github.com/facebook/react-devtools" target="_blank">react Chrome devtools</a> | `react-devtools` | react的Chrome开发拓展插件。
 <a href="http://react-guide.github.io/react-router-cn/" target="_blank">react-router</a> | `react-router` | 用于react的前端路由控制。
+<a href="https://zustand.docs.pmnd.rs/getting-started/introduction" target="_blank">Zustand 文档</a> | `zustand` | 火热的简单轻量数据流控制工具。
 <a href="https://github.com/facebookexperimental/Recoil" target="_blank">Recoil 文档</a> | `recoil` | 简单、对hook友好的数据流控制工具。
 <a href="https://www.redux.org.cn/docs/introduction/" target="_blank">redux 文档</a> | `redux` | 广泛使用的数据流控制工具，reducer+flux。
 <a href="http://facebook.github.io/flux/" target="_blank">flux 文档</a> | `flux` | 数据流控制工具（现在已经很少在用了）。
@@ -601,11 +602,13 @@
 <a href="https://aisuda.bce.baidu.com/amis/zh-CN/docs/index" target="_blank">amis</a> | `amis` | 百度开源低代码引擎，适用于偏中后台项目。
 <a href="https://opentiny.design/tiny-engine#/home" target="_blank">TinyEngine</a> | `tiny-engine` | 华为2023开源低代码引擎，具备图元编排能力。
 <a href="https://netease.github.io/tango/" target="_blank">Tango</a> | `tango` | 网易云音乐2023开源低代码引擎，不受私有 DSL 和协议限制。
+<a href="https://shuffle.dev/" target="_blank">Shuffle</a> | `shuffle` | 海外火热的低代码平台。
+<a href="https://webflow.com/" target="_blank">Webflow</a> | `webflow` | 海外火热的低代码平台。
 
 ### 1.8 Hybird和跨端
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank">pwa</a> | `pwa` | 渐进式web应用。
+<a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank">pwa</a> | `pwa` | Progressive web apps，渐进式web应用。
 <a href="https://developers.weixin.qq.com/miniprogram/dev/" target="_blank">微信小程序官网</a> | `小程序/hybird` | 微信小程序开发官网。
 <a href="https://docs.alipay.com/mini/developer/getting-started" target="_blank">支付宝小程序官网</a> | `小程序/hybird` | 支付宝小程序开发官网。
 <a href="https://smartprogram.baidu.com/developer/index.html" target="_blank">百度小程序官网</a> | `小程序/hybird` | 百度小程序开发官网。
@@ -615,10 +618,11 @@
 <a href="https://www.quickapp.cn/" target="_blank">Oppo/vivo快应用官网</a> | `轻应用/hybird` | Oppo/vivo轻应用开发官网。
 <a href="https://developer.huawei.com/consumer/cn/quickApp" target="_blank">华为快应用官网</a> | `轻应用/hybird` | 华为轻应用开发官网。
 <a href="https://reactnative.cn/" target="_blank">React-native 文档</a> | `跨端` | 热门的react语法跨端工具，RN。
+<a href="https://lynxjs.org/zh/index.html" target="_blank">Lynx 文档</a> | `跨端` | 字节的iOS/Android/鸿蒙/Web跨端框架。
 <a href="https://github.com/NativeScript/NativeScript" target="_blank">NativeScript</a> | `跨端` | 国外一款流行的跨端开发框架，支持Angular/Vue/Svelte/React。
 <a href="https://github.com/ionic-team/ionic-framework" target="_blank">ionic-framework</a> | `跨端` | 一个强大的跨平台UI工具包，用于使用HTML，CSS和JavaScript构建本机质量的iOS，Android和PWA。
 <a href="https://github.com/quasarframework/quasar" target="_blank">quasar-framework</a> | `跨端` | 构建一流的高性能的Vue响应式网站、PWA、SSR、移动和桌面应用
-<a href="https://weex.apache.org/zh/" target="_blank">Weex文档</a> | `跨端` | 前几年热门的vue语法跨端工具，现在都不维护了。
+<a href="https://weexapp.com/zh/" target="_blank">Weex文档</a> | `跨端` | 前几年热门的vue语法跨端工具，现在都不维护了。
 <a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex-UI文档</a> | `跨端/weex` | weex的UI组件库。
 <a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具，runtime跨端模式。
 <a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具，阿里。
@@ -865,7 +869,8 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://docs.anthropic.com/zh-CN/docs/claude-code/overview" target="_blank">Claude Code</a> | `claude-code` | Anthropic出品的AI编程助手，基于Claude模型，支持代码生成、解释和调试
-<a href="https://github.com/google-gemini/gemini-cli" target="_blank">Gemini Cli</a> | `gemini-cli` | Google出品的AI编程助手，基于Gemini模型，支持命令行交互和代码生成
+<a href="https://github.com/google-gemini/gemini-cli" target="_blank">Gemini Cli</a> | `gemini-cli` | Google出品的AI编程助手，基于Gemini模型，支持命令行交互和代码生成，代码开源
+<a href="https://openai.com/zh-Hans-CN/codex/" target="_blank">Codex</a> | `codex` | OpenAI出品的AI编程助手，支持命令行交互和代码生成
 <a href="https://www.cursor.com/" target="_blank">Cursor</a> | `cursor` | 面向专业开发极其友好的AI IDE，当前火爆
 <a href="https://github.com/PatrickJS/awesome-cursorrules" target="_blank">awesome-cursorrules</a> | `cursorrules` | 让Cursor提升效率的各类工程cursorrules集合
 <a href="https://windsurfai.org/zh" target="_blank">Windsurf</a> | `windsurf` | 面向专业开发极其友好的AI IDE，个人认为当前对新人比Cursor更友好，当前火爆
