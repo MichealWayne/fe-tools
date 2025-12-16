@@ -47,12 +47,12 @@ jobs:
 
       - run: rm -rf ./docs && mkdir -p ./docs
       - name: Download the new documents artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: newdocumentation
       - run: tar -xf newdocumentation.tar ./docs -C ./docs
       - run: rm newdocumentation.tar
-      - run: rm -rf ./docs/datas && mv -f ./datas ./docs 
+      - run: rm -rf ./docs/datas && mv -f ./datas ./docs
       - name: commit
         run: |
           git config --global user.email "michealwayne@163.com"
