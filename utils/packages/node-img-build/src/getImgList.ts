@@ -130,25 +130,29 @@ function getImgList(imgFolderPath: string, options: ImageListOptions = {}): stri
       const files = fs.readdirSync(dirPath, 'utf-8');
 
       for (const item of files) {
-        const fullPath = path.join(dirPath, item);
-        const relativeItemPath = path.join(relativePath, item);
-        const stats = fs.statSync(fullPath);
+        try {
+          const fullPath = path.join(dirPath, item);
+          const relativeItemPath = path.join(relativePath, item);
+          const stats = fs.statSync(fullPath);
 
-        if (stats.isDirectory() && recursive) {
-          processDirectory(fullPath, relativeItemPath);
-          continue;
-        }
-
-        if (!isImage(item, extensions)) {
-          continue;
-        }
-
-        const is2x = is2xImage(item);
-
-        if (includeAllImages || !only2x || (only2x && is2x)) {
-          if (!imgArr.includes(relativeItemPath)) {
-            imgArr.push(relativePath ? relativeItemPath : item);
+          if (stats.isDirectory() && recursive) {
+            processDirectory(fullPath, relativeItemPath);
+            continue;
           }
+
+          if (!isImage(item, extensions)) {
+            continue;
+          }
+
+          const is2x = is2xImage(item);
+
+          if (includeAllImages || !only2x || (only2x && is2x)) {
+            if (!imgArr.includes(relativeItemPath)) {
+              imgArr.push(relativePath ? relativeItemPath : item);
+            }
+          }
+        } catch (error) {
+          console.error(`Error reading item ${item} in ${dirPath}:`, error);
         }
       }
     } catch (error) {

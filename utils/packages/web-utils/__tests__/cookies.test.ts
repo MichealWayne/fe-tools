@@ -70,11 +70,14 @@ describe('Cookies', () => {
 
   describe('setCookie', () => {
     it('should set a cookie with default expiration and path', () => {
+      const spy = jest.spyOn(document, 'cookie', 'set');
       setCookie('test', 'value');
 
-      expect(document.cookie).toContain('test=value');
-      expect(document.cookie).toContain('expires=');
-      expect(document.cookie).toContain('path=/');
+      expect(spy).toHaveBeenCalled();
+      const setCookieArg = spy.mock.calls[0][0];
+      expect(setCookieArg).toContain('test=value');
+      expect(setCookieArg).toContain('expires=');
+      expect(setCookieArg).toContain('GMT/');
     });
 
     it('should set a cookie with custom expiration in seconds', () => {

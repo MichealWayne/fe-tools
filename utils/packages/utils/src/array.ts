@@ -2,10 +2,10 @@
  * @module Array
  * @description Comprehensive array utility functions for common operations
  * @Date 2020-04-11 21:55:46
- * @LastEditTime 2025-09-07 20:33:35
+ * @LastEditTime 2026-01-11 10:39:57
  */
 
-import { isArray, isObject } from './type';
+import { isArray } from './type';
 
 export type NumberArr = number[];
 
@@ -116,7 +116,28 @@ export function arraySum(arr: number[]): number {
  * allEqual([null, null]); // -> true
  * allEqual([undefined, undefined]); // -> true
  */
-export const allEqual = (arr: AnyArr): boolean => arr.every(val => val === arr[0]);
+export const allEqual = (arr: AnyArr): boolean => {
+  return arr.every(val => val === arr[0]);
+};
+
+declare const Buffer: { byteLength: (value: string, encoding?: string) => number } | undefined;
+
+/**
+ * @function getStringByteLength
+ * @description 获取字符串的字节长度。Gets the byte length of a string
+ * @param {string} value
+ * @returns {number} 字符串的字节长度。The byte length of the string
+ * @throws {Error} 当浏览器不支持TextEncoder时抛出错误。Throws an error when the browser does not support TextEncoder
+ */
+export const getStringByteLength = (value: string): number => {
+  if (typeof TextEncoder !== 'undefined') {
+    return new TextEncoder().encode(value).length;
+  }
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.byteLength(value, 'utf8');
+  }
+  return value.length;
+};
 
 /**
  * @function size
@@ -158,14 +179,16 @@ export const allEqual = (arr: AnyArr): boolean => arr.every(val => val === arr[0
  * size(42); // -> 0
  */
 export function size(val: unknown) {
-  // eslint-disable-next-line no-nested-ternary
-  return isArray(val)
-    ? val.length
-    : val && isObject(val)
-    ? val.size || val.length || Object.keys(val).length
-    : typeof val === 'string'
-    ? new Blob([val]).size
-    : 0;
+  if (isArray(val)) return val.length;
+  if (typeof val === 'string') return getStringByteLength(val);
+  if (typeof Blob !== 'undefined' && val instanceof Blob) return val.size;
+  if (val instanceof Map || val instanceof Set) return val.size;
+  if (val && typeof val === 'object') {
+    const maybeLength = (val as { length?: number }).length;
+    if (typeof maybeLength === 'number') return maybeLength;
+    return Object.keys(val as object).length;
+  }
+  return 0;
 }
 /**
  * @function arrayToCSV
@@ -191,7 +214,17 @@ export function size(val: unknown) {
  * arrayToCSV([['with,comma', 'normal']]); // -> '"with,comma","normal"'
  */
 export function arrayToCSV(arr: AnyArr[], delimiter = ','): string {
-  return arr.map(v => v.map(x => `"${x}"`).join(delimiter)).join('\n');
+  return arr
+    .map(row =>
+      row
+        .map(cell => {
+          const normalized = cell == null ? '' : String(cell);
+          const escaped = normalized.replace(/"/g, '""');
+          return `"${escaped}"`;
+        })
+        .join(delimiter)
+    )
+    .join('\n');
 }
 
 /**
@@ -685,13 +718,14 @@ export function sample(arr: AnyArr) {
  * // String arrays
  * sampleSize(['a', 'b', 'c', 'd'], 2); // -> ['c', 'a'] (randomly selected)
  */
-export function sampleSize([...arr], num = 1) {
-  let m = arr.length;
+export function sampleSize(arr: AnyArr, num = 1) {
+  const result = [...arr];
+  let m = result.length;
   while (m) {
     const i = Math.floor(Math.random() * m--);
-    [arr[m], arr[i]] = [arr[i], arr[m]];
+    [result[m], result[i]] = [result[i], result[m]];
   }
-  return arr.slice(0, num);
+  return result.slice(0, num);
 }
 
 /**
@@ -715,13 +749,14 @@ export function sampleSize([...arr], num = 1) {
  * const cards = [{ suit: 'hearts', value: 'A' }, { suit: 'spades', value: 'K' }];
  * shuffle(cards); // -> randomly shuffled array of card objects
  */
-export function shuffle([...arr]) {
-  let m = arr.length;
+export function shuffle(arr: AnyArr) {
+  const result = [...arr];
+  let m = result.length;
   while (m) {
     const i = Math.floor(Math.random() * m--);
-    [arr[m], arr[i]] = [arr[i], arr[m]];
+    [result[m], result[i]] = [result[i], result[m]];
   }
-  return arr;
+  return result;
 }
 
 /**
@@ -915,7 +950,8 @@ export function remove<T>(arr: T[], fn: (v: T) => boolean): T[] {
  * digitize(0.567); // -> [0, 5, 6, 7]
  */
 export function digitize(num: number) {
-  return [...num.toString()].map(i => parseInt(i, 10));
+  const digits = Math.abs(num).toString().replace(/\D/g, '');
+  return digits ? digits.split('').map(i => parseInt(i, 10)) : [];
 }
 
 /**

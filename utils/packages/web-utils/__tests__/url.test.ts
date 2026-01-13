@@ -96,17 +96,17 @@ describe('paramsJoinUrl', () => {
 
   it('should join the params object into a URL-encoded string', () => {
     const result = paramsJoinUrl({ age: '25', city: 'New York' });
-    expect(result).toBe('age%3D25%26city%3DNew%20York');
+    expect(result).toBe('age=25&city=New%20York');
   });
 
   it('should handle special characters in parameter values', () => {
     const result = paramsJoinUrl({ q: 'search query & more', filter: 'name=value' });
-    expect(decodeURIComponent(result)).toBe('q=search query & more&filter=name=value');
+    expect(result).toBe('q=search%20query%20%26%20more&filter=name%3Dvalue');
   });
 
   it('should handle empty parameter values', () => {
     const result = paramsJoinUrl({ empty: '', nonempty: 'value' });
-    expect(decodeURIComponent(result)).toBe('empty=&nonempty=value');
+    expect(result).toBe('empty=&nonempty=value');
   });
 });
 
@@ -207,7 +207,7 @@ describe('httpsRedirect', () => {
       value: { href: 'http://example.com', replace: replaceMock },
     });
     httpsRedirect('http://example.com');
-    expect(replaceMock).toHaveBeenCalledWith('https://example.com');
+    expect(replaceMock).toHaveBeenCalledWith('https://example.com/');
   });
 
   it('should preserve path, query parameters, and hash in redirect', () => {

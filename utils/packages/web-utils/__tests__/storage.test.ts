@@ -3,33 +3,11 @@
  * @Date 2025-06-08 17:55:17
  * @LastEditTime 2025-06-09 19:18:47
  */
-import Storage from '../src/storage';
-
 describe('Storage', () => {
-  // Setup mocks for localStorage and sessionStorage
-  const mockLocalStorage = (function () {
+  const createStorageMock = () => {
     let store: Record<string, string> = {};
-    return {
-      getItem: jest.fn((key: string) => {
-        return store[key] || null;
-      }),
-      setItem: jest.fn((key: string, value: string) => {
-        store[key] = value;
-      }),
-      removeItem: jest.fn((key: string) => {
-        delete store[key];
-      }),
-      clear: jest.fn(() => {
-        store = {};
-      }),
-      length: 0,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      key: jest.fn((index: number) => ''),
-    };
-  })();
+    const getKeys = () => Object.keys(store);
 
-  const mockSessionStorage = (function () {
-    let store: Record<string, string> = {};
     return {
       getItem: jest.fn((key: string) => {
         return store[key] || null;
@@ -43,11 +21,16 @@ describe('Storage', () => {
       clear: jest.fn(() => {
         store = {};
       }),
-      length: 0,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      key: jest.fn((index: number) => ''),
+      get length() {
+        return getKeys().length;
+      },
+      key: jest.fn((index: number) => getKeys()[index] || null),
     };
-  })();
+  };
+
+  // Setup mocks for localStorage and sessionStorage
+  const mockLocalStorage = createStorageMock();
+  const mockSessionStorage = createStorageMock();
 
   // Save original storage objects
   const originalLocalStorage = window.localStorage;
@@ -68,6 +51,7 @@ describe('Storage', () => {
     mockLocalStorage.clear();
     mockSessionStorage.clear();
     jest.clearAllMocks();
+    jest.resetModules();
   });
 
   afterEach(() => {
@@ -84,12 +68,16 @@ describe('Storage', () => {
 
   describe('localStorage', () => {
     it('should set and get a string value', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
       localStore.set('testKey', 'testValue');
       expect(localStore.get('testKey')).toBe('testValue');
     });
 
     it('should set and get an object value', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
       const testObj = { name: 'Test', value: 42 };
       localStore.set('testKey', testObj);
@@ -97,6 +85,8 @@ describe('Storage', () => {
     });
 
     it('should set with default expiration', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
       localStore.set('testKey', 'testValue');
 
@@ -116,8 +106,10 @@ describe('Storage', () => {
     });
 
     it('should set with custom expiration', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
-      localStore.set('testKey', 'testValue', 3600); // 1 hour
+      localStore.set('testKey', 'testValue', 3600 * 1000); // 1 hour
 
       const setItemArg = mockLocalStorage.setItem.mock.calls[0][1];
       const parsedArg = JSON.parse(setItemArg);
@@ -129,6 +121,8 @@ describe('Storage', () => {
     });
 
     it('should set with no expiration when expiration is 0', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
       localStore.set('testKey', 'testValue', 0);
 
@@ -139,6 +133,8 @@ describe('Storage', () => {
     });
 
     it('should return null for expired items', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
 
       // Set an already expired item (negative expiration time)
@@ -155,6 +151,8 @@ describe('Storage', () => {
     });
 
     it('should remove a specific item', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
       localStore.set('testKey1', 'value1');
       localStore.set('testKey2', 'value2');
@@ -166,6 +164,8 @@ describe('Storage', () => {
     });
 
     it('should remove all items when no key is provided', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
       localStore.set('testKey1', 'value1');
       localStore.set('testKey2', 'value2');
@@ -178,19 +178,11 @@ describe('Storage', () => {
     });
 
     it('should get all items when no key is provided', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
       localStore.set('testKey1', 'value1');
       localStore.set('testKey2', { complex: 'object' });
-
-      // Mock the loop through localStorage
-      Object.defineProperty(mockLocalStorage, 'length', { value: 2 });
-      Object.defineProperty(mockLocalStorage, 'key', {
-        value: (index: number) => (index === 0 ? 'testKey1' : 'testKey2'),
-      });
-
-      // Mock for loop on storage object (needed for get() with no key)
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      jest.spyOn(Object, 'keys').mockImplementation((_: any) => ['testKey1', 'testKey2']);
 
       const result = localStore.get();
       expect(result).toEqual({
@@ -202,6 +194,8 @@ describe('Storage', () => {
 
   describe('sessionStorage', () => {
     it('should use sessionStorage when specified', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const sessionStore = Storage('session');
       sessionStore.set('sessionKey', 'sessionValue');
 
@@ -212,6 +206,8 @@ describe('Storage', () => {
     });
 
     it('should handle operations separately from localStorage', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const localStore = Storage('local');
       const sessionStore = Storage('session');
 
@@ -229,18 +225,24 @@ describe('Storage', () => {
 
   describe('edge cases', () => {
     it('should handle non-existent keys', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const store = Storage();
       expect(store.get('nonExistentKey')).toBeNull();
     });
 
     it('should handle invalid JSON in storage', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       mockLocalStorage.getItem.mockReturnValueOnce('not-valid-json');
 
       const store = Storage();
-      expect(store.get('someKey')).toBeNull();
+      expect(() => store.get('someKey')).toThrow();
     });
 
     it('should default to localStorage if type is not specified', () => {
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+      const Storage = require('../src/storage').default;
       const store = Storage();
       store.set('defaultKey', 'defaultValue');
 

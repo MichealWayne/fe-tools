@@ -94,13 +94,21 @@ export function runAsync(
     let stdoutData = '';
     let stderrData = '';
     let timeoutId: NodeJS.Timeout | null = null;
+    let settled = false;
+
+    const finalize = (handler: () => void) => {
+      if (settled) return;
+      settled = true;
+      if (timeoutId) clearTimeout(timeoutId);
+      handler();
+    };
 
     // 设置超时
     if (timeout) {
       timeoutId = setTimeout(() => {
-        child.kill();
+        child.kill('SIGKILL');
         const err = new Error(`Command timed out after ${timeout}ms: ${cmd} ${args.join(' ')}`);
-        reject(err);
+        finalize(() => reject(err));
       }, timeout);
     }
 
@@ -122,8 +130,6 @@ export function runAsync(
 
     // 监听关闭事件
     child.on('close', code => {
-      if (timeoutId) clearTimeout(timeoutId);
-
       let stdout: string | string[] = stdoutData;
       if (captureStdout === 'lines' && stdout) {
         stdout = stdout.split(/\r?\n/);
@@ -140,16 +146,15 @@ export function runAsync(
       if (code !== 0 && !ignoreFailure) {
         const err = new Error(`Command failed: ${cmd} ${args.join(' ')}\n${stderrData}`);
         Object.assign(err, result);
-        reject(err);
+        finalize(() => reject(err));
       } else {
-        resolve(result);
+        finalize(() => resolve(result));
       }
     });
 
     // 处理进程错误
     child.on('error', err => {
-      if (timeoutId) clearTimeout(timeoutId);
-      reject(err);
+      finalize(() => reject(err));
     });
   });
 }
@@ -192,12 +197,7 @@ export function forceRunAsync(
   args: string[] = [],
   options: RunOptions = {}
 ): Promise<RunResult | void> {
-  return runAsync(cmd, args, options).catch(error => {
-    if (error.message !== IGNORE) {
-      console.error(error);
-      throw error;
-    }
-  });
+  return runAsync(cmd, args, { ...options, ignoreFailure: true });
 }
 
 /**

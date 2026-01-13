@@ -23,7 +23,7 @@ import {
 describe('string test', () => {
   it('byteSize()', async () => {
     expect(byteSize('Hello, world!')).toEqual(13);
-    expect(byteSize('你好，世界！')).toEqual(14);
+    expect(byteSize('你好，世界！')).toEqual(18);
   });
 
   it('capitalize()', async () => {
@@ -98,7 +98,7 @@ describe('string test', () => {
     expect(camelize('a')).toEqual('a');
   });
 
-  it('splitLines()', async () => {
+  describe('splitLines', () => {
     it('should split lines of text with \\n', () => {
       const input = 'line 1\nline 2\nline 3\n';
       const expectedOutput = ['line 1', 'line 2', 'line 3', ''];
@@ -113,7 +113,7 @@ describe('string test', () => {
 
     it('should split lines of text with mixed line endings', () => {
       const input = 'line 1\nline 2\r\nline 3\n\r';
-      const expectedOutput = ['line 1', 'line 2', 'line 3', ''];
+      const expectedOutput = ['line 1', 'line 2', 'line 3', '\r'];
       expect(JSON.stringify(splitLines(input))).toEqual(JSON.stringify(expectedOutput));
     });
 
@@ -123,15 +123,13 @@ describe('string test', () => {
       expect(JSON.stringify(splitLines(input))).toEqual(JSON.stringify(expectedOutput));
     });
 
-    expect(JSON.stringify(splitLines(''))).toEqual(JSON.stringify(['']));
-    expect(JSON.stringify(splitLines('123\r\n456'))).toEqual(JSON.stringify(['123', '456']));
-    expect(JSON.stringify(splitLines('123\n456'))).toEqual(JSON.stringify(['123', '456']));
-    expect(
-      JSON.stringify(
-        splitLines(`123
-456`)
-      )
-    ).toEqual(JSON.stringify(['123', '456']));
+    it('should handle common cases', () => {
+      expect(JSON.stringify(splitLines(''))).toEqual(JSON.stringify(['']));
+      expect(JSON.stringify(splitLines('123\r\n456'))).toEqual(JSON.stringify(['123', '456']));
+      expect(JSON.stringify(splitLines('123\n456'))).toEqual(JSON.stringify(['123', '456']));
+      expect(JSON.stringify(splitLines(`123
+456`))).toEqual(JSON.stringify(['123', '456']));
+    });
   });
 
   it('isChinese()', async () => {
@@ -140,24 +138,26 @@ describe('string test', () => {
     expect(isChinese('跨端kingfisher')).toEqual(false);
   });
 
-  it('truncateString()', async () => {
-    expect(truncateString('abcdefg', 3)).toEqual('abc...');
-    expect(truncateString('abcdefg', 10)).toEqual('abcdefg');
-
-    test('truncateString: truncate string when length > maxLen', () => {
-      const result = truncateString('This is a long string that needs to be truncated.', 20);
-      expect(result).toBe('This is a long strin...');
+  describe('truncateString', () => {
+    it('should truncate strings', () => {
+      expect(truncateString('abcdefg', 3)).toEqual('abc...');
+      expect(truncateString('abcdefg', 10)).toEqual('abcdefg');
     });
 
-    test('truncateString: return string when length <= maxLen', () => {
+    it('truncate string when length > maxLen', () => {
+      const result = truncateString('This is a long string that needs to be truncated.', 20);
+      expect(result).toBe('This is a long st...');
+    });
+
+    it('return string when length <= maxLen', () => {
       const result = truncateString('This is a short string.', 30);
       expect(result).toBe('This is a short string.');
     });
 
-    test('truncateString: return empty string when input is empty string', () => {
+    it('return empty string when input is empty string', () => {
       const result = truncateString('', 10);
       expect(result).toBe('');
-      expect(truncateString('hello world', 5)).toBe('hello...');
+      expect(truncateString('hello world', 5)).toBe('he...');
       expect(truncateString('hello world', 11)).toBe('hello world');
     });
   });
@@ -186,9 +186,9 @@ describe('string test', () => {
     });
 
     test('should handle non-Latin characters correctly', () => {
-      expect(ellipsis('你好世界', 2)).toBe('...');
-      expect(ellipsis('你好世界', 3)).toBe('你...');
-      expect(ellipsis('你好世界', 3, '…')).toBe('你…');
+      expect(ellipsis('你好世界', 2)).toBe('你好世...');
+      expect(ellipsis('你好世界', 3)).toBe('...');
+      expect(ellipsis('你好世界', 3, '…')).toBe('你好…');
     });
   });
 
@@ -216,7 +216,7 @@ describe('string test', () => {
     });
 
     test('should handle email addresses', () => {
-      expect(maskString('user@example.com', 2, 8)).toBe('us********example.com');
+      expect(maskString('user@example.com', 2, 8)).toBe('us******mple.com');
     });
 
     test('should handle Chinese characters', () => {

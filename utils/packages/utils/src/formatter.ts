@@ -37,7 +37,7 @@ export function formatFileSize(bytes: number, decimals = 2): string {
  * @example
  * formatDuration(60000); // -> '1m 0s'
  * formatDuration(3661000); // -> '1h 1m 1s'
- * formatDuration(500); // -> '0.5s'
+ * formatDuration(500); // -> '500ms'
  */
 export function formatDuration(ms: number): string {
   if (ms < 1000) return `${ms}ms`;

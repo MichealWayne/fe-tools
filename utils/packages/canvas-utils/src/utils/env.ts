@@ -15,7 +15,15 @@ declare const global: any;
 declare const process: any;
 declare const wx: any;
 
-const { NODE_ENV } = (global?.process || {}).env;
+const globalObj =
+  typeof globalThis !== 'undefined'
+    ? globalThis
+    : typeof global !== 'undefined'
+    ? global
+    : typeof window !== 'undefined'
+    ? window
+    : {};
+const { NODE_ENV } = (globalObj as { process?: { env?: { NODE_ENV?: string } } }).process?.env || {};
 
 /**
  * @const __DEV__

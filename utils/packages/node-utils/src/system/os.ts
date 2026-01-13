@@ -198,7 +198,7 @@ export function freememPercentage() {
 /**
  * @function freeCommand
  * @description 执行Linux 'free -m'命令获取详细内存信息。Executes Linux 'free -m' command to get detailed memory information including cache and buffer usage.
- * @param {AnyCallbackFunc} callback - 接收(usedMem, cachedMem)参数（MB）的回调函数。Callback function receiving (usedMem, cachedMem) in MB
+ * @param {AnyCallbackFunc} callback - 接收(usedMem, cachedMem)参数（MB）的回调函数。Callback function receiving (usedMem, cachedMem) in MB (null on error)
  * @example
  * // Get detailed Linux memory info
  * freeCommand((usedMem, cachedMem) => {
@@ -222,12 +222,32 @@ export function freememPercentage() {
  */
 export function freeCommand(callback: AnyCallbackFunc) {
   // Only Linux
+  if (process.platform !== 'linux') {
+    console.error('freeCommand is only supported on linux.');
+    callback(null, null);
+    return;
+  }
   childrenProcess.exec('free -m', function (err, stdout) {
+    if (err || !stdout) {
+      console.error(err || 'freeCommand failed with empty output.');
+      callback(null, null);
+      return;
+    }
     const lines = stdout.split('\n');
+    if (!lines[1]) {
+      console.error('freeCommand output format unexpected.');
+      callback(null, null);
+      return;
+    }
 
     const str_mem_info = lines[1].replace(/[\s\n\r]+/g, ' ');
 
     const mem_info = str_mem_info.split(' ');
+    if (mem_info.length < 7) {
+      console.error('freeCommand output parse failed.');
+      callback(null, null);
+      return;
+    }
 
     const total_mem = parseFloat(mem_info[1]);
     const free_mem = parseFloat(mem_info[3]);
@@ -243,7 +263,7 @@ export function freeCommand(callback: AnyCallbackFunc) {
 /**
  * @function harddrive
  * @description 使用'df -k'命令获取磁盘使用信息（仅Unix/Linux）。Gets disk usage information using 'df -k' command for storage monitoring on Unix/Linux systems.
- * @param {AnyCallbackFunc} callback - 接收(totalMB, freeMB, usedMB)的回调函数。Callback function receiving (totalMB, freeMB, usedMB)
+ * @param {AnyCallbackFunc} callback - 接收(totalMB, freeMB, usedMB)的回调函数。Callback function receiving (totalMB, freeMB, usedMB) (null on error)
  * @example
  * // Monitor disk space
  * harddrive((total, free, used) => {
@@ -271,19 +291,41 @@ export function freeCommand(callback: AnyCallbackFunc) {
  */
 // Hard Disk Drive
 export function harddrive(callback: AnyCallbackFunc) {
+  if (process.platform === 'win32') {
+    console.error('harddrive is not supported on win32.');
+    callback(null, null, null);
+    return;
+  }
   childrenProcess.exec('df -k', function (err, stdout) {
     if (err) {
-      return console.error(err);
+      console.error(err);
+      callback(null, null, null);
+      return;
+    }
+    if (!stdout) {
+      console.error('harddrive failed with empty output.');
+      callback(null, null, null);
+      return;
     }
     let total = 0;
     let used = 0;
     let free = 0;
 
     const lines = stdout.split('\n');
+    if (!lines[1]) {
+      console.error('harddrive output format unexpected.');
+      callback(null, null, null);
+      return;
+    }
 
     const str_disk_info = lines[1].replace(/[\s\n\r]+/g, ' ');
 
     const disk_info: string[] = str_disk_info.split(' ');
+    if (disk_info.length < 4) {
+      console.error('harddrive output parse failed.');
+      callback(null, null, null);
+      return;
+    }
 
     total = Math.ceil((Number(disk_info[1]) * 1024) / Math.pow(1024, 2));
     used = Math.ceil((Number(disk_info[2]) * 1024) / Math.pow(1024, 2));
@@ -297,7 +339,7 @@ export function harddrive(callback: AnyCallbackFunc) {
  * @function getProcesses
  * @description 获取按CPU使用率排序的运行进程信息（仅Unix/Linux）。Gets running process information sorted by CPU usage for system monitoring on Unix/Linux systems.
  * @param {number | AnyCallbackFunc} nProcess - 要返回的进程数量，或如果省略则为回调函数。Number of processes to return, or callback if omitted
- * @param {AnyCallbackFunc} callback - 接收格式化进程列表字符串的回调函数。Callback function receiving formatted process list string
+ * @param {AnyCallbackFunc} callback - 接收格式化进程列表字符串的回调函数。Callback function receiving formatted process list string (empty on error)
  * @example
  * // Get top 5 CPU-intensive processes
  * getProcesses(5, (processInfo) => {
@@ -331,6 +373,11 @@ export function getProcesses(nProcess: number | AnyCallbackFunc, callback: AnyCa
     callback = nProcess;
     nProcess = 0;
   }
+  if (process.platform === 'win32') {
+    console.error('getProcesses is not supported on win32.');
+    callback('');
+    return;
+  }
 
   let command = 'ps -eo pcpu,pmem,time,args | sort -k 1 -r | head -n ' + 10;
   //command = 'ps aux | head -n '+ 11
@@ -339,6 +386,11 @@ export function getProcesses(nProcess: number | AnyCallbackFunc, callback: AnyCa
     command = 'ps -eo pcpu,pmem,time,args | sort -k 1 -r | head -n ' + (nProcess + 1);
 
   childrenProcess.exec(command, function (error, stdout) {
+    if (error || !stdout) {
+      console.error(error || 'getProcesses failed with empty output.');
+      callback('');
+      return;
+    }
     const lines = stdout.split('\n');
     lines.shift();
     lines.pop();
@@ -348,6 +400,9 @@ export function getProcesses(nProcess: number | AnyCallbackFunc, callback: AnyCa
     lines.forEach(_item => {
       const _str = _item.replace(/[\s\n\r]+/g, ' ');
       const _strList = _str.split(' ');
+      if (_strList.length < 5) {
+        return;
+      }
 
       result +=
         _strList[1] +

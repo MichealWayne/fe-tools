@@ -15,6 +15,11 @@ describe('getTimeStr', () => {
   it('should return the time in the correct format when a time string is provided', () => {
     const timeStr = '2022-01-01T12:00:00Z';
     const result = getTimeStr(timeStr);
-    expect(result).toEqual('2022/01/01 12:00:00');
+    const date = new Date(timeStr);
+    const pad = (num: number) => (num < 10 ? `0${num}` : String(num));
+    const expected = `${date.getFullYear()}/${pad(date.getMonth() + 1)}/${pad(
+      date.getDate()
+    )} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+    expect(result).toEqual(expected);
   });
 });

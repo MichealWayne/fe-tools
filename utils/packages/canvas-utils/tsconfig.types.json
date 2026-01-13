@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "../../dist/canvas-utils/types",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "baseUrl": ".",
+    "paths": {
+      "utils": ["../../dist/utils/types/index.d.ts"],
+      "web-utils": ["../../dist/web-utils/types/index.d.ts"]
+    }
+  },
+  "include": ["src/**/*"]
+}

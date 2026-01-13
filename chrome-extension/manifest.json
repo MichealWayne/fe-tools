@@ -14,7 +14,16 @@
     "default_popup": "index.html"
   },
   "homepage_url": "https://github.com/MichealWayne/fe-tools",
-  "permissions": ["contextMenus", "tabs", "bookmarks", "webRequest", "storage", "scripting"],
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "tabs",
+    "bookmarks",
+    "webRequest",
+    "storage",
+    "scripting",
+    "downloads"
+  ],
   "host_permissions": ["*://*/*"],
   "omnibox": { "keyword": "fe" },
   "background": {

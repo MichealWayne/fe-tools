@@ -1,11 +1,15 @@
 import fs from 'fs';
 import path from 'path';
 import gmConstructor from 'gm';
-import { getGmStream, toBase64, resizeImg, toBlurImg } from '../src/handleImg';
+import { getGmStream, toBase64, resizeImg, toBlurImg, toWebpImg, generate1xFrom2x } from '../src/handleImg';
 
 // 模拟依赖模块
 jest.mock('fs');
-jest.mock('gm');
+jest.mock('gm', () => {
+  const gm: any = jest.fn();
+  gm.subClass = jest.fn(() => gm);
+  return gm;
+});
 
 describe('Image handling functions', () => {
   const mockFs = fs as jest.Mocked<typeof fs>;
@@ -26,7 +30,6 @@ describe('Image handling functions', () => {
 
     // Setup mock GM instance
     mockGm.mockReturnValue(mockGmInstance as any);
-    (mockGm as any).subClass = jest.fn().mockReturnValue(mockGm);
 
     // Default mock for identify
     mockGmInstance.identify.mockImplementation(callback => {
@@ -103,6 +106,27 @@ describe('Image handling functions', () => {
     });
   });
 
+  describe('toWebpImg', () => {
+    it('should preserve multi-dot names and strip _2x for output filename', async () => {
+      mockFs.existsSync.mockReturnValue(false);
+      mockGmInstance.write.mockImplementation((outputPath, callback) => {
+        callback(null);
+        return mockGmInstance;
+      });
+
+      const result = await toWebpImg('/test/path', 'hero.v1_2x.png', '/out/path');
+
+      expect(result).toBe(path.join('/out/path', 'hero.v1.webp'));
+      expect(mockFs.mkdirSync).toHaveBeenCalledWith('/out/path', { recursive: true });
+      expect(mockGmInstance.setFormat).toHaveBeenCalledWith('webp');
+      expect(mockGmInstance.quality).toHaveBeenCalled();
+      expect(mockGmInstance.write).toHaveBeenCalledWith(
+        path.join('/out/path', 'hero.v1.webp'),
+        expect.any(Function)
+      );
+    });
+  });
+
   describe('resizeImg', () => {
     it('should resize with width and height', () => {
       const result = resizeImg(mockGmInstance as any, 100, 50);
@@ -119,9 +143,9 @@ describe('Image handling functions', () => {
     });
 
     it('should return false if width is not provided', () => {
-      const result = resizeImg(mockGmInstance as any, 0);
-
-      expect(result).toBe(false);
+      expect(() => resizeImg(mockGmInstance as any, 0)).toThrow(
+        'Width must be a positive, finite number'
+      );
       expect(mockGmInstance.resize).not.toHaveBeenCalled();
     });
 
@@ -129,6 +153,13 @@ describe('Image handling functions', () => {
       const result = resizeImg(null as any, 100);
 
       expect(result).toBe(false);
+    });
+
+    it('should throw if height is invalid', () => {
+      expect(() => resizeImg(mockGmInstance as any, 100, -1)).toThrow(
+        'Height must be a positive, finite number'
+      );
+      expect(mockGmInstance.resize).not.toHaveBeenCalled();
     });
   });
 
@@ -157,6 +188,51 @@ describe('Image handling functions', () => {
       const result = toBlurImg(null as any);
 
       expect(result).toBe(false);
+    });
+  });
+
+  describe('generate1xFrom2x', () => {
+    it('should reject when image name does not include _2x.', async () => {
+      await expect(generate1xFrom2x('/test/path', 'image.png', '/out/path')).rejects.toThrow(
+        'Image name must contain _2x.'
+      );
+    });
+
+    it('should reject when image dimensions are invalid', async () => {
+      mockFs.existsSync.mockReturnValue(true);
+      mockGmInstance.identify.mockImplementation(callback => {
+        callback(null, {
+          size: { width: 0, height: 0 },
+        });
+        return mockGmInstance;
+      });
+
+      await expect(
+        generate1xFrom2x('/test/path', 'image_2x.png', '/out/path')
+      ).rejects.toThrow('Could not determine image dimensions');
+    });
+
+    it('should generate 1x image and return output path', async () => {
+      const handleImgModule = require('../src/handleImg');
+      const spy = jest.spyOn(handleImgModule, 'getGmStream').mockResolvedValue({
+        data: { size: { width: 200, height: 100 } },
+        gmStream: mockGmInstance,
+      });
+
+      mockFs.existsSync.mockImplementation((targetPath: any) =>
+        targetPath === '/test/path/icon_2x.png'
+      );
+      mockGmInstance.write.mockImplementation((outputPath, callback) => {
+        callback(null);
+        return mockGmInstance;
+      });
+
+      const result = await generate1xFrom2x('/test/path', 'icon_2x.png', '/out/path');
+
+      expect(mockFs.mkdirSync).toHaveBeenCalledWith('/out/path', { recursive: true });
+      expect(mockGmInstance.resize).toHaveBeenCalledWith(100, 50);
+      expect(result).toBe(path.join('/out/path', 'icon.png'));
+      spy.mockRestore();
     });
   });
 });

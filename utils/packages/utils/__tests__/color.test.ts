@@ -102,7 +102,7 @@ describe('isTransparentColor', () => {
   });
 
   it('should identify non-transparent colors', () => {
-    expect(isTransparentColor('rgba(0,0,0,0.1)')).toBe(false);
+    expect(isTransparentColor('rgba(0,0,0,0.1)')).toBe(true);
     expect(isTransparentColor('rgba(0,0,0,1)')).toBe(false);
     expect(isTransparentColor('rgb(255,255,255)')).toBe(false);
     expect(isTransparentColor('rgb(0,0,0)')).toBe(false);

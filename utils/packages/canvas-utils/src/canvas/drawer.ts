@@ -333,19 +333,43 @@ export function clearArc(ctx: CanvasRenderingContext2D, point: PointPosition, wi
  * @since 1.0.0
  */
 export function retinaScale(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D): number {
+  if (typeof window === 'undefined') {
+    return 1;
+  }
+
   const pixelRatio = window.devicePixelRatio || 1;
 
   if (pixelRatio === 1) {
     return pixelRatio;
   }
-  const { width, height } = canvas;
+
+  const storedSize = (canvas as HTMLCanvasElement & {
+    __feToolsRetinaSize?: { width: number; height: number; pixelRatio: number };
+  }).__feToolsRetinaSize;
+  if (storedSize && storedSize.pixelRatio === pixelRatio) {
+    return pixelRatio;
+  }
+
+  const width =
+    storedSize?.width ||
+    (canvas.style.width ? parseFloat(canvas.style.width) : canvas.width);
+  const height =
+    storedSize?.height ||
+    (canvas.style.height ? parseFloat(canvas.style.height) : canvas.height);
 
   canvas.width = width * pixelRatio;
   canvas.height = height * pixelRatio;
+  if (typeof ctx.setTransform === 'function') {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+  }
   ctx.scale(pixelRatio, pixelRatio);
 
   canvas.style.width = `${width}px`;
   canvas.style.height = `${height}px`;
+
+  (canvas as HTMLCanvasElement & {
+    __feToolsRetinaSize?: { width: number; height: number; pixelRatio: number };
+  }).__feToolsRetinaSize = { width, height, pixelRatio };
 
   return pixelRatio;
 }

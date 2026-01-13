@@ -29,66 +29,83 @@ describe('Image module', () => {
 
   describe('isImageLoaded', () => {
     test('should resolve with true when image loads successfully', async () => {
+      jest.useFakeTimers();
       // Mock successful image load
       const mockOnload = jest.fn().mockImplementation(function (this: any) {
-        if (this.onload) this.onload();
+        setTimeout(() => {
+          if (this.onload) this.onload();
+        }, 0);
       });
 
       Object.defineProperty(global.Image.prototype, 'src', {
         set: mockOnload,
       });
 
-      await expect(isImageLoaded('https://example.com/image.jpg')).resolves.toBe(true);
+      const promise = isImageLoaded('https://example.com/image.jpg');
+      jest.runAllTimers();
+      await expect(promise).resolves.toBe(true);
+      jest.useRealTimers();
     });
 
     test('should reject when image fails to load', async () => {
+      jest.useFakeTimers();
       // Mock failed image load
       const mockOnerror = jest.fn().mockImplementation(function (this: any) {
-        if (this.onerror) this.onerror('Image load error');
+        setTimeout(() => {
+          if (this.onerror) this.onerror('Image load error');
+        }, 0);
       });
 
       Object.defineProperty(global.Image.prototype, 'src', {
         set: mockOnerror,
       });
 
-      await expect(isImageLoaded('https://example.com/bad-image.jpg')).rejects.toBe(
-        'Image load error'
-      );
+      const promise = isImageLoaded('https://example.com/bad-image.jpg');
+      jest.runAllTimers();
+      await expect(promise).rejects.toBe('Image load error');
+      jest.useRealTimers();
     });
   });
 
   describe('getImageSize', () => {
     test('should return image dimensions when image loads successfully', async () => {
+      jest.useFakeTimers();
       // Mock successful image load with dimensions
       const mockOnload = jest.fn().mockImplementation(function (this: any) {
-        this.naturalWidth = 800;
-        this.naturalHeight = 600;
-        if (this.onload) this.onload();
+        setTimeout(() => {
+          this.naturalWidth = 800;
+          this.naturalHeight = 600;
+          if (this.onload) this.onload();
+        }, 0);
       });
 
       Object.defineProperty(global.Image.prototype, 'src', {
         set: mockOnload,
       });
 
-      await expect(getImageSize('https://example.com/image.jpg')).resolves.toEqual({
-        width: 800,
-        height: 600,
-      });
+      const promise = getImageSize('https://example.com/image.jpg');
+      jest.runAllTimers();
+      await expect(promise).resolves.toEqual({ width: 800, height: 600 });
+      jest.useRealTimers();
     });
 
     test('should reject when image fails to load', async () => {
+      jest.useFakeTimers();
       // Mock failed image load
       const mockOnerror = jest.fn().mockImplementation(function (this: any) {
-        if (this.onerror) this.onerror('Image load error');
+        setTimeout(() => {
+          if (this.onerror) this.onerror('Image load error');
+        }, 0);
       });
 
       Object.defineProperty(global.Image.prototype, 'src', {
         set: mockOnerror,
       });
 
-      await expect(getImageSize('https://example.com/bad-image.jpg')).rejects.toBe(
-        'Image load error'
-      );
+      const promise = getImageSize('https://example.com/bad-image.jpg');
+      jest.runAllTimers();
+      await expect(promise).rejects.toBe('Image load error');
+      jest.useRealTimers();
     });
   });
 

@@ -21,7 +21,7 @@ import {
 describe('number test', () => {
   it('randomIntArrayInRange', async () => {
     const res = randomIntArrayInRange(1, 10, 2);
-    expect(res[0] < 10).toBe(true);
+    expect(res[0] <= 10).toBe(true);
     expect(res[1] >= 1).toBe(true);
   });
 
@@ -106,6 +106,10 @@ describe('number test', () => {
 
   it('should round a negative number with specified decimal places', () => {
     expect(round(-4.321, 1)).toEqual(-4.3);
+  });
+  it('should round with negative decimal places', () => {
+    expect(round(15, -1)).toEqual(20);
+    expect(round(10, -1)).toEqual(10);
   });
 
   it('isValidNumber()', async () => {

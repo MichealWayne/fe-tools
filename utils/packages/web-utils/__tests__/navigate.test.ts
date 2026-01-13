@@ -7,29 +7,33 @@ import { navigateTo, httpsRedirect } from '../src/navigate';
 
 describe('navigate module', () => {
   let originalWindowOpen: typeof window.open;
-  let originalLocationAssign: typeof window.location.assign;
-  let originalLocationReplace: typeof window.location.replace;
-  let originalLocationHref: string;
+  let originalLocation: Location;
 
   beforeEach(() => {
     // Save original methods
     originalWindowOpen = window.open;
-    originalLocationAssign = window.location.assign;
-    originalLocationReplace = window.location.replace;
-    originalLocationHref = window.location.href;
+    originalLocation = window.location;
 
     // Mock methods
     window.open = jest.fn();
-    window.location.assign = jest.fn();
-    window.location.replace = jest.fn();
+    Object.defineProperty(window, 'location', {
+      value: {
+        assign: jest.fn(),
+        replace: jest.fn(),
+        href: originalLocation.href,
+      },
+      configurable: true,
+      writable: true,
+    });
   });
 
   afterEach(() => {
     // Restore original methods
     window.open = originalWindowOpen;
-    window.location.assign = originalLocationAssign;
-    window.location.replace = originalLocationReplace;
-    Object.defineProperty(window.location, 'href', { value: originalLocationHref });
+    Object.defineProperty(window, 'location', {
+      value: originalLocation,
+      configurable: true,
+    });
   });
 
   describe('navigateTo', () => {
@@ -65,8 +69,7 @@ describe('navigate module', () => {
 
   describe('httpsRedirect', () => {
     it('should redirect HTTP to HTTPS', () => {
-      Object.defineProperty(window.location, 'href', { value: 'http://example.com' });
-      httpsRedirect();
+      httpsRedirect('http://example.com');
       expect(window.location.replace).toHaveBeenCalled();
       const callArg = (window.location.replace as jest.Mock).mock.calls[0][0];
       expect(callArg).toContain('https://');
@@ -80,8 +83,7 @@ describe('navigate module', () => {
     });
 
     it('should not redirect if URL is already HTTPS', () => {
-      Object.defineProperty(window.location, 'href', { value: 'https://example.com' });
-      httpsRedirect();
+      httpsRedirect('https://example.com');
       expect(window.location.replace).not.toHaveBeenCalled();
 
       httpsRedirect('https://example.org');

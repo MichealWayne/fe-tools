@@ -44,20 +44,30 @@ class Vector {
 
   length = () => Math.sqrt(this.x * this.x + this.y * this.y);
   normalize = () => {
-    const inv = 1 / this.length();
+    const len = this.length();
+    if (len === 0) {
+      return new Vector(0, 0);
+    }
+    const inv = 1 / len;
     return new Vector(this.x * inv, this.y * inv);
   };
   add = (v: PointPosition) => new Vector(this.x + v.x, this.y + v.y);
   multiply = (f: number) => new Vector(this.x * f, this.y * f);
   dot = (v: Vector) => this.x * v.x + this.y * v.y;
-  angle = (v: Vector) => (Math.acos(this.dot(v) / (this.length() * v.length())) * 180) / Math.PI;
+  angle = (v: Vector) => {
+    const denom = this.length() * v.length();
+    if (denom === 0) {
+      return 0;
+    }
+    return (Math.acos(this.dot(v) / denom) * 180) / Math.PI;
+  };
 }
 
 /**
  * @function getCurvePoints
  * @description 生成用于创建平滑曲线的控制点。Generates control points for creating smooth curves through a series of path points. Uses vector mathematics to calculate intermediate control points that create natural-looking curved lines when used with canvas quadratic or bezier curve functions.
  * @param {PointPosition[]} paths - 用于创建曲线的路径点数组（至少需要3个点）。Array of path points to create curves through (minimum 3 points required)
- * @returns {Vector[]} 用于平滑曲线生成的控制点向量数组。Array of control point vectors for smooth curve generation
+ * @returns {PointPosition[]} 用于平滑曲线生成的控制点坐标数组。Array of control point positions for smooth curve generation
  * @example
  * // Basic curve generation
  * const pathPoints = [
@@ -136,10 +146,11 @@ class Vector {
  * @since 1.0.0
  * @see {@link Vector} - The Vector class used for control point calculations
  */
-export function getCurvePoints(paths: PointPosition[]): Vector[] {
+export function getCurvePoints(paths: PointPosition[]): PointPosition[] {
   const rt = 0.3;
   const count = paths.length - 2;
-  const arr = [];
+  const arr: PointPosition[] = [];
+  const toPoint = (vec: Vector): PointPosition => ({ x: vec.x, y: vec.y });
   for (let i = 0; i < count; i++) {
     const pointStart = paths[i];
     const pointMiddle = paths[i + 1];
@@ -157,11 +168,11 @@ export function getCurvePoints(paths: PointPosition[]): Vector[] {
     if (ncp1.angle(v1) < 90) {
       const p1 = ncp1.multiply(v1Len * rt).add(pointMiddle);
       const p2 = ncp2.multiply(v2Len * rt).add(pointMiddle);
-      arr.push(p1, p2);
+      arr.push(toPoint(p1), toPoint(p2));
     } else {
       const p1 = ncp1.multiply(v2Len * rt).add(pointMiddle);
       const p2 = ncp2.multiply(v1Len * rt).add(pointMiddle);
-      arr.push(p2, p1);
+      arr.push(toPoint(p2), toPoint(p1));
     }
   }
 

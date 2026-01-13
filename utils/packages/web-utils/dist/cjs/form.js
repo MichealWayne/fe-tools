@@ -1,0 +1,183 @@
+"use strict";
+/**
+ * @module Form
+ * @description Form handling and validation utilities
+ * @author Wayne
+ * @Date 2025-11-16
+ * @LastEditTime 2025-11-18 11:27:33
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.resetFormField = exports.formDiff = exports.autoSaveForm = exports.validateForm = exports.serializeForm = void 0;
+/**
+ * @function serializeForm
+ * @description 将表单序列化为对象或查询字符串。Serializes form to object or query string
+ * @param {HTMLFormElement} form - 表单元素。Form element
+ * @param {boolean} asQueryString - 是否返回查询字符串(默认: false)。Whether to return query string (default: false)
+ * @returns {object | string} 表单数据对象或查询字符串。Form data object or query string
+ * @example
+ * const form = document.querySelector('form');
+ * serializeForm(form); // -> { name: 'John', email: 'john@example.com' }
+ * serializeForm(form, true); // -> 'name=John&email=john@example.com'
+ */
+function serializeForm(form, asQueryString) {
+    if (asQueryString === void 0) { asQueryString = false; }
+    var formData = new FormData(form);
+    var data = {};
+    formData.forEach(function (value, key) {
+        if (data[key]) {
+            if (!Array.isArray(data[key])) {
+                data[key] = [data[key]];
+            }
+            data[key].push(value);
+        }
+        else {
+            data[key] = value;
+        }
+    });
+    if (asQueryString) {
+        return new URLSearchParams(data).toString();
+    }
+    return data;
+}
+exports.serializeForm = serializeForm;
+/**
+ * @function validateForm
+ * @description 验证表单字段。Validates form fields
+ * @param {HTMLFormElement} form - 表单元素。Form element
+ * @param {object} rules - 验证规则。Validation rules
+ * @returns {object} 验证结果。Validation result
+ * @example
+ * const form = document.querySelector('form');
+ * const result = validateForm(form, {
+ *   email: { required: true, pattern: /^\\S+@\\S+\\.\\S+$/ },
+ *   age: { required: true, min: 18, max: 100 }
+ * });
+ * // -> { valid: false, errors: { email: 'Invalid format', age: 'Required' } }
+ */
+function validateForm(form, rules) {
+    var errors = {};
+    var formData = new FormData(form);
+    Object.keys(rules).forEach(function (fieldName) {
+        var value = formData.get(fieldName);
+        var fieldRules = rules[fieldName];
+        if (fieldRules.required && !value) {
+            errors[fieldName] = fieldRules.message || 'This field is required';
+            return;
+        }
+        if (value) {
+            if (fieldRules.pattern && !fieldRules.pattern.test(value)) {
+                errors[fieldName] = fieldRules.message || 'Invalid format';
+            }
+            if (fieldRules.min !== undefined && parseFloat(value) < fieldRules.min) {
+                errors[fieldName] = "Minimum value is ".concat(fieldRules.min);
+            }
+            if (fieldRules.max !== undefined && parseFloat(value) > fieldRules.max) {
+                errors[fieldName] = "Maximum value is ".concat(fieldRules.max);
+            }
+            if (fieldRules.minLength && value.length < fieldRules.minLength) {
+                errors[fieldName] = "Minimum length is ".concat(fieldRules.minLength);
+            }
+            if (fieldRules.maxLength && value.length > fieldRules.maxLength) {
+                errors[fieldName] = "Maximum length is ".concat(fieldRules.maxLength);
+            }
+        }
+    });
+    return {
+        valid: Object.keys(errors).length === 0,
+        errors: errors,
+    };
+}
+exports.validateForm = validateForm;
+/**
+ * @function autoSaveForm
+ * @description 自动保存表单数据到localStorage。Auto-saves form data to localStorage
+ * @param {HTMLFormElement} form - 表单元素。Form element
+ * @param {string} storageKey - localStorage键名。localStorage key
+ * @param {number} debounceTime - 防抖时间(毫秒,默认: 500)。Debounce time in ms (default: 500)
+ * @returns {Function} 停止自动保存的函数。Function to stop auto-save
+ * @example
+ * const form = document.querySelector('form');
+ * const stopAutoSave = autoSaveForm(form, 'my-form-draft');
+ *
+ * // Later, stop auto-saving
+ * stopAutoSave();
+ */
+function autoSaveForm(form, storageKey, debounceTime) {
+    if (debounceTime === void 0) { debounceTime = 500; }
+    var timeoutId;
+    var saveData = function () {
+        var data = serializeForm(form);
+        localStorage.setItem(storageKey, JSON.stringify(data));
+    };
+    var handleInput = function () {
+        clearTimeout(timeoutId);
+        timeoutId = window.setTimeout(saveData, debounceTime);
+    };
+    // Try to restore saved data
+    try {
+        var savedData = localStorage.getItem(storageKey);
+        if (savedData) {
+            var data_1 = JSON.parse(savedData);
+            Object.keys(data_1).forEach(function (key) {
+                var element = form.elements.namedItem(key);
+                if (element) {
+                    element.value = data_1[key];
+                }
+            });
+        }
+    }
+    catch (e) {
+        console.error('Failed to restore form data:', e);
+    }
+    form.addEventListener('input', handleInput);
+    return function () {
+        form.removeEventListener('input', handleInput);
+        clearTimeout(timeoutId);
+    };
+}
+exports.autoSaveForm = autoSaveForm;
+/**
+ * @function formDiff
+ * @description 检测表单数据变更。Detects form data changes
+ * @param {HTMLFormElement} form - 表单元素。Form element
+ * @param {object} originalData - 原始数据。Original data
+ * @returns {object} 变更的字段。Changed fields
+ * @example
+ * const form = document.querySelector('form');
+ * const original = { name: 'John', email: 'john@example.com' };
+ * const changes = formDiff(form, original);
+ * // -> { email: 'newemail@example.com' } (if email was changed)
+ */
+function formDiff(form, originalData) {
+    var currentData = serializeForm(form);
+    var changes = {};
+    Object.keys(currentData).forEach(function (key) {
+        if (currentData[key] !== originalData[key]) {
+            changes[key] = currentData[key];
+        }
+    });
+    return changes;
+}
+exports.formDiff = formDiff;
+/**
+ * @function resetFormField
+ * @description 重置单个表单字段。Resets a single form field
+ * @param {HTMLElement} field - 表单字段元素。Form field element
+ * @example
+ * const input = document.querySelector('input[name="email"]');
+ * resetFormField(input);
+ */
+function resetFormField(field) {
+    if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+        if (field.type === 'checkbox' || field.type === 'radio') {
+            field.checked = false;
+        }
+        else {
+            field.value = '';
+        }
+    }
+    else if (field instanceof HTMLSelectElement) {
+        field.selectedIndex = 0;
+    }
+}
+exports.resetFormField = resetFormField;

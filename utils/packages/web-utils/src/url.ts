@@ -8,6 +8,7 @@
 /**
  * @function parseQueryString
  * @description 获取URL中的查询参数信息。Gets query parameter information from a URL
+ * @note URLSearchParams更直观但在旧浏览器中兼容性有限，这里保持字符串解析实现
  * @param {string} url - 页面地址。The page URL
  * @return {object} 查询参数信息对象。Query parameter information object
  * @example
@@ -15,14 +16,24 @@
  * console.log(parseQueryString('https://github.com')); // {}
  */
 export function parseQueryString(url = window.location.href) {
-  const search = url.substring(url.lastIndexOf('?') + 1);
+  const queryStart = url.indexOf('?');
+  if (queryStart === -1) return {};
 
+  const hashIndex = url.indexOf('#', queryStart);
+  const search = url.substring(queryStart + 1, hashIndex === -1 ? url.length : hashIndex);
   if (!search) return {};
-  return JSON.parse(
-    '{"' +
-      decodeURIComponent(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') +
-      '"}'
-  );
+
+  return search.split('&').reduce<Record<string, string>>((acc, pair) => {
+    if (!pair) return acc;
+    const [rawKey, ...rest] = pair.split('=');
+    if (!rawKey) return acc;
+
+    const rawValue = rest.length ? rest.join('=') : '';
+    const key = decodeURIComponent(rawKey);
+    const value = decodeURIComponent(rawValue);
+    acc[key] = value;
+    return acc;
+  }, {});
 }
 
 /**
@@ -35,11 +46,12 @@ export function parseQueryString(url = window.location.href) {
  * const name = getUrlParam('name');
  */
 export function getUrlParam(name: string, decode?: (s: string) => string) {
-  const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
+  const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const reg = new RegExp(`(^|&)${escapedName}=([^&]*)(&|$)`);
   const res = window.location.search.substring(1).match(reg);
   if (res !== null) {
     if (!decode) {
-      return decodeURI(res[2]);
+      return decodeURIComponent(res[2]);
     }
     // eslint-disable-next-line no-eval
     return decode(res[2]);
@@ -60,10 +72,12 @@ export const paramsJoinUrl = (params: { [key: string]: string }): string => {
   const param = [];
   for (const key in params) {
     if (Object.prototype.hasOwnProperty.call(params, key)) {
-      param.push(`${key}=${params[key]}`);
+      const encodedKey = encodeURIComponent(key);
+      const encodedValue = encodeURIComponent(params[key]);
+      param.push(`${encodedKey}=${encodedValue}`);
     }
   }
-  return encodeURIComponent(param.join('&'));
+  return param.join('&');
 };
 
 /**

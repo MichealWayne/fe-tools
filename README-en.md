@@ -891,6 +891,7 @@ Contents:
 | Address | Tag | Description |
 | ---- | ---- | ---- |
 | https://docs.anthropic.com/zh-CN/docs/claude-code/overview | claude-code | AI programming assistant by Anthropic, based on Claude model, supports code generation, explanation and debugging |
+| https://opencode.ai/ | opencode | The open source AI coding agent | 
 | https://github.com/google-gemini/gemini-cli | gemini-cli | AI programming assistant by Google, based on Gemini model, supports command line interaction and code generation |
 | https://openai.com/zh-Hans-CN/codex/ | codex | AI programming assistant by OpenAI, supports command line interaction and code generation |
 | https://www.cursor.com/ | cursor | Extremely developer-friendly AI IDE, currently trending |

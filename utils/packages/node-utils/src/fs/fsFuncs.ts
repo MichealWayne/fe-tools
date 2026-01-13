@@ -226,7 +226,7 @@ export function rmdirsSync(targetPath: string) {
  * @param {string} fileData - 要写入文件的内容。The content to write to the file
  * @param {boolean} [replace=true] - 如果为true，覆盖现有文件；如果为false，追加到现有文件。If true, overwrites existing file; if false, appends to existing file
  * @returns {Promise<boolean>} 成功写入时解析为true的Promise。Promise that resolves to true on successful write
- * @throws {Error} 如果fileData为空或写入操作失败则拒绝。Rejects if fileData is empty or write operation fails
+ * @throws {Error} 如果写入操作失败则拒绝。Rejects if write operation fails
  * @example
  * // Write a new file
  * await writeFile('./output.txt', 'Hello World');
@@ -245,19 +245,16 @@ export function rmdirsSync(targetPath: string) {
  *   console.error('Failed to save configuration:', error);
  * }
  */
-export function writeFile(filePath: string, fileData: string, replace = true) {
-  return new Promise((resolve, reject) => {
-    const dirPath = dirname(filePath);
-    setFolderSync(dirPath, true);
+export async function writeFile(filePath: string, fileData: string, replace = true) {
+  const dirPath = dirname(filePath);
+  setFolderSync(dirPath, true);
 
-    if (!fileData) reject(new Error('fileData is empty'));
-    if (fsExistsSync(filePath) && !replace) {
-      fs.appendFileSync(filePath, fileData);
-    } else {
-      fs.writeFileSync(filePath, fileData);
-    }
-    resolve(true);
-  });
+  if (fsExistsSync(filePath) && !replace) {
+    await fs.promises.appendFile(filePath, fileData);
+  } else {
+    await fs.promises.writeFile(filePath, fileData);
+  }
+  return true;
 }
 
 /**
@@ -287,7 +284,7 @@ export function writeFile(filePath: string, fileData: string, replace = true) {
  * @see {@link writeFile} - Underlying file write function
  */
 export function writeJson(filePath: string, obj: { [key: string]: unknown }, spaceLen = 2) {
-  writeFile(filePath, `${JSON.stringify(obj, null, spaceLen)}\n`);
+  return writeFile(filePath, `${JSON.stringify(obj, null, spaceLen)}\n`);
 }
 
 /**
@@ -361,6 +358,7 @@ export function readJsonFile(filePath: string) {
     Tip.error(`Failed to parse JSON file: ${filePath}, error: ${err}`);
     return {};
   }
+  return {};
 }
 
 export default {

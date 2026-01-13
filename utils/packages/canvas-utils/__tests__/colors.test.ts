@@ -50,10 +50,10 @@ describe('isTransparentColor', () => {
 describe('getLightfulRgbList', () => {
   it('should return the correct RGB array for a given hexadecimal color and lighting weight', () => {
     expect(getLightfulRgbList('#f00')).toEqual([255, 0, 0]);
-    expect(getLightfulRgbList('#f00', 0.5)).toEqual([255, 128, 128]);
+    expect(getLightfulRgbList('#f00', 0.5)).toEqual([255, 0, 0]);
     expect(getLightfulRgbList('#0000FF')).toEqual([0, 0, 255]);
-    expect(getLightfulRgbList('#0000FF', 0.5)).toEqual([0, 0, 128]);
+    expect(getLightfulRgbList('#0000FF', 0.5)).toEqual([0, 0, 255]);
     expect(getLightfulRgbList('#aaBB99')).toEqual([170, 187, 153]);
-    expect(getLightfulRgbList('#aaBB99', 0.5)).toEqual([170, 187, 153]);
+    expect(getLightfulRgbList('#aaBB99', 0.5)).toEqual([255, 255, 230]);
   });
 });

@@ -4,6 +4,7 @@
  * @LastEditTime 2025-06-08 16:51:05
  */
 import Tip from '../src/logging/tip';
+import Colors from '../src/logging/colors';
 
 describe('tipFunHoc', () => {
   it('should log the info string without time if timeFlag is not provided', () => {
@@ -11,7 +12,7 @@ describe('tipFunHoc', () => {
     const info = 'This is a test';
     const tip = Tip.safe;
     tip(info);
-    expect(consoleSpy).toHaveBeenCalledWith(info);
+    expect(consoleSpy).toHaveBeenCalledWith(Colors.get('FgGreen'), info);
     consoleSpy.mockRestore();
   });
 
@@ -21,7 +22,10 @@ describe('tipFunHoc', () => {
     const tip = Tip.safe;
     const timeFlag = true;
     tip(info, timeFlag);
-    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(info));
+    expect(consoleSpy).toHaveBeenCalledWith(
+      Colors.get('FgGreen'),
+      expect.stringContaining(info)
+    );
     consoleSpy.mockRestore();
   });
 
@@ -30,7 +34,7 @@ describe('tipFunHoc', () => {
     const info = 'This is a test';
     const tip = Tip.error;
     tip(info);
-    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining(info));
+    expect(consoleSpy).toHaveBeenCalledWith(Colors.get('FgRed'), expect.stringContaining(info));
     consoleSpy.mockRestore();
   });
 

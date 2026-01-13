@@ -6,7 +6,7 @@
   "author": "Wayne",
   "scripts": {
     "test": "jest",
-    "build": "tsc",
+    "build": "lerna run build --scope fe-tools-utils && lerna run build --scope fe-tools-webapi && lerna run build --scope fe-tools-canvas-utils && lerna run build --scope fe-tools-node-utils && lerna run build --scope fe-tools-ai-utils && lerna run build --scope fe-tools-env && lerna run build --scope fe-tools-node-img-build && node scripts/sync-package-dist.js && node scripts/build-aggregate-package.js",
     "docs": "typedoc --tsconfig tsconfig.json --options typedoc.json"
   },
   "repository": {
