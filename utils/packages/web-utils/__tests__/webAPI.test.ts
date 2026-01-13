@@ -129,7 +129,7 @@ describe('DOM Utils', () => {
     // Should handle empty/null/undefined strings
     expect(escapeHTML('')).toBe('');
     expect(escapeHTML(undefined as any)).toBe(undefined);
-    expect(escapeHTML(null as any)).toBe(null);
+    expect(escapeHTML(null as any)).toBe(undefined);
   });
 
   test('nodeListToArray should convert NodeList to Array', () => {

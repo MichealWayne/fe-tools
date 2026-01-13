@@ -58,18 +58,13 @@
  * @see {@link https://w3c.github.io/clipboard-apis/#security-considerations} - Security considerations for clipboard access
  */
 export function readClipboardText() {
-  return new Promise<string>((resolve, reject) => {
-    try {
-      navigator.clipboard
-        .readText()
-        .then(resolve)
-        .catch(e => {
-          console.error('Failed to read clipboard contents(getClipboardText): ', e);
-          reject(e);
-        });
-    } catch (error) {
-      reject(error);
-    }
+  if (!navigator.clipboard || !navigator.clipboard.readText) {
+    return Promise.reject(new Error('Clipboard API is not available'));
+  }
+
+  return navigator.clipboard.readText().catch(error => {
+    console.error('Failed to read clipboard contents(getClipboardText): ', error);
+    throw error;
   });
 }
 
@@ -136,23 +131,35 @@ export function readClipboardText() {
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand} - Legacy execCommand (deprecated)
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/status-messages.html} - WCAG: Providing feedback for user actions
  */
-export function copyToClipboard(text: string) {
-  return new Promise(resolve => {
-    // 创建一个input框获取需要复制的文本内容
-    const copyInput = document.createElement('input');
-    copyInput.value = text;
-    document.body.appendChild(copyInput);
-    copyInput.select();
+export async function copyToClipboard(text: string) {
+  if (document.execCommand) {
+    try {
+      // 创建一个input框获取需要复制的文本内容
+      const copyInput = document.createElement('input');
+      copyInput.value = text;
+      document.body.appendChild(copyInput);
+      copyInput.select();
 
-    // 执行复制，document.execCommand是不推荐的API，但兼容IE
-    document.execCommand('copy');
-    copyInput.remove();
-    resolve(true);
-  }).catch(() => {
-    // 如果复制失败，尝试使用navigator.clipboard
-    navigator.clipboard
-      .writeText(text)
-      .then(() => true)
-      .catch(() => false);
-  });
+      // 执行复制，document.execCommand是不推荐的API，但兼容IE
+      const succeeded = document.execCommand('copy');
+      copyInput.remove();
+
+      if (succeeded) {
+        return true;
+      }
+    } catch (error) {
+      // ignore and fallback to clipboard API
+    }
+  }
+
+  if (!navigator.clipboard || !navigator.clipboard.writeText) {
+    return false;
+  }
+
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (error) {
+    return false;
+  }
 }

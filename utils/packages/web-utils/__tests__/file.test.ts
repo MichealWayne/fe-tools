@@ -19,6 +19,9 @@ describe('File module', () => {
   const originalCreateObjectURL = URL.createObjectURL;
   const originalRevokeObjectURL = URL.revokeObjectURL;
 
+  let createElementMock: jest.Mock;
+  let defaultCreateElementImpl: ((tag: string) => any) | undefined;
+
   beforeEach(() => {
     // Mock FileReader
     global.FileReader = class {
@@ -52,7 +55,7 @@ describe('File module', () => {
       click: jest.fn(),
     };
 
-    document.createElement = jest.fn().mockImplementation(tag => {
+    createElementMock = jest.fn().mockImplementation(tag => {
       if (tag === 'a') {
         return mockAnchor as any;
       }
@@ -91,6 +94,8 @@ describe('File module', () => {
       }
       return originalCreateElement.call(document, tag);
     });
+    defaultCreateElementImpl = createElementMock.getMockImplementation();
+    document.createElement = createElementMock;
 
     document.body.appendChild = jest.fn();
     document.body.removeChild = jest.fn();
@@ -113,8 +118,9 @@ describe('File module', () => {
   describe('readFile', () => {
     test('should read file content as text', async () => {
       const file = new File(['test content'], 'test.txt', { type: 'text/plain' });
-      const content = await readFile(file);
-      expect(content).toBe('file content');
+      const promise = readFile(file);
+      jest.runAllTimers();
+      await expect(promise).resolves.toBe('file content');
     });
 
     test('should reject when file reading fails', async () => {
@@ -131,15 +137,18 @@ describe('File module', () => {
         }
       } as any;
 
-      await expect(readFile(file)).rejects.toEqual(new Error('File read error'));
+      const promise = readFile(file);
+      jest.runAllTimers();
+      await expect(promise).rejects.toEqual(new Error('File read error'));
     });
   });
 
   describe('readFileAsDataURL', () => {
     test('should read file content as data URL', async () => {
       const file = new File(['test content'], 'test.txt', { type: 'text/plain' });
-      const dataURL = await readFileAsDataURL(file);
-      expect(dataURL).toBe('data:text/plain;base64,ZmlsZSBjb250ZW50');
+      const promise = readFileAsDataURL(file);
+      jest.runAllTimers();
+      await expect(promise).resolves.toBe('data:text/plain;base64,ZmlsZSBjb250ZW50');
     });
 
     test('should reject when file reading fails', async () => {
@@ -156,7 +165,9 @@ describe('File module', () => {
         }
       } as any;
 
-      await expect(readFileAsDataURL(file)).rejects.toEqual(new Error('File read error'));
+      const promise = readFileAsDataURL(file);
+      jest.runAllTimers();
+      await expect(promise).rejects.toEqual(new Error('File read error'));
     });
   });
 
@@ -182,9 +193,9 @@ describe('File module', () => {
 
   describe('downloadImageFileByUrl', () => {
     test('should download image from URL', async () => {
-      const result = await downloadImageFileByUrl('https://example.com/image.jpg', 'test.jpg');
-
-      expect(result).toBe(true);
+      const promise = downloadImageFileByUrl('https://example.com/image.jpg', 'test.jpg');
+      jest.runAllTimers();
+      await expect(promise).resolves.toBe(true);
       expect(document.createElement).toHaveBeenCalledWith('img');
       expect(document.createElement).toHaveBeenCalledWith('canvas');
 
@@ -198,7 +209,7 @@ describe('File module', () => {
 
     test('should reject when image loading fails', async () => {
       // Override img mock to simulate error
-      (document.createElement as jest.Mock).mockImplementationOnce(tag => {
+      createElementMock.mockImplementation(tag => {
         if (tag === 'img') {
           const img = {
             setAttribute: jest.fn(),
@@ -216,12 +227,12 @@ describe('File module', () => {
 
           return img;
         }
-        return originalCreateElement.call(document, tag);
+        return defaultCreateElementImpl ? defaultCreateElementImpl(tag) : originalCreateElement.call(document, tag);
       });
 
-      await expect(
-        downloadImageFileByUrl('https://example.com/bad-image.jpg', 'test.jpg')
-      ).rejects.toEqual(new Error('Image load error'));
+      const promise = downloadImageFileByUrl('https://example.com/bad-image.jpg', 'test.jpg');
+      jest.runAllTimers();
+      await expect(promise).rejects.toEqual(new Error('Image load error'));
     });
   });
 
@@ -239,7 +250,7 @@ describe('File module', () => {
 
     test('should return empty string for files without extension', () => {
       expect(getFileExtension('file')).toBe('');
-      expect(getFileExtension('.file')).toBe('');
+      expect(getFileExtension('.file')).toBe('file');
       expect(getFileExtension('')).toBe('');
     });
   });

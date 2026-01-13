@@ -67,14 +67,14 @@
 
 - **downloadFile** - 从 URL 下载文件到本地。
 - **uploadFile** - 上传文件到指定 URL。
-- **parseHeaders** - 解析 HTTP 头部字符串为对象。
+- **parseHeaders** - 解析 HTTP 头部对象为字符串键值对。
 - **createSimpleProxy** - 创建简单的 HTTP 代理服务器。
 - **createHTTPServer** - 创建基础 HTTP 服务器。
 - **serveStatic** - 启动静态文件服务器。
 
 ### Data (数据处理) (文件: `src/data/index.ts`)
 
-- **parseCSV** - 解析 CSV 字符串为对象数组。
+- **parseCSV** - 解析 CSV 字符串为二维数组。
 - **stringifyCSV** - 将对象数组转换为 CSV 字符串。
 - **parseXML** - 解析 XML 字符串为 JSON 对象。
 - **stringifyXML** - 将 JSON 对象转换为 XML 字符串。

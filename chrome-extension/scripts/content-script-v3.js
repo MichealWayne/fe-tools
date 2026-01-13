@@ -178,6 +178,275 @@
           action: 'handleTabCreate',
           url,
         });
+      } else if (message.action === 'getPageMetrics') {
+        const doc = document.documentElement;
+        const body = document.body;
+        const totalHeight = Math.max(doc.scrollHeight, body ? body.scrollHeight : 0);
+        const totalWidth = Math.max(doc.scrollWidth, body ? body.scrollWidth : 0);
+        const viewportWidth = window.innerWidth || doc.clientWidth;
+        const viewportHeight = window.innerHeight || doc.clientHeight;
+        sendResponse({
+          totalWidth,
+          totalHeight,
+          viewportWidth,
+          viewportHeight,
+          devicePixelRatio: window.devicePixelRatio || 1,
+          scrollY: window.scrollY || window.pageYOffset || doc.scrollTop || 0,
+        });
+      } else if (message.action === 'scrollTo') {
+        const y = Math.max(0, message.y || 0);
+        const delay = typeof message.delay === 'number' ? message.delay : 200;
+        window.scrollTo(0, y);
+        setTimeout(() => {
+          sendResponse({
+            scrollY: window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0,
+          });
+        }, delay);
+        return true;
+      } else if (message.action === 'startElementSelect') {
+        let responded = false;
+        let highlightEl = document.getElementById('fe-tools-node-highlight');
+        const cleanup = () => {
+          document.removeEventListener('mousemove', handleMove, true);
+          document.removeEventListener('click', handleClick, true);
+          document.removeEventListener('keydown', handleKey, true);
+          if (highlightEl && highlightEl.parentNode) {
+            highlightEl.parentNode.removeChild(highlightEl);
+          }
+          highlightEl = null;
+        };
+        const sendOnce = payload => {
+          if (responded) return;
+          responded = true;
+          sendResponse(payload);
+        };
+        const ensureHighlight = () => {
+          if (highlightEl) return;
+          highlightEl = document.createElement('div');
+          highlightEl.id = 'fe-tools-node-highlight';
+          highlightEl.style.position = 'absolute';
+          highlightEl.style.border = '2px solid #2969f7';
+          highlightEl.style.background = 'rgba(41, 105, 247, 0.12)';
+          highlightEl.style.pointerEvents = 'none';
+          highlightEl.style.zIndex = '2147483647';
+          document.body.appendChild(highlightEl);
+        };
+        const updateHighlight = target => {
+          if (!target || !target.getBoundingClientRect) return;
+          const rect = target.getBoundingClientRect();
+          ensureHighlight();
+          highlightEl.style.left = rect.left + window.scrollX + 'px';
+          highlightEl.style.top = rect.top + window.scrollY + 'px';
+          highlightEl.style.width = rect.width + 'px';
+          highlightEl.style.height = rect.height + 'px';
+        };
+        const handleMove = event => {
+          const target = event.target;
+          if (target && target.nodeType === 1) {
+            updateHighlight(target);
+          }
+        };
+        const handleClick = event => {
+          event.preventDefault();
+          event.stopPropagation();
+          const target = event.target;
+          if (!target || target.nodeType !== 1) {
+            sendOnce({
+              success: false,
+              error: 'selection failed',
+            });
+            cleanup();
+            return;
+          }
+          const rect = target.getBoundingClientRect();
+          sendOnce({
+            success: true,
+            rect: {
+              left: rect.left + window.scrollX,
+              top: rect.top + window.scrollY,
+              width: rect.width,
+              height: rect.height,
+            },
+          });
+          cleanup();
+        };
+        const handleKey = event => {
+          if (event.key === 'Escape') {
+            sendOnce({
+              success: false,
+              error: 'selection canceled',
+            });
+            cleanup();
+          }
+        };
+        ensureHighlight();
+        document.addEventListener('mousemove', handleMove, true);
+        document.addEventListener('click', handleClick, true);
+        document.addEventListener('keydown', handleKey, true);
+        return true;
+      } else if (message.action === 'startElementSelectAndCapture') {
+        let responded = false;
+        let highlightEl = document.getElementById('fe-tools-node-highlight');
+        const filename = message.filename || 'node-screenshot.png';
+        const cleanup = () => {
+          document.removeEventListener('mousemove', handleMove, true);
+          document.removeEventListener('click', handleClick, true);
+          document.removeEventListener('keydown', handleKey, true);
+          if (highlightEl && highlightEl.parentNode) {
+            highlightEl.parentNode.removeChild(highlightEl);
+          }
+          highlightEl = null;
+        };
+        const sendOnce = payload => {
+          if (responded) return;
+          responded = true;
+          sendResponse(payload);
+        };
+        const ensureHighlight = () => {
+          if (highlightEl) return;
+          highlightEl = document.createElement('div');
+          highlightEl.id = 'fe-tools-node-highlight';
+          highlightEl.style.position = 'absolute';
+          highlightEl.style.border = '2px solid #2969f7';
+          highlightEl.style.background = 'rgba(41, 105, 247, 0.12)';
+          highlightEl.style.pointerEvents = 'none';
+          highlightEl.style.zIndex = '2147483647';
+          document.body.appendChild(highlightEl);
+        };
+        const updateHighlight = target => {
+          if (!target || !target.getBoundingClientRect) return;
+          const rect = target.getBoundingClientRect();
+          ensureHighlight();
+          highlightEl.style.left = rect.left + window.scrollX + 'px';
+          highlightEl.style.top = rect.top + window.scrollY + 'px';
+          highlightEl.style.width = rect.width + 'px';
+          highlightEl.style.height = rect.height + 'px';
+        };
+        const handleMove = event => {
+          const target = event.target;
+          if (target && target.nodeType === 1) {
+            updateHighlight(target);
+          }
+        };
+        const handleClick = event => {
+          event.preventDefault();
+          event.stopPropagation();
+          const target = event.target;
+          if (!target || target.nodeType !== 1) {
+            sendOnce({
+              success: false,
+              error: 'selection failed',
+            });
+            cleanup();
+            return;
+          }
+          const rect = target.getBoundingClientRect();
+          const cropRect = {
+            left: rect.left,
+            top: rect.top,
+            width: rect.width,
+            height: rect.height,
+          };
+          cleanup();
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              chrome.runtime.sendMessage(
+                {
+                  action: 'captureVisibleTab',
+                },
+                captureResp => {
+                  if (chrome.runtime.lastError || !captureResp?.success || !captureResp.dataUrl) {
+                    sendOnce({
+                      success: false,
+                      error: chrome.runtime.lastError?.message || captureResp?.error || 'capture failed',
+                    });
+                    return;
+                  }
+              const img = new Image();
+              img.onload = () => {
+                const scale = img.width / window.innerWidth;
+                const sx = Math.max(0, Math.round(cropRect.left * scale));
+                const sy = Math.max(0, Math.round(cropRect.top * scale));
+                const sw = Math.max(0, Math.round(cropRect.width * scale));
+                const sh = Math.max(0, Math.round(cropRect.height * scale));
+                if (!sw || !sh) {
+                  sendOnce({
+                    success: false,
+                    error: 'selection failed',
+                  });
+                  return;
+                }
+                const canvas = document.createElement('canvas');
+                canvas.width = Math.min(sw, img.width - sx);
+                canvas.height = Math.min(sh, img.height - sy);
+                const ctx = canvas.getContext('2d');
+                if (!ctx) {
+                  sendOnce({
+                    success: false,
+                    error: 'capture failed',
+                  });
+                  return;
+                }
+                ctx.drawImage(
+                  img,
+                  sx,
+                  sy,
+                  canvas.width,
+                  canvas.height,
+                  0,
+                  0,
+                  canvas.width,
+                  canvas.height
+                );
+                const dataUrl = canvas.toDataURL('image/png');
+                chrome.runtime.sendMessage(
+                  {
+                    action: 'downloadImage',
+                    dataUrl,
+                    filename,
+                  },
+                  downloadResp => {
+                    if (chrome.runtime.lastError || !downloadResp?.success) {
+                      sendOnce({
+                        success: false,
+                        error:
+                          chrome.runtime.lastError?.message || downloadResp?.error || 'download failed',
+                      });
+                    } else {
+                      sendOnce({
+                        success: true,
+                      });
+                    }
+                  }
+                );
+              };
+                img.onerror = () => {
+                  sendOnce({
+                    success: false,
+                    error: 'capture failed',
+                  });
+                };
+                img.src = captureResp.dataUrl;
+                }
+              );
+            });
+          });
+          return;
+        };
+        const handleKey = event => {
+          if (event.key === 'Escape') {
+            sendOnce({
+              success: false,
+              error: 'selection canceled',
+            });
+            cleanup();
+          }
+        };
+        ensureHighlight();
+        document.addEventListener('mousemove', handleMove, true);
+        document.addEventListener('click', handleClick, true);
+        document.addEventListener('keydown', handleKey, true);
+        return true;
       }
     });
 }

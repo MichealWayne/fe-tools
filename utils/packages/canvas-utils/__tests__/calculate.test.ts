@@ -15,6 +15,10 @@ describe('getListExtremum', () => {
     const result = getListExtremum([1, 3, 5, 2, 2, 4, 5, 7]);
     expect(result).toEqual({ min: 1, max: 7 });
   });
+
+  it('should throw an error for empty arrays', () => {
+    expect(() => getListExtremum([])).toThrow('getListExtremum requires a non-empty array');
+  });
 });
 
 describe('getAxisLimit', () => {
@@ -30,14 +34,14 @@ describe('getAxisLimit', () => {
 
   it('should return range multiplied by 1.2 if range is less than or equal to 2', () => {
     const result = getAxisLimit(1.5);
-    expect(result).toEqual(1.8);
+    expect(result).toBeCloseTo(1.8);
   });
 });
 
 describe('getPointsAngle', () => {
   it('should return the angle between two points', () => {
     const result = getPointsAngle({ x: 0, y: 0 }, { x: 1, y: 1 });
-    expect(result).toBeCloseTo(0.7853981633974483);
+    expect(result).toBeCloseTo(2.356194490192345);
   });
 });
 

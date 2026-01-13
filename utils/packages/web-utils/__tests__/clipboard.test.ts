@@ -59,6 +59,8 @@ describe('clipboard', () => {
       expect(document.execCommand).toHaveBeenCalledWith('copy');
       // 验证移除了input元素
       expect(document.createElement('input').remove).toHaveBeenCalled();
+      // 验证未走clipboard API
+      expect(navigator.clipboard.writeText).not.toHaveBeenCalled();
       // 验证返回true
       expect(result).toBe(true);
     });
@@ -129,7 +131,7 @@ describe('clipboard', () => {
       });
 
       // 应该捕获并拒绝Promise
-      await expect(readClipboardText()).rejects.toThrow();
+      await expect(readClipboardText()).rejects.toThrow('Clipboard API is not available');
     });
   });
 });

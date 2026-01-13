@@ -33,22 +33,24 @@ const CONFIG_LIST = [
 
 // create QRcode
 chrome.runtime.onInstalled.addListener(() => {
-  // 使用 `chrome.contextMenus.create` 方法替代 `chrome.contextMenus.create`
-  CONFIG_LIST.forEach(item => {
+  chrome.contextMenus.removeAll(() => {
     chrome.contextMenus.create({
-      title: item.title,
-      contexts: item.contexts,
-      id: item.id,
-      parentId: MAIN_MENU_ID,
+      id: MAIN_MENU_ID,
+      title: 'fe tools',
+      contexts: ['all'],
+      documentUrlPatterns: ['http://*/*', 'https://*/*', 'file://*/*'],
+    });
+
+    // 使用 `chrome.contextMenus.create` 方法替代 `chrome.contextMenus.create`
+    CONFIG_LIST.forEach(item => {
+      chrome.contextMenus.create({
+        title: item.title,
+        contexts: item.contexts,
+        id: item.id,
+        parentId: MAIN_MENU_ID,
+      });
     });
   });
-});
-
-chrome.contextMenus.create({
-  id: MAIN_MENU_ID,
-  title: 'fe tools',
-  contexts: ['all'],
-  documentUrlPatterns: ['http://*/*', 'https://*/*', 'file://*/*']
 });
 
 /**
@@ -68,8 +70,54 @@ chrome.contextMenus.onClicked.addListener((data, tab) => {
 });
 
 // 监听来自 content script 的消息
-chrome.runtime.onMessage.addListener((message) => {
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'handleTabCreate') {
     handleTabCreate(message.url);
+  } else if (message.action === 'captureVisibleTab') {
+    const targetWindowId = message.windowId ?? sender?.tab?.windowId;
+    chrome.tabs.captureVisibleTab(
+      targetWindowId,
+      {
+        format: 'png',
+      },
+      dataUrl => {
+        if (chrome.runtime.lastError) {
+          sendResponse({
+            success: false,
+            error: chrome.runtime.lastError.message,
+          });
+          return;
+        }
+        sendResponse({
+          success: true,
+          dataUrl,
+        });
+      }
+    );
+    return true;
+  } else if (message.action === 'downloadImage') {
+    const filename = message.filename || 'page-screenshot.png';
+    chrome.downloads.download(
+      {
+        url: message.dataUrl,
+        saveAs: true,
+        conflictAction: 'overwrite',
+        filename,
+      },
+      downloadId => {
+        if (chrome.runtime.lastError) {
+          sendResponse({
+            success: false,
+            error: chrome.runtime.lastError.message,
+          });
+          return;
+        }
+        sendResponse({
+          success: true,
+          downloadId,
+        });
+      }
+    );
+    return true;
   }
 });

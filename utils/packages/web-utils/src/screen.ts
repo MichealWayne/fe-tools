@@ -13,7 +13,7 @@
  * const height = getClientHeight();
  */
 export const getClientHeight = (): number =>
-  Math.min(document.body.clientHeight, document.documentElement.clientHeight);
+  Math.max(document.body.clientHeight, document.documentElement.clientHeight);
 
 /**
  * @function getClientWidth
@@ -64,7 +64,7 @@ export function enterFullscreen(element: HTMLElement = document.body) {
     return Promise.reject(new Error('全屏模式被禁用'));
   }
   if (element.requestFullscreen) {
-    element.requestFullscreen();
+    return element.requestFullscreen();
   } else if ((element as any).mozRequestFullScreen) {
     (element as any).mozRequestFullScreen();
   } else if ((element as any).msRequestFullscreen) {
@@ -74,6 +74,8 @@ export function enterFullscreen(element: HTMLElement = document.body) {
   } else {
     return Promise.reject(new Error('浏览器不支持全屏操作'));
   }
+
+  return Promise.resolve();
 }
 
 /**
@@ -114,18 +116,15 @@ export function wakeScreenLock() {
 /**
  * @function keepScreenOn
  * @description 保持屏幕常亮
- * @returns {Promise<void>} 保持屏幕常亮的Promise
+ * @returns {Function} 移除监听器的函数
  * @example
- * const keepScreenOn = keepScreenOn();
- * keepScreenOn.then(() => {
- *   console.log('屏幕常亮');
- * }).catch((error) => {
- *   console.error(error);
- * });
+ * const cleanup = keepScreenOn();
+ * // Later cleanup
+ * cleanup();
  */
 export function keepScreenOn() {
   if (typeof navigator.wakeLock === 'undefined') {
-    return new Error('浏览器不支持屏幕锁定API');
+    throw new Error('浏览器不支持屏幕锁定API');
   }
   document.addEventListener('visibilitychange', wakeScreenLock);
   return () => {

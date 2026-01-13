@@ -254,75 +254,98 @@ export function setEnvContext(
   _: string,
   descriptor: PropertyDescriptor
 ): PropertyDescriptor {
-  if (!chart || isWeb ? !chart.$el : !chart.opts.Canvas && !isWeapp) {
-    throwError('no chart object to set context', 'setEnvContext');
-  }
+  const originalMethod = descriptor.value;
 
-  const { opts } = chart;
-  let _canvas;
-
-  const _defaultWidth = opts.width || 500;
-  const _defaultHeight = opts.height || 500;
-
-  if (isWeb) {
-    // browser
-    const { $el } = chart;
-    $el.style.webkitUserSelect = 'none';
-    $el.style.userSelect = 'none';
-
-    if (isFunction($el.getContext)) {
-      // $el为canvas
-      _canvas = $el;
-    } else {
-      // 需要创建canvas
-      _canvas = createCanvasElem($el, opts);
-    }
-  } else if (isWeapp) {
-    // weapp
-    // virtual canvas
-    const _wx = typeof wx === 'undefined' ? null : wx;
-    if (!_wx || !isFunction(_wx.createCanvasContext)) {
-      throwError('no param {Object} Ctx', 'setEnvContext');
-    }
-
-    const Ctx = _wx.createCanvasContext(opts.id);
-
-    _canvas = {
-      info: 'Weapp native canvas',
-      width: _defaultWidth,
-      height: _defaultHeight,
-      getContext() {
-        return Ctx;
-      },
-      draw(bool: boolean) {
-        if (bool) {
-          return Ctx.draw(true);
-        }
-        _wx.drawCanvas({
-          canvasId: opts.id,
-          actions: chart.ctx.getActions(),
-        });
-      },
+  descriptor.value = function (...args: unknown[]) {
+    const instance = this as {
+      $el?: HTMLElement;
+      opts?: {
+        width?: number;
+        height?: number;
+        id?: string;
+        Canvas?: { createCanvas: (w: number, h: number) => any };
+        handleOut?: (canvas: any) => void;
+      };
+      canvas?: any;
+      ctx?: CanvasRenderingContext2D;
+      _chart?: { width: number; height: number };
     };
-  } else {
-    // nodejs
-    const { Canvas } = opts;
 
-    if (!opts.Canvas) {
-      throwError('no param {Object} Canvas', 'setEnvContext');
+    if (!instance) {
+      throwError('no chart object to set context', 'setEnvContext');
     }
-    _canvas = Canvas.createCanvas(_defaultWidth, _defaultHeight);
 
-    if (opts.handleOut) {
-      opts.handleOut(_canvas);
+    if (!instance.canvas || !instance.ctx) {
+      const opts = instance.opts || {};
+      let _canvas;
+
+      const _defaultWidth = opts.width || 500;
+      const _defaultHeight = opts.height || 500;
+
+      if (isWeb) {
+        const { $el } = instance;
+        if (!$el) {
+          throwError('no chart object to set context', 'setEnvContext');
+        }
+        $el.style.webkitUserSelect = 'none';
+        $el.style.userSelect = 'none';
+
+        if (isFunction(($el as HTMLCanvasElement).getContext)) {
+          _canvas = $el;
+        } else {
+          _canvas = createCanvasElem($el, {
+            id: opts.id as string,
+            width: opts.width,
+            height: opts.height,
+          });
+        }
+      } else if (isWeapp) {
+        const _wx = typeof wx === 'undefined' ? null : wx;
+        if (!_wx || !isFunction(_wx.createCanvasContext)) {
+          throwError('no param {Object} Ctx', 'setEnvContext');
+        }
+
+        const Ctx = _wx.createCanvasContext(opts.id) as WeappCanvasContext;
+
+        _canvas = {
+          info: 'Weapp native canvas',
+          width: _defaultWidth,
+          height: _defaultHeight,
+          getContext() {
+            return Ctx;
+          },
+          draw(bool: boolean) {
+            if (bool) {
+              return Ctx.draw(true);
+            }
+            _wx.drawCanvas?.({
+              canvasId: opts.id,
+              actions: instance.ctx?.getActions?.(),
+            });
+          },
+        };
+      } else {
+        const { Canvas } = opts;
+
+        if (!Canvas) {
+          throwError('no param {Object} Canvas', 'setEnvContext');
+        }
+        _canvas = Canvas.createCanvas(_defaultWidth, _defaultHeight);
+
+        if (opts.handleOut) {
+          opts.handleOut(_canvas);
+        }
+      }
+
+      instance.canvas = _canvas;
+      instance.ctx = _canvas.getContext('2d');
+      instance._chart = {
+        width: _canvas.width,
+        height: _canvas.height,
+      };
     }
-  }
 
-  chart.canvas = _canvas;
-  chart.ctx = _canvas.getContext('2d');
-  chart._chart = {
-    width: _canvas.width,
-    height: _canvas.height,
+    return originalMethod.apply(instance, args as any);
   };
 
   return descriptor;

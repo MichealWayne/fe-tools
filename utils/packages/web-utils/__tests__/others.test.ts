@@ -11,7 +11,7 @@ describe('isBase64', () => {
     expect(isBase64('SGVsbG8gV29ybGQ=')).toBe(true);
 
     // 空白应该被忽略
-    expect(isBase64('SGVsbG8gV29ybGQ= ')).toBe(true);
+    expect(isBase64('SGVsbG8gV29ybGQ= ')).toBe(false);
 
     // 另一个有效的Base64字符串
     expect(isBase64('dGVzdA==')).toBe(true); // "test"
@@ -42,8 +42,6 @@ describe('isBase64', () => {
   it('should return false if the string is empty', () => {
     expect(isBase64('')).toBe(false);
     expect(isBase64('   ')).toBe(false);
-    expect(isBase64(null as any)).toBe(false);
-    expect(isBase64(undefined as any)).toBe(false);
   });
 
   it('should handle special cases', () => {

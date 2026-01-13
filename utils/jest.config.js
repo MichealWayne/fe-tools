@@ -27,8 +27,10 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   moduleNameMapper: {
-    // env: `<rootDir>/packages/env/__tests__/webEnv.mock.ts`,
-    // utils: '<rootDir>/packages/utils/src/index.ts',
+    '^env$': '<rootDir>/packages/env/src/index.ts',
+    '^utils$': '<rootDir>/packages/utils/src/index.ts',
+    '^node-utils$': '<rootDir>/packages/node-utils/src/index.ts',
+    '^web-utils$': '<rootDir>/packages/web-utils/src/index.ts',
   },
   testMatch: [
     TEST_API ? `**/${TEST_API}/__tests__/*.test.{ts,tsx}` : '**/__tests__/**/*.test.{ts,tsx}',

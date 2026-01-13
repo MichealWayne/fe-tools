@@ -2,10 +2,27 @@
   "name": "fe-tools-canvas-utils",
   "version": "0.1.0",
   "description": "web/weapp/nodejs canvas utils(used in FundCharts).",
-  "main": "index.js",
-  "scripts": {},
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs && npm run build:types",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:types": "tsc -p tsconfig.types.json"
+  },
   "author": "Wayne<michealwayne@163.com>",
   "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {},
   "dependencies": {}
 }

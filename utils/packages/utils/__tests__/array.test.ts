@@ -10,6 +10,7 @@ import {
   compact,
   countOccurrences,
   deepFlatten,
+  digitize,
   flatten,
   difference,
   differenceBy,
@@ -18,8 +19,20 @@ import {
   indexOfAll,
   intersection,
   intersectionBy,
+  intersectionWith,
   negate,
+  size,
+  getStringByteLength,
+  sample,
+  sampleSize,
+  shuffle,
+  everyNth,
   unique,
+  filterNonUnique,
+  initializeArrayWithValues,
+  remove,
+  fibonacci,
+  median,
 } from '../src/array';
 
 /**
@@ -82,6 +95,7 @@ test('arrayToCSV test', () => {
   expect(arrayToCSV([[1], [2], [3]])).toBe(`"1"
 "2"
 "3"`);
+  expect(arrayToCSV([['a"b', 'c']])).toBe(`"a""b","c"`);
 });
 
 test('castArray test', () => {
@@ -146,7 +160,9 @@ test('drop test', () => {
 test('dropWhile test', () => {
   expect(JSON.stringify(dropWhile([1, 2, 3, 4, 5], (a: any) => a > 3))).toBe('[4,5]');
   expect(JSON.stringify(dropWhile([1, 2, 3, 4, 5], (a: any) => a > 5))).toBe('[]');
-  expect(JSON.stringify(dropWhile(['', null, undefined, NaN, 0, 1], a => a))).toBe('[1]');
+  expect(JSON.stringify(dropWhile(['', null, undefined, NaN, 0, 1], a => Boolean(a)))).toBe(
+    '[1]'
+  );
 });
 
 test('indexOfAll test', () => {
@@ -178,6 +194,90 @@ test('negate test', () => {
 
 test('unique test', () => {
   expect(JSON.stringify(unique([1, 2, 3, 4, 5, 3, 2, 1]))).toBe('[1,2,3,4,5]');
-  expect(JSON.stringify(unique([null, undefined, NaN, '', 0, 1, 0, 1]))).toBe('[null,null,1]');
+  expect(JSON.stringify(unique([null, undefined, NaN, '', 0, 1, 0, 1]))).toBe(
+    '[null,null,null,"",0,1]'
+  );
   expect(JSON.stringify(unique([]))).toBe('[]');
+});
+
+test('size test', () => {
+  expect(size([1, 2, 3])).toBe(3);
+  expect(size(new Map([['a', 1]]))).toBe(1);
+  expect(size(new Set([1, 2]))).toBe(2);
+  expect(size('abc')).toBe(3);
+});
+
+test('getStringByteLength test', () => {
+  expect(getStringByteLength('abc')).toBe(3);
+});
+
+test('digitize test', () => {
+  expect(JSON.stringify(digitize(123))).toBe('[1,2,3]');
+  expect(JSON.stringify(digitize(-12.34))).toBe('[1,2,3,4]');
+});
+
+test('intersectionWith test', () => {
+  const arr1 = [{ x: 1 }, { x: 2 }, { x: 3 }];
+  const arr2 = [{ x: 2 }, { x: 4 }];
+  const result = intersectionWith(arr1, arr2, (a: any, b: any) => a.x === b.x);
+  expect(result).toEqual([{ x: 2 }]);
+});
+
+test('sample test', () => {
+  const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
+  expect(sample([10, 20, 30])).toBe(10);
+  randomSpy.mockRestore();
+});
+
+test('sampleSize test', () => {
+  const randomSpy = jest.spyOn(Math, 'random').mockReturnValue(0);
+  const result = sampleSize([1, 2, 3, 4], 2);
+  expect(result).toHaveLength(2);
+  result.forEach(item => {
+    expect([1, 2, 3, 4]).toContain(item);
+  });
+  randomSpy.mockRestore();
+});
+
+test('shuffle test', () => {
+  const arr = [1, 2, 3, 4];
+  const result = shuffle(arr);
+  expect(result).not.toBe(arr);
+  expect(
+    [...result].sort((a, b) => (a as number) - (b as number))
+  ).toEqual([1, 2, 3, 4]);
+});
+
+test('everyNth test', () => {
+  expect(JSON.stringify(everyNth([1, 2, 3, 4, 5, 6], 2))).toBe('[1,3,5]');
+  expect(JSON.stringify(everyNth([1, 2, 3], 5))).toBe('[1]');
+});
+
+test('filterNonUnique test', () => {
+  expect(JSON.stringify(filterNonUnique([1, 2, 2, 3, 4, 4, 5]))).toBe('[1,3,5]');
+  expect(JSON.stringify(filterNonUnique([1, 1, 2, 2]))).toBe('[]');
+});
+
+test('initializeArrayWithValues test', () => {
+  expect(JSON.stringify(initializeArrayWithValues(3, 2))).toBe('[2,2,2]');
+  expect(JSON.stringify(initializeArrayWithValues(0))).toBe('[]');
+});
+
+test('remove test', () => {
+  const arr = [1, 2, 3, 4, 5];
+  const removed = remove(arr, v => v % 2 === 0);
+  expect(removed).toEqual([2, 4]);
+  expect(arr).toEqual([1, 3, 5]);
+});
+
+test('fibonacci test', () => {
+  expect(JSON.stringify(fibonacci(0))).toBe('[]');
+  expect(JSON.stringify(fibonacci(1))).toBe('[0]');
+  expect(JSON.stringify(fibonacci(5))).toBe('[0,1,1,2,3]');
+});
+
+test('median test', () => {
+  expect(median([1, 2, 3, 4, 5])).toBe(3);
+  expect(median([1, 2, 3, 4])).toBe(2.5);
+  expect(Number.isNaN(median([]))).toBe(true);
 });

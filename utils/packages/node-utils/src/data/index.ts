@@ -71,6 +71,75 @@ export function arrayToCSV(data: any[][], delimiter = ','): string {
 }
 
 /**
+ * @function stringifyCSV
+ * @description 将对象数组转换为CSV字符串。Converts an array of objects to CSV string
+ * @param {Record<string, unknown>[]} data - 对象数组。Array of objects
+ * @param {string} delimiter - 分隔符(默认: ',')。Delimiter (default: ',')
+ * @returns {string} CSV字符串。CSV string
+ * @example
+ * const data = [{ name: 'John', age: 25 }, { name: 'Jane', age: 30 }];
+ * const csv = stringifyCSV(data);
+ * // -> 'name,age\nJohn,25\nJane,30'
+ *
+ * @example
+ * const data = [{ id: 1, active: true }];
+ * stringifyCSV(data, ';');
+ * // -> 'id;active\n1;true'
+ */
+export function stringifyCSV(data: Record<string, unknown>[], delimiter = ','): string {
+  if (!data.length) return '';
+  const headers = Object.keys(data[0]);
+  const rows = data.map(row => headers.map(header => row[header]));
+  return arrayToCSV([headers, ...rows], delimiter);
+}
+
+const escapeXML = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+
+const buildXML = (key: string, value: unknown): string => {
+  if (Array.isArray(value)) {
+    return value.map(item => buildXML(key, item)).join('');
+  }
+  if (value && typeof value === 'object') {
+    const inner = Object.entries(value as Record<string, unknown>)
+      .map(([childKey, childValue]) => buildXML(childKey, childValue))
+      .join('');
+    return `<${key}>${inner}</${key}>`;
+  }
+  const text = value === undefined || value === null ? '' : escapeXML(String(value));
+  return `<${key}>${text}</${key}>`;
+};
+
+/**
+ * @function stringifyXML
+ * @description 将对象转换为XML字符串。Converts an object to XML string
+ * @param {Record<string, unknown> | unknown[]} data - 输入对象或数组。Input object or array
+ * @param {string} [rootName='root'] - 根节点名称。Root node name
+ * @returns {string} XML字符串。XML string
+ * @example
+ * const xml = stringifyXML({ name: 'John', age: 25 });
+ * // -> '<root><name>John</name><age>25</age></root>'
+ *
+ * @example
+ * const xml = stringifyXML([{ id: 1 }, { id: 2 }], 'items');
+ * // -> '<items><item><id>1</id></item><item><id>2</id></item></items>'
+ */
+export function stringifyXML(
+  data: Record<string, unknown> | unknown[],
+  rootName = 'root'
+): string {
+  const inner = Array.isArray(data)
+    ? data.map(item => buildXML('item', item)).join('')
+    : Object.entries(data).map(([key, value]) => buildXML(key, value)).join('');
+  return `<${rootName}>${inner}</${rootName}>`;
+}
+
+/**
  * @function parseXML
  * @description 简单的XML解析器(需要DOMParser)。Simple XML parser (requires DOMParser)
  * @param {string} xmlString - XML字符串。XML string
@@ -108,10 +177,10 @@ export function parseXML(xmlString: string): any {
 
 /**
  * @function convertFormat
- * @description 转换数据格式(CSV <-> JSON)。Converts data format (CSV <-> JSON)
+ * @description 转换数据格式(CSV/JSON/XML)。Converts data format (CSV/JSON/XML)
  * @param {string | object} data - 输入数据。Input data
- * @param {string} fromFormat - 源格式('csv'或'json')。Source format ('csv' or 'json')
- * @param {string} toFormat - 目标格式('csv'或'json')。Target format ('csv' or 'json')
+ * @param {string} fromFormat - 源格式('csv'|'json'|'xml')。Source format ('csv'|'json'|'xml')
+ * @param {string} toFormat - 目标格式('csv'|'json'|'xml')。Target format ('csv'|'json'|'xml')
  * @returns {string | object} 转换后的数据。Converted data
  * @example
  * // CSV to JSON
@@ -123,6 +192,11 @@ export function parseXML(xmlString: string): any {
  * const data = [{ name: 'John', age: 25 }];
  * const csvOutput = convertFormat(data, 'json', 'csv');
  * // -> 'name,age\nJohn,25'
+ *
+ * @example
+ * // JSON to XML
+ * const xml = convertFormat({ name: 'John' }, 'json', 'xml');
+ * // -> '<root><name>John</name></root>'
  */
 export function convertFormat(data: any, fromFormat: string, toFormat: string): any {
   if (fromFormat === 'csv' && toFormat === 'json') {
@@ -146,6 +220,25 @@ export function convertFormat(data: any, fromFormat: string, toFormat: string): 
     const headers = Object.keys(jsonData[0]);
     const rows = jsonData.map(obj => headers.map(header => obj[header]));
     return arrayToCSV([headers, ...rows]);
+  }
+
+  if (fromFormat === 'json' && toFormat === 'xml') {
+    return stringifyXML(data as Record<string, unknown>);
+  }
+
+  if (fromFormat === 'xml' && toFormat === 'json') {
+    return parseXML(data as string);
+  }
+
+  if (fromFormat === 'csv' && toFormat === 'xml') {
+    const jsonData = convertFormat(data, 'csv', 'json');
+    return stringifyXML(jsonData as Record<string, unknown>[]);
+  }
+
+  if (fromFormat === 'xml' && toFormat === 'csv') {
+    const jsonData = parseXML(data as string);
+    const arrayData = Array.isArray(jsonData) ? jsonData : [jsonData];
+    return stringifyCSV(arrayData as Record<string, unknown>[]);
   }
 
   throw new Error(`Unsupported conversion: ${fromFormat} to ${toFormat}`);

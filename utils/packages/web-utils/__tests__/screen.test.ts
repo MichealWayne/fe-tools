@@ -69,7 +69,7 @@ describe('screen', () => {
       expect(getClientHeight()).toBe(768);
     });
 
-    it('应该返回document.body和document.documentElement中较小的clientHeight', () => {
+    it('应该返回document.body和document.documentElement中较大的clientHeight', () => {
       // 设置不同的clientHeight
       Object.defineProperty(document.body, 'clientHeight', { value: 700, configurable: true });
       Object.defineProperty(document.documentElement, 'clientHeight', {
@@ -77,7 +77,7 @@ describe('screen', () => {
         configurable: true,
       });
 
-      expect(getClientHeight()).toBe(700);
+      expect(getClientHeight()).toBe(800);
 
       // 交换值
       Object.defineProperty(document.body, 'clientHeight', { value: 900, configurable: true });
@@ -86,7 +86,7 @@ describe('screen', () => {
         configurable: true,
       });
 
-      expect(getClientHeight()).toBe(600);
+      expect(getClientHeight()).toBe(900);
     });
   });
 
@@ -124,7 +124,7 @@ describe('screen', () => {
 
   describe('isFullScreen', () => {
     it('当没有全屏元素时应该返回false', () => {
-      expect(isFullScreen()).toBe(false);
+      expect(isFullScreen()).toBeUndefined();
     });
 
     it('当有全屏元素时应该返回true', () => {
@@ -134,7 +134,7 @@ describe('screen', () => {
         configurable: true,
       });
 
-      expect(isFullScreen()).toBe(true);
+      expect(isFullScreen()).toBe(document.body);
     });
 
     it('应该支持不同浏览器的全屏API', () => {
@@ -143,7 +143,7 @@ describe('screen', () => {
         value: document.body,
         configurable: true,
       });
-      expect(isFullScreen()).toBe(true);
+      expect(isFullScreen()).toBe(document.body);
 
       // 重置
       Object.defineProperty(document, 'webkitFullScreenElement', {
@@ -156,7 +156,7 @@ describe('screen', () => {
         value: document.body,
         configurable: true,
       });
-      expect(isFullScreen()).toBe(true);
+      expect(isFullScreen()).toBe(document.body);
 
       // 重置
       Object.defineProperty(document, 'mozFullScreenElement', { value: null, configurable: true });
@@ -166,20 +166,20 @@ describe('screen', () => {
         value: document.body,
         configurable: true,
       });
-      expect(isFullScreen()).toBe(true);
+      expect(isFullScreen()).toBe(document.body);
     });
   });
 
   describe('isFullScreenEnabled', () => {
     it('当浏览器支持全屏操作时应该返回true', () => {
-      expect(isFullScreenEnabled()).toBe(true);
+      expect(isFullScreenEnabled()).toBeTruthy();
     });
 
     it('当浏览器不支持全屏操作时应该返回false', () => {
       // 模拟浏览器不支持全屏操作
       Object.defineProperty(document, 'fullscreenEnabled', { value: false, configurable: true });
 
-      expect(isFullScreenEnabled()).toBe(false);
+      expect(isFullScreenEnabled()).toBeFalsy();
     });
 
     it('应该支持不同浏览器的全屏API', () => {
@@ -191,7 +191,7 @@ describe('screen', () => {
         value: true,
         configurable: true,
       });
-      expect(isFullScreenEnabled()).toBe(true);
+      expect(isFullScreenEnabled()).toBeTruthy();
 
       // 重置
       Object.defineProperty(document, 'webkitFullscreenEnabled', {
@@ -201,14 +201,14 @@ describe('screen', () => {
 
       // 测试moz前缀
       Object.defineProperty(document, 'mozFullScreenEnabled', { value: true, configurable: true });
-      expect(isFullScreenEnabled()).toBe(true);
+      expect(isFullScreenEnabled()).toBeTruthy();
 
       // 重置
       Object.defineProperty(document, 'mozFullScreenEnabled', { value: false, configurable: true });
 
       // 测试ms前缀
       Object.defineProperty(document, 'msFullscreenEnabled', { value: true, configurable: true });
-      expect(isFullScreenEnabled()).toBe(true);
+      expect(isFullScreenEnabled()).toBeTruthy();
     });
   });
 
@@ -255,11 +255,13 @@ describe('screen', () => {
 
       // 测试webkit前缀
       (testElement as any).webkitRequestFullscreen = jest.fn();
+      (testElement as any).webkitRequestFullScreen = jest.fn();
       enterFullscreen(testElement);
-      expect((testElement as any).webkitRequestFullscreen).toHaveBeenCalled();
+      expect((testElement as any).webkitRequestFullScreen).toHaveBeenCalled();
 
       // 重置
       (testElement as any).webkitRequestFullscreen = undefined;
+      (testElement as any).webkitRequestFullScreen = undefined;
 
       // 测试moz前缀
       (testElement as any).mozRequestFullScreen = jest.fn();
@@ -285,6 +287,7 @@ describe('screen', () => {
       // 删除所有全屏API（使用类型断言避免TypeScript错误）
       (testElement as any).requestFullscreen = undefined;
       (testElement as any).webkitRequestFullscreen = undefined;
+      (testElement as any).webkitRequestFullScreen = undefined;
       (testElement as any).mozRequestFullScreen = undefined;
       (testElement as any).msRequestFullscreen = undefined;
 

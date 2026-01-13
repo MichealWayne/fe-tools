@@ -9,7 +9,7 @@
 
 ## 1. 常用网站
 目录：
-- [1.1 HTML/CSS/JavaScript](#11-htmlcssjavascript)
+- [1.1 HTML/CSS/JavaScript](#11-htmlcssjavascriptwasmdart)
 - [1.2 兼容/查询](#12-兼容查询)
 - [1.3 CSS工具](#13-css工具)
 - [1.4 JS插件/库](#14-js插件库)
@@ -869,6 +869,7 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://docs.anthropic.com/zh-CN/docs/claude-code/overview" target="_blank">Claude Code</a> | `claude-code` | Anthropic出品的AI编程助手，基于Claude模型，支持代码生成、解释和调试
+<a href="https://opencode.ai/" target="_blank">OpenCode</a> | `opencode` | 开源的终端 AI 编程助手（coding agent），主打“多模型/多 provider 可插拔”
 <a href="https://github.com/google-gemini/gemini-cli" target="_blank">Gemini Cli</a> | `gemini-cli` | Google出品的AI编程助手，基于Gemini模型，支持命令行交互和代码生成，代码开源
 <a href="https://openai.com/zh-Hans-CN/codex/" target="_blank">Codex</a> | `codex` | OpenAI出品的AI编程助手，支持命令行交互和代码生成
 <a href="https://www.cursor.com/" target="_blank">Cursor</a> | `cursor` | 面向专业开发极其友好的AI IDE，当前火爆
@@ -1037,22 +1038,26 @@
 ![chrome-ext.png](https://blog.michealwayne.cn/images/fe-tools/chrome-ext.png)
 
 辅助前端开发的一个小插件。
+
 ### 功能：
 - 工具网站搜索（`√`）
 - 本地收藏夹网站搜索（`√`）
-- CSS属性/Moo-CSS搜索（`√`）
-- url转二维码及svg矢量图（`√`）
-- 图片压缩及转base64（`√`）
-- px/rem/vw换算计算器（`√`）
-- rgb/hsb/hex色值换算（`√`）
-- 快速翻译（`√`）
-- 简易Postman（`√`）
+- CSS 属性/Moo-CSS 搜索（`√`）
+- url 转二维码及 svg 矢量图（`√`）
+- 图片压缩及转 base64（`√`）
+- px/rem/vw 换算计算器（`√`）
+- rgb/hsb/hex 色值换算（`√`）
+- 多语言翻译（`√`）
+- 简易 Postman（`√`）
 - 常用正则查询（`√`）
+- JSON 格式化与验证（`√`）
+- SVG 在线编辑器（`√`）
+- 日期/时间戳转换（`√`）
+- Linux 命令查询（`√`）
+- 页面截图（整页/节点截图并保存）（`√`）
 - 工具函数库搜索（`√`）
-- JSON转换（`√`）
-- SVG编辑器（`√`）
-- 时间日期转换（`√`）
 - 搜索自定义拓展
+- 中英文切换（`√`）
 
 [前往>>](https://github.com/MichealWayne/fe-tools/tree/master/chrome-extension)
 

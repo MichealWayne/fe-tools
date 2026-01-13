@@ -113,6 +113,7 @@ describe('string test', () => {
     expect(isNumber(null)).toBe(false);
     expect(isNumber(undefined)).toBe(false);
     expect(isNumber(NaN)).toBe(false);
+    expect(isNumber(Infinity)).toBe(false);
   });
 
   it('isObject()', async () => {
@@ -171,6 +172,7 @@ describe('string test', () => {
 
   it('equals()', async () => {
     expect(equals(1, 1)).toEqual(true);
+    expect(equals(1, 2)).toEqual(false);
     expect(equals({ a: 1 }, { a: 1 })).toEqual(true);
     expect(equals({ a: 1 }, { a: 1, b: 2 })).toEqual(false);
     expect(equals({ a: 1 }, [1])).toEqual(false);

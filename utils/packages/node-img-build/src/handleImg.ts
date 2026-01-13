@@ -136,7 +136,9 @@ export function toWebpImg(
   options: WebpOptions = {}
 ): Promise<string> {
   const { quality = config.webpQuality } = options;
-  const webpPath = path.join(outPath, `${imgName.replace('_2x.', '.').split('.')[0]}.webp`);
+  const parsedName = path.parse(imgName).name;
+  const baseName = parsedName.replace(/_2x$/i, '');
+  const webpPath = path.join(outPath, `${baseName}.webp`);
 
   // Ensure output directory exists
   if (!fs.existsSync(outPath)) {
@@ -256,6 +258,7 @@ export function toBase64(gmStream: gmConstructor.State, type = 'jpg'): Promise<s
  * @param {number} width - Target width in pixels (must be positive integer)
  * @param {number} [height] - Target height in pixels (maintains aspect ratio if omitted)
  * @returns {gmConstructor.State | false} Resized GM stream or false if processing fails
+ * @throws {Error} When width/height are not positive, finite numbers
  * @example
  * // Resize maintaining aspect ratio
  * const { gmStream } = await getGmStream('./images', 'photo.jpg');
@@ -285,9 +288,12 @@ export function resizeImg(
     return false;
   }
 
-  if (!width) {
-    log.error('Width must be specified for resizing');
-    return false;
+  if (!Number.isFinite(width) || width <= 0) {
+    throw new Error('Width must be a positive, finite number');
+  }
+
+  if (height !== undefined && (!Number.isFinite(height) || height <= 0)) {
+    throw new Error('Height must be a positive, finite number');
   }
 
   if (height) {

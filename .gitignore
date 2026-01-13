@@ -10,6 +10,7 @@ node_modules
 
 # production
 /dist
+Dist
 
 # misc
 .DS_Store
@@ -30,3 +31,4 @@ bak
 # ai tools
 .codebuddy
 .kiro
+openspec

@@ -248,10 +248,14 @@ describe('DOM Utils', () => {
       it('应该平滑滚动到目标位置', () => {
         // 模拟getScrollTop每次返回不同的值，模拟滚动过程
         let scrollTopValue = 0;
-        jest
-          .spyOn(document.documentElement, 'scrollTop', 'get')
-          .mockImplementation(() => scrollTopValue);
-        jest.spyOn(document.body, 'scrollTop', 'get').mockImplementation(() => 0);
+        Object.defineProperty(document.documentElement, 'scrollTop', {
+          get: () => scrollTopValue,
+          configurable: true,
+        });
+        Object.defineProperty(document.body, 'scrollTop', {
+          get: () => 0,
+          configurable: true,
+        });
 
         // 每次调用scrollTo时增加scrollTopValue的值
         (window.scrollTo as jest.Mock).mockImplementation((x, y) => {

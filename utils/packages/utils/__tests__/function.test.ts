@@ -305,25 +305,25 @@ describe('function test', () => {
     // Create a mock Node.js-style function
     type NodeCallback = (err: Error | null, result?: number) => void;
 
-    const mockNodeFn = jest.fn(function (args: number[], callback?: NodeCallback) {
+    const mockNodeFn = jest.fn(function (value: number, callback?: NodeCallback) {
       setTimeout(() => {
-        if (args[0] < 0) {
+        if (value < 0) {
           callback && callback(new Error('Value must be positive'));
         } else {
-          callback && callback(null, args[0] * 2);
+          callback && callback(null, value * 2);
         }
       }, 10);
     });
 
-    const promisified = promisify(mockNodeFn);
+    const promisified = promisify(mockNodeFn as any);
 
     // Test success case
-    const result = await promisified([5]);
+    const result = await promisified(5);
     expect(result).toBe(10);
 
     // Test error case
     try {
-      await promisified([-1]);
+      await promisified(-1);
       fail('Expected promisified function to throw an error');
     } catch (error) {
       expect(error).toBeInstanceOf(Error);

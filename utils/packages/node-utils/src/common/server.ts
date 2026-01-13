@@ -42,6 +42,14 @@ enum HTTP_RES_CODES {
 
 const DEFAULT_PORT = 8080;
 
+const safeDecode = (value: string) => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+};
+
 /**
  * @function getContentType
  * @description 根据文件扩展名获取MIME类型。Gets the appropriate MIME type for a file extension using the predefined extension mapping.
@@ -106,6 +114,7 @@ const startServer = (
   callback?: (url: string, server: http.Server) => void
 ) => {
   const folderPath = serverPath || path.join(__dirname, '../');
+  const rootPath = path.resolve(folderPath);
   const listenPort = port;
   const url = `http://localhost:${listenPort}`;
 
@@ -122,8 +131,17 @@ const startServer = (
     }
 
     // 静态资源路径
-    const ext = path.extname(pathname).slice(1).toLowerCase();
-    const filePath = path.join(folderPath, pathname);
+    const safePath = safeDecode(pathname).replace(/\\/g, '/');
+    const relativePath = safePath.replace(/^\/+/, '');
+    const filePath = path.resolve(rootPath, relativePath);
+    const ext = path.extname(filePath).slice(1).toLowerCase();
+
+    if (filePath !== rootPath && !filePath.startsWith(rootPath + path.sep)) {
+      Tip.error(`Path traversal blocked: ${safePath}`);
+      res.writeHead(403, { 'content-type': 'text/plain; charset=utf-8' });
+      res.end('403 Forbidden');
+      return;
+    }
 
     Tip.log(`Request: ${reqUrl} -> ${filePath}`);
 

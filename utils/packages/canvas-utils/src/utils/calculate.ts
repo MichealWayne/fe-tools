@@ -100,6 +100,9 @@ export const max = arrayMax;
  * @see {@link max} - For finding only maximum values
  */
 export function getListExtremum(arr: number[]): ListExtremum {
+  if (arr.length === 0) {
+    throw new Error('getListExtremum requires a non-empty array');
+  }
   let maxNum = arr[0];
   let minNum = maxNum;
 

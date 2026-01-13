@@ -6,7 +6,7 @@
 
 import { PlainObject } from 'utils';
 
-const DEFAULT_EXPIRATION = 1000 * 60 * 60 * 24 * 7; // 7 days
+const DEFAULT_EXPIRATION = 1000 * 60 * 60 * 24 * 7; // 7 days in milliseconds
 
 /**
  * @function deserialize
@@ -46,6 +46,7 @@ function Storage(type = 'local') {
      * Storage.setLocal 设置Storage
      * @param {String} key Storage key
      * @param {String|Object} value Storage value
+     * @param {number} expiration 过期时间(毫秒), 0表示永不过期
      */
     set(
       key: string,
@@ -58,7 +59,7 @@ function Storage(type = 'local') {
     ) {
       const item = {
         value: typeof value === 'object' ? JSON.stringify(value) : value,
-        expiration: expiration === 0 ? 0 : Date.now() + expiration * 1000,
+        expiration: expiration === 0 ? 0 : Date.now() + expiration,
       };
       _controller.setItem(key, JSON.stringify(item));
     },
@@ -81,16 +82,19 @@ function Storage(type = 'local') {
         return deserialize(item.value);
       } else {
         const _obj: PlainObject = {};
-        for (const i in _controller) {
-          if (i && typeof _controller[i] === 'string') {
-            const item = JSON.parse(_controller[i]);
-            if (item.expiration !== 0 && Date.now() > item.expiration) {
-              _controller.removeItem(i);
-              continue;
-            }
+        for (let i = 0; i < _controller.length; i++) {
+          const keyName = _controller.key(i);
+          if (!keyName) continue;
+          const itemStr = _controller.getItem(keyName);
+          if (!itemStr) continue;
 
-            _obj[i] = deserialize(item.value);
+          const item = JSON.parse(itemStr);
+          if (item.expiration !== 0 && Date.now() > item.expiration) {
+            _controller.removeItem(keyName);
+            continue;
           }
+
+          _obj[keyName] = deserialize(item.value);
         }
         return _obj;
       }

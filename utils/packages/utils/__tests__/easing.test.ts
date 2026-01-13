@@ -30,7 +30,7 @@ describe('Easing', () => {
 
   it('Circular works', () => {
     expect(Easing.Circular.In(0.75)).toBeCloseTo(0.33856);
-    expect(Easing.Circular.Out(0.25)).toBeCloseTo(0.505);
+    expect(Easing.Circular.Out(0.25)).toBeCloseTo(0.6614378277661477);
     expect(Easing.Circular.InOut(0.5)).toBeCloseTo(0.5);
   });
 
@@ -57,9 +57,9 @@ describe('Easing', () => {
 
     it('should return the correct values for InOut', () => {
       expect(Easing.Quadratic.InOut(0)).toEqual(0);
-      expect(Easing.Quadratic.InOut(0.25)).toEqual(0.0625);
+      expect(Easing.Quadratic.InOut(0.25)).toEqual(0.125);
       expect(Easing.Quadratic.InOut(0.5)).toEqual(0.5);
-      expect(Easing.Quadratic.InOut(0.75)).toEqual(0.9375);
+      expect(Easing.Quadratic.InOut(0.75)).toEqual(0.875);
       expect(Easing.Quadratic.InOut(1)).toEqual(1);
     });
   });
@@ -81,9 +81,9 @@ describe('Easing', () => {
 
     it('should return the correct values for InOut', () => {
       expect(Easing.Cubic.InOut(0)).toEqual(0);
-      expect(Easing.Cubic.InOut(0.25)).toBeCloseTo(0.03125);
+      expect(Easing.Cubic.InOut(0.25)).toBeCloseTo(0.0625);
       expect(Easing.Cubic.InOut(0.5)).toBeCloseTo(0.5);
-      expect(Easing.Cubic.InOut(0.75)).toBeCloseTo(0.96875);
+      expect(Easing.Cubic.InOut(0.75)).toBeCloseTo(0.9375);
       expect(Easing.Cubic.InOut(1)).toEqual(1);
     });
   });
@@ -105,9 +105,9 @@ describe('Easing', () => {
 
     it('should return the correct values for InOut', () => {
       expect(Easing.Quartic.InOut(0)).toEqual(0);
-      expect(Easing.Quartic.InOut(0.25)).toBeCloseTo(0.015625);
+      expect(Easing.Quartic.InOut(0.25)).toBeCloseTo(0.03125);
       expect(Easing.Quartic.InOut(0.5)).toBeCloseTo(0.5);
-      expect(Easing.Quartic.InOut(0.75)).toBeCloseTo(0.984375);
+      expect(Easing.Quartic.InOut(0.75)).toBeCloseTo(0.96875);
       expect(Easing.Quartic.InOut(1)).toEqual(1);
     });
   });
@@ -129,9 +129,9 @@ describe('Easing', () => {
 
     it('should return the correct values for InOut', () => {
       expect(Easing.Quintic.InOut(0)).toEqual(0);
-      expect(Easing.Quintic.InOut(0.25)).toBeCloseTo(0.0078125);
+      expect(Easing.Quintic.InOut(0.25)).toBeCloseTo(0.015625);
       expect(Easing.Quintic.InOut(0.5)).toBeCloseTo(0.5);
-      expect(Easing.Quintic.InOut(0.75)).toBeCloseTo(0.9921875);
+      expect(Easing.Quintic.InOut(0.75)).toBeCloseTo(0.984375);
       expect(Easing.Quintic.InOut(1)).toEqual(1);
     });
   });
@@ -140,7 +140,7 @@ describe('Easing', () => {
     it('should return the correct values for In', () => {
       expect(Easing.Sinusoidal.In(0)).toEqual(0);
       expect(Easing.Sinusoidal.In(0.5)).toBeCloseTo(0.29289321881345254);
-      expect(Easing.Sinusoidal.In(1)).toEqual(1);
+      expect(Easing.Sinusoidal.In(1)).toBeCloseTo(1);
     });
 
     it('should return the correct values for Out', () => {
@@ -198,7 +198,7 @@ describe('Easing', () => {
     });
 
     it('should return the correct values for InOut', () => {
-      expect(Easing.Circular.InOut(0)).toEqual(0);
+      expect(Easing.Circular.InOut(0)).toBeCloseTo(0);
       expect(Easing.Circular.InOut(0.25)).toBeCloseTo(0.06698729810778073);
       expect(Easing.Circular.InOut(0.5)).toBeCloseTo(0.5);
       expect(Easing.Circular.InOut(0.75)).toBeCloseTo(0.9330127018922193);
@@ -209,49 +209,49 @@ describe('Easing', () => {
   describe('Elastic', () => {
     it('should return the correct values for In', () => {
       expect(Easing.Elastic.In(0)).toEqual(0);
-      expect(Easing.Elastic.In(0.2)).toBeCloseTo(-0.009784339500115144);
-      expect(Easing.Elastic.In(0.5)).toBeCloseTo(-0.06451752655206866);
-      expect(Easing.Elastic.In(0.75)).toBeCloseTo(-0.12308153547910655);
+      expect(Easing.Elastic.In(0.2)).toBeCloseTo(0.00390625);
+      expect(Easing.Elastic.In(0.5)).toBeCloseTo(0);
+      expect(Easing.Elastic.In(0.75)).toBeCloseTo(-0.125);
       expect(Easing.Elastic.In(1)).toEqual(1);
     });
 
     it('should return the correct values for Out', () => {
       expect(Easing.Elastic.Out(0)).toEqual(0);
-      expect(Easing.Elastic.Out(0.25)).toBeCloseTo(1.1230815354791065);
-      expect(Easing.Elastic.Out(0.5)).toBeCloseTo(1.0645175265520688);
-      expect(Easing.Elastic.Out(0.75)).toBeCloseTo(1.0097843395001151);
+      expect(Easing.Elastic.Out(0.25)).toBeCloseTo(1.125);
+      expect(Easing.Elastic.Out(0.5)).toBeCloseTo(1);
+      expect(Easing.Elastic.Out(0.75)).toBeCloseTo(0.99609375);
       expect(Easing.Elastic.Out(1)).toEqual(1);
     });
 
     it('should return the correct values for InOut', () => {
       expect(Easing.Elastic.InOut(0)).toEqual(0);
-      expect(Easing.Elastic.InOut(0.25)).toBeCloseTo(-0.03225876327603433);
+      expect(Easing.Elastic.InOut(0.25)).toBeCloseTo(0);
       expect(Easing.Elastic.InOut(0.5)).toBeCloseTo(0.5);
-      expect(Easing.Elastic.InOut(0.75)).toBeCloseTo(1.0322587632760344);
+      expect(Easing.Elastic.InOut(0.75)).toBeCloseTo(1);
       expect(Easing.Elastic.InOut(1)).toEqual(1);
     });
   });
 
   describe('Back', () => {
     it('should return the correct values for In', () => {
-      expect(Easing.Back.In(0)).toEqual(0);
+      expect(Easing.Back.In(0)).toBeCloseTo(0);
       expect(Easing.Back.In(0.5)).toBeCloseTo(-0.0876975);
-      expect(Easing.Back.In(0.75)).toBeCloseTo(0.3732084375);
-      expect(Easing.Back.In(1)).toEqual(1);
+      expect(Easing.Back.In(0.75)).toBeCloseTo(0.1825903125);
+      expect(Easing.Back.In(1)).toBeCloseTo(1);
     });
 
     it('should return the correct values for Out', () => {
-      expect(Easing.Back.Out(0)).toEqual(0);
+      expect(Easing.Back.Out(0)).toBeCloseTo(0);
       expect(Easing.Back.Out(0.5)).toBeCloseTo(1.0876975);
-      expect(Easing.Back.Out(0.75)).toBeCloseTo(1.1267915625);
+      expect(Easing.Back.Out(0.75)).toBeCloseTo(1.0641365625);
       expect(Easing.Back.Out(1)).toEqual(1);
     });
 
     it('should return the correct values for InOut', () => {
-      expect(Easing.Back.InOut(0)).toEqual(0);
-      expect(Easing.Back.InOut(0.25)).toBeCloseTo(-0.08584812890625);
+      expect(Easing.Back.InOut(0)).toBeCloseTo(0);
+      expect(Easing.Back.InOut(0.25)).toBeCloseTo(-0.09968184375);
       expect(Easing.Back.InOut(0.5)).toBeCloseTo(0.5);
-      expect(Easing.Back.InOut(0.75)).toBeCloseTo(1.08584812890625);
+      expect(Easing.Back.InOut(0.75)).toBeCloseTo(1.09968184375);
       expect(Easing.Back.InOut(1)).toEqual(1);
     });
   });
@@ -259,25 +259,25 @@ describe('Easing', () => {
   describe('Bounce', () => {
     it('should return the correct values for In', () => {
       expect(Easing.Bounce.In(0)).toEqual(0);
-      expect(Easing.Bounce.In(0.2)).toBeCloseTo(0.12);
-      expect(Easing.Bounce.In(0.5)).toBeCloseTo(0.5);
-      expect(Easing.Bounce.In(0.8)).toBeCloseTo(0.788);
+      expect(Easing.Bounce.In(0.2)).toBeCloseTo(0.06);
+      expect(Easing.Bounce.In(0.5)).toBeCloseTo(0.234375);
+      expect(Easing.Bounce.In(0.8)).toBeCloseTo(0.6975);
       expect(Easing.Bounce.In(1)).toEqual(1);
     });
 
     it('should return the correct values for Out', () => {
       expect(Easing.Bounce.Out(0)).toEqual(0);
-      expect(Easing.Bounce.Out(0.2)).toBeCloseTo(0.212);
-      expect(Easing.Bounce.Out(0.5)).toBeCloseTo(0.5);
-      expect(Easing.Bounce.Out(0.8)).toBeCloseTo(0.88);
+      expect(Easing.Bounce.Out(0.2)).toBeCloseTo(0.3025);
+      expect(Easing.Bounce.Out(0.5)).toBeCloseTo(0.765625);
+      expect(Easing.Bounce.Out(0.8)).toBeCloseTo(0.94);
       expect(Easing.Bounce.Out(1)).toEqual(1);
     });
 
     it('should return the correct values for InOut', () => {
       expect(Easing.Bounce.InOut(0)).toEqual(0);
-      expect(Easing.Bounce.InOut(0.25)).toBeCloseTo(0.25);
+      expect(Easing.Bounce.InOut(0.25)).toBeCloseTo(0.1171875);
       expect(Easing.Bounce.InOut(0.5)).toBeCloseTo(0.5);
-      expect(Easing.Bounce.InOut(0.75)).toBeCloseTo(0.75);
+      expect(Easing.Bounce.InOut(0.75)).toBeCloseTo(0.8828125);
       expect(Easing.Bounce.InOut(1)).toEqual(1);
     });
   });

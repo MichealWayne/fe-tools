@@ -178,7 +178,7 @@ export function isString(val?: unknown): val is string {
  * isNumber(-0); // -> true (negative zero is a valid number)
  */
 export function isNumber(val?: unknown): val is number {
-  return typeof val === 'number' && val === val;
+  return typeof val === 'number' && Number.isFinite(val);
 }
 
 /**
@@ -389,7 +389,10 @@ export const isDate = (value: unknown): value is Date => {
 export function equals(a: any, b: any): boolean {
   if (a === b) return true;
   if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
-  if (isPrimitive(a) || isPrimitive(b)) return a === b;
+  if (typeof a === 'function' || typeof b === 'function') return false;
+  if (isPrimitive(a) || isPrimitive(b)) return false;
+  if (a === null || b === null) return false;
+  if (typeof a !== 'object' || typeof b !== 'object') return false;
   if (a?.constructor !== b?.constructor) return false;
 
   const keys = Object.keys(a);

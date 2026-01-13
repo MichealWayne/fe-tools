@@ -115,7 +115,7 @@ export function randomIntegerInRange(min: number, max: number) {
 
 /**
  * @function randomNumberInRange
- * @description 求范围中的随机数（浮点数）。Generates a random floating-point number within a range
+ * @description 求范围中的随机数（浮点数，包含最小值，不包含最大值）。Generates a random floating-point number within a range (min inclusive, max exclusive)
  * @param {number} min - 范围最小值。Minimum value of the range
  * @param {number} max - 范围最大值。Maximum value of the range
  * @return {number} 随机浮点数。Random floating-point number within the range
@@ -123,7 +123,7 @@ export function randomIntegerInRange(min: number, max: number) {
  * randomNumberInRange(1, 10); // 一个1～10的随机浮点数。A random floating-point number between 1 and 10
  */
 export function randomNumberInRange(min: number, max: number) {
-  return Math.random() * (max - min + 1) + min;
+  return Math.random() * (max - min) + min;
 }
 
 /**
@@ -153,8 +153,13 @@ export function randomIntArrayInRange(min: number, max: number, num = 1) {
  * round(12345.6789, 2); // 12345.68
  */
 export function round(num: number, decimals = 0) {
-  const _decimals = decimals;
-  return Number(`${Math.round(+`${num}e${_decimals}`)}e-${_decimals}`);
+  if (decimals === 0) return Math.round(num);
+  if (decimals > 0) {
+    const factor = 10 ** decimals;
+    return Math.round(num * factor) / factor;
+  }
+  const factor = 10 ** Math.abs(decimals);
+  return Math.round(num / factor) * factor;
 }
 
 /**

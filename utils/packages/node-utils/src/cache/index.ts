@@ -217,6 +217,7 @@ export default class Cache {
    * @param {string} key - Cache key identifier
    * @param {string} ext - File extension ('.json' for JSON serialization, others as text)
    * @param {any} content - Content to cache (objects for .json, strings for others)
+   * @returns {Promise<void | boolean>} Promise that resolves when the cache write completes
    * @example
    * // Cache JSON data
    * const userData = { id: 123, name: 'John', preferences: { theme: 'dark' } };
@@ -232,7 +233,7 @@ export default class Cache {
    * const apiResponse = await fetch('/api/data').then(r => r.json());
    * cache.write(`api-data-${Date.now()}`, '.json', apiResponse);
    */
-  write(key: string, ext: string, content: string) {
+  async write(key: string, ext: string, content: unknown) {
     if (this.disabled) {
       return;
     }
@@ -240,7 +241,7 @@ export default class Cache {
     if (ext === '.json') {
       return writeJson(filename, content as any);
     }
-    return writeFile(filename, content);
+    return writeFile(filename, String(content));
   }
 
   /**
@@ -269,11 +270,11 @@ export default class Cache {
     return async function (this: any, ...args: unknown[]) {
       const { key, ext } = identity.call(this, ...args);
       const cached = cache.get(key, ext);
-      if (cached) {
+      if (cached !== undefined) {
         return cached;
       }
       const result = await original.call(this, ...args);
-      cache.write(key, ext, result);
+      await cache.write(key, ext, result);
       return result;
     };
   }
@@ -308,7 +309,7 @@ export default class Cache {
     return function (this: any, ...args: unknown[]) {
       const { key, ext } = identity.call(this, ...args);
       const cached = cache.get(key, ext);
-      if (cached) {
+      if (cached !== undefined) {
         return cached;
       }
       const result = original.call(this, ...args);
