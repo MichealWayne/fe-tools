@@ -10,7 +10,7 @@ node_modules
 
 # production
 /dist
-dist
+Dist
 
 # misc
 .DS_Store
