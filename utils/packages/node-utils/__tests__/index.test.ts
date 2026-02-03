@@ -6,5 +6,6 @@ describe('node-utils index', () => {
     expect(typeof nodeUtils.parseArgs).toBe('function');
     expect(typeof nodeUtils.copyStream).toBe('function');
     expect(typeof nodeUtils.getTimeStr).toBe('function');
+    expect(typeof nodeUtils.isValidSQL).toBe('function');
   });
 });

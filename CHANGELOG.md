@@ -1,5 +1,6 @@
 ### 更新信息
 
+- 2026.02.01：增加 utils Skills；更新主页链接；更新正则文件（regex.json）
 - 2026.01.11：更新 utils（canvas-utils&node-utils&node-img-build）; 更新 Chrome 插件(v1.4.1)
 - 2025.12.14：更新主页链接；更新 utils
 - 2025.11.16：更新 utils（utils&web-utils&node-utils 增加方法）；
