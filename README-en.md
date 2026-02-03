@@ -31,9 +31,10 @@ Contents:
 | Address                                                                                                                                                                                                                 | Tag           | Description                                                                                                                                   |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | https://developer.mozilla.org/en-US/docs/Web                                                                                                                                                                            | html/css/js   | A very comprehensive and useful front-end query/learning website produced by Mozilla.                                                         |
-| https://developer.mozilla.org/en-US/plus/ai-help                                                                                                                                                                        | html/css/js   | MDN AI assistant based on GPT-3.5 for documentation Q&A.                                                                                      |
+| https://developer.mozilla.org/zh-CN/docs/Web                                                                                                                                                                            | html/css/js   | MDN docs in Chinese.                                                                                                                          |
+| https://developer.mozilla.org/en-US/plus/ai-help                                                                                                                                                                        | html/css/js   | MDN AI assistant for documentation Q&A.                                                                                                       |
 | https://www.w3.org/                                                                                                                                                                                                     | html/css/js   | The official W3C standard.                                                                                                                    |
-| https://www.w3schools.com/                                                                                                                                                                                              | w3cshool      | W3C School, an international popular web development learning website.                                                                        |
+| https://www.w3schools.com/                                                                                                                                                                                              | w3cschool     | W3C School, an international popular web development learning website.                                                                        |
 | https://www.w3.org/Style/CSS/                                                                                                                                                                                           | w3c-css       | W3C CSS documentation.                                                                                                                        |
 | https://www.runoob.com/cssref/css-reference.html                                                                                                                                                                        | css           | Quickly query CSS properties and basic usage.                                                                                                 |
 | https://www.canvasapi.cn/                                                                                                                                                                                               | canvas        | Collection of canvas API methods.                                                                                                             |
@@ -43,11 +44,14 @@ Contents:
 | https://github.com/type-challenges/type-challenges                                                                                                                                                                      | ts-challenges | TypeScript Challenges, online learning/checking of one's TypeScript type programming level.                                                   |
 | https://www.ecma-international.org/publications-and-standards/standards/                                                                                                                                                | ecma          | ECMAScript protocol standard.                                                                                                                 |
 | http://www.ecma-international.org/ecma-262/6.0/                                                                                                                                                                         | ES6           | ECMAScript 6 official documentation.                                                                                                          |
+| https://www.ecma-international.org/ecma-262/6.0/                                                                                                                                                                        | ES6           | ECMAScript 6 official documentation (HTTPS).                                                                                                  |
 | https://ecma262.docschina.org/                                                                                                                                                                                          | ES6           | ECMAScript 6 official documentation, partially translated into Chinese.                                                                       |
 | http://es6-features.org/                                                                                                                                                                                                | ES6           | Easy-to-understand ECMAScript 6 feature demos.                                                                                                |
 | http://es6.ruanyifeng.com/                                                                                                                                                                                              | ES6           | The most frequently used ECMAScript 6 documentation in China, especially suitable for beginners.                                              |
+| https://es6.ruanyifeng.com/                                                                                                                                                                                             | ES6           | The most frequently used ECMAScript 6 documentation in China (HTTPS).                                                                         |
 | http://www.html5plus.org/doc/h5p.html                                                                                                                                                                                   | html5         | HTML5 web API query, such as camera/geolocation.                                                                                              |
 | [https://developer.apple.com/library/archive/](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect) | html          | Safari webview HTML tag query, used for mobile web development, such as some iOS-specific attributes or behaviors can be found here.          |
+| https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect                                                | html          | Safari webview HTML tag query (direct link).                                                                                                   |
 | https://webkit.org/status/                                                                                                                                                                                              | webkit        | WebKit official website documentation, js/css feature status support query.                                                                   |
 | https://dart.dev/                                                                                                                                                                                                       | dart          | Dart language English official website.                                                                                                       |
 | https://www.dartcn.com/guides/language/language-tour                                                                                                                                                                    | dart          | Dart language Chinese learning website.                                                                                                       |
@@ -84,6 +88,9 @@ Contents:
 | https://stylus-lang.com/             | stylus | Official documentation for Stylus.                  |
 | http://www.zhangxinxu.com/jq/stylus/ | stylus | Stylus Chinese documentation.                       |
 | https://asmcss.com/                  | asmcss | Assembler CSS official documentation, Just-in-time. |
+| https://github.com/parcel-bundler/lightningcss | lightningcss | Ultra-fast Rust CSS parser/transformer/minifier, often used to replace parts of PostCSS/minifier in build pipelines. |
+| https://github.com/tailwindlabs/tailwindcss-typography | tailwind-typography | Official prose typography plugin (commonly used for Markdown/rich text). |
+| https://github.com/chakra-ui/panda | panda-css | Build-time, type-safe CSS-in-JS/atomic solution (popular for design systems). |
 
 ### 1.3.2 Postprocessors
 
@@ -111,9 +118,12 @@ Contents:
 | https://github.com/Tencent/weui          | weui             | A style library in the WeChat style, by Tencent.                               |
 | http://www.materializecss.cn/            | materializecss   | A responsive front-end style framework in the Material style.                  |
 | https://www.muicss.com/                  | MUI              | A lightweight front-end style framework in the Material style.                 |
+| https://www.muicss.com                   | MUI              | MUI (no trailing slash).                                                       |
 | https://metroui.org.ua/                  | Metro UI         | A popular responsive front-end style framework, https://react.metroui.org.ua/. |
+| https://react.metroui.org.ua/            | Metro UI React   | React version of Metro UI.                                                     |
 | https://nostalgic-css.github.io/NES.css/ | NES.css          | A front-end style framework in the pixelated style of game consoles.           |
 | https://www.getpapercss.com/             | paper.css        | A front-end style framework in the hand-drawn style.                           |
+| https://www.getpapercss.com              | paper.css        | paper.css (no trailing slash).                                                 |
 | http://www.uiplayground.in/css3-icons/   | css3 icon        | Icons implemented purely in CSS.                                               |
 | http://bootstrap.css88.com/css/          | bootstrap        | A front-end style framework that was once very popular.                        |
 | https://www.layui.com/doc/               | layui            | A front-end UI framework written in its own module specification.              |
@@ -234,6 +244,7 @@ Contents:
 | https://github.com/bilibili/flv.js                  | flvjs          | An FLV playback plugin that does not require Flash. |
 | https://github.com/goldfire/howler.js#documentation | howlerjs       | A video and audio control plugin.                   |
 | http://jplayer.org/                                 | jplayer        | A jQuery video and audio control plugin.            |
+| https://jplayer.org/                                | jplayer        | A jQuery video and audio control plugin (HTTPS).    |
 | https://github.com/zohararad/audio5js               | audio5js       | An audio control plugin.                            |
 | https://github.com/katspaugh/wavesurfer.js          | Wavesurfer.js  | A lightweight audio waveform player.                |
 
@@ -256,6 +267,7 @@ Contents:
 | ----------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------- |
 | https://vocajs.com/                       | vocajs     | camelcase/modify/fill/truncate/escape/change case and more for strings.                           |
 | http://alexcorvi.github.io/anchorme.js/   | anchormejs | Automatically convert links/URLs/email addresses in text to clickable anchor links.               |
+| https://alexcorvi.github.io/anchorme.js/  | anchormejs | Automatically convert links/URLs/email addresses in text to clickable anchor links (HTTPS).       |
 | https://github.com/jprichardson/string.js | stringjs   | A library for string operations such as truncation and deletion (not maintained for a long time). |
 | https://github.com/ljharb/qs              | qsjs       | A library for handling URL parameters.                                                            |
 | https://zelark.github.io/nano-id-cc/      | nanoid     | A small (130-byte), secure, URL-friendly, unique string ID generator.                             |
@@ -268,8 +280,10 @@ Contents:
 | Address                                            | Tag                | Description                                                                                          |
 | -------------------------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------- |
 | http://requirejs.org/                              | requirejs          | A js modularization tool.                                                                            |
+| https://requirejs.org/                             | requirejs          | A js modularization tool (HTTPS).                                                                     |
 | http://yslove.net/seajs/                           | seajs              | A js modularization tool.                                                                            |
 | http://browserify.org/                             | browserify         | Use a require() method similar to node on the browser side.                                          |
+| https://browserify.org/                            | browserify         | Use a require() method similar to node on the browser side (HTTPS).                                  |
 | https://github.com/rickharrison/validate.js        | validate.js        | A form validation tool.                                                                              |
 | https://github.com/validatorjs/validator.js        | validator.js       | A well-known content validation tool, including email validation, numerical validation, etc.         |
 | https://cn.rx.js.org/                              | RxJS               | A js asynchronous programming library based on the ReactiveX programming concept.                    |
@@ -304,6 +318,7 @@ Contents:
 | http://mermaid-js.github.io/mermaid/#/                                      | mermaid        | A user-friendly library for generating flowcharts.                                                                           |
 | https://ecomfe.github.io/zrender-doc/public/                                | zrender        | A 2D rendering engine that supports Canvas/SVG/VML, also the rendering engine for ECharts.                                   |
 | https://docs.mind-elixir.com/.                                              | Mind Elixir    | A mind map library with effects similar to xmind.                                                                            |
+| https://docs.mind-elixir.com/                                               | mind-elixir    | A mind map library with effects similar to xmind.                                                                            |
 
 ### 1.4.7 Data Visualization (Maps)
 
@@ -346,6 +361,7 @@ Contents:
 | Address                              | Tag             | Description                                      |
 | ------------------------------------ | --------------- | ------------------------------------------------ |
 | http://pazguille.github.io/aload/    | aload.js        | Asynchronous image/js/css loading tool.          |
+| https://pazguille.github.io/aload/   | aload.js        | Asynchronous image/js/css loading tool (HTTPS).  |
 | http://callmecavs.com/layzr.js/      | layzr.js        | Lightweight image lazy loading tool.             |
 | https://github.com/aFarkas/lazysizes | lazysizes       | High-performance image/iframe lazy loading tool. |
 | https://infinite-scroll.com/         | infinite-scroll | "Infinite" scroll loading plugin.                |
@@ -391,23 +407,35 @@ Contents:
 | Address                                                  | Tag                       | Description                                                                                                                                |
 | -------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | https://vuejs.org/                                       | vue                       | Vue3 official documentation.                                                                                                               |
+| https://cn.vuejs.org/                                    | vue                       | Vue3 official documentation (Chinese).                                                                                                     |
 | https://vuejs.org/v2/guide/syntax.html                   | vue                       | Vue2 official documentation.                                                                                                               |
+| https://cn.vuejs.org/v2/guide/syntax.html                | vue                       | Vue2 official documentation (Chinese).                                                                                                     |
 | https://cli.vuejs.org/                                   | vue-cli                   | Vue scaffolding tool documentation.                                                                                                        |
+| https://cli.vuejs.org/zh/guide/cli-service.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4 | vue-cli | Vue CLI docs (Chinese, CLI service usage).                                                                                                 |
 | https://pinia.vuejs.org/                                 | pinia                     | Lightweight Vue state management tool recommended for Vue3.                                                                                |
 | https://vuex.vuejs.org/                                  | vuex                      | Vue data flow control tool.                                                                                                                |
+| https://vuex.vuejs.org/zh/                               | vuex                      | Vuex documentation (Chinese).                                                                                                              |
 | https://router.vuejs.org/                                | vue-router                | Front-end routing control based on Vue.                                                                                                    |
+| https://router.vuejs.org/zh/                             | vue-router                | Vue Router documentation (Chinese).                                                                                                        |
 | https://danilowoz.com/create-vue-content-loader/         | create-vue-content-loader | Vue version of SVG skeleton screen plug-in.                                                                                                |
+| http://danilowoz.com/create-vue-content-loader/          | create-vue-content-loader | Vue version of SVG skeleton screen plug-in (HTTP).                                                                                         |
 | https://ustbhuangyi.github.io/better-scroll/doc/api.html | better-scroll             | Plugin for controlling scrolling scenes.                                                                                                   |
+| http://ustbhuangyi.github.io/better-scroll/doc/api.html  | better-scroll             | Plugin for controlling scrolling scenes (HTTP).                                                                                            |
 | https://youzan.github.io/vant/                           | vant                      | Mobile UI library from Youzan.                                                                                                             |
+| https://youzan.github.io/vant/#/zh-CN/intro              | vant                      | Mobile UI library from Youzan (Chinese docs).                                                                                              |
 | https://aidenzou.github.io/vue-weui/                     | vue-weui                  | Mobile UI component library in WeUI style.                                                                                                 |
+| http://aidenzou.github.io/vue-weui/#!/                   | vue-weui                  | Mobile UI component library in WeUI style (Chinese).                                                                                       |
 | https://element.eleme.cn/                                | element                   | UI component library for PC front-end development, from Eleme.                                                                             |
+| https://element.eleme.cn/#/zh-CN                         | element                   | UI component library for PC front-end development (Chinese docs).                                                                          |
 | https://github.com/hilongjw/vue-lazyload                 | vue-lazyload              | Vue version of image/component lazy loading plug-in.                                                                                       |
 | http://v1.iviewui.com/docs/guide/install                 | iview                     | PC UI component library.                                                                                                                   |
 | https://vue.ant.design/                                  | antd-vue                  | PC UI component library, Vue version of ant design.                                                                                        |
+| https://vue.ant.design/docs/vue/introduce-cn/            | antd-vue                  | PC UI component library, Vue version of ant design (Chinese docs).                                                                         |
 | https://kazupon.github.io/vue-i18n/                      | vue-i18n                  | Multi-language solution.                                                                                                                   |
 | https://terryz.github.io/vue/#/region                    | v-region                  | Vue administrative region selection component.                                                                                             |
 | https://github.com/ecomfe/vue-echarts                    | vue-echarts               | Echarts Vue encapsulation component.                                                                                                       |
 | https://nuxtjs.org/                                      | nuxtjs                    | Vue server-side rendering application framework.                                                                                           |
+| https://zh.nuxtjs.org/                                   | nuxtjs                    | Vue server-side rendering application framework (Chinese docs).                                                                            |
 | https://github.com/vitejs/vite                           | vitejs                    | Lightweight front-end project construction tool for Vue without bundle.                                                                    |
 | https://github.com/vuejs/vue-class-component#readme      | vue-class-component       | Component decorator encapsulation for Vue, used for jsx/tsx Vue component writing.                                                         |
 | https://formilyjs.org/                                   | formilyjs                 | Element/Antd form DSL solution.                                                                                                            |
@@ -435,6 +463,7 @@ Contents:
 | https://dvajs.com/                                             | dvajs                 | Data flow solution based on redux and redux-saga, by Ant Financial.                                                                               |
 | https://umijs.org/zh/                                          | umijs                 | Pluggable enterprise-level React application framework, by Ant Financial.                                                                         |
 | http://rekit.js.org/                                           | rekit                 | React/Redux/React-router development tool/IDE.                                                                                                    |
+| http://rekit.js.org                                            | rekit                 | React/Redux/React-router development tool/IDE (no trailing slash).                                                                                |
 | https://nextjs.org/                                            | nextjs                | Lightweight React server-side rendering application framework.                                                                                    |
 | https://www.gatsbyjs.cn/                                       | gatsbyjs              | Lightweight React static website building framework.                                                                                              |
 | https://github.com/streamich/react-use                         | react-use             | Easy-to-use React custom hooks encapsulation library.                                                                                             |
@@ -496,6 +525,7 @@ Contents:
 | https://storybook.js.org/                                                                   | storybookjs        | UI component library navigation site for independent development of React, Vue, and Angular. |
 | https://unpkg.com/                                                                          | unpkg              | Foreign public static resource CDN, applicable to all content on npm.                        |
 | http://nodejs.cn/api/                                                                       | node               | Node official documentation.                                                                 |
+| http://NodeJS.cn/api/                                                                       | node               | Node official documentation (capitalized domain).                                             |
 | https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts | deno               | Official documentation for Deno (Nodejs.next).                                               |
 | https://bun.sh/                                                                             | bun                | A js runtime container that claims to be 3 times faster than Nodejs.                         |
 | https://turbo.build/repo                                                                    | turborepo          | Easy-to-use, high-performance multi-package management tool, monorepo.                       |
@@ -566,6 +596,8 @@ Contents:
 | https://nwjs.io/                                                | nwjs                | Application runtime environment based on NodeJs and Chromium, allowing you to call all Node.js modules directly from the DOM.   |
 | https://github.com/archiverjs/node-archiver                     | node-archiver       | Supports ZIP/TAR document stream transmission and receiving plugins.                                                            |
 | https://github.com/thejoshwolfe/yazl                            | yazl                | Compression zip plugin, corresponding to decompression at https://github.com/thejoshwolfe/yauzl.                                |
+| https://github.com/thejoshwolfe/yauzl                           | yauzl               | Zip decompression library paired with yazl.                                                                                        |
+| https://nodemailer.com/                                         | node-mailer         | Email sending library supporting SMTP/SES/Sendmail/Stream.                                                                    |
 | https://sailsjs.com/                                            | sailsjs             | User-friendly MVC Nodejs framework.                                                                                             |
 | https://helmetjs.github.io/                                     | helmet              | Protects Express service applications by setting response header.                                                               |
 | https://github.com/expressjs/cors#readme                        | cors                | Cors middleware for Nodejs.                                                                                                     |
@@ -596,6 +628,7 @@ Contents:
 | https://webpack.docschina.org/concepts/module-federation/ | module-federation | A micro-frontend solution with module sharing during build as its main feature, implemented in webpack (5). |
 | https://fronts.js.org/                                    | fronts            | A progressive micro-frontend framework based on webpack module-federation.                                  |
 | https://github.com/jsdom/jsdom                            | jsdom             | A wrapped library for DOM manipulation in node environment.                                                 |
+| https://wujie-micro.github.io/doc/                        | wujie             | Micro-frontend framework based on Web Components + iframe.                                                  |
 
 ### 1.7.5 Cloud and Serverless
 
@@ -605,8 +638,8 @@ Contents:
 | https://www.serverless.com/                         | serverless | A framework for quickly building node serverless services, supporting Tencent Cloud SCF, AWS Lambda, etc. |
 | https://aws.amazon.com/cn/campaigns/lambda/         | aws-lambda | Classic, Amazon serverless computing service.                                                             |
 | https://qingfuwu.cn/                                | qingfuwu   | Byte lightweight service, supports Serverless (FaaS), CDN and other services, with a free tier.           |
-| https://help.aliyun.com/document_detail/154438.html | qingfuwu   | Alibaba Cloud Function Compute service, supports Serverless (FaaS).                                       |
-| https://cloud.tencent.com/document/product/583      | qingfuwu   | Tencent Cloud Cloud Function service, supports Serverless (FaaS).                                         |
+| https://help.aliyun.com/document_detail/154438.html | aliyunFC   | Alibaba Cloud Function Compute service, supports Serverless (FaaS).                                       |
+| https://cloud.tencent.com/document/product/583      | tecentFC   | Tencent Cloud Cloud Function service, supports Serverless (FaaS).                                         |
 
 ### 1.7.6 Low Code
 
@@ -617,6 +650,8 @@ Contents:
 | https://aisuda.bce.baidu.com/amis/zh-CN/docs/index | amis           | Baidu open-source low-code engine, suitable for projects with a back-office focus. |
 | https://shuffle.dev/                               | shuffle        | A popular low-code platform overseas.                                              |
 | https://webflow.com/                               | webflow        | A popular low-code platform overseas.                                              |
+| https://opentiny.design/tiny-engine#/home          | tiny-engine   | Huawei open-source low-code engine (2023), with component orchestration.          |
+| https://netease.github.io/tango/                   | tango         | NetEase Cloud Music open-source low-code engine (2023), no private DSL/protocol.  |
 
 ### 1.8 Hybrid and Cross-platform
 
@@ -639,7 +674,7 @@ Contents:
 | https://weexapp.com/zh/                                           | Cross-platform                      | A cross-platform tool that was popular a few years ago using Vue syntax, but is no longer maintained.                                                            |
 | https://alibaba.github.io/weex-ui/#/cn/                           | Cross-platform/Weex                 | Weex UI component library.                                                                                                                                       |
 | https://taro.jd.com/                                              | Mini Program/Cross-platform         | Cross-web/Mini Program/Native React syntax cross-platform tool, runtime cross-platform mode.                                                                     |
-| https://taro.jd.com/                                              | Mini Program/Cross-platform/Flutter | React syntax cross-platform tool for cross-web/Mini Program/Flutter, Alibaba.                                                                                    |
+| https://rax.js.org/                                               | Mini Program/Cross-platform/Flutter | React syntax cross-platform tool for cross-web/Mini Program/Flutter (now largely quiet), Alibaba.                                                                 |
 | https://wechat-miniprogram.github.io/kbone/docs/                  | Mini Program/Cross-platform         | Cross-web/Mini Program cross-platform build plugin with low cost and compatibility with various web frameworks, Tencent.                                         |
 | https://hippyjs.org/                                              | Cross-platform                      | Tencent's hybrid cross-platform framework.                                                                                                                       |
 | https://uniapp.dcloud.io/                                         | Mini Program/Cross-platform         | Vue syntax cross-platform tool for cross-web/Mini Program/Native.                                                                                                |
@@ -660,8 +695,8 @@ Contents:
 
 | Address                                                                                      | Tag                           | Description                                                                                                                                   |
 | -------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://chat.openai.com/chat                                                                 | chatGPT                       | A question-answering robot based on OpenAPI, which is also good for looking up technical issues.                                              |
-| https://www.cursor.so/                                                                       | cursor                        | A programming assistant based on OpenAPI GPT-4, which feels even smoother than copilot.                                                       |
+| https://chat.openai.com/chat                                                                 | chatGPT                       | OpenAI-based Q&A bot, also good for looking up technical issues.                                                                               |
+| https://www.cursor.so/                                                                       | cursor                        | Still a hot AI coding IDE product.                                                                                                             |
 | https://stackoverflow.com/                                                                   | stackoverflow                 | A friendly community for solving technical problems.                                                                                          |
 | https://bundlephobia.com/                                                                    | bundlephobia                  | A website for analyzing the size and loading performance of npm packages.                                                                     |
 | https://npmgraph.js.org/                                                                     | npmgraph                      | A tool website for analyzing the dependency relationships of npm packages.                                                                    |
@@ -708,6 +743,7 @@ Contents:
 | https://tool.lu/coderunner/                                                                  | coderunner                    | Online php/c/c++/python/go/js/java/bash code execution tool.                                                                                  |
 | https://www.diffchecker.com/                                                                 | diffchecker                   | Online text/file diff tool.                                                                                                                   |
 | https://isoflow.io/                                                                          | isoflow                       | Online flowchart drawing tool.                                                                                                                |
+| https://codemirror.net/                                                                      | codemirror                    | Web code editor with many language modes and plugins.                                                                                          |
 | https://github.com/n8n-io/n8n                                                                | n8n                           | A workflow automation tool based on free and open fair code licenses for easily automating tasks across different services.                   |
 | https://zijian.aliyun.com/detect/dns/DNS_PING-d31c5446aff9db99decd9d9d944b11c5-1640605424801 | dns                           | A domain name DNS detection website tool, Alibaba Cloud.                                                                                      |
 | https://tabatkins.github.io/railroad-diagrams/generator.html                                 | railroad-diagrams             | A website tool for drawing railroad diagrams online.                                                                                          |
@@ -721,6 +757,7 @@ Contents:
 
 | Address                                         | Tag         | Description                                                                                      |
 | ----------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------ |
+| https://github.com/vitest-dev/vitest            | vitest      | Vite-native testing framework (one of the newer mainstream choices).                             |
 | https://mochajs.org/                            | mocha       | A unit testing tool.                                                                             |
 | https://jestjs.io/zh-Hans/                      | jest        | A unit testing tool.                                                                             |
 | https://www.cypress.io/                         | cypress     | A unit testing integrated platform tool.                                                         |
@@ -738,6 +775,9 @@ Contents:
 | https://github.com/brix/crypto-js                 | crypto-js | A JavaScript encryption library that can be said to be the most commonly used, supporting mainstream hash algorithms and encryption algorithms such as SHA, MD5, AES, etc. |
 | https://github.com/emn178/js-sha256               | js-sha256 | A lightweight library for SHA256 hash operations.                                                                                                                          |
 | https://github.com/kelektiv/node.bcrypt.js#readme | bcrypt    | A library for password hash processing.                                                                                                                                    |
+| https://github.com/ossf/scorecard                | ossf-scorecard | Open-source supply-chain security scoring/checks (useful for dependency governance).                                                          |
+| https://github.com/OWASP/CheatSheetSeries        | owasp-cheatsheet | Security knowledge cheat sheets (systematic reference).                                                                                       |
+| https://github.com/snyk/cli                      | snyk     | Dependency vulnerability/supply-chain scanning (common in engineering practice).                                                               |
 
 [How to Secure Anything](https://github.com/veeral-patel/how-to-secure-anything)
 
@@ -749,13 +789,13 @@ Contents:
 
 [8 Major Front-end Security Issues](https://mawei.blog/post/frontend-security-vulnerabilities-part1/)
 
-[Front-end Encryption Matters](https://juejin.im/post/5c452021518825242062979f)
+[Front-end Encryption Matters](https://juejin.cn/post/6844903764973846542)
 
 [What Does HTTPS Encrypt?](https://zhuanlan.zhihu.com/p/38278311)
 
-[Web-side Anti-crawling Technical Solutions](https://juejin.im/post/5b6d579cf265da0f6e51a7e0)
+[Web-side Anti-crawling Technical Solutions](https://juejin.cn/post/6844903654810468359)
 
-[Front-end Encryption Methods We Should Discuss](https://juejin.im/entry/5bc93545e51d450e5f3dceff)
+[Front-end Encryption Methods We Should Discuss](https://juejin.cn/post/6844903695428091918)
 
 ### 1.10.3 Debug
 
@@ -795,11 +835,20 @@ Contents:
 | ---- | ---- | ---- |
 | https://ai-sdk.dev/ | ai-sdk | TypeScript AI toolkit providing various toolkits and UI interfaces |
 | https://langchain-langchain.vercel.app/ | langchain | Famous large language model integration tool providing tools, components, and interfaces to simplify building advanced language model applications |
+| https://github.com/langchain-ai/langgraph | langgraph | Low-level orchestration framework for long-running, resumable, stateful agent workflows |
 | https://llamaindex.ai/ | llamaindex | Data framework for building LLM-based applications, focused on data indexing and retrieval |
+| https://github.com/run-llama/llama_deploy | llamadeploy | Agentic workflow deployment framework to deploy/scale workflows as services (formerly llama-agents) |
 | https://github.com/microsoft/semantic-kernel | semantic-kernel | Microsoft open-source AI orchestration SDK supporting multiple programming languages |
 | https://github.com/Significant-Gravitas/Auto-GPT | autoGPT | Pre-trained language generation model that can automatically complete tasks like summary generation, recommendation systems, and dialogue generation |
 | https://github.com/reworkd/AgentGPT | agentGPT | Language model-based artificial agent that can generate appropriate responses based on specific scenario requirements |
 | https://github.com/TransformerOptimus/SuperAGI | superagi | Open-source autonomous AI agent framework with graphical interface |
+| https://github.com/crewAIInc/crewAI | crewai | Multi-agent orchestration framework centered on team collaboration, role division, and controllability |
+| https://github.com/camel-ai/camel | camel | Multi-agent research/engineering framework for role-play, social simulation, collaboration, and data generation |
+| https://github.com/huggingface/smolagents | smolagents | Hugging Face minimal agent library with few abstractions (think-in-code style) |
+| https://github.com/openai/swarm | swarm | Lightweight multi-agent orchestration “educational framework” demonstrating handoff, routing, and collaboration |
+| https://github.com/kyegomez/swarms | swarms | Multi-agent infrastructure/orchestration platform for production runs and integrations |
+| https://github.com/agentscope-ai/agentscope | agentscope | Production-oriented agent framework: AOP concepts, multi-agent abstractions, fine-tuning/engineering support |
+| https://github.com/microsoft/TaskWeaver | taskweaver | Code-first data analysis/workflow agent framework using code snippets to plan and run plugins |
 | https://github.com/e2b-dev/e2b | e2b | Cloud development environment for AI agents |
 
 #### 1.11.2 API Wrapper Libraries
@@ -825,6 +874,7 @@ Contents:
 | https://github.com/Yidadaa/ChatGPT-Next-Web | chatgpt-next-web | One-click deployment of your own cross-platform ChatGPT application |
 | https://github.com/homanp/superagent | superagent | Platform for building, deploying, and managing LLM-driven agents |
 | https://github.com/BuilderIO/ai-shell | ai-shell | CLI tool that converts natural language to shell commands |
+| https://github.com/openinterpreter/open-interpreter | open-interpreter | Computer-use/automation oriented agent that runs commands, file operations, and automation on local machines |
 | https://github.com/geekan/MetaGPT | metagpt | Multi-agent framework that takes requirements and returns PRD, design, tasks, and code |
 | https://github.com/microsoft/autogen | autogen | Microsoft open-source multi-agent conversation framework |
 
@@ -894,6 +944,8 @@ Contents:
 | https://opencode.ai/ | opencode | The open source AI coding agent | 
 | https://github.com/google-gemini/gemini-cli | gemini-cli | AI programming assistant by Google, based on Gemini model, supports command line interaction and code generation |
 | https://openai.com/zh-Hans-CN/codex/ | codex | AI programming assistant by OpenAI, supports command line interaction and code generation |
+| https://github.com/OpenHands/OpenHands | openhands | Open-source “AI software engineer/coding agent” with runtime for code-focused tasks, local or cloud extensible |
+| https://github.com/OpenHands/software-agent-sdk | openhands-sdk | Python/REST SDK for coding agents, supports local or isolated workspaces |
 | https://www.cursor.com/ | cursor | Extremely developer-friendly AI IDE, currently trending |
 | https://github.com/PatrickJS/awesome-cursorrules | cursorrules | Collection of engineering cursorrules to improve Cursor efficiency |
 | https://windsurfai.org/zh | windsurf | Extremely developer-friendly AI IDE, personally think more beginner-friendly than Cursor, currently trending |
@@ -912,6 +964,7 @@ Contents:
 | https://www.tabnine.com/ | tabnine | AI code completion tool supporting multiple IDEs |
 | https://github.com/paul-gauthier/aider | aider | GPT-based AI pair programming tool |
 | https://github.com/moyix/fauxpilot | fauxpilot | Open-source GitHub Copilot alternative |
+| https://github.com/SWE-agent/SWE-agent | swe-agent | Coding agent for GitHub issue fixing that lets models modify real repositories with tools |
 
 #### 1.11.10 AI Tool Platforms
 
@@ -919,11 +972,26 @@ Contents:
 | ---- | ---- | ---- |
 | https://mcp.so/ | mcp.so | Open MCP tool collection |
 | https://21st.dev/ | 21st | AI-friendly frontend React component collection |
+| https://github.com/openclaw/openclaw | openclaw | Personal AI assistant/agent platform (self-hosted, multi-channel access, skills ecosystem) |
 | https://github.com/langgenius/dify | dify | AI workflow orchestration platform with open platform |
 | https://www.coze.cn/ | coze | AI workflow orchestration open platform, domestic, ByteDance |
 | https://www.langflow.org/ | langflow | Visual AI application building platform |
 | https://flowise.ai/ | flowise | Drag-and-drop LLM application building tool |
 | https://github.com/FlowiseAI/Flowise | flowise-open | Open-source version of Flowise |
+
+#### 1.11.11 Agent Skills
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://skills.sh/ | skills-sh | Agent skills directory/browser with repo/skill discovery and install guidance |
+| https://skillsmp.com/ | skillsmp | Agent Skills Marketplace aggregating skills across Claude Code / Codex CLI / ChatGPT and more |
+| https://agentskills.io/home | agentskills-io | AgentSkills official entry: concept, standards, integration guides |
+| https://agentskills.io/specification | skills-spec | SKILL.md format specification (frontmatter + instructions + resources) |
+| https://github.com/agentskills/agentskills | skills-spec-repo | Agent Skills specification and docs repo (write once, use everywhere format) |
+| https://github.com/anthropics/skills | anthropics-skills | Anthropic official example skills collection |
+| https://github.com/vercel-labs/agent-skills | vercel-agent-skills | Vercel official skills collection (frontend/deploy/best practices) |
+| https://github.com/vercel-labs/skills | skills-cli | Skills CLI (`npx skills add/find/check/update`) for install/discovery/update |
+| https://github.com/softaworks/agent-toolkit | agent-toolkit | Community skills toolkit with workflow, planning, docs, architecture, communication, etc. |
 
 ### 1.12 Web3/Blockchain
 
@@ -932,6 +1000,7 @@ Contents:
 | Address | Tag | Description |
 | ---- | ---- | ---- |
 | https://docs.ethers.org/v6/ | ethers | Complete Ethereum library for JavaScript and TypeScript |
+| https://github.com/ethers-io/ethers.js/ | ethers | Ethers.js GitHub repository. |
 | https://viem.sh/ | viem | TypeScript interface for Ethereum with excellent type safety |
 | https://wagmi.sh/ | wagmi | React hooks for Ethereum development |
 | https://web3js.org/ | web3js | Original Ethereum JavaScript library |
@@ -943,9 +1012,12 @@ Contents:
 | ---- | ---- | ---- |
 | https://rainbowkit.com/ | rainbowkit | Best wallet connection library for React |
 | https://docs.family.co/connectkit | connectkit | Modern wallet connection components |
+| https://connectkit.family/ | connectkit | ConnectKit official site. |
 | https://web3modal.com/ | web3modal | Universal wallet modal for Web3 |
+| https://docs.family.co/web3modal | web3modal | Web3Modal docs by Family. |
 | https://metamask.io/sdk/ | metamask-sdk | MetaMask SDK for dApp integration |
 | https://walletconnect.com/web3modal | walletconnect | Cross-platform wallet connection protocol |
+| https://walletconnect.com/ | walletconnect | WalletConnect official site. |
 
 #### 1.12.3 Development Frameworks
 
@@ -956,16 +1028,22 @@ Contents:
 | https://hardhat.org/ | hardhat | Ethereum development environment |
 | https://trufflesuite.com/ | truffle | Ethereum development framework |
 | https://remix.ethereum.org/ | remix | Online Ethereum IDE |
+| https://docs.soliditylang.org/ | solidity | Solidity programming language documentation |
 
 #### 1.12.4 Infrastructure and APIs
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
 | https://alchemy.com/ | alchemy | Ethereum node and API services |
+| https://www.alchemy.com/ | alchemy | Ethereum node and API services (www). |
 | https://infura.io/ | infura | Ethereum and IPFS infrastructure |
 | https://quicknode.com/ | quicknode | Blockchain infrastructure platform |
+| https://www.quicknode.com/ | quicknode | Blockchain infrastructure platform (www). |
 | https://chain.link/ | chainlink | Decentralized oracle network |
 | https://thegraph.com/ | thegraph | Decentralized protocol for indexing blockchain data |
+| https://docs.ipfs.tech/ | ipfs | IPFS documentation (decentralized storage). |
+| https://docs.ceramic.network/ | ceramic | Ceramic decentralized data network docs. |
+| https://gun.eco/ | gun | Decentralized data sync protocol. |
 
 #### 1.12.5 DeFi and NFT Tools
 
@@ -976,14 +1054,18 @@ Contents:
 | https://0x.org/ | 0x | Decentralized exchange infrastructure |
 | https://compound.finance/ | compound | DeFi lending protocol |
 | https://openzeppelin.com/ | openzeppelin | Secure smart contract library |
+| https://github.com/OpenZeppelin/openzeppelin-contracts | openzeppelin | OpenZeppelin smart contract library (GitHub). |
 
 ### 1.13 WebAssembly
 
 | Link                                                                                   | Tag              | Description                                  |
 | -------------------------------------------------------------------------------------- | ---------------- | -------------------------------------------- |
 | <a href="https://www.assemblyscript.org/" target="_blank">AssemblyScript</a>           | `assemblyscript` | write wasm by TypeScript                     |
-| <a href="https://wasmtime.dev/" target="_blank">Wasmtime</a>                           | `wasmtime`       | fast and safety wasm runtime, from bytedance |
+| <a href="https://wasmtime.dev/" target="_blank">Wasmtime</a>                           | `wasmtime`       | fast and safe wasm runtime                   |
 | <a href="https://mbebenita.github.io/WasmExplorer/" target="_blank"> WasmExplorer </a> | `WasmExplorer`   | online wasm playground                       |
+| <a href="https://github.com/drager/wasm-pack" target="_blank">wasm-pack</a>             | `wasm-pack`      | Common Rust → Wasm build/publish tool for npm |
+| <a href="https://github.com/wasm-bindgen/wasm-bindgen" target="_blank">wasm-bindgen</a> | `wasm-bindgen`   | Core Rust ↔ JS/Wasm bindings and glue code toolchain |
+| <a href="https://github.com/wasmerio/wasmer" target="_blank">Wasmer</a>                 | `wasmer`         | Mainstream Wasm runtime                      |
 
 ### 1.14 IDE Plugins
 

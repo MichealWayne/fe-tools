@@ -31,9 +31,9 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://developer.mozilla.org/zh-CN/docs/Web" target="_blank">MDN 文档手册</a> | `html/css/js` | Mozilla出品的一个很全很有用的前端查询/学习网站。
-<a href="https://developer.mozilla.org/en-US/plus/ai-help" target="_blank">MDN AI助手</a> | `html/css/js` | 基于gpt3.5的MDN文档问答机器人。
+<a href="https://developer.mozilla.org/en-US/plus/ai-help" target="_blank">MDN AI助手</a> | `html/css/js` | MDN文档的AI问答机器人。
 <a href="https://www.w3.org/" target="_blank">W3C官网</a> | `html/css/js` | W3C官方标准。
-<a href="https://www.w3schools.com/" target="_blank">W3C学习网站</a> | `w3cshool` | W3C School，国际热门的web开发学习网站，适合入门。
+<a href="https://www.w3schools.com/" target="_blank">W3C学习网站</a> | `w3cschool` | W3C School，国际热门的web开发学习网站，适合入门。
 <a href="https://www.w3.org/Style/CSS/" target="_blank">W3C CSS</a> | `w3c-css` | W3C CSS规范文档。
 <a href="https://www.runoob.com/cssref/css-reference.html" target="_blank">css属性参考手册</a> | `css` | 快速查询css属性及基本使用。
 <a href="https://www.canvasapi.cn/" target="_blank">canvas api速查手册</a> | `canvas` | canvas API方法集合。
@@ -77,6 +77,10 @@
 <a href="http://stylus-lang.com/" target="_blank">stylus 文档</a> | `stylus` | 功能丰富的CSS预处理工具。
 <a href="http://www.zhangxinxu.com/jq/stylus/" target="_blank">stylus 文档(张旭鑫)</a> | `stylus` | stylus中文文档。
 <a href="https://asmcss.com/" target="_blank">Assembler CSS 文档</a> | `asmcss` | Assembler CSS 官方文档，Just-in-time。
+<a href="https://github.com/parcel-bundler/lightningcss" target="_blank">Lightning CSS</a> | `lightningcss` | Rust 写的超快 CSS parser/transformer/minifier，很多构建链路会用它替代部分 PostCSS/minifier
+<a href="https://github.com/tailwindlabs/tailwindcss-typography" target="_blank">Tailwind Typography</a> | `tailwind-typography` | 官方 Prose 排版插件（Markdown/富文本场景常用）
+<a href="https://github.com/chakra-ui/panda" target="_blank">Panda CSS</a> | `panda-css` | Build-time、Type-safe 的 CSS-in-JS/原子化方案（设计系统场景热）
+
 
 #### 1.3.2 后处理
 地址 | 标签 | 说明
@@ -590,8 +594,8 @@
 <a href="https://www.serverless.com/" target="_blank">Serverless Framework 官网</a> | `serverless` | 快速建立node Serverless 服务的框架，支持腾讯云 SCF，AWS Lambda等。
 <a href="https://aws.amazon.com/cn/campaigns/lambda/" target="_blank">AWS Lambda</a> | `aws-lambda` | 经典，亚马逊amazon serverless计算服务。
 <a href="https://qingfuwu.cn/" target="_blank">字节轻服务 官网</a> | `qingfuwu` | 字节轻服务，支持Serverless（FaaS）、CDN等服务，有免费档。
-<a href="https://help.aliyun.com/document_detail/154438.html" target="_blank">阿里云 FC</a> | `qingfuwu` | 阿里云函数计算服务，支持Serverless（FaaS）。
-<a href="https://cloud.tencent.com/document/product/583" target="_blank">腾讯云 SFC</a> | `qingfuwu` | 腾讯云云函数服务，支持Serverless（FaaS）。
+<a href="https://help.aliyun.com/document_detail/154438.html" target="_blank">阿里云 FC</a> | `aliyunFC` | 阿里云函数计算服务，支持Serverless（FaaS）。
+<a href="https://cloud.tencent.com/document/product/583" target="_blank">腾讯云 SFC</a> | `tecentFC` | 腾讯云云函数服务，支持Serverless（FaaS）。
 
 #### 1.7.6 低代码LowCode
 
@@ -625,7 +629,7 @@
 <a href="https://weexapp.com/zh/" target="_blank">Weex文档</a> | `跨端` | 前几年热门的vue语法跨端工具，现在都不维护了。
 <a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex-UI文档</a> | `跨端/weex` | weex的UI组件库。
 <a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具，runtime跨端模式。
-<a href="https://taro.jd.com/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具，阿里。
+<a href="https://rax.js.org/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具（已经沉寂了），阿里。
 <a href="https://wechat-miniprogram.github.io/kbone/docs/" target="_blank">Kbone文档</a> | `小程序/跨端` | 跨web/小程序跨端构建插件，成本低，适配各类web框架，腾讯。
 <a href="https://hippyjs.org/" target="_blank">Hippy文档</a> | `跨端` | 腾讯的一款混合跨端框架。
 <a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
@@ -645,8 +649,8 @@
 ### 1.9 辅助工具
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://chat.openai.com/chat" target="_blank">chatGPT</a> | `chatGPT ` | 基于OpenAPI的问答机器人，用来查技术问题也挺好。
-<a href="https://www.cursor.so/" target="_blank">Cursor</a> | `cursor ` | 基于OpenAPI GPT-4的编程助手，感觉好像比copilot还流畅一点。
+<a href="https://chat.openai.com/chat" target="_blank">chatGPT</a> | `chatGPT` | 基于OpenAI的问答机器人，用来查技术问题也挺好。
+<a href="https://www.cursor.so/" target="_blank">Cursor</a> | `cursor` | 依旧火热的AI Coding IDE产品。
 <a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a> | `stackoverflow` | 技术问题排忧解难的友好社区。
 <a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析npm软件包的体积和加载性能的网站。
 <a href="https://npmgraph.js.org/" target="_blank">npmgraph</a> | `npmgraph` | 分析npm软件包依赖关系的工具网站。
@@ -707,6 +711,7 @@
 #### 1.10.1 单元测试
 地址 | 标签 | 说明
 ---- | ---- | ----
+<a href="https://github.com/vitest-dev/vitest" target="_blank">Vitest</a> | `vitest` | Vite 原生测试框架（单测新主流之一）
 <a href="https://mochajs.org/" target="_blank">MochaJS文档</a> | `mocha` | 一款单元测试工具。
 <a href="https://jestjs.io/zh-Hans/" target="_blank">JestJS文档</a> | `jest` | 一款单元测试工具，主流。
 <a href="https://www.cypress.io/" target="_blank">Cypress官网</a> | `cypress` | 一款单元测试集成平台工具。
@@ -724,16 +729,18 @@
 <a href="https://github.com/brix/crypto-js" target="_blank">CryptoJS</a> | `crypto-js` | 一个可以说是最常用的 JavaScript 加密库，支持主流的哈希算法、加密算法,例如 SHA、MD5、AES 等。
 <a href="https://github.com/emn178/js-sha256" target="_blank">js-sha256</a> | `js-sha256` | 一个用于 SHA256 哈希运算的轻量级库。
 <a href="https://github.com/kelektiv/node.bcrypt.js#readme" target="_blank">Bcrypt</a> | `bcrypt` | 用于密码散列处理的库。
-
+<a href="https://github.com/ossf/scorecard" target="_blank">OSSF Scorecard</a> | `ossf-scorecard` | 开源项目供应链安全评分/检查（依赖治理很实用）
+<a href="https://github.com/OWASP/CheatSheetSeries" target="_blank">OWASP Cheat Sheet Series</a> | `owasp-cheatsheet` | 安全知识速查表（体系化参考）
+<a href="https://github.com/snyk/cli" target="_blank">Snyk CLI</a> | `snyk` | 依赖漏洞/供应链扫描（工程落地常用）
 <p><a href="https://github.com/veeral-patel/how-to-secure-anything" target="_blank">《How to Secure Anything》</a></p>
 <p><a href="https://github.com/brix/crypto-js" target="_blank">crypto-js 前端数据加密工具</a></p>
 <p><a href="https://cloud.tencent.com/developer/article/1136202" target="_blank">《浅谈前端安全》</a></p>
 <p><a href="http://blog.michealwayne.cn/2020/04/19/safety/%E3%80%90%E6%80%BB%E7%BB%93%E3%80%91%E5%86%8D%E8%B0%88%E5%89%8D%E7%AB%AF%E5%AE%89%E5%85%A8/" target="_blank">《再谈前端安全》</a></p>
 <p><a href="https://mawei.blog/post/frontend-security-vulnerabilities-part1/" target="_blank">《8大前端安全问题》</a></p>
-<p><a href="https://juejin.im/post/5c452021518825242062979f" target="_blank">《前端加密那点事》</a></p>
+<p><a href="https://juejin.cn/post/6844903764973846542" target="_blank">《前端加密那点事》</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/38278311" target="_blank">《HTTPS 到底加密了什么？》</a></p>
-<p><a href="https://juejin.im/post/5b6d579cf265da0f6e51a7e0" target="_blank">《Web 端反爬虫技术方案》</a></p>
-<p><a href="https://juejin.im/entry/5bc93545e51d450e5f3dceff" target="_blank">《那些我们该讨论的前端加密方法》</a></p>
+<p><a href="https://juejin.cn/post/6844903654810468359" target="_blank">《Web 端反爬虫技术方案》</a></p>
+<p><a href="https://juejin.cn/post/6844903695428091918" target="_blank">《那些我们该讨论的前端加密方法》</a></p>
 
 
 #### 1.10.3 Debug
@@ -773,11 +780,20 @@
 ---- | ---- | ----
 <a href="https://ai-sdk.dev/" target="_blank">AI SDK</a> | `ai-sdk` | TypeScript的AI工具包，提供各类工具包、UI界面
 <a href="https://langchain-langchain.vercel.app/" target="_blank">LangChain</a> | `langchain` | 著名的大语言模型集成工具，提供了一套工具、组件和接口，可简化构建高级语言模型应用程序的过程
+<a href="https://github.com/langchain-ai/langgraph" target="_blank">LangGraph</a> | `langgraph` | 低层编排框架：构建长期运行/可恢复/有状态的Agent工作流
 <a href="https://llamaindex.ai/" target="_blank">LlamaIndex</a> | `llamaindex` | 构建基于LLM的应用程序的数据框架，专注于数据索引和检索
+<a href="https://github.com/run-llama/llama_deploy" target="_blank">LlamaDeploy</a> | `llamadeploy` | Agentic工作流部署框架：将工作流作为服务部署/扩展（原 llama-agents 系）
 <a href="https://github.com/microsoft/semantic-kernel" target="_blank">Semantic Kernel</a> | `semantic-kernel` | 微软开源的AI编排SDK，支持多种编程语言
 <a href="https://github.com/Significant-Gravitas/Auto-GPT" target="_blank">Auto-GPT</a> | `autoGPT` | 预训练语言生成模型，可以自动完成摘要生成、推荐系统和对话生成等任务
 <a href="https://github.com/reworkd/AgentGPT" target="_blank">AgentGPT</a> | `agentGPT` | 基于语言模型的人工代理，可以根据特定场景的要求，生成合适的回答
 <a href="https://github.com/TransformerOptimus/SuperAGI" target="_blank">SuperAGI</a> | `superagi` | 开源的自主AI代理框架，具有图形界面
+<a href="https://github.com/crewAIInc/crewAI" target="_blank">CrewAI</a> | `crewai` | 多Agent编排框架：以“团队协作/角色分工”为中心，强调工程落地与可控性
+<a href="https://github.com/camel-ai/camel" target="_blank">CAMEL</a> | `camel` | 多Agent研究/工程框架：角色扮演、社会模拟、任务协作与数据生成方向
+<a href="https://github.com/huggingface/smolagents" target="_blank">smolagents</a> | `smolagents` | Hugging Face 极简Agent库：少量抽象、代码式行动（think-in-code风格）
+<a href="https://github.com/openai/swarm" target="_blank">OpenAI Swarm</a> | `swarm` | 轻量多Agent编排“教育框架”：演示handoff/路由/多Agent协作的最小抽象
+<a href="https://github.com/kyegomez/swarms" target="_blank">Swarms</a> | `swarms` | 多Agent基础设施/编排平台：面向生产化的多Agent运行与集成（社区活跃）
+<a href="https://github.com/agentscope-ai/agentscope" target="_blank">AgentScope</a> | `agentscope` | 面向生产的Agent框架：AOP理念、多Agent抽象、支持微调/工程化能力（通义实验室系）
+<a href="https://github.com/microsoft/TaskWeaver" target="_blank">TaskWeaver</a> | `taskweaver` | Code-first 数据分析/工作流Agent框架：用代码片段规划并调用插件执行任务
 <a href="https://github.com/e2b-dev/e2b" target="_blank">E2B</a> | `e2b` | 用于AI代理的云端开发环境
 
 #### 1.11.2 API封装库
@@ -803,6 +819,7 @@
 <a href="https://github.com/Yidadaa/ChatGPT-Next-Web" target="_blank">ChatGPT-Next-Web</a> | `chatgpt-next-web` | 一键拥有你自己的跨平台ChatGPT应用
 <a href="https://github.com/homanp/superagent" target="_blank">Superagent</a> | `superagent` | 构建、部署和管理LLM驱动的代理的平台
 <a href="https://github.com/BuilderIO/ai-shell" target="_blank">AI Shell</a> | `ai-shell` | CLI工具，将自然语言转换为Shell命令
+<a href="https://github.com/openinterpreter/open-interpreter" target="_blank">Open Interpreter</a> | `open-interpreter` | “电脑使用/自动化”取向Agent：让模型在本机执行命令、文件操作与自动化任务
 <a href="https://github.com/geekan/MetaGPT" target="_blank">MetaGPT</a> | `metagpt` | 多代理框架，给定一行需求，返回PRD、设计、任务、代码
 <a href="https://github.com/microsoft/autogen" target="_blank">AutoGen</a> | `autogen` | 微软开源的多代理对话框架
 
@@ -872,6 +889,8 @@
 <a href="https://opencode.ai/" target="_blank">OpenCode</a> | `opencode` | 开源的终端 AI 编程助手（coding agent），主打“多模型/多 provider 可插拔”
 <a href="https://github.com/google-gemini/gemini-cli" target="_blank">Gemini Cli</a> | `gemini-cli` | Google出品的AI编程助手，基于Gemini模型，支持命令行交互和代码生成，代码开源
 <a href="https://openai.com/zh-Hans-CN/codex/" target="_blank">Codex</a> | `codex` | OpenAI出品的AI编程助手，支持命令行交互和代码生成
+<a href="https://github.com/OpenHands/OpenHands" target="_blank">OpenHands</a> | `openhands` | 开源“AI软件工程师/编码Agent”与运行时（偏代码任务、可本地或云端扩展）
+<a href="https://github.com/OpenHands/software-agent-sdk" target="_blank">OpenHands SDK</a> | `openhands-sdk` | 面向“写代码类Agent”的Python/REST SDK，支持本地或隔离工作区
 <a href="https://www.cursor.com/" target="_blank">Cursor</a> | `cursor` | 面向专业开发极其友好的AI IDE，当前火爆
 <a href="https://github.com/PatrickJS/awesome-cursorrules" target="_blank">awesome-cursorrules</a> | `cursorrules` | 让Cursor提升效率的各类工程cursorrules集合
 <a href="https://windsurfai.org/zh" target="_blank">Windsurf</a> | `windsurf` | 面向专业开发极其友好的AI IDE，个人认为当前对新人比Cursor更友好，当前火爆
@@ -890,6 +909,7 @@
 <a href="https://www.tabnine.com/" target="_blank">Tabnine</a> | `tabnine` | AI代码自动完成工具，支持多种IDE
 <a href="https://github.com/paul-gauthier/aider" target="_blank">Aider</a> | `aider` | 基于GPT的AI pair programming工具
 <a href="https://github.com/moyix/fauxpilot" target="_blank">FauxPilot</a> | `fauxpilot` | 开源的GitHub Copilot替代品
+<a href="https://github.com/SWE-agent/SWE-agent" target="_blank">SWE-agent</a> | `swe-agent` | 面向GitHub问题修复的编码Agent：让模型自主用工具修改真实仓库
 
 #### 1.11.10 AI工具平台
 
@@ -897,11 +917,26 @@
 ---- | ---- | ----
 <a href="https://mcp.so/">MCP.so</a> | `mcp.so` | 开放MCP工具集合
 <a href="https://21st.dev/">21st.dev</a> | `21st` | AI友好的前端React组件集合
+<a href="https://github.com/openclaw/openclaw">OpenClaw</a> | `openclaw` | 个人AI助手/Agent平台（本地自托管、多渠道接入、Skills生态）
 <a href="https://github.com/langgenius/dify">Dify</a> | `dify` | AI workflow编排平台，有开放平台
 <a href="https://www.coze.cn/">Coze</a> | `coze` | AI workflow编排开放平台，国产，字节
 <a href="https://www.langflow.org/" target="_blank">Langflow</a> | `langflow` | 可视化AI应用构建平台
 <a href="https://flowise.ai/" target="_blank">Flowise</a> | `flowise` | 拖拽式LLM应用构建工具
 <a href="https://github.com/FlowiseAI/Flowise" target="_blank">Flowise开源</a> | `flowise-open` | Flowise的开源版本
+
+#### 1.11.11 Agent Skills
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://skills.sh/" target="_blank">Skills.sh</a> | `skills-sh` | Agent Skills 目录/浏览站（按 repo / skill 发现与安装指引）
+<a href="https://skillsmp.com/" target="_blank">SkillsMP</a> | `skillsmp` | Agent Skills Marketplace（聚合海量 skills，主打跨 Claude Code / Codex CLI / ChatGPT 等兼容）
+<a href="https://agentskills.io/home" target="_blank">AgentSkills.io</a> | `agentskills-io` | Agent Skills 官方入口（概念介绍、规范、集成指南等）
+<a href="https://agentskills.io/specification" target="_blank">Agent Skills Specification</a> | `skills-spec` | SKILL.md 格式规范（frontmatter + instructions + resources 的结构与建议）
+<a href="https://github.com/agentskills/agentskills" target="_blank">agentskills/agentskills</a> | `skills-spec-repo` | Agent Skills 规范与文档仓库（Write once, use everywhere 的开放格式）
+<a href="https://github.com/anthropics/skills" target="_blank">anthropics/skills</a> | `anthropics-skills` | Anthropic 官方示例 skills 集合（含 template-skill / skill-creator 等）
+<a href="https://github.com/vercel-labs/agent-skills" target="_blank">vercel-labs/agent-skills</a> | `vercel-agent-skills` | Vercel 官方 skills 集合（覆盖前端/部署/最佳实践等）
+<a href="https://github.com/vercel-labs/skills" target="_blank">vercel-labs/skills</a> | `skills-cli` | Skills CLI（`npx skills add/find/check/update`）用于安装/发现/更新 skills
+<a href="https://github.com/softaworks/agent-toolkit" target="_blank">softaworks/agent-toolkit</a> | `agent-toolkit` | 社区高人气 skills 合集（开发流程、规划、文档、架构、沟通等多类）
 
 
 ### 1.12 WebAssembly
@@ -909,8 +944,11 @@
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://www.assemblyscript.org/" target="_blank">AssemblyScript</a> | `assemblyscript` | 用TypeScript写wasm
-<a href="https://wasmtime.dev/" target="_blank">Wasmtime</a> | `wasmtime` | 一个快速安全的wasm运行时，字节
+<a href="https://wasmtime.dev/" target="_blank">Wasmtime</a> | `wasmtime` | 一个快速安全的wasm运行时
 <a href="https://mbebenita.github.io/WasmExplorer/" target="_blank"> WasmExplorer </a> | `WasmExplorer` | 一个在线的wasm playground
+<a href="https://github.com/drager/wasm-pack" target="_blank">wasm-pack</a> | `wasm-pack` | Rust → Wasm 构建/发布到 npm 的常用工具
+<a href="https://github.com/wasm-bindgen/wasm-bindgen" target="_blank">wasm-bindgen</a> | `wasm-bindgen` | Rust 与 JS/Wasm 绑定与 glue code 工具链核心
+<a href="https://github.com/wasmerio/wasmer" target="_blank">Wasmer</a> | `wasmer` | 主流 Wasm runtime
 
 
 ### 1.13 IDE插件

@@ -15,13 +15,13 @@
     "id": "tel",
     "name": "(中国大陆)电话",
     "description": "固定电话",
-    "regexStr": "(\\(\\d{3,4}\\)|\\d{3,4}-|\\s)?\\d{8}"
+    "regexStr": "^(?:\\(\\d{3,4}\\)|\\d{3,4}-|\\s)?\\d{8}$"
   },
   {
     "id": "url",
     "name": "URL地址",
     "description": "",
-    "regexStr": "^((http://)|(https://))?([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}(/?)"
+    "regexStr": "^((http://)|(https://))?([a-zA-Z0-9]([a-zA-Z0-9\\-]{0,61}[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,6}(/?)$"
   },
   {
     "id": "ipv4",
@@ -51,7 +51,7 @@
     "id": "Integer",
     "name": "整数数字",
     "description": "",
-    "regexStr": "^-?[1-9]\\d*$|^0$"
+    "regexStr": "^(?:-?[1-9]\\d*|0)$"
   },
   {
     "id": "PositiveInteger",
@@ -69,13 +69,13 @@
     "id": "number4",
     "name": "非负整数数字",
     "description": "",
-    "regexStr": "^[1-9]\\d*|0$"
+    "regexStr": "^(?:[1-9]\\d*|0)$"
   },
   {
     "id": "number5",
     "name": "非正整数数字",
     "description": "",
-    "regexStr": "^-[1-9]\\d*|0$"
+    "regexStr": "^(?:-[1-9]\\d*|0)$"
   },
   {
     "id": "Positivenumber",
@@ -93,31 +93,73 @@
     "id": "number6",
     "name": "浮点数",
     "description": "不能为整数",
-    "regexStr": "^-?([1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*|0?\\.0+|0)$"
+    "regexStr": "^-?(?:[1-9]\\d*\\.\\d+|0\\.\\d+)$"
   },
   {
     "id": "number7",
     "name": "正浮点数",
     "description": "不能为整数",
-    "regexStr": "^[1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*$"
+    "regexStr": "^(?:[1-9]\\d*\\.\\d+|0\\.\\d*[1-9]\\d*)$"
   },
   {
     "id": "number8",
     "name": "负浮点数",
     "description": "不能为整数",
-    "regexStr": "^-([1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*)$"
+    "regexStr": "^-(?:[1-9]\\d*\\.\\d+|0\\.\\d*[1-9]\\d*)$"
   },
   {
     "id": "number9",
     "name": "非负浮点数",
     "description": "不能为整数",
-    "regexStr": "^[1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*|0?\\.0+|0$"
+    "regexStr": "^(?:[1-9]\\d*\\.\\d+|0\\.\\d+)$"
   },
   {
     "id": "number10",
     "name": "非正浮点数",
     "description": "不能为整数",
-    "regexStr": "^(-([1-9]\\d*\\.\\d*|0\\.\\d*[1-9]\\d*))|0?\\.0+|0$"
+    "regexStr": "^(?:-(?:[1-9]\\d*\\.\\d+|0\\.\\d*[1-9]\\d*)|0\\.0+)$"
+  },
+  {
+    "id": "intZeroOrPositive",
+    "name": "零或正整数",
+    "description": "",
+    "regexStr": "^(?:0|[1-9]\\d*)$"
+  },
+  {
+    "id": "intZeroOrNegative",
+    "name": "零或负整数",
+    "description": "",
+    "regexStr": "^(?:0|-[1-9]\\d*)$"
+  },
+  {
+    "id": "floatNumber",
+    "name": "浮点数(可为整数)",
+    "description": "允许整数和小数",
+    "regexStr": "^-?(?:\\d+)(?:\\.\\d+)?$"
+  },
+  {
+    "id": "floatNumberNoInt",
+    "name": "浮点数(不可为整数)",
+    "description": "必须含小数点",
+    "regexStr": "^-?(?:\\d+\\.\\d+)$"
+  },
+  {
+    "id": "currency2dp",
+    "name": "金额(最多2位小数)",
+    "description": "",
+    "regexStr": "^(?:0|[1-9]\\d*)(?:\\.\\d{1,2})?$"
+  },
+  {
+    "id": "percent0to100",
+    "name": "百分比(0-100)",
+    "description": "允许小数",
+    "regexStr": "^(?:100(?:\\.0+)?|[0-9]?\\d(?:\\.\\d+)?)$"
+  },
+  {
+    "id": "percent0to1",
+    "name": "百分比(0-1)",
+    "description": "允许小数",
+    "regexStr": "^(?:1(?:\\.0+)?|0(?:\\.\\d+)?)$"
   },
   {
     "id": "englishAndNumber",
@@ -135,7 +177,7 @@
     "id": "chineseAndEnglishAndNumberAndLine",
     "name": "中文英文数字或下划线",
     "description": "中文、英文、数字包括下划线",
-    "regexStr": "^\\w+$"
+    "regexStr": "^[\\u4E00-\\u9FA5A-Za-z0-9_]+$"
   },
   {
     "id": "chineseAndEnglishAndNumberNotLine",
@@ -168,22 +210,46 @@
     "regexStr": "^[a-z]+$"
   },
   {
+    "id": "noSpace",
+    "name": "不含空白字符",
+    "description": "",
+    "regexStr": "^\\S+$"
+  },
+  {
+    "id": "trimmed",
+    "name": "首尾无空白",
+    "description": "",
+    "regexStr": "^\\S(?:[\\s\\S]*\\S)?$"
+  },
+  {
+    "id": "noControlChars",
+    "name": "无控制字符",
+    "description": "",
+    "regexStr": "^[^\\x00-\\x1F\\x7F]*$"
+  },
+  {
+    "id": "ascii",
+    "name": "ASCII字符",
+    "description": "",
+    "regexStr": "^[\\x00-\\x7F]+$"
+  },
+  {
     "id": "noSymbol1",
     "name": "禁止符号",
     "description": "禁止输入含有%&\",;=?$\"等字符",
-    "regexStr": "[^%&\",;=?$\\x22]+"
+    "regexStr": "^[^%&\",;=?$\\x22]+$"
   },
   {
     "id": "noWave",
     "name": "禁止~符号",
     "description": "禁止输入含有~的字符",
-    "regexStr": "[^~\\x22]+"
+    "regexStr": "^[^~]+$"
   },
   {
     "id": "dateFormat",
     "name": "日期格式",
     "description": "日期格式符合mm/dd/yyyy规范",
-    "regexStr": "^(0?[1-9]|[12][0-9]|3[01])([/\\-])(0?[1-9]|1[012])\\2([0-9][0-9][0-9][0-9])(([-])([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9])?$"
+    "regexStr": "^(0?[1-9]|1[012])([/\\-])(0?[1-9]|[12][0-9]|3[01])\\2([0-9][0-9][0-9][0-9])(([-])([0-1]?[0-9]|2[0-3]):[0-5]?[0-9]:[0-5]?[0-9])?$"
   },
   {
     "id": "timeFormat",
@@ -195,13 +261,13 @@
     "id": "md5",
     "name": "MD5",
     "description": "32位MD5字符串",
-    "regexStr": "^[a-f0-9]{32}$"
+    "regexStr": "^[a-fA-F0-9]{32}$"
   },
   {
     "id": "base64",
     "name": "BASE64",
     "description": "BASE64字符串",
-    "regexStr": "^\\s*data:(?:[a-z]+/[a-z0-9-+.]+(?:;[a-z-]+=[a-z0-9-]+)?)?(?:;base64)?,([a-z0-9!$&',()*+;=\\-._~:@/?%\\s]*?)\\s*$"
+    "regexStr": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$"
   },
   {
     "id": "hexColor",
@@ -213,31 +279,31 @@
     "id": "video",
     "name": "视频文件",
     "description": "",
-    "regexStr": ".*?(?:swf|avi|flv|mpg|rm|mov|wav|asf|3gp|mkv|rmvb|mp4)$"
+    "regexStr": "^.*\\.(?:swf|avi|flv|mpg|rm|mov|asf|3gp|mkv|rmvb|mp4)$"
   },
   {
     "id": "image",
     "name": "图片文件",
     "description": "",
-    "regexStr": ".*?(?:gif|png|jpg|jpeg|webp|svg|psd|bmp|tif)$"
+    "regexStr": "^.*\\.(?:gif|png|jpg|jpeg|webp|svg|psd|bmp|tif)$"
   },
   {
     "id": "audio",
     "name": "音频文件",
     "description": "",
-    "regexStr": ".*?(?:mp3|wav|wma|amr|aac|flac|ape)$"
+    "regexStr": "^.*\\.(?:mp3|wav|wma|amr|aac|flac|ape)$"
   },
   {
     "id": "doc",
     "name": "文档文件",
     "description": "",
-    "regexStr": ".*?(?:doc|docx|xls|xlsx|ppt|pptx|pdf|txt|md)$"
+    "regexStr": "^.*\\.(?:doc|docx|xls|xlsx|ppt|pptx|pdf|txt|md)$"
   },
   {
     "id": "rar",
     "name": "压缩文件",
     "description": "",
-    "regexStr": ".*?(?:rar|zip|7z|tar|gz)$"
+    "regexStr": "^.*\\.(?:rar|zip|7z|tar|gz)$"
   },
   {
     "id": "html",
@@ -249,19 +315,19 @@
     "id": "newEnergyLicense",
     "name": "新能源车牌",
     "description": "",
-    "regexStr": "[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-HJ-NP-Z]{1}(([0-9]{5}[DF])|([DF][A-HJ-NP-Z0-9][0-9]{4}))$"
+    "regexStr": "^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-HJ-NP-Z]{1}(([0-9]{5}[DF])|([DF][A-HJ-NP-Z0-9][0-9]{4}))$"
   },
   {
     "id": "license",
     "name": "普通车牌",
     "description": "新能源车+非新能源车",
-    "regexStr": "^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-HJ-NP-Z]{1}(?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4})))|(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领 A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学警港澳]{1})$"
+    "regexStr": "^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-HJ-NP-Z]{1}(?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4}))|[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]{1}[A-Z]{1}[A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]{1})$"
   },
   {
     "id": "vehicleLicense",
     "name": "全部车牌",
     "description": "新能源和普通车牌",
-    "regexStr": "^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z](?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4})))|(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9 挂学警港澳])$"
+    "regexStr": "^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z](?:(?:[0-9]{5}[DF])|(?:[DF](?:[A-HJ-NP-Z0-9])[0-9]{4}))|[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳])$"
   },
   {
     "id": "A-SHARE",
@@ -333,7 +399,7 @@
     "id": "idCard",
     "name": "身份证",
     "description": "",
-    "regexStr": "^\\d{15}|\\d{18}$"
+    "regexStr": "^(?:\\d{15}|\\d{17}[0-9Xx])$"
   },
   {
     "id": "passport",
@@ -369,6 +435,6 @@
     "id": "emptyLine",
     "name": "空白行",
     "description": "是否包含空白行",
-    "regexStr": "^[\\s\\S]*\\n"
+    "regexStr": "^[\\s\\S]*\\n\\s*(?:\\n|$)[\\s\\S]*$"
   }
 ]

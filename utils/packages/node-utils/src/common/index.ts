@@ -10,6 +10,8 @@
  * @since 1.0.0
  */
 
+import { isValidSQL } from './sql';
+
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const isBuffer = require('buffer').Buffer.isBuffer;
 
@@ -54,7 +56,10 @@ export function getTimeStr(timeStr?: string) {
   return `${date.getFullYear()}/${_month}/${_day} ${_hour}:${_minute}:${_second}`;
 }
 
+export * from './sql';
+
 export default {
   isBuffer,
   getTimeStr,
+  isValidSQL,
 };
