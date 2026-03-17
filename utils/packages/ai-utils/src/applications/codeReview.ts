@@ -38,9 +38,9 @@ function getCodeReviewPromptTxt(patch: string) {
   return applyTemplate(STANDARD_PROMPT_TEMPLATE, {
     role: 'Frontend Expert and Code Reviewer',
     task_description:
-      'Perform a concise code review on the provided patch. Identify bug risks, improvement suggestions, and provide analysis in Chinese.',
+      'Review the provided patch and identify correctness risks, maintainability issues, and practical improvement suggestions. Respond in Chinese.',
     format_instructions:
-      'Respond with TypeScript/JavaScript code if issues are found. Ensure the result uses the following JSON format:\n' +
+      'Return only JSON using the following structure:\n' +
       '```json\n' +
       '{\n' +
       '  "score": ..,\n' +
@@ -54,10 +54,10 @@ function getCodeReviewPromptTxt(patch: string) {
       '  ]\n' +
       '}\n' +
       '```\n' +
-      'Your suggestions should be brief and clear.',
+      'Use an empty details array when no actionable issue is found. Suggestions must be brief and specific.',
     input_content: patch,
     additional_instructions:
-      'Analyze the code patch step-by-step. Focus on correctness, efficiency, and best practices.',
+      'Focus on real defects, edge cases, regressions, unsafe assumptions, and API misuse. Avoid style-only comments unless they affect maintainability or correctness.',
   });
 }
 

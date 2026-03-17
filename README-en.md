@@ -973,6 +973,7 @@ Contents:
 | https://mcp.so/ | mcp.so | Open MCP tool collection |
 | https://21st.dev/ | 21st | AI-friendly frontend React component collection |
 | https://github.com/openclaw/openclaw | openclaw | Personal AI assistant/agent platform (self-hosted, multi-channel access, skills ecosystem) |
+| https://clawhub.ai/ | clawHub | Skill collection platform applicable to OpenClaw/ClaudeCode/Codex |
 | https://github.com/langgenius/dify | dify | AI workflow orchestration platform with open platform |
 | https://www.coze.cn/ | coze | AI workflow orchestration open platform, domestic, ByteDance |
 | https://www.langflow.org/ | langflow | Visual AI application building platform |

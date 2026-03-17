@@ -12,11 +12,14 @@ npm install @fe-tools/ai-utils
 
 ### applications
 
+- **genFrontendSeoAuditPrompt** - 生成用于前端 SEO 检查的 Prompt。针对页面代码、HTML 或页面描述，检查 metadata、语义结构、可抓取性、结构化数据机会和可执行修复建议。(文件: `src/applications/checkSEO.ts`)
+- **genFrontendAccessibilityAuditPrompt** - 生成用于前端可访问性检查的 Prompt。聚焦语义标签、键盘可达性、焦点管理、表单标签和 ARIA 使用等开发可修复问题。(文件: `src/applications/checkAccessibility.ts`)
+- **genFrontendPerformanceAuditPrompt** - 生成用于前端性能检查的 Prompt。用于分析渲染成本、资源加载、网络与缓存策略以及 Web Vitals 相关风险，并输出带优先级的建议。(文件: `src/applications/checkPerformance.ts`)
 - **genCodeReviewPrompt** - 生成用于代码审查的 Prompt。会分析代码片段，识别潜在的 bug 风险和改进建议，并要求以特定 JSON 格式返回结果。(文件: `src/applications/codeReview.ts`)
 - **genSqlPrompt** - 生成用于 SQL 查询的 Prompt。可以根据提供的数据库 schema 和自然语言描述生成 SQL 语句。(文件: `src/applications/createSQL.ts`)
-- **genUnitTestCasesPrompt** - 生成用于创建单元测试的 Prompt。针对提供的代码片段，生成覆盖主要功能、边界条件和潜在错误的 Jest 单元测试代码。(文件: `src/applications/createUnitTestCases.ts`)
+- **genUnitTestCasesPrompt** - 生成用于创建单元测试的 Prompt。针对输入代码推断测试目标，生成覆盖主要功能、边界条件和潜在错误路径的 Jest 单元测试代码，不再依赖固定业务方法名。(文件: `src/applications/createUnitTestCases.ts`)
 - **genEnhancePrompt** - 生成用于增强 Prompt 的 Prompt。将用户提供的简单描述优化为更具体、可操作、更有效的 AI 指令。(文件: `src/applications/enhancePrompt.ts`)
-- **genCreateReactComponentPrompt** - 生成用于创建 React 组件的 Prompt。根据用户描述，生成符合现代 React (18.2) 和 TailwindCSS 规范的高质量组件代码。(文件: `src/applications/createReactComponent.ts`)
+- **genCreateReactComponentPrompt** - 生成用于创建 React 组件的 Prompt。根据用户描述，生成更贴近现代 React + TypeScript + TailwindCSS 实战约束的组件代码，强调语义结构、可访问性和可直接落地的实现。(文件: `src/applications/createReactComponent.ts`)
 - **genSummaryPrompt** - 生成用于文本摘要的 Prompt。根据输入文本和可选的长度、语言参数，生成简洁明了的摘要。(文件: `src/applications/createSummary.ts`)
 - **genTranslatePrompt** - 生成用于文本翻译的 Prompt。根据源语言、目标语言和可选的风格，生成准确的翻译结果。(文件: `src/applications/translate.ts`)
 
