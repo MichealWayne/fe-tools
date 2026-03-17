@@ -4,6 +4,9 @@
  */
 
 import {
+  genFrontendAccessibilityAuditPrompt,
+  genFrontendPerformanceAuditPrompt,
+  genFrontendSeoAuditPrompt,
   genCodeReviewPrompt,
   genSqlPrompt,
   genUnitTestCasesPrompt,
@@ -110,7 +113,8 @@ describe('ai-utils', () => {
         expect(prompt).toContain('### Role ###');
         expect(prompt).toContain('Frontend Expert and Code Reviewer');
         expect(prompt).toContain(mockCode);
-        expect(prompt).toContain('JSON format');
+        expect(prompt).toContain('Return only JSON');
+        expect(prompt).toContain('empty details array');
       });
 
       it('should return empty string for very long code input', () => {
@@ -143,9 +147,11 @@ describe('ai-utils', () => {
       it('should generate unit test prompt correctly', () => {
         const prompt = genUnitTestCasesPrompt(mockCode);
         expect(prompt).toContain('### Role ###');
-        expect(prompt).toContain('Expert Software Tester');
+        expect(prompt).toContain('Expert JavaScript and TypeScript test engineer');
         expect(prompt).toContain('Jest');
         expect(prompt).toContain(mockCode);
+        expect(prompt).toContain('do not assume project-specific APIs');
+        expect(prompt).not.toContain('prepareChatMessages');
       });
 
       it('should return empty string for very long code input', () => {
@@ -182,9 +188,11 @@ describe('ai-utils', () => {
         const description = 'A simple button component.';
         const prompt = genCreateReactComponentPrompt(description);
         expect(prompt).toContain('### Role ###');
-        expect(prompt).toContain('Professional React Developer');
+        expect(prompt).toContain('Senior React and TypeScript frontend engineer');
         expect(prompt).toContain('TailwindCSS');
         expect(prompt).toContain(description);
+        expect(prompt).toContain('Return only the complete component implementation in TSX');
+        expect(prompt).not.toContain('Add PropTypes validation');
       });
 
       it('should return empty string for very long description', () => {
@@ -248,6 +256,55 @@ describe('ai-utils', () => {
         expect(prompt).toContain('from en to fr');
         expect(prompt).toContain('formal style');
         expect(prompt).toContain(text);
+      });
+    });
+
+    describe('frontend audit prompts', () => {
+      it('should generate frontend SEO audit prompt correctly', () => {
+        const prompt = genFrontendSeoAuditPrompt({
+          content: '<head><title>Docs</title></head><main><h1>Docs</h1></main>',
+          pageUrl: 'https://example.com/docs',
+          targetKeywords: ['frontend docs'],
+        });
+
+        expect(prompt).toContain('Senior Technical SEO consultant');
+        expect(prompt).toContain('metadata');
+        expect(prompt).toContain('structured-data');
+        expect(prompt).toContain('https://example.com/docs');
+        expect(prompt).toContain('frontend docs');
+      });
+
+      it('should generate frontend accessibility audit prompt correctly', () => {
+        const prompt = genFrontendAccessibilityAuditPrompt({
+          content: '<button><svg></svg></button>',
+          userFlow: 'User opens a modal and confirms deletion',
+        });
+
+        expect(prompt).toContain('Senior accessibility engineer');
+        expect(prompt).toContain('keyboard support');
+        expect(prompt).toContain('User flow: User opens a modal and confirms deletion');
+        expect(prompt).toContain('focus');
+      });
+
+      it('should generate frontend performance audit prompt correctly', () => {
+        const prompt = genFrontendPerformanceAuditPrompt({
+          content: 'The page loads a 5MB hero image and blocks rendering on third-party scripts.',
+          goals: ['reduce LCP', 'improve INP'],
+        });
+
+        expect(prompt).toContain('Senior frontend performance engineer');
+        expect(prompt).toContain('Web Vitals');
+        expect(prompt).toContain('reduce LCP');
+        expect(prompt).toContain('improve INP');
+        expect(prompt).toContain('expectedImpact');
+      });
+
+      it('should return empty string for overly long frontend SEO input', () => {
+        const prompt = genFrontendSeoAuditPrompt({
+          content: veryLongString,
+        });
+
+        expect(prompt).toBe('');
       });
     });
   });

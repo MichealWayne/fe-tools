@@ -918,6 +918,7 @@
 <a href="https://mcp.so/">MCP.so</a> | `mcp.so` | 开放MCP工具集合
 <a href="https://21st.dev/">21st.dev</a> | `21st` | AI友好的前端React组件集合
 <a href="https://github.com/openclaw/openclaw">OpenClaw</a> | `openclaw` | 个人AI助手/Agent平台（本地自托管、多渠道接入、Skills生态）
+<a href="https://clawhub.ai/">ClawHub</a> | `clawhub` | 适用于OpenClaw/ClaudeCode/Codex的Skill集合平台
 <a href="https://github.com/langgenius/dify">Dify</a> | `dify` | AI workflow编排平台，有开放平台
 <a href="https://www.coze.cn/">Coze</a> | `coze` | AI workflow编排开放平台，国产，字节
 <a href="https://www.langflow.org/" target="_blank">Langflow</a> | `langflow` | 可视化AI应用构建平台

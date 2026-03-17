@@ -16,36 +16,29 @@ import { STANDARD_PROMPT_TEMPLATE } from '../templates';
 const MAX_TOKEN_LEN = 20000; // GPT-4o 32k, prompt text should be shorter
 
 const REACT_COMPONENT_INSTRUCTIONS = `
-1.  **Component Structure**
-    - Use functional components with PascalCase naming (e.g., 'PrimaryButton').
-    - Implement semantic HTML elements (article/section/header/nav preferred over div).
-    - Enable default export.
+1. **Component Structure**
+   - Use React functional components with TypeScript and PascalCase naming.
+   - Prefer semantic HTML and keep the DOM structure minimal and meaningful.
+   - Export a single ready-to-use component.
 
-2.  **Styling Requirements**
-    - Prioritize TailwindCSS with responsive design:
-        - Use max-w/percentage units for container widths.
-        - Implement mobile-first breakpoints (sm/md/lg/xl).
-        - Font sizes in px units (no custom font families).
-    - For style logic: Pre-process dynamic class combinations.
-    - Ensure cross-device compatibility.
+2. **Props Design**
+   - Define an explicit props interface with clear semantic names.
+   - Provide sensible optional props or defaults when the UI copy can vary.
+   - Avoid unnecessary abstractions, global dependencies, and hidden magic values.
 
-3.  **Props Design**
-    - Use semantic prop names (avoid generic terms like 'data'/'value').
-    - Externalize static text via props with default values.
-    - Include TypeScript type definitions for props.
-    - Add PropTypes validation.
+3. **Styling Requirements**
+   - Prefer TailwindCSS utility classes and mobile-first responsive behavior.
+   - Keep dynamic class logic readable and avoid duplicated class fragments.
+   - Ensure the component remains practical in a real product codebase instead of a demo-only snippet.
 
-4.  **Code Quality**
-    - Add comprehensive JSDoc comments covering: Component name, Functionality, Tech stack, Usage scenarios, Example implementation.
-    - Follow Airbnb JavaScript Style Guide.
-    - Add internal logic comments for complex operations.
-    - Implement error boundaries where appropriate.
+4. **Quality Requirements**
+   - Include concise JSDoc for the exported component and comments only where logic is non-obvious.
+   - Follow modern React patterns compatible with React 18 and TypeScript.
+   - Build in accessibility by default, including labels, roles, and keyboard expectations where relevant.
 
-5.  **Special Requirements**
-    - Ensure SEO-optimized markup structure.
-    - Comply with accessibility standards (ARIA labels/roles).
-    - Provide pure CSS fallbacks for critical layouts.
-    - Manage component lifecycle for side effects.
+5. **Output Discipline**
+   - If the request is ambiguous, make minimal reasonable assumptions inside the code rather than writing a long explanation.
+   - Keep the output self-contained and production-oriented.
 `.trim();
 
 /**
@@ -56,11 +49,11 @@ const REACT_COMPONENT_INSTRUCTIONS = `
  */
 function getCreateReactComponentPromptTxt(userDescription: string): string {
   return applyTemplate(STANDARD_PROMPT_TEMPLATE, {
-    role: 'Professional React Developer (React 18.2) with expertise in TailwindCSS',
+    role: 'Senior React and TypeScript frontend engineer with strong TailwindCSS experience',
     task_description:
-      "Generate a high-quality, well-structured React component based on the user's description.",
+      "Generate a production-ready React component based on the user's description.",
     format_instructions:
-      'Provide the complete React component implementation in TypeScript. Include JSDoc comments, prop types, default props, and usage examples.',
+      'Return only the complete component implementation in TSX. Do not include markdown code fences or explanatory prose.',
     input_content: userDescription,
     additional_instructions: REACT_COMPONENT_INSTRUCTIONS,
   });
