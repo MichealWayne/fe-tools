@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 const repoRoot = path.resolve(__dirname, '..');
-const sourceDir = path.join(repoRoot, 'skills');
+const preferredSourceDir = path.join(repoRoot, 'skills');
+const fallbackSourceDir = path.join(repoRoot, 'utils', 'skills');
 const targets = [
   path.join(repoRoot, '.codex', 'skills'),
   path.join(repoRoot, '.claude', 'skills'),
@@ -39,8 +40,11 @@ async function copyDir(src, dest) {
 }
 
 async function syncSkills() {
-  const hasSource = await pathExists(sourceDir);
-  if (!hasSource) {
+  const sourceDir = (await pathExists(preferredSourceDir))
+    ? preferredSourceDir
+    : fallbackSourceDir;
+
+  if (!(await pathExists(sourceDir))) {
     console.log('skills:sync: no skills directory found, skipping');
     return;
   }
