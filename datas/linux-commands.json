@@ -95,7 +95,7 @@
   },
   {
     "name": "rm",
-    "description": "删除文件或目录",
+    "description": "删除文件或目录，使用前应谨慎确认路径",
     "syntax": "rm [选项] 文件或目录",
     "examples": [{
         "command": "rm file.txt",
@@ -103,7 +103,7 @@
       },
       {
         "command": "rm -rf directory",
-        "description": "强制递归删除目录及其内容"
+        "description": "强制递归删除目录及其内容，危险操作需谨慎"
       }
     ],
     "options": [{
@@ -203,7 +203,7 @@
         "description": "按修改时间搜索"
       }
     ],
-    "tag": ["文件操作", "目录操作", "搜索工具"]
+    "tag": ["文件操作", "目录操作", "搜索工具", "文件查找"]
   },
   {
     "name": "grep",
@@ -280,11 +280,11 @@
     ],
     "options": [{
         "flag": "aux",
-        "description": "显示所有用户的所有进程"
+        "description": "常用参数组合，显示所有用户的所有进程"
       },
       {
         "flag": "-ef",
-        "description": "显示所有进程的完整格式"
+        "description": "常用选项组合，显示所有进程的完整格式"
       }
     ],
     "tag": ["进程管理"]
@@ -971,14 +971,14 @@
   },
   {
     "name": "mount",
-    "description": "挂载文件系统",
+    "description": "挂载文件系统，通常需要root权限",
     "syntax": "mount [选项] 设备 挂载点",
     "examples": [{
         "command": "mount /dev/sdb1 /mnt/usb",
-        "description": "挂载USB设备"
+        "description": "挂载USB设备，通常需要root权限"
       },
       {
-        "command": "mount -t ntfs /dev/sdb1 /mnt/windows",
+        "command": "sudo mount -t ntfs /dev/sdb1 /mnt/windows",
         "description": "挂载NTFS文件系统"
       }
     ],
@@ -995,14 +995,14 @@
   },
   {
     "name": "umount",
-    "description": "卸载文件系统",
+    "description": "卸载文件系统，通常需要root权限",
     "syntax": "umount [选项] 挂载点或设备",
     "examples": [{
-        "command": "umount /mnt/usb",
+        "command": "sudo umount /mnt/usb",
         "description": "卸载挂载点"
       },
       {
-        "command": "umount -f /mnt/usb",
+        "command": "sudo umount -f /mnt/usb",
         "description": "强制卸载"
       }
     ],
@@ -1043,10 +1043,10 @@
   },
   {
     "name": "fdisk",
-    "description": "磁盘分区工具",
+    "description": "磁盘分区工具，涉及分区修改时通常需要root权限",
     "syntax": "fdisk [选项] 设备",
     "examples": [{
-        "command": "fdisk -l",
+        "command": "sudo fdisk -l",
         "description": "列出所有磁盘分区"
       },
       {
@@ -1209,7 +1209,7 @@
   },
   {
     "name": "netstat",
-    "description": "显示网络连接信息",
+    "description": "显示网络连接信息，较老工具，现代系统常用ss替代",
     "syntax": "netstat [选项]",
     "examples": [{
         "command": "netstat -tuln",
@@ -1356,14 +1356,14 @@
   },
   {
     "name": "iptables",
-    "description": "配置防火墙规则",
+    "description": "配置防火墙规则，通常需要root权限",
     "syntax": "iptables [选项] [规则]",
     "examples": [{
-        "command": "iptables -L",
+        "command": "sudo iptables -L",
         "description": "列出所有规则"
       },
       {
-        "command": "iptables -A INPUT -p tcp --dport 22 -j ACCEPT",
+        "command": "sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT",
         "description": "允许SSH连接"
       }
     ],
@@ -1601,15 +1601,15 @@
     ],
     "options": [{
         "flag": "new",
-        "description": "创建新会话"
+        "description": "子命令，用于创建新会话"
       },
       {
         "flag": "attach",
-        "description": "连接到会话"
+        "description": "子命令，用于连接到会话"
       },
       {
         "flag": "list-sessions",
-        "description": "列出所有会话"
+        "description": "子命令，用于列出所有会话"
       }
     ],
     "tag": ["终端复用器"]
@@ -2178,11 +2178,11 @@
         "description": "只显示匹配数量"
       }
     ],
-    "tag": ["文件查找", "搜索工具"]
+    "tag": ["搜索工具", "文件查找"]
   },
   {
     "name": "updatedb",
-    "description": "更新locate数据库",
+    "description": "更新locate数据库，通常需要root权限",
     "syntax": "updatedb [选项]",
     "examples": [{
       "command": "sudo updatedb",
@@ -2196,8 +2196,8 @@
     "description": "从标准输入构建和执行命令行",
     "syntax": "xargs [选项] [命令]",
     "examples": [{
-        "command": "find . -name \"*.txt\" | xargs rm",
-        "description": "删除所有.txt文件"
+        "command": "find . -name \"*.txt\" | xargs -n 1 echo",
+        "description": "逐个输出找到的.txt文件，便于确认参数传递结果"
       },
       {
         "command": "echo \"file1 file2 file3\" | xargs -n 1 echo",
@@ -2450,18 +2450,18 @@
   },
   {
     "name": "apt",
-    "description": "Debian/Ubuntu包管理器",
+    "description": "Debian/Ubuntu包管理器，安装和卸载通常需要root权限",
     "syntax": "apt [选项] 命令 [包名]",
     "examples": [{
-        "command": "apt update",
+        "command": "sudo apt update",
         "description": "更新包列表"
       },
       {
-        "command": "apt install package_name",
+        "command": "sudo apt install package_name",
         "description": "安装软件包"
       },
       {
-        "command": "apt remove package_name",
+        "command": "sudo apt remove package_name",
         "description": "卸载软件包"
       },
       {
@@ -2482,18 +2482,18 @@
   },
   {
     "name": "yum",
-    "description": "RedHat/CentOS包管理器",
+    "description": "RedHat/CentOS包管理器，安装和卸载通常需要root权限",
     "syntax": "yum [选项] 命令 [包名]",
     "examples": [{
-        "command": "yum update",
+        "command": "sudo yum update",
         "description": "更新所有包"
       },
       {
-        "command": "yum install package_name",
+        "command": "sudo yum install package_name",
         "description": "安装软件包"
       },
       {
-        "command": "yum remove package_name",
+        "command": "sudo yum remove package_name",
         "description": "卸载软件包"
       },
       {
@@ -2514,18 +2514,18 @@
   },
   {
     "name": "dnf",
-    "description": "Fedora包管理器",
+    "description": "Fedora包管理器，安装和卸载通常需要root权限",
     "syntax": "dnf [选项] 命令 [包名]",
     "examples": [{
-        "command": "dnf update",
+        "command": "sudo dnf update",
         "description": "更新所有包"
       },
       {
-        "command": "dnf install package_name",
+        "command": "sudo dnf install package_name",
         "description": "安装软件包"
       },
       {
-        "command": "dnf remove package_name",
+        "command": "sudo dnf remove package_name",
         "description": "卸载软件包"
       }
     ],
@@ -2537,10 +2537,10 @@
   },
   {
     "name": "snap",
-    "description": "Snap包管理器",
+    "description": "Snap包管理器，系统级安装和卸载通常需要root权限",
     "syntax": "snap [选项] 命令 [包名]",
     "examples": [{
-        "command": "snap install package_name",
+        "command": "sudo snap install package_name",
         "description": "安装snap包"
       },
       {
@@ -2548,7 +2548,7 @@
         "description": "列出已安装的snap包"
       },
       {
-        "command": "snap remove package_name",
+        "command": "sudo snap remove package_name",
         "description": "卸载snap包"
       }
     ],
@@ -2565,11 +2565,11 @@
   },
   {
     "name": "flatpak",
-    "description": "Flatpak包管理器",
+    "description": "Flatpak包管理器，系统级安装通常需要root权限",
     "syntax": "flatpak [选项] 命令 [包名]",
     "examples": [{
         "command": "flatpak install app_id",
-        "description": "安装应用"
+        "description": "系统级安装应用"
       },
       {
         "command": "flatpak list",
@@ -3239,18 +3239,18 @@
   },
   {
     "name": "dmidecode",
-    "description": "显示DMI/SMBIOS硬件信息",
+    "description": "显示DMI/SMBIOS硬件信息，通常需要root权限",
     "syntax": "dmidecode [选项]",
     "examples": [{
-        "command": "dmidecode",
+        "command": "sudo dmidecode",
         "description": "显示所有DMI信息"
       },
       {
-        "command": "dmidecode -t memory",
+        "command": "sudo dmidecode -t memory",
         "description": "只显示内存信息"
       },
       {
-        "command": "dmidecode -t processor",
+        "command": "sudo dmidecode -t processor",
         "description": "只显示处理器信息"
       }
     ],
@@ -3375,7 +3375,7 @@
   },
   {
     "name": "ifconfig",
-    "description": "配置网络接口",
+    "description": "配置网络接口，较老工具，现代系统常用ip替代",
     "syntax": "ifconfig [接口] [选项]",
     "examples": [{
         "command": "ifconfig",
@@ -3392,11 +3392,11 @@
     ],
     "options": [{
         "flag": "up",
-        "description": "启用接口"
+        "description": "参数关键字，用于启用接口"
       },
       {
         "flag": "down",
-        "description": "禁用接口"
+        "description": "参数关键字，用于禁用接口"
       }
     ],
     "tag": ["网络配置"]
@@ -3435,7 +3435,7 @@
   },
   {
     "name": "route",
-    "description": "显示和配置路由表",
+    "description": "显示和配置路由表，较老工具，现代系统常用ip route替代",
     "syntax": "route [选项]",
     "examples": [{
         "command": "route -n",
@@ -3452,18 +3452,18 @@
       },
       {
         "flag": "add",
-        "description": "添加路由"
+        "description": "子命令关键字，用于添加路由"
       },
       {
         "flag": "del",
-        "description": "删除路由"
+        "description": "子命令关键字，用于删除路由"
       }
     ],
     "tag": ["网络配置"]
   },
   {
     "name": "arp",
-    "description": "显示和修改ARP表",
+    "description": "显示和修改ARP表，较老工具，现代系统常用ip neigh替代",
     "syntax": "arp [选项]",
     "examples": [{
         "command": "arp -a",
@@ -3487,7 +3487,7 @@
   },
   {
     "name": "iwconfig",
-    "description": "配置无线网络接口",
+    "description": "配置无线网络接口，较老工具，现代系统通常使用iw",
     "syntax": "iwconfig [接口] [选项]",
     "examples": [{
         "command": "iwconfig",
@@ -3500,18 +3500,18 @@
     ],
     "options": [{
         "flag": "essid",
-        "description": "设置网络名称"
+        "description": "参数关键字，用于设置网络名称"
       },
       {
         "flag": "key",
-        "description": "设置密钥"
+        "description": "参数关键字，用于设置密钥"
       }
     ],
     "tag": ["网络配置"]
   },
   {
     "name": "iwlist",
-    "description": "显示无线网络信息",
+    "description": "显示无线网络信息，较老工具，现代系统通常使用iw",
     "syntax": "iwlist [接口] 选项",
     "examples": [{
         "command": "iwlist scan",
@@ -3524,11 +3524,11 @@
     ],
     "options": [{
         "flag": "scan",
-        "description": "扫描网络"
+        "description": "参数关键字，用于扫描网络"
       },
       {
         "flag": "freq",
-        "description": "显示频率信息"
+        "description": "参数关键字，用于显示频率信息"
       }
     ],
     "tag": ["网络配置"]

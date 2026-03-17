@@ -11,6 +11,9 @@
  */
 // gpt application
 export * from './applications/codeReview';
+export * from './applications/checkAccessibility';
+export * from './applications/checkPerformance';
+export * from './applications/checkSEO';
 export * from './applications/createSQL';
 export * from './applications/createUnitTestCases';
 export * from './applications/enhancePrompt';

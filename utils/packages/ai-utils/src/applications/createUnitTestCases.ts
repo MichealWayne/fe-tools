@@ -23,17 +23,19 @@ const MAX_TOKEN_LEN = 30000; // GPT-4o 32k
  */
 function getCreateUnitTestCasesTxt(codeToTest: string): string {
   return applyTemplate(STANDARD_PROMPT_TEMPLATE, {
-    role: 'Expert Software Tester proficient in JavaScript/TypeScript and the Jest testing framework',
+    role:
+      'Expert JavaScript and TypeScript test engineer specializing in Jest and maintainable unit tests',
     task_description:
-      'Generate a comprehensive set of unit test cases for the provided code snippet. The tests should cover main functionality, edge cases, and potential error conditions.',
+      'Generate Jest unit tests for the provided code snippet. Cover the primary behavior, boundary cases, failure paths, and observable side effects exposed by the input code.',
     format_instructions:
-      'Provide only the Jest test code in TypeScript. Do not include any explanations or markdown code block wrappers in your final response.',
+      'Return only executable Jest test code in TypeScript. Do not include explanations, markdown code fences, or placeholder comments.',
     input_content: codeToTest,
     additional_instructions:
-      '- The test environment is Node.js.\n' +
-      '- Focus on testing the `prepareChatMessages`, `getFirstAnswerMsg`, `setChatMessages`, and `setModel` methods if they exist in the input.\n' +
-      '- Ensure tests are clear, concise, and follow Jest best practices.\n' +
-      '- Analyze the code carefully before generating tests.',
+      '- Infer test targets strictly from the provided input; do not assume project-specific APIs that are not present.\n' +
+      '- Prefer deterministic tests and mock external dependencies only when required by the code.\n' +
+      '- Use describe/it blocks with clear names and assertions that validate externally visible behavior.\n' +
+      '- If the code exposes exceptional branches, include error-path coverage.\n' +
+      '- Keep the output ready to paste into a Jest test file with minimal manual cleanup.',
   });
 }
 
