@@ -41,19 +41,20 @@ Verify these paths before recommending:
 7. If no existing template is a strong fit, say so explicitly and recommend the nearest starting point plus the missing pieces to add.
 
 ## Selection Heuristics
-- Prefer modern defaults unless the user asks for legacy compatibility.
-- Frontend:
-  - `vite-react+ts`: default for modern React SPA, admin systems, internal tools, and fast TypeScript startup
-  - `nextjs+ts`: use for SSR, SEO, App Router, content-heavy sites, or routes that benefit from server capabilities
-  - `react`: use only when the user needs a traditional Webpack-based React baseline or compatibility with older setups
-  - `vite-vue3+ts`: default for modern Vue 3 + TS projects
-  - `vue`: use mainly for Vue 2 / legacy Webpack projects
-  - `webpack+ts`: use for framework-free TS apps or when custom bundling control matters more than startup speed
-  - `webpack`: use for plain JS legacy or very simple non-TS bundling needs
-- Backend:
-  - `fastify`: prefer for modern TypeScript APIs, performance, plugin ecosystem, Swagger/OpenAPI, and production-oriented Node services
-  - `koa2`: prefer for lighter custom services when the team wants a simpler middleware mental model
-  - `nestjs`: prefer when the team wants stronger structure, DI, modular architecture, or enterprise-style conventions, but verify its local completeness first because the root template index currently lists it as TODO
+Prefer modern defaults unless the user asks for legacy compatibility.
+
+| Template | Best for |
+|---|---|
+| `vite-react+ts` | Modern React SPA, admin systems, internal tools, fast TS startup |
+| `nextjs+ts` | SSR, SEO, App Router, content-heavy sites, server capabilities |
+| `react` | Traditional Webpack-based React baseline, older setup compatibility |
+| `vite-vue3+ts` | Modern Vue 3 + TS projects |
+| `vue` | Vue 2 / legacy Webpack projects |
+| `webpack+ts` | Framework-free TS apps, custom bundling control |
+| `webpack` | Plain JS legacy, simple non-TS bundling |
+| `fastify` | Modern TS APIs, performance, Swagger/OpenAPI, production services |
+| `koa2` | Lighter custom services, simpler middleware mental model |
+| `nestjs` | DI, modular architecture, enterprise conventions (verify completeness — listed as TODO in root index) |
 
 ## Output Format
 Use this structure:
