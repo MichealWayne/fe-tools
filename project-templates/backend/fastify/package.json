@@ -47,7 +47,7 @@
     "@types/dotenv": "^6.1.1",
     "@types/log4js": "^0.0.33",
     "dotenv": "^16.5.0",
-    "fastify": "^4.0.0",
+    "fastify": "^5.7.3",
     "log4js": "^6.9.1",
     "pino-pretty": "^10.0.0",
     "reflect-metadata": "^0.1.13",
