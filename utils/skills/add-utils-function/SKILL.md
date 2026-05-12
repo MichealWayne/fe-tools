@@ -14,7 +14,22 @@ description: Add or modify utility functions in fe-tools. Use when the user asks
 2. Search existing modules to avoid duplication (`rg <keyword> packages`).
 3. If an existing exported function already satisfies the request or differs only by naming/minor boundary behavior, do not create a new function. Reuse the existing function and respond with the current API name, file location, and any relevant behavior notes instead of adding duplicate functionality.
 4. Only when no suitable existing function exists, choose the most appropriate module file (e.g., `array.ts`, `validators.ts`) or create a new focused file. If creating a new file, use the `create-module-file` skill.
-5. Implement the function with explicit types and no `any`.
+5. Implement the function with explicit types and no `any`. Example:
+   ```ts
+   /**
+    * 将字符串首字母大写
+    * Capitalize the first letter of a string.
+    * @param str - 输入字符串 / input string
+    * @returns 首字母大写的字符串 / string with first letter capitalized
+    * @example
+    * capitalize('hello'); // 'Hello'
+    * @example
+    * capitalize(''); // ''
+    */
+   export function capitalize(str: string): string {
+     return str.charAt(0).toUpperCase() + str.slice(1);
+   }
+   ```
 6. Add bilingual JSDoc (Chinese + English), parameter/return docs, and at least two examples. Use the `bilingual-jsdoc` skill if needed.
 7. Export the function from the package `src/index.ts`. Use the `update-index-exports` skill if needed.
 8. Add unit tests in the package `__tests__` directory. Use the `add-tests` skill if needed.
