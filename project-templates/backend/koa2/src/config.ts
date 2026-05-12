@@ -3,10 +3,6 @@
  * @Date 2023-02-15 15:18:59
  * @LastEditTime 2024-05-17 09:55:55
  */
-import { join } from 'path';
-
-const pkg = require(join(__dirname, '../package.json'));
-
 export const LOG_INFO = {
   // 日志配置
   appenders: {
@@ -74,7 +70,7 @@ export const LOG_INFO = {
 
 export const isDev = process.env.NODE_ENV === 'development';
 export default {
-  port: pkg.port,
+  port: Number(process.env.PORT || 5000),
   isDev,
   file: {
     multipart: true,

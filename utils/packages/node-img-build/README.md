@@ -1,8 +1,20 @@
-# @fe-tools/node-img-build
+# fe-tools-node-img-build
 
 一个用于处理图片的 Node.js 工具包，支持生成不同倍率图片、WebP 格式转换、图片模糊处理和 Base64 编码转换。
 
 > 注意：本工具依赖于 [gm](https://www.npmjs.com/package/gm) 和 [ImageMagick](https://imagemagick.org/index.php)。请确保系统已安装 [ImageMagick](https://imagemagick.org/script/download.php)。
+
+## 安装与导入
+
+```bash
+npm install fe-tools-node-img-build
+```
+
+```ts
+import imageUtils from 'fe-tools-node-img-build';
+
+const images = imageUtils.getImgList('./assets', { recursive: true });
+```
 
 ## 核心功能
 

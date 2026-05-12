@@ -13,6 +13,8 @@
     "install:prod": "npm install --production",
     "docker:start": "npm install && node dist/",
     "lint": "eslint . --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write \"src/**/*.ts\"",
     "test": "jest"
   },
   "keywords": [
@@ -44,6 +46,7 @@
     "@fastify/rate-limit": "^8.0.0",
     "@fastify/swagger": "^8.0.0",
     "@fastify/swagger-ui": "^1.0.0",
+    "@sinclair/typebox": "^0.34.41",
     "@types/dotenv": "^6.1.1",
     "@types/log4js": "^0.0.33",
     "dotenv": "^16.5.0",

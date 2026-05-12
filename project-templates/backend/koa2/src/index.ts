@@ -27,7 +27,7 @@ app.use(router.routes()).use(router.allowedMethods());
 app.listen(config.port, () => {
   logger.info(new Date().toLocaleString());
   logger.info(`Service Loaded(${SERVER_NAME})`);
-  logger.info('Port', config.port);
+  logger.info('Port', String(config.port));
 });
 
 app.on('error', (err, ctx) => {
