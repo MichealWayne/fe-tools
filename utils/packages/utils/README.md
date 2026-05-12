@@ -1,6 +1,16 @@
-# @fe-tools/utils
+# fe-tools-utils
 
 提供 JavaScript/TypeScript 开发中常用的通用工具函数库。
+
+## 安装与导入
+
+```bash
+npm install fe-tools-utils
+```
+
+```ts
+import { to, unique, formatFileSize } from 'fe-tools-utils';
+```
 
 ## 功能列表
 
@@ -55,10 +65,6 @@
 ### Trade (交易) (文件: `src/trade.ts`)
 
 - 银行卡号校验、货币格式化。
-
-### Tween (缓动) (文件: `src/tween.ts`)
-
-- 提供缓动动画相关的计算函数。
 
 ### Type (类型) (文件: `src/type.ts`)
 

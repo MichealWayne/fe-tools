@@ -25,12 +25,13 @@ Keep this managed block so 'openspec update' can refresh the instructions.
 
 ### Packages Structure
 
-- **@fe-tools/utils** - Universal JavaScript utility functions (environment-agnostic)
-- **@fe-tools/web-utils** - Browser-specific utility functions
-- **@fe-tools/node-utils** - Node.js utility functions
-- **@fe-tools/ai-utils** - AI-related operations utilities
-- **@fe-tools/canvas-utils** - Canvas operations helpers
-- **@fe-tools/node-img-build** - Node.js image processing utilities
+- **fe-tools-utils** (`packages/utils`) - Universal JavaScript utility functions (environment-agnostic)
+- **fe-tools-webapi** (`packages/web-utils`) - Browser-specific utility functions
+- **fe-tools-node-utils** (`packages/node-utils`) - Node.js utility functions
+- **fe-tools-ai-utils** (`packages/ai-utils`) - AI-related operations utilities
+- **fe-tools-canvas-utils** (`packages/canvas-utils`) - Canvas operations helpers
+- **fe-tools-env** (`packages/env`) - Runtime environment detection utilities
+- **fe-tools-node-img-build** (`packages/node-img-build`) - Node.js image processing utilities
 
 ### Technology Stack
 
@@ -94,9 +95,9 @@ npm run test
 
 ```bash
 # Set environment variable to test specific package
-TEST_API=utils npm run test        # Test @fe-tools/utils only
-TEST_API=web-utils npm run test    # Test @fe-tools/web-utils only
-TEST_API=node-utils npm run test   # Test @fe-tools/node-utils only
+TEST_API=utils npm run test        # Test packages/utils only
+TEST_API=web-utils npm run test    # Test packages/web-utils only
+TEST_API=node-utils npm run test   # Test packages/node-utils only
 ```
 
 ### Test File Patterns
@@ -214,9 +215,9 @@ fe-tools/utils/
 
 1. **Choose the Correct Package**
 
-   - Environment-agnostic → `@fe-tools/utils`
-   - Browser-only → `@fe-tools/web-utils`
-   - Node.js-only → `@fe-tools/node-utils`
+   - Environment-agnostic → `packages/utils` (`fe-tools-utils`)
+   - Browser-only → `packages/web-utils` (`fe-tools-webapi`)
+   - Node.js-only → `packages/node-utils` (`fe-tools-node-utils`)
 
 2. **Implementation Steps**
 
@@ -386,22 +387,22 @@ lerna publish
 
 | Feature Type          | Package                    | Examples                                          |
 | --------------------- | -------------------------- | ------------------------------------------------- |
-| Pure JavaScript logic | `@fe-tools/utils`          | Array operations, string manipulation, validators |
-| Browser APIs          | `@fe-tools/web-utils`      | DOM, localStorage, cookies, Web APIs              |
-| Node.js APIs          | `@fe-tools/node-utils`     | File system, child process, HTTP server           |
-| AI/ML operations      | `@fe-tools/ai-utils`       | AI-specific utilities                             |
-| Canvas rendering      | `@fe-tools/canvas-utils`   | Canvas 2D operations                              |
-| Image processing      | `@fe-tools/node-img-build` | Image manipulation (Node.js)                      |
+| Pure JavaScript logic | `packages/utils`          | Array operations, string manipulation, validators |
+| Browser APIs          | `packages/web-utils`      | DOM, localStorage, cookies, Web APIs              |
+| Node.js APIs          | `packages/node-utils`     | File system, child process, HTTP server           |
+| AI/ML operations      | `packages/ai-utils`       | AI-specific utilities                             |
+| Canvas rendering      | `packages/canvas-utils`   | Canvas 2D operations                              |
+| Runtime detection     | `packages/env`            | Web, Node.js, mini program, React Native runtime checks |
+| Image processing      | `packages/node-img-build` | Image manipulation (Node.js)                      |
 
 ---
 
 ## Recent Feature Additions
 
-Refer to `FEATURE_ADDITIONS.md` for detailed information about recently added utilities:
-
 - **Utils Package**: Collection operations, validators, formatters, JSON processing
 - **Web-Utils Package**: Performance monitoring, network tools, form handling, i18n
 - **Node-Utils Package**: HTTP utilities, data format conversion (CSV, XML)
+- **Env Package**: Runtime environment detection
 
 Total: 60+ new utility functions with complete documentation and examples.
 
@@ -411,7 +412,7 @@ Total: 60+ new utility functions with complete documentation and examples.
 
 - **README_EN.md**: English project overview
 - **PROJECT_GUIDE.md**: Detailed project guide (Chinese)
-- **FEATURE_ADDITIONS.md**: Recent feature additions summary
+- **packages/*/README.md**: Package-level usage notes and module indexes
 - **Generated API Docs**: Run `npm run docs` to generate TypeDoc documentation
 
 ---
