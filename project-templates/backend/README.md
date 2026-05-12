@@ -16,7 +16,6 @@
 - [ ] 多包（Monorepo）模板
 - [ ] 更新部分模板的依赖版本
 - [ ] Express + TypeScript 模板
-- [ ] NestJS 模板
 - [ ] GraphQL 模板
 
 ## 更新信息

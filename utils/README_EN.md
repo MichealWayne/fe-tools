@@ -1,17 +1,22 @@
 # fe-tools
 
-A comprehensive collection of frontend JavaScript utility functions organized into focused packages.
+A TypeScript utility monorepo for browser, Node.js, canvas, AI prompt, environment, and image-processing helpers.
 
 ## 📦 Packages
 
 The project is organized as a monorepo with the following packages:
 
-- **ai-utils**: Utility functions for AI-related operations
-- **canvas-utils**: Helper functions for canvas operations
-- **node-img-build**: Node.js utilities for image processing
-- **node-utils**: Common Node.js utility functions
-- **utils**: Universal JavaScript utility functions (environment-agnostic)
-- **web-utils**: Browser-specific utility functions
+| Directory | Package name | Purpose |
+| --- | --- | --- |
+| `packages/utils` | `fe-tools-utils` | Universal JavaScript/TypeScript utilities |
+| `packages/web-utils` | `fe-tools-webapi` | Browser-specific utilities |
+| `packages/node-utils` | `fe-tools-node-utils` | Node.js utilities |
+| `packages/ai-utils` | `fe-tools-ai-utils` | AI prompt and model-adjacent helpers |
+| `packages/canvas-utils` | `fe-tools-canvas-utils` | Canvas drawing and geometry helpers |
+| `packages/env` | `fe-tools-env` | Runtime environment detection |
+| `packages/node-img-build` | `fe-tools-node-img-build` | Node.js image-processing helpers |
+
+The root build also creates an aggregate `fe-tools` package under `dist/fe-tools`.
 
 ## 🔍 Features
 
@@ -35,7 +40,7 @@ This generates documentation using TypeDoc with the configuration specified in `
 
 ### Requirements
 
-- Node.js (see package.json for version requirements)
+- Node.js
 - pnpm
 
 ### Contributing
@@ -50,9 +55,19 @@ This generates documentation using TypeDoc with the configuration specified in `
 
 This project uses ESLint and Prettier for code formatting. Configuration files are included in the repository.
 
+### Common Commands
+
+```sh
+pnpm install
+npm run test
+TEST_API=utils npm run test
+npm run build
+npm run docs
+```
+
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This workspace is licensed under the MIT License as declared in `package.json`.
 
 ## 👤 Author
 
