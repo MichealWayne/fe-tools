@@ -6,9 +6,6 @@ import { bootstrap } from './app';
 import { config } from './config';
 import { log } from './utils/logger';
 
-// Log configuration
-console.log(config);
-
 // Handle uncaught exceptions
 process.on('uncaughtException', error => {
   log.fatal('Uncaught Exception:', error);
@@ -86,7 +83,7 @@ const start = async () => {
     });
 
     log.info(`Server listening at ${address}`);
-    log.info(`API Documentation available at ${address}${config.apiPrefix}/documentation`);
+    log.info(`API Documentation available at ${address}/documentation`);
     log.info(`Health check: ${address}/health`);
     log.info('Ready to accept connections');
 

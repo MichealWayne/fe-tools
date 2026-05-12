@@ -18,6 +18,7 @@
 
 - **[fastify](./backend/fastify/)** - Fastify + TypeScript 高性能服务端模板 (Beta)
 - **[koa2](./backend/koa2/)** - Koa2 + TypeScript 服务端模板
+- **[nestjs](./backend/nestjs/)** - NestJS + TypeScript 服务端模板
 
 ## 🛠️ 使用方法
 
@@ -37,7 +38,6 @@
 ### 后端
 
 - [ ] Express + TypeScript 模板
-- [ ] NestJS 模板
 - [ ] GraphQL 模板
 
 ## 📖 详细文档

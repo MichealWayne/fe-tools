@@ -1,6 +1,18 @@
-# @fe-tools/web-utils
+# fe-tools-webapi
 
 封装了浏览器环境下的常用工具方法，简化前端开发。
+
+> 目录名是 `web-utils`，实际 npm 包名是 `fe-tools-webapi`。
+
+## 安装与导入
+
+```bash
+npm install fe-tools-webapi
+```
+
+```ts
+import { getCookie, copyToClipboard, parseQueryString } from 'fe-tools-webapi';
+```
 
 ## 功能模块
 
@@ -114,3 +126,24 @@
 - **pluralize** - 根据数量返回正确的复数形式。
 - **getLocale** - 获取用户的首选语言区域。
 - **getTextDirection** - 获取语言的文本方向(LTR/RTL)。
+
+### Screen (屏幕与唤醒锁) (文件: `src/screen.ts`)
+
+- **getClientHeight/getClientWidth** - 获取视口尺寸。
+- **isFullScreen/isFullScreenEnabled** - 判断全屏状态和能力。
+- **enterFullscreen/exitFullscreen** - 进入或退出全屏。
+- **wakeScreenLock/keepScreenOn** - 使用 Wake Lock 相关能力保持屏幕常亮。
+
+### Worker (Web Worker) (文件: `src/worker.ts`)
+
+- **createInlineWorker** - 基于函数创建内联 Worker。
+- **WorkerPool** - 简单的 Worker 池封装。
+- **createWorkerTask/workerize** - 将任务函数封装为 Worker 执行。
+
+### Security (安全辅助) (文件: `src/security.ts`)
+
+- **escapeHtml/unescapeHtml** - HTML 转义与反转义。
+- **sanitizeUrl** - 清理危险 URL。
+- **maskPhoneNumber/maskEmail/maskIDCard/maskBankCard/maskText** - 常见敏感信息脱敏。
+- **generateCSRFToken/addCSRFHeader** - CSRF Token 生成和请求头处理。
+- **parseCSP/stringifyCSP/createBaseCSP** - CSP 字符串和对象转换。

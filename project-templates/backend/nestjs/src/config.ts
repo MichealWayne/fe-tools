@@ -1,9 +1,6 @@
 /**
  * @author Wayne
  */
-import { join } from 'path';
-const pkg = require(join(__dirname, '../package.json'));
-
 export const LOG_INFO = {
   appenders: {
     console: {
@@ -71,7 +68,7 @@ export const LOG_INFO = {
 export const isDev = process.env.NODE_ENV === 'development';
 
 export default {
-  port: pkg.port,
+  port: Number(process.env.PORT || 5000),
   isDev,
   file: {
     multipart: true,

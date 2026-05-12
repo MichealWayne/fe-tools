@@ -7,6 +7,10 @@ import fs from 'fs';
 
 import logger from '../controllers/logger';
 
+type WriteSuccessCallback = (result: true) => void;
+type WriteErrorCallback = (error: NodeJS.ErrnoException) => void;
+type ReadSuccessCallback = (data: string) => void;
+
 /**
  * @description find folder or file
  * @param {String} path folder or file path;
@@ -16,12 +20,12 @@ export function fsExistsSync(folderPath: string) {
   try {
     fs.statSync(folderPath);
     return true;
-    // rome-ignore lint/suspicious/noExplicitAny: <explanation>
-  } catch (e: any) {
-    if (e.code === 'ENOENT') {
+  } catch (e) {
+    const error = e as NodeJS.ErrnoException;
+    if (error.code === 'ENOENT') {
       return false;
     }
-    throw e;
+    throw error;
   }
 }
 
@@ -32,7 +36,12 @@ export function fsExistsSync(folderPath: string) {
  * @param {Function} callback
  * @param {Function} errcallback
  */
-export function writeFile(path: string, data: string, callback?: Function, errcallback?: Function) {
+export function writeFile(
+  path: string,
+  data: string,
+  callback?: WriteSuccessCallback,
+  errcallback?: WriteErrorCallback
+) {
   fs.writeFile(
     path,
     data,
@@ -57,7 +66,11 @@ export function writeFile(path: string, data: string, callback?: Function, errca
  * @param {Function} callback
  * @param {Function} errcallback
  */
-export function readFile(path: string, callback: Function, errcallback?: Function) {
+export function readFile(
+  path: string,
+  callback: ReadSuccessCallback,
+  errcallback?: WriteErrorCallback
+) {
   fs.readFile(
     path,
     {

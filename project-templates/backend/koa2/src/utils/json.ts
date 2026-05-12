@@ -5,7 +5,10 @@
  */
 import Koa from 'koa';
 
-export default (ctx: Koa.BaseContext | Koa.DefaultContext, returnData: Object = {}) => {
+export default (
+  ctx: Koa.BaseContext | Koa.DefaultContext,
+  returnData: Record<string, unknown> = {}
+) => {
   ctx.type = 'application/json';
   const newReturn = Object.assign(
     {

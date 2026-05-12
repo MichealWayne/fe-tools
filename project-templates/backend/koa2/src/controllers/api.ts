@@ -25,7 +25,7 @@ export const GetTest = async (ctx: Koa.DefaultContext, next: nextInstance) => {
     param: ctx.query,
   };
   if (ctx.params.prompt) logger.info(`${JSON.stringify(ctx.params)}`);
-  next();
+  await next();
 };
 
 export const PostTest = async (ctx: Koa.DefaultContext, next: nextInstance) => {
@@ -35,5 +35,5 @@ export const PostTest = async (ctx: Koa.DefaultContext, next: nextInstance) => {
     param: ctx.request.body,
   };
 
-  next();
+  await next();
 };

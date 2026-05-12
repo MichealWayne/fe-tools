@@ -1,6 +1,16 @@
-# @fe-tools/node-utils
+# fe-tools-node-utils
 
 提供 Node.js 环境下常用的工具方法库，用于简化项目构建和文件系统操作。
+
+## 安装与导入
+
+```bash
+npm install fe-tools-node-utils
+```
+
+```ts
+import { readJsonFile, runAsync, parseCSV } from 'fe-tools-node-utils';
+```
 
 ## 功能模块
 

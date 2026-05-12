@@ -5,6 +5,19 @@ import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus } from
 import type { FastifyReply, FastifyRequest } from 'fastify';
 import logger from '../controllers/logger';
 
+function getExceptionMessage(exception: unknown): string {
+  if (exception instanceof HttpException) {
+    const response = exception.getResponse();
+    if (typeof response === 'object' && response !== null && 'message' in response) {
+      const message = (response as { message?: unknown }).message;
+      return Array.isArray(message) ? message.join(', ') : String(message || exception.message);
+    }
+    return exception.message;
+  }
+
+  return exception instanceof Error ? exception.message : 'Unknown Internal Server Error';
+}
+
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
   catch(exception: unknown, host: ArgumentsHost) {
@@ -15,14 +28,11 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const status =
       exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    const msg =
-      exception instanceof HttpException
-        ? (exception.getResponse() as any)?.message || exception.message
-        : (exception as any)?.message || 'Unknown Internal Server Error';
+    const msg = getExceptionMessage(exception);
 
     logger.error(`[${request.method}] ${request.url} - ${msg}`);
 
-    response.status(status).send({
+    void response.status(status).send({
       success: false,
       msg,
     });
