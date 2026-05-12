@@ -1,11 +1,15 @@
-# @fe-tools/ai-utils
+# fe-tools-ai-utils
 
 封装了与 AI 相关的常用方法，旨在简化 AI 功能集成。
 
 ## 安装
 
 ```bash
-npm install @fe-tools/ai-utils
+npm install fe-tools-ai-utils
+```
+
+```ts
+import { genCodeReviewPrompt, estimateTokenLength } from 'fe-tools-ai-utils';
 ```
 
 ## 功能模块
@@ -33,7 +37,11 @@ npm install @fe-tools/ai-utils
 - **createPromptGenerator** - 一个高阶函数，用于创建可复用的 Prompt 生成器，内置 token 长度检查逻辑。(文件: `src/utils/prompt/generator.ts`)
 - **applyTemplate** - 一个工具函数，用于将模板字符串中的占位符替换为指定值。(文件: `src/utils/prompt/applyTemplate.ts`)
 
+### vectors
+
+- **vectorCompare** - 计算两个数字向量的相似度。目前位于 `src/vectors/vectorCompare.ts`，但未从包入口 `src/index.ts` 导出；如果需要作为公开 API 使用，应先补充入口导出。
+
 ## 依赖
 
 - **ml-distance**: `^4.0.1` - 用于计算向量相似度（余弦相似度），被 `src/vectors/vectorCompare.ts` 使用。
-- **@pipcook/boa**: (Peer Dependency) - 用于与 Python 环境交互。如果使用 `src/utils/python.ts` 中的功能，需要手动安装此包。
+- **@pipcook/boa**: 可选依赖，用于与 Python 环境交互。如果使用 `src/utils/python.ts` 中的功能，需要手动安装此包。

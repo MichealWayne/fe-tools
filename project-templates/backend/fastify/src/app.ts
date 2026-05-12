@@ -92,7 +92,7 @@ function setupHooks(app: FastifyInstance): void {
   // Add response logger
   app.addHook('onSend', (request, reply, payload, done) => {
     request.log.info(
-      { statusCode: reply.statusCode, responseTime: reply.getResponseTime() },
+      { statusCode: reply.statusCode, responseTime: reply.elapsedTime },
       'request completed'
     );
     done();
@@ -163,7 +163,7 @@ export async function bootstrap(
     app.get('/', () => ({
       name: 'Fastify API',
       version: '1.0.0',
-      documentation: `${config.apiPrefix}/documentation`,
+      documentation: '/documentation',
     }));
 
     log.info('Application bootstrap completed');
