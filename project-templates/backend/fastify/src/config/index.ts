@@ -66,12 +66,24 @@ const ConfigSchema = z.object({
   host: z.string().default(DEFAULT_HOST),
   apiPrefix: z.string().startsWith('/').default(DEFAULT_API_PREFIX),
   logLevel: z.nativeEnum(LogLevel).default(LogLevel.Info),
-  logging: LoggingSchema.default({}),
-  cors: CorsSchema.default({}),
-  rateLimit: RateLimitSchema.default({}),
-  swagger: SwaggerSchema.default({}),
+  logging: LoggingSchema.default({
+    dir: 'logs',
+    maxFileSize: 10 * 1024 * 1024,
+    maxFiles: 7,
+    errorLogFile: 'error.log',
+    appLogFile: 'app.log',
+    errorLogLevel: LogLevel.Error,
+  }),
+  cors: CorsSchema.default({ origin: '*' }),
+  rateLimit: RateLimitSchema.default({
+    enabled: true,
+    max: 100,
+    timeWindow: 60000,
+  }),
+  swagger: SwaggerSchema.default({ enabled: true }),
   jwt: JwtSchema.default({
     secret: 'dev-secret-key-that-is-32-characters-long',
+    expiresIn: '1h',
   }),
   database: DatabaseSchema.default({ url: 'postgres://user:password@localhost:5432/fastify_db' }),
 });
@@ -152,7 +164,7 @@ class ConfigBuilder {
     const result = ConfigSchema.safeParse(this.config);
 
     if (!result.success) {
-      const errors = result.error.errors
+      const errors = result.error.issues
         .map(err => `${err.path.join('.')}: ${err.message}`)
         .join('\n');
       throw new Error(`Invalid configuration:\n${errors}`);
@@ -165,5 +177,6 @@ class ConfigBuilder {
 // Create and export the config instance
 const config = new ConfigBuilder().build();
 
-export { config, Config };
+export { config };
+export type { Config };
 export default config;

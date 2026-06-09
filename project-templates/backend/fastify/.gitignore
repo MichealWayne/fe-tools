@@ -1,6 +1,30 @@
+# Dependencies
 node_modules/
-dist/
-logs/
-coverage/
-yarn-error.log
 
+# Build outputs
+dist/
+
+# Runtime files
+logs/
+
+# Test outputs
+coverage/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Tool caches
+.eslintcache
+*.tsbuildinfo
+
+# OS generated files
+.DS_Store
+Thumbs.db
