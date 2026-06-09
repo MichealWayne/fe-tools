@@ -2,6 +2,8 @@
 
 > Common documentation/websites for front-end development, style/JS method libraries (TS), and typical project templates.
 
+<a title="Common front-end documentation/websites, style/JS method libraries, and project templates" href="https://blog.michealwayne.cn/fe-tools/stable/#fe-tools" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
+
 ---
 
 ## 1. Common Websites
@@ -39,30 +41,29 @@ Contents:
 | https://www.runoob.com/cssref/css-reference.html                                                                                                                                                                        | css           | Quickly query CSS properties and basic usage.                                                                                                 |
 | https://www.canvasapi.cn/                                                                                                                                                                                               | canvas        | Collection of canvas API methods.                                                                                                             |
 | https://www.w3.org/Graphics/SVG/                                                                                                                                                                                        | svg           | W3C website, SVG documentation.                                                                                                               |
-| http://www.t086.com/code/vml/                                                                                                                                                                                           | VML(IE)       | \*Early DSL for graphics drawing developed by Microsoft that runs on low-end IE, similar to "SVG" (if you need to be compatible with IE6/7).  |
+| http://www.t086.com/code/vml/                                                                                                                                                                                           | VML(IE)       | Historical reference: IE6/IE7-era graphics drawing technology, useful for understanding legacy compatibility approaches; not recommended for new projects. |
 | https://www.typescriptlang.org/docs/handbook/intro.html                                                                                                                                                                 | typescript    | TypeScript official manual.                                                                                                                   |
 | https://github.com/type-challenges/type-challenges                                                                                                                                                                      | ts-challenges | TypeScript Challenges, online learning/checking of one's TypeScript type programming level.                                                   |
 | https://www.ecma-international.org/publications-and-standards/standards/                                                                                                                                                | ecma          | ECMAScript protocol standard.                                                                                                                 |
 | http://www.ecma-international.org/ecma-262/6.0/                                                                                                                                                                         | ES6           | ECMAScript 6 official documentation.                                                                                                          |
-| https://www.ecma-international.org/ecma-262/6.0/                                                                                                                                                                        | ES6           | ECMAScript 6 official documentation (HTTPS).                                                                                                  |
-| https://ecma262.docschina.org/                                                                                                                                                                                          | ES6           | ECMAScript 6 official documentation, partially translated into Chinese.                                                                       |
-| http://es6-features.org/                                                                                                                                                                                                | ES6           | Easy-to-understand ECMAScript 6 feature demos.                                                                                                |
+| https://www.ecma-international.org/ecma-262/6.0/                                                                                                                                                                        | ES6           | Historical reference: ECMAScript 2015/ES6 official version page; modern standards should use the latest ECMA-262 and MDN. |
+| https://ecma262.docschina.org/                                                                                                                                                                                          | ES6           | Historical reference: Chinese ECMAScript translation resources; incomplete and updated slowly, so ECMA official docs and MDN are preferred. |
+| http://es6-features.org/                                                                                                                                                                                                | ES6           | Historical reference: ES6 feature demo site, useful for quickly reviewing ES6 syntax; use MDN/TC39 for modern features. |
 | http://es6.ruanyifeng.com/                                                                                                                                                                                              | ES6           | The most frequently used ECMAScript 6 documentation in China, especially suitable for beginners.                                              |
-| https://es6.ruanyifeng.com/                                                                                                                                                                                             | ES6           | The most frequently used ECMAScript 6 documentation in China (HTTPS).                                                                         |
+| https://es6.ruanyifeng.com/                                                                                                                                                                                             | ES6           | Classic Chinese ES6 introduction, useful for fundamentals; modern JS features should use MDN/TC39/latest ECMA-262 as the source of truth. |
 | http://www.html5plus.org/doc/h5p.html                                                                                                                                                                                   | html5         | HTML5 web API query, such as camera/geolocation.                                                                                              |
 | [https://developer.apple.com/library/archive/](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect) | html          | Safari webview HTML tag query, used for mobile web development, such as some iOS-specific attributes or behaviors can be found here.          |
 | https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect                                                | html          | Safari webview HTML tag query (direct link).                                                                                                   |
 | https://webkit.org/status/                                                                                                                                                                                              | webkit        | WebKit official website documentation, js/css feature status support query.                                                                   |
 | https://dart.dev/                                                                                                                                                                                                       | dart          | Dart language English official website.                                                                                                       |
 | https://www.dartcn.com/guides/language/language-tour                                                                                                                                                                    | dart          | Dart language Chinese learning website.                                                                                                       |
-| https://github.com/dart-archive/ts2dart                                                                                                                                                                                 | ts2dart       | A tool library for converting TypeScript to Dart language (of course, there will be some problems). It hasn't been maintained for many years. |
-| https://github.com/inversify/InversifyJS                                                                                                                                                                                | inversify     | A TypeScript/JavaScript IoC container library.                                                                                                |
-| https://github.com/young-steveo/bottlejs                                                                                                                                                                                | bottlejs      | A lightweight JavaScript/TypeScript dependency injection container library with lazy loading features.                                        |
 | https://www.rfc-editor.org/                                                                                                                                                                                             | rfc/http      | RFC protocol official website, can query HTTP protocol and other content.                                                                     |
 | https://www.iana.org/assignments/media-types/media-types.xhtml                                                                                                                                                          | MIME          | Media type list, MIME.                                                                                                                        |
 | https://webassembly.org/                                                                                                                                                                                                | wasm          | Web Assembly (wasm) English official website.                                                                                                 |
+| https://wasmtime.dev/                                                                                                                                                                                                   | wasmtime      | WebAssembly/WASI runtime, useful for understanding Wasm on servers and the edge. |
+| https://github.com/bytecodealliance/jco                                                                                                                                                                                 | jco           | Bytecode Alliance JavaScript toolchain for interoperability between WebAssembly Component Model and JS. |
 | https://www.wasm.com.cn/                                                                                                                                                                                                | wasm          | Web Assembly (wasm) Chinese website.                                                                                                          |
-| https://docs.krustlet.dev/                                                                                                                                                                                              | krustlet      | A Web Assembly framework.                                                                                                                     |
+| https://docs.krustlet.dev/                                                                                                                                                                                              | krustlet      | Historical/specialized reference: experimental approach for running Wasm workloads in Kubernetes, not a general frontend Wasm framework. |
 
 ### 1.2 Compatibility/Query
 
@@ -72,9 +73,9 @@ Contents:
 | https://github.com/compat-table/compat-table             | js          | ECMAScript compatibility query.                                                                                                               |
 | https://wechat-miniprogram.github.io/miniprogram-compat/ | weapp       | Compatibility query for WeChat mini-program ES API and corresponding mini-program environment versions.                                       |
 | http://iosfonts.com/                                     | ios font    | iOS system built-in font support query.                                                                                                       |
-| https://www.bootcss.com/p/websafecolors/                 | web color   | \*To ensure that users see the same color on web pages as much as possible, please use the 216 colors of web-safe colors as much as possible. |
+| https://www.bootcss.com/p/websafecolors/                 | web color   | Historical reference: 216 web-safe colors were an early device/browser compatibility concept and are no longer a hard constraint for modern UI design. |
 | https://gs.statcounter.com/                              | statcounter | \*StatCounter's browser usage statistics report.                                                                                              |
-| http://tongji.baidu.com/data/browser                     | browser     | \*Baidu statistics on browser/app market share (no longer available, only Baidu statistics products remain).                                  |
+| http://tongji.baidu.com/data/browser                     | browser     | Third-party reference: Baidu statistics-related browser/app share data source; keep if the link works, and cross-check with StatCounter/internal analytics. |
 
 ### 1.3 CSS Tools
 
@@ -96,13 +97,13 @@ Contents:
 
 | Address                                              | Tag          | Description                                                            |
 | ---------------------------------------------------- | ------------ | ---------------------------------------------------------------------- |
-| http://api.postcss.org/                              | postcss      | Widely used CSS postprocessor tool.                                    |
-| https://github.com/postcss/postcss                   | postcss      | Post plugin library center.                                            |
+| https://postcss.org/                                 | postcss      | Widely used CSS postprocessor, commonly used in CSS transforms, plugin processing, and engineering pipelines. |
+| https://github.com/postcss/postcss                   | postcss      | PostCSS plugin ecosystem entry point. |
 | https://github.com/postcss/autoprefixer              | autoprefixer | Postprocessing tool for automatically adding CSS prefixes.             |
 | https://cssnano.co/                                  | cssnano      | CSS optimization and decomposition plugin.                             |
 | https://www.npmjs.com/package/postcss-plugin-px2rem  | px2rem       | Tool that converts px units to rem units.                              |
 | https://www.npmjs.com/package/postcss-px-to-viewport | px2vw        | Tool that converts px units to vw units.                               |
-| https://cssnext.github.io/                           | cssnext      | Allows us to write CSS properties that may be available in the future. |
+| https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env | postcss-preset-env | Modern replacement for cssnext, used to transform newer CSS syntax according to target browsers. |
 
 ### 1.3.3 Style Library/Module
 
@@ -112,9 +113,9 @@ Contents:
 | https://daneden.github.io/animate.css/   | bulma.css        | A CSS3 animation library.                                                      |
 | http://ianlunn.github.io/Hover/          | Hover.css        | A library of PC mouse hover interactive animations.                            |
 | https://bulma.io/                        | bulma.css        | A lightweight CSS UI library.                                                  |
-| http://cardinalcss.com/                  | cardinal.css     | A mobile-first LESS library.                                                   |
-| http://bootflat.github.io/index.html     | bootflat.css     | A flat-style SCSS library based on BootStrap3.3.                               |
-| https://jamiewilson.io/corpus/           | corpus.css       | A collection of SCSS libraries.                                                |
+| http://cardinalcss.com/                  | cardinal.css     | Historical reference: early mobile-first Less style library; new projects usually prefer Tailwind/UnoCSS/modern component libraries. |
+| http://bootflat.github.io/index.html     | bootflat.css     | Historical reference: Bootstrap 3-era flat-style SCSS library, useful for legacy maintenance. |
+| https://jamiewilson.io/corpus/           | corpus.css       | Historical reference: niche SCSS collection; new projects should prefer modern CSS architecture or component libraries. |
 | https://github.com/Tencent/weui          | weui             | A style library in the WeChat style, by Tencent.                               |
 | http://www.materializecss.cn/            | materializecss   | A responsive front-end style framework in the Material style.                  |
 | https://www.muicss.com/                  | MUI              | A lightweight front-end style framework in the Material style.                 |
@@ -125,13 +126,15 @@ Contents:
 | https://www.getpapercss.com/             | paper.css        | A front-end style framework in the hand-drawn style.                           |
 | https://www.getpapercss.com              | paper.css        | paper.css (no trailing slash).                                                 |
 | http://www.uiplayground.in/css3-icons/   | css3 icon        | Icons implemented purely in CSS.                                               |
-| http://bootstrap.css88.com/css/          | bootstrap        | A front-end style framework that was once very popular.                        |
+| https://getbootstrap.com/docs/           | bootstrap        | Classic responsive frontend style framework, still suitable for some admin, website, and prototype scenarios. |
 | https://www.layui.com/doc/               | layui            | A front-end UI framework written in its own module specification.              |
 | https://fontawesome.com/                 | fontawesome      | A font icon library.                                                           |
 | https://www.iconfont.cn/                 | iconfont         | A font icon library by Alibaba.                                                |
 | http://necolas.github.io/normalize.css/  | normalize        | A relatively better CSS reset alternative.                                     |
-| https://tailwindcss.com/                 | tailwind         | A modular UI library.                                                          |
+| https://tailwindcss.com/                 | tailwind         | Utility-first CSS framework for quickly building customized UI and design systems. |
 | https://unocss.dev/                      | unocss           | Atomic, on-demand CSS modular engine, inspired by Tailwind.                    |
+| https://vanilla-extract.style/           | vanilla-extract  | TypeScript-first zero-runtime CSS-in-JS solution, suitable for design systems and component libraries. |
+| https://stylelint.io/                    | stylelint        | CSS/SCSS/Less style linting tool commonly used as a modern style quality gate. |
 
 ### 1.3.4 Others
 
@@ -143,6 +146,8 @@ Contents:
 | https://csswizardry.net/talks/2014/11/itcss-dafed.pdf                | itcss                | IT CSS, a component-based writing specification.                                    |
 | https://glenmaddern.com/articles/css-modules                         | css-modules          | A solution for modularizing CSS styles.                                             |
 | https://github.com/MicheleBertoli/css-in-js                          | css-in-js            | Generates CSS styles by writing in JavaScript.                                      |
+| https://github.com/emotion-js/emotion                                 | emotion              | Popular CSS-in-JS library, common in the React ecosystem.                           |
+| https://stitches.dev/                                                 | stitches             | Modern CSS-in-JS solution, suitable for component variants and design systems.       |
 | http://blog.michealwayne.cn/Moo-CSS/docs/moocss/#m%E6%A8%A1%E5%9D%97 | moo-css              | A CSS writing solution.                                                             |
 | https://github.com/l-hammer/You-need-to-know-css                     | You-need-to-know-css | A collection of CSS tricks.                                                         |
 | https://logotyp.us/                                                  | logotyp              | A collection of logos from well-known companies/businesses in and outside of China. |
@@ -158,9 +163,10 @@ Contents:
 | https://github.com/ramda/ramda                       | ramda             | A popular functional utility library.                                                                                                                                                                  |
 | https://gcanti.github.io/fp-ts/                      | fp-ts             | A TypeScript-encapsulated library following the functional programming paradigm.                                                                                                                       |
 | https://github.com/rayepps/radash                    | radash            | A TypeScript-functional utility library.                                                                                                                                                               |
+| https://github.com/toss/es-toolkit                   | es-toolkit        | High-performance utility library for modern JS/TS, suitable as a modern lodash/radash-like option. |
 | https://underscorejs.org/                            | underscorejs      | A once-popular functional utility library.                                                                                                                                                             |
-| http://www.css88.com/jqapi-1.9/                      | jQuery            | A js encapsulation library that was once very popular.                                                                                                                                                 |
-| http://www.css88.com/doc/zeptojs_api/                | Zepto             | A lightweight "jQuery" that is commonly used for mobile devices.                                                                                                                                       |
+| https://api.jquery.com/                              | jQuery            | Maintenance reference: classic DOM/Ajax/plugin ecosystem library, common in old projects; usually not the default foundation for new projects. |
+| https://zeptojs.com/                                 | Zepto             | Historical reference: early lightweight jQuery alternative for mobile Web, useful for legacy maintenance. |
 | https://github.com/basecss/city                      | city              | Administrative division data files for all provinces and cities in China.                                                                                                                              |
 | http://phaser.io/                                    | phaser            | A 2D game front-end library.                                                                                                                                                                           |
 | http://fabricjs.com/                                 | fabricjs          | A well-known library that encapsulates SVG and canvas conversion.                                                                                                                                      |
@@ -170,7 +176,7 @@ Contents:
 | https://github.com/jayphelps/core-decorators         | core-decorators   | A rich decorator encapsulation library based on ES2016/2017 decorator syntax.                                                                                                                          |
 | https://github.com/prettymuchbryce/http-status-codes | http-status-codes | Constants for enumerating HTTP status codes. Supports all status codes defined in RFC1945 (HTTP/1.0), RFC2616 (HTTP/1.1), and RFC2518 (WebDAV). Commonly used for ajax request processing, TypeScript. |
 | https://zod.dev/README_ZH                            | zod               | A schema declaration and verification library headed by TypeScript, which can be used for digital format verification and generation of ts declarations.                                               |
-| https://github.com/dart-archive/ts2dart              | ts2dart           | A tool library for converting TypeScript to Dart language (of course, there will be some problems). It hasn't been maintained for many years.                                                          |
+| https://github.com/dart-archive/ts2dart              | ts2dart           | Historical reference: early TypeScript-to-Dart tool, unmaintained for years; useful for understanding old approaches but not recommended for new projects. |
 | https://github.com/inversify/InversifyJS             | inversify         | A TypeScript/JavaScript IoC container library.                                                                                                                                                         |
 | https://github.com/young-steveo/bottlejs             | bottlejs          | A lightweight JavaScript/TypeScript dependency injection container library with lazy loading features.                                                                                                 |
 
@@ -182,28 +188,33 @@ Contents:
 | http://winterbe.github.io/streamjs/               | streamjs        | A tool for manipulating js data.                                                        |
 | https://baconjs.github.io/                        | baconjs         | Another tool for manipulating js data.                                                  |
 | https://date-fns.org/                             | date-fns        | A modular date formatting tool that supports on-demand usage.                           |
+| https://moment.github.io/luxon/                   | luxon           | Modern date/time library from the Moment team, suitable for time zones, internationalization, and related scenarios. |
+| https://tc39.es/proposal-temporal/docs/           | temporal        | Modern JavaScript date/time API proposal documentation, useful for understanding future native time handling. |
 | https://day.js.org/                               | dayjs           | A lightweight date formatting tool that serves as an alternative to MomentJS.           |
-| https://momentjs.com/                             | momentjs        | A date formatting tool (discontinued in 2020).                                          |
+| https://momentjs.com/                             | momentjs        | Maintenance reference: common date library in old projects; new projects should prefer Day.js, date-fns, Luxon, or Temporal. |
 | http://numbrojs.com/                              | numbrojs        | A multi-language number conversion tool.                                                |
 | http://numeraljs.com/                             | numeraljs       | A js library for formatting and manipulating numbers.                                   |
 | http://openexchangerates.github.io/accounting.js/ | accounting.js   | A tool for formatting numbers and money.                                                |
 | http://openexchangerates.github.io/money.js/      | money.js        | A tool for converting money exchange rates.                                             |
 | https://github.com/MikeMcl/decimal.js#readme      | decimal.js      | A js library for precision processing.                                                  |
-| https://tanstack.com/query/latest                 | transtack-query | Powerful asynchronous state management for TS/JS, React, Solid, Vue, Svelte and Angular |
+| https://tanstack.com/query/latest                 | tanstack-query  | Asynchronous state management library for TS/JS, React, Solid, Vue, Svelte, and Angular. |
+| https://swr.vercel.app/                           | swr             | React data fetching and caching Hooks library, suitable for lightweight server-state scenarios. |
 
 ### 1.4.3 Requests, Cookies, and Caching
 
 | Address                                    | Tag         | Explanation                                                                           |
 | ------------------------------------------ | ----------- | ------------------------------------------------------------------------------------- |
 | https://github.com/axios/axios             | axios       | A commonly used ajax library.                                                         |
-| https://github.com/github/fetch            | fetch       | A polyfill for the Fetch API.                                                         |
+| https://github.com/github/fetch            | fetch       | Fetch API compatibility polyfill; modern browsers support Fetch natively, so use it only for older environments. |
 | https://github.com/webmodules/jsonp        | jsonp       | Implements jsonp. (Axios does not support jsonp.)                                     |
 | http://medialize.github.io/URI.js/         | uri         | A library for URI parsing and manipulation.                                           |
 | https://github.com/marcuswestin/store.js/  | storage     | A library for storage encapsulation that is compatible with IE6.                      |
 | https://github.com/js-cookie/js-cookie     | js-cookie   | A library for cookie encapsulation.                                                   |
 | https://dexie.org/                         | dexiejs     | A library for encapsulating IndexedDB.                                                |
+| https://developer.mozilla.org/zh-CN/docs/Web/API/Cache | cache-api | Browser-native Cache API, commonly used with Service Worker/PWA. |
+| https://developer.chrome.com/docs/workbox  | workbox     | Google Service Worker/PWA caching strategy toolkit. |
 | https://localforage.github.io/localForage/ | localForage | A library for offline storage based on IndexedDB, WebSQL, and localStorage. (Mozilla) |
-| https://addyosmani.com/basket.js/          | basket.js   | Uses localStorage to cache script and css resources.                                  |
+| https://addyosmani.com/basket.js/          | basket.js   | Historical reference: early approach for caching script/css resources in localStorage; modern projects should prefer HTTP Cache, Service Worker, Cache API, or Workbox. |
 
 ### 1.4.4 Plugins
 
@@ -217,7 +228,7 @@ Contents:
 | https://github.com/kazuhikoarase/qrcode-generator/tree/master/js | grcode-generator | A tool for generating QR codes.                                                                                                            |
 | http://html2canvas.hertzen.com/documentation                     | html2canvas      | Converts html to images (canvas), which is equivalent to implementing webpage screenshots.                                                 |
 | https://www.rrweb.io/                                            | rrweb            | A webpage "screen recording" tool based on style interception that captures and replays user operations.                                   |
-| https://github.com/sofish/pen#readme                             | Pen Editor       | A web text editing tool.                                                                                                                   |
+| https://github.com/sofish/pen#readme                             | Pen Editor       | Historical reference: early lightweight Web editor; modern rich-text scenarios can reference ProseMirror, Tiptap, or Lexical. |
 | https://nosir.github.io/cleave.js/                               | cleave.js        | A useful input control plugin.                                                                                                             |
 | https://github.com/jackmoore/autosize                            | autosize.js      | A useful <textarea/> height auto-adaptation tool.                                                                                          |
 | https://github.com/eligrey/FileSaver.js                          | FileSaver.js     | A plugin for saving characters/images/files on the webpage.                                                                                |
@@ -226,11 +237,13 @@ Contents:
 | https://github.com/alexgibson/shake.js                           | shake.js         | A mobile-side shake and vibration monitoring plugin.                                                                                       |
 | https://atomiks.github.io/tippyjs/                               | tippy.js         | A useful bubble component with a React version.                                                                                            |
 | https://fusejs.io/                                               | fusejs           | A lightweight and useful js fuzzy search library.                                                                                          |
+| https://minisearch.dev/                                           | minisearch       | Full-text search library for browser/Node, suitable for small local-search scenarios. |
+| https://pagefind.app/                                             | pagefind         | Static-site full-text search tool, suitable for documentation sites and blogs. |
 | https://www.algolia.com/                                         | algolia          | A useful search integration solution.                                                                                                      |
 | https://opensource.appbase.io/dejavu/                            | dejavu           | An elastic search solution, which is tailored for tech-savvy users.                                                                        |
 | https://kamranahmed.info/driver.js/#single-element-with-popover  | driverjs         | A lightweight plugin for user operation guidance.                                                                                          |
 | https://michalsnik.github.io/aos/                                | aosjs            | A powerful page scrolling animation plugin.                                                                                                |
-| http://lab.ejci.net/favico.js/                                   | favicojs         | A plugin for animating the pc website icon.                                                                                                |
+| http://lab.ejci.net/favico.js/                                   | favicojs         | Fun/special interaction plugin for dynamic favicon badges or animation, suitable for specific notification scenarios. |
 | https://alvarotrigo.com/fullPage/                                | fullpagejs       | A plugin for quickly building full-screen scrolling pages.                                                                                 |
 | https://github.com/buuing/lucky-canvas                           | lucky-canvas     | A lottery plugin that supports web and cross-platform compatibility with mini-programs (large turntables/nine-square grids/slot machines). |
 | https://mattboldt.com/demos/typed-js/                            | typed.js         | A js UI library that simulates typewriter effects.                                                                                         |
@@ -241,18 +254,26 @@ Contents:
 | --------------------------------------------------- | -------------- | --------------------------------------------------- |
 | http://www.mediaelementjs.com/                      | mediaelementjs | A video control plugin.                             |
 | https://videojs.com/                                | videojs        | A video control plugin.                             |
-| https://github.com/bilibili/flv.js                  | flvjs          | An FLV playback plugin that does not require Flash. |
+| https://github.com/video-dev/hls.js                 | hlsjs          | Browser-side HLS playback library, commonly used for live and on-demand streaming. |
+| https://github.com/Dash-Industry-Forum/dash.js      | dashjs         | MPEG-DASH player library for adaptive streaming scenarios. |
+| https://github.com/bilibili/flv.js                  | flvjs          | Flash-free FLV playback plugin, useful for legacy live/video scenarios. |
 | https://github.com/goldfire/howler.js#documentation | howlerjs       | A video and audio control plugin.                   |
 | http://jplayer.org/                                 | jplayer        | A jQuery video and audio control plugin.            |
 | https://jplayer.org/                                | jplayer        | A jQuery video and audio control plugin (HTTPS).    |
-| https://github.com/zohararad/audio5js               | audio5js       | An audio control plugin.                            |
+| https://github.com/zohararad/audio5js               | audio5js       | Historical reference: early audio control plugin; modern complex audio scenarios should prefer Web Audio API, Tone.js, howler.js, or wavesurfer.js. |
+| https://tonejs.github.io/                           | tonejs         | Web Audio framework for music creation, synthesizers, sequencers, and complex audio scenarios. |
+| https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Audio_API | web-audio-api | Browser-native audio processing API for audio analysis, synthesis, and visualization. |
+| https://developer.mozilla.org/zh-CN/docs/Web/API/Media_Session_API | media-session | Browser Media Session API for controlling system media notifications, lock-screen playback, and related capabilities. |
 | https://github.com/katspaugh/wavesurfer.js          | Wavesurfer.js  | A lightweight audio waveform player.                |
 
 ### Images
 
 | Address                                      | Tag          | Description                                                     |
 | -------------------------------------------- | ------------ | --------------------------------------------------------------- |
-| http://camanjs.com/                          | camanjs      | A web image processing plugin.                                  |
+| http://camanjs.com/                          | camanjs      | Historical reference: early Web image processing plugin; modern projects can reference Sharp, Squoosh, Compressor.js, Jimp, and WebCodecs. |
+| https://github.com/jimp-dev/jimp             | jimp         | JavaScript image processing library, suitable for simple image processing in Node/scripts. |
+| https://developer.mozilla.org/zh-CN/docs/Web/API/WebCodecs_API | webcodecs | Low-level browser audio/video/image codec API for high-performance media processing. |
+| https://github.com/KnicKnic/WASM-ImageMagick | wasm-imagemagick | WASM version of ImageMagick, useful for browser-side image format conversion and processing experiments. |
 | https://sharp.pixelplumbing.com/             | sharp        | A powerful image processing tool.                               |
 | https://github.com/GoogleChromeLabs/squoosh  | squoosh      | An excellent image compression solution with browser support.   |
 | https://github.com/naptha/tesseract.js       | tesseract    | A powerful OCR recognition library.                             |
@@ -268,9 +289,9 @@ Contents:
 | https://vocajs.com/                       | vocajs     | camelcase/modify/fill/truncate/escape/change case and more for strings.                           |
 | http://alexcorvi.github.io/anchorme.js/   | anchormejs | Automatically convert links/URLs/email addresses in text to clickable anchor links.               |
 | https://alexcorvi.github.io/anchorme.js/  | anchormejs | Automatically convert links/URLs/email addresses in text to clickable anchor links (HTTPS).       |
-| https://github.com/jprichardson/string.js | stringjs   | A library for string operations such as truncation and deletion (not maintained for a long time). |
+| https://github.com/jprichardson/string.js | stringjs   | Historical reference: old string utility library; modern projects should prefer native string APIs, lodash/radash, Voca, or es-toolkit. |
 | https://github.com/ljharb/qs              | qsjs       | A library for handling URL parameters.                                                            |
-| https://zelark.github.io/nano-id-cc/      | nanoid     | A small (130-byte), secure, URL-friendly, unique string ID generator.                             |
+| https://github.com/ai/nanoid              | nanoid     | Small, secure, URL-friendly unique string ID generator.                                           |
 | https://github.com/uuidjs/uuid            | uuid       | A library for generating RFC-compliant UUIDs.                                                     |
 | https://github.com/pvorb/node-md5         | md5        | Get the md5 of characters and buffers.                                                            |
 | https://github.com/indutny/hash.js        | hash       | Hash functions in pure javascript.                                                                |
@@ -279,16 +300,14 @@ Contents:
 
 | Address                                            | Tag                | Description                                                                                          |
 | -------------------------------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------- |
-| http://requirejs.org/                              | requirejs          | A js modularization tool.                                                                            |
-| https://requirejs.org/                             | requirejs          | A js modularization tool (HTTPS).                                                                     |
-| http://yslove.net/seajs/                           | seajs              | A js modularization tool.                                                                            |
-| http://browserify.org/                             | browserify         | Use a require() method similar to node on the browser side.                                          |
-| https://browserify.org/                            | browserify         | Use a require() method similar to node on the browser side (HTTPS).                                  |
+| https://requirejs.org/                             | requirejs          | Historical reference: AMD module tool, useful for old-project maintenance; modern projects should prefer ESM/Vite/Rollup/Webpack/Rspack. |
+| https://seajs.github.io/seajs/docs/                | seajs              | Historical reference: CMD module tool, useful for understanding frontend modularization evolution and legacy maintenance. |
+| https://browserify.org/                            | browserify         | Historical reference: browser-side Node-style require bundler; modern projects should prefer ESM/Vite/Rollup/Rspack. |
 | https://github.com/rickharrison/validate.js        | validate.js        | A form validation tool.                                                                              |
 | https://github.com/validatorjs/validator.js        | validator.js       | A well-known content validation tool, including email validation, numerical validation, etc.         |
-| https://cn.rx.js.org/                              | RxJS               | A js asynchronous programming library based on the ReactiveX programming concept.                    |
+| https://rxjs.dev/                                  | RxJS               | JS asynchronous/reactive programming library based on the ReactiveX concept.                         |
 | https://github.com/kelektiv/node.bcrypt.js#readme  | bcrypt             | A library for password hash processing.                                                              |
-| https://github.com/Marak/Faker.js#readme           | faker              | Generate fake data in the browser/Nodejs (note that the author has deleted the source code).         |
+| https://fakerjs.dev/                               | faker              | Generates fake data in browser/Node.js; current recommended package is @faker-js/faker.              |
 | https://joi.dev/                                   | joi                | A powerful schema description language and data validator for js.                                    |
 | https://github.com/JedWatson/classnames#readme     | classnames         | A tool for combining className conditions, often used in React.                                      |
 | https://github.com/lukeed/clsx                     | clsx               | A lightweight (228B) tool for combining className conditions, often used in React.                   |
@@ -301,21 +320,24 @@ Contents:
 
 | Address                                                                     | Tag            | Description                                                                                                                  |
 | --------------------------------------------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| https://api.hcharts.cn/highcharts                                           | highcharts     | A visualizing library with the best compatibility (IE6+) and effects, but unfortunately requires payment for enterprise use. |
-| http://echarts.baidu.com/api.html#echarts                                   | echarts        | The most comprehensive visualizing library in China.                                                                         |
-| https://github.com/d3/d3/wiki                                               | d3             | A tool that outputs SVG for developing functions, not directly generating graphics.                                          |
-| http://www.chartjs.org/docs/latest/                                         | chartjs        | A modular visualizing library.                                                                                               |
-| http://antv.alipay.com/zh-cn/g2/3.x/demo/funnel/basic.html                  | G2/F2          | A visualizing library for PC and mobile, developed by Ant Financial.                                                         |
+| https://www.highcharts.com/docs/                                            | highcharts     | Mature commercial visualization library with strong compatibility and chart capabilities; enterprise use should pay attention to licensing. |
+| https://echarts.apache.org/                                                 | echarts        | Powerful Apache open-source interactive charting and visualization library, widely used in Chinese business chart scenarios. |
+| https://d3js.org/                                                           | d3             | Low-level data-driven visualization toolkit for highly customized SVG/Canvas/data visualization. |
+| https://www.chartjs.org/docs/latest/                                        | chartjs        | Simple Canvas charting library for common business charts. |
+| https://antv.antgroup.com/                                                  | G2/G6/X6/L7    | AntV visualization ecosystem covering statistical charts, graph analysis, flowchart/graph editing, and geographic visualization. |
 | http://blog.michealwayne.cn/FundCharts/docs/                                | fundcharts     | My own lightweight visualizing library that can be used across platforms.                                                    |
 | https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene | threejs/webGL  | A famous webGL 3D modeling library.                                                                                          |
 | https://playcanvas.com/                                                     | playcanvas     | A webGL 3D modeling library for games.                                                                                       |
-| http://scenejs.org/                                                         | scenejs        | A basic WebGL 3D library.                                                                                                    |
+| http://scenejs.org/                                                         | scenejs        | Historical reference: early WebGL 3D base library; modern 3D/WebGL scenarios should prefer Three.js, Babylon.js, PlayCanvas, OGL, or React Three Fiber. |
 | http://snapsvg.io/                                                          | snap           | An svg manipulation library.                                                                                                 |
 | https://www.pixijs.com/                                                     | pixijs         | A 2D WebGL rendering engine.                                                                                                 |
-| https://libcafe.com/3d/index.html                                           | svg-3d-builder | A 3D SVG rendering engine.                                                                                                   |
+| https://ogl.netlify.app/                                                    | ogl            | Lightweight WebGL library for lower-level but concise 3D/WebGL development. |
+| https://docs.pmnd.rs/react-three-fiber/getting-started/introduction         | react-three-fiber | React renderer for Three.js, suitable for 3D scenes in React projects. |
+| https://tresjs.org/                                                         | tresjs         | Vue ecosystem declarative Three.js wrapper, suitable for 3D scenes in Vue projects. |
+| https://libcafe.com/3d/index.html                                           | svg-3d-builder | Historical/specialized reference: 3D SVG rendering engine, useful for understanding SVG 3D expression approaches. |
 | https://github.com/jsplumb/jsplumb                                          | jsplumb        | A user-friendly library for visualizing flowcharts.                                                                          |
 | https://js.cytoscape.org/                                                   | cytoscape      | A user-friendly library for visualizing relationship charts.                                                                 |
-| http://mermaid-js.github.io/mermaid/#/                                      | mermaid        | A user-friendly library for generating flowcharts.                                                                           |
+| https://mermaid.js.org/                                                     | mermaid        | Text-based tool for generating flowcharts, sequence diagrams, architecture diagrams, and other charts. |
 | https://ecomfe.github.io/zrender-doc/public/                                | zrender        | A 2D rendering engine that supports Canvas/SVG/VML, also the rendering engine for ECharts.                                   |
 | https://docs.mind-elixir.com/.                                              | Mind Elixir    | A mind map library with effects similar to xmind.                                                                            |
 | https://docs.mind-elixir.com/                                               | mind-elixir    | A mind map library with effects similar to xmind.                                                                            |
@@ -324,9 +346,12 @@ Contents:
 
 | Address                | Tag           | Description                                      |
 | ---------------------- | ------------- | ------------------------------------------------ |
-| https://cesiumjs.org/  | Cesium.js     | An open-source 3D city modeling library.         |
-| http://kartograph.org/ | Kartograph.js | A simple 2D SVG city data display library, IE7+. |
-| https://leafletjs.com/ | Leaflet.js    | A mobile-first map display plugin.               |
+| https://cesium.com/platform/cesiumjs/ | Cesium.js | 3D globe, GIS, and city modeling visualization library. |
+| http://kartograph.org/                | Kartograph.js | Historical reference: early 2D SVG map display library; modern map/geographic visualization can reference Leaflet, MapLibre GL, deck.gl, CesiumJS, AntV L7, and ECharts Map. |
+| https://leafletjs.com/                | Leaflet.js | A mobile-first map display plugin. |
+| https://maplibre.org/                 | maplibre | Open-source map rendering library derived from Mapbox GL JS, suitable for vector map and custom map applications. |
+| https://deck.gl/                      | deck-gl | Large-scale geospatial data visualization framework, suitable for advanced WebGL map layers. |
+| https://l7.antv.antgroup.com/         | antv-l7 | AntV geographic visualization engine, suitable for map visualization in data dashboards. |
 
 ### 1.4.8 H5 Animation
 
@@ -335,16 +360,20 @@ Contents:
 | http://bouncejs.com/                          | BounceJS        | A powerful CSS3 animation creation tool.                                                    |
 | https://github.com/bendc/animateplus          | Animateplus     | A lightweight animation tool at only 3k.                                                    |
 | https://animejs.com/                          | animejs         | A lightweight JS animation library.                                                         |
+| https://gsap.com/                             | gsap            | Mature high-performance JavaScript animation library, suitable for complex timeline and interaction animations. |
+| https://motion.dev/                           | motion          | Modern animation library from the Framer Motion direction, covering React and vanilla JS scenarios. |
+| https://auto-animate.formkit.com/             | auto-animate    | Zero-configuration layout transition animation library for lightweight UI motion. |
+| https://www.theatrejs.com/                    | theatrejs       | Visual animation and interaction timeline tool, suitable for complex UI/3D animation authoring. |
 | https://svgjs.com/docs/3.0/                   | svgjs           | A lightweight SVG manipulation/animation library.                                           |
 | http://snapsvg.io/                            | Snap.svg        | A famous SVG manipulation/animation library.                                                |
-| http://airbnb.io/lottie/#/                    | lottie          | A cross-platform animation solution for web/native/mini programs/RN.                        |
+| https://airbnb.io/lottie/#/                   | lottie          | Cross-platform animation solution for web/native/mini programs/RN.                          |
 | https://createjs.com/easeljs                  | easeljs         | A canvas animation manipulation library, one of the CreateJS Four Knights.                  |
 | https://createjs.com/tweenjs                  | tweenjs         | An animation curve (ease/linear...) manipulation library, one of the CreateJS Four Knights. |
 | https://createjs.com/soundjs                  | soundjs         | An audio control library, one of the CreateJS Four Knights.                                 |
 | https://createjs.com/preloadjs                | preload         | A resource preloading library, one of the CreateJS Four Knights.                            |
 | https://p5js.org/                             | p5js            | A canvas drawing functionality library.                                                     |
 | https://roughjs.com/                          | roughjs         | An interesting canvas drawing library (drawn graphics have a hand-drawn style).             |
-| https://github.com/BabylonJS/Babylon.js       | BabylonJS       | A powerful, beautiful, simple, and open game and rendering engine.                          |
+| https://www.babylonjs.com/                    | BabylonJS       | Powerful, polished, open game and 3D rendering engine.                                      |
 | https://github.com/sarcadass/granim.js#readme | granimjs        | A 17k animation JS library for creating fluid and interactive gradients.                    |
 | https://catdad.github.io/canvas-confetti/     | canvas-confetti | performant confetti animation in the browser.                                               |
 
@@ -355,16 +384,17 @@ Contents:
 | https://github.com/AlloyTeam/AlloyFinger | AlloyFinger | Adds various mobile gesture events.                                           |
 | http://hammerjs.github.io/               | hammerjs    | A gesture encapsulation library that cancels the 300ms delay of mobile click. |
 | https://interactjs.io/                   | interactjs  | Implements drag-and-drop, scaling, and multi-touch gestures using JavaScript. |
+| https://developer.mozilla.org/zh-CN/docs/Web/API/Pointer_events | pointer-events | Browser pointer event API covering mouse, touch, and pen input, useful as the modern foundation for gesture handling. |
 
 ### 1.4.10 Loading
 
 | Address                              | Tag             | Description                                      |
 | ------------------------------------ | --------------- | ------------------------------------------------ |
-| http://pazguille.github.io/aload/    | aload.js        | Asynchronous image/js/css loading tool.          |
-| https://pazguille.github.io/aload/   | aload.js        | Asynchronous image/js/css loading tool (HTTPS).  |
+| https://developer.mozilla.org/zh-CN/docs/Web/Performance/Lazy_loading | lazy-loading | MDN lazy-loading guide, covering native lazy loading and modern resource loading basics. |
 | http://callmecavs.com/layzr.js/      | layzr.js        | Lightweight image lazy loading tool.             |
 | https://github.com/aFarkas/lazysizes | lazysizes       | High-performance image/iframe lazy loading tool. |
 | https://infinite-scroll.com/         | infinite-scroll | "Infinite" scroll loading plugin.                |
+| https://pazguille.github.io/aload/   | aload.js        | Historical reference: asynchronous image/js/css loading tool. |
 
 ### 1.4.11 TypeScript Assistance
 
@@ -376,6 +406,8 @@ Contents:
 | https://github.com/tamino-martinius/node-ts-dedent#readme | ts-dedent                 | Print normal line breaks for logs on the node side.                                          |
 | https://github.com/kawamataryo/suppress-ts-errors         | suppress-ts-error         | Automatically add @ts-expect-error or @ts-ignore comments to all type errors in the project. |
 | https://github.com/sindresorhus/type-fest                 | type-fest                 | Classic tool type encapsulation library.                                                     |
+| https://github.com/sindresorhus/ts-extras                 | ts-extras                 | Practical TypeScript helper types and functions from Sindre Sorhus.                           |
+| https://github.com/millsp/ts-toolbelt                     | ts-toolbelt               | Advanced TypeScript type toolkit, suitable for complex type programming.                       |
 | https://microsoft.github.io/TypeChat/                     | typechat                  | Based on OpenAi GPT model ts type production tools, Microsoft.                               |
 
 ### 1.4.12 Others
@@ -408,9 +440,12 @@ Contents:
 | -------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | https://vuejs.org/                                       | vue                       | Vue3 official documentation.                                                                                                               |
 | https://cn.vuejs.org/                                    | vue                       | Vue3 official documentation (Chinese).                                                                                                     |
+| https://v2.cn.vuejs.org/                                 | vue                       | Vue 2 Chinese documentation, useful for legacy Vue 2 projects.                                                                             |
 | https://vuejs.org/v2/guide/syntax.html                   | vue                       | Vue2 official documentation.                                                                                                               |
 | https://cn.vuejs.org/v2/guide/syntax.html                | vue                       | Vue2 official documentation (Chinese).                                                                                                     |
 | https://cli.vuejs.org/                                   | vue-cli                   | Vue scaffolding tool documentation.                                                                                                        |
+| https://cli.vuejs.org/zh/                                | vue-cli                   | Vue CLI Chinese documentation, mostly for maintaining older Vue CLI projects.                                                              |
+| https://github.com/vuejs/create-vue                      | create-vue                | Official Vue project scaffolding tool, recommended for modern Vue 3 projects.                                                              |
 | https://cli.vuejs.org/zh/guide/cli-service.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4 | vue-cli | Vue CLI docs (Chinese, CLI service usage).                                                                                                 |
 | https://pinia.vuejs.org/                                 | pinia                     | Lightweight Vue state management tool recommended for Vue3.                                                                                |
 | https://vuex.vuejs.org/                                  | vuex                      | Vue data flow control tool.                                                                                                                |
@@ -427,6 +462,10 @@ Contents:
 | http://aidenzou.github.io/vue-weui/#!/                   | vue-weui                  | Mobile UI component library in WeUI style (Chinese).                                                                                       |
 | https://element.eleme.cn/                                | element                   | UI component library for PC front-end development, from Eleme.                                                                             |
 | https://element.eleme.cn/#/zh-CN                         | element                   | UI component library for PC front-end development (Chinese docs).                                                                          |
+| https://element-plus.org/                                | element-plus              | Vue 3 version of Element UI, a mainstream desktop component library.                                                                       |
+| https://www.naiveui.com/                                 | naive-ui                  | Vue 3 component library with TypeScript support and strong theming ability.                                                                |
+| https://arco.design/vue/docs/start                       | arco-vue                  | Arco Design Vue component library from ByteDance.                                                                                          |
+| https://tdesign.tencent.com/vue-next/overview            | tdesign-vue-next          | Tencent TDesign Vue 3 component library.                                                                                                   |
 | https://github.com/hilongjw/vue-lazyload                 | vue-lazyload              | Vue version of image/component lazy loading plug-in.                                                                                       |
 | http://v1.iviewui.com/docs/guide/install                 | iview                     | PC UI component library.                                                                                                                   |
 | https://vue.ant.design/                                  | antd-vue                  | PC UI component library, Vue version of ant design.                                                                                        |
@@ -434,15 +473,17 @@ Contents:
 | https://kazupon.github.io/vue-i18n/                      | vue-i18n                  | Multi-language solution.                                                                                                                   |
 | https://terryz.github.io/vue/#/region                    | v-region                  | Vue administrative region selection component.                                                                                             |
 | https://github.com/ecomfe/vue-echarts                    | vue-echarts               | Echarts Vue encapsulation component.                                                                                                       |
-| https://nuxtjs.org/                                      | nuxtjs                    | Vue server-side rendering application framework.                                                                                           |
+| https://nuxt.com/                                        | nuxtjs                    | Modern Vue/Nuxt full-stack application framework.                                                                                          |
 | https://zh.nuxtjs.org/                                   | nuxtjs                    | Vue server-side rendering application framework (Chinese docs).                                                                            |
-| https://github.com/vitejs/vite                           | vitejs                    | Lightweight front-end project construction tool for Vue without bundle.                                                                    |
+| https://vite.dev/                                        | vitejs                    | Fast modern frontend build tool, default choice for many Vue projects.                                                                     |
 | https://github.com/vuejs/vue-class-component#readme      | vue-class-component       | Component decorator encapsulation for Vue, used for jsx/tsx Vue component writing.                                                         |
 | https://formilyjs.org/                                   | formilyjs                 | Element/Antd form DSL solution.                                                                                                            |
 | https://github.com/privatenumber/vue-2-3                 | vue-2-3                   | A solution encapsulation for coexistence of Vue2 and Vue3.                                                                                 |
 | https://docs-swrv.netlify.app/                           | SWRV                      | Vue hook library for data requests, handling request caching, status, and more.                                                            |
 | https://www.attojs.org/                                  | vue-request               | The Vue hook library for data requests is slightly richer than swrv.                                                                       |
-| https://www.vueusejs.com/                                | vue-use                   | Utility set based on Vue composite API, in addition to commonly used request animation package, but also packaged browser, electron utils. |
+| https://vueuse.org/                                      | vue-use                   | Utility collection based on Vue Composition API, covering browser, state, sensors, animation, and other common hooks.                      |
+| https://tanstack.com/query/latest/docs/framework/vue/overview | tanstack-query-vue | Vue adapter for TanStack Query, suitable for service-state management. |
+| https://ui.nuxt.com/                                     | nuxt-ui                   | Nuxt official UI component library, suitable for Nuxt/Vue projects.                                                                        |
 | https://github.com/devilwjp/vuereact-combined#readme     | vuereact-combined         | Use React in Vue2 and Vue2 in React, And as perfect as possible.                                                                           |
 | https://github.com/devilwjp/veaury                       | veaury                    | Use React in Vue3 and Vue3 in React, And as perfect as possible.                                                                           |
 
@@ -450,15 +491,15 @@ Contents:
 
 | Address                                                        | Tag                   | Description                                                                                                                                       |
 | -------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://reactjs.org/                                           | react                 | React official documentation.                                                                                                                     |
+| https://react.dev/                                             | react                 | React official documentation.                                                                                                                     |
 | https://react.docschina.org/                                   | react                 | React Chinese translation documentation.                                                                                                          |
-| https://facebook.github.io/create-react-app/                   | create-react-app      | React scaffold tool documentation.                                                                                                                |
+| https://create-react-app.dev/                                  | create-react-app      | Historical reference: React scaffolding tool; modern new projects usually prefer Vite, Next.js, Remix, or framework templates.                     |
 | https://github.com/facebook/react-devtools                     | react-devtools        | React Chrome development extension plugin.                                                                                                        |
-| http://react-guide.github.io/react-router-cn/                  | react-router          | Front-end routing control for React.                                                                                                              |
+| https://reactrouter.com/                                       | react-router          | Frontend routing library for React.                                                                                                               |
 | https://zustand.docs.pmnd.rs/getting-started/introduction      | zustand               | A popular, simple and lightweight data flow control tool.                                                                                         |
 | https://github.com/facebookexperimental/Recoil                 | recoil                | Simple and hook-friendly data flow control tool.                                                                                                  |
-| https://www.redux.org.cn/docs/introduction/                    | redux                 | Widely used data flow control tool, reducer+flux.                                                                                                 |
-| http://facebook.github.io/flux/                                | flux                  | Data flow control tool.                                                                                                                           |
+| https://redux-toolkit.js.org/                                  | redux                 | Official recommended Redux toolset for state management, reducer logic, and async flows.                                                           |
+| https://facebookarchive.github.io/flux/                        | flux                  | Historical reference: data-flow architecture from the early React ecosystem.                                                                        |
 | https://cn.mobx.js.org/                                        | mobx                  | Lightweight data flow control tool.                                                                                                               |
 | https://dvajs.com/                                             | dvajs                 | Data flow solution based on redux and redux-saga, by Ant Financial.                                                                               |
 | https://umijs.org/zh/                                          | umijs                 | Pluggable enterprise-level React application framework, by Ant Financial.                                                                         |
@@ -467,18 +508,30 @@ Contents:
 | https://nextjs.org/                                            | nextjs                | Lightweight React server-side rendering application framework.                                                                                    |
 | https://www.gatsbyjs.cn/                                       | gatsbyjs              | Lightweight React static website building framework.                                                                                              |
 | https://github.com/streamich/react-use                         | react-use             | Easy-to-use React custom hooks encapsulation library.                                                                                             |
+| https://react-hook-form.com/                                   | react-hook-form       | High-performance React form state and validation library.                                                                                          |
+| https://jotai.org/                                             | jotai                 | Atomic React state management library.                                                                                                            |
+| https://valtio.dev/                                            | valtio                | Proxy-based React state management library.                                                                                                       |
+| https://ahooks.js.org/                                         | ahooks                | React Hooks library from the Ant/Alibaba ecosystem, covering business scenarios and common interactions.                                            |
 | https://cn.mobx.js.org/                                        | umi hooks             | Hooks methods for the middle office, such as requests, dragging, and debouncing.                                                                  |
 | https://react-query.tanstack.com/docs/overview                 | react-query           | Easy-to-use React ajax interface request processing encapsulation hook.                                                                           |
 | https://github.com/welldone-software/why-did-you-render#readme | why-did-you-render    | Tool for detecting whether React components need to be re-rendered.                                                                               |
 | https://www.framer.com/motion/                                 | framer-motion         | Very powerful React animation/interaction gesture library, from Farmer API.                                                                       |
 | http://danilowoz.com/create-content-loader/                    | create-content-loader | React version of SVG skeleton screen plugin.                                                                                                      |
 | https://ui.shadcn.com/                                         | shadcn                | shadcn, atomic and flexible UI component library.                                                                                                 |
+| https://www.radix-ui.com/                                      | radix-ui             | Unstyled accessible component primitives, often used with Tailwind/shadcn.                                                                         |
+| https://react-spectrum.adobe.com/react-aria/                   | react-aria           | Adobe accessibility-first React UI primitives and hooks.                                                                                           |
 | https://ant.design/docs/react/getting-started-cn               | antd                  | Ant design, PC UI component library.                                                                                                              |
 | https://mobile.ant.design/index-cn                             | antd-mobile           | Mobile version of antd, UI component library.                                                                                                     |
 | https://www.styled-components.com/                             | styled-components     | CSS-in-JS implementation for React.                                                                                                               |
 | https://github.com/cristianbote/goober                         | goober                | CSS-in-JS library with only 1kb size.                                                                                                             |
 | https://chatui.io/                                             | chatui.io             | A solution for conversational domains (frontend components), Alibaba.                                                                             |
 | https://x.ant.design/index-cn                                  | ant-design-x          | A solution for conversational domains (frontend components), Ant Group.                                                                           |
+| https://tanstack.com/router/latest                             | tanstack-router       | Type-safe routing library from the TanStack ecosystem.                                                                                            |
+| https://tanstack.com/form/latest                               | tanstack-form         | Type-safe form state management library from the TanStack ecosystem.                                                                               |
+| https://lexical.dev/                                           | lexical               | Meta open-source rich text editor framework.                                                                                                      |
+| https://tiptap.dev/                                            | tiptap                | Headless rich text editor framework based on ProseMirror.                                                                                         |
+| https://authjs.dev/                                            | authjs                | Authentication solution formerly known as NextAuth.js, suitable for Next.js and other frameworks.                                                  |
+| https://www.heroui.com/                                        | heroui               | React UI component library evolved from NextUI.                                                                                                   |
 | https://github.com/twobin/react-lazyload                       | react-lazyload        | React-based image/component loading plugin.                                                                                                       |
 | https://github.com/jamiebuilds/react-loadable#readme           | react-loadable        | Implementing code abstraction and dynamic loading of React components.                                                                            |
 | https://github.com/STRML/react-draggable                       | react-draggable       | A React encapsulation component for drag and drop operations.                                                                                     |
@@ -502,11 +555,14 @@ Contents:
 
 | Address                                                        | Tag                   | Description                                                                                                                                       |
 | -------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| https://nextjs.org/docs/app | nextjs-app-router | Next.js App Router documentation, the current main direction for Next.js applications. |
+| https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations | server-actions | Next.js Server Actions documentation for form submission and server mutations. |
+| https://github.com/TheEdoRan/next-safe-action | next-safe-action | Type-safe Server Actions helper for Next.js. |
 | https://next.i18next.com/ | next-i18next | A library for handling internationalization and multilingual support in Next.js. |
-| https://next-auth.js.org/ | next-auth | The official authentication library recommended by Next.js, supporting OAuth, JWT, and database integration, perfectly suited for SSR. |
+| https://authjs.dev/ | next-auth | Authentication solution formerly known as NextAuth.js, supporting OAuth, JWT, database integration, and SSR/full-stack scenarios. |
 | https://github.com/garmeeh/next-seo | next-seo | An SEO tool designed for Next.js, supporting dynamic meta tag management and structured data generation. |
 | https://next-intl-docs.vercel.app/ | i18n | A modern internationalization solution, supporting both App Router and Pages Router, with built-in multilingual loading for SSR. |
-| https://nextui.org/ | ui-library | A modern component library optimized for Next.js, featuring built-in SSR support and a theming system. |
+| https://www.heroui.com/ | ui-library | Modern React UI component library evolved from NextUI, with SSR and theming support. |
 | https://github.com/vercel/next.js/tree/canary/packages/next-mdx | mdx | The official MDX support library, allowing you to mix Markdown and React components directly in pages. |
 | https://next-redux-wrapper.js.org/ | state-management | A bridge library between Redux and Next.js, automatically handling store synchronization in SSR scenarios. |
 | https://github.com/vercel-labs/next-plugin-injection | security | The official security plugin, automatically injecting security headers like CSP (requires Next.js 13.4+). |
@@ -519,20 +575,19 @@ Contents:
 | ------------------------------------------------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------- |
 | https://github.com/goldbergyoni/nodebestpractices                                           | nodebestpractices  | A collection of Nodejs best practices.                                                       |
 | https://www.npmjs.com/                                                                      | npm                | Node package management platform.                                                            |
-| https://yarn.bootcss.com/                                                                   | yarn               | Fast Node package manager.                                                                   |
-| https://pnpm.js.org/                                                                        | pnpm               | Fast and efficient (safe) Node package manager.                                              |
+| https://yarnpkg.com/                                                                        | yarn               | Node package manager suitable for managing dependencies across multiple projects.             |
+| https://pnpm.io/                                                                            | pnpm               | Fast, disk-efficient Node package manager, commonly used in monorepo scenarios.               |
 | https://github.com/tj/n                                                                     | n                  | Extremely simple Nodejs version manager.                                                     |
 | https://storybook.js.org/                                                                   | storybookjs        | UI component library navigation site for independent development of React, Vue, and Angular. |
 | https://unpkg.com/                                                                          | unpkg              | Foreign public static resource CDN, applicable to all content on npm.                        |
-| http://nodejs.cn/api/                                                                       | node               | Node official documentation.                                                                 |
-| http://NodeJS.cn/api/                                                                       | node               | Node official documentation (capitalized domain).                                             |
-| https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts | deno               | Official documentation for Deno (Nodejs.next).                                               |
-| https://bun.sh/                                                                             | bun                | A js runtime container that claims to be 3 times faster than Nodejs.                         |
+| https://nodejs.org/docs/latest/api/                                                         | node               | Official Node.js API documentation; Chinese sites can be used as secondary references.        |
+| https://docs.deno.com/                                                                      | deno               | Official Deno documentation for the modern JavaScript/TypeScript runtime.                     |
+| https://bun.sh/                                                                             | bun                | JavaScript/TypeScript runtime, package manager, bundler, and test runner.                    |
 | https://turbo.build/repo                                                                    | turborepo          | Easy-to-use, high-performance multi-package management tool, monorepo.                       |
 | https://lerna.js.org/                                                                       | lerna              | Easy-to-use multi-package management tool, monorepo.                                         |
 | https://github.com/ds300/patch-package#readme                                               | patch-package      | Tool package for patching node_modules.                                                      |
 | https://v8.dev/docs                                                                         | V8                 | js V8 engine documentation.                                                                  |
-| https://v8docs.nodesource.com/node-10.6/index.html                                          | v8                 | Introduction to the V8 engine.                                                               |
+| https://v8.dev/docs                                                                         | v8                 | V8 engine documentation entry; old Node 10.6 materials are only historical references.        |
 | https://github.com/bellard/quickjs                                                          | quickjs            | A lightweight js engine.                                                                     |
 | https://github.com/GoogleChromeLabs/jsvu                                                    | jsvu               | A must-have tool for debugging js engines, engine switching and version control.             |
 | https://docs.docker.com/                                                                    | docker             | Application container engine Docker.                                                         |
@@ -544,6 +599,11 @@ Contents:
 | https://github.com/node-schedule/node-schedule                                              | node-schedule      | Timing task tool for Nodejs.                                                                 |
 | https://www.npmjs.com/package/source-map-support                                            | source-map-support | Module tool that supports SourceMap in the nodejs environment.                               |
 | https://github.com/wclr/yalc                                                                | yalc               | An effective alternative to npm link, using real npm packages instead of various links.      |
+| https://nodejs.org/api/corepack.html                                                        | corepack           | Node built-in package-manager version dispatcher for managing pnpm/yarn versions.            |
+| https://volta.sh/                                                                           | volta              | Node/Yarn/npm toolchain version manager.                                                     |
+| https://github.com/Schniz/fnm                                                               | fnm                | Fast Node.js version manager.                                                                |
+| https://nx.dev/                                                                             | nx                 | Monorepo build system and task orchestration tool.                                           |
+| https://github.com/changesets/changesets                                                    | changesets         | Multi-package repository version management and changelog generation tool.                    |
 
 ### 1.7.1 Building
 
@@ -554,17 +614,19 @@ Contents:
 | http://mustache.github.io/                                                   | mustache      | HTML template library suitable for multiple languages.                                                          |
 | https://pugjs.org/language/includes.html                                     | pug           | HTML template library.                                                                                          |
 | http://www.nodeclass.com/api/jade.html                                       | jade          | HTML template library.                                                                                          |
-| https://www.gulpjs.com.cn/docs/                                              | gulp          | Automation building tool.                                                                                       |
+| https://gulpjs.com/docs/en/getting-started/quick-start/                      | gulp          | Maintenance reference: automation build tool common in old projects; modern projects usually prefer Vite/Rollup/Rspack/esbuild. |
 | https://gulpjs.com/plugins/                                                  | gulp          | Gulp plugin center.                                                                                             |
-| https://grunt.docschina.org/                                                 | grunt         | Automation building tool.                                                                                       |
-| https://rollupjs.org/guide/en/                                               | Rollup        | An ES6 module building tool.                                                                                    |
+| https://gruntjs.com/                                                         | grunt         | Historical reference: early automation build tool, mainly for legacy maintenance.                                |
+| https://rollupjs.org/                                                        | Rollup        | ES module bundler commonly used for libraries and tooling ecosystems.                                             |
 | https://webpack.docschina.org/                                               | webpack       | The most widely used bundling tool.                                                                             |
 | https://github.com/neutrinojs/webpack-chain                                  | webpack-chain | A tool to chain configure webpack configuration.                                                                |
-| https://turbo.build/pack                                                     | turbopack     | A high-performance packaging tool based on Rust.                                                                |
-| https://parceljs.docschina.org/                                              | parceljs      | Lightweight bundler.                                                                                            |
+| https://rspack.rs/                                                           | rspack        | Rust-based high-performance bundler compatible with the Webpack ecosystem.                                       |
+| https://rsbuild.dev/                                                         | rsbuild       | Rspack-based build tool for modern web applications and libraries.                                               |
+| https://nextjs.org/docs/app/api-reference/turbopack                          | turbopack     | High-performance Rust-based bundler mainly serving the Next.js ecosystem.                                         |
+| https://parceljs.org/                                                        | parceljs      | Zero/low-configuration bundler.                                                                                  |
 | https://www.snowpack.dev/                                                    | snowpack      | A lightweight frontend project building tool without bundle.                                                    |
 | https://swc.rs/                                                              | swc           | A ts/js compiler written in Rust that claims to be 20 times faster than babel and supports all of its features. |
-| http://babeljs.io/                                                           | babel         | The most widely used ES compiler.                                                                               |
+| https://babeljs.io/                                                          | babel         | Widely used JavaScript compiler.                                                                                 |
 | https://github.com/fb55/htmlparser2#readme                                   | htmlparser2   | A tool for converting html to AST.                                                                              |
 | https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md | parse5        | A tool for converting html to AST.                                                                              |
 | https://github.com/benjamn/recast                                            | recast        | A tool for converting js to AST.                                                                                |
@@ -574,6 +636,10 @@ Contents:
 | https://github.com/addyosmani/critical#readme                                | critical      | A tool for extracting relevant CSS from HTML.                                                                   |
 | https://modernjs.dev/                                                        | modernjs      | A web frontend engineering system tool developed by ByteDance.                                                  |
 | https://github.com/javascript-obfuscator/javascript-obfuscator               | obfuscator    | A js code obfuscation plugin.                                                                                   |
+| https://github.com/egoist/tsup                                               | tsup          | TypeScript library build tool based on esbuild.                                                                  |
+| https://github.com/unjs/unbuild                                              | unbuild       | Library build tool from the UnJS ecosystem.                                                                      |
+| https://tsdown.dev/                                                          | tsdown        | Next-generation build tool for TypeScript libraries.                                                             |
+| https://biomejs.dev/                                                         | biome         | Modern Web formatter/linter toolchain, useful as a replacement for part of Prettier/ESLint scenarios.             |
 
 ### 1.7.2 Server
 
@@ -585,8 +651,15 @@ Contents:
 | http://www.midwayjs.org/                                        | midway              | Web application development framework that supports Web/Full Stack/Microservices/RPC/Socket/Serverless, used by Alibaba Taobao. |
 | https://docs.feathersjs.com/                                    | feathersjs          | Lightweight web application development framework suitable for data streaming.                                                  |
 | https://docs.nestjs.com/                                        | nestjs              | Powerful web application framework.                                                                                             |
+| https://hono.dev/                                               | hono                | Web-standards-first lightweight server framework, suitable for BFF, edge functions, and API services.                            |
+| https://nitro.unjs.io/                                          | nitro               | Nuxt/UnJS server engine, suitable for full-stack and edge deployments.                                                           |
+| https://elysiajs.com/                                           | elysia              | High-performance server framework in the Bun ecosystem.                                                                           |
 | https://github.com/nuysoft/Mock/wiki                            | mockjs              | Interface data simulation tool that can be used on both client and server sides.                                                |
-| https://sheetjs.com/                                            | sheetjs             | Tool for manipulating Word through Node.                                                                                        |
+| https://sheetjs.com/                                            | sheetjs             | Tool for processing xlsx/csv spreadsheet import/export in Node or the browser.                                                   |
+| https://www.prisma.io/                                          | prisma              | TypeScript ORM and database toolkit.                                                                                              |
+| https://orm.drizzle.team/                                       | drizzle             | TypeScript-first ORM with type safety and SQL-friendly design.                                                                    |
+| https://trpc.io/                                                | trpc                | End-to-end type-safe API/RPC framework.                                                                                           |
+| https://ts-rest.com/                                            | ts-rest             | Contract-based type-safe REST API tooling.                                                                                        |
 | https://github.com/parallel-js/parallel.js                      | paralleljs          | Tool for parallel processing of JS, usable in both the browser and Node server.                                                 |
 | https://parall.ax/products/jspdf                                | js-pdf              | Tool for generating PDFs through Node.                                                                                          |
 | http://doc.pm2.io/en/plus/overview/                             | pm2                 | Node process management.                                                                                                        |
@@ -719,7 +792,9 @@ Contents:
 | https://hiroppy.github.io/fusuma/                                                            | fusuma                        | Writing web ppt with markdown.                                                                                                                |
 | https://stackedit.io/                                                                        | stackedit                     | A browser-based markdown editor.                                                                                                              |
 | https://vuepress.vuejs.org/zh/                                                               | vuepress                      | Writing documents/blogs with markdown.                                                                                                        |
-| https://vitejs.cn/vitepress/                                                                 | vitepress                     | Writing documents/blogs with markdown. VuePress's little brother, built with Vite.                                                            |
+| https://vitepress.dev/                                                                       | vitepress                     | Vite-powered static documentation site generator, suitable for docs and blogs.                                                                 |
+| https://vitejs.cn/vitepress/                                                                 | vitepress                     | Historical/Chinese VitePress entry, kept to match the Chinese README resource list.                                                            |
+| https://docusaurus.io/                                                                       | docusaurus                    | React-based documentation site generator, suitable for product, project, and open-source docs.                                                  |
 | https://hexo.io/zh-cn/                                                                       | hexo                          | Writing documents/blogs with markdown.                                                                                                        |
 | https://d.umijs.org/                                                                         | dumi                          | A tool suitable for writing front-end development documents, markdown, ants.                                                                  |
 | https://jsdoc.app/                                                                           | jsdoc                         | The most classic tool for generating documentation from js code comments.                                                                     |
@@ -729,6 +804,8 @@ Contents:
 | https://tinypng.com/                                                                         | Tinypng                       | Compress png and jpeg images.                                                                                                                 |
 | https://github.com/svg/svgo                                                                  | svgo                          | A tool for compressing SVG graphic files.                                                                                                     |
 | https://jakearchibald.github.io/svgomg/                                                      | SVGOMG                        | Compress SVG graphics online.                                                                                                                 |
+| https://github.com/ImageOptim/ImageOptim                                                     | imageoptim                    | macOS image optimization tool, useful for compressing common image formats.                                                                    |
+| https://squoosh.app/                                                                         | squoosh                       | Google web image compression tool.                                                                                                            |
 | https://imagemagick.org/index.php                                                            | imagemagick                   | An image processing tool widely used in the background.                                                                                       |
 | https://github.com/javierbyte/img2css                                                        | img2css                       | An interesting library that presents images in CSS using box-shadow.                                                                          |
 | https://www.whatfontis.com/                                                                  | whatfontis                    | A font recognition tool for images, limited to English fonts and registration is required.                                                    |
@@ -741,6 +818,8 @@ Contents:
 | https://tool.lu/js/                                                                          | js                            | Online js formatting/obfuscation/compression tool.                                                                                            |
 | https://tool.lu/css/                                                                         | css                           | Online css formatting/compression/responsive unit processing tool.                                                                            |
 | https://tool.lu/coderunner/                                                                  | coderunner                    | Online php/c/c++/python/go/js/java/bash code execution tool.                                                                                  |
+| https://hoppscotch.io/                                                                       | hoppscotch                    | Open-source online API debugging tool.                                                                                                        |
+| https://www.usebruno.com/                                                                    | bruno                         | Git-friendly API client, useful as a Postman alternative.                                                                                     |
 | https://www.diffchecker.com/                                                                 | diffchecker                   | Online text/file diff tool.                                                                                                                   |
 | https://isoflow.io/                                                                          | isoflow                       | Online flowchart drawing tool.                                                                                                                |
 | https://codemirror.net/                                                                      | codemirror                    | Web code editor with many language modes and plugins.                                                                                          |
@@ -760,13 +839,18 @@ Contents:
 | https://github.com/vitest-dev/vitest            | vitest      | Vite-native testing framework (one of the newer mainstream choices).                             |
 | https://mochajs.org/                            | mocha       | A unit testing tool.                                                                             |
 | https://jestjs.io/zh-Hans/                      | jest        | A unit testing tool.                                                                             |
+| https://testing-library.com/                     | testing-library | UI testing tool family focused on user behavior, common in React/Vue/frontend unit tests. |
+| https://mswjs.io/                                | msw         | API mocking library based on Service Worker/interceptors, useful for tests and local development. |
 | https://www.cypress.io/                         | cypress     | A unit testing integrated platform tool.                                                         |
 | https://github.com/avajs/ava                    | avajs       | A fast testing tool.                                                                             |
-| http://karma-runner.github.io/latest/index.html | karma       | A JavaScript testing execution process management tool based on Node.js (Testacular's new name). |
+| https://karma-runner.github.io/latest/index.html | karma       | A JavaScript testing execution process management tool based on Node.js (Testacular's new name). |
 | https://enzymejs.github.io/enzyme/              | enzyme      | A React unit testing tool that can test hooks.                                                   |
 | https://github.com/marmelab/gremlins.js         | gremlins    | A node and browser Monkey Test tool.                                                             |
 | https://uptime.kuma.pet/                        | uptime-kuma | An open-source metric monitoring platform based on puppeteer.                                    |
 | https://playwright.dev/                         | playwright  | A newer e2e testing tool that supports mainstream browsers such as Chrome and Firefox.           |
+| https://www.chromatic.com/                       | chromatic   | Visual regression and Storybook publishing platform.                                             |
+| https://k6.io/                                   | k6          | Load and performance testing tool.                                                               |
+| https://github.com/GoogleChrome/lighthouse-ci    | lighthouse-ci | Lighthouse CI for web performance and quality gates.                                           |
 
 ### 1.10.2 Security and Encryption Knowledge
 
@@ -778,6 +862,12 @@ Contents:
 | https://github.com/ossf/scorecard                | ossf-scorecard | Open-source supply-chain security scoring/checks (useful for dependency governance).                                                          |
 | https://github.com/OWASP/CheatSheetSeries        | owasp-cheatsheet | Security knowledge cheat sheets (systematic reference).                                                                                       |
 | https://github.com/snyk/cli                      | snyk     | Dependency vulnerability/supply-chain scanning (common in engineering practice).                                                               |
+| https://owasp.org/www-project-top-ten/           | owasp-top-ten | OWASP Top Ten, a common entry point for web application security risks. |
+| https://github.com/google/osv-scanner            | osv-scanner | Open-source vulnerability scanner based on OSV data. |
+| https://semgrep.dev/                             | semgrep | Static analysis and security scanning tool. |
+| https://codeql.github.com/                       | codeql | GitHub semantic code analysis and security scanning tool. |
+| https://trivy.dev/                               | trivy | Vulnerability, misconfiguration, secret, and container scanning tool. |
+| https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Crypto_API | web-crypto | Browser-native cryptography API documentation. |
 
 [How to Secure Anything](https://github.com/veeral-patel/how-to-secure-anything)
 
@@ -812,12 +902,12 @@ Contents:
 
 | Address                                     | Tag           | Description                                                                                                                       |
 | ------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| http://www.jslint.com/                      | jslint        | A JavaScript validation tool                                                                                                      |
-| https://jshint.com/                         | jshint        | A JavaScript validation tool                                                                                                      |
+| https://www.jslint.com/                     | jslint        | Historical reference: early JavaScript validation tool; modern projects should prefer ESLint/typescript-eslint/Biome.              |
+| https://jshint.com/                         | jshint        | Historical reference: early JavaScript code checking tool; modern projects should prefer ESLint/typescript-eslint/Biome.           |
 | https://eslint.org/                         | eslint        | A JavaScript validation tool                                                                                                      |
-| http://csslint.net/                         | csslint       | A CSS validation tool                                                                                                             |
+| http://csslint.net/                         | csslint       | Historical reference: early CSS checking tool; modern projects should prefer Stylelint/Biome.                                      |
 | https://validator.w3.org/                   | validator     | Online HTML validation website                                                                                                    |
-| https://flow.org/                           | flow          | A JavaScript code checking tool                                                                                                   |
+| https://flow.org/                           | flow          | Historical/specialized reference: JavaScript static type checker; modern frontend projects usually prefer TypeScript.              |
 | https://www.sonarlint.org/vscode/           | sonarlint     | VSCode plugin for code quality validation of js/ts projects                                                                       |
 | https://github.com/google/eng-practices     | eng-practices | Google engineering practices documentation                                                                                        |
 | https://github.com/cheeriojs/cheerio#readme | cheerio       | A tool for web scraping                                                                                                           |
@@ -826,282 +916,436 @@ Contents:
 | https://github.com/GoogleChrome/lighthouse  | lighthouse    | Google's standard web performance testing tool, built into Chrome                                                                 |
 | https://github.com/nolanlawson/fuite        | fuite         | A tool for web memory detection, based on Puppeteer                                                                               |
 | https://github.com/chaitin/xray             | xray          | A comprehensive security assessment tool that supports common web security issue scanning and custom PoC, but is not open source. |
+| https://typescript-eslint.io/               | typescript-eslint | ESLint parser and rule set for TypeScript projects. |
+| https://github.com/oxc-project/oxc          | oxlint        | High-performance JavaScript/TypeScript lint toolchain. |
+| https://knip.dev/                           | knip          | Tool for detecting unused files, dependencies, and exports. |
+| https://github.com/webpro-nl/size-limit     | size-limit    | Bundle size checking and CI gate tool. |
+| https://github.com/ai/size-limit            | bundle-size   | Reference collection for build output size analysis and gates. |
 
 ### 1.11 AI Artificial Intelligence Library
 
-#### 1.11.1 Large Language Model Integration Frameworks
+#### 1.11.1 Large Language Model and Agent Application Frameworks
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://ai-sdk.dev/ | ai-sdk | TypeScript AI toolkit providing various toolkits and UI interfaces |
-| https://langchain-langchain.vercel.app/ | langchain | Famous large language model integration tool providing tools, components, and interfaces to simplify building advanced language model applications |
-| https://github.com/langchain-ai/langgraph | langgraph | Low-level orchestration framework for long-running, resumable, stateful agent workflows |
-| https://llamaindex.ai/ | llamaindex | Data framework for building LLM-based applications, focused on data indexing and retrieval |
-| https://github.com/run-llama/llama_deploy | llamadeploy | Agentic workflow deployment framework to deploy/scale workflows as services (formerly llama-agents) |
-| https://github.com/microsoft/semantic-kernel | semantic-kernel | Microsoft open-source AI orchestration SDK supporting multiple programming languages |
-| https://github.com/Significant-Gravitas/Auto-GPT | autoGPT | Pre-trained language generation model that can automatically complete tasks like summary generation, recommendation systems, and dialogue generation |
-| https://github.com/reworkd/AgentGPT | agentGPT | Language model-based artificial agent that can generate appropriate responses based on specific scenario requirements |
-| https://github.com/TransformerOptimus/SuperAGI | superagi | Open-source autonomous AI agent framework with graphical interface |
-| https://github.com/crewAIInc/crewAI | crewai | Multi-agent orchestration framework centered on team collaboration, role division, and controllability |
-| https://github.com/camel-ai/camel | camel | Multi-agent research/engineering framework for role-play, social simulation, collaboration, and data generation |
-| https://github.com/huggingface/smolagents | smolagents | Hugging Face minimal agent library with few abstractions (think-in-code style) |
-| https://github.com/openai/swarm | swarm | Lightweight multi-agent orchestration “educational framework” demonstrating handoff, routing, and collaboration |
-| https://github.com/kyegomez/swarms | swarms | Multi-agent infrastructure/orchestration platform for production runs and integrations |
-| https://github.com/agentscope-ai/agentscope | agentscope | Production-oriented agent framework: AOP concepts, multi-agent abstractions, fine-tuning/engineering support |
-| https://github.com/microsoft/TaskWeaver | taskweaver | Code-first data analysis/workflow agent framework using code snippets to plan and run plugins |
-| https://github.com/e2b-dev/e2b | e2b | Cloud development environment for AI agents |
+| https://ai-sdk.dev/ | ai-sdk | TypeScript AI SDK by Vercel for building streaming chat, AI UI, tool calling, and multi-model applications |
+| https://github.com/openai/openai-agents-js | openai-agents-js | Official OpenAI JavaScript/TypeScript Agents SDK for lightweight multi-agent workflows, handoffs, tool calling, and tracing |
+| https://github.com/openai/openai-agents-python | openai-agents-python | Official OpenAI Python Agents SDK for multi-agent workflows, tool calling, evaluation, and tracing |
+| https://github.com/langchain-ai/langchain | langchain | LLM application framework with a broad ecosystem; often used together with LangGraph for complex agent orchestration |
+| https://github.com/langchain-ai/langgraph | langgraph | Mainstream framework for stateful, resumable, long-running agent workflows |
+| https://llamaindex.ai/ | llamaindex | Data and RAG framework for LLM applications, focused on knowledge bases, document QA, and retrieval-augmented generation |
+| https://github.com/run-llama/llama_deploy | llamadeploy | Agentic workflow deployment framework to deploy and scale workflows as services |
+| https://github.com/microsoft/semantic-kernel | semantic-kernel | Microsoft open-source AI orchestration SDK for enterprise .NET, Python, and Java scenarios |
+| https://github.com/microsoft/autogen | autogen | Microsoft multi-agent conversation and workflow framework for research and complex collaborative agents |
+| https://github.com/crewAIInc/crewAI | crewai | Multi-agent framework centered on roles, tasks, teams, collaboration, and engineering controllability |
+| https://github.com/google/adk-python | google-adk | Google Agent Development Kit for code-first agent development, evaluation, and deployment |
+| https://github.com/mastra-ai/mastra | mastra | TypeScript-native agent framework covering agents, workflows, RAG, memory, and observability |
+| https://github.com/agno-agi/agno | agno | Production-oriented agent platform evolved from the Phidata direction, emphasizing tracing, scheduling, RBAC, and control plane capabilities |
+| https://github.com/strands-agents | strands-agents | AWS-related open-source agent SDK ecosystem supporting Python and TypeScript for production-grade agent development |
+| https://github.com/pydantic/pydantic-ai | pydantic-ai | Python agent framework in the Pydantic ecosystem, emphasizing type safety, structured outputs, and engineering reliability |
+| https://github.com/huggingface/smolagents | smolagents | Hugging Face minimal agent library with few abstractions, suitable for fast experiments and code-style actions |
+| https://github.com/camel-ai/camel | camel | Multi-agent research and engineering framework for role-play, social simulation, collaborative tasks, and data generation |
+| https://github.com/agentscope-ai/agentscope | agentscope | Multi-agent application framework for distributed, multi-role, and complex agent systems |
+| https://github.com/stanfordnlp/dspy | dspy | Framework for programming rather than hand-writing prompts, useful for optimizable RAG, classification, and agent pipelines |
 
-#### 1.11.2 API Wrapper Libraries
+#### 1.11.2 Model API SDKs and Model Routing
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://github.com/openai/openai-node | openai | OpenAI's Node.js API wrapper library |
-| https://github.com/openai/openai-quickstart-node | openai | OpenAI Node.js getting started documentation and examples |
-| https://github.com/anthropics/anthropic-sdk-typescript | anthropic | Anthropic Claude API TypeScript/JavaScript SDK |
-| https://github.com/google/generative-ai-js | google-ai | Google Gemini API JavaScript SDK |
+| https://github.com/openai/openai-node | openai-node | Official OpenAI Node.js/TypeScript SDK |
+| https://github.com/openai/openai-python | openai-python | Official OpenAI Python SDK |
+| https://github.com/anthropics/anthropic-sdk-typescript | anthropic-sdk-ts | Anthropic Claude API TypeScript/JavaScript SDK |
+| https://github.com/anthropics/anthropic-sdk-python | anthropic-sdk-python | Anthropic Claude API Python SDK |
+| https://github.com/googleapis/js-genai | google-genai-js | New Google Gen AI JavaScript SDK for Gemini and Gen AI APIs |
+| https://github.com/googleapis/python-genai | google-genai-python | New Google Gen AI Python SDK for Gemini and Gen AI APIs |
 | https://github.com/cohere-ai/cohere-typescript | cohere | Cohere API TypeScript SDK |
 | https://github.com/mistralai/client-js | mistral | Mistral AI API JavaScript SDK |
 | https://github.com/replicate/replicate-javascript | replicate | Replicate API JavaScript SDK |
-| https://github.com/run-llama/LlamaIndexTS | llamaindex-ts | TypeScript version of LlamaIndex |
+| https://github.com/BerriAI/litellm | litellm | Unified multi-model API proxy and gateway for model routing, cost tracking, rate limiting, and OpenAI API compatibility |
+| https://github.com/Portkey-AI/gateway | portkey-gateway | Open-source AI gateway supporting multi-model routing, fallback, logging, and governance |
+| https://github.com/Helicone/helicone | helicone | Open-source LLM observability and gateway platform for logs, cost tracking, caching, and monitoring |
+| https://github.com/run-llama/LlamaIndexTS | llamaindex-ts | TypeScript version of LlamaIndex for JavaScript/TypeScript RAG applications |
 
-#### 1.11.3 AI Application Development Tools
-
-| Address | Tag | Description |
-| ---- | ---- | ---- |
-| https://github.com/vercel/ai-chatbot | ai-chatbot | Vercel open-source full-stack chatbot template |
-| https://github.com/mckaywrigley/chatbot-ui | chatbot-ui | Open-source ChatGPT UI interface |
-| https://github.com/danny-avila/LibreChat | librechat | Enhanced ChatGPT clone supporting multiple AI models |
-| https://github.com/Yidadaa/ChatGPT-Next-Web | chatgpt-next-web | One-click deployment of your own cross-platform ChatGPT application |
-| https://github.com/homanp/superagent | superagent | Platform for building, deploying, and managing LLM-driven agents |
-| https://github.com/BuilderIO/ai-shell | ai-shell | CLI tool that converts natural language to shell commands |
-| https://github.com/openinterpreter/open-interpreter | open-interpreter | Computer-use/automation oriented agent that runs commands, file operations, and automation on local machines |
-| https://github.com/geekan/MetaGPT | metagpt | Multi-agent framework that takes requirements and returns PRD, design, tasks, and code |
-| https://github.com/microsoft/autogen | autogen | Microsoft open-source multi-agent conversation framework |
-
-#### 1.11.4 Machine Learning Libraries
+#### 1.11.3 Agent Task Management and Human-Agent Collaboration Platforms
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://tensorflow.google.cn/js | tensorflow | Library for building and running machine learning and deep learning models in browser or Node.js |
-| https://github.com/ml5js/ml5-library | ml5 | Friendly machine learning library built on TensorFlow.js |
-| https://github.com/alibaba/pipcook | pipcook | Machine learning toolset friendly to web developers, by Alibaba |
-| https://github.com/mljs/ml | mljs | Machine learning library for JavaScript |
-| https://github.com/transcranial/keras-js | kerasjs | Run Keras models in the browser |
-| https://github.com/mljs/distance | ml-distance | Calculate distances or similarities between vectors, useful for embeddings processing |
-| https://github.com/xenova/transformers.js | transformersjs | Library for running Transformer models in the browser |
+| https://www.multica.ai/ | multica | Human + coding agent task collaboration platform for assigning tasks, tracking progress, and managing agent workforces |
+| https://github.com/multica-ai/multica | multica-open | Open-source Multica repository for studying agent task management, runtime, skill reuse, and team collaboration patterns |
+| https://slock.ai/ | slock | Platform for real-time human-agent collaboration in channels and DMs, similar to an agent-oriented Slack layer |
+| https://www.taskade.com/ | taskade | AI workspace covering projects, tasks, agents, automation, memory, and business app generation |
+| https://github.com/OpenBMB/ChatDev | chatdev | Multi-agent software company simulation project, useful as a reference for agent collaboration workflows |
+| https://github.com/geekan/MetaGPT | metagpt | Multi-agent software development framework that turns requirements into PRDs, designs, tasks, and code |
+| https://github.com/OpenBMB/IoA | ioa | Internet of Agents project focused on multi-agent collaboration and communication research |
+| https://github.com/taskforcesh/bullmq | bullmq | Node.js queue infrastructure that can be used as a foundation for agent task scheduling and asynchronous execution |
+| https://github.com/temporalio/temporal | temporal | Reliable workflow engine for long-running agent tasks, retries, compensation, and resumable execution |
 
-#### 1.11.5 Speech and Vision AI
-
-| Address | Tag | Description |
-| ---- | ---- | ---- |
-| https://github.com/openai/whisper | whisper | OpenAI speech recognition model (speech-to-text) |
-| https://github.com/ricky0123/vad | vad | Real-time voice activity detection running in the browser |
-| https://github.com/microsoft/cognitive-services-speech-sdk-js | azure-speech | Microsoft Azure Speech Services JavaScript SDK |
-| https://github.com/aws-samples/amazon-transcribe-streaming-sdk | aws-transcribe | Amazon Transcribe streaming transcription SDK |
-| https://github.com/tensorflow/tfjs-models | tfjs-models | Collection of pre-trained TensorFlow.js models |
-| https://github.com/opencv/opencv.js | opencvjs | JavaScript version of OpenCV for computer vision |
-| https://github.com/justadudewhohacks/face-api.js | face-api | JavaScript face recognition API |
-| https://github.com/tensorflow/tfjs-models/tree/master/pose-detection | posenet | Real-time human pose estimation |
-
-#### 1.11.6 Vector Databases
+#### 1.11.4 AI Coding and Development Tools
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://github.com/chroma-core/chroma | chromadb | Open-source vector database |
-| https://github.com/milvus-io/milvus | milvus | Open-source vector database for scalable similarity search |
-| https://github.com/qdrant/qdrant | qdrant | Vector similarity search engine |
-| https://github.com/weaviate/weaviate | weaviate | Open-source vector search engine |
-| https://github.com/pinecone-io/pinecone-ts-client | pinecone | Pinecone vector database TypeScript client |
+| https://openai.com/codex/ | codex | OpenAI coding agent supporting CLI and cloud task workflows |
+| https://github.com/openai/codex | codex-cli | OpenAI Codex command-line tool for local repository editing, code generation, debugging, and task execution |
+| https://docs.anthropic.com/en/docs/claude-code/overview | claude-code | Anthropic AI coding assistant for local codebase understanding, generation, refactoring, and debugging |
+| https://opencode.ai/ | opencode | Open-source terminal AI coding assistant with pluggable multi-model and multi-provider support |
+| https://github.com/google-gemini/gemini-cli | gemini-cli | Google Gemini CLI, an open-source command-line AI coding assistant |
+| https://github.com/OpenHands/OpenHands | openhands | Open-source AI software engineer and coding agent runtime for autonomous fixes, task execution, and sandboxed running |
+| https://github.com/OpenHands/software-agent-sdk | openhands-sdk | SDK for building custom code-writing agents |
+| https://github.com/SWE-agent/SWE-agent | swe-agent | Open-source coding agent for GitHub issue fixing and SWE-bench style tasks |
+| https://github.com/paul-gauthier/aider | aider | Terminal AI pair programming tool designed around Git workflows and small-step commits |
+| https://github.com/cline/cline | cline | Open-source VSCode agent extension supporting file editing, command execution, browser actions, and tool use |
+| https://github.com/RooVetGit/Roo-Code | roo-code | Active VSCode agent tool from the Cline ecosystem, supporting multiple modes and complex tasks |
+| https://github.com/continuedev/continue | continue | Open-source AI IDE extension for VSCode and JetBrains, supporting multi-model, local model, and custom context workflows |
+| https://github.com/sourcegraph/amp | amp | Sourcegraph-related AI coding agent/development tool for codebase-level agent workflows |
+| https://www.cursor.com/ | cursor | Mainstream AI IDE for professional developers, supporting code generation, understanding, refactoring, and multi-file edits |
+| https://windsurf.com/ | windsurf | Mainstream AI IDE emphasizing agentic coding and beginner-friendly onboarding |
+| https://www.trae.ai/ | trae | AI IDE from ByteDance, useful for observing Chinese AI coding product patterns |
+| https://github.com/features/copilot | copilot | GitHub official AI coding assistant, evolving from completion into agent and task workflows |
+| https://bolt.new/ | bolt | AI agent platform for web application generation and deployment |
+| https://github.com/stackblitz/bolt.new | bolt-open | Open-source version of Bolt.new, useful for studying browser-based full-stack generation and WebContainer workflows |
+| https://v0.dev/ | v0 | Vercel UI/frontend generation tool, useful for React, Next.js, and shadcn scenarios |
+| https://lovable.dev/ | lovable | AI development platform for turning product ideas and prototypes into full-stack applications |
+| https://github.com/PatrickJS/awesome-cursorrules | cursorrules | Collection of Cursor rules, useful as references for project-level AI coding standards |
+| https://github.com/SchneiderSam/awesome-windsurfrules | windsurfrules | Collection of Windsurf rules, useful as references for agent rule governance |
+
+#### 1.11.5 MCP and Tool Ecosystem
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://modelcontextprotocol.io/ | mcp | Open protocol initiated by Anthropic for connecting AI applications to external data sources, tools, and workflows |
+| https://github.com/modelcontextprotocol | mcp-github | Official MCP GitHub organization containing specifications, SDKs, servers, and related projects |
+| https://registry.modelcontextprotocol.io/ | mcp-registry | Official MCP registry for discovering public MCP server metadata |
+| https://smithery.ai/ | smithery | MCP server discovery, hosting, connection, and commercialization platform |
+| https://glama.ai/mcp/servers | glama-mcp | MCP server registry and search platform covering a large number of community servers |
+| https://mcp.so/ | mcp-so | MCP tools and server collection site |
+| https://github.com/modelcontextprotocol/servers | mcp-servers | Official and community MCP server collection entry point |
+| https://github.com/microsoft/playwright-mcp | playwright-mcp | Microsoft Playwright MCP server enabling LLMs to operate browsers through structured page snapshots |
+| https://github.com/browserbase/mcp-server-browserbase | browserbase-mcp | Browserbase MCP server for browser automation |
+| https://github.com/upstash/context7 | context7 | Tool and MCP ecosystem project that provides up-to-date documentation context to LLMs and agents |
+| https://github.com/github/github-mcp-server | github-mcp | Official GitHub MCP server for repository, issue, PR, and code context operations |
+| https://github.com/redis/mcp-redis | redis-mcp | Official Redis MCP server for data access and caching scenarios |
+| https://github.com/postgres-mcp/postgres-mcp | postgres-mcp | PostgreSQL MCP server for database querying and data context access |
+
+#### 1.11.6 Agent Skills
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://skills.sh/ | skills-sh | Agent Skills directory and browsing site for discovering and installing skills |
+| https://lobehub.com/skills | lobehub-skills | Agent Skills marketplace supporting SKILL.md format for Claude Code, Codex CLI, ChatGPT, and others |
+| https://skillsllm.com/ | skillsllm | Open-source Agent Skills aggregation site for Claude Code, Codex CLI, and ChatGPT |
+| https://agentskills.io/home | agentskills-io | Entry point for Agent Skills concepts, specifications, and integration guides |
+| https://agentskills.io/specification | skills-spec | SKILL.md specification defining frontmatter, instructions, resources, and related structure |
+| https://github.com/agentskills/agentskills | skills-spec-repo | Agent Skills specification and documentation repository |
+| https://github.com/anthropics/skills | anthropics-skills | Official Anthropic example skills collection |
+| https://github.com/vercel-labs/agent-skills | vercel-agent-skills | Official Vercel agent skills collection |
+| https://github.com/vercel-labs/skills | skills-cli | Skills CLI for installing, discovering, checking, and updating skills |
+| https://github.com/softaworks/agent-toolkit | agent-toolkit | Popular community skills collection covering development workflows, planning, documentation, architecture, and communication |
+
+#### 1.11.7 RAG, Knowledge Bases, and Data Ingestion
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://github.com/run-llama/llama_index | llamaindex-rag | Core RAG and data indexing framework for documents, databases, and knowledge-base applications |
+| https://github.com/langchain-ai/langchain | langchain-rag | LangChain retrieval, document loader, text splitter, and vector store ecosystem |
+| https://github.com/mendableai/firecrawl | firecrawl | Converts websites into LLM-ready Markdown and structured data for crawling and RAG preparation |
+| https://github.com/unclecode/crawl4ai | crawl4ai | Open-source web crawling and content extraction tool for AI and RAG use cases |
+| https://github.com/infiniflow/ragflow | ragflow | Open-source RAG engine emphasizing document parsing, workflows, and enterprise knowledge bases |
+| https://github.com/deepset-ai/haystack | haystack | Open-source LLM, RAG, and search pipeline framework for enterprise retrieval QA systems |
+| https://github.com/weaviate/Verba | verba | Weaviate open-source RAG chatbot template for knowledge-base QA |
+| https://github.com/embedchain/embedchain | embedchain | Framework for quickly creating ChatGPT/RAG applications from data sources |
+| https://github.com/run-llama/llama_parse | llama-parse | LlamaIndex ecosystem document parsing tool/service for PDFs, tables, and complex documents |
+| https://github.com/DS4SD/docling | docling | Document parsing tool for converting PDFs, Office files, HTML, and other formats into structured data |
+| https://github.com/Unstructured-IO/unstructured | unstructured | Document ETL toolkit for transforming complex files into searchable text chunks |
+
+#### 1.11.8 Vector Databases and Retrieval Engines
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://github.com/chroma-core/chroma | chromadb | Open-source vector database suitable for lightweight RAG and local prototypes |
+| https://github.com/milvus-io/milvus | milvus | High-performance open-source vector database for scalable similarity search |
+| https://github.com/qdrant/qdrant | qdrant | Rust-based vector search engine with strong engineering experience |
+| https://github.com/weaviate/weaviate | weaviate | Open-source vector search engine with a mature ecosystem for knowledge bases and semantic search |
+| https://github.com/pgvector/pgvector | pgvector | PostgreSQL vector extension for adding vector retrieval to existing Postgres systems |
+| https://github.com/timescale/pgvectorscale | pgvectorscale | Timescale open-source PostgreSQL vector extension for higher-performance vector search |
 | https://github.com/supabase/vecs | supabase-vecs | Supabase vector client |
+| https://github.com/pinecone-io/pinecone-ts-client | pinecone | Pinecone vector database TypeScript client |
+| https://github.com/vespa-engine/vespa | vespa | Large-scale search, recommendation, and vector retrieval engine |
+| https://github.com/typesense/typesense | typesense | Open-source search engine supporting hybrid keyword, semantic, and vector retrieval scenarios |
+| https://github.com/meilisearch/meilisearch | meilisearch | Lightweight search engine that can be combined with vector and semantic search capabilities |
 
-#### 1.11.7 Prompt Engineering and Optimization
-
-| Address | Tag | Description |
-| ---- | ---- | ---- |
-| https://promptperfect.jinaai.cn/ | prompt-perfect | Online tool for optimizing prompts |
-| https://github.com/microsoft/promptflow | promptflow | Microsoft open-source LLM application development suite |
-| https://github.com/hwchase17/langchain/tree/master/langchain/prompts | langchain-prompts | LangChain prompt template library |
-| https://github.com/dair-ai/Prompt-Engineering-Guide | prompt-guide | Prompt engineering guide and resources |
-| https://github.com/f/awesome-chatgpt-prompts | chatgpt-prompts | ChatGPT Q&A training practice collection |
-| https://github.com/humanloop/awesome-chatgpt | chatgpt-awesome | ChatGPT/GPT related tools, demos and documentation collection |
-| https://github.com/dqbd/tiktoken#readme | tiktoken | AI model computing library for estimating call costs (js version) |
-
-#### 1.11.8 RAG (Retrieval Augmented Generation)
+#### 1.11.9 Prompt Engineering, Evaluation, Observability, and Experiment Management
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://github.com/run-llama/llama_index | llamaindex-rag | Data framework optimized for RAG |
-| https://github.com/langchain-ai/langchain/tree/master/libs/langchain/langchain/chains/retrieval_qa | langchain-rag | LangChain retrieval Q&A chain |
-| https://github.com/mendableai/firecrawl | firecrawl | Convert websites to LLM-ready data |
-| https://github.com/embedchain/embedchain | embedchain | Create ChatGPT applications based on any dataset |
-| https://github.com/jerryjliu/llama_index/tree/main/llama-index-integrations | llamaindex-integrations | LlamaIndex integration packages |
+| https://github.com/langfuse/langfuse | langfuse | Open-source LLM engineering platform covering tracing, prompts, evals, debugging, and monitoring |
+| https://github.com/Arize-ai/phoenix | phoenix | Open-source AI observability and evaluation tool for tracing, LLM evaluation, and RAG analysis |
+| https://github.com/traceloop/openllmetry | openllmetry | LLM tracing and observability solution based on OpenTelemetry |
+| https://github.com/promptfoo/promptfoo | promptfoo | Prompt and model output testing and regression evaluation tool, suitable for CI gates |
+| https://github.com/confident-ai/deepeval | deepeval | LLM application evaluation framework for RAG, agents, and conversation quality |
+| https://github.com/explodinggradients/ragas | ragas | RAG evaluation framework covering faithfulness, context precision, context recall, and related metrics |
+| https://github.com/openai/evals | openai-evals | OpenAI open-source evaluation framework for custom model and task evaluations |
+| https://github.com/microsoft/promptflow | promptflow | Microsoft open-source tool for LLM application development, evaluation, and flow orchestration |
+| https://github.com/dair-ai/Prompt-Engineering-Guide | prompt-guide | Prompt engineering guide and resource repository |
+| https://github.com/openai/tiktoken | tiktoken | OpenAI tokenizer for token counting and cost estimation |
+| https://github.com/dqbd/tiktoken | js-tiktoken | JavaScript/WASM version of tiktoken for frontend and Node.js cost estimation |
 
-#### 1.11.9 AI Programming Development Tools
-
-| Address | Tag | Description |
-| ---- | ---- | ---- |
-| https://docs.anthropic.com/zh-CN/docs/claude-code/overview | claude-code | AI programming assistant by Anthropic, based on Claude model, supports code generation, explanation and debugging |
-| https://opencode.ai/ | opencode | The open source AI coding agent | 
-| https://github.com/google-gemini/gemini-cli | gemini-cli | AI programming assistant by Google, based on Gemini model, supports command line interaction and code generation |
-| https://openai.com/zh-Hans-CN/codex/ | codex | AI programming assistant by OpenAI, supports command line interaction and code generation |
-| https://github.com/OpenHands/OpenHands | openhands | Open-source “AI software engineer/coding agent” with runtime for code-focused tasks, local or cloud extensible |
-| https://github.com/OpenHands/software-agent-sdk | openhands-sdk | Python/REST SDK for coding agents, supports local or isolated workspaces |
-| https://www.cursor.com/ | cursor | Extremely developer-friendly AI IDE, currently trending |
-| https://github.com/PatrickJS/awesome-cursorrules | cursorrules | Collection of engineering cursorrules to improve Cursor efficiency |
-| https://windsurfai.org/zh | windsurf | Extremely developer-friendly AI IDE, personally think more beginner-friendly than Cursor, currently trending |
-| https://github.com/SchneiderSam/awesome-windsurfrules | windsurfrules | Collection of engineering windsurfrules to improve Windsurf efficiency |
-| https://www.trae.ai/ | trae | AI IDE comparable to Cursor, free, by ByteDance |
-| https://bolt.new/ | bolt | AI Agent platform that generates and deploys projects, currently trending |
-| https://github.com/stackblitz/bolt.new | bolt | Open-source version of Bolt project, supports model switching |
-| https://v0.dev/ | v0 | Vercel's AI Agent platform that generates and deploys projects, currently trending |
-| https://www.copycoder.ai/ | copycoder | Generate pages by uploading app screenshots or UI designs, used with Cursor, Bolt AI code generation tools |
-| https://github.com/cline/cline | cline | Open-source VSCode plugin, agent, supports AI code generation/repair, currently trending |
-| https://copyweb.ai | copyweb | Generate pages by uploading app screenshots or Figma UI designs, good restoration effect but limited free quota |
-| https://mastergo.com/ | mastergo | Primarily design platform but can effectively convert to web pages, good for marketing static effects, domestic |
-| https://mgx.dev/ | mgx | Multi-Agent development platform for building full-stack applications from planning, data analysis to coding, testing and deployment, currently better than Devin |
-| https://github.com/features/copilot | copilot | GitHub official AI programming assistant |
-| https://codeium.com/ | codeium | Free AI code completion tool |
-| https://www.tabnine.com/ | tabnine | AI code completion tool supporting multiple IDEs |
-| https://github.com/paul-gauthier/aider | aider | GPT-based AI pair programming tool |
-| https://github.com/moyix/fauxpilot | fauxpilot | Open-source GitHub Copilot alternative |
-| https://github.com/SWE-agent/SWE-agent | swe-agent | Coding agent for GitHub issue fixing that lets models modify real repositories with tools |
-
-#### 1.11.10 AI Tool Platforms
+#### 1.11.10 AI Application Development Platforms and Chat UI
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://mcp.so/ | mcp.so | Open MCP tool collection |
-| https://21st.dev/ | 21st | AI-friendly frontend React component collection |
-| https://github.com/openclaw/openclaw | openclaw | Personal AI assistant/agent platform (self-hosted, multi-channel access, skills ecosystem) |
-| https://clawhub.ai/ | clawHub | Skill collection platform applicable to OpenClaw/ClaudeCode/Codex |
-| https://github.com/langgenius/dify | dify | AI workflow orchestration platform with open platform |
-| https://www.coze.cn/ | coze | AI workflow orchestration open platform, domestic, ByteDance |
-| https://www.langflow.org/ | langflow | Visual AI application building platform |
-| https://flowise.ai/ | flowise | Drag-and-drop LLM application building tool |
-| https://github.com/FlowiseAI/Flowise | flowise-open | Open-source version of Flowise |
+| https://github.com/langgenius/dify | dify | Open-source LLM application development platform covering workflows, RAG, agents, model management, and app publishing |
+| https://github.com/langflow-ai/langflow | langflow | Visual LLM, agent, and RAG application building platform |
+| https://github.com/FlowiseAI/Flowise | flowise | Drag-and-drop LLM application builder for quickly creating flows and tool-calling applications |
+| https://github.com/n8n-io/n8n | n8n | Open-source automation workflow platform with broad AI node and agent workflow support |
+| https://github.com/vercel/ai-chatbot | ai-chatbot | Vercel open-source full-stack AI chatbot template |
+| https://github.com/danny-avila/LibreChat | librechat | Open-source multi-model ChatGPT-like application supporting plugins, agents, tools, and multiple providers |
+| https://github.com/ChatGPTNextWeb/NextChat | nextchat | Formerly ChatGPT-Next-Web, a lightweight cross-platform ChatGPT-like application |
+| https://github.com/lobehub/lobe-chat | lobe-chat | Modern open-source AI chat application supporting multi-models, plugins, and knowledge bases |
+| https://github.com/open-webui/open-webui | open-webui | Self-hosted AI chat UI commonly used with Ollama, local models, and multi-model setups |
+| https://github.com/mckaywrigley/chatbot-ui | chatbot-ui | Open-source ChatGPT UI useful as a lightweight UI reference |
+| https://www.coze.cn/ | coze | ByteDance AI bot and workflow platform; not fully open-source, but useful for observing Chinese productized AI workflow patterns |
 
-#### 1.11.11 Agent Skills
-
-| Address | Tag | Description |
-| ---- | ---- | ---- |
-| https://skills.sh/ | skills-sh | Agent skills directory/browser with repo/skill discovery and install guidance |
-| https://skillsmp.com/ | skillsmp | Agent Skills Marketplace aggregating skills across Claude Code / Codex CLI / ChatGPT and more |
-| https://agentskills.io/home | agentskills-io | AgentSkills official entry: concept, standards, integration guides |
-| https://agentskills.io/specification | skills-spec | SKILL.md format specification (frontmatter + instructions + resources) |
-| https://github.com/agentskills/agentskills | skills-spec-repo | Agent Skills specification and docs repo (write once, use everywhere format) |
-| https://github.com/anthropics/skills | anthropics-skills | Anthropic official example skills collection |
-| https://github.com/vercel-labs/agent-skills | vercel-agent-skills | Vercel official skills collection (frontend/deploy/best practices) |
-| https://github.com/vercel-labs/skills | skills-cli | Skills CLI (`npx skills add/find/check/update`) for install/discovery/update |
-| https://github.com/softaworks/agent-toolkit | agent-toolkit | Community skills toolkit with workflow, planning, docs, architecture, communication, etc. |
-
-### 1.12 Web3/Blockchain
-
-#### 1.12.1 Ethereum Development Libraries
+#### 1.11.11 Browser Agents, Computer Use, and Automation
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://docs.ethers.org/v6/ | ethers | Complete Ethereum library for JavaScript and TypeScript |
-| https://github.com/ethers-io/ethers.js/ | ethers | Ethers.js GitHub repository. |
-| https://viem.sh/ | viem | TypeScript interface for Ethereum with excellent type safety |
-| https://wagmi.sh/ | wagmi | React hooks for Ethereum development |
-| https://web3js.org/ | web3js | Original Ethereum JavaScript library |
-| https://github.com/ethereum/ethereum-org-website | ethereum | Ethereum official website source code |
+| https://github.com/browser-use/browser-use | browser-use | Open-source browser agent framework that lets LLMs control browsers to complete web tasks |
+| https://github.com/browserbase/stagehand | stagehand | Browserbase open-source browser automation SDK combining natural-language actions with Playwright code |
+| https://github.com/microsoft/playwright-mcp | playwright-mcp | Playwright MCP server suitable for allowing AI coding assistants to operate real browsers |
+| https://github.com/vercel-labs/agent-browser | agent-browser | Browser automation CLI for AI agents |
+| https://github.com/openinterpreter/open-interpreter | open-interpreter | Local computer-use and automation agent that can execute commands, file operations, and scripts |
+| https://github.com/OpenInterpreter/01 | 01 | Local voice and computer assistant project in the Open Interpreter ecosystem |
+| https://github.com/Significant-Gravitas/AutoGPT | autogpt-history | Early representative autonomous agent project; better kept as a historical case or design reference than a first-choice engineering framework |
+| https://github.com/BuilderIO/ai-shell | ai-shell | CLI tool that converts natural language into shell commands for lightweight command-generation scenarios |
 
-#### 1.12.2 Wallet Integration
-
-| Address | Tag | Description |
-| ---- | ---- | ---- |
-| https://rainbowkit.com/ | rainbowkit | Best wallet connection library for React |
-| https://docs.family.co/connectkit | connectkit | Modern wallet connection components |
-| https://connectkit.family/ | connectkit | ConnectKit official site. |
-| https://web3modal.com/ | web3modal | Universal wallet modal for Web3 |
-| https://docs.family.co/web3modal | web3modal | Web3Modal docs by Family. |
-| https://metamask.io/sdk/ | metamask-sdk | MetaMask SDK for dApp integration |
-| https://walletconnect.com/web3modal | walletconnect | Cross-platform wallet connection protocol |
-| https://walletconnect.com/ | walletconnect | WalletConnect official site. |
-
-#### 1.12.3 Development Frameworks
+#### 1.11.12 Machine Learning, Browser-Side Models, Speech, and Vision AI
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://thirdweb.com/ | thirdweb | Complete Web3 development platform |
-| https://moralis.io/ | moralis | Web3 development platform with APIs |
-| https://hardhat.org/ | hardhat | Ethereum development environment |
-| https://trufflesuite.com/ | truffle | Ethereum development framework |
-| https://remix.ethereum.org/ | remix | Online Ethereum IDE |
-| https://docs.soliditylang.org/ | solidity | Solidity programming language documentation |
+| https://tensorflow.google.cn/js | tensorflow-js | Library for running machine learning and deep learning models in the browser or Node.js |
+| https://github.com/tensorflow/tfjs-models | tfjs-models | Collection of TensorFlow.js pretrained models covering pose, detection, text, and more |
+| https://github.com/ml5js/ml5-library | ml5 | Friendly machine learning library for creative coding and web developers, built on TensorFlow.js |
+| https://github.com/mljs/ml | mljs | JavaScript machine learning algorithm collection |
+| https://github.com/huggingface/transformers.js | transformersjs | Hugging Face Transformer model runtime for browser and Node.js |
+| https://github.com/microsoft/onnxruntime | onnxruntime-web | ONNX Runtime Web capabilities for browser-side model inference |
+| https://github.com/openai/whisper | whisper | OpenAI open-source speech recognition model |
+| https://github.com/ggerganov/whisper.cpp | whisper-cpp | High-performance C/C++ implementation of Whisper for local and edge speech recognition |
+| https://github.com/ricky0123/vad | vad | Real-time browser voice activity detection library |
+| https://github.com/microsoft/cognitive-services-speech-sdk-js | azure-speech | Microsoft Azure Speech Service JavaScript SDK |
+| https://github.com/opencv/opencv.js | opencvjs | JavaScript version of OpenCV for browser-side computer vision |
+| https://github.com/google-ai-edge/mediapipe | mediapipe | Google cross-platform media AI and vision task framework for pose, gesture, face, and related scenarios |
 
-#### 1.12.4 Infrastructure and APIs
 
-| Address | Tag | Description |
-| ---- | ---- | ---- |
-| https://alchemy.com/ | alchemy | Ethereum node and API services |
-| https://www.alchemy.com/ | alchemy | Ethereum node and API services (www). |
-| https://infura.io/ | infura | Ethereum and IPFS infrastructure |
-| https://quicknode.com/ | quicknode | Blockchain infrastructure platform |
-| https://www.quicknode.com/ | quicknode | Blockchain infrastructure platform (www). |
-| https://chain.link/ | chainlink | Decentralized oracle network |
-| https://thegraph.com/ | thegraph | Decentralized protocol for indexing blockchain data |
-| https://docs.ipfs.tech/ | ipfs | IPFS documentation (decentralized storage). |
-| https://docs.ceramic.network/ | ceramic | Ceramic decentralized data network docs. |
-| https://gun.eco/ | gun | Decentralized data sync protocol. |
-
-#### 1.12.5 DeFi and NFT Tools
+### 1.12 WebAssembly
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://uniswap.org/ | uniswap | Decentralized exchange protocol |
-| https://opensea.io/ | opensea | NFT marketplace |
-| https://0x.org/ | 0x | Decentralized exchange infrastructure |
-| https://compound.finance/ | compound | DeFi lending protocol |
-| https://openzeppelin.com/ | openzeppelin | Secure smart contract library |
-| https://github.com/OpenZeppelin/openzeppelin-contracts | openzeppelin | OpenZeppelin smart contract library (GitHub). |
+| https://webassembly.org/ | wasm | Official WebAssembly entry point for learning about the Wasm standard, ecosystem, and basic resources. |
+| https://developer.mozilla.org/en-US/docs/WebAssembly | wasm/mdn | MDN WebAssembly documentation, useful for frontend developers learning and checking Web API integration. |
+| https://developer.mozilla.org/zh-CN/docs/WebAssembly | wasm/mdn-cn | MDN WebAssembly Chinese documentation. |
+| https://www.assemblyscript.org/ | assemblyscript | TypeScript-like language for WebAssembly; useful for frontend/TS developers writing Wasm with TypeScript-like syntax, but it does not compile full TypeScript directly to Wasm. |
+| https://rustwasm.github.io/docs/wasm-pack/ | wasm-pack | Common Rust to Wasm build, packaging, and npm publishing tool; replaces the old drager/wasm-pack link with the current Rust/Wasm ecosystem entry. |
+| https://rustwasm.github.io/docs/wasm-bindgen/ | wasm-bindgen | Core Rust and JS/Wasm bindings and glue-code toolchain, often used with wasm-pack. |
+| https://wasmtime.dev/ | wasmtime | Fast and secure Wasm runtime led by Bytecode Alliance, suitable for server-side, plugin-system, and edge-computing scenarios. |
+| https://github.com/wasmerio/wasmer | wasmer | Mainstream Wasm runtime for running WebAssembly on servers, edge, embedded environments, and more. |
+| https://wasi.dev/ | wasi | WebAssembly System Interface, the system interface specification for non-browser Wasm runtimes. |
+| https://component-model.bytecodealliance.org/ | wasm-component-model | WebAssembly Component Model for building composable and interoperable Wasm components, an important direction for server-side and plugin ecosystems. |
+| https://github.com/bytecodealliance/wit-bindgen | wit-bindgen | Language binding generator for the WebAssembly Component Model, using WIT to describe imports/exports and generate multi-language bindings. |
+| https://www.npmjs.com/package/@bytecodealliance/jco | jco | Bytecode Alliance JavaScript WebAssembly Component toolchain for handling Wasm Components in the JS ecosystem. |
+| https://github.com/WebAssembly/wabt | wabt | WebAssembly Binary Toolkit, including low-level conversion and analysis tools such as wat2wasm and wasm2wat. |
+| https://github.com/WebAssembly/binaryen | binaryen | WebAssembly compiler and optimization toolchain library, commonly used for Wasm optimization, generation, and analysis. |
+| https://emscripten.org/ | emscripten | Classic toolchain for compiling C/C++ to WebAssembly, useful for porting existing C/C++ libraries to the Web or Wasm runtimes. |
+| https://wasmedge.org/ | wasmedge | WebAssembly runtime in the CNCF ecosystem, often used for cloud-native, edge, and lightweight service scenarios. |
+| https://github.com/WebAssembly/wasi-sdk | wasi-sdk | C/C++ toolchain targeting WASI, used to compile C/C++ programs to the WASI target. |
+| https://github.com/extism/extism | extism | WebAssembly-based plugin system framework for building multi-language, sandboxed plugin capabilities. |
+| https://github.com/suborbital/reactr | reactr | Historical/reference WebAssembly function runtime and plugin framework, useful for studying server-side Wasm plugin-system exploration. |
+| https://mbebenita.github.io/WasmExplorer/ | WasmExplorer | Historical online Wasm playground; modern projects should usually start with MDN, wasm-pack, WABT, Emscripten, and related toolchains. |
 
-### 1.13 WebAssembly
+### 1.13 IDE Plugins
 
-| Link                                                                                   | Tag              | Description                                  |
-| -------------------------------------------------------------------------------------- | ---------------- | -------------------------------------------- |
-| <a href="https://www.assemblyscript.org/" target="_blank">AssemblyScript</a>           | `assemblyscript` | write wasm by TypeScript                     |
-| <a href="https://wasmtime.dev/" target="_blank">Wasmtime</a>                           | `wasmtime`       | fast and safe wasm runtime                   |
-| <a href="https://mbebenita.github.io/WasmExplorer/" target="_blank"> WasmExplorer </a> | `WasmExplorer`   | online wasm playground                       |
-| <a href="https://github.com/drager/wasm-pack" target="_blank">wasm-pack</a>             | `wasm-pack`      | Common Rust → Wasm build/publish tool for npm |
-| <a href="https://github.com/wasm-bindgen/wasm-bindgen" target="_blank">wasm-bindgen</a> | `wasm-bindgen`   | Core Rust ↔ JS/Wasm bindings and glue code toolchain |
-| <a href="https://github.com/wasmerio/wasmer" target="_blank">Wasmer</a>                 | `wasmer`         | Mainstream Wasm runtime                      |
+#### 1.13.1 VS Code
 
-### 1.14 IDE Plugins
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://marketplace.visualstudio.com/ | marketplace | VS Code extension marketplace homepage. |
+| https://vscode.dev/ | VSCode | Online VS Code, suitable for lightweight editing, remote repository viewing, and temporary development. |
+| https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode | prettier | Official Prettier VS Code extension, commonly used for formatting in modern frontend projects; recommended over older formatters such as Beautify/stylefmt. |
+| https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint | eslint | JS/TS code quality checking extension commonly used in modern frontend projects. |
+| https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint | stylelint | CSS/Less/SCSS style checking extension. |
+| https://marketplace.visualstudio.com/items?itemName=Vue.volar | volar/vue-official | Official Vue VS Code extension, preferred for Vue 3 projects and a replacement for Vetur in new projects. |
+| https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin | typescript-vue-plugin | Vue + TypeScript support extension for Vue 3/TS projects. |
+| https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss | tailwindcss | Tailwind CSS IntelliSense, completion, and lint extension commonly used in Tailwind projects. |
+| https://marketplace.visualstudio.com/items?itemName=antfu.unocss | unocss | UnoCSS VS Code extension for atomic CSS projects. |
+| https://marketplace.visualstudio.com/items?itemName=biomejs.biome | biome | Official Biome VS Code extension for projects using Biome for formatting and linting. |
+| https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig | editorconfig | EditorConfig support extension for unifying indentation, line endings, and other basic formatting across editors. |
+| https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens | error-lens | Shows errors and warnings inline in code, improving development feedback. |
+| https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker | code-spell-checker | Code word spell checker for docs, variable names, and comments. |
+| https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks | bookmarks | Code bookmark extension for reading and locating code in large projects. |
+| https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens | gitlens | Git source-control enhancement for blame, commit history, authorship, and related information. |
+| https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager | project-manager | Local project management extension for switching between multiple projects. |
+| https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph | git-graph | Visual Git branch and commit history viewer for multi-branch projects. |
+| https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github | github-pr | GitHub PR and Issue management extension for code review and collaboration inside VS Code. |
+| https://marketplace.visualstudio.com/items?itemName=humao.rest-client | rest-client | Sends HTTP requests directly in VS Code, useful for API debugging and saved API examples. |
+| https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client | thunder-client | VS Code-native API debugging client, useful as a lightweight Postman alternative. |
+| https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker | docker | Official Docker VS Code extension for containers, images, Compose files, and debugging. |
+| https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers | dev-containers | VS Code Dev Containers extension for unifying team development environments. |
+| https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright | playwright | Official Playwright VS Code extension for writing, debugging, and running E2E tests. |
+| https://marketplace.visualstudio.com/items?itemName=vitest.explorer | vitest | Vitest testing extension for modern Vite/Vitest projects. |
+| https://marketplace.visualstudio.com/items?itemName=GitHub.copilot | copilot | GitHub official AI coding assistant for completion, explanation, and assisted generation. |
+| https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat | copilot-chat | Conversational coding assistant for GitHub Copilot. |
+| https://marketplace.visualstudio.com/items?itemName=Continue.continue | continue | Open-source AI coding assistant extension supporting multiple models and local/remote code context. |
+| https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview | svg-preview | SVG graphics preview extension. |
+| https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight | color-highlight | Color preview extension. |
+| https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code | dart-code | Dart language development support. |
+| https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter | Flutter | Flutter development support. |
+| https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint | markdownlint | Markdown linting extension. |
+| https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets | html-snippets | Historical reference: quick HTML snippet extension; modern VS Code already has substantial built-in completion. |
+| https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify | beautify | Historical reference: JS/JSON/CSS/Sass/HTML formatter; modern projects should usually use Prettier. |
+| https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets | rainbow-brackets | Historical reference: bracket coloring extension; VS Code has built-in bracket pair colorization, so this is usually unnecessary. |
+| https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-stylefmt | stylefmt | Historical reference: CSS formatter; modern projects should usually use Prettier + Stylelint. |
+| https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome | debugger-for-chrome | Historical reference: VS Code and Chrome debugging extension, now deprecated; modern VS Code has built-in JavaScript Debugger. |
+| https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin | typescript-tslint-plugin | Historical reference: TSLint is deprecated; modern TypeScript projects should use typescript-eslint. |
+| https://marketplace.visualstudio.com/items?itemName=octref.vetur | vetur | Maintenance reference for Vue 2/Vetur projects; Vue 3 projects should use Vue - Official / Volar. |
+| https://marketplace.visualstudio.com/items?itemName=maximetinu.identical-sublime-monokai-csharp-theme-colorizer | identical-sublime-monokai | Sublime Monokai-style theme, kept for personal preference. |
+| https://marketplace.visualstudio.com/items?itemName=HookyQR.minify | minify | Historical reference: direct JS/CSS minification extension; modern projects usually handle minification through Vite/Webpack/Rollup/Rspack and similar build tools. |
+| https://marketplace.visualstudio.com/items?itemName=pnp.polacode | polacode | Code screenshot extension for sharing code snippets. |
+| https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster | javascript-booster | JS/TS quick refactoring and optimization tool, such as changing var to const/let. |
 
-### 1.14.1 VS Code
+### 1.14 Web3/Blockchain
 
-| Link                                                                                                            | Tag                       | Description                                                                       |
-| --------------------------------------------------------------------------------------------------------------- | ------------------------- | --------------------------------------------------------------------------------- |
-| https://marketplace.visualstudio.com/                                                                           | marketplace               | Plugin homepage                                                                   |
-| https://vscode.dev/                                                                                             | VSCode                    | VSCode online version                                                             |
-| https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight                                     | color-highlight           | Color preview.                                                                    |
-| https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview                                     | svg-preview               | SVG graphics preview.                                                             |
-| https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker                       | code-spell-checker        | Code word spell check.                                                            |
-| https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify                                            | beautify                  | JavaScript, JSON, CSS, Sass, and HTML formatting optimization.                    |
-| https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks                                       | bookmarks                 | Code bookmark tool.                                                               |
-| https://marketplace.visualstudio.com/items?itemName=2gua.rainbow-brackets                                       | rainbow-brackets          | Bracket color distinction tool.                                                   |
-| https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-stylefmt                                      | stylefmt                  | CSS formatting tool.                                                              |
-| https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome                                | debugger-for-chrome       | VSCode and Chrome debugging plugin, essential for local development.              |
-| https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint                                      | eslint                    | JS check tool.                                                                    |
-| https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint                                  | stylelint                 | CSS/LESS/SCSS check tool.                                                         |
-| https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin                   | typescript-tslint-plugin  | TypeScript check tool.                                                            |
-| https://marketplace.visualstudio.com/items?itemName=octref.vetur                                                | vetur                     | Vue development tool.                                                             |
-| https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code                                         | dart-code                 | Dart language development support.                                                |
-| https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter                                           | Flutter                   | Flutter development support.                                                      |
-| https://marketplace.visualstudio.com/items?itemName=abusaidm.html-snippets                                      | html-snippets             | HTML tag development tool.                                                        |
-| https://marketplace.visualstudio.com/items?itemName=maximetinu.identical-sublime-monokai-csharp-theme-colorizer | identical-sublime-monokai | I prefer the Sublime style.                                                       |
-| https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint                              | markdownlint              | Markdown check tool.                                                              |
-| https://marketplace.visualstudio.com/items?itemName=HookyQR.minify                                              | minify                    | JS/CSS compression tool.                                                          |
-| https://marketplace.visualstudio.com/items?itemName=pnp.polacode                                                | polacode                  | VSCode IDE plugin for code screenshots                                            |
-| https://gitlens.amod.io/                                                                                        | gitlens                   | Git source code management plugin                                                 |
-| https://marketplace.visualstudio.com/items?itemName=alefragnani.project-manager                                 | project-manager           | Local project management tool                                                     |
-| https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster                             | javascript-booster        | JS/TS quick refactoring and optimization tool, such as changing var to const/let. |
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://ethereum.org/developers/ | ethereum | Official Ethereum developer entry point for wallets, smart contracts, nodes, toolchains, and DApp basics. |
+| https://docs.soliditylang.org/ | solidity | Official documentation for the Ethereum smart contract programming language. |
+| https://github.com/OpenZeppelin/openzeppelin-contracts | openzeppelin | Secure smart contract standard library with common ERC20/ERC721/ERC1155 implementations. |
+| https://github.com/ethers-io/ethers.js/ | ethers | Classic Ethereum JavaScript/TypeScript library for wallets, contract calls, signing, transactions, and related scenarios; Viem is also worth evaluating for modern new projects. |
+| https://viem.sh/ | viem | Modern, TypeScript-first Ethereum interface library that is lightweight, modular, and type-friendly. |
+| https://wagmi.sh/ | wagmi | React Hooks for Ethereum, currently based on Viem, suitable for wallet connections, contract reads/writes, account state, and transaction state in React DApps. |
+| https://rainbowkit.com/ | rainbowkit | React wallet connection component library for quickly building a polished wallet connection experience. |
+| https://connectkit.family/ | connectkit | Beautiful, modern Web3 wallet connection components. |
+| https://reown.com/appkit | reown-appkit | New entry point in the WalletConnect/Web3Modal direction, covering wallet connection, account login, embedded wallets, and Onchain App experience capabilities. |
+| https://docs.family.co/web3modal | web3modal | Maintenance/historical reference: Ethereum wallet connection library; new projects should also look at Reown AppKit. |
+| https://metamask.io/sdk/ | metamask-sdk | Official MetaMask SDK. |
+| https://walletconnect.com/ | walletconnect | Open protocol for connecting decentralized applications and mobile wallets. |
+| https://thirdweb.com/ | thirdweb | Complete Web3 application development platform with SDKs, contracts, wallets, infrastructure, and related capabilities. |
+| https://moralis.io/ | moralis | Web3 development platform providing APIs, indexing, and infrastructure capabilities. |
+| https://www.alchemy.com/ | alchemy | Blockchain development platform and API provider commonly used for RPC, NFT, token, transaction, and related data services. |
+| https://infura.io/ | infura | Ethereum, IPFS, and related infrastructure API gateway service. |
+| https://www.quicknode.com/ | quicknode | Blockchain infrastructure API service supporting multi-chain RPC and data services. |
+| https://hardhat.org/ | hardhat | Mainstream Ethereum smart contract development environment for compilation, testing, deployment, and debugging. |
+| https://book.getfoundry.sh/ | foundry | High-performance Ethereum smart contract development toolchain written in Rust, including forge, cast, and anvil. |
+| https://book.getfoundry.sh/anvil/ | anvil | Local blockchain node in the Foundry ecosystem, suitable for local smart contract development and testing. |
+| https://github.com/scaffold-eth/scaffold-eth-2 | scaffold-eth | Modern Ethereum DApp starter template, commonly combining Hardhat/Foundry, Viem, Wagmi, RainbowKit, and Next.js. |
+| https://trufflesuite.com/ | truffle | Historical reference: classic Ethereum development framework; Truffle/Ganache have been sunset and archived, so new projects should prefer Hardhat or Foundry. |
+| https://tenderly.co/ | tenderly | Smart contract debugging, simulation, monitoring, and on-chain analysis platform. |
+| https://thegraph.com/docs/ | the-graph | Blockchain data indexing protocol for building on-chain data query services. |
+| https://docs.chain.link/ | chainlink | Decentralized oracle network commonly used for prices, randomness, automation, and on-chain/off-chain data interaction. |
+| https://docs.safe.global/ | safe | Multisig wallet and smart account infrastructure for DAOs, team treasury management, and account abstraction scenarios. |
+| https://eips.ethereum.org/EIPS/eip-1193 | eip-1193 | Ethereum Provider JavaScript API standard, the basis for wallet injection and DApp interaction. |
+| https://eips.ethereum.org/EIPS/eip-6963 | eip-6963 | Multi-wallet injection discovery standard, solving discovery and selection when multiple wallet extensions inject providers at the same time. |
+| https://docs.optimism.io/ | optimism | Official Optimism / OP Stack documentation for learning Ethereum L2 and Rollup ecosystems. |
+| https://docs.arbitrum.io/ | arbitrum | Official Arbitrum documentation for Arbitrum L2, contract deployment, and frontend integration. |
+| https://docs.polygon.technology/ | polygon | Official Polygon documentation for Polygon PoS, zkEVM, and related developer tools. |
+| https://docs.base.org/ | base | Official Base developer documentation for Base chain, contract deployment, and Onchain App development. |
+| https://docs.ipfs.tech/ | ipfs | Decentralized storage documentation covering content addressing, file storage, and distribution. |
+| https://docs.ceramic.network/ | ceramic | Decentralized data network for DID, user data, and composable data scenarios. |
+| https://gun.eco/ | gun | Decentralized data synchronization protocol for experimental P2P data sync and offline-first applications. |
 
 ### 1.15 Life
 
-| Address                                   | Tag             | Description                              |
-| ----------------------------------------- | --------------- | ---------------------------------------- |
-| https://github.com/Anduin2017/HowToCook   | HowToCook       | A programmer's guide to cooking at home. |
-| https://github.com/geekan/HowToLiveLonger | HowToLiveLonger | A programmer's guide to living longer.   |
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://github.com/Anduin2017/HowToCook | HowToCook | A programmer's guide to cooking at home, useful for learning cooking in an engineering-oriented way. |
+| https://github.com/geekan/HowToLiveLonger | HowToLiveLonger | Programmer health and lifestyle resource collection; useful for habits, risk factors, and lifestyle references, but not a replacement for professional medical advice. |
+| https://github.com/awesome-selfhosted/awesome-selfhosted | awesome-selfhosted | Collection of self-hosted open-source services for personal tools, home servers, and private services. |
+| https://github.com/Kickball/awesome-selfhosted | awesome-selfhosted-archive | Historical reference: early self-hosted service collection; some content may have moved or become outdated. |
+| https://github.com/pluja/awesome-privacy | awesome-privacy | Privacy tools and privacy-friendly service collection for understanding personal data protection and alternatives. |
+| https://github.com/trimstray/the-book-of-secret-knowledge | secret-knowledge | Collection of command-line, system, networking, security, and productivity tips for engineers. |
+| https://github.com/sindresorhus/awesome | awesome | Main entry point for GitHub Awesome lists, useful as navigation across many technical and lifestyle resource collections. |
+| https://github.com/jlevy/the-art-of-command-line | command-line | Command-line tips collection for improving day-to-day programmer productivity. |
+| https://github.com/yangshun/tech-interview-handbook | interview | Technical interview preparation resource collection for candidates, interviewer question banks, and structured review. |
+| https://github.com/jwasham/coding-interview-university | coding-interview | Long-term computer science fundamentals and algorithm interview study plan, useful for systematic foundations. |
+
+---
+
+## 2. fe-tools Method/Utility Libraries
+
+### 2.1 utils
+
+Common utility methods for frontend development, suitable for browser and Node.js. Documentation: [https://blog.michealwayne.cn/fe-tools/stable/](https://blog.michealwayne.cn/fe-tools/stable/)
+
+#### Modules
+
+- [env](./utils/packages/env/): environment detection constants.
+- [utils](./utils/packages/utils/): basic environment-independent utility methods.
+- [web-utils](./utils/packages/web-utils/): browser-side DOM, CSS, event handling, and other web utility wrappers.
+- [node-utils](./utils/packages/node-utils/): Node.js file, event handling, and related wrappers.
+- [node-img-build](./utils/packages/node-img-build/): webp/base64 and other image processing wrappers based on gm.
+- [canvas-utils](./utils/packages/canvas-utils/): Canvas drawing wrappers for web and node-canvas.
+- [ai-utils](./utils/packages/ai-utils/): AI large-model related wrappers, including code checking and related applications.
+
+#### Start the utils project
+
+Run these commands from `./utils`:
+
+- `pnpm install`
+- Build: `npm run build:prod`
+- Build docs: `npm run docs`
+
+> TODO: Mini Program wrappers and build wrappers.
+
+#### 2.2 project-templates
+
+`frontend` templates:
+
+- [webpack](./project-templates/frontend/webpack/)
+- [webpack + ts](./project-templates/frontend/webpack%2Bts/)
+- [vite + vue3](./project-templates/frontend/vite-vue3+ts/)
+- [vue2](./project-templates/frontend/vue/)
+- [vite + react 17](./project-templates/frontend/vite-react+ts/)
+- [react16](./project-templates/frontend/react/)
+
+`backend` templates:
+
+- [koa2](./project-templates/backend/koa2/)
+
+#### 2.3 ~~styles base style library~~
+
+Moved to CSS recommended convention [MooCSS](https://github.com/MichealWayne/Moo-CSS), common style library [moo-css-base npm](https://www.npmjs.com/package/moo-css-base), and [moo-css-base GitHub](https://github.com/MichealWayne/Moo-CSS/tree/master/moo-css-base).
+
+---
+
+## FE-Tools - Chrome Extension
+
+> Project and source: [https://github.com/MichealWayne/fe-tools-chrome-plugin](https://github.com/MichealWayne/fe-tools-chrome-plugin)
+
+![chrome-ext.png](https://blog.michealwayne.cn/images/fe-tools/chrome-ext.png)
+
+A small extension that assists frontend development.
+
+### Features
+
+- Tool website search
+- Local bookmark website search
+- CSS property/Moo-CSS search
+- URL to QR code and SVG vector image
+- Image compression and base64 conversion
+- px/rem/vw conversion calculator
+- rgb/hsb/hex color conversion
+- Multi-language translation
+- Simple Postman
+- Common regex lookup
+- JSON formatting and validation
+- SVG online editor
+- Date/timestamp conversion
+- Linux command lookup
+- Page screenshot (full page/node screenshot and save)
+- Utility function library search
+- Custom search extension
+- Chinese/English switching
+
+[Go to extension](https://github.com/MichealWayne/fe-tools/tree/master/chrome-extension)
+
+### Installation
+
+Clone this repository locally, open the browser extensions page, click "Load unpacked", and select the `chrome-extension` directory in this repository.

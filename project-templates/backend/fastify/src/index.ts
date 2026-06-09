@@ -3,7 +3,7 @@ import fastify, { FastifyInstance } from 'fastify';
 import os from 'os';
 
 import { bootstrap } from './app';
-import { config } from './config';
+import { config, Environment } from './config';
 import { log } from './utils/logger';
 
 // Handle uncaught exceptions
@@ -49,7 +49,7 @@ const start = async () => {
     const app: FastifyInstance = fastify({
       // Disable Fastify's built-in logger in favor of log4js
       logger: false,
-      disableRequestLogging: config.env === 'test',
+      disableRequestLogging: config.env === Environment.Test,
       ignoreTrailingSlash: true,
       forceCloseConnections: true,
       connectionTimeout: 30000, // 30 seconds
