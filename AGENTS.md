@@ -22,7 +22,7 @@ These instructions apply to the entire repository rooted at `fe-tools/`.
 - `datas/`: JSON datasets consumed by the extension.
 - `project-templates/`: frontend and backend starter templates.
 - `utils/`: the main package workspace; TypeScript utility packages, tests, scripts, skills, and publishing/build tooling.
-- `.windsurfrules`: existing high-level project rules; use it as supporting context, but prefer this file when instructions conflict.
+- `utils/.windsurfrules` and template-local `.windsurfrules` files: supporting rules for specific work areas; prefer this file when instructions conflict.
 
 ## Default Workflow
 
@@ -46,6 +46,7 @@ These instructions apply to the entire repository rooted at `fe-tools/`.
 ### `datas/`
 
 - Treat JSON files as source-of-truth datasets for search and lookup.
+- Current dataset files include `tools.json`, `regex.json`, `moo-css.json`, and `linux-commands.json`.
 - Preserve record shape, field order, and neighboring style unless schema changes are explicitly required.
 - Validate every changed JSON file after edits.
 - Be extra careful with URLs, regex strings, command examples, and human-readable descriptions.
@@ -57,6 +58,7 @@ Preferred validation:
 
 ### `chrome-extension/`
 
+- This directory is an installable built Chrome extension. Its README points to an external source repository, so do not assume source files exist elsewhere in this repo.
 - Assume files under `assets/` are built artifacts unless the task explicitly says to edit them.
 - Prefer editing original source files if they exist elsewhere in the repo; if no source exists, call out that you are modifying shipped static files directly.
 - Keep manifest, scripts, and static resources compatible with the existing extension structure.
@@ -65,6 +67,7 @@ Preferred validation:
 ### `project-templates/`
 
 - Treat each template as an independent starter project.
+- If the target template contains its own `.windsurfrules`, read it before editing that template.
 - Preserve the template's chosen stack and coding style.
 - Do not apply a framework-specific pattern from one template to all others.
 - When editing a template, also update its local README if the setup, scripts, or generated structure changes.
@@ -85,6 +88,14 @@ Useful workspace files:
 - `utils/packages/*`
 - `utils/scripts/*`
 - `utils/skills/*`
+
+Common commands from `utils/`:
+
+- `pnpm install`
+- `npm run test`
+- `TEST_API=<package-dir> npm run test`
+- `npm run build`
+- `npm run docs`
 
 ## Testing And Validation
 
@@ -127,6 +138,6 @@ Before substantial work, read only the files relevant to the task:
 
 - repository-wide context: `README.md`
 - data tasks: target file in `datas/` and `datas/README.md` if present
-- template tasks: `project-templates/README.md` and the target template README
-- utility package tasks: `utils/package.json`, target package files, and nearby tests
+- template tasks: `project-templates/README.md`, the target template README, and target template `.windsurfrules` if present
+- utility package tasks: `utils/package.json`, `utils/.windsurfrules`, target package files, and nearby tests
 - extension tasks: `chrome-extension/README.md`, `manifest.json`, and the target script/resource
