@@ -1,0 +1,500 @@
+[
+  {
+    "id": "mail",
+    "name": "邮箱",
+    "description": "常见邮箱格式，支持点号、加号、下划线和中划线，不支持IP邮箱域名",
+    "regexStr": "^[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\\.)+[A-Za-z]{2,63}$"
+  },
+  {
+    "id": "phone",
+    "name": "(中国大陆)手机号",
+    "description": "11位数字的手机号",
+    "regexStr": "^1(3|4|5|6|7|8|9)\\d{9}$"
+  },
+  {
+    "id": "tel",
+    "name": "(中国大陆)电话",
+    "description": "固定电话，区号可选",
+    "regexStr": "^(?:(?:\\(\\d{3,4}\\))|(?:\\d{3,4}-))?\\d{7,8}$"
+  },
+  {
+    "id": "url",
+    "name": "URL地址",
+    "description": "常见HTTP/HTTPS URL格式，协议可选",
+    "regexStr": "^(?:(?:https?):\\/\\/)?(?:localhost|(?:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)|(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\\.)+[A-Za-z]{2,63})(?::(?:6553[0-5]|655[0-2]\\d|65[0-4]\\d{2}|6[0-4]\\d{3}|[1-5]\\d{4}|[1-9]\\d{0,3}|0))?(?:[/?#][^\\s]*)?$"
+  },
+  {
+    "id": "ipv4",
+    "name": "IPV4",
+    "description": "符合IPV4",
+    "regexStr": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+  },
+  {
+    "id": "ipv6",
+    "name": "IPV6",
+    "description": "符合IPV6",
+    "regexStr": "^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$"
+  },
+  {
+    "id": "userName",
+    "name": "用户名",
+    "description": "字母开头，允许5-16个字符，允许字母数字下划线",
+    "regexStr": "^[a-zA-Z][a-zA-Z0-9_]{4,15}$"
+  },
+  {
+    "id": "chinese",
+    "name": "中文",
+    "description": "常用汉字及CJK扩展A-F区",
+    "regexStr": "^(?:[\u3400-\u9fff]|[\ud840-\ud868][\udc00-\udfff]|[\ud869][\udc00-\udedf])+$"
+  },
+  {
+    "id": "Integer",
+    "name": "整数数字",
+    "description": "",
+    "regexStr": "^(?:-?[1-9]\\d*|0)$"
+  },
+  {
+    "id": "PositiveInteger",
+    "name": "正整数数字",
+    "description": "",
+    "regexStr": "^[1-9]\\d*$"
+  },
+  {
+    "id": "NegativeInteger",
+    "name": "负整数数字",
+    "description": "",
+    "regexStr": "^-[1-9]\\d*$"
+  },
+  {
+    "id": "number4",
+    "name": "非负整数数字",
+    "description": "",
+    "regexStr": "^(?:[1-9]\\d*|0)$"
+  },
+  {
+    "id": "number5",
+    "name": "非正整数数字",
+    "description": "",
+    "regexStr": "^(?:-[1-9]\\d*|0)$"
+  },
+  {
+    "id": "Positivenumber",
+    "name": "零和正数",
+    "description": "",
+    "regexStr": "^(?:0|[1-9]\\d*)(?:\\.\\d+)?$"
+  },
+  {
+    "id": "Negativenumber",
+    "name": "负数",
+    "description": "",
+    "regexStr": "^-(?:[1-9]\\d*(?:\\.\\d+)?|0\\.\\d*[1-9]\\d*)$"
+  },
+  {
+    "id": "number6",
+    "name": "浮点数",
+    "description": "不能为整数",
+    "regexStr": "^-?(?:[1-9]\\d*\\.\\d+|0\\.\\d+)$"
+  },
+  {
+    "id": "number7",
+    "name": "正浮点数",
+    "description": "不能为整数",
+    "regexStr": "^(?:[1-9]\\d*\\.\\d+|0\\.\\d*[1-9]\\d*)$"
+  },
+  {
+    "id": "number8",
+    "name": "负浮点数",
+    "description": "不能为整数",
+    "regexStr": "^-(?:[1-9]\\d*\\.\\d+|0\\.\\d*[1-9]\\d*)$"
+  },
+  {
+    "id": "number9",
+    "name": "非负浮点数",
+    "description": "不能为整数",
+    "regexStr": "^(?:[1-9]\\d*\\.\\d+|0\\.\\d+)$"
+  },
+  {
+    "id": "number10",
+    "name": "非正浮点数",
+    "description": "不能为整数",
+    "regexStr": "^(?:-(?:[1-9]\\d*\\.\\d+|0\\.\\d*[1-9]\\d*)|0\\.0+)$"
+  },
+  {
+    "id": "intZeroOrPositive",
+    "name": "零或正整数",
+    "description": "",
+    "regexStr": "^(?:0|[1-9]\\d*)$"
+  },
+  {
+    "id": "intZeroOrNegative",
+    "name": "零或负整数",
+    "description": "",
+    "regexStr": "^(?:0|-[1-9]\\d*)$"
+  },
+  {
+    "id": "floatNumber",
+    "name": "浮点数(可为整数)",
+    "description": "允许整数和小数，整数部分不含前导零",
+    "regexStr": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$"
+  },
+  {
+    "id": "floatNumberNoInt",
+    "name": "浮点数(不可为整数)",
+    "description": "必须含小数点，整数部分不含前导零",
+    "regexStr": "^-?(?:0|[1-9]\\d*)\\.\\d+$"
+  },
+  {
+    "id": "currency2dp",
+    "name": "金额(最多2位小数)",
+    "description": "",
+    "regexStr": "^(?:0|[1-9]\\d*)(?:\\.\\d{1,2})?$"
+  },
+  {
+    "id": "percent0to100",
+    "name": "百分比(0-100)",
+    "description": "允许小数",
+    "regexStr": "^(?:100(?:\\.0*)?|(?:0|[1-9]\\d?)(?:\\.\\d+)?)$"
+  },
+  {
+    "id": "percent0to1",
+    "name": "百分比(0-1)",
+    "description": "允许小数",
+    "regexStr": "^(?:1(?:\\.0*)?|0(?:\\.\\d*)?)$"
+  },
+  {
+    "id": "englishAndNumber",
+    "name": "英文和数字",
+    "description": "",
+    "regexStr": "^[A-Za-z0-9]+$"
+  },
+  {
+    "id": "englishAndNumberAndLine",
+    "name": "中文/英文/数字/下划线",
+    "description": "由中文、数字、26个英文字母或者下划线组成的字符串",
+    "regexStr": "^(?:(?:[\u3400-\u9fff]|[\ud840-\ud868][\udc00-\udfff]|[\ud869][\udc00-\udedf])|[A-Za-z0-9_])+$"
+  },
+  {
+    "id": "chineseAndEnglishAndNumberAndLine",
+    "name": "中文英文数字或下划线(兼容写法)",
+    "description": "中文、英文、数字包括下划线",
+    "regexStr": "^(?:(?:[\\u3400-\\u9fff]|[\\ud840-\\ud868][\\udc00-\\udfff]|[\\ud869][\\udc00-\\udedf])|[A-Za-z0-9_])+$"
+  },
+  {
+    "id": "chineseAndEnglishAndNumberNotLine",
+    "name": "中文英文数字无符号",
+    "description": "中文、英文、数字但不包括下划线等符号",
+    "regexStr": "^(?:(?:[\u3400-\u9fff]|[\ud840-\ud868][\udc00-\udfff]|[\ud869][\udc00-\udedf])|[A-Za-z0-9])+$"
+  },
+  {
+    "id": "lengthExample",
+    "name": "长度限制",
+    "description": "长度为6～8，任意字符",
+    "regexStr": "^.{6,8}$"
+  },
+  {
+    "id": "english",
+    "name": "英文",
+    "description": "由26个英文字母组成的字符串",
+    "regexStr": "^[A-Za-z]+$"
+  },
+  {
+    "id": "english2",
+    "name": "大写英文",
+    "description": "由26个大写英文字母组成的字符串",
+    "regexStr": "^[A-Z]+$"
+  },
+  {
+    "id": "english3",
+    "name": "小写英文",
+    "description": "由26个小写英文字母组成的字符串",
+    "regexStr": "^[a-z]+$"
+  },
+  {
+    "id": "noSpace",
+    "name": "不含空白字符",
+    "description": "",
+    "regexStr": "^\\S+$"
+  },
+  {
+    "id": "trimmed",
+    "name": "首尾无空白",
+    "description": "",
+    "regexStr": "^\\S(?:[\\s\\S]*\\S)?$"
+  },
+  {
+    "id": "noControlChars",
+    "name": "无控制字符",
+    "description": "",
+    "regexStr": "^[^\\x00-\\x1F\\x7F]*$"
+  },
+  {
+    "id": "ascii",
+    "name": "ASCII字符",
+    "description": "",
+    "regexStr": "^[\\x00-\\x7F]+$"
+  },
+  {
+    "id": "noSymbol1",
+    "name": "禁止符号",
+    "description": "禁止输入含有%&\",;=?$\"等字符",
+    "regexStr": "^[^%&\",;=?$\\x22]+$"
+  },
+  {
+    "id": "noWave",
+    "name": "禁止~符号",
+    "description": "禁止输入含有~的字符",
+    "regexStr": "^[^~]+$"
+  },
+  {
+    "id": "dateFormat",
+    "name": "日期格式",
+    "description": "日期格式符合mm/dd/yyyy规范，仅校验格式，不校验真实日期",
+    "regexStr": "^(0?[1-9]|1[0-2])\\/(0?[1-9]|[12][0-9]|3[01])\\/\\d{4}$"
+  },
+  {
+    "id": "timeFormat",
+    "name": "时间格式hh:mm",
+    "description": "时间格式符合24小时格式规范",
+    "regexStr": "^([01]?[0-9]|2[0-3]):[0-5][0-9]$"
+  },
+  {
+    "id": "md5",
+    "name": "MD5",
+    "description": "32位MD5字符串",
+    "regexStr": "^[a-fA-F0-9]{32}$"
+  },
+  {
+    "id": "base64",
+    "name": "BASE64",
+    "description": "BASE64字符串",
+    "regexStr": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{4})$"
+  },
+  {
+    "id": "hexColor",
+    "name": "十六进制颜色",
+    "description": "",
+    "regexStr": "^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$"
+  },
+  {
+    "id": "video",
+    "name": "视频文件",
+    "description": "",
+    "regexStr": "^.*\\.(?:[sS][wW][fF]|[aA][vV][iI]|[fF][lL][vV]|[mM][pP][gG]|[mM][pP][eE][gG]|[rR][mM]|[mM][oO][vV]|[aA][sS][fF]|3[gG][pP]|[mM][kK][vV]|[rR][mM][vV][bB]|[mM][pP]4|[wW][eE][bB][mM]|[mM]4[vV])$"
+  },
+  {
+    "id": "image",
+    "name": "图片文件",
+    "description": "",
+    "regexStr": "^.*\\.(?:[gG][iI][fF]|[pP][nN][gG]|[jJ][pP][gG]|[jJ][pP][eE][gG]|[wW][eE][bB][pP]|[sS][vV][gG]|[pP][sS][dD]|[bB][mM][pP]|[tT][iI][fF]|[tT][iI][fF][fF]|[hH][eE][iI][cC]|[hH][eE][iI][fF]|[aA][vV][iI][fF])$"
+  },
+  {
+    "id": "audio",
+    "name": "音频文件",
+    "description": "",
+    "regexStr": "^.*\\.(?:[mM][pP]3|[wW][aA][vV]|[wW][mM][aA]|[aA][mM][rR]|[aA][aA][cC]|[fF][lL][aA][cC]|[aA][pP][eE]|[oO][gG][gG]|[mM]4[aA])$"
+  },
+  {
+    "id": "doc",
+    "name": "文档文件",
+    "description": "",
+    "regexStr": "^.*\\.(?:[dD][oO][cC]|[dD][oO][cC][xX]|[xX][lL][sS]|[xX][lL][sS][xX]|[pP][pP][tT]|[pP][pP][tT][xX]|[pP][dD][fF]|[tT][xX][tT]|[mM][dD]|[cC][sS][vV])$"
+  },
+  {
+    "id": "rar",
+    "name": "压缩文件",
+    "description": "",
+    "regexStr": "^.*\\.(?:(?:[tT][aA][rR]\\.)?[gG][zZ]|[tT][aA][rR]\\.[bB][zZ]2|[tT][aA][rR]\\.[xX][zZ]|[rR][aA][rR]|[zZ][iI][pP]|7[zZ]|[tT][aA][rR]|[bB][zZ]2|[xX][zZ])$"
+  },
+  {
+    "id": "html",
+    "name": "HTML标签",
+    "description": "简单HTML标签格式，不替代HTML解析器",
+    "regexStr": "^<([A-Za-z][A-Za-z0-9-]*)(?:\\s+[^<>]*)?(?:\\s*\\/|>[\\s\\S]*<\\/\\1)>$"
+  },
+  {
+    "id": "newEnergyLicense",
+    "name": "新能源车牌",
+    "description": "",
+    "regexStr": "^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z](?:(?:[0-9]{5}[DF])|(?:[DF][A-HJ-NP-Z0-9][0-9]{4}))$"
+  },
+  {
+    "id": "license",
+    "name": "普通车牌",
+    "description": "普通车牌，不包含新能源车牌",
+    "regexStr": "^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳]$"
+  },
+  {
+    "id": "vehicleLicense",
+    "name": "全部车牌",
+    "description": "新能源和普通车牌",
+    "regexStr": "^(?:[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z](?:(?:[0-9]{5}[DF])|(?:[DF][A-HJ-NP-Z0-9][0-9]{4}))|[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳])$"
+  },
+  {
+    "id": "A-SHARE",
+    "name": "股票-A股",
+    "description": "股票代码",
+    "regexStr": "^(?:[sS][hH](?:60|68)\\d{4}|[sS][zZ](?:000|001|002|003|300|301)\\d{3})$"
+  },
+  {
+    "id": "B-SHARE",
+    "name": "股票-B股",
+    "description": "股票代码",
+    "regexStr": "^(s[hz]|S[HZ])(200[\\d]{3}|900[\\d]{3})$"
+  },
+  {
+    "id": "H-SHARE",
+    "name": "股票-港股",
+    "description": "港股代码",
+    "regexStr": "^(?:[hH][kK])\\d{5}$"
+  },
+  {
+    "id": "fund",
+    "name": "基金",
+    "description": "基金代码，宽泛匹配，不区分基金类型",
+    "regexStr": "^(s[hz]|S[HZ])\\d{6}$"
+  },
+  {
+    "id": "ETF",
+    "name": "ETF",
+    "description": "ETF代码",
+    "regexStr": "^(?:[sS][hH]5\\d{5}|[sS][zZ]159\\d{3})$"
+  },
+  {
+    "id": "LOF",
+    "name": "LOF",
+    "description": "LOF代码",
+    "regexStr": "^(?:[sS][zZ]16\\d{4}|[sS][hH]50\\d{4})$"
+  },
+  {
+    "id": "QDII",
+    "name": "QDII",
+    "description": "QDII代码",
+    "regexStr": "^(s[hz]|S[HZ])16\\d{4}$"
+  },
+  {
+    "id": "bond",
+    "name": "债券",
+    "description": "债券代码",
+    "regexStr": "^(?:[sS][hH](?:01|10|11|12|13|18|19)\\d{4}|[sS][zZ](?:10|11|12|13)\\d{4})$"
+  },
+  {
+    "id": "wechatId",
+    "name": "微信号",
+    "description": "",
+    "regexStr": "^[a-zA-Z][-_a-zA-Z0-9]{5,19}$"
+  },
+  {
+    "id": "qq",
+    "name": "QQ号",
+    "description": "",
+    "regexStr": "^[1-9][0-9]{4,9}$"
+  },
+  {
+    "id": "postalCode",
+    "name": "邮政编码",
+    "description": "",
+    "regexStr": "^[1-9]\\d{5}$"
+  },
+  {
+    "id": "idCard",
+    "name": "身份证",
+    "description": "仅校验15位或18位格式，不校验校验位",
+    "regexStr": "^(?:\\d{15}|\\d{17}[0-9Xx])$"
+  },
+  {
+    "id": "passport",
+    "name": "护照",
+    "description": "常见护照号格式，5-17位字母数字且至少包含1个字母",
+    "regexStr": "^(?=.*[A-Za-z])[A-Za-z0-9]{5,17}$"
+  },
+  {
+    "id": "MACAddress",
+    "name": "MAC地址",
+    "description": "符合MAC地址格式",
+    "regexStr": "^[0-9A-Fa-f]{2}([:-])(?:[0-9A-Fa-f]{2}\\1){4}[0-9A-Fa-f]{2}$"
+  },
+  {
+    "id": "FilePath",
+    "name": "文件路径",
+    "description": "符合常见文件路径格式",
+    "regexStr": "^(?:(?:[a-zA-Z]:)?[\\\\/].*|\\\\\\\\[^\\\\/]+[\\\\/][^\\\\/]+.*)$"
+  },
+  {
+    "id": "UUID",
+    "name": "UUID",
+    "description": "符合UUID格式",
+    "regexStr": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+  },
+  {
+    "id": "ChineseName",
+    "name": "中文姓名",
+    "description": "仅包含中文字符和间隔号，支持CJK扩展A-F区",
+    "regexStr": "^(?:(?:[\u3400-\u9fff]|[\ud840-\ud868][\udc00-\udfff]|[\ud869][\udc00-\udedf])|·){2,}$"
+  },
+  {
+    "id": "emptyLine",
+    "name": "包含空白行",
+    "description": "多行文本中是否包含空白行",
+    "regexStr": "^[\\s\\S]*\\n\\s*(?:\\n|$)[\\s\\S]*$"
+  },
+  {
+    "id": "domain",
+    "name": "域名",
+    "description": "常见域名格式，不包含协议、路径和端口",
+    "regexStr": "^(?:[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?\\.)+[A-Za-z]{2,63}$"
+  },
+  {
+    "id": "port",
+    "name": "端口号",
+    "description": "0-65535的端口号",
+    "regexStr": "^(?:6553[0-5]|655[0-2]\\d|65[0-4]\\d{2}|6[0-4]\\d{3}|[1-5]\\d{4}|[1-9]\\d{0,3}|0)$"
+  },
+  {
+    "id": "ipWithPort",
+    "name": "IP端口",
+    "description": "IPv4地址和端口号",
+    "regexStr": "^(?:(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d):(?:6553[0-5]|655[0-2]\\d|65[0-4]\\d{2}|6[0-4]\\d{3}|[1-5]\\d{4}|[1-9]\\d{0,3}|0)$"
+  },
+  {
+    "id": "slug",
+    "name": "URL Slug",
+    "description": "小写字母、数字和中划线组成，首尾不能为中划线",
+    "regexStr": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+  },
+  {
+    "id": "semver",
+    "name": "语义化版本号",
+    "description": "符合SemVer规范的版本号",
+    "regexStr": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)(?:-(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*)(?:\\.(?:(?:0|[1-9]\\d*)|\\d*[A-Za-z-][0-9A-Za-z-]*))*)?(?:\\+[0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*)?$"
+  },
+  {
+    "id": "jwt",
+    "name": "JWT Token",
+    "description": "三段Base64URL格式的JWT Token",
+    "regexStr": "^[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+$"
+  },
+  {
+    "id": "base64Url",
+    "name": "BASE64URL",
+    "description": "Base64URL字符串，支持无填充或规范填充",
+    "regexStr": "^(?=.{2,}$)(?:[A-Za-z0-9_-]{4})*(?:[A-Za-z0-9_-]{2}(?:==)?|[A-Za-z0-9_-]{3}=?)?$"
+  },
+  {
+    "id": "rgbColor",
+    "name": "RGB颜色",
+    "description": "CSS rgb()颜色值",
+    "regexStr": "^rgb\\(\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*,\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*,\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*\\)$"
+  },
+  {
+    "id": "rgbaColor",
+    "name": "RGBA颜色",
+    "description": "CSS rgba()颜色值，透明度范围0-1",
+    "regexStr": "^rgba\\(\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*,\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*,\\s*(?:25[0-5]|2[0-4]\\d|1\\d\\d|[1-9]?\\d)\\s*,\\s*(?:1(?:\\.0+)?|0(?:\\.\\d+)?)\\s*\\)$"
+  },
+  {
+    "id": "socialCreditCode",
+    "name": "统一社会信用代码",
+    "description": "18位统一社会信用代码格式",
+    "regexStr": "^[0-9A-HJ-NPQRTUWXY]{2}\\d{6}[0-9A-HJ-NPQRTUWXY]{10}$"
+  }
+]

@@ -2,7 +2,7 @@
 
 A production-ready Fastify server template with TypeScript, featuring:
 
-- 🚀 Fastify v4 with TypeScript support
+- 🚀 Fastify v5 with TypeScript support
 - 🔐 Built-in security headers with @fastify/helmet
 - 🔄 CORS support with @fastify/cors
 - 📝 API documentation with Swagger/OpenAPI
@@ -16,9 +16,9 @@ A production-ready Fastify server template with TypeScript, featuring:
 
 ### Prerequisites
 
-- Node.js 16.x or later
-- npm 7.x or later
-- TypeScript 4.0 or later
+- Node.js 20.x or later
+- npm 10.x or later
+- TypeScript 6.0 or later
 
 ### Installation
 
