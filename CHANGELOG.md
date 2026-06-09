@@ -1,5 +1,6 @@
 ### 更新信息
 
+- 2026.06.09：更新主页中英文资源链接与说明；更新 Chrome 插件文档及产物；完善正则配置文件（regex.json）；
 - 2026.05.10：更新后端项目模版（fastify/koa2/nestjs）；更新 utils 文档；
 - 2026.03.15：更新 utils（ai-utils 新增应用；调整 skills 同步与说明）；更新主页链接；更新 linux 命令与 regex 数据；
 - 2026.02.01：增加 utils Skills；更新主页链接；更新正则文件（regex.json）
