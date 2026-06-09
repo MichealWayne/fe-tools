@@ -10,7 +10,7 @@ import fastifyRateLimit from '@fastify/rate-limit';
 import fastifySwagger from '@fastify/swagger';
 import fastifySwaggerUi from '@fastify/swagger-ui';
 
-import { config } from './config';
+import { config, Environment } from './config';
 import { registerRoutes } from './routes';
 import { log } from './utils/logger';
 
@@ -57,29 +57,28 @@ const swaggerUiConfig = {
 async function setupPlugins(app: FastifyInstance): Promise<void> {
   log.info('Registering plugins...');
 
-  await Promise.all(
-    [
-      app.register(fastifyHelmet, {
-        contentSecurityPolicy: config.env === 'production' ? undefined : false,
-      }),
+  await app.register(fastifyHelmet, {
+    contentSecurityPolicy: config.env === Environment.Production ? undefined : false,
+  });
 
-      app.register(fastifyCors, {
-        origin: config.cors.origin,
-        methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-        allowedHeaders: ['Content-Type', 'Authorization'],
-        credentials: true,
-      }),
+  await app.register(fastifyCors, {
+    origin: config.cors.origin,
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  });
 
-      config.rateLimit.enabled &&
-        app.register(fastifyRateLimit, {
-          max: config.rateLimit.max,
-          timeWindow: config.rateLimit.timeWindow,
-        }),
+  if (config.rateLimit.enabled) {
+    await app.register(fastifyRateLimit, {
+      max: config.rateLimit.max,
+      timeWindow: config.rateLimit.timeWindow,
+    });
+  }
 
-      config.swagger.enabled && app.register(fastifySwagger, swaggerConfig),
-      config.swagger.enabled && app.register(fastifySwaggerUi, swaggerUiConfig),
-    ].filter(Boolean)
-  );
+  if (config.swagger.enabled) {
+    await app.register(fastifySwagger, swaggerConfig);
+    await app.register(fastifySwaggerUi, swaggerUiConfig);
+  }
 }
 
 function setupHooks(app: FastifyInstance): void {
@@ -117,7 +116,7 @@ function setupErrorHandlers(app: FastifyInstance): void {
       message: error.message,
     };
 
-    if (config.env === 'development') {
+    if (config.env === Environment.Development) {
       errorResponse.stack = error.stack;
     }
 
