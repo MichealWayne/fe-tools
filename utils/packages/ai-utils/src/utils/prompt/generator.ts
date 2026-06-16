@@ -28,6 +28,7 @@ const DEFAULT_MAX_TOKEN_LENGTH = 32000; // Suitable for models like GPT-4o mini
  * @returns {(input: T) => string} A function that generates the full prompt string based on the input, or an empty string if it exceeds the token limit.
  *
  * @example
+ * ```ts
  * const myPromptGenerator = createPromptGenerator(
  *   { maxTokenLength: 10000 },
  *   (userQuery: string) => `Answer the following question: ${userQuery}`
@@ -38,6 +39,7 @@ const DEFAULT_MAX_TOKEN_LENGTH = 32000; // Suitable for models like GPT-4o mini
  * } else {
  *   console.error("Prompt was too long");
  * }
+ * ```
  */
 export function createPromptGenerator<T>(
   config: PromptConfig,

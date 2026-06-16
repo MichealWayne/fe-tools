@@ -116,6 +116,13 @@ describe('collection test', () => {
     it('should handle single element', () => {
       expect(unzip([[1, 'a']])).toEqual([[1], ['a']]);
     });
+
+    it('should handle uneven-length tuples without throwing', () => {
+      // Fixed: the old impl threw "Cannot read property 'push' of undefined"
+      // when a tuple was shorter than the longest one.
+      expect(unzip([[1, 2], [3]])).toEqual([[1, 3], [2]]);
+      expect(unzip([[1], [2, 3, 4]])).toEqual([[1, 2], [3], [4]]);
+    });
   });
 
   describe('cartesianProduct', () => {

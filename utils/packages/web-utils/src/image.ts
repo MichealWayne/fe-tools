@@ -10,6 +10,7 @@
  * @param {string} imgUrl - 图片地址。The image URL
  * @return {Promise<boolean>} 图片加载状态。The image loading status
  * @example
+ * ```ts
 isImageLoaded('https://example.com/image.jpg')
   .then(function(result) {
     console.log('图片加载完成');
@@ -19,6 +20,7 @@ isImageLoaded('https://example.com/image.jpg')
     console.log('图片加载失败');
     console.log(result);
   });
+ * ```
  */
 export function isImageLoaded(imgUrl: string) {
   return new Promise(function (resolve, reject) {
@@ -41,6 +43,7 @@ export function isImageLoaded(imgUrl: string) {
  * @param {string} imgUrl - 图片地址。The image URL
  * @return {{width: number, height: number}} 图片尺寸。The image dimensions
  * @example
+ * ```ts
 getImageSize('https://example.com/image.jpg')
   .then(function(result) {
     console.log('图片大小：', result.width, 'x', result.height);
@@ -48,6 +51,7 @@ getImageSize('https://example.com/image.jpg')
   .catch(function(error) {
     console.log('无法获取图片大小：', error);
   });
+ * ```
   */
 export function getImageSize(imgUrl: string) {
   return new Promise(function (resolve, reject) {
@@ -72,6 +76,7 @@ export function getImageSize(imgUrl: string) {
  * @description 检测页面当前所处环境是否支持WebP格式图片。Detects whether the current environment supports WebP format images
  * @return {boolean} 是否支持WebP格式图片。Whether WebP format images are supported
  * @example
+ * ```ts
 const imgEl = document.createElement('img');
 if (isSupportWebP()) {
   imgEl.src = 'image.webp';
@@ -79,6 +84,7 @@ if (isSupportWebP()) {
   imgEl.src = 'image.png';
 }
 document.body.appendChild(imgEl);
+ * ```
  */
 export function isSupportWebP() {
   return (
@@ -95,7 +101,9 @@ export function isSupportWebP() {
  * @param {number} y - 位置y，裁剪图片起始坐标。The y position, starting coordinate for cropping
  * @param {number} width - 裁剪图片宽度。The width of the cropped image
  * @param {number} height - 裁剪图片高度。The height of the cropped image
+ * @returns {HTMLCanvasElement} 包含裁剪区域的 canvas 元素。Canvas element containing the cropped region
  * @example
+ * ```ts
 // 从一个图片元素中裁剪出一个 100x100 大小的矩形，起始坐标为 (50, 50)
 const image = document.querySelector('img');
 const croppedCanvas = cropImage(image, 50, 50, 100, 100);
@@ -109,6 +117,7 @@ const croppedCanvas = cropImage(canvas, 0, 0, 200, 100);
 
 // 将裁剪后的 canvas 元素插入到页面中
 document.body.appendChild(croppedCanvas);
+ * ```
  */
 export function cropImage(
   src: HTMLImageElement | HTMLCanvasElement,
@@ -132,14 +141,16 @@ export function cropImage(
 
 /**
  * @function compressImage
- * @description 进行图片压缩并输出base64
- * @param {HTMLImageElement} img: 图片元素
- * @param {number} rate: 压缩比例
- * @return {string} base64图片
+ * @description 进行图片压缩并输出 base64 字符串。Compresses an image and returns a base64 string
+ * @param {HTMLImageElement} img - 图片元素 / the image element to compress
+ * @param {number} rate - 压缩比例（0~1，如 0.3 表示30%质量）/ compression ratio (0~1, e.g. 0.3 = 30% quality)
+ * @return {string} base64 格式的压缩图片字符串 / compressed image as a base64 string
  * @example
+ * ```ts
  *   const img = new Image();
  *   img.src = 'https://blog.michealwayne.cn/favicon.png';
  *   img.onload = () => console.log(compressImage(img, 0.3)); // 输出压缩后的base64
+ * ```
  */
 export function compressImage(img: HTMLImageElement, rate: number) {
   const canvas: HTMLCanvasElement = document.createElement('canvas');

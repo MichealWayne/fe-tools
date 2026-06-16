@@ -48,10 +48,20 @@ function enhancePromptTxt(userPrompt: string): string {
 
 /**
  * @function genEnhancePrompt
- * @description 生成用于增强Prompt的Prompt
- * @param {string} prompt 用户的原始prompt字符串
- * @param {number} maxLen token最大长度, 默认10000
- * @returns {string} 符合要求的Prompt文本，如果超过长度限制则返回空字符串
+ * @description 根据用户原始 Prompt 生成用于增强该 Prompt 的元 Prompt 文本。Generates a meta-prompt for enhancing the user's original prompt
+ * @param {string} input - 用户的原始 prompt 字符串 / user's original prompt string
+ * @param {number} [maxLen=10000] - token 最大长度限制 / maximum token length
+ * @returns {string} 符合要求的 Prompt 文本，超过长度限制时返回空字符串。Prompt text, or empty string if it exceeds the token limit
+ * @example
+ * ```ts
+ * const prompt = genEnhancePrompt('写一个排序函数');
+ * console.log(prompt); // -> 完整的 prompt 增强元 prompt
+ * ```
+ * @example
+ * ```ts
+ * const prompt = genEnhancePrompt(userInput);
+ * if (prompt) sendToLLM(prompt);
+ * ```
  */
 export const genEnhancePrompt = createPromptGenerator(
   { maxTokenLength: MAX_TOKEN_LEN },

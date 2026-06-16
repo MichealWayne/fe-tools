@@ -22,24 +22,27 @@ import { writeJson, readJsonFile, writeFile, readFileSync } from '../fs/fsFuncs'
  * @param {any} fn - 要检测的函数。The function to check for async nature
  * @returns {boolean} 如果是异步函数返回true。True if the function is async, false otherwise
  * @example
+ * ```ts
  * // Check different function types
  * async function asyncFn() { return 'async'; }
  * function syncFn() { return 'sync'; }
  *
  * console.log(isAsync(asyncFn)); // true
  * console.log(isAsync(syncFn));  // false
+ * ```
  */
 function isAsync(fn: any) {
   return fn[Symbol.toStringTag] === 'AsyncFunction';
 }
 
 // Define specific function types
-type OriginalFunction = (...args: unknown[]) => any;
-type IdentityFunction = (...args: unknown[]) => { key: string; ext: string };
+export type OriginalFunction = (...args: unknown[]) => any;
+export type IdentityFunction = (...args: unknown[]) => { key: string; ext: string };
 
 /**
  * @description 基于文件的缓存系统，支持同步和异步操作。File-based caching system that supports both synchronous and asynchronous operations with automatic method wrapping and persistent storage.
  * @example
+ * ```ts
  * // Basic cache usage
  * const cache = new Cache('./cache-dir');
  * cache.enable();
@@ -49,7 +52,9 @@ type IdentityFunction = (...args: unknown[]) => { key: string; ext: string };
  * const userData = cache.get('user-123', '.json');
  * console.log(userData); // { name: 'John', age: 30 }
  *
+ * ```
  * @example
+ * ```ts
  * // Method wrapping for automatic caching
  * class ApiClient {
  *   async fetchUser(id) {
@@ -64,7 +69,9 @@ type IdentityFunction = (...args: unknown[]) => { key: string; ext: string };
  *   fetchUser: (id) => ({ key: `user-${id}`, ext: '.json' })
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Performance optimization for expensive calculations
  * class MathProcessor {
  *   calculatePrimes(limit) {
@@ -82,6 +89,7 @@ type IdentityFunction = (...args: unknown[]) => { key: string; ext: string };
  * cache.wrap(MathProcessor, {
  *   calculatePrimes: (limit) => ({ key: `primes-${limit}`, ext: '.json' })
  * });
+ * ```
  */
 export default class Cache {
   dir: string;
@@ -99,9 +107,11 @@ export default class Cache {
    * @param {string} base - Base directory path
    * @returns {string} Computed cache directory path (.ncu/cache subdirectory)
    * @example
+   * ```ts
    * const cache = new Cache('./temp');
    * const cacheDir = cache.computeCacheDir('./project');
    * console.log(cacheDir); // './project/.ncu/cache'
+   * ```
    */
   computeCacheDir(base: string) {
     return path.join(base, '.ncu', 'cache');
@@ -110,6 +120,7 @@ export default class Cache {
   /**
    * @description Disables caching - all cache operations will be bypassed
    * @example
+   * ```ts
    * const cache = new Cache('./cache');
    * cache.disable();
    *
@@ -117,6 +128,7 @@ export default class Cache {
    * cache.write('key', '.json', data); // No-op
    * const result = cache.get('key', '.json'); // Returns undefined
    *
+   * ```
    * @see {@link enable} - Re-enable caching
    */
   disable() {
@@ -126,6 +138,7 @@ export default class Cache {
   /**
    * @description Enables caching - cache operations will function normally
    * @example
+   * ```ts
    * const cache = new Cache('./cache');
    * cache.enable();
    *
@@ -133,6 +146,7 @@ export default class Cache {
    * cache.write('config', '.json', { theme: 'dark' });
    * const config = cache.get('config', '.json'); // Returns cached data
    *
+   * ```
    * @see {@link disable} - Disable caching
    */
   enable() {
@@ -145,9 +159,11 @@ export default class Cache {
    * @param {string} ext - File extension (e.g., '.json', '.txt')
    * @returns {string} Complete file path for the cache entry
    * @example
+   * ```ts
    * const cache = new Cache('./cache');
    * const filename = cache.getFilename('user-123', '.json');
    * console.log(filename); // './cache/user-123.json'
+   * ```
    */
   getFilename(key: string, ext: string) {
     return path.join(this.dir, key) + ext;
@@ -159,6 +175,7 @@ export default class Cache {
    * @param {string} ext - File extension
    * @returns {boolean} True if cache entry exists and caching is enabled, false otherwise
    * @example
+   * ```ts
    * const cache = new Cache('./cache');
    * cache.enable();
    *
@@ -171,6 +188,7 @@ export default class Cache {
    *   cache.write('expensive-calculation', '.json', result);
    *   return result;
    * }
+   * ```
    */
   has(key: string, ext: string) {
     if (this.disabled) {
@@ -186,21 +204,27 @@ export default class Cache {
    * @param {string} ext - File extension ('.json' for JSON parsing, others as text)
    * @returns {any} Cached data (parsed JSON for .json files, string for others), or undefined if not found
    * @example
+   * ```ts
    * // Get JSON data
    * const userData = cache.get('user-123', '.json');
    * console.log(userData?.name); // 'John'
    *
+   * ```
    * @example
+   * ```ts
    * // Get text data
    * const htmlTemplate = cache.get('email-template', '.html');
    * console.log(typeof htmlTemplate); // 'string'
    *
+   * ```
    * @example
+   * ```ts
    * // Handle missing cache
    * const config = cache.get('app-config', '.json');
    * if (!config) {
    *   console.log('Cache miss - loading from source');
    * }
+   * ```
    */
   get(key: string, ext: string) {
     if (!this.has(key, ext)) {
@@ -219,19 +243,25 @@ export default class Cache {
    * @param {any} content - Content to cache (objects for .json, strings for others)
    * @returns {Promise<void | boolean>} Promise that resolves when the cache write completes
    * @example
+   * ```ts
    * // Cache JSON data
    * const userData = { id: 123, name: 'John', preferences: { theme: 'dark' } };
    * cache.write('user-123', '.json', userData);
    *
+   * ```
    * @example
+   * ```ts
    * // Cache text data
    * const htmlContent = '<html><body>Hello World</body></html>';
    * cache.write('page-home', '.html', htmlContent);
    *
+   * ```
    * @example
+   * ```ts
    * // Cache API response
    * const apiResponse = await fetch('/api/data').then(r => r.json());
    * cache.write(`api-data-${Date.now()}`, '.json', apiResponse);
+   * ```
    */
   async write(key: string, ext: string, content: unknown) {
     if (this.disabled) {
@@ -250,6 +280,7 @@ export default class Cache {
    * @param {IdentityFunction} identity - Function that generates cache key and extension from arguments
    * @returns {Function} Wrapped function that checks cache before calling original
    * @example
+   * ```ts
    * // Wrap an expensive async operation
    * async function fetchUserData(userId) {
    *   const response = await fetch(`/api/users/${userId}`);
@@ -264,6 +295,7 @@ export default class Cache {
    * // First call hits API, subsequent calls use cache
    * const user1 = await cachedFetch(123); // API call
    * const user2 = await cachedFetch(123); // Cache hit
+   * ```
    */
   wrapAsync(original: OriginalFunction, identity: IdentityFunction) {
     const cache = this;
@@ -285,6 +317,7 @@ export default class Cache {
    * @param {IdentityFunction} identity - Function that generates cache key and extension from arguments
    * @returns {Function} Wrapped function that checks cache before calling original
    * @example
+   * ```ts
    * // Wrap an expensive sync computation
    * function calculatePrimes(limit) {
    *   // Expensive prime calculation
@@ -303,6 +336,7 @@ export default class Cache {
    * // First call computes, subsequent calls use cache
    * const primes1 = cachedCalculation(1000); // Computation
    * const primes2 = cachedCalculation(1000); // Cache hit
+   * ```
    */
   wrapNormal(original: OriginalFunction, identity: IdentityFunction) {
     const cache = this;
@@ -323,6 +357,7 @@ export default class Cache {
    * @param {any} Class - The class constructor to modify
    * @param {Record<string, IdentityFunction>} identities - Map of method names to identity functions
    * @example
+   * ```ts
    * class DataProcessor {
    *   async processLargeDataset(datasetId) {
    *     // Expensive data processing
@@ -344,6 +379,7 @@ export default class Cache {
    * // Now all instances use caching automatically
    * const processor = new DataProcessor();
    * const result = await processor.processLargeDataset('dataset-1'); // Cached
+   * ```
    */
   wrap(Class: ClassDecorator, identities: any) {
     for (const method of Object.keys(identities)) {

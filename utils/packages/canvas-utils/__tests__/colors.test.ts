@@ -39,6 +39,8 @@ describe('isTransparentColor', () => {
 
   it('should return false if the given color string does not represent a transparent color', () => {
     expect(isTransparentColor('rgba(255,0,0,1)')).toBe(false);
+    expect(isTransparentColor('rgba(100,200,50,10)')).toBe(false);
+    expect(isTransparentColor('rgba(0,0,255,0.5)')).toBe(false);
     expect(isTransparentColor(getColorRgba('#f00'))).toBe(false);
   });
 

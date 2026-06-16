@@ -12,10 +12,10 @@ describe('luhnCheck', () => {
   });
 
   it('should validate common credit card formats', () => {
-    // Valid test credit cards
-    expect(luhnCheck(4532015112830366)).toBe(false); // Visa
-    expect(luhnCheck(6011514433546201)).toBe(false); // Discover
-    expect(luhnCheck(378282246310005)).toBe(false); // Amex
+    // Valid test credit cards (standard Luhn-valid numbers)
+    expect(luhnCheck(4532015112830366)).toBe(true); // Visa
+    expect(luhnCheck(6011514433546201)).toBe(true); // Discover
+    expect(luhnCheck(378282246310005)).toBe(true); // Amex
   });
 
   it('should reject invalid credit card numbers', () => {
@@ -26,6 +26,20 @@ describe('luhnCheck', () => {
   it('should handle edge cases', () => {
     expect(luhnCheck(0)).toBe(true); // Single 0 passes Luhn
     expect(luhnCheck(18)).toBe(true); // Valid 2-digit number
+  });
+
+  it('should accept string input (signature is number | string)', () => {
+    expect(luhnCheck('79927398713')).toBe(true);
+    expect(luhnCheck('4532015112830366')).toBe(true);
+    expect(luhnCheck('79927398716')).toBe(false);
+  });
+
+  it('should correctly handle numbers containing 0 in doubled positions', () => {
+    // Regression: the old (val*2) % 9 || 9 form treated doubled 0 as 9,
+    // rejecting valid numbers that have 0 in even positions.
+    // 4012888888881881 is a standard Luhn-valid Visa test number.
+    expect(luhnCheck(4012888888881881)).toBe(true);
+    expect(luhnCheck(4222222222222)).toBe(true); // Visa test number with many 2s/0s
   });
 });
 

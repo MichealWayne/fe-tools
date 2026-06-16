@@ -13,18 +13,26 @@
  * @param {number} decimals - 小数位数(默认: 2)。Decimal places (default: 2)
  * @returns {string} 格式化的文件大小字符串。Formatted file size string
  * @example
+ * ```ts
  * formatFileSize(1024); // -> '1.00 KB'
  * formatFileSize(1234567); // -> '1.18 MB'
  * formatFileSize(1234567890); // -> '1.15 GB'
  * formatFileSize(1024, 0); // -> '1 KB'
+ * ```
  */
 export function formatFileSize(bytes: number, decimals = 2): string {
+  // 旧实现对负数/NaN/非有限数：Math.log(负/NaN)=NaN → sizes[NaN]=undefined → "NaN undefined"；
+  // 对超大 bytes：i 可能超过 sizes.length-1 → "xxx undefined"。这里统一防护。
+  // The old impl produced "NaN undefined" for negative/NaN/non-finite input
+  // (Math.log(<0)=NaN → sizes[NaN]=undefined), and "xxx undefined" when i exceeded
+  // sizes.length-1 for huge inputs. Guard both here.
+  if (!Number.isFinite(bytes) || bytes < 0) return '0 Bytes';
   if (bytes === 0) return '0 Bytes';
 
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  const i = Math.min(Math.floor(Math.log(bytes) / Math.log(k)), sizes.length - 1);
 
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }
@@ -35,9 +43,11 @@ export function formatFileSize(bytes: number, decimals = 2): string {
  * @param {number} ms - 毫秒数。Milliseconds
  * @returns {string} 格式化的时长字符串。Formatted duration string
  * @example
- * formatDuration(60000); // -> '1m 0s'
+ * ```ts
+ * formatDuration(60000); // -> '1m'
  * formatDuration(3661000); // -> '1h 1m 1s'
  * formatDuration(500); // -> '500ms'
+ * ```
  */
 export function formatDuration(ms: number): string {
   if (ms < 1000) return `${ms}ms`;
@@ -64,9 +74,11 @@ export function formatDuration(ms: number): string {
  * @param {string} separator - 千分位分隔符(默认: ',')。Thousand separator (default: ',')
  * @returns {string} 格式化的数字字符串。Formatted number string
  * @example
+ * ```ts
  * formatNumber(1234567.89); // -> '1,234,567.89'
  * formatNumber(1234567.89, 0); // -> '1,234,568'
  * formatNumber(1234567.89, 2, ' '); // -> '1 234 567.89'
+ * ```
  */
 export function formatNumber(num: number, decimals?: number, separator = ','): string {
   const parts = typeof decimals === 'number' ? num.toFixed(decimals).split('.') : num.toString().split('.');
@@ -82,11 +94,18 @@ export function formatNumber(num: number, decimals?: number, separator = ','): s
  * @param {number} decimals - 小数位数(默认: 2)。Decimal places (default: 2)
  * @returns {string} 格式化的货币字符串。Formatted currency string
  * @example
+ * ```ts
  * formatCurrency(1234.56); // -> '$1,234.56'
  * formatCurrency(1234.56, '¥'); // -> '¥1,234.56'
  * formatCurrency(1234.5, '$', 0); // -> '$1,235'
+ * ```
  */
 export function formatCurrency(amount: number, currency = '$', decimals = 2): string {
+  // 旧实现负数渲染为 '$-1,234.56'（货币符号在负号内侧），应为 '-$1,234.56'（符号在外侧）。
+  // The old impl rendered negatives as '$-1,234.56' (currency inside the sign); fix to '-$1,234.56'.
+  if (amount < 0) {
+    return `-${currency}${formatNumber(Math.abs(amount), decimals)}`;
+  }
   return `${currency}${formatNumber(amount, decimals)}`;
 }
 
@@ -96,11 +115,13 @@ export function formatCurrency(amount: number, currency = '$', decimals = 2): st
  * @param {Date | number} date - 日期对象或时间戳。Date object or timestamp
  * @returns {string} 相对时间字符串。Relative time string
  * @example
+ * ```ts
  * const now = Date.now();
  * formatRelativeTime(now); // -> 'just now'
  * formatRelativeTime(now - 60000); // -> '1 minute ago'
  * formatRelativeTime(now - 3600000); // -> '1 hour ago'
  * formatRelativeTime(now - 86400000); // -> '1 day ago'
+ * ```
  */
 export function formatRelativeTime(date: Date | number): string {
   const timestamp = date instanceof Date ? date.getTime() : date;
@@ -128,9 +149,11 @@ export function formatRelativeTime(date: Date | number): string {
  * @param {string} format - 格式模板(默认: '(###) ###-####')。Format template (default: '(###) ###-####')
  * @returns {string} 格式化的电话号码。Formatted phone number
  * @example
+ * ```ts
  * formatPhone('1234567890'); // -> '(123) 456-7890'
  * formatPhone('1234567890', '###-###-####'); // -> '123-456-7890'
  * formatPhone('12345678901', '+# (###) ###-####'); // -> '+1 (234) 567-8901'
+ * ```
  */
 export function formatPhone(phone: string, format = '(###) ###-####'): string {
   const digits = phone.replace(/\D/g, '');
@@ -155,9 +178,11 @@ export function formatPhone(phone: string, format = '(###) ###-####'): string {
  * @param {boolean} isDecimal - 输入是否为小数形式(默认: true)。Whether input is in decimal form (default: true)
  * @returns {string} 格式化的百分比字符串。Formatted percentage string
  * @example
+ * ```ts
  * formatPercentage(0.1234); // -> '12.34%'
  * formatPercentage(0.1234, 0); // -> '12%'
  * formatPercentage(12.34, 2, false); // -> '12.34%'
+ * ```
  */
 export function formatPercentage(value: number, decimals = 2, isDecimal = true): string {
   const percentage = isDecimal ? value * 100 : value;
@@ -170,11 +195,13 @@ export function formatPercentage(value: number, decimals = 2, isDecimal = true):
  * @param {number} num - 要格式化的数字。Number to format
  * @returns {string} 序数词字符串。Ordinal string
  * @example
+ * ```ts
  * formatOrdinal(1); // -> '1st'
  * formatOrdinal(2); // -> '2nd'
  * formatOrdinal(3); // -> '3rd'
  * formatOrdinal(21); // -> '21st'
  * formatOrdinal(100); // -> '100th'
+ * ```
  */
 export function formatOrdinal(num: number): string {
   const s = ['th', 'st', 'nd', 'rd'];

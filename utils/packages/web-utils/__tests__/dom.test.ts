@@ -210,6 +210,19 @@ describe('DOM Utils', () => {
         expect(position.x).toBe(30);
         expect(position.y).toBe(40);
       });
+
+      it('应该使用 scrollLeft 和 scrollTop 作为兜底滚动位置', () => {
+        const customElem = {
+          scrollLeft: 12,
+          scrollTop: 34,
+          screenLeft: 999,
+          screenTop: 999,
+        };
+
+        const position = getScrollPosition(customElem as any);
+        expect(position.x).toBe(12);
+        expect(position.y).toBe(34);
+      });
     });
 
     describe('animateScrollTo', () => {

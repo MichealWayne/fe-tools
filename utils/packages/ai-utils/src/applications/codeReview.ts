@@ -21,6 +21,7 @@ const MAX_TOKEN_LEN = 30000; // GPT-4o 32k
  * @param {string} patch - 代码补丁内容。Code patch content to be reviewed (diff format or complete code)
  * @returns {string} 格式化的代码审查prompt。Formatted prompt string for AI code review analysis
  * @example
+ * ```ts
  * // Generate prompt for code patch review
  * const patch = `
  * + function calculateTotal(items) {
@@ -33,6 +34,7 @@ const MAX_TOKEN_LEN = 30000; // GPT-4o 32k
  * `;
  * const prompt = getCodeReviewPromptTxt(patch);
  * console.log(prompt); // Returns structured prompt for AI analysis
+ * ```
  */
 function getCodeReviewPromptTxt(patch: string) {
   return applyTemplate(STANDARD_PROMPT_TEMPLATE, {
@@ -63,10 +65,21 @@ function getCodeReviewPromptTxt(patch: string) {
 
 /**
  * @function genCodeReviewPrompt
- * @description 生成用于代码审查的Prompt
- * @param {string} codeStr 代码字符串
- * @param {number} maxLen token最大长度, 默认30000
- * @returns {string} 符合要求的Prompt文本，如果超过长度限制则返回空字符串
+ * @description 生成用于代码审查的 Prompt 文本。Generates a prompt for code review
+ * @param {string} input - 待审查的代码字符串 / code string to review
+ * @param {number} [maxLen=30000] - token 最大长度限制 / maximum token length
+ * @returns {string} 符合要求的 Prompt 文本，超过长度限制时返回空字符串。Prompt text, or empty string if it exceeds the token limit
+ * @example
+ * ```ts
+ * const prompt = genCodeReviewPrompt('function add(a, b) { return a + b; }');
+ * console.log(prompt); // -> 完整的代码审查 prompt 文本
+ * ```
+ * @example
+ * ```ts
+ * // 超出长度限制时返回空字符串
+ * const prompt = genCodeReviewPrompt(veryLongCode, 100);
+ * if (!prompt) console.warn('Code too long for review');
+ * ```
  */
 export const genCodeReviewPrompt = createPromptGenerator(
   { maxTokenLength: MAX_TOKEN_LEN },

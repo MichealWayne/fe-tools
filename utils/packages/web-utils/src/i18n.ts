@@ -11,7 +11,9 @@
  * @description 获取用户的首选语言。Gets user's preferred language
  * @returns {string} 语言代码(如'en-US')。Language code (e.g., 'en-US')
  * @example
+ * ```ts
  * const locale = getLocale(); // -> 'en-US' or 'zh-CN', etc.
+ * ```
  */
 export function getLocale(): string {
   return navigator.language || (navigator as any).userLanguage || 'en-US';
@@ -25,11 +27,13 @@ export function getLocale(): string {
  * @param {object} options - 格式化选项。Formatting options
  * @returns {string} 格式化的日期字符串。Formatted date string
  * @example
+ * ```ts
  * const date = new Date('2025-01-18');
  * formatDateLocale(date, 'en-US'); // -> '1/18/2025'
  * formatDateLocale(date, 'zh-CN'); // -> '2025/1/18'
  * formatDateLocale(date, 'en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
  * // -> 'Saturday, January 18, 2025'
+ * ```
  */
 export function formatDateLocale(
   date: Date | number,
@@ -49,9 +53,11 @@ export function formatDateLocale(
  * @param {object} options - 格式化选项。Formatting options
  * @returns {string} 格式化的数字字符串。Formatted number string
  * @example
+ * ```ts
  * formatNumberLocale(1234567.89, 'en-US'); // -> '1,234,567.89'
  * formatNumberLocale(1234567.89, 'de-DE'); // -> '1.234.567,89'
  * formatNumberLocale(0.42, 'en-US', { style: 'percent' }); // -> '42%'
+ * ```
  */
 export function formatNumberLocale(
   num: number,
@@ -70,9 +76,11 @@ export function formatNumberLocale(
  * @param {string} locale - 语言代码(可选)。Language code (optional)
  * @returns {string} 格式化的货币字符串。Formatted currency string
  * @example
+ * ```ts
  * formatCurrencyLocale(1234.56, 'USD', 'en-US'); // -> '$1,234.56'
  * formatCurrencyLocale(1234.56, 'EUR', 'de-DE'); // -> '1.234,56 €'
  * formatCurrencyLocale(1234.56, 'CNY', 'zh-CN'); // -> '¥1,234.56'
+ * ```
  */
 export function formatCurrencyLocale(amount: number, currency: string, locale?: string): string {
   const localeStr = locale || getLocale();
@@ -90,9 +98,11 @@ export function formatCurrencyLocale(amount: number, currency: string, locale?: 
  * @param {string} plural - 复数形式(可选)。Plural form (optional)
  * @returns {string} 正确的单复数形式。Correct singular/plural form
  * @example
+ * ```ts
  * pluralize(1, 'item'); // -> 'item'
  * pluralize(5, 'item'); // -> 'items'
  * pluralize(2, 'person', 'people'); // -> 'people'
+ * ```
  */
 export function pluralize(count: number, singular: string, plural?: string): string {
   if (count === 1) return singular;
@@ -105,9 +115,11 @@ export function pluralize(count: number, singular: string, plural?: string): str
  * @param {string} locale - 语言代码(可选)。Language code (optional)
  * @returns {string} 'ltr'或'rtl'。'ltr' or 'rtl'
  * @example
+ * ```ts
  * getDirection('en-US'); // -> 'ltr'
  * getDirection('ar-SA'); // -> 'rtl'
  * getDirection('he-IL'); // -> 'rtl'
+ * ```
  */
 export function getDirection(locale?: string): 'ltr' | 'rtl' {
   const localeStr = locale || getLocale();
@@ -124,9 +136,11 @@ export function getDirection(locale?: string): 'ltr' | 'rtl' {
  * @param {string} locale - 语言代码(可选)。Language code (optional)
  * @returns {string} 格式化的相对时间。Formatted relative time
  * @example
+ * ```ts
  * formatRelativeTime(-1, 'day', 'en-US'); // -> 'yesterday'
  * formatRelativeTime(3, 'day', 'en-US'); // -> 'in 3 days'
  * formatRelativeTime(-2, 'hour', 'zh-CN'); // -> '2小时前'
+ * ```
  */
 export function formatRelativeTime(
   value: number,

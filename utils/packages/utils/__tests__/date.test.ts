@@ -154,6 +154,14 @@ describe('daysLater', () => {
 
     expect(daysLater()).toBe(tomorrow.toISOString().split('T')[0]);
   });
+
+  it('should not mutate the input date', () => {
+    // Fixed: the old impl called date.setDate(...) in place, mutating the caller's Date.
+    const date = new Date('2023-02-15');
+    const original = date.toISOString();
+    daysLater(date, 5);
+    expect(date.toISOString()).toBe(original);
+  });
 });
 
 describe('getFormattedRemainTime', () => {

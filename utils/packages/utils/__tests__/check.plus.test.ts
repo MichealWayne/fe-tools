@@ -40,15 +40,19 @@ describe('validatePassport', () => {
 
 describe('validateLicensePlate', () => {
   it('should validate standard license plates', () => {
+    expect(validateLicensePlate('京A12345')).toBe(true);
+    expect(validateLicensePlate('沪B12345')).toBe(true);
+    expect(validateLicensePlate('粤C12345')).toBe(true);
+    expect(validateLicensePlate('津D12345')).toBe(true);
+  });
+
+  it('should validate new energy vehicle license plates', () => {
     expect(validateLicensePlate('京A12345D')).toBe(true);
     expect(validateLicensePlate('沪B12345F')).toBe(true);
     expect(validateLicensePlate('粤C12345D')).toBe(true);
     expect(validateLicensePlate('津D12345F')).toBe(true);
     expect(validateLicensePlate('冀E12345D')).toBe(true);
     expect(validateLicensePlate('豫F12345F')).toBe(true);
-  });
-
-  it('should validate new energy vehicle license plates', () => {
     expect(validateLicensePlate('京AD12345')).toBe(true);
     expect(validateLicensePlate('京AF23456')).toBe(true);
     expect(validateLicensePlate('粤BF12345')).toBe(true);
@@ -56,7 +60,6 @@ describe('validateLicensePlate', () => {
   });
 
   it('should reject invalid license plates', () => {
-    expect(validateLicensePlate('京A12345')).toBe(false); // missing last character
     expect(validateLicensePlate('A12345D')).toBe(false); // missing province
     expect(validateLicensePlate('1234')).toBe(false); // too short
     expect(validateLicensePlate('京A1234567')).toBe(false); // too long
@@ -122,11 +125,19 @@ describe('checkPwdStrength', () => {
   });
 
   it('should validate password content requirements', () => {
-    // Password must contain all three types: letters, numbers, and symbols
-    // Only missing symbols or numbers will trigger illegalityErr
-    expect(checkPwdStrength('abc123')).toBe('密码不能包含非法字符，如双引号等');
-    expect(checkPwdStrength('abc!@#')).toBe('密码不能包含非法字符，如双引号等');
-    expect(checkPwdStrength('123!@#')).toBe('密码不能包含非法字符，如双引号等');
+    // Fixed: old impl returned illegalityErr for any missing type, making allnumberErr/allwordErr/allsymbolErr
+    // dead code. New impl classifies single-type passwords correctly.
+    // Password with only two types is "average" (2)
+    expect(checkPwdStrength('abc123')).toBe(2);   // letters + numbers, no symbols → average
+    expect(checkPwdStrength('abc!@#')).toBe(2);   // letters + symbols, no numbers → average
+    expect(checkPwdStrength('123!@#')).toBe(2);   // numbers + symbols, no letters → average
+  });
+
+  it('should return specific errors for single-type passwords', () => {
+    // Fixed: these branches were dead code before (all caught by illegalityErr guard)
+    expect(checkPwdStrength('abcdef')).toBe('密码不能使用全字母');
+    expect(checkPwdStrength('123456')).toBe('密码不能使用全数字');
+    expect(checkPwdStrength('!@#$%^')).toBe('密码不能使用全符号');
   });
 
   it('should detect password strength correctly', () => {
@@ -148,7 +159,7 @@ describe('checkPwdStrength', () => {
 
     expect(checkPwdStrength('123', customTips)).toBe('Custom format error');
     expect(checkPwdStrength('aaaaaa', customTips)).toBe('Custom same symbol error');
-    expect(checkPwdStrength('abcdef', customTips)).toBe('Custom illegality error');
+    expect(checkPwdStrength('abcdef', customTips)).toBe('Custom all word error');
   });
 });
 
@@ -182,6 +193,14 @@ describe('checkIdcard', () => {
     const validId2 = '44010119900101' + '001';
     const checkDigit2 = calculateCheckDigit(validId2);
     expect(checkIdcard(validId2 + checkDigit2)).toBe('身份证验证通过');
+  });
+
+  it('should validate 15-digit ID cards with correct century handling', () => {
+    // YY=00 should be treated as 2000, not 1900; 2000-02-29 is a valid leap-day birthday.
+    expect(checkIdcard('110101000229001')).toBe('身份证验证通过');
+
+    // YY=10 should be treated as 2010 and is still under 18 on 2026-06-16.
+    expect(checkIdcard('110101101231001')).toBe('未满18岁暂不支持开户');
   });
 
   it('should detect underage ID cards', () => {

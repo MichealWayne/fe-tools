@@ -44,15 +44,19 @@ export interface FrontendPerformanceAuditInput {
  * @returns {string} 前端性能检查 Prompt 文本。Frontend performance audit prompt text.
  *
  * @example
+ * ```ts
  * genFrontendPerformanceAuditPrompt({
  *   content: 'A product page loads a 5MB hero image and renders a 3000-row table on mount.'
  * });
  *
+ * ```
  * @example
+ * ```ts
  * genFrontendPerformanceAuditPrompt({
  *   content: 'React component rerenders on every keypress because a parent object is recreated.',
  *   goals: ['reduce LCP', 'avoid unnecessary rerenders']
  * });
+ * ```
  */
 function getFrontendPerformanceAuditPromptTxt(
   input: FrontendPerformanceAuditInput
@@ -84,15 +88,19 @@ function getFrontendPerformanceAuditPromptTxt(
  * @returns {string} 前端性能检查 Prompt；超长时返回空字符串。Frontend performance audit prompt or an empty string when it exceeds the token limit.
  *
  * @example
+ * ```ts
  * genFrontendPerformanceAuditPrompt({
  *   content: 'The landing page blocks on multiple third-party scripts before rendering.'
  * });
  *
+ * ```
  * @example
+ * ```ts
  * genFrontendPerformanceAuditPrompt({
  *   content: 'This grid renders 10000 cells in one pass and recalculates filters on every state update.',
  *   goals: ['improve INP']
  * });
+ * ```
  */
 export const genFrontendPerformanceAuditPrompt = createPromptGenerator(
   { maxTokenLength: MAX_TOKEN_LEN },

@@ -21,27 +21,35 @@ const isBuffer = require('buffer').Buffer.isBuffer;
  * @param {string} [timeStr] - 可选的时间字符串，省略时使用当前时间。Optional time string to parse; uses current time if omitted
  * @returns {string} 格式化的时间字符串。Formatted time string in YYYY/MM/DD HH:MM:SS format
  * @example
+ * ```ts
  * // Get current time formatted
  * const now = getTimeStr();
  * console.log(now); // '2024/03/15 14:30:25'
  *
+ * ```
  * @example
+ * ```ts
  * // Format specific date
  * const specificTime = getTimeStr('2024-01-01T12:00:00Z');
  * console.log(specificTime); // '2024/01/01 12:00:00'
  *
+ * ```
  * @example
+ * ```ts
  * // Use in logging with timestamps
  * function logWithTimestamp(message) {
  *   console.log(`[${getTimeStr()}] ${message}`);
  * }
  * logWithTimestamp('Server started'); // '[2024/03/15 14:30:25] Server started'
  *
+ * ```
  * @example
+ * ```ts
  * // Format various date inputs
  * console.log(getTimeStr('March 15, 2024 2:30 PM')); // '2024/03/15 14:30:00'
  * console.log(getTimeStr(Date.now()));               // Current time formatted
  * console.log(getTimeStr(new Date()));              // Current time formatted
+ * ```
  */
 export function getTimeStr(timeStr?: string) {
   const setTimeShow = (num: number) => (num < 10 ? `0${num}` : num);

@@ -32,6 +32,18 @@ describe('formatter test', () => {
       expect(formatFileSize(1099511627776)).toBe('1 TB');
       expect(formatFileSize(1125899906842624)).toBe('1 PB');
     });
+
+    it('should guard invalid and out-of-range inputs', () => {
+      // Fixed: negative/NaN/non-finite used to return "NaN undefined"; huge inputs
+      // exceeded the unit table and also returned "xxx undefined".
+      expect(formatFileSize(-1)).toBe('0 Bytes');
+      expect(formatFileSize(NaN)).toBe('0 Bytes');
+      expect(formatFileSize(Infinity)).toBe('0 Bytes');
+      // Huge value beyond YB clamps to the largest unit instead of "undefined".
+      const huge = formatFileSize(1e36);
+      expect(huge).toContain('YB');
+      expect(huge).not.toContain('undefined');
+    });
   });
 
   describe('formatDuration', () => {
@@ -139,7 +151,9 @@ describe('formatter test', () => {
     });
 
     it('should handle negative amounts', () => {
-      expect(formatCurrency(-1234.56)).toBe('$-1,234.56');
+      // Fixed: negative amounts now render as '-$1,234.56' instead of '$-1,234.56'
+      expect(formatCurrency(-1234.56)).toBe('-$1,234.56');
+      expect(formatCurrency(-1234.56, '¥')).toBe('-¥1,234.56');
     });
 
     it('should respect decimal places', () => {

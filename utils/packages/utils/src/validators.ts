@@ -12,9 +12,11 @@
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效JSON则返回true。True if valid JSON
  * @example
+ * ```ts
  * isValidJSON('{"name": "John"}'); // -> true
  * isValidJSON('invalid'); // -> false
  * isValidJSON('[1, 2, 3]'); // -> true
+ * ```
  */
 export function isValidJSON(str: string): boolean {
   try {
@@ -31,9 +33,11 @@ export function isValidJSON(str: string): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效电子邮件则返回true。True if valid email
  * @example
+ * ```ts
  * isValidEmail('user@example.com'); // -> true
  * isValidEmail('invalid.email'); // -> false
  * isValidEmail('test@domain.co.uk'); // -> true
+ * ```
  */
 export function isValidEmail(str: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(str);
@@ -45,9 +49,11 @@ export function isValidEmail(str: string): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效URL则返回true。True if valid URL
  * @example
+ * ```ts
  * isValidURL('https://example.com'); // -> true
  * isValidURL('http://localhost:3000'); // -> true
  * isValidURL('not a url'); // -> false
+ * ```
  */
 export function isValidURL(str: string): boolean {
   try {
@@ -64,8 +70,10 @@ export function isValidURL(str: string): boolean {
  * @param {string} str - 信用卡号字符串。Credit card number string
  * @returns {boolean} 如果是有效信用卡号则返回true。True if valid credit card number
  * @example
+ * ```ts
  * isCreditCard('4532015112830366'); // -> true (Visa test number)
  * isCreditCard('1234567890123456'); // -> false
+ * ```
  */
 export function isCreditCard(str: string): boolean {
   const cleaned = str.replace(/\D/g, '');
@@ -91,10 +99,12 @@ export function isCreditCard(str: string): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效十六进制颜色则返回true。True if valid hex color
  * @example
+ * ```ts
  * isHexColor('#fff'); // -> true
  * isHexColor('#ffffff'); // -> true
  * isHexColor('#ABCDEF'); // -> true
  * isHexColor('red'); // -> false
+ * ```
  */
 export function isHexColor(str: string): boolean {
   return /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(str);
@@ -106,9 +116,11 @@ export function isHexColor(str: string): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效IPv4地址则返回true。True if valid IPv4 address
  * @example
+ * ```ts
  * isIPv4('192.168.1.1'); // -> true
  * isIPv4('255.255.255.255'); // -> true
  * isIPv4('256.1.1.1'); // -> false
+ * ```
  */
 export function isIPv4(str: string): boolean {
   const parts = str.split('.');
@@ -125,10 +137,12 @@ export function isIPv4(str: string): boolean {
  * @param {number} port - 要验证的端口号。Port number to validate
  * @returns {boolean} 如果是有效端口则返回true。True if valid port
  * @example
+ * ```ts
  * isPort(80); // -> true
  * isPort(3000); // -> true
  * isPort(0); // -> false
  * isPort(70000); // -> false
+ * ```
  */
 export function isPort(port: number): boolean {
   return Number.isInteger(port) && port >= 1 && port <= 65535;
@@ -140,13 +154,43 @@ export function isPort(port: number): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效JWT格式则返回true。True if valid JWT format
  * @example
+ * ```ts
  * isJWT('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U');
  * // -> true
+ * ```
  */
 export function isJWT(str: string): boolean {
   const parts = str.split('.');
   if (parts.length !== 3) return false;
-  return parts.every(part => /^[A-Za-z0-9_-]+$/.test(part));
+  if (!parts.every(part => part.length > 0 && /^[A-Za-z0-9_-]+$/.test(part))) return false;
+
+  const decodeBase64Url = (part: string): string | null => {
+    try {
+      const base64 = part.replace(/-/g, '+').replace(/_/g, '/');
+      const padded = base64.padEnd(base64.length + ((4 - (base64.length % 4)) % 4), '=');
+      if (typeof atob === 'function') {
+        return atob(padded);
+      }
+      if (typeof Buffer !== 'undefined') {
+        return Buffer.from(padded, 'base64').toString('utf8');
+      }
+      return null;
+    } catch {
+      return null;
+    }
+  };
+
+  const header = decodeBase64Url(parts[0]);
+  const payload = decodeBase64Url(parts[1]);
+  if (header === null || payload === null) return false;
+
+  try {
+    const parsedHeader = JSON.parse(header);
+    JSON.parse(payload);
+    return Boolean(parsedHeader && typeof parsedHeader === 'object' && parsedHeader.alg);
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -155,9 +199,11 @@ export function isJWT(str: string): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效语义化版本则返回true。True if valid semantic version
  * @example
+ * ```ts
  * isSemVer('1.0.0'); // -> true
  * isSemVer('2.1.3-beta'); // -> true
  * isSemVer('1.0'); // -> false
+ * ```
  */
 export function isSemVer(str: string): boolean {
   return /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$/.test(
@@ -171,11 +217,19 @@ export function isSemVer(str: string): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效电话号码则返回true。True if valid phone number
  * @example
+ * ```ts
  * isValidPhoneNumber('+1234567890'); // -> true
  * isValidPhoneNumber('(123) 456-7890'); // -> true
  * isValidPhoneNumber('123-456-7890'); // -> true
+ * ```
  */
 export function isValidPhoneNumber(str: string): boolean {
+  // 旧实现正则过宽：最少只需 3 位数字即可匹配（如 '12'），且允许中间全为括号分隔。
+  // 修复：要求总数字位数至少 7 位（大多数国家号码至少 7 位），且整个字符串只含数字和常见分隔符。
+  // The old regex was too permissive: as few as 3 digits could match (e.g. '12').
+  // Fix: require at least 7 digits total and only allow digits and common separators.
+  const digits = str.replace(/\D/g, '');
+  if (digits.length < 7 || digits.length > 15) return false;
   return /^[+]?[(]?[0-9]{1,4}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,9}$/.test(str);
 }
 
@@ -185,9 +239,11 @@ export function isValidPhoneNumber(str: string): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效MAC地址则返回true。True if valid MAC address
  * @example
+ * ```ts
  * isMACAddress('00:1B:44:11:3A:B7'); // -> true
  * isMACAddress('00-1B-44-11-3A-B7'); // -> true
  * isMACAddress('invalid'); // -> false
+ * ```
  */
 export function isMACAddress(str: string): boolean {
   return /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/.test(str);
@@ -199,10 +255,18 @@ export function isMACAddress(str: string): boolean {
  * @param {string} str - 要验证的字符串。String to validate
  * @returns {boolean} 如果是有效Base64则返回true。True if valid Base64
  * @example
+ * ```ts
  * isBase64('SGVsbG8gV29ybGQ='); // -> true
  * isBase64('not base64'); // -> false
+ * ```
  */
 export function isBase64(str: string): boolean {
+  if (!str) return false;
+
+  if (typeof Buffer !== 'undefined') {
+    return Buffer.from(str, 'base64').toString('base64') === str;
+  }
+
   try {
     return btoa(atob(str)) === str;
   } catch {

@@ -49,14 +49,18 @@ export interface ImageListOptions {
  * @param {string[]} [extensions] - Optional array of specific extensions to filter by
  * @returns {boolean} True if the file is recognized as an image format
  * @example
+ * ```ts
  * // Check with default image extensions
  * isImage('photo.jpg'); // true
  * isImage('document.pdf'); // false
  *
+ * ```
  * @example
+ * ```ts
  * // Check with custom extensions
  * isImage('image.tiff', ['tiff', 'raw']); // true
  * isImage('image.jpg', ['png']); // false
+ * ```
  */
 function isImage(filename: string, extensions?: string[]): boolean {
   if (typeof filename !== 'string') {
@@ -79,9 +83,11 @@ function isImage(filename: string, extensions?: string[]): boolean {
  * @param {string} filename - File name to check for 2x designation
  * @returns {boolean} True if filename contains '_2x.' indicating retina resolution
  * @example
+ * ```ts
  * is2xImage('icon_2x.png'); // true
  * is2xImage('icon.png'); // false
  * is2xImage('photo_2x.jpg'); // true
+ * ```
  */
 function is2xImage(filename: string): boolean {
   return filename.includes('_2x.');
@@ -90,31 +96,39 @@ function is2xImage(filename: string): boolean {
 /**
  * @description Get a list of image files from a directory with flexible filtering options
  * @param {string} imgFolderPath - Path to the directory containing images
- * @param {ImageListOptions} [options={}] - Configuration options for filtering and scanning
+ * @param {ImageListOptions} [options] - Configuration options for filtering and scanning
  * @returns {string[]} Array of image filenames matching the specified criteria
  * @throws {Error} Logs error to console if directory cannot be read (returns empty array)
  * @example
+ * ```ts
  * // Get all images from a directory
  * const allImages = getImgList('./assets');
  *
+ * ```
  * @example
+ * ```ts
  * // Get only retina (2x) images
  * const retinaImages = getImgList('./assets', { only2x: true });
  *
+ * ```
  * @example
+ * ```ts
  * // Recursive search with specific extensions
  * const pngImages = getImgList('./src', {
  *   recursive: true,
  *   extensions: ['png', 'webp']
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Complex filtering for production assets
  * const productionImages = getImgList('./assets', {
  *   recursive: true,
  *   extensions: ['jpg', 'png', 'webp'],
  *   includeAllImages: true
  * });
+ * ```
  */
 function getImgList(imgFolderPath: string, options: ImageListOptions = {}): string[] {
   const imgArr: string[] = [];

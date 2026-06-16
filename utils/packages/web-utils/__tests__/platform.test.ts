@@ -189,6 +189,14 @@ describe('Platform Detection', () => {
       const { getMobilePlatform } = loadPlatform();
       expect(getMobilePlatform()).toBe('gphone');
     });
+
+    it('should not detect desktop macOS Safari as iPhone', () => {
+      mockUserAgent(
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15'
+      );
+      const { getMobilePlatform } = loadPlatform();
+      expect(getMobilePlatform()).toBe('gphone');
+    });
   });
 
   describe('getMobileOS', () => {
@@ -214,6 +222,14 @@ describe('Platform Detection', () => {
 
     it('should handle unusual user agents gracefully', () => {
       mockUserAgent('Mozilla/5.0 (Unknown; OS Unknown) Unknown/Unknown');
+      const { getMobileOS } = loadPlatform();
+      const os = getMobileOS();
+      expect(os.android).toBe(0);
+      expect(os.ios).toBe(0);
+    });
+
+    it('should not detect iOS from non-iOS user agents containing os version text', () => {
+      mockUserAgent('Mozilla/5.0 (X11; Linux x86_64) a os 12_3');
       const { getMobileOS } = loadPlatform();
       const os = getMobileOS();
       expect(os.android).toBe(0);

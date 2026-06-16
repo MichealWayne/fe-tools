@@ -25,18 +25,22 @@ export { ImageListOptions, BlurOptions, WebpOptions, ImageConfig };
 /**
  * @description Main image processing API providing comprehensive image manipulation utilities
  * @example
+ * ```ts
  * // Basic usage - get image list and convert to WebP
  * import imageUtils from '@i-utils/node-img-build';
  *
  * const images = imageUtils.getImgList('./images', { only2x: true });
  * await imageUtils.toWebpImg('./images', 'photo_2x.jpg', './output', { quality: 85 });
  *
+ * ```
  * @example
+ * ```ts
  * // Generate 1x images from 2x retina images
  * const images = imageUtils.getImgList('./assets', { only2x: true });
  * for (const img of images) {
  *   await imageUtils.generate1xFrom2x('./assets', img, './output');
  * }
+ * ```
  */
 export default {
   /**
@@ -45,6 +49,7 @@ export default {
    * @param {ImageListOptions} [options] - Options for filtering and processing images
    * @returns {string[]} Array of image filenames matching the specified criteria
    * @example
+   * ```ts
    * // Get all 2x retina images
    * const retina = getImgList('./images', { only2x: true });
    *
@@ -53,6 +58,7 @@ export default {
    *   recursive: true,
    *   extensions: ['png', 'jpg']
    * });
+   * ```
    */
   getImgList,
 
@@ -63,8 +69,10 @@ export default {
    * @returns {Promise<{data: gmConstructor.ImageInfo, gmStream: gmConstructor.State}>} Image info and GM stream
    * @throws {Error} When image file is not found or cannot be processed
    * @example
+   * ```ts
    * const { data, gmStream } = await getGmStream('./images', 'photo.jpg');
    * console.log(`Image size: ${data.size.width}x${data.size.height}`);
+   * ```
    */
   getGmStream,
 
@@ -77,11 +85,13 @@ export default {
    * @returns {Promise<string>} Path to the generated WebP file
    * @throws {Error} When conversion fails or directories are inaccessible
    * @example
+   * ```ts
    * // Convert with default quality (80)
    * await toWebpImg('./src', 'photo_2x.jpg', './dist');
    *
    * // Convert with custom quality
    * await toWebpImg('./src', 'image.png', './dist', { quality: 90 });
+   * ```
    */
   toWebpImg,
 
@@ -91,8 +101,10 @@ export default {
    * @param {BlurOptions} [options] - Blur configuration including radius and sigma
    * @returns {gmConstructor.State | false} Blurred GM stream or false if processing fails
    * @example
+   * ```ts
    * const { gmStream } = await getGmStream('./images', 'photo.jpg');
    * const blurred = toBlurImg(gmStream, { blurRadius: 10, blurSigma: 5 });
+   * ```
    */
   toBlurImg,
 
@@ -103,9 +115,11 @@ export default {
    * @returns {Promise<string>} Base64 string with data URI prefix
    * @throws {Error} When conversion fails or invalid stream provided
    * @example
+   * ```ts
    * const { gmStream } = await getGmStream('./images', 'photo.jpg');
    * const dataUri = await toBase64(gmStream, 'png');
    * // Returns: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..."
+   * ```
    */
   toBase64,
 
@@ -116,9 +130,11 @@ export default {
    * @param {number} [height] - Target height in pixels (maintains aspect ratio if omitted)
    * @returns {gmConstructor.State | false} Resized GM stream or false if processing fails
    * @example
+   * ```ts
    * const { gmStream } = await getGmStream('./images', 'photo.jpg');
    * const resized = resizeImg(gmStream, 800, 600); // Exact dimensions
    * const proportional = resizeImg(gmStream, 800); // Maintain aspect ratio
+   * ```
    */
   resizeImg,
 
@@ -130,9 +146,11 @@ export default {
    * @returns {Promise<string>} Path to the generated 1x image file
    * @throws {Error} When image name doesn't contain '_2x.' or processing fails
    * @example
+   * ```ts
    * // Generate 1x from 2x retina image
    * await generate1xFrom2x('./assets', 'icon_2x.png', './dist');
    * // Creates: ./dist/icon.png (half the dimensions)
+   * ```
    */
   generate1xFrom2x,
 
@@ -140,6 +158,7 @@ export default {
    * @description Global configuration object for default image processing settings
    * @type {ImageConfig} Configuration including blur settings, quality, and paths
    * @example
+   * ```ts
    * // Access default settings
    * console.log(config.quality); // 90
    * console.log(config.webpQuality); // 80
@@ -147,6 +166,7 @@ export default {
    * // Modify global settings
    * config.quality = 95;
    * config.blur.radius = 10;
+   * ```
    */
   config,
 };

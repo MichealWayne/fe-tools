@@ -1,6 +1,6 @@
 {
   "name": "fe-tools-node-img-build",
-  "version": "0.1.0",
+  "version": "1.2.1",
   "description": "1x 2x webp image handler.",
   "author": "Wayne <michealwayne@163.com>",
   "license": "ISC",
@@ -28,7 +28,7 @@
     "build:types": "tsc -p tsconfig.types.json"
   },
   "devDependencies": {
-    "@types/gm": "1.18.12"
+    "@types/gm": "^1.25.0"
   },
   "dependencies": {
     "gm": "1.23.1"

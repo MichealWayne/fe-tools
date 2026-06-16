@@ -21,16 +21,20 @@ import { PointPosition, ListExtremum } from '../types';
  * @returns {number} 最小值。The smallest number in the array
  * @throws {Error} Throws an error if the array is empty or contains non-numeric values
  * @example
+ * ```ts
  * // Basic minimum finding
  * const values = [10, 5, 8, 3, 12];
  * const minValue = min(values); // Returns 3
  *
+ * ```
  * @example
+ * ```ts
  * // Finding minimum in chart data
  * const chartData = [25, 40, 15, 60, 30];
  * const minDataPoint = min(chartData); // Returns 15
  * // Use for setting chart Y-axis minimum
  *
+ * ```
  * @since 1.0.0
  * @see {@link max} - For finding maximum values
  * @see {@link getListExtremum} - For finding both min and max in one operation
@@ -44,16 +48,20 @@ export const min = arrayMin;
  * @returns {number} 最大值。The largest number in the array
  * @throws {Error} Throws an error if the array is empty or contains non-numeric values
  * @example
+ * ```ts
  * // Basic maximum finding
  * const values = [10, 5, 8, 3, 12];
  * const maxValue = max(values); // Returns 12
  *
+ * ```
  * @example
+ * ```ts
  * // Finding maximum in chart data
  * const chartData = [25, 40, 15, 60, 30];
  * const maxDataPoint = max(chartData); // Returns 60
  * // Use for setting chart Y-axis maximum
  *
+ * ```
  * @since 1.0.0
  * @see {@link min} - For finding minimum values
  * @see {@link getListExtremum} - For finding both min and max in one operation
@@ -69,12 +77,15 @@ export const max = arrayMax;
  * @returns {number} returns.max - The largest number in the array
  * @throws {Error} Throws an error if the array is empty
  * @example
+ * ```ts
  * // Basic extremum finding
  * const data = [1, 3, 5, 2, 2, 4, 5, 7];
  * const { min, max } = getListExtremum(data);
  * console.log(`Range: ${min} to ${max}`); // Range: 1 to 7
  *
+ * ```
  * @example
+ * ```ts
  * // Chart axis calculation
  * const chartValues = [25, 40, 15, 60, 30, 45];
  * const { min: dataMin, max: dataMax } = getListExtremum(chartValues);
@@ -84,7 +95,9 @@ export const max = arrayMax;
  * const yAxisMin = dataMin - padding;
  * const yAxisMax = dataMax + padding;
  *
+ * ```
  * @example
+ * ```ts
  * // Performance comparison for large datasets
  * const largeDataset = new Array(10000).fill(0).map(() => Math.random() * 100);
  *
@@ -95,6 +108,7 @@ export const max = arrayMax;
  * // const min = min(largeDataset);
  * // const max = max(largeDataset);
  *
+ * ```
  * @since 1.0.0
  * @see {@link min} - For finding only minimum values
  * @see {@link max} - For finding only maximum values
@@ -126,11 +140,14 @@ export function getListExtremum(arr: number[]): ListExtremum {
  * @param {number} [range] - The data range (max - min) to calculate axis limit for
  * @returns {number} The calculated axis limit that provides good visual spacing
  * @example
+ * ```ts
  * // Basic axis limit calculation
  * const dataRange = 87; // e.g., max: 95, min: 8
  * const axisLimit = getAxisLimit(dataRange); // Returns 88 (rounded to nearest 4)
  *
+ * ```
  * @example
+ * ```ts
  * // Chart axis setup
  * const chartData = [10, 25, 40, 35, 60];
  * const { min, max } = getListExtremum(chartData);
@@ -139,16 +156,21 @@ export function getListExtremum(arr: number[]): ListExtremum {
  * const yAxisMax = min + getAxisLimit(range);
  * // Creates visually appealing chart bounds
  *
+ * ```
  * @example
+ * ```ts
  * // Small range handling
  * const smallRange = 1.5;
  * const limit = getAxisLimit(smallRange); // Returns 1.8 (1.5 * 1.2 for padding)
  *
+ * ```
  * @example
+ * ```ts
  * // No data case
  * const emptyLimit = getAxisLimit(); // Returns 1 (default)
  * const zeroLimit = getAxisLimit(0); // Returns 1 (default)
  *
+ * ```
  * @since 1.0.0
  */
 export function getAxisLimit(range?: number): number {
@@ -170,13 +192,16 @@ export function getAxisLimit(range?: number): number {
  * @param {PointPosition} point2 - 结束点坐标。The ending point with x and y coordinates
  * @returns {number} The angle in radians (0 to 2π), where 0 is pointing up (north)
  * @example
+ * ```ts
  * // Basic angle calculation
  * const startPoint = { x: 0, y: 0 };
  * const endPoint = { x: 1, y: 1 };
  * const angle = getPointsAngle(startPoint, endPoint);
  * const degrees = angle * (180 / Math.PI); // Convert to degrees
  *
+ * ```
  * @example
+ * ```ts
  * // Arrow direction for canvas drawing
  * function drawArrow(ctx, from, to) {
  *   const angle = getPointsAngle(from, to);
@@ -201,7 +226,9 @@ export function getAxisLimit(range?: number): number {
  *   ctx.restore();
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Compass directions
  * const center = { x: 100, y: 100 };
  * const north = { x: 100, y: 50 };
@@ -210,6 +237,7 @@ export function getAxisLimit(range?: number): number {
  * const northAngle = getPointsAngle(center, north); // ~0 radians (0°)
  * const eastAngle = getPointsAngle(center, east);   // ~π/2 radians (90°)
  *
+ * ```
  * @since 1.0.0
  * @see {@link getPointsDistance} - For calculating distance between the same points
  */
@@ -228,12 +256,15 @@ export function getPointsAngle(
  * @param {PointPosition} point2 - 第二个点坐标。The second point with x and y coordinates
  * @returns {number} 两个点的距离数值。The distance between the two points in the same units as the coordinates
  * @example
+ * ```ts
  * // Basic distance calculation
  * const pointA = { x: 0, y: 0 };
  * const pointB = { x: 3, y: 4 };
  * const distance = getPointsDistance(pointA, pointB); // Returns 5 (3-4-5 triangle)
  *
+ * ```
  * @example
+ * ```ts
  * // Collision detection
  * function checkCollision(object1, object2, threshold = 20) {
  *   const distance = getPointsDistance(object1.position, object2.position);
@@ -247,7 +278,9 @@ export function getPointsAngle(
  *   console.log('Collision detected!');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Animation easing based on distance
  * function animateToTarget(current, target, speed = 0.1) {
  *   const distance = getPointsDistance(current, target);
@@ -266,13 +299,16 @@ export function getPointsAngle(
  *   };
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Canvas zoom level calculation
  * const mouseStart = { x: 100, y: 100 };
  * const mouseCurrent = { x: 150, y: 120 };
  * const dragDistance = getPointsDistance(mouseStart, mouseCurrent);
  * const zoomFactor = 1 + (dragDistance / 100); // Zoom based on drag distance
  *
+ * ```
  * @since 1.0.0
  * @see {@link getPointsAngle} - For calculating angle between the same points
  */

@@ -28,6 +28,21 @@ describe('json test', () => {
     it('should use null as default when not specified', () => {
       expect(safeJSONParse('invalid')).toBeNull();
     });
+
+    it('should distinguish valid JSON null from parse failure', () => {
+      // 'null' is valid JSON parsing to null; 'invalid' fails and falls back to null default.
+      // Both return null at runtime, but the semantics differ.
+      expect(safeJSONParse('null')).toBe(null);
+      expect(safeJSONParse('invalid')).toBe(null);
+    });
+
+    it('should support explicit defaultValue of various types', () => {
+      // Fixed: defaultValue is now optional with an honest T | null return type
+      // (was defaultValue: T = null as T, a type lie when T was string, etc.).
+      expect(safeJSONParse('x', 0)).toBe(0);
+      expect(safeJSONParse('x', 'fallback')).toBe('fallback');
+      expect(safeJSONParse('x', false)).toBe(false);
+    });
   });
 
   describe('cloneJSON', () => {
@@ -97,6 +112,18 @@ describe('json test', () => {
         age: 30,
         active: true,
       });
+    });
+
+    it('should keep Date / RegExp / null as-is instead of recursing', () => {
+      // Fixed: the old typeof check recursed into Date/RegExp/class instances,
+      // corrupting them into broken nested keys.
+      const d = new Date('2023-01-01');
+      const r = /test/g;
+      const obj = { created: d, pattern: r, nothing: null };
+      const flattened = flattenJSON(obj);
+      expect(flattened.created).toBe(d);
+      expect(flattened.pattern).toBe(r);
+      expect(flattened.nothing).toBeNull();
     });
   });
 
@@ -204,6 +231,29 @@ describe('json test', () => {
       mergeJSON(obj1, obj2);
       expect(obj1).toEqual({ a: 1 });
       expect(obj2).toEqual({ b: 2 });
+    });
+
+    it('should skip undefined / null arguments without throwing', () => {
+      // Fixed: the old impl threw "Cannot convert undefined or null to object".
+      expect(mergeJSON({ a: 1 }, undefined)).toEqual({ a: 1 });
+      expect(mergeJSON(undefined, { a: 1 })).toEqual({ a: 1 });
+      expect(mergeJSON({ a: 1 }, null, { b: 2 })).toEqual({ a: 1, b: 2 });
+      expect(mergeJSON(undefined, undefined)).toEqual({});
+    });
+
+    it('should keep Date, RegExp, and class instances as values', () => {
+      class Example {
+        value = 1;
+      }
+      const date = new Date('2024-01-01T00:00:00.000Z');
+      const regexp = /abc/g;
+      const instance = new Example();
+
+      const merged = mergeJSON({ date, regexp, instance }, {});
+
+      expect(merged.date).toBe(date);
+      expect(merged.regexp).toBe(regexp);
+      expect(merged.instance).toBe(instance);
     });
   });
 });

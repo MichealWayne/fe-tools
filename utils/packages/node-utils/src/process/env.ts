@@ -21,6 +21,7 @@ export interface CommandLineArgs {
  * @description 使用minimist解析命令行参数，排除node和脚本路径。Parses command line arguments using minimist, excluding node and script paths for clean argument processing.
  * @returns {CommandLineArgs} 解析后的命令行参数对象。Parsed command line arguments object with type-safe access
  * @example
+ * ```ts
  * // Command: node script.js --port 3000 --debug --files a.txt b.txt
  * const args = parseArgs();
  * console.log(args.port);    // 3000 (number)
@@ -28,7 +29,9 @@ export interface CommandLineArgs {
  * console.log(args.files);   // ['a.txt', 'b.txt'] (string[])
  * console.log(args._);       // Array of non-option arguments
  *
+ * ```
  * @example
+ * ```ts
  * // Environment-aware configuration
  * const args = parseArgs();
  * const config = {
@@ -37,7 +40,9 @@ export interface CommandLineArgs {
  *   logLevel: args['log-level'] || 'info'
  * };
  *
+ * ```
  * @example
+ * ```ts
  * // CLI validation and defaults
  * const args = parseArgs();
  * if (!args.config) {
@@ -45,7 +50,9 @@ export interface CommandLineArgs {
  *   process.exit(1);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Build tool configuration
  * const args = parseArgs();
  * const buildConfig = {
@@ -55,6 +62,7 @@ export interface CommandLineArgs {
  *   outDir: args['out-dir'] || './dist'    // --out-dir
  * };
  *
+ * ```
  * @see {@link CommandLineArgs} - Type definition for parsed arguments
  */
 export function parseArgs(): CommandLineArgs {

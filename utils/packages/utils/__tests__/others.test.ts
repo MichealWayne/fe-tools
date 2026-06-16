@@ -17,8 +17,11 @@ describe('compareVersion', () => {
   it('should handle different version lengths', () => {
     expect(compareVersion('1.0', '1.0.0')).toEqual(0);
     expect(compareVersion('1', '1.0.0')).toEqual(0);
-    expect(compareVersion('2.0.1', '2.0')).toEqual(0);
-    expect(compareVersion('1.0', '1.0.1')).toEqual(0);
+    // Fixed: the old impl relied on NaN comparison to treat missing segments as equal,
+    // so '2.0.1' vs '2.0' wrongly returned 0. Missing segments are now normalized to 0,
+    // making '2.0.1' > '2.0' (returns 1) and '1.0' < '1.0.1' (returns -1).
+    expect(compareVersion('2.0.1', '2.0')).toEqual(1);
+    expect(compareVersion('1.0', '1.0.1')).toEqual(-1);
   });
 
   it('should handle edge cases', () => {
@@ -30,6 +33,12 @@ describe('compareVersion', () => {
   it('should handle multi-digit version numbers', () => {
     expect(compareVersion('1.10.0', '1.9.0')).toEqual(1);
     expect(compareVersion('1.100.0', '1.99.0')).toEqual(1);
+  });
+
+  it('should treat non-numeric segments as 0', () => {
+    // Fixed: non-numeric segments (NaN) are now explicitly normalized to 0.
+    expect(compareVersion('1.a.0', '1.0.0')).toEqual(0);
+    expect(compareVersion('1.x', '1.1')).toEqual(-1);
   });
 });
 
@@ -56,7 +65,7 @@ describe('digitUppercase', () => {
   });
 
   it('should handle zero', () => {
-    expect(digitUppercase(0)).toEqual('整');
+    expect(digitUppercase(0)).toEqual('零元整');
   });
 
   it('should handle large numbers', () => {

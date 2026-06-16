@@ -14,6 +14,7 @@ import {
   genCreateReactComponentPrompt,
   genSummaryPrompt,
   genTranslatePrompt,
+  vectorCompare,
 } from '../src';
 import { estimateTokenLength } from '../src/llm/prompts';
 import { createPromptGenerator } from '../src/utils/prompt';
@@ -103,6 +104,13 @@ describe('ai-utils', () => {
         const prompt = faultyGenerator('test');
         expect(prompt).toBe('');
       });
+    });
+  });
+
+  describe('vectors', () => {
+    it('should export vectorCompare from the package entry', () => {
+      expect(typeof vectorCompare).toBe('function');
+      expect(vectorCompare([1, 0], [1, 0])).toBeCloseTo(1, 5);
     });
   });
 

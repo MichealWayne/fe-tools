@@ -61,9 +61,10 @@ describe('Cookies', () => {
     });
 
     it('should handle cookies with special characters', () => {
-      cookieStore = 'complex=%3D%26%25; simple=value';
+      cookieStore = `complex=%3D%26%25; chinese=${encodeURIComponent('中文')}; simple=value`;
 
       expect(getCookie('complex')).toBe('=&%');
+      expect(getCookie('chinese')).toBe('中文');
       expect(getCookie('simple')).toBe('value');
     });
   });
@@ -77,7 +78,7 @@ describe('Cookies', () => {
       const setCookieArg = spy.mock.calls[0][0];
       expect(setCookieArg).toContain('test=value');
       expect(setCookieArg).toContain('expires=');
-      expect(setCookieArg).toContain('GMT/');
+      expect(setCookieArg).toContain(';path=/');
     });
 
     it('should set a cookie with custom expiration in seconds', () => {

@@ -61,10 +61,20 @@ function getCreateReactComponentPromptTxt(userDescription: string): string {
 
 /**
  * @function genCreateReactComponentPrompt
- * @description 生成用于创建React组件的Prompt
- * @param {string} description 用户对组件的描述
- * @param {number} maxLen token最大长度, 默认20000
- * @returns {string} 符合要求的Prompt文本，如果超过长度限制则返回空字符串
+ * @description 根据用户描述生成创建 React 组件的 Prompt 文本。Generates a prompt for creating a React component based on user description
+ * @param {string} input - 用户对组件的自然语言描述 / natural language description of the component
+ * @param {number} [maxLen=20000] - token 最大长度限制 / maximum token length
+ * @returns {string} 符合要求的 Prompt 文本，超过长度限制时返回空字符串。Prompt text, or empty string if it exceeds the token limit
+ * @example
+ * ```ts
+ * const prompt = genCreateReactComponentPrompt('A button with loading state and click handler');
+ * console.log(prompt); // -> 完整的 React 组件生成 prompt
+ * ```
+ * @example
+ * ```ts
+ * const prompt = genCreateReactComponentPrompt('A modal dialog with title and close button');
+ * if (prompt) sendToLLM(prompt);
+ * ```
  */
 export const genCreateReactComponentPrompt = createPromptGenerator(
   { maxTokenLength: MAX_TOKEN_LEN },

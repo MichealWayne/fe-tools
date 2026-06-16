@@ -12,6 +12,7 @@ import { isUndefined } from 'utils';
  * @description 检测当前浏览器所需的CSS供应商前缀。Detects the CSS vendor prefix required for the current browser
  * @returns {string} 供应商前缀：'webkit'（Chrome/Safari），'o'（Opera），或''（Firefox/标准）。The vendor prefix: 'webkit' (Chrome/Safari), 'o' (Opera), or '' (Firefox/standard)
  * @example
+ * ```ts
  * // Apply vendor-prefixed CSS properties
  * const prefix = getPrefix();
  * const element = document.createElement('div');
@@ -20,7 +21,9 @@ import { isUndefined } from 'utils';
  * element.style[`${prefix}Transform`] = 'translate3d(0, 0, 0)';
  * element.style[`${prefix}Transition`] = 'all 0.3s ease-in-out';
  *
+ * ```
  * @example
+ * ```ts
  * // Cross-browser animation event handling
  * const prefix = getPrefix();
  * const animationEvents = {
@@ -33,7 +36,9 @@ import { isUndefined } from 'utils';
  *   console.log('Animation completed');
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Feature detection with fallback
  * function applyModernCSS(element) {
  *   const prefix = getPrefix();
@@ -49,6 +54,7 @@ import { isUndefined } from 'utils';
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix} - CSS vendor prefixes
  * @see {@link https://caniuse.com/css-transitions} - CSS transitions browser support
@@ -80,13 +86,16 @@ export function getPrefix() {
  * @param {string} property - CSS属性名称（例如，'width'，'height'，'margin-top'）。The CSS property name (e.g., 'width', 'height', 'margin-top')
  * @returns {number | undefined} 像素中的数值，如果不是像素值则为undefined。The numeric value in pixels, or undefined if not a pixel value
  * @example
+ * ```ts
  * // Get element dimensions
  * const element = document.getElementById('my-element');
  * const width = getStyle(element, 'width');
  * const height = getStyle(element, 'height');
  * console.log(`Element size: ${width}x${height}px`);
  *
+ * ```
  * @example
+ * ```ts
  * // Check element positioning
  * const sidebar = document.querySelector('.sidebar');
  * const leftPosition = getStyle(sidebar, 'left');
@@ -97,7 +106,9 @@ export function getPrefix() {
  *   sidebar.style.left = '0px';
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Responsive design calculations
  * function adjustLayout() {
  *   const container = document.querySelector('.container');
@@ -109,6 +120,7 @@ export function getPrefix() {
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link getElementSize} - Get element size with better cross-browser support
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle} - Browser support: IE 9+, all modern browsers
@@ -120,7 +132,7 @@ export function getStyle(elem: any, property: string) {
     document.defaultView!.getComputedStyle(elem, null).getPropertyValue(property);
   const matches = value?.match(/^(\d+)(\.\d+)?px$/);
   // eslint-disable-next-line no-undefined
-  return matches ? +matches[1] : undefined;
+  return matches ? parseFloat(value) : undefined;
 }
 
 /**
@@ -130,7 +142,9 @@ export function getStyle(elem: any, property: string) {
  * @param {string} property - CSS属性。The CSS property
  * @return {number} 返回尺寸数值。Returns the size value
  * @example
+ * ```ts
  *  const bodyWidth = getElementStyle(document.querySelector('body'), 'width')
+ * ```
  */
 export function getElementSize(elem: HTMLElement, property: string): number {
   // IE currentStyle
@@ -138,5 +152,5 @@ export function getElementSize(elem: HTMLElement, property: string): number {
     ? (elem as any).currentStyle[property]
     : document.defaultView?.getComputedStyle(elem, null).getPropertyValue(property);
   const matches = value?.match(/^(\d+)(\.\d+)?px$/);
-  return matches ? +matches[1] : 0;
+  return matches ? parseFloat(value) : 0;
 }

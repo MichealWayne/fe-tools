@@ -14,6 +14,7 @@
  * @returns {Record<string, T[]>} 包含分组元素的对象。Object containing grouped elements
  * @throws {TypeError} 当arr不是数组或fn不是函数时。When arr is not an array or fn is not a function
  * @example
+ * ```ts
  * // Group by property
  * const users = [
  *   { name: 'John', age: 25 },
@@ -22,15 +23,20 @@
  * ];
  * groupBy(users, u => u.age); // -> { '25': [{...}, {...}], '30': [{...}] }
  *
+ * ```
  * @example
+ * ```ts
  * // Group by first letter
  * const words = ['apple', 'banana', 'apricot', 'blueberry'];
  * groupBy(words, w => w[0]); // -> { a: ['apple', 'apricot'], b: ['banana', 'blueberry'] }
  *
+ * ```
  * @example
+ * ```ts
  * // Group numbers by even/odd
  * const numbers = [1, 2, 3, 4, 5, 6];
  * groupBy(numbers, n => n % 2 === 0 ? 'even' : 'odd'); // -> { odd: [1, 3, 5], even: [2, 4, 6] }
+ * ```
  */
 export function groupBy<T>(arr: T[], fn: (item: T) => string | number): Record<string, T[]> {
   return arr.reduce((acc: Record<string, T[]>, item) => {
@@ -51,11 +57,14 @@ export function groupBy<T>(arr: T[], fn: (item: T) => string | number): Record<s
  * @returns {[T[], T[]]} 包含两个数组的元组:[匹配项, 不匹配项]。Tuple containing two arrays: [matching, non-matching]
  * @throws {TypeError} 当arr不是数组或fn不是函数时。When arr is not an array or fn is not a function
  * @example
+ * ```ts
  * // Partition by even/odd
  * const numbers = [1, 2, 3, 4, 5, 6];
  * partition(numbers, n => n % 2 === 0); // -> [[2, 4, 6], [1, 3, 5]]
  *
+ * ```
  * @example
+ * ```ts
  * // Partition users by status
  * const users = [
  *   { name: 'John', active: true },
@@ -63,6 +72,7 @@ export function groupBy<T>(arr: T[], fn: (item: T) => string | number): Record<s
  *   { name: 'Bob', active: true }
  * ];
  * partition(users, u => u.active); // -> [[{John}, {Bob}], [{Jane}]]
+ * ```
  */
 export function partition<T>(arr: T[], fn: (item: T) => boolean): [T[], T[]] {
   const pass: T[] = [];
@@ -77,17 +87,21 @@ export function partition<T>(arr: T[], fn: (item: T) => boolean): [T[], T[]] {
  * @param {...Array} arrays - 要组合的数组。Arrays to combine
  * @returns {Array[]} 元组数组。Array of tuples
  * @example
+ * ```ts
  * // Combine parallel arrays
  * const names = ['John', 'Jane', 'Bob'];
  * const ages = [25, 30, 35];
  * const cities = ['NYC', 'LA', 'SF'];
  * zip(names, ages, cities); // -> [['John', 25, 'NYC'], ['Jane', 30, 'LA'], ['Bob', 35, 'SF']]
  *
+ * ```
  * @example
+ * ```ts
  * // Create key-value pairs
  * const keys = ['a', 'b', 'c'];
  * const values = [1, 2, 3];
  * zip(keys, values); // -> [['a', 1], ['b', 2], ['c', 3]]
+ * ```
  */
 export function zip(...arrays: any[][]): any[][] {
   const maxLength = Math.max(...arrays.map(arr => arr.length));
@@ -100,19 +114,30 @@ export function zip(...arrays: any[][]): any[][] {
  * @param {Array[]} arr - 要拆分的元组数组。Array of tuples to split
  * @returns {Array[]} 单独数组的数组。Array of separate arrays
  * @example
+ * ```ts
  * // Unzip key-value pairs
  * const pairs = [['a', 1], ['b', 2], ['c', 3]];
  * unzip(pairs); // -> [['a', 'b', 'c'], [1, 2, 3]]
  *
+ * ```
  * @example
+ * ```ts
  * // Unzip coordinates
  * const points = [[1, 2], [3, 4], [5, 6]];
  * unzip(points); // -> [[1, 3, 5], [2, 4, 6]]
+ * ```
  */
 export function unzip(arr: any[][]): any[][] {
+  // 旧实现在 val 长度短于最长元组时，acc[i] 可能不存在，acc[i].push(v) 抛
+  // "Cannot read property 'push' of undefined"。这里在 push 前补齐缺失的桶。
+  // The old impl threw when a tuple was shorter than the max length, because acc[i]
+  // could be undefined. Lazily create missing buckets before pushing.
   return arr.reduce(
-    (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
-    Array.from({ length: Math.max(...arr.map(a => a.length)) }, () => [])
+    (acc, val) => (val.forEach((v, i) => {
+      if (acc[i] === undefined) acc[i] = [];
+      acc[i].push(v);
+    }), acc),
+    Array.from({ length: Math.max(0, ...arr.map(a => a.length)) }, () => [])
   );
 }
 
@@ -123,11 +148,14 @@ export function unzip(arr: any[][]): any[][] {
  * @param {...Function} fns - 提取排序键的函数数组。Functions to extract sort keys
  * @returns {T[]} 排序后的新数组。New sorted array
  * @example
+ * ```ts
  * // Sort by single field
  * const users = [{ name: 'John', age: 30 }, { name: 'Jane', age: 25 }];
  * sortBy(users, u => u.age); // -> [{ name: 'Jane', age: 25 }, { name: 'John', age: 30 }]
  *
+ * ```
  * @example
+ * ```ts
  * // Sort by multiple fields
  * const data = [
  *   { dept: 'Sales', name: 'John', age: 30 },
@@ -136,6 +164,7 @@ export function unzip(arr: any[][]): any[][] {
  * ];
  * sortBy(data, d => d.dept, d => d.age);
  * // -> Sorted by dept first, then age within each dept
+ * ```
  */
 export function sortBy<T>(arr: T[], ...fns: Array<(item: T) => any>): T[] {
   return [...arr].sort((a, b) => {
@@ -155,19 +184,23 @@ export function sortBy<T>(arr: T[], ...fns: Array<(item: T) => any>): T[] {
  * @param {...Array} arrays - 输入数组。Input arrays
  * @returns {Array[]} 笛卡尔积结果。Cartesian product result
  * @example
+ * ```ts
  * // Generate all combinations
  * const colors = ['red', 'blue'];
  * const sizes = ['S', 'M', 'L'];
  * cartesianProduct(colors, sizes);
  * // -> [['red', 'S'], ['red', 'M'], ['red', 'L'], ['blue', 'S'], ['blue', 'M'], ['blue', 'L']]
  *
+ * ```
  * @example
+ * ```ts
  * // Generate test cases
  * const browsers = ['Chrome', 'Firefox'];
  * const os = ['Windows', 'Mac'];
  * const versions = ['v1', 'v2'];
  * cartesianProduct(browsers, os, versions);
  * // -> All combinations of browser, OS, and version
+ * ```
  */
 export function cartesianProduct(...arrays: any[][]): any[][] {
   return arrays.reduce(
@@ -190,12 +223,16 @@ export function cartesianProduct(...arrays: any[][]): any[][] {
  * @param {...Array} arrays - 已排序的数组。Sorted arrays
  * @returns {Array} 合并后的已排序数组。Merged sorted array
  * @example
+ * ```ts
  * // Merge sorted number arrays
  * mergeSorted([1, 3, 5], [2, 4, 6]); // -> [1, 2, 3, 4, 5, 6]
  *
+ * ```
  * @example
+ * ```ts
  * // Merge multiple arrays
  * mergeSorted([1, 5, 9], [2, 6], [3, 7, 8]); // -> [1, 2, 3, 5, 6, 7, 8, 9]
+ * ```
  */
 export function mergeSorted<T>(...arrays: T[][]): T[] {
   return arrays.reduce((acc, arr) => {

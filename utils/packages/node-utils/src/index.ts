@@ -29,3 +29,12 @@ export * from './common';
 
 export * from './http';
 export * from './data';
+
+export { default as fsFuncs } from './fs/fsFuncs';
+export { default as run } from './process/run';
+export { default as parsedArgs } from './process/env';
+export { default as Tip } from './logging/tip';
+export { default as os } from './system/os';
+export { default as Colors } from './logging/colors';
+export { default as Cache } from './cache';
+export { default as startServer } from './common/server';

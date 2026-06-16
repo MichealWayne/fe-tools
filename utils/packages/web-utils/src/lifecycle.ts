@@ -11,9 +11,11 @@
  * @param {function} fn - 页面加载完成时执行的回调。Callback function to execute when page loading is complete
  * @returns {function} 移除监听的函数。Function to remove the event listener
  * @example
+ * ```ts
 onPageLoad(() => {
   console.log('Page loaded');
 });
+ * ```
  */
 export function onPageLoad(fn: () => void): () => void {
   if (document.readyState === 'complete' || document.readyState === 'interactive') {
@@ -31,9 +33,11 @@ export function onPageLoad(fn: () => void): () => void {
  * @param {function} fn - 页面卸载时执行的回调。Callback function to execute when page is unloaded
  * @returns {function} 移除监听的函数。Function to remove the event listener
  * @example
+ * ```ts
 onPageUnload(() => {
   console.log('Page unloaded');
 });
+ * ```
  */
 export function onPageUnload(fn: () => void): () => void {
   window.addEventListener('unload', fn);
@@ -46,12 +50,14 @@ export function onPageUnload(fn: () => void): () => void {
  * @param {function} fn - 页面关闭前执行的回调，可用于弹窗挽留。Callback function executed before page closes, can be used for retention popups
  * @returns {function} 移除监听的函数。Function to remove the event listener
  * @example
+ * ```ts
 onBeforeUnload((event) => {
   // 可以弹窗挽留，阻止页面关闭
   const message = 'You have unsaved changes.\r\nAre you sure you want to leave this page?';
   event.returnValue = message;
   return message;
 });
+ * ```
  */
 export function onBeforeUnload(fn: (event: BeforeUnloadEvent) => void): () => void {
   window.addEventListener('beforeunload', fn);
