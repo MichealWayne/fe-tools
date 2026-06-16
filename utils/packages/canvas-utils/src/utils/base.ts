@@ -19,13 +19,16 @@ import { SimpleObj } from '../types';
  * @description “空”函数。A no-operation function that returns an empty string. Commonly used as a default callback or placeholder function to avoid null/undefined function calls.
  * @returns {string} Always returns an empty string
  * @example
+ * ```ts
  * // Using as default callback
  * function processData(data, callback = NOOP) {
  *   // Process data...
  *   callback(); // Safe to call even if no callback provided
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Using in animation options
  * const animationOptions = {
  *   duration: 1000,
@@ -33,6 +36,7 @@ import { SimpleObj } from '../types';
  *   onFinish: () => console.log('Done')
  * };
  *
+ * ```
  * @since 1.0.0
  */
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -45,6 +49,7 @@ export const NOOP = () => '';
  * @param {Function} fn - The callback function to execute for each element. Receives (element, index) as parameters
  * @returns {T[]} The original array (for method chaining)
  * @example
+ * ```ts
  * // Basic iteration with logging
  * const numbers = [1, 2, 3, 4, 5];
  * each(numbers, (value, index) => {
@@ -57,7 +62,9 @@ export const NOOP = () => '';
  * // Index 3: 4
  * // Index 4: 5
  *
+ * ```
  * @example
+ * ```ts
  * // Drawing multiple canvas elements
  * const points = [
  *   { x: 10, y: 10 },
@@ -70,11 +77,14 @@ export const NOOP = () => '';
  *   ctx.fillRect(point.x, point.y, 10, 10);
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Method chaining
  * const result = each([1, 2, 3], (val) => console.log(val * 2))
  *   .map(x => x * 3); // Can chain other array methods
  *
+ * ```
  * @since 1.0.0
  */
 export function each<T>(arr: T[], fn: (...args: any[]) => void): T[] {
@@ -86,11 +96,12 @@ export function each<T>(arr: T[], fn: (...args: any[]) => void): T[] {
 
 /**
  * @function cloneObjDeep
- * @description 简单的深拷贝（没考虑特殊类型和循环依赖）。Performs a deep merge of two objects, copying properties from the source object to the target object. Existing properties in the target object take precedence over source properties. Nested objects are recursively merged.
+ * @description 简单的深合并（没考虑特殊类型和循环依赖）。Performs a deep merge of two objects, copying missing properties from the source object to the target object. Existing truthy properties in the target object take precedence over source properties. Nested objects are recursively merged.
  * @param {SimpleObj} fromObj - 源对象。The source object to copy properties from
- * @param {SimpleObj} toObj - 拷贝覆盖的对象。The target object to copy properties to (modified in place)
- * @returns {Record<any, any>} The modified target object with merged properties
+ * @param {SimpleObj} toObj - 合并目标对象，会被原地修改。The target object to merge into (modified in place)
+ * @returns {Record<any, any>} 合并后的目标对象。The modified target object with merged properties
  * @example
+ * ```ts
  * // Basic object merging
  * const defaults = {
  *   width: 400,
@@ -118,7 +129,9 @@ export function each<T>(arr: T[], fn: (...args: any[]) => void): T[] {
  * //   }
  * // }
  *
+ * ```
  * @example
+ * ```ts
  * // Canvas configuration merging
  * const defaultCanvasConfig = {
  *   dimensions: { width: 500, height: 400 },
@@ -134,6 +147,7 @@ export function each<T>(arr: T[], fn: (...args: any[]) => void): T[] {
  * const finalConfig = cloneObjDeep(defaultCanvasConfig, customConfig);
  * // Preserves all default values while applying custom overrides
  *
+ * ```
  * @since 1.0.0
  */
 export function cloneObjDeep(fromObj: SimpleObj, toObj: SimpleObj): Record<any, any> {
@@ -161,6 +175,7 @@ export function cloneObjDeep(fromObj: SimpleObj, toObj: SimpleObj): Record<any, 
  * @param {T[]} toArr - 拷贝覆盖的数组。The target array to copy elements to (modified in place)
  * @returns {T[]} The modified target array containing all elements from the source array
  * @example
+ * ```ts
  * // Basic array copying
  * const sourceData = [1, 2, 3, 4, 5];
  * const targetArray = [99]; // Will be overwritten
@@ -169,7 +184,9 @@ export function cloneObjDeep(fromObj: SimpleObj, toObj: SimpleObj): Record<any, 
  * console.log(result); // [1, 2, 3, 4, 5]
  * console.log(targetArray === result); // true (same reference)
  *
+ * ```
  * @example
+ * ```ts
  * // Copying canvas drawing commands
  * const defaultCommands = ['beginPath', 'moveTo', 'lineTo', 'stroke'];
  * const currentCommands = [];
@@ -177,7 +194,9 @@ export function cloneObjDeep(fromObj: SimpleObj, toObj: SimpleObj): Record<any, 
  * cloneArray(defaultCommands, currentCommands);
  * // currentCommands now contains all default commands
  *
+ * ```
  * @example
+ * ```ts
  * // Updating animation keyframes
  * const newKeyframes = [
  *   { time: 0, value: 0 },
@@ -189,9 +208,11 @@ export function cloneObjDeep(fromObj: SimpleObj, toObj: SimpleObj): Record<any, 
  * cloneArray(newKeyframes, animationFrames);
  * // animationFrames now contains the new keyframe data
  *
+ * ```
  * @since 1.0.0
  */
 export const cloneArray = <T>(fromArr: T[], toArr: T[]): T[] => {
+  toArr.length = fromArr.length;
   each(fromArr, (item, index: number) => {
     toArr[index] = item;
   });
@@ -208,6 +229,7 @@ export const cloneArray = <T>(fromArr: T[], toArr: T[]): T[] => {
  * @returns {never} This function never returns as it always throws an Error
  * @throws {Error} Always throws an Error with formatted message
  * @example
+ * ```ts
  * // Basic error throwing
  * function validateCanvasSize(width, height) {
  *   if (width <= 0 || height <= 0) {
@@ -215,7 +237,9 @@ export const cloneArray = <T>(fromArr: T[], toArr: T[]): T[] => {
  *   }
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Canvas context validation
  * function initializeCanvas(canvas) {
  *   const ctx = canvas.getContext('2d');
@@ -225,7 +249,9 @@ export const cloneArray = <T>(fromArr: T[], toArr: T[]): T[] => {
  *   return ctx;
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Animation parameter validation
  * function startAnimation(options) {
  *   if (!options.duration || options.duration <= 0) {
@@ -237,6 +263,7 @@ export const cloneArray = <T>(fromArr: T[], toArr: T[]): T[] => {
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  */
 export function throwError(info: unknown, part = '', detail = ''): never {

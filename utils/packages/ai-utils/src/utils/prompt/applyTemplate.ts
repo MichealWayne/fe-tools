@@ -13,14 +13,16 @@
 /**
  * Replaces placeholders in a template string with provided values.
  *
- * @param {string} template The template string containing placeholders like {{key}}.
+ * @param {string} template The template string containing double-brace placeholders.
  * @param {Record<string, string>} replacements An object mapping placeholder keys to their replacement values.
  * @returns {string} The template string with placeholders replaced by their corresponding values.
  *
  * @example
+ * ```ts
  * const template = "Hello, {{name}}!";
  * const result = applyTemplate(template, { name: "World" });
  * console.log(result); // Output: "Hello, World!"
+ * ```
  */
 export function applyTemplate(template: string, replacements: Record<string, string>): string {
   // Basic validation

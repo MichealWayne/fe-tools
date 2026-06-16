@@ -111,6 +111,13 @@ test('chunk test', () => {
   expect(JSON.stringify(chunk([1, 2, 3], 5))).toBe('[[1,2,3]]');
 });
 
+test('chunk throws on invalid size', () => {
+  // Per JSDoc: size must be a positive integer. size=0 used to cause an infinite loop.
+  expect(() => chunk([1, 2, 3], 0)).toThrow(RangeError);
+  expect(() => chunk([1, 2, 3], -1)).toThrow(RangeError);
+  expect(() => chunk([1, 2, 3], 1.5)).toThrow(RangeError);
+});
+
 test('compact test', () => {
   expect(JSON.stringify(compact([1, 2, 3]))).toBe('[1,2,3]');
   expect(JSON.stringify(compact([1, false, 3, null, 5, undefined, 7, '', 9, NaN, 11]))).toBe(
@@ -130,6 +137,21 @@ test('deepFlatten test', () => {
   expect(JSON.stringify(deepFlatten([1, [2, 3]]))).toBe('[1,2,3]');
   expect(JSON.stringify(deepFlatten([1, [2, [3, [4]]]]))).toBe('[1,2,3,4]');
   expect(JSON.stringify(deepFlatten([]))).toBe('[]');
+});
+
+test('deepFlatten handles wide arrays without stack overflow', () => {
+  // Regression: the old [].concat(...arr.map(...)) spread exceeded the call stack
+  // for wide arrays. The reduce-based impl handles large flat inputs.
+  const wide = Array.from({ length: 100000 }, (_, i) => i);
+  const result = deepFlatten(wide);
+  expect(result.length).toBe(100000);
+  expect(result[0]).toBe(0);
+  expect(result[99999]).toBe(99999);
+});
+
+test('deepFlatten with mixed nested and primitive elements', () => {
+  expect(JSON.stringify(deepFlatten([1, [2, 3], 4, [5, [6, 7]]]))).toBe('[1,2,3,4,5,6,7]');
+  expect(JSON.stringify(deepFlatten([[1], [2], [3]]))).toBe('[1,2,3]');
 });
 
 test('flatten test', () => {
@@ -268,6 +290,16 @@ test('remove test', () => {
   const removed = remove(arr, v => v % 2 === 0);
   expect(removed).toEqual([2, 4]);
   expect(arr).toEqual([1, 3, 5]);
+});
+
+test('remove handles duplicate matched values correctly', () => {
+  // Fixed: the old impl used arr.splice(arr.indexOf(val), 1) inside forEach, which
+  // always deleted the first remaining position for equal values, under-removing
+  // duplicates. E.g. remove([1,1,1], ()=>true) left elements behind.
+  const arr = [1, 1, 1, 2, 1];
+  const removed = remove(arr, v => v === 1);
+  expect(removed).toEqual([1, 1, 1, 1]);
+  expect(arr).toEqual([2]);
 });
 
 test('fibonacci test', () => {

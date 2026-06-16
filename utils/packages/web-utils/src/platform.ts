@@ -10,13 +10,20 @@
 /**
  * @description 全小写的浏览器用户代理字符串（User Agent String，简称 UA），即navigator.userAgent的小写转换字符串
  */
-export const ua = navigator.userAgent.toLowerCase();
+const getUserAgent = () =>
+  typeof navigator === 'undefined' ? '' : (navigator.userAgent || '').toLowerCase();
+
+const getAppVersion = () =>
+  typeof navigator === 'undefined' ? '' : (navigator.appVersion || '').toLowerCase();
+
+export const ua = getUserAgent();
 
 /**
  * @function isBrowser
  * @description 检测代码是否在浏览器环境中运行（相对于Node.js/服务器端）。Detects if the code is running in a browser environment (vs Node.js/server-side)
  * @returns {boolean} 如果在浏览器中运行则为true，如果在Node.js或其他非浏览器环境中则为false。True if running in browser, false if in Node.js or other non-browser environment
  * @example
+ * ```ts
  * // Conditional code execution based on environment
  * if (isBrowser()) {
  *   // Browser-specific code
@@ -28,7 +35,9 @@ export const ua = navigator.userAgent.toLowerCase();
  *   console.log('Running in Node.js environment');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Universal/isomorphic code pattern
  * function getStorageValue(key, defaultValue) {
  *   if (isBrowser()) {
@@ -39,7 +48,9 @@ export const ua = navigator.userAgent.toLowerCase();
  *   }
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Feature detection with environment check
  * function initializeAnalytics() {
  *   if (!isBrowser()) {
@@ -53,6 +64,7 @@ export const ua = navigator.userAgent.toLowerCase();
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link isPC} - Detect PC vs mobile environment
  * @see {@link getSystemOS} - Get operating system information
@@ -68,9 +80,11 @@ export function isBrowser() {
  * @description 判断当前页面是否处于PC环境下（主要通过判断是否存在移动设备的关键字）。Determines whether the current page is in a PC environment (mainly by checking for mobile device keywords)
  * @return {boolean} 是否是PC环境。Whether it is a PC environment
  * @example
+ * ```ts
  * if (isPC()) {
  *    console.log('当前处在PC环境下')
  * }
+ * ```
  */
 export function isPC() {
   return [
@@ -89,7 +103,17 @@ export function isPC() {
 /**
  * @function isOpenHarmony
  * @description 判断当前页面是否处于OpenHarmony环境下。Determines whether the current page is in an OpenHarmony environment
- * @returns
+ * @returns {boolean} 若在 OpenHarmony 环境下返回 true，否则返回 false。True if running in OpenHarmony environment, false otherwise
+ * @example
+ * ```ts
+ * isOpenHarmony(); // -> true（OpenHarmony 设备）或 false
+ * ```
+ * @example
+ * ```ts
+ * if (isOpenHarmony()) {
+ *   console.log('Running on OpenHarmony');
+ * }
+ * ```
  */
 export function isOpenHarmony() {
   return ua.includes('openharmony');
@@ -99,6 +123,17 @@ export function isOpenHarmony() {
  * @function getPcExplore
  * @description 获取当前PC浏览器标识。Gets the current PC browser identifier
  * @return {string} 浏览器标识，如：'IE: 11.0'、'Chrome: 83.0.4103.116'、'Firefox: 77.0'、'Opera: 69.0.3686.77'、'Safari: 13.1.1'。Browser identifier, such as: 'IE: 11.0', 'Chrome: 83.0.4103.116', 'Firefox: 77.0', 'Opera: 69.0.3686.77', 'Safari: 13.1.1'
+ * @example
+ * ```ts
+ * getPcExplore(); // -> 'Chrome: 120.0.0.0'（实际版本号取决于浏览器）
+ * ```
+ * @example
+ * ```ts
+ * const browser = getPcExplore();
+ * if (browser.startsWith('IE')) {
+ *   console.warn('IE is not supported');
+ * }
+ * ```
  */
 export function getPcExplore() {
   const sys: {
@@ -140,11 +175,23 @@ export function getPcExplore() {
 
 /**
  * @function getSystemOS
- * @description 获取当前页面所在的系统标识
- * @return {string} 系统标识，如：'mac'、'windows'、'linux'、'ios'、'android'、'harmony'、'unknown'
+ * @description 获取当前页面所在的系统标识。Gets the operating system identifier of the current environment
+ * @return {string} 系统标识，如：'mac'、'windows'、'linux'、'ios'、'android'、'harmony'、'unknown'。OS identifier such as 'mac', 'windows', 'linux', 'ios', 'android', 'harmony', 'unknown'
+ * @example
+ * ```ts
+ * getSystemOS(); // -> 'mac'（macOS 设备）
+ * getSystemOS(); // -> 'android'（安卓设备）
+ * ```
+ * @example
+ * ```ts
+ * const os = getSystemOS();
+ * if (os === 'ios' || os === 'android') {
+ *   console.log('Mobile device');
+ * }
+ * ```
  */
 export function getSystemOS() {
-  const appVersion = navigator?.appVersion.toLowerCase() || '';
+  const appVersion = getAppVersion();
 
   if (/mac/i.test(appVersion)) return 'mac';
   if (/win/i.test(appVersion)) {
@@ -163,12 +210,14 @@ export function getSystemOS() {
  * @description 获取当前页面所处的移动设备标识（适用于纯移动端业务进行简单的iPhone还是安卓手机判断）
  * @return {string} 移动设备标识，如：'iphone'、'gphone'
  * @example
+ * ```ts
  * getMobilePlatform(); // 'iphone' or 'gphone'
+ * ```
  */
 export function getMobilePlatform() {
   const info = {
     versions: {
-      iPhone: ua.includes('iphone') || ua.includes('mac'),
+      iPhone: ua.includes('iphone'),
       iPad: ua.includes('ipad'),
     },
   };
@@ -178,8 +227,19 @@ export function getMobilePlatform() {
 
 /**
  * @function getMobileOS
- * @description 获取当前页面所处的移动设备系统
- * @return {string} 移动设备系统，如：{'android': 0, 'ios': 11.2}
+ * @description 获取当前页面所处的移动设备系统版本。Gets the mobile device OS version for the current environment
+ * @return {{ android: number; ios: number }} 移动设备系统版本对象，如：`{ android: 0, ios: 11.2 }`。Mobile OS version object, e.g. `{ android: 0, ios: 11.2 }`
+ * @example
+ * ```ts
+ * getMobileOS(); // -> { android: 0, ios: 14.5 }（iOS 14.5 设备）
+ * getMobileOS(); // -> { android: 11, ios: 0 }（Android 11 设备）
+ * ```
+ * @example
+ * ```ts
+ * const { ios, android } = getMobileOS();
+ * if (ios > 0) console.log(`iOS version: ${ios}`);
+ * if (android > 0) console.log(`Android version: ${android}`);
+ * ```
  */
 export function getMobileOS() {
   const os = {
@@ -190,7 +250,7 @@ export function getMobileOS() {
   try {
     // eslint-disable-next-line no-useless-escape
     const android = ua.match(/(android);?[\s\/]+([\d.]+)?/);
-    const ios = ua.match(/([ipad,ipod,iphone]).*os\s([\d_]+)/);
+    const ios = ua.match(/(ipad|ipod|iphone).*os\s([\d_]+)/);
 
     if (android) os.android = +android[2] || 0;
     if (ios) os.ios = +ios[2].replace(/_/g, '.') || 0;
@@ -202,8 +262,20 @@ export function getMobileOS() {
 
 /**
  * @function getMobileBrandIdentify
- * @description 获取当前移动设备的品牌标识（部分手机）
- * @returns {string} 手机品牌标识，如：'iphone'、'huawei'、'oppo'、'vivo'、'xiaomi'、'samsung'、'unknown'
+ * @description 获取当前移动设备的品牌标识（部分手机）。Gets the brand identifier of the current mobile device (for common brands)
+ * @returns {string} 手机品牌标识，如：'iphone'、'huawei'、'oppo'、'vivo'、'xiaomi'、'samsung'、'unknown'。Brand identifier such as 'iphone', 'huawei', 'oppo', 'vivo', 'xiaomi', 'samsung', 'unknown'
+ * @example
+ * ```ts
+ * getMobileBrandIdentify(); // -> 'iphone'（iPhone 设备）
+ * getMobileBrandIdentify(); // -> 'huawei'（华为设备）
+ * ```
+ * @example
+ * ```ts
+ * const brand = getMobileBrandIdentify();
+ * if (brand === 'unknown') {
+ *   console.log('Brand not recognized');
+ * }
+ * ```
  */
 export function getMobileBrandIdentify() {
   const brandMatchers = [

@@ -20,18 +20,23 @@ export type PlainObject = {
  * @returns {void} 无返回值（函数用于副作用）。void (function is used for side effects)
  * @throws {TypeError} 当obj不是对象或fn不是函数时。When obj is not an object or fn is not a function
  * @example
+ * ```ts
  * // Basic iteration
  * const obj = { a: 1, b: 2, c: 3 };
  * forOwn(obj, (val, key) => console.log(`${key}: ${val}`));
  * // Output: "a: 1", "b: 2", "c: 3"
  *
+ * ```
  * @example
+ * ```ts
  * // Collecting values
  * const values = [];
  * forOwn({ x: 10, y: 20, z: 30 }, (val) => values.push(val));
  * console.log(values); // -> [10, 20, 30]
  *
+ * ```
  * @example
+ * ```ts
  * // Conditional processing
  * const result = {};
  * forOwn({ a: 1, b: 2, c: 3, d: 4 }, (val, key) => {
@@ -39,16 +44,21 @@ export type PlainObject = {
  * });
  * console.log(result); // -> { b: 4, d: 8 }
  *
+ * ```
  * @example
+ * ```ts
  * // Using all parameters
  * forOwn({ name: 'John', age: 30 }, (val, key, obj) => {
  *   console.log(`Property ${key} has value ${val} in object with ${Object.keys(obj).length} properties`);
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * forOwn({}, (val) => console.log(val)); // No output (empty object)
  * forOwn({ a: undefined, b: null }, (val, key) => console.log(`${key}: ${val}`)); // -> "a: undefined", "b: null"
+ * ```
  */
 export function forOwn(
   obj: PlainObject,
@@ -64,15 +74,20 @@ export function forOwn(
  * @returns {PlainObject} 从键值对创建的对象。Object created from the key-value pairs
  * @throws {TypeError} 当arr不是数组或包含无效对时。When arr is not an array or contains invalid pairs
  * @example
+ * ```ts
  * // Basic usage
  * objectFromPairs([['a', 1], ['b', 2]]); // -> { a: 1, b: 2 }
  * objectFromPairs([['name', 'John'], ['age', 30]]); // -> { name: 'John', age: 30 }
  *
+ * ```
  * @example
+ * ```ts
  * // Complex values
  * objectFromPairs([['a', 1], ['b', [2, 3]], ['c', { d: 4 }]]); // -> { a: 1, b: [2, 3], c: { d: 4 } }
  *
+ * ```
  * @example
+ * ```ts
  * // Different value types
  * objectFromPairs([
  *   ['string', 'hello'],
@@ -82,16 +97,21 @@ export function forOwn(
  *   ['undefined', undefined]
  * ]); // -> { string: 'hello', number: 42, boolean: true, null: null, undefined: undefined }
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * objectFromPairs([]); // -> {}
  * objectFromPairs([['key', 'value']]); // -> { key: 'value' }
  *
+ * ```
  * @example
+ * ```ts
  * // Duplicate keys (later values overwrite earlier ones)
  * objectFromPairs([['a', 1], ['b', 2], ['a', 3]]); // -> { a: 3, b: 2 }
  *
- * @see {@link Object.fromEntries} - Native equivalent in modern JavaScript
+ * ```
+ * @see Object.fromEntries - Native equivalent in modern JavaScript
  */
 export function objectFromPairs(arr: [string, unknown][]) {
   return arr.reduce((a: PlainObject, v) => {
@@ -108,20 +128,27 @@ export function objectFromPairs(arr: [string, unknown][]) {
  * @returns {Record<T extends string ? T : string, U>} 数组元素作为键、回调结果作为值的对象。Object with array elements as keys and callback results as values
  * @throws {TypeError} 当arr不是数组或fn不是函数时。When arr is not an array or fn is not a function
  * @example
+ * ```ts
  * // Basic mapping
  * mapObject(['a', 'b', 'c'], v => v + '1'); // -> { a: 'a1', b: 'b1', c: 'c1' }
  * mapObject(['x', 'y', 'z'], v => v.toUpperCase()); // -> { x: 'X', y: 'Y', z: 'Z' }
  *
+ * ```
  * @example
+ * ```ts
  * // Using index parameter
  * mapObject(['a', 'b', 'c'], (v, i) => i); // -> { a: 0, b: 1, c: 2 }
  * mapObject(['first', 'second', 'third'], (v, i) => `${v}-${i}`); // -> { first: 'first-0', second: 'second-1', third: 'third-2' }
  *
+ * ```
  * @example
+ * ```ts
  * // Using array parameter
  * mapObject(['a', 'b'], (v, i, arr) => arr.length - i); // -> { a: 2, b: 1 }
  *
+ * ```
  * @example
+ * ```ts
  * // Complex transformations
  * mapObject(['apple', 'banana', 'cherry'], v => ({
  *   name: v,
@@ -134,10 +161,13 @@ export function objectFromPairs(arr: [string, unknown][]) {
  * //   cherry: { name: 'cherry', length: 6, uppercase: 'CHERRY' }
  * // }
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * mapObject([], v => v); // -> {}
  * mapObject(['single'], v => v); // -> { single: 'single' }
+ * ```
  */
 export function mapObject<T, U>(
   arr: T[],
@@ -158,16 +188,21 @@ export function mapObject<T, U>(
  * @returns {PlainObject} 仅包含源对象中存在的指定属性的新对象。New object containing only the specified properties that exist in the source object
  * @throws {TypeError} 当obj不是对象或keys不是数组时。When obj is not an object or keys is not an array
  * @example
+ * ```ts
  * // Basic usage
  * pick({ a: 1, b: 2, c: 3 }, ['a', 'b']); // -> { a: 1, b: 2 }
  * pick({ name: 'John', age: 30, city: 'NYC' }, ['name', 'age']); // -> { name: 'John', age: 30 }
  *
+ * ```
  * @example
+ * ```ts
  * // Non-existent keys are ignored
  * pick({ a: 1, b: 2, c: 3 }, ['a', 'd']); // -> { a: 1 }
  * pick({ x: 10 }, ['y', 'z']); // -> {}
  *
+ * ```
  * @example
+ * ```ts
  * // Complex values (shallow copy)
  * const source = {
  *   simple: 'value',
@@ -179,16 +214,21 @@ export function mapObject<T, U>(
  * // -> { simple: 'value', array: [1, 2, 3], object: { nested: true } }
  * // Note: array and object are shallow copied (same references)
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * pick({}, ['a', 'b']); // -> {}
  * pick({ a: 1, b: 2 }, []); // -> {}
  * pick({ a: undefined, b: null }, ['a', 'b']); // -> { a: undefined, b: null }
  *
+ * ```
  * @example
+ * ```ts
  * // Practical use case: API response filtering
  * const user = { id: 1, name: 'John', email: 'john@example.com', password: 'secret', role: 'admin' };
  * const publicUser = pick(user, ['id', 'name', 'email']); // -> { id: 1, name: 'John', email: 'john@example.com' }
+ * ```
  */
 export function pick(obj: PlainObject, keys: string[]) {
   return keys.reduce((acc: PlainObject, curr) => {
@@ -205,19 +245,24 @@ export function pick(obj: PlainObject, keys: string[]) {
  * @returns {boolean} 如果对象具有指定的自有属性则返回true，否则返回false。True if the object has the specified own property, false otherwise
  * @throws {TypeError} 当obj不是对象时。When obj is not an object
  * @example
+ * ```ts
  * // Basic usage
  * const obj = { a: 1, b: 2 };
  * hasOwnProperty(obj, 'a'); // -> true
  * hasOwnProperty(obj, 'b'); // -> true
  * hasOwnProperty(obj, 'c'); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Inherited properties return false
  * const obj = { a: 1 };
  * hasOwnProperty(obj, 'toString'); // -> false (inherited from Object.prototype)
  * hasOwnProperty(obj, 'hasOwnProperty'); // -> false (inherited)
  *
+ * ```
  * @example
+ * ```ts
  * // Different property types
  * const obj = {
  *   string: 'value',
@@ -233,23 +278,30 @@ export function pick(obj: PlainObject, keys: string[]) {
  * hasOwnProperty(obj, 0); // -> true (numeric keys work)
  * hasOwnProperty(obj, ''); // -> true (empty string keys work)
  *
+ * ```
  * @example
+ * ```ts
  * // Symbol keys
  * const sym = Symbol('test');
  * const obj = { [sym]: 'symbol value', regular: 'regular value' };
  * hasOwnProperty(obj, sym); // -> true
  * hasOwnProperty(obj, 'regular'); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * hasOwnProperty({}, 'anything'); // -> false
  * hasOwnProperty({ a: undefined }, 'a'); // -> true (property exists with undefined value)
  *
+ * ```
  * @example
+ * ```ts
  * // Safe alternative to obj.hasOwnProperty() which can be overridden
  * const maliciousObj = { hasOwnProperty: 'not a function', a: 1 };
  * // maliciousObj.hasOwnProperty('a'); // Would throw error
  * hasOwnProperty(maliciousObj, 'a'); // -> true (safe)
+ * ```
  */
 export function hasOwnProperty<T extends Record<string, unknown>>(
   obj: T,
@@ -265,18 +317,23 @@ export function hasOwnProperty<T extends Record<string, unknown>>(
  * @returns {boolean} 如果值是没有任何自有可枚举属性的对象则返回true，否则返回false。True if the value is an object with no own enumerable properties, false otherwise
  * @throws {TypeError} 当类型检查失败时。When type checking fails
  * @example
+ * ```ts
  * // Empty objects
  * isEmptyObj({}); // -> true
  * isEmptyObj(new Object()); // -> true
  * isEmptyObj(Object.create(null)); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Non-empty objects
  * isEmptyObj({ a: 1 }); // -> false
  * isEmptyObj({ a: undefined }); // -> false (property exists)
  * isEmptyObj({ 0: 'value' }); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Non-objects return false
  * isEmptyObj(null); // -> false
  * isEmptyObj(undefined); // -> false
@@ -285,18 +342,24 @@ export function hasOwnProperty<T extends Record<string, unknown>>(
  * isEmptyObj(0); // -> false
  * isEmptyObj(false); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Objects with inherited properties only
  * const obj = Object.create({ inherited: 'value' });
  * isEmptyObj(obj); // -> true (no own properties)
  *
+ * ```
  * @example
+ * ```ts
  * // Objects with non-enumerable properties
  * const obj = {};
  * Object.defineProperty(obj, 'hidden', { value: 'secret', enumerable: false });
  * isEmptyObj(obj); // -> true (no enumerable own properties)
  *
+ * ```
  * @example
+ * ```ts
  * // Practical usage
  * function processConfig(config) {
  *   if (isEmptyObj(config)) {
@@ -304,6 +367,7 @@ export function hasOwnProperty<T extends Record<string, unknown>>(
  *   }
  *   return { ...getDefaultConfig(), ...config };
  * }
+ * ```
  */
 export function isEmptyObj(obj?: unknown): boolean {
   return isObject(obj) && Object.keys(obj).length === 0;

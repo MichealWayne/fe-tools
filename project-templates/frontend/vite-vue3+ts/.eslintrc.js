@@ -1,25 +1,25 @@
+// document: https://eslint.org/docs/user-guide/configuring
+
 module.exports = {
   root: true,
   env: {
-    node: true
+    browser: true,
+    node: true,
   },
-  'extends': [
-    'plugin:vue/essential',
-    'eslint:recommended'
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:vue/vue3-recommended',
   ],
-  rules: {
-  'no-var': 'off',
-  'no-undef': 'off',
-  'no-alert': 'off',
-  'no-console': 'off',
-  'spaced-comment': 'off',
-  'space-before-function-paren': 'off',
-  'no-mixed-spaces-and-tabs': 'off',
-  'eqeqeq': 'off',
-  'no-unreachable': 'off',
-  'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    parser: 'babel-eslint'
-  }
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint'],
+  rules: {
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    '@typescript-eslint/no-unused-vars': 'warn',
+    'vue/multi-word-component-names': 'off',
+  },
 };

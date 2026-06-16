@@ -1,6 +1,6 @@
 ---
 name: add-utils-function
-description: Add or modify utility functions in fe-tools. Use when the user asks to add a new utility/helper/validator (e.g., "新增utils函数", "add utility function", "新增SQL语句校验功能") or to extend existing utils in @fe-tools/utils, @fe-tools/web-utils, @fe-tools/node-utils, @fe-tools/canvas-utils, or @fe-tools/ai-utils.
+description: Add or modify utility functions in fe-tools. Use when the user asks to add a new utility/helper/validator (e.g., "新增utils函数", "add utility function", "新增SQL语句校验功能") or to extend existing utils in packages/utils, packages/web-utils, packages/node-utils, packages/canvas-utils, packages/env, or packages/ai-utils.
 ---
 # Add Utils Function
 

@@ -44,15 +44,19 @@ export interface FrontendAccessibilityAuditInput {
  * @returns {string} 可访问性检查 Prompt 文本。Accessibility audit prompt text.
  *
  * @example
+ * ```ts
  * genFrontendAccessibilityAuditPrompt({
  *   content: '<button><svg></svg></button>',
  *   userFlow: 'User opens a modal and confirms deletion'
  * });
  *
+ * ```
  * @example
+ * ```ts
  * genFrontendAccessibilityAuditPrompt({
  *   content: '<form><input type="text" /></form>'
  * });
+ * ```
  */
 function getFrontendAccessibilityAuditPromptTxt(
   input: FrontendAccessibilityAuditInput
@@ -83,15 +87,19 @@ function getFrontendAccessibilityAuditPromptTxt(
  * @returns {string} 可访问性检查 Prompt；超长时返回空字符串。Accessibility audit prompt or an empty string when it exceeds the token limit.
  *
  * @example
+ * ```ts
  * genFrontendAccessibilityAuditPrompt({
  *   content: '<div role="button">Submit</div>'
  * });
  *
+ * ```
  * @example
+ * ```ts
  * genFrontendAccessibilityAuditPrompt({
  *   content: '<dialog open><button aria-label="Close"></button></dialog>',
  *   userFlow: 'Keyboard user opens and closes the dialog'
  * });
+ * ```
  */
 export const genFrontendAccessibilityAuditPrompt = createPromptGenerator(
   { maxTokenLength: MAX_TOKEN_LEN },

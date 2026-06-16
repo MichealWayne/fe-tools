@@ -16,7 +16,8 @@ export * from './utils/curve';
 
 export * from './utils/decorators';
 
-export * from './utils/animate';
+export { animate, timingFunction } from './utils/animate';
+export type { AnimationOptions } from './utils/animate';
 
 // types
 export * from './types';

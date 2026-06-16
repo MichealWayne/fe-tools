@@ -11,20 +11,26 @@
  * @description 无操作函数，返回空字符串（用作默认回调函数）。No-operation function that returns an empty string (useful as default callback)
  * @returns {string} 空字符串。Empty string
  * @example
+ * ```ts
  * // Using as default callback
  * function processData(data, callback = NOOP) {
  *   // Process data...
  *   callback();
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Placeholder for event handlers
  * const button = { onClick: NOOP };
  * button.onClick(); // -> ''
  *
+ * ```
  * @example
+ * ```ts
  * // Array operations
  * [1, 2, 3].forEach(NOOP); // Does nothing for each element
+ * ```
  */
 export const NOOP = () => '';
 
@@ -36,23 +42,30 @@ export const NOOP = () => '';
  * @returns {any|Error} 函数结果或错误对象。Either the function result or an Error object
  * @throws {never} 永不抛出 - 所有错误都被捕获并返回。Never throws - all errors are caught and returned
  * @example
+ * ```ts
  * // Successful execution
  * attempt((a, b) => a + b, 1, 2); // -> 3
  * attempt(() => 'success'); // -> 'success'
  *
+ * ```
  * @example
+ * ```ts
  * // Error handling
  * attempt(() => { throw new Error('Something went wrong'); }); // -> Error: Something went wrong
  * attempt(JSON.parse, 'invalid json'); // -> SyntaxError: Unexpected token i in JSON
  *
+ * ```
  * @example
+ * ```ts
  * // Division by zero
  * attempt((a, b) => {
  *   if (b === 0) throw new Error('Division by zero');
  *   return a / b;
  * }, 10, 0); // -> Error: Division by zero
  *
+ * ```
  * @example
+ * ```ts
  * // Type checking results
  * const result = attempt(() => Math.random());
  * if (result instanceof Error) {
@@ -60,6 +73,7 @@ export const NOOP = () => '';
  * } else {
  *   console.log('Result:', result);
  * }
+ * ```
  */
 export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args: T): Error | R {
   try {
@@ -76,6 +90,7 @@ export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args
  * @param {...any} args - 传递给函数的参数。Arguments to pass to the function
  * @returns {Promise<void>} 当函数执行完成时解析的 Promise。Promise that resolves when the function has been executed
  * @example
+ * ```ts
  * // Basic deferral
  * function printHello() {
  *   console.log('Hello, world!');
@@ -87,7 +102,9 @@ export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args
  * // This is printed first.
  * // Hello, world!
  *
+ * ```
  * @example
+ * ```ts
  * // With arguments
  * defer(console.log, 'Deferred message', 123);
  * console.log('Immediate message');
@@ -95,7 +112,9 @@ export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args
  * // Immediate message
  * // Deferred message 123
  *
+ * ```
  * @example
+ * ```ts
  * // Awaiting deferred execution
  * async function example() {
  *   console.log('Before defer');
@@ -103,7 +122,9 @@ export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args
  *   console.log('After defer');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Breaking up long-running tasks
  * async function processLargeArray(items) {
  *   for (let i = 0; i < items.length; i++) {
@@ -113,6 +134,7 @@ export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args
  *     }
  *   }
  * }
+ * ```
  */
 export async function defer(fn: (...arg: unknown[]) => unknown, ...args: unknown[]): Promise<void> {
   await new Promise(resolve => setTimeout(resolve, 0));
@@ -126,6 +148,7 @@ export async function defer(fn: (...arg: unknown[]) => unknown, ...args: unknown
  * @returns {Promise<any>} 使用最后一个函数的结果解析的 Promise。Promise that resolves with the result of the last function
  * @throws {Error} 如果序列中的任何 Promise 被拒绝。If any promise in the sequence rejects
  * @example
+ * ```ts
  * // Sequential API calls
  * async function fetchData(url: string) {
  *   const response = await fetch(url);
@@ -137,7 +160,9 @@ export async function defer(fn: (...arg: unknown[]) => unknown, ...args: unknown
  *   .then(result => console.log('Final result:', result))
  *   .catch(error => console.error('Error:', error));
  *
+ * ```
  * @example
+ * ```ts
  * // Sequential processing with delays
  * const tasks = [
  *   () => new Promise(resolve => setTimeout(() => resolve('Task 1'), 1000)),
@@ -147,7 +172,9 @@ export async function defer(fn: (...arg: unknown[]) => unknown, ...args: unknown
  *
  * runPromisesInSeries(tasks); // Takes ~1.7 seconds total (sequential)
  *
+ * ```
  * @example
+ * ```ts
  * // Database operations in sequence
  * const dbOperations = [
  *   () => createUser({ name: 'John' }),
@@ -156,9 +183,13 @@ export async function defer(fn: (...arg: unknown[]) => unknown, ...args: unknown
  * ];
  *
  * runPromisesInSeries(dbOperations);
+ * ```
  */
 export function runPromisesInSeries(ps: Array<(...args: unknown[]) => Promise<any>>) {
-  return ps.reduce((p, next) => p?.then(next), Promise.resolve());
+  // reduce 初值为 Promise.resolve()，p 永远是 Promise，旧写法 p?.then 的 ?. 多余，去掉更清晰。
+  // The reduce initial value is Promise.resolve(), so p is always a Promise;
+  // the old p?.then optional chaining was redundant.
+  return ps.reduce((p, next) => p.then(next), Promise.resolve());
 }
 
 /**
@@ -168,6 +199,7 @@ export function runPromisesInSeries(ps: Array<(...args: unknown[]) => Promise<an
  * @param {...any} args - 传递给函数的参数。Arguments to pass to the function
  * @returns {any} 函数执行的结果。The result of the function execution
  * @example
+ * ```ts
  * // Measuring a simple function
  * function slowCalculation(n) {
  *   let result = 0;
@@ -181,7 +213,9 @@ export function runPromisesInSeries(ps: Array<(...args: unknown[]) => Promise<an
  * // Console output: timeTaken: 45.123ms
  * // Returns: calculated result
  *
+ * ```
  * @example
+ * ```ts
  * // Measuring async functions
  * async function fetchData(url) {
  *   const response = await fetch(url);
@@ -191,13 +225,16 @@ export function runPromisesInSeries(ps: Array<(...args: unknown[]) => Promise<an
  * await timeTaken(fetchData, 'https://api.example.com/data');
  * // Console output: timeTaken: 234.567ms
  *
+ * ```
  * @example
+ * ```ts
  * // Measuring multiple operations
  * const operations = [
  *   () => timeTaken(Array.from, { length: 10000 }, (_, i) => i * 2),
  *   () => timeTaken(JSON.stringify, { large: 'object' }),
  *   () => timeTaken(Math.random)
  * ];
+ * ```
  */
 export function timeTaken(fn: (...ks: unknown[]) => unknown, ...args: unknown[]) {
   console.time('timeTaken');
@@ -212,6 +249,7 @@ export function timeTaken(fn: (...ks: unknown[]) => unknown, ...args: unknown[])
  * @param {Function} fn - 要记忆化的函数。Function to memoize
  * @returns {Function} 带有缓存属性的记忆化函数。Memoized function with a cache property
  * @example
+ * ```ts
  * // Expensive calculation
  * function expensiveCalculation(n: number) {
  *   console.log('Calculating...');
@@ -226,7 +264,9 @@ export function timeTaken(fn: (...ks: unknown[]) => unknown, ...args: unknown[])
  * console.log(cachedCalculation(1000)); // Output: "Calculating..." then result
  * console.log(cachedCalculation(1000)); // Output: result (no "Calculating...")
  *
+ * ```
  * @example
+ * ```ts
  * // Fibonacci with memoization
  * const fibonacci = memoize((n) => {
  *   if (n < 2) return n;
@@ -235,17 +275,30 @@ export function timeTaken(fn: (...ks: unknown[]) => unknown, ...args: unknown[])
  *
  * console.log(fibonacci(40)); // Much faster than non-memoized version
  *
+ * ```
  * @example
+ * ```ts
  * // Accessing the cache
  * const memoizedFn = memoize((x) => x * 2);
  * memoizedFn(5); // -> 10
  * console.log(memoizedFn.cache); // -> Map { 5 => 10 }
  * memoizedFn.cache.clear(); // Clear the cache
+ * ```
  */
 export function memoize(fn: (...args: unknown[]) => unknown) {
   const cache = new Map();
   const cached = function (val: unknown) {
-    return cache.has(val) ? cache.get(val) : cache.set(val, fn(val)) && cache.get(val);
+    // 旧实现 `cache.set(val, fn(val)) && cache.get(val)` 依赖 && 的短路返回，可读性差；
+    // 且当 val 为 undefined 时，Map.has(undefined) 行为与 cache.set(undefined, ...) 冲突边界含糊。
+    // 这里改为显式三段：未命中→计算→缓存→返回。
+    // The old `cache.set(val, fn(val)) && cache.get(val)` form relied on && short-circuit
+    // for its return value and was hard to read. Use explicit has/compute/store/return.
+    if (cache.has(val)) {
+      return cache.get(val);
+    }
+    const result = fn(val);
+    cache.set(val, result);
+    return result;
   };
   cached.cache = cache;
   return cached;
@@ -257,6 +310,7 @@ export function memoize(fn: (...args: unknown[]) => unknown) {
  * @param {Function} fn - 只执行一次的函数。Function to execute only once
  * @returns {Function} 只在第一次调用时执行的函数。Function that executes only on first call
  * @example
+ * ```ts
  * // Basic usage
  * function log() {
  *   console.log('This will only log once');
@@ -267,7 +321,9 @@ export function memoize(fn: (...args: unknown[]) => unknown) {
  * logOnce(); // -> (no output)
  * logOnce(); // -> (no output)
  *
+ * ```
  * @example
+ * ```ts
  * // Initialization function
  * const initialize = once(() => {
  *   console.log('App initialized');
@@ -277,7 +333,9 @@ export function memoize(fn: (...args: unknown[]) => unknown) {
  * initialize(); // Runs initialization
  * initialize(); // Does nothing
  *
+ * ```
  * @example
+ * ```ts
  * // Event handler that should only run once
  * const handleFirstClick = once((event) => {
  *   console.log('First click detected!', event.target);
@@ -285,27 +343,38 @@ export function memoize(fn: (...args: unknown[]) => unknown) {
  *
  * button.addEventListener('click', handleFirstClick);
  *
+ * ```
  * @example
+ * ```ts
  * // API call that should only happen once
  * const fetchUserData = once(async (userId) => {
  *   const response = await fetch(`/api/users/${userId}`);
  *   return response.json();
  * });
+ * ```
  */
 export function once(fn: (...args: unknown[]) => unknown) {
+  // 旧实现丢弃 fn 返回值，导致 `const r = once(() => 42)()` 得到 undefined。
+  // JSDoc 示例 logOnce() => 'This will only log once' 隐含应返回首次结果。
+  // The old impl discarded fn's return value; now cache and return the first result
+  // so `const r = once(() => 42)()` yields 42 instead of undefined.
   let _called = false;
+  let _result: unknown;
   return function (...argus: unknown[]) {
     if (!_called) {
       _called = true;
-      fn(...argus);
+      _result = fn(...argus);
     }
+    return _result;
   };
 }
 /**
  * @function chainAsync
  * @description 在链中执行函数，每个函数调用下一个函数。Executes functions in a chain where each function calls the next one
  * @param {Array<Function>} fns - 接受 'next' 回调作为第一个参数的函数数组。Array of functions that accept a 'next' callback as their first parameter
+ * @returns {void}
  * @example
+ * ```ts
  * // Basic chain execution
  * chainAsync([
  *   next => {
@@ -321,7 +390,9 @@ export function once(fn: (...args: unknown[]) => unknown) {
  *   }
  * ]);
  *
+ * ```
  * @example
+ * ```ts
  * // Middleware pattern
  * const middleware = [
  *   (next) => {
@@ -342,10 +413,18 @@ export function once(fn: (...args: unknown[]) => unknown) {
  * ];
  *
  * chainAsync(middleware);
+ * ```
  */
 export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
+  // 旧实现 next = () => fns[curr++](next)，当链末函数仍调用 next() 时 fns[curr] 为 undefined，
+  // 执行 undefined(next) 抛 TypeError。这里加边界守卫，越界时直接结束链。
+  // The old form threw TypeError when the last function still invoked next(), because
+  // fns[curr] was undefined. Guard the bound so out-of-range calls simply stop the chain.
   let curr = 0;
-  const next = () => fns[curr++](next);
+  const next = () => {
+    if (curr >= fns.length) return;
+    fns[curr++](next);
+  };
   next();
 }
 
@@ -355,6 +434,7 @@ export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
  * @param {...Function} fns - 要组合的函数。Functions to compose
  * @returns {Function} 从右到左应用函数的组合函数。Composed function that applies functions from right to left
  * @example
+ * ```ts
  * // Basic composition
  * const add5 = x => x + 5;
  * const multiply2 = x => x * 2;
@@ -363,7 +443,9 @@ export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
  * const composed = compose(add5, multiply2, subtract1);
  * composed(10); // -> subtract1(10) -> multiply2(9) -> add5(18) -> 23
  *
+ * ```
  * @example
+ * ```ts
  * // String transformations
  * const toUpperCase = str => str.toUpperCase();
  * const addExclamation = str => str + '!';
@@ -372,7 +454,9 @@ export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
  * const transform = compose(toUpperCase, addExclamation, trim);
  * transform('  hello world  '); // -> 'HELLO WORLD!'
  *
+ * ```
  * @example
+ * ```ts
  * // Mathematical operations
  * const square = x => x * x;
  * const double = x => x * 2;
@@ -380,12 +464,16 @@ export function chainAsync(fns: Array<(...args: unknown[]) => unknown>) {
  *
  * const calculate = compose(square, double, addOne);
  * calculate(3); // -> addOne(3) -> double(4) -> square(8) -> 64
+ * ```
  */
 export function compose<T>(...fns: Array<(...arg: T[]) => T>): (arg: T) => T {
+  // 提供恒等函数作为 reduce 初值，避免 compose()（零函数）抛 "Reduce of empty array with no initial value"。
+  // Provide an identity initial value so compose() (zero functions) does not throw.
   return fns.reduce(
     (f, g) =>
       (...arg) =>
-        f(g(...arg))
+        f(g(...arg)),
+    (arg: T) => arg
   );
 }
 
@@ -395,6 +483,7 @@ export function compose<T>(...fns: Array<(...arg: T[]) => T>): (arg: T) => T {
  * @param {...Function} fns - 要管道的函数。Functions to pipe
  * @returns {Function} 从左到右应用函数的管道函数。Piped function that applies functions from left to right
  * @example
+ * ```ts
  * // Basic piping
  * const add = (x, y) => x + y;
  * const multiply2 = x => x * 2;
@@ -403,7 +492,9 @@ export function compose<T>(...fns: Array<(...arg: T[]) => T>): (arg: T) => T {
  * const piped = pipe(add, multiply2, subtract1);
  * piped(5, 3); // -> add(5,3) -> multiply2(8) -> subtract1(16) -> 15
  *
+ * ```
  * @example
+ * ```ts
  * // Data processing pipeline
  * const parseJSON = str => JSON.parse(str);
  * const extractUsers = data => data.users;
@@ -414,7 +505,9 @@ export function compose<T>(...fns: Array<(...arg: T[]) => T>): (arg: T) => T {
  * const result = processUserData('{"users":[{"name":"John","active":true},{"name":"Jane","active":false}]}');
  * // -> ['John']
  *
+ * ```
  * @example
+ * ```ts
  * // String processing
  * const toLowerCase = str => str.toLowerCase();
  * const removeSpaces = str => str.replace(/\s+/g, '');
@@ -422,8 +515,18 @@ export function compose<T>(...fns: Array<(...arg: T[]) => T>): (arg: T) => T {
  *
  * const processString = pipe(toLowerCase, removeSpaces, reverse);
  * processString('Hello World'); // -> 'dlrowolleh'
+ * ```
  */
 export function pipe<T extends unknown[]>(...fns: Array<(...arg: any[]) => any>) {
+  // 空数组时返回恒等透传函数（原版 reduce 无初值会抛 TypeError）。
+  // 非空数组时保持原版 reduce 无初值形式——因为 reduce 初值会吞掉首函数的多参数，
+  // 例如 pipe((x,y)=>x+y, x=>x*2)(3,4) 会被初值破坏成 NaN。
+  // For zero functions return a pass-through (the old reduce without initial value threw).
+  // For non-empty input keep the original no-initial-value form: an initial value would
+  // consume the first function's extra args, e.g. pipe((x,y)=>x+y, x=>x*2)(3,4) => NaN.
+  if (fns.length === 0) {
+    return (...arg: T[]) => arg[0];
+  }
   return fns.reduce(
     (f, g) =>
       (...arg: T[]) =>
@@ -431,24 +534,70 @@ export function pipe<T extends unknown[]>(...fns: Array<(...arg: any[]) => any>)
   );
 }
 
-interface Curry1<T1, R> {
+/**
+ * 接受单个参数的柯里化函数接口。
+ * Curried function interface that accepts a single argument.
+ * @param t1 - 第一个参数 / first argument
+ * @returns 返回最终结果 R / final result R
+ * @example
+ * const add1: Curry1<number, number> = curry((a: number) => a + 1);
+ * add1()(5); // -> 6
+ * add1(5);   // -> 6
+ */
+export interface Curry1<T1, R> {
   (): Curry1<T1, R>;
   (t1: T1): R;
 }
 
-interface Curry2<T1, T2, R> {
+/**
+ * 接受两个参数的柯里化函数接口，支持逐步传参。
+ * Curried function interface that accepts two arguments, supporting step-by-step application.
+ * @param t1 - 第一个参数 / first argument
+ * @param t2 - 第二个参数 / second argument
+ * @returns 返回最终结果 R 或下一步柯里化函数 / final result R or next curried function
+ * @example
+ * const add: Curry2<number, number, number> = curry((a: number, b: number) => a + b);
+ * add(1)(2); // -> 3
+ * add(1, 2); // -> 3
+ */
+export interface Curry2<T1, T2, R> {
   (): Curry2<T1, T2, R>;
   (t1: T1): Curry1<T2, R>;
   (t1: T1, t2: T2): R;
 }
 
-interface Curry3<T1, T2, T3, R> {
+/**
+ * 接受三个参数的柯里化函数接口，支持逐步传参。
+ * Curried function interface that accepts three arguments, supporting step-by-step application.
+ * @param t1 - 第一个参数 / first argument
+ * @param t2 - 第二个参数 / second argument
+ * @param t3 - 第三个参数 / third argument
+ * @returns 返回最终结果 R 或下一步柯里化函数 / final result R or next curried function
+ * @example
+ * const volume: Curry3<number, number, number, number> = curry((a: number, b: number, c: number) => a * b * c);
+ * volume(2)(3)(4); // -> 24
+ * volume(2, 3, 4); // -> 24
+ */
+export interface Curry3<T1, T2, T3, R> {
   (): Curry3<T1, T2, T3, R>;
   (t1: T1): Curry2<T2, T3, R>;
   (t1: T1, t2: T2): Curry1<T3, R>;
   (t1: T1, t2: T2, t3: T3): R;
 }
-interface Curry {
+
+/**
+ * 柯里化工厂函数接口，根据原函数参数个数返回对应的 Curry1/Curry2/Curry3 类型。
+ * Curry factory interface that returns Curry1/Curry2/Curry3 based on the arity of the original function.
+ * @param fn - 要柯里化的原始函数 / original function to curry
+ * @returns 对应参数数量的柯里化函数 / curried function matching the arity
+ * @example
+ * const curriedAdd: Curry2<number, number, number> = curry((a: number, b: number) => a + b);
+ * curriedAdd(1)(2); // -> 3
+ * @example
+ * const greet: Curry1<string, string> = curry((name: string) => `Hello, ${name}!`);
+ * greet('World'); // -> 'Hello, World!'
+ */
+export interface Curry {
   <T1, R>(fn: (t1: T1) => R): Curry1<T1, R>;
   <T1, T2, R>(fn: (t1: T1, t2: T2) => R): Curry2<T1, T2, R>;
   <T1, T2, T3, R>(fn: (t1: T1, t2: T2, t3: T3) => R): Curry3<T1, T2, T3, R>;
@@ -457,9 +606,10 @@ interface Curry {
 /**
  * @function curry
  * @description 将函数转换为一次接受一个参数（柯里化）。Transforms a function to accept arguments one at a time (currying)
- * @param {Function} callback - 要柯里化的函数。Function to curry
+ * @param {Function} fn - 要柯里化的函数。Function to curry
  * @returns {Function} 可以用部分参数调用的柯里化函数。Curried function that can be called with partial arguments
  * @example
+ * ```ts
  * // Basic currying
  * const add = (a, b) => a + b;
  * const curriedAdd = curry(add);
@@ -467,7 +617,9 @@ interface Curry {
  * curriedAdd(2)(3); // -> 5
  * curriedAdd(2, 3); // -> 5 (can still call with all args)
  *
+ * ```
  * @example
+ * ```ts
  * // Partial application
  * const multiply = (a, b, c) => a * b * c;
  * const curriedMultiply = curry(multiply);
@@ -478,7 +630,9 @@ interface Curry {
  * multiplyBy2And3(4); // -> 24
  * multiplyBy2(3, 4); // -> 24 (same result)
  *
+ * ```
  * @example
+ * ```ts
  * // Functional programming patterns
  * const filter = curry((predicate, array) => array.filter(predicate));
  * const map = curry((fn, array) => array.map(fn));
@@ -492,10 +646,13 @@ interface Curry {
  * const numbers = [1, 2, 3, 4, 5, 6];
  * const result = pipe(filterEvens, doubleAll)(numbers); // -> [4, 8, 12]
  *
+ * ```
  * @example
+ * ```ts
  * // Math operations
  * curry(Math.pow)(2)(10); // -> 1024
  * curry(Math.pow)(2, 10); // -> 1024
+ * ```
  */
 export const curry: Curry = (callback: any) => {
   return (...args: any) => {
@@ -513,6 +670,7 @@ export const curry: Curry = (callback: any) => {
  * @param {Function} fn - 要获取名称的函数。Function to get the name of
  * @returns {string} 函数的名称，如果是匿名函数则为空字符串。The function's name or empty string if anonymous
  * @example
+ * ```ts
  * // Named function
  * function add(a: number, b: number) {
  *   return a + b;
@@ -520,20 +678,27 @@ export const curry: Curry = (callback: any) => {
  *
  * functionName(add); // -> Logs: "add [Function: add]", Returns: "add"
  *
+ * ```
  * @example
+ * ```ts
  * // Anonymous function
  * const anonymous = function() { return 42; };
  * functionName(anonymous); // -> Logs: "" [Function: anonymous], Returns: ""
  *
+ * ```
  * @example
+ * ```ts
  * // Arrow function
  * const arrow = () => 'hello';
  * functionName(arrow); // -> Logs: "arrow [Function: arrow]", Returns: "arrow"
  *
+ * ```
  * @example
+ * ```ts
  * // Built-in functions
  * functionName(Math.max); // -> Logs: "max [Function: max]", Returns: "max"
  * functionName(console.log); // -> Logs: "log [Function: log]", Returns: "log"
+ * ```
  */
 export function functionName<T extends (...ks: unknown[]) => unknown>(fn: T) {
   console.debug(fn.name, fn);
@@ -546,6 +711,7 @@ export function functionName<T extends (...ks: unknown[]) => unknown>(fn: T) {
  * @param {Function} fn - 使用错误优先回调模式的函数。Function that uses error-first callback pattern
  * @returns {Function} 函数的 Promise 版本。Promise-based version of the function
  * @example
+ * ```ts
  * // Node.js fs module
  * import fs from 'fs';
  * const readFileAsync = promisify(fs.readFile);
@@ -559,7 +725,9 @@ export function functionName<T extends (...ks: unknown[]) => unknown>(fn: T) {
  *   }
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Custom callback function
  * function fetchData(url, callback) {
  *   setTimeout(() => {
@@ -576,13 +744,14 @@ export function functionName<T extends (...ks: unknown[]) => unknown>(fn: T) {
  * fetchDataAsync('https://api.example.com/data')
  *   .then(result => console.log(result))
  *   .catch(error => console.error(error));
+ * ```
  */
 export function promisify<T extends unknown[], R>(
-  fn: (...args: [args: T, errHandler?: (err: Error | null, result?: R) => void]) => void
+  fn: (...args: [...T, (err: Error | null, result?: R) => void]) => void
 ): (...args: T) => Promise<R> {
   return (...args: T) =>
     new Promise((resolve, reject) => {
-      fn(args, (err: Error | null, result?: R) => {
+      fn(...args, (err: Error | null, result?: R) => {
         err ? reject(err) : resolve(result as R);
       });
     });
@@ -594,6 +763,7 @@ export function promisify<T extends unknown[], R>(
  * @param {number} ms - 延迟的毫秒数。Number of milliseconds to delay
  * @returns {Promise<void>} 在延迟后解析的Promise。Promise that resolves after the delay
  * @example
+ * ```ts
  * // Basic delay
  * async function main() {
  *   console.log("Starting...");
@@ -601,14 +771,18 @@ export function promisify<T extends unknown[], R>(
  *   console.log("Done waiting!");
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Simulating API delays in tests
  * async function simulateApiCall() {
  *   await sleep(100); // Simulate network delay
  *   return { data: 'response' };
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Rate limiting
  * async function processItems(items) {
  *   for (const item of items) {
@@ -617,7 +791,9 @@ export function promisify<T extends unknown[], R>(
  *   }
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Retry with backoff
  * async function retryWithDelay(fn, maxRetries = 3) {
  *   for (let i = 0; i < maxRetries; i++) {
@@ -629,6 +805,7 @@ export function promisify<T extends unknown[], R>(
  *     }
  *   }
  * }
+ * ```
  */
 export function sleep(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -643,6 +820,7 @@ const DEFAULT_INTERVAL = 500;
  * @param {number} intervalTime - 执行之间的最小时间间隔（毫秒）（默认：500）。Minimum time between executions in milliseconds (default: 500)
  * @returns {Function} 节流函数。Throttled function
  * @example
+ * ```ts
  * // Basic throttling
  * function log(message: string) {
  *   console.log(new Date().toISOString(), message);
@@ -657,7 +835,9 @@ const DEFAULT_INTERVAL = 500;
  *
  * setTimeout(() => logThrottled('Message 4'), 1100); // Executes after interval
  *
+ * ```
  * @example
+ * ```ts
  * // Scroll event throttling
  * const handleScroll = throttle(() => {
  *   console.log('Scroll position:', window.scrollY);
@@ -665,12 +845,15 @@ const DEFAULT_INTERVAL = 500;
  *
  * window.addEventListener('scroll', handleScroll);
  *
+ * ```
  * @example
+ * ```ts
  * // API call throttling
  * const searchAPI = throttle(async (query) => {
  *   const response = await fetch(`/api/search?q=${query}`);
  *   return response.json();
  * }, 300);
+ * ```
  */
 export function throttle<F extends (...args: any[]) => any>(
   fn: F,
@@ -688,7 +871,7 @@ export function throttle<F extends (...args: any[]) => any>(
   };
 }
 
-type DebouncedFn<T extends unknown[]> = (...args: T) => void;
+export type DebouncedFn<T extends unknown[]> = (...args: T) => void;
 
 /**
  * @function debounce
@@ -697,6 +880,7 @@ type DebouncedFn<T extends unknown[]> = (...args: T) => void;
  * @param {number} intervalTime - 最后一次调用后的延迟时间（毫秒）（默认：500）。Delay in milliseconds after last call (default: 500)
  * @returns {Function} 防抖函数。Debounced function
  * @example
+ * ```ts
  * // Search input debouncing
  * function search(query: string) {
  *   console.log(`Searching for "${query}"...`);
@@ -711,7 +895,9 @@ type DebouncedFn<T extends unknown[]> = (...args: T) => void;
  * searchDebounced('Jav');      // Cancelled
  * searchDebounced('Java');     // Executes after 300ms delay
  *
+ * ```
  * @example
+ * ```ts
  * // Window resize handling
  * const handleResize = debounce(() => {
  *   console.log('Window resized to:', window.innerWidth, 'x', window.innerHeight);
@@ -719,7 +905,9 @@ type DebouncedFn<T extends unknown[]> = (...args: T) => void;
  *
  * window.addEventListener('resize', handleResize);
  *
+ * ```
  * @example
+ * ```ts
  * // Form validation
  * const validateInput = debounce((value) => {
  *   // Expensive validation logic
@@ -730,7 +918,9 @@ type DebouncedFn<T extends unknown[]> = (...args: T) => void;
  *   validateInput(e.target.value);
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Auto-save functionality
  * const autoSave = debounce((data) => {
  *   console.log('Auto-saving...', data);
@@ -741,6 +931,7 @@ type DebouncedFn<T extends unknown[]> = (...args: T) => void;
  * textArea.addEventListener('input', (e) => {
  *   autoSave(e.target.value);
  * });
+ * ```
  */
 export function debounce<T extends unknown[]>(
   fn: (...args: T) => void,

@@ -24,6 +24,7 @@ import { DEFAULT_CANVAS_SIZE } from '../constants';
  * @param {number} [options.height] - 画布高度（像素）（默认为父元素高度或回退值）。Canvas height in pixels (defaults to parent element height or fallback)
  * @returns {HTMLCanvasElement} 创建并配置的画布元素。The created and configured canvas element
  * @example
+ * ```ts
  * // Basic canvas creation
  * const container = document.getElementById('chart-container');
  * const canvas = createCanvasElem(container, {
@@ -31,7 +32,9 @@ import { DEFAULT_CANVAS_SIZE } from '../constants';
  * });
  * // Creates canvas with id="myChartCanvas" sized to fit container
  *
+ * ```
  * @example
+ * ```ts
  * // Custom dimensions
  * const canvas = createCanvasElem(document.body, {
  *   id: 'customChart',
@@ -40,7 +43,9 @@ import { DEFAULT_CANVAS_SIZE } from '../constants';
  * });
  * // Creates 800x600 canvas regardless of parent size
  *
+ * ```
  * @example
+ * ```ts
  * // Responsive chart setup
  * function createResponsiveChart(containerId, chartId) {
  *   const container = document.getElementById(containerId);
@@ -67,7 +72,9 @@ import { DEFAULT_CANVAS_SIZE } from '../constants';
  *   return { canvas, ctx };
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Multiple charts in a dashboard
  * const chartConfigs = [
  *   { containerId: 'chart1', id: 'sales', width: 400, height: 300 },
@@ -84,8 +91,9 @@ import { DEFAULT_CANVAS_SIZE } from '../constants';
  *   });
  * });
  *
+ * ```
  * @since 1.0.0
- * @see {@link DEFAULT_CANVAS_SIZE} - Default canvas dimensions when parent sizing fails
+ * @see DEFAULT_CANVAS_SIZE - Default canvas dimensions when parent sizing fails
  */
 export function createCanvasElem(
   elem: HTMLElement,

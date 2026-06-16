@@ -41,10 +41,20 @@ function getCreateUnitTestCasesTxt(codeToTest: string): string {
 
 /**
  * @function genUnitTestCasesPrompt
- * @description 生成用于创建单元测试的Prompt
- * @param {string} codeStr 代码字符串
- * @param {number} maxLen token最大长度, 默认30000
- * @returns {string} 符合要求的Prompt文本，如果超过长度限制则返回空字符串
+ * @description 根据源代码生成用于创建单元测试用例的 Prompt 文本。Generates a prompt for creating unit test cases based on source code
+ * @param {string} input - 待测试的代码字符串 / source code string to test
+ * @param {number} [maxLen=30000] - token 最大长度限制 / maximum token length
+ * @returns {string} 符合要求的 Prompt 文本，超过长度限制时返回空字符串。Prompt text, or empty string if it exceeds the token limit
+ * @example
+ * ```ts
+ * const prompt = genUnitTestCasesPrompt('export function add(a: number, b: number) { return a + b; }');
+ * console.log(prompt); // -> 完整的单元测试生成 prompt
+ * ```
+ * @example
+ * ```ts
+ * const prompt = genUnitTestCasesPrompt(sourceCode);
+ * if (prompt) sendToLLM(prompt);
+ * ```
  */
 export const genUnitTestCasesPrompt = createPromptGenerator(
   { maxTokenLength: MAX_TOKEN_LEN },

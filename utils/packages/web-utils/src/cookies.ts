@@ -14,13 +14,16 @@
  * @param {string} name - 要检索的cookie的名称。The name of the cookie to retrieve
  * @returns {string | null} 如果找到则返回cookie值，否则返回null。The cookie value if found, null otherwise
  * @example
+ * ```ts
  * // Get a simple cookie value
  * const username = getCookie('username');
  * if (username) {
  *   console.log('Welcome back,', username);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Check for authentication token
  * const authToken = getCookie('auth_token');
  * if (!authToken) {
@@ -29,12 +32,15 @@
  *   initializeApp(authToken);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Get user preferences with fallback
  * const theme = getCookie('theme') || 'light';
  * const language = getCookie('language') || 'en';
  * applyUserPreferences({ theme, language });
  *
+ * ```
  * @since 1.0.0
  * @see {@link setCookie} - Set cookie values
  * @see {@link delCookie} - Delete cookies
@@ -47,7 +53,7 @@ export function getCookie(name: string) {
   const reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
   let arr;
 
-  if ((arr = document.cookie.match(reg))) return unescape(arr[2]);
+  if ((arr = document.cookie.match(reg))) return decodeURIComponent(arr[2]);
   else return null;
 }
 
@@ -57,11 +63,13 @@ export function getCookie(name: string) {
  * @returns {number} Time in milliseconds (defaults to 24 hours if no string provided)
  * @private
  * @example
+ * ```ts
  * // Internal usage examples:
  * getSecond('s30');  // 30000 (30 seconds)
  * getSecond('h2');   // 7200000 (2 hours)
  * getSecond('d7');   // 604800000 (7 days)
  * getSecond();       // 86400000 (24 hours default)
+ * ```
  */
 function getSecond(str?: string) {
   if (!str) return 24 * 60 * 60 * 1000;
@@ -84,29 +92,39 @@ function getSecond(str?: string) {
  * @param {string} [path='/'] - Cookie路径（默认为根路径）。Cookie path (defaults to root path)
  * @returns {void}
  * @example
+ * ```ts
  * // Set basic cookie (expires in 1 day)
  * setCookie('username', 'john_doe');
  *
+ * ```
  * @example
+ * ```ts
  * // Set cookie with custom expiration
  * setCookie('session_token', 'abc123', 'h2'); // Expires in 2 hours
  * setCookie('remember_me', 'true', 'd30');    // Expires in 30 days
  * setCookie('temp_data', 'value', 's300');    // Expires in 5 minutes
  *
+ * ```
  * @example
+ * ```ts
  * // Set cookie for specific domain and path
  * setCookie('api_key', 'secret123', 'd7', '.example.com', '/api');
  *
+ * ```
  * @example
+ * ```ts
  * // Set user preferences with proper encoding
  * const preferences = JSON.stringify({ theme: 'dark', lang: 'en' });
  * setCookie('user_prefs', encodeURIComponent(preferences), 'd365');
  *
+ * ```
  * @example
+ * ```ts
  * // Set secure cookie for authentication (consider SameSite and Secure flags)
  * setCookie('auth_token', token, 'h8', '', '/');
  * // Note: For production, consider using secure, httpOnly, and sameSite attributes
  *
+ * ```
  * @since 1.0.0
  * @see {@link getCookie} - Retrieve cookie values
  * @see {@link delCookie} - Delete cookies
@@ -122,7 +140,7 @@ export function setCookie(name: string, value: string, time?: string, domain = '
 
   document.cookie = `${name}=${value};expires=${exp.toUTCString()}${
     domain ? ';domain=' + domain : ''
-  }${path ? ';path=' + path : '/'}`;
+  };path=${path || '/'}`;
 }
 
 /**
@@ -131,10 +149,13 @@ export function setCookie(name: string, value: string, time?: string, domain = '
  * @param {string} name - 要删除的cookie的名称。The name of the cookie to delete
  * @returns {void}
  * @example
+ * ```ts
  * // Delete a specific cookie
  * delCookie('username');
  *
+ * ```
  * @example
+ * ```ts
  * // Logout function that clears authentication cookies
  * function logout() {
  *   delCookie('auth_token');
@@ -145,7 +166,9 @@ export function setCookie(name: string, value: string, time?: string, domain = '
  *   window.location.href = '/login';
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Clear user data on privacy settings change
  * function clearUserData() {
  *   const cookiesToClear = ['tracking_id', 'analytics_data', 'ad_preferences'];
@@ -158,7 +181,9 @@ export function setCookie(name: string, value: string, time?: string, domain = '
  *   showNotification('User data cleared successfully');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Conditional cookie cleanup
  * function cleanupExpiredSessions() {
  *   const sessionCookie = getCookie('session_token');
@@ -169,6 +194,7 @@ export function setCookie(name: string, value: string, time?: string, domain = '
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link getCookie} - Retrieve cookie values
  * @see {@link setCookie} - Set cookie values

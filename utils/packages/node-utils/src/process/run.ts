@@ -40,10 +40,11 @@ export interface RunResult {
  * @description 异步执行命令，带有综合错误处理和输出捕获。Asynchronously executes a command with comprehensive error handling, timeout support, and flexible output capture options.
  * @param {string | NodeURL} cmd - 要执行的命令或文件URL。Command to execute or file URL
  * @param {string[]} [args=[]] - 命令参数数组。Array of command arguments
- * @param {RunOptions} [options={}] - 执行选项，包括超时、输出捕获和失败处理。Execution options including timeout, output capture, and failure handling
+ * @param {RunOptions} [options] - 执行选项，包括超时、输出捕获和失败处理。Execution options including timeout, output capture, and failure handling
  * @returns {Promise<RunResult>} 解析为执行结果的Promise，包含状态码、stdout、stderr和成功状态。Promise resolving to execution result with code, stdout, stderr, and success status
  * @throws {Error} 如果命令失败且ignoreFailure为false，或者发生超时则拒绝。Rejects if command fails and ignoreFailure is false, or if timeout occurs
  * @example
+ * ```ts
  * // Basic command execution
  * try {
  *   const result = await runAsync('ls', ['-la']);
@@ -52,7 +53,9 @@ export interface RunResult {
  *   console.error('Command failed:', error.message);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Command with timeout and output capture
  * const result = await runAsync('npm', ['install'], {
  *   timeout: 30000,        // 30 second timeout
@@ -61,13 +64,16 @@ export interface RunResult {
  *   cwd: './project'       // Working directory
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Capture output as lines
  * const result = await runAsync('git', ['log', '--oneline'], {
  *   captureStdout: 'lines'
  * });
  * console.log(`Found ${result.stdout.length} commits`);
  *
+ * ```
  * @since 1.0.0
  * @see {@link runSync} - Synchronous command execution
  * @see {@link forceRunAsync} - Async execution with error suppression
@@ -164,14 +170,17 @@ export function runAsync(
  * @description 在特定忽略模式下异步执行命令，带有错误抑制。Executes a command asynchronously with error suppression for graceful handling of optional operations.
  * @param {string | NodeURL} cmd - 要执行的命令或文件URL。Command to execute or file URL
  * @param {string[]} [args=[]] - 命令参数数组。Array of command arguments
- * @param {RunOptions} [options={}] - 执行选项。Execution options
+ * @param {RunOptions} [options] - 执行选项。Execution options
  * @returns {Promise<RunResult | void>} 解析为结果或void（如果错误被忽略）的Promise。Promise resolving to result or void if error is ignored
  * @example
+ * ```ts
  * // Execute with graceful error handling
  * await forceRunAsync('optional-tool', ['--check']);
  * // Will not throw if command fails, but logs error
  *
+ * ```
  * @example
+ * ```ts
  * // Conditional command execution
  * try {
  *   await forceRunAsync('git', ['status'], {
@@ -182,12 +191,15 @@ export function runAsync(
  *   console.log('Not a git repository, continuing...');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Build pipeline with optional steps
  * await forceRunAsync('npm', ['run', 'lint']);     // Optional linting
  * await forceRunAsync('npm', ['run', 'test']);     // Optional testing
  * await runAsync('npm', ['run', 'build']);         // Required build step
  *
+ * ```
  * @since 1.0.0
  * @see {@link runAsync} - Standard async execution with error handling
  * @see {@link IGNORE} - Special error message for ignored failures
@@ -206,25 +218,31 @@ export function forceRunAsync(
  * @param {Promise<T>} promise - 要包装的带有错误处理的Promise。Promise to wrap with error handling
  * @returns {Promise<T | void>} 在错误时退出进程或返回结果的Promise。Promise that exits process on error or returns result
  * @example
+ * ```ts
  * // Critical operation that should exit on failure
  * await runPromise(
  *   runAsync('npm', ['run', 'build'])
  * );
  * // Process will exit if build fails
  *
+ * ```
  * @example
+ * ```ts
  * // Database migration that must succeed
  * await runPromise(
  *   runAsync('npm', ['run', 'migrate'])
  * );
  * console.log('Migration completed successfully');
  *
+ * ```
  * @example
+ * ```ts
  * // Chain critical operations
  * await runPromise(runAsync('git', ['pull']));
  * await runPromise(runAsync('npm', ['install']));
  * await runPromise(runAsync('npm', ['run', 'deploy']));
  *
+ * ```
  * @since 1.0.0
  * @see {@link exit} - Process exit function
  * @see {@link IGNORE} - Special error message for ignored failures
@@ -243,9 +261,10 @@ export function runPromise<T>(promise: Promise<T>): Promise<T | void> {
  * @description 同步执行命令并立即返回结果。Synchronously executes a command and returns the result immediately with comprehensive error handling.
  * @param {string | NodeURL} cmd - 要执行的命令或文件URL。Command to execute or file URL
  * @param {string[]} [args=[]] - 命令参数数组。Array of command arguments
- * @param {SpawnSyncOptions} [options={}] - 同步执行选项。Synchronous execution options
+ * @param {SpawnSyncOptions} [options] - 同步执行选项。Synchronous execution options
  * @returns {RunResult} 包含状态码、stdout、stderr和成功状态的执行结果。Execution result with code, stdout, stderr, and success status
  * @example
+ * ```ts
  * // Quick synchronous command
  * const result = runSync('git', ['rev-parse', 'HEAD']);
  * if (result.success) {
@@ -254,7 +273,9 @@ export function runPromise<T>(promise: Promise<T>): Promise<T | void> {
  *   console.error('Failed to get commit hash:', result.stderr);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Check tool availability
  * const dockerCheck = runSync('docker', ['--version']);
  * if (dockerCheck.success) {
@@ -263,7 +284,9 @@ export function runPromise<T>(promise: Promise<T>): Promise<T | void> {
  *   console.log('Docker not found, skipping containerization');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Environment setup validation
  * const nodeVersion = runSync('node', ['--version']);
  * const npmVersion = runSync('npm', ['--version']);
@@ -271,6 +294,7 @@ export function runPromise<T>(promise: Promise<T>): Promise<T | void> {
  * console.log(`Node: ${nodeVersion.stdout.trim()}`);
  * console.log(`NPM: ${npmVersion.stdout.trim()}`);
  *
+ * ```
  * @since 1.0.0
  * @see {@link runAsync} - Asynchronous command execution
  */
@@ -314,13 +338,16 @@ export function runSync(
  * @description 以错误代码1退出Node.js进程。Exits the Node.js process with error code 1 for critical failure scenarios.
  * @returns {never} 该函数不会返回，因为它终止了进程。This function never returns as it terminates the process
  * @example
+ * ```ts
  * // Exit on critical error
  * if (!configFile) {
  *   console.error('Configuration file not found');
  *   exit();
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Validation failure
  * const args = parseArgs();
  * if (!args.required) {
@@ -328,6 +355,7 @@ export function runSync(
  *   exit();
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link runPromise} - Promise wrapper that calls exit on error
  */

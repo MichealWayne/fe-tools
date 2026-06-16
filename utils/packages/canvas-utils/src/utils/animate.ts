@@ -19,12 +19,15 @@ import { NOOP } from './base';
  * @param {number} pos - The animation progress position (0 to 1, where 0 is start and 1 is end)
  * @returns {number} The eased position value (0 to 1) with smooth acceleration/deceleration applied
  * @example
+ * ```ts
  * // Manual easing calculation
  * const startPos = timingFunction(0);    // Returns 0 (start)
  * const midPos = timingFunction(0.5);    // Returns ~0.5 (middle, but eased)
  * const endPos = timingFunction(1);      // Returns 1 (end)
  *
+ * ```
  * @example
+ * ```ts
  * // Using in custom animation loop
  * function customAnimate(duration, callback) {
  *   const startTime = Date.now();
@@ -44,9 +47,10 @@ import { NOOP } from './base';
  *   step();
  * }
  *
+ * ```
  * @since 1.0.0
  */
-const timingFunction = (pos: number) => {
+export const timingFunction = (pos: number) => {
   const THRESHOLD_VAL = 0.5;
   const IS_LT_HALF = (pos /= THRESHOLD_VAL) < 1;
   if (IS_LT_HALF) {
@@ -83,7 +87,7 @@ let createAnimationFrame = function () {
   };
 };
 
-interface AnimationOptions {
+export interface AnimationOptions {
   // 动画时间
   duration: number;
 
@@ -103,6 +107,7 @@ interface AnimationOptions {
  * @param {Function} [opts.onAnimationFinish] - 动画完成回调。Callback function called when animation completes
  * @returns {void} This function does not return a value
  * @example
+ * ```ts
  * // Basic fade-in animation
  * const element = document.getElementById('myElement');
  *
@@ -116,7 +121,9 @@ interface AnimationOptions {
  *   }
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Canvas object movement animation
  * const canvas = document.getElementById('myCanvas');
  * const ctx = canvas.getContext('2d');
@@ -141,7 +148,9 @@ interface AnimationOptions {
  *   }
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Chart data animation
  * const chartData = [10, 25, 40, 30, 50];
  * let animatedData = new Array(chartData.length).fill(0);
@@ -160,6 +169,7 @@ interface AnimationOptions {
  *   }
  * });
  *
+ * ```
  * @since 1.0.0
  * @see {@link timingFunction} - The easing function used for smooth animation
  */

@@ -16,6 +16,7 @@ import { PointPosition } from '../types';
  * @description A 2D vector class providing essential vector operations for curve calculations and geometric computations. Supports vector arithmetic, normalization, and angle calculations.
  * @class Vector
  * @example
+ * ```ts
  * // Basic vector creation and operations
  * const v1 = new Vector(3, 4);
  * const v2 = new Vector(1, 2);
@@ -25,15 +26,18 @@ import { PointPosition } from '../types';
  * const sum = v1.add(v2); // Vector addition
  * const scaled = v1.multiply(2); // Scalar multiplication
  *
+ * ```
  * @example
+ * ```ts
  * // Vector angle calculation
  * const v1 = new Vector(1, 0); // Points right
  * const v2 = new Vector(0, 1); // Points up
  * const angle = v1.angle(v2); // 90 degrees
  *
+ * ```
  * @since 1.0.0
  */
-class Vector {
+export class Vector {
   x = 0;
   y = 0;
 
@@ -69,6 +73,7 @@ class Vector {
  * @param {PointPosition[]} paths - 用于创建曲线的路径点数组（至少需要3个点）。Array of path points to create curves through (minimum 3 points required)
  * @returns {PointPosition[]} 用于平滑曲线生成的控制点坐标数组。Array of control point positions for smooth curve generation
  * @example
+ * ```ts
  * // Basic curve generation
  * const pathPoints = [
  *   { x: 10, y: 100 },
@@ -94,7 +99,9 @@ class Vector {
  *
  * ctx.stroke();
  *
+ * ```
  * @example
+ * ```ts
  * // Smooth line chart
  * function drawSmoothChart(ctx, dataPoints) {
  *   if (dataPoints.length < 3) {
@@ -125,7 +132,9 @@ class Vector {
  *   ctx.stroke();
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Interactive drawing with smooth curves
  * let drawingPoints = [];
  *
@@ -143,6 +152,7 @@ class Vector {
  *   }
  * });
  *
+ * ```
  * @since 1.0.0
  * @see {@link Vector} - The Vector class used for control point calculations
  */

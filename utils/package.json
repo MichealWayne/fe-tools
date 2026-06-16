@@ -2,7 +2,7 @@
   "name": "fe-tools",
   "private": true,
   "license": "MIT",
-  "version": "1.0.0-beta01",
+  "version": "1.2.1",
   "author": "Wayne",
   "scripts": {
     "test": "jest",

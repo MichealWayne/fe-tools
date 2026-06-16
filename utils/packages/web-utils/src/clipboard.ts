@@ -10,6 +10,7 @@
  * @returns {Promise<string>} 解析为剪贴板文本内容的Promise。Promise that resolves to the clipboard text content
  * @throws {Error} 如果剪贴板访问被拒绝或不受支持则抛出错误。Throws if clipboard access is denied or not supported
  * @example
+ * ```ts
  * // Basic clipboard reading
  * readClipboardText()
  *   .then(text => {
@@ -20,7 +21,9 @@
  *     console.error('Failed to read clipboard:', error);
  *   });
  *
+ * ```
  * @example
+ * ```ts
  * // Async/await usage with error handling
  * async function handlePaste() {
  *   try {
@@ -34,7 +37,9 @@
  *   }
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Check permissions before reading
  * async function safeReadClipboard() {
  *   try {
@@ -51,6 +56,7 @@
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link copyToClipboard} - Copy text to clipboard
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/readText} - Browser support: Chrome 66+, Firefox 125+, Safari 13.1+
@@ -74,6 +80,7 @@ export function readClipboardText() {
  * @param {string} text - 要复制到剪贴板的文本内容。The text content to copy to clipboard
  * @returns {Promise<boolean>} 如果复制成功则解析为true，否则为false的Promise。Promise that resolves to true if copy succeeded, false otherwise
  * @example
+ * ```ts
  * // Basic text copying
  * copyToClipboard('Hello, World!')
  *   .then(success => {
@@ -84,7 +91,9 @@ export function readClipboardText() {
  *     }
  *   });
  *
+ * ```
  * @example
+ * ```ts
  * // Copy button implementation
  * const copyButton = document.getElementById('copy-btn');
  * copyButton.addEventListener('click', async () => {
@@ -104,7 +113,9 @@ export function readClipboardText() {
  *   }, 2000);
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Copy with user feedback and error handling
  * async function copyWithFeedback(text) {
  *   try {
@@ -124,6 +135,7 @@ export function readClipboardText() {
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link readClipboardText} - Read text from clipboard
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText} - Modern Clipboard API

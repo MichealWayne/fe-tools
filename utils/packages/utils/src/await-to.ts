@@ -17,12 +17,14 @@
  * @param {Object} [errorExt] - 错误扩展对象。Error extension object
  * @return {Promise<[U, undefined] | [null, T]>} 返回一个Promise，成功时为[null, data]，失败时为[error, undefined]。Returns a Promise that resolves to [null, data] on success or [error, undefined] on failure
  * @example
+ * ```ts
 const [err, data] = await to(promise); // some promise instance
 if (err) {
   console.error(err);
 } else {
   console.log(data);
 }
+ * ```
  */
 export function to<T, U = Error>(
   promise: Promise<T>,

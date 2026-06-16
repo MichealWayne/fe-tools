@@ -10,6 +10,7 @@
  * @returns {Promise<string>} 解析为文件文本内容的Promise。Promise that resolves to the file's text content
  * @throws {Error} 如果文件读取失败或文件损坏则抛出错误。Throws if file reading fails or file is corrupted
  * @example
+ * ```ts
  * // Handle file input change
  * const fileInput = document.getElementById('file-input');
  * fileInput.addEventListener('change', async (event) => {
@@ -24,7 +25,9 @@
  *   }
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Process multiple files with progress indication
  * async function processFiles(files) {
  *   const results = [];
@@ -40,7 +43,9 @@
  *   return results;
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Validate file content before processing
  * async function validateAndReadFile(file) {
  *   // Check file size (e.g., max 5MB)
@@ -57,6 +62,7 @@
  *   return await readFile(file);
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link readFileAsDataURL} - Read file as data URL for images/media
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/FileReader} - Browser support: IE 10+, all modern browsers
@@ -79,7 +85,9 @@ export function readFile(file: File): Promise<string> {
  * @param {File} file - 文件对象。The File object
  * @returns {Promise<string>} 文件内容的Promise。Promise that resolves to the file content
  * @example
+ * ```ts
  * readFileAsDataURL(file).then(dataURL => console.log('file dataURL', dataURL));  // e.g input[type="file"] onchange
+ * ```
  */
 export function readFileAsDataURL(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -97,8 +105,10 @@ export function readFileAsDataURL(file: File): Promise<string> {
  * @param {string} filename - 文件名。The filename
  * @param {string} contentType - 文件类型。The file content type
  * @example
+ * ```ts
  * downloadFile('file content', 'file.txt', 'text/plain');
  * downloadFile('data:image/png;base64,...', 'image.png', 'image/png');
+ * ```
  */
 export function downloadFile(content: string, filename: string, contentType: string) {
   const blob = new Blob([content], { type: contentType });
@@ -122,8 +132,10 @@ export function downloadFile(content: string, filename: string, contentType: str
  * @param {string} imageType - 图片类型。The image type
  * @returns {Promise<boolean>} 是否下载成功。Whether the download was successful
  * @example
+ * ```ts
  * downloadImageFileByUrl('https://example.com/image.jpg', 'image.jpg');
  * downloadImageFileByUrl('https://example.com/image.png', 'image.png', 'image/png');
+ * ```
  */
 export function downloadImageFileByUrl(url: string, filename: string, imageType = 'image/jpeg') {
   return new Promise((resolve, reject) => {
@@ -157,12 +169,15 @@ export function downloadImageFileByUrl(url: string, filename: string, imageType 
  * @param {string} filename 文件名
  * @returns {string} 文件扩展名
  * @example
+ * ```ts
  * getFileExtension('file.txt');    // 'txt'
  * getFileExtension('file');        // ''
  * getFileExtension('.file');       // ''
  * getFileExtension('file.png');    // 'png'
+ * ```
  */
 export function getFileExtension(filename: string): string {
+  if (!filename || filename.startsWith('.') && filename.indexOf('.', 1) === -1) return '';
   const parts = filename.split('.');
   return parts.length > 1 ? parts.pop()!.toLowerCase() : '';
 }

@@ -119,7 +119,9 @@ const keyCodeMap = {
  * @param {number} keycode - 键码。The key code
  * @return {string} 键名。The key name
  * @example
+ * ```ts
  * getKeyName(13); // 'Enter'
+ * ```
  */
 export function getKeyName(keycode: keyof typeof keyCodeMap) {
   if (keyCodeMap[keycode]) {

@@ -13,12 +13,14 @@
  * @param {number} duration - 测量持续时间(毫秒,默认: 1000)。Measurement duration in ms (default: 1000)
  * @returns {Function} 停止测量的函数。Function to stop measurement
  * @example
+ * ```ts
  * const stopMeasuring = measureFPS((fps) => {
  *   console.log(`Current FPS: ${fps}`);
  * });
  *
  * // Later, stop measuring
  * setTimeout(stopMeasuring, 5000);
+ * ```
  */
 export function measureFPS(callback: (fps: number) => void, duration = 1000): () => void {
   let frames = 0;
@@ -50,11 +52,21 @@ export function measureFPS(callback: (fps: number) => void, duration = 1000): ()
  * @function getWebVitals
  * @description 获取Web Vitals性能指标(LCP, FID, CLS)。Gets Web Vitals performance metrics (LCP, FID, CLS)
  * @param {Function} callback - 接收性能指标的回调函数。Callback receiving performance metrics
+ * @returns {void}
  * @example
+ * ```ts
  * getWebVitals((metrics) => {
  *   console.log('Web Vitals:', metrics);
  *   // { LCP: 2500, FID: 100, CLS: 0.1, FCP: 1800, TTFB: 800 }
  * });
+ * ```
+ * @example
+ * ```ts
+ * getWebVitals(({ LCP, CLS }) => {
+ *   if (LCP && LCP > 2500) console.warn('LCP is too slow');
+ *   if (CLS && CLS > 0.1) console.warn('CLS is too high');
+ * });
+ * ```
  */
 export function getWebVitals(
   callback: (metrics: {
@@ -140,11 +152,13 @@ export function getWebVitals(
  * @description 测量当前内存使用情况(Chrome/Edge支持)。Measures current memory usage (Chrome/Edge support)
  * @returns {object | null} 内存使用信息或null。Memory usage info or null
  * @example
+ * ```ts
  * const memory = measureMemory();
  * if (memory) {
  *   console.log(`JS Heap: ${memory.usedJSHeapSize / 1048576} MB`);
  *   console.log(`Total: ${memory.totalJSHeapSize / 1048576} MB`);
  * }
+ * ```
  */
 export function measureMemory(): {
   usedJSHeapSize: number;
@@ -167,9 +181,11 @@ export function measureMemory(): {
  * @description 测量页面加载时间。Measures page load time
  * @returns {object} 加载时间详情。Load time details
  * @example
+ * ```ts
  * const loadTime = measureLoadTime();
  * console.log(`DOM Ready: ${loadTime.domReady}ms`);
  * console.log(`Full Load: ${loadTime.fullLoad}ms`);
+ * ```
  */
 export function measureLoadTime(): {
   domReady: number;
@@ -203,11 +219,13 @@ export function measureLoadTime(): {
  * @param {Function} callback - 接收性能条目的回调。Callback receiving performance entries
  * @returns {PerformanceObserver | null} 性能观察器实例或null。Performance observer instance or null
  * @example
+ * ```ts
  * const observer = createPerformanceObserver(['resource'], (entries) => {
  *   entries.forEach(entry => {
  *     console.log(`${entry.name}: ${entry.duration}ms`);
  *   });
  * });
+ * ```
  */
 export function createPerformanceObserver(
   entryTypes: string[],
@@ -236,6 +254,7 @@ export function createPerformanceObserver(
  * @param {string} resourceUrl - 资源URL(可选,不提供则返回所有资源)。Resource URL (optional, returns all if not provided)
  * @returns {object[]} 资源时间信息数组。Array of resource timing info
  * @example
+ * ```ts
  * const resources = resourceTiming();
  * resources.forEach(r => {
  *   console.log(`${r.name}: ${r.duration}ms`);
@@ -243,6 +262,7 @@ export function createPerformanceObserver(
  *
  * // Get specific resource
  * const scriptTiming = resourceTiming('app.js');
+ * ```
  */
 export function resourceTiming(resourceUrl?: string): any[] {
   const resources = performance.getEntriesByType('resource');

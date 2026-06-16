@@ -33,6 +33,13 @@ describe('base utils', () => {
     expect(result).toEqual([1, 2, 3]);
   });
 
+  it('cloneArray should remove stale tail values from target array', () => {
+    const target = [10, 20, 30, 40, 50];
+    const result = cloneArray([1, 2, 3], target);
+    expect(result).toBe(target);
+    expect(result).toEqual([1, 2, 3]);
+  });
+
   it('throwError should throw formatted error', () => {
     expect(() => throwError('oops', 'base', 'detail')).toThrow('Error!oops.(base detail)');
   });

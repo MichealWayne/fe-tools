@@ -13,9 +13,11 @@
  * @param {boolean} asQueryString - 是否返回查询字符串(默认: false)。Whether to return query string (default: false)
  * @returns {object | string} 表单数据对象或查询字符串。Form data object or query string
  * @example
+ * ```ts
  * const form = document.querySelector('form');
  * serializeForm(form); // -> { name: 'John', email: 'john@example.com' }
  * serializeForm(form, true); // -> 'name=John&email=john@example.com'
+ * ```
  */
 export function serializeForm(form: HTMLFormElement, asQueryString = false): any {
   const formData = new FormData(form);
@@ -46,12 +48,14 @@ export function serializeForm(form: HTMLFormElement, asQueryString = false): any
  * @param {object} rules - 验证规则。Validation rules
  * @returns {object} 验证结果。Validation result
  * @example
+ * ```ts
  * const form = document.querySelector('form');
  * const result = validateForm(form, {
  *   email: { required: true, pattern: /^\\S+@\\S+\\.\\S+$/ },
  *   age: { required: true, min: 18, max: 100 }
  * });
  * // -> { valid: false, errors: { email: 'Invalid format', age: 'Required' } }
+ * ```
  */
 export function validateForm(
   form: HTMLFormElement,
@@ -106,11 +110,13 @@ export function validateForm(
  * @param {number} debounceTime - 防抖时间(毫秒,默认: 500)。Debounce time in ms (default: 500)
  * @returns {Function} 停止自动保存的函数。Function to stop auto-save
  * @example
+ * ```ts
  * const form = document.querySelector('form');
  * const stopAutoSave = autoSaveForm(form, 'my-form-draft');
  *
  * // Later, stop auto-saving
  * stopAutoSave();
+ * ```
  */
 export function autoSaveForm(
   form: HTMLFormElement,
@@ -160,10 +166,12 @@ export function autoSaveForm(
  * @param {object} originalData - 原始数据。Original data
  * @returns {object} 变更的字段。Changed fields
  * @example
+ * ```ts
  * const form = document.querySelector('form');
  * const original = { name: 'John', email: 'john@example.com' };
  * const changes = formDiff(form, original);
  * // -> { email: 'newemail@example.com' } (if email was changed)
+ * ```
  */
 export function formDiff(
   form: HTMLFormElement,
@@ -185,9 +193,17 @@ export function formDiff(
  * @function resetFormField
  * @description 重置单个表单字段。Resets a single form field
  * @param {HTMLElement} field - 表单字段元素。Form field element
+ * @returns {void}
  * @example
+ * ```ts
  * const input = document.querySelector('input[name="email"]');
  * resetFormField(input);
+ * ```
+ * @example
+ * ```ts
+ * const select = document.querySelector('select');
+ * resetFormField(select); // 重置为第一个选项 / resets to first option
+ * ```
  */
 export function resetFormField(field: HTMLElement): void {
   if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
