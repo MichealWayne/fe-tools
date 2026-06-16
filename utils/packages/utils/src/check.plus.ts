@@ -12,13 +12,15 @@
  * @param {string} passport - 护照号码。The passport number to validate
  * @returns {boolean} 是否为护照号码。Whether it is a valid passport number
  * @example
- * validatePassport('G12345678'); // false
- * validatePassport('D012345678'); // true
+ * ```ts
+ * validatePassport('G12345678'); // true
+ * validatePassport('D012345678'); // false
  * validatePassport('140123456'); // true
  * validatePassport('A12345678'); // false
  * validatePassport('111234567'); // false
  * validatePassport('G1234567'); // false
  * validatePassport('G1234567A'); // false
+ * ```
  */
 export function validatePassport(passport: string) {
   const reg =
@@ -32,18 +34,20 @@ export function validatePassport(passport: string) {
  * @param {string} licensePlate - 车牌号。The license plate number to validate
  * @returns {boolean} 是否为车牌号。Whether it is a valid license plate number
  * @example
+ * ```ts
  * validateLicensePlate('A12345X'); // true
  * validateLicensePlate('京A12345'); // true
  * validateLicensePlate('A12345'); // false
  * validateLicensePlate('浙123456'); // false
+ * ```
  */
 export function validateLicensePlate(licensePlate: string) {
   const reg =
-    /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领]{1}[A-HJ-NP-Z]{1}(([0-9]{5}[DF])|([DF][A-HJ-NP-Z0-9][0-9]{4}))$/;
+    /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-HJ-NP-Z](([A-HJ-NP-Z0-9]{5})|([0-9]{5}[DF])|([DF][A-HJ-NP-Z0-9][0-9]{4}))$/;
   return reg.test(licensePlate);
 }
 
-type PwdStrengthTips = {
+export type PwdStrengthTips = {
   formatErr: string;
   allnumberErr: string;
   allwordErr: string;
@@ -61,7 +65,7 @@ const DEFAULT_PWD_STRENGTH_TIPS: PwdStrengthTips = {
   illegalityErr: '密码不能包含非法字符，如双引号等',
 };
 
-enum PwdStrengthTypes {
+export enum PwdStrengthTypes {
   weak = 1,
   average,
   strong,
@@ -78,6 +82,16 @@ const hasSymbol = (pwd: string) => /[\W_]/.test(pwd);
  * @param {string} pwd - 待检查的密码。The password to check
  * @param {PwdStrengthTips} tips - 自定义密码强度提示信息。Custom password strength tip messages
  * @return {PwdStrengthTypes | string} 密码强度类型或提示信息。Password strength type or tip message
+ * @example
+ * ```ts
+ * checkPwdStrength('abc123!'); // -> PwdStrengthTypes.Middle（含字母、数字、符号）
+ * checkPwdStrength('abc123'); // -> PwdStrengthTypes.Low（仅字母+数字）
+ * ```
+ * @example
+ * ```ts
+ * checkPwdStrength('abc'); // -> 格式错误提示（长度不足6位）
+ * checkPwdStrength('111111'); // -> 相同字符错误提示
+ * ```
  */
 export function checkPwdStrength(
   pwd: string,
@@ -97,26 +111,29 @@ export function checkPwdStrength(
   const hasLtr = hasLetter(pwd);
   const hasSym = hasSymbol(pwd);
 
-  if (!hasNum || !hasLtr || !hasSym) {
-    return illegalityErr;
-  }
+  const typeCount = Number(hasNum) + Number(hasLtr) + Number(hasSym);
 
-  if (hasNum && !hasLtr && !hasSym) {
-    return allnumberErr;
-  }
-
-  if (!hasNum && hasLtr && !hasSym) {
-    return allwordErr;
-  }
-
-  if (!hasNum && !hasLtr && hasSym) {
+  // 旧实现：先检查 !hasNum||!hasLtr||!hasSym 返回 illegalityErr，
+  // 导致后续 allnumberErr/allwordErr/allsymbolErr 三个分支全是死代码（条件互斥）。
+  // 修复：先检查是否缺少任何一种字符类型（只有1种），分别返回对应提示；
+  // 再检查是否只含2种（中等强度）；否则3种齐全为强密码。
+  // The old impl returned illegalityErr for !hasNum||!hasLtr||!hasSym, making the subsequent
+  // allnumberErr/allwordErr/allsymbolErr branches dead code (mutually exclusive with the guard).
+  // Fix: check single-type cases first, then two-type (average), then three-type (strong).
+  if (typeCount === 1) {
+    if (hasNum && !hasLtr && !hasSym) return allnumberErr;
+    if (!hasNum && hasLtr && !hasSym) return allwordErr;
     return allsymbolErr;
   }
 
-  return hasSym && hasNum && hasLtr ? PwdStrengthTypes.strong : PwdStrengthTypes.average;
+  if (typeCount < 2) {
+    return illegalityErr;
+  }
+
+  return typeCount === 3 ? PwdStrengthTypes.strong : PwdStrengthTypes.average;
 }
 
-enum DefaultIdcardTips {
+export enum DefaultIdcardTips {
   success = '身份证验证通过',
   fail = '请填写正确的身份证号码',
   not18 = '未满18岁暂不支持开户',
@@ -220,16 +237,23 @@ function validate15DigitIdcard(
   checkFullGrownDate: string,
   TipEnum: typeof DefaultIdcardTips
 ): DefaultIdcardTips {
-  const year = parseInt(idcard.substring(6, 8), 10) + 1900;
-  const regex = isLeapYear(year) ? IDCARD_REGEX.LEAP_YEAR_15 : IDCARD_REGEX.NORMAL_YEAR_15;
+  const yearStr = idcard.substring(6, 8);
+  const century = parseInt(yearStr, 10) >= 50 ? '19' : '20';
+  const fullYear = parseInt(`${century}${yearStr}`, 10);
+  const regex = isLeapYear(fullYear) ? IDCARD_REGEX.LEAP_YEAR_15 : IDCARD_REGEX.NORMAL_YEAR_15;
 
   if (!regex.test(idcard)) {
     return TipEnum.fail;
   }
 
-  const birthdayValue = idcard.substring(6, 12);
-  const fullBirthday =
-    parseInt(birthdayValue, 10) < 10 ? `20${birthdayValue}` : `19${birthdayValue}`;
+  // 旧实现用 parseInt(birthdayValue) < 10 判断世纪：birthdayValue 是 'YYMMDD' 格式，
+  // parseInt('050615')=50615 永远 > 10，所以所有15位身份证都被当 19xx。
+  // 但15位身份证年份 00-09 对应 2000-2009（颁发于2000年后），不是 1900-1909。
+  // 修复：用年份 >= 50 判断为 19xx，< 50 判断为 20xx（与标准15→18位升位规则一致）。
+  // The old impl used parseInt('YYMMDD') < 10 which is always > 10, so all 15-digit
+  // cards were treated as 19xx. But years 00-09 correspond to 2000-2009. Fix: use
+  // year >= 50 → 19xx, year < 50 → 20xx (standard 15→18 digit conversion rule).
+  const fullBirthday = `${century}${idcard.substring(6, 12)}`;
 
   return fullBirthday > checkFullGrownDate ? TipEnum.not18 : TipEnum.success;
 }
@@ -277,6 +301,7 @@ function validate18DigitIdcard(
  * @param {object} TipEnum - 提示信息。Tip messages for validation results
  * @returns {DefaultIdcardTips} 身份证验证结果。ID card validation result
  * @example
+ * ```ts
  * checkIdcard('11010519491231002X'); // '身份证验证通过'
  * checkIdcard('11010519491231002'); // '请填写正确的身份证号码'
  * checkIdcard('11010519491231002X', {
@@ -284,6 +309,7 @@ function validate18DigitIdcard(
  *   fail: '请填写正确的身份证号码',
  *   not18: '未满18岁暂不支持开户',
  * });
+ * ```
  */
 export function checkIdcard(idcard: string, TipEnum = DefaultIdcardTips): DefaultIdcardTips {
   // 地区检验

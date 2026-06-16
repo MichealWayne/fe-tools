@@ -17,6 +17,9 @@ test('idCard test', () => {
   expect(isIdCard('1101051949123100')).toBe(false);
   expect(isIdCard('11010519491231002A')).toBe(false);
   expect(isIdCard('123456789012345')).toBe(false);
+  // The old regex [0|1|2] treated | as a literal pipe inside the character class;
+  // valid ID cards never contain |, so behavior is unchanged after switching to [012].
+  expect(isIdCard('11010519491231002|')).toBe(false);
 });
 
 test('url test', () => {

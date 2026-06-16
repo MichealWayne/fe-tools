@@ -98,6 +98,17 @@ describe('string test', () => {
     expect(camelize('a')).toEqual('a');
   });
 
+  it('camelize() should handle underscore and not treat pipe as a delimiter', () => {
+    // Fixed: the old regex [-|_] treated | as a literal pipe in the character class,
+    // so 'foo|bar' was wrongly camelized to 'fooBar'. Only - and _ are delimiters now.
+    expect(camelize('foo_bar')).toEqual('fooBar');
+    expect(camelize('foo_bar_baz')).toEqual('fooBarBaz');
+    expect(camelize('foo-bar_baz')).toEqual('fooBarBaz');
+    // Pipe is no longer treated as a delimiter.
+    expect(camelize('foo|bar')).toEqual('foo|bar');
+    expect(camelize('foo|Bar')).toEqual('foo|Bar');
+  });
+
   describe('splitLines', () => {
     it('should split lines of text with \\n', () => {
       const input = 'line 1\nline 2\nline 3\n';
@@ -138,6 +149,18 @@ describe('string test', () => {
     expect(isChinese('跨端kingfisher')).toEqual(false);
   });
 
+  it('isChinese() should accept Chinese punctuation', () => {
+    // Fixed: the old regex only matched CJK ideographs; full-width Chinese punctuation
+    // (，。！？ etc.) is now included, matching the JSDoc contract.
+    expect(isChinese('你好，世界！')).toBe(true);
+    expect(isChinese('这是一个测试。')).toBe(true);
+    expect(isChinese('！￥。')).toBe(true);
+    // Half-width ASCII mixed in still returns false.
+    expect(isChinese('！@#￥%')).toBe(false);
+    expect(isChinese('')).toBe(false);
+    expect(isChinese('123')).toBe(false);
+  });
+
   describe('truncateString', () => {
     it('should truncate strings', () => {
       expect(truncateString('abcdefg', 3)).toEqual('abc...');
@@ -159,6 +182,14 @@ describe('string test', () => {
       expect(result).toBe('');
       expect(truncateString('hello world', 5)).toBe('he...');
       expect(truncateString('hello world', 11)).toBe('hello world');
+    });
+
+    it('should handle num <= 3 as slice(0, num) + "..."', () => {
+      // Fixed: JSDoc previously claimed num<=3 yields '...'/'..'/'.' (ellipsis-filled),
+      // but the actual behavior is slice(0, num) + '...'. Docs now match the implementation.
+      expect(truncateString('hello', 3)).toBe('hel...');
+      expect(truncateString('hello', 2)).toBe('he...');
+      expect(truncateString('hello', 1)).toBe('h...');
     });
   });
 
@@ -186,9 +217,15 @@ describe('string test', () => {
     });
 
     test('should handle non-Latin characters correctly', () => {
-      expect(ellipsis('你好世界', 2)).toBe('你好世...');
+      expect(ellipsis('你好世界', 2)).toBe('..');
       expect(ellipsis('你好世界', 3)).toBe('...');
       expect(ellipsis('你好世界', 3, '…')).toBe('你好…');
+    });
+
+    test('should not exceed maxLength when ellipsis is longer than maxLength', () => {
+      expect(ellipsis('hello', 2, '...')).toBe('..');
+      expect(ellipsis('hello', 1, '...')).toBe('.');
+      expect(ellipsis('hello', 0, '...')).toBe('');
     });
   });
 

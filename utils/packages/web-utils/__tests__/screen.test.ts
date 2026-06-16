@@ -255,13 +255,11 @@ describe('screen', () => {
 
       // 测试webkit前缀
       (testElement as any).webkitRequestFullscreen = jest.fn();
-      (testElement as any).webkitRequestFullScreen = jest.fn();
       enterFullscreen(testElement);
-      expect((testElement as any).webkitRequestFullScreen).toHaveBeenCalled();
+      expect((testElement as any).webkitRequestFullscreen).toHaveBeenCalled();
 
       // 重置
       (testElement as any).webkitRequestFullscreen = undefined;
-      (testElement as any).webkitRequestFullScreen = undefined;
 
       // 测试moz前缀
       (testElement as any).mozRequestFullScreen = jest.fn();

@@ -33,7 +33,7 @@ export interface TranslateOptions {
 }
 
 // Internal interface to pass both text and options to the generator
-interface TranslateInput {
+export interface TranslateInput {
   text: string;
   options: TranslateOptions;
 }
@@ -80,10 +80,21 @@ function getTranslatePromptTxt(input: TranslateInput): string {
 const DEFAULT_TRANSLATE_TOKEN_LEN = 10000; // Reasonable default for translations
 
 /**
- * Generates a prompt for translating text.
- * @param text The text to translate.
- * @param options Options including source and target languages.
- * @returns A prompt string for the LLM, or an empty string if it exceeds token limits.
+ * @function genTranslatePrompt
+ * @description 根据翻译输入生成翻译 Prompt 文本。Generates a prompt for text translation
+ * @param {TranslateInput} input - 翻译输入参数（包含待翻译文本及源/目标语言配置）/ translate input (text and language options)
+ * @param {number} [maxLen=10000] - token 最大长度限制 / maximum token length
+ * @returns {string} 符合要求的 Prompt 文本，超过长度限制时返回空字符串。Prompt text, or empty string if it exceeds the token limit
+ * @example
+ * ```ts
+ * const prompt = genTranslatePrompt({ text: 'Hello World', options: { from: 'en', to: 'zh' } });
+ * console.log(prompt); // -> 完整的翻译 prompt
+ * ```
+ * @example
+ * ```ts
+ * const prompt = genTranslatePrompt({ text: sourceText, options: { to: 'ja' } });
+ * if (prompt) sendToLLM(prompt);
+ * ```
  */
 export const genTranslatePrompt = createPromptGenerator(
   { maxTokenLength: DEFAULT_TRANSLATE_TOKEN_LEN },

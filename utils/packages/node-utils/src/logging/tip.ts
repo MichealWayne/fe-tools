@@ -28,22 +28,28 @@ const TIP_MAP = {
  * @param {string} key - TIP_MAP中的颜色键名。Color key from TIP_MAP for the logging function (safe, error, strongError, warn, strongWarn)
  * @returns {Function} 日志记录函数，接受消息和可选的时间戳参数。Logging function that accepts message and optional timestamp flag
  * @example
+ * ```ts
  * // Create custom logger with green color
  * const customLogger = tipFunHoc('safe');
  * customLogger('Operation completed successfully');
  *
+ * ```
  * @example
+ * ```ts
  * // Create error logger with timestamp
  * const errorLogger = tipFunHoc('error');
  * errorLogger('Connection failed', true);
  * // Output: "2024/03/15 14:30:25:Connection failed" (in red)
  *
+ * ```
  * @example
+ * ```ts
  * // Create warning logger
  * const warnLogger = tipFunHoc('warn');
  * warnLogger('Deprecated function used');
  * // Output: "Deprecated function used" (in yellow)
  *
+ * ```
  * @see {@link TIP_MAP} - Available color mappings
  * @see {@link Tip} - Pre-configured logging functions
  */
@@ -64,36 +70,50 @@ const tipFunHoc = (key: string) => {
 /**
  * @description 彩色日志记录函数集合，用于不同类型的消息输出。Collection of colored logging functions for different message types with enhanced terminal output formatting.
  * @example
+ * ```ts
  * // Success messages (green)
  * Tip.safe('Operation completed successfully');
  * Tip.success('File uploaded successfully');
  *
+ * ```
  * @example
+ * ```ts
  * // Information messages (default color)
  * Tip.log('Processing file...');
  * Tip.info('Server configuration loaded');
  *
+ * ```
  * @example
+ * ```ts
  * // Error messages (red)
  * Tip.error('Failed to connect to database');
  * Tip.err('Invalid input provided');
  *
+ * ```
  * @example
+ * ```ts
  * // Strong error messages (red background)
  * Tip.strongError('Critical system failure!');
  *
+ * ```
  * @example
+ * ```ts
  * // Warning messages (yellow)
  * Tip.warn('Deprecated function used');
  *
+ * ```
  * @example
+ * ```ts
  * // Strong warning messages (yellow background)
  * Tip.strongWarn('Memory usage approaching limit');
  *
+ * ```
  * @example
+ * ```ts
  * // With timestamps
  * Tip.error('Connection failed', true);
  * // Output: "2024/03/15 14:30:25:Connection failed"
+ * ```
  */
 const Tip = {
   safe: tipFunHoc('safe'),

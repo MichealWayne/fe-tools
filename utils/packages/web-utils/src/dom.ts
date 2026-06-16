@@ -12,6 +12,7 @@ import { isUndefined } from 'utils';
  * @returns {boolean} 如果页面可见则为true，如果隐藏/最小化则为false。True if the page is visible, false if hidden/minimized
  * @throws {Error} 如果document不可用（非浏览器环境）则抛出错误。Throws if document is not available (non-browser environment)
  * @example
+ * ```ts
  * // Basic usage - pause animations when page is hidden
  * if (!isPageVisible()) {
  *   // Cancel requests, pause animations, etc.
@@ -19,7 +20,9 @@ import { isUndefined } from 'utils';
  *   clearInterval(animationTimer);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Listen for visibility changes
  * document.addEventListener('visibilitychange', () => {
  *   if (isPageVisible()) {
@@ -31,6 +34,7 @@ import { isUndefined } from 'utils';
  *   }
  * });
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Document/hidden} - Browser compatibility: IE 10+, all modern browsers
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/pause-stop-hide.html} - WCAG accessibility guidelines for auto-playing content
@@ -47,13 +51,16 @@ export function isPageVisible() {
  * @returns {boolean} 如果元素包含指定类则为true，否则为false。True if the element contains the specified class, false otherwise
  * @throws {TypeError} 如果elem为null/undefined或className为空则抛出错误。Throws if elem is null/undefined or className is empty
  * @example
+ * ```ts
  * // Basic usage
  * const button = document.querySelector('.my-button');
  * if (hasClass(button, 'active')) {
  *   console.log('Button is active');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Check multiple classes
  * const elem = document.createElement('div');
  * elem.className = 'nav-item active highlighted';
@@ -61,13 +68,16 @@ export function isPageVisible() {
  * console.log(hasClass(elem, 'nav-item')); // true
  * console.log(hasClass(elem, 'disabled')); // false
  *
+ * ```
  * @example
+ * ```ts
  * // Handles edge cases with whitespace
  * const elem = document.createElement('div');
  * elem.className = '  spaced-class  ';
  * console.log(hasClass(elem, 'spaced-class')); // true
  * console.log(hasClass(elem, '  spaced-class  ')); // false (exact match required)
  *
+ * ```
  * @since 1.0.0
  * @see {@link addClass} - Add CSS classes to elements
  * @see {@link removeClass} - Remove CSS classes from elements
@@ -85,22 +95,28 @@ export function hasClass(elem: HTMLElement, className: string) {
  * @param {string} className - 要添加的CSS类名（不带前导点）。The CSS class name to add (without leading dot)
  * @returns {void}
  * @example
+ * ```ts
  * // Basic usage
  * const button = document.querySelector('.my-button');
  * addClass(button, 'active');
  * addClass(button, 'highlighted');
  *
+ * ```
  * @example
+ * ```ts
  * // Safe usage with null checks
  * const elem = document.getElementById('optional-element');
  * addClass(elem, 'new-class'); // Safely handles null elements
  *
+ * ```
  * @example
+ * ```ts
  * // Adding state classes for accessibility
  * const menuItem = document.querySelector('[role="menuitem"]');
  * addClass(menuItem, 'aria-selected'); // Visual indicator
  * menuItem.setAttribute('aria-selected', 'true'); // Screen reader support
  *
+ * ```
  * @since 1.0.0
  * @see {@link hasClass} - Check if element has a class
  * @see {@link removeClass} - Remove CSS classes from elements
@@ -128,12 +144,15 @@ export function addClass(elem: HTMLElement, className: string) {
  * @param {string} className - 要移除的CSS类名（不带前导点）。The CSS class name to remove (without leading dot)
  * @returns {void}
  * @example
+ * ```ts
  * // Basic usage
  * const button = document.querySelector('.my-button');
  * removeClass(button, 'active');
  * removeClass(button, 'highlighted');
  *
+ * ```
  * @example
+ * ```ts
  * // Toggle functionality
  * const toggleButton = document.getElementById('toggle');
  * if (hasClass(toggleButton, 'expanded')) {
@@ -144,13 +163,16 @@ export function addClass(elem: HTMLElement, className: string) {
  *   toggleButton.setAttribute('aria-expanded', 'true');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Clean up multiple classes
  * const elem = document.createElement('div');
  * elem.className = 'nav-item active selected';
  * removeClass(elem, 'active');
  * console.log(elem.className); // 'nav-item selected'
  *
+ * ```
  * @since 1.0.0
  * @see {@link addClass} - Add CSS classes to elements
  * @see {@link hasClass} - Check if element has a class
@@ -180,11 +202,14 @@ export function removeClass(elem: HTMLElement, className: string) {
  * @throws {DOMException} Throws if htmlString contains invalid HTML
  * @throws {TypeError} Throws if elem is null or not an HTMLElement
  * @example
+ * ```ts
  * // Insert a simple element after another
  * const target = document.getElementById('target');
  * insertAfter(target, '<div class="notification">Content added!</div>');
  *
+ * ```
  * @example
+ * ```ts
  * // Insert complex HTML structure
  * const listItem = document.querySelector('li:last-child');
  * const newItemHTML = `
@@ -195,12 +220,15 @@ export function removeClass(elem: HTMLElement, className: string) {
  * `;
  * insertAfter(listItem, newItemHTML);
  *
+ * ```
  * @example
+ * ```ts
  * // Security consideration - sanitize user input
  * const userContent = escapeHTML(userInput);
  * const safeHTML = `<div class="user-content">${userContent}</div>`;
  * insertAfter(targetElement, safeHTML);
  *
+ * ```
  * @since 1.0.0
  * @see {@link insertBefore} - Insert content before an element
  * @see {@link escapeHTML} - Sanitize HTML content to prevent XSS
@@ -220,11 +248,14 @@ export function insertAfter(elem: HTMLElement, htmlString: string) {
  * @throws {DOMException} Throws if htmlString contains invalid HTML
  * @throws {TypeError} Throws if elem is null or not an HTMLElement
  * @example
+ * ```ts
  * // Insert a warning message before a form
  * const form = document.getElementById('signup-form');
  * insertBefore(form, '<div class="alert alert-warning">Please review your information</div>');
  *
+ * ```
  * @example
+ * ```ts
  * // Insert navigation breadcrumbs
  * const mainContent = document.querySelector('main');
  * const breadcrumbHTML = `
@@ -237,11 +268,14 @@ export function insertAfter(elem: HTMLElement, htmlString: string) {
  * `;
  * insertBefore(mainContent, breadcrumbHTML);
  *
+ * ```
  * @example
+ * ```ts
  * // Insert loading indicator before content
  * const contentArea = document.getElementById('content');
  * insertBefore(contentArea, '<div class="loading" aria-live="polite">Loading...</div>');
  *
+ * ```
  * @since 1.0.0
  * @see {@link insertAfter} - Insert content after an element
  * @see {@link escapeHTML} - Sanitize HTML content to prevent XSS
@@ -260,6 +294,7 @@ export function insertBefore(elem: HTMLElement, htmlString: string) {
  * @returns {boolean} True if parent contains child (but parent !== child), false otherwise
  * @throws {TypeError} Throws if parent or child is null/undefined
  * @example
+ * ```ts
  * // Basic containment check
  * const container = document.getElementById('container');
  * const button = document.querySelector('.submit-button');
@@ -267,7 +302,9 @@ export function insertBefore(elem: HTMLElement, htmlString: string) {
  *   console.log('Button is inside container');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Event delegation - check if clicked element is within a specific area
  * document.addEventListener('click', (event) => {
  *   const sidebar = document.getElementById('sidebar');
@@ -276,7 +313,9 @@ export function insertBefore(elem: HTMLElement, htmlString: string) {
  *   }
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Accessibility - check if focused element is within a modal
  * const modal = document.querySelector('[role="dialog"]');
  * const focusedElement = document.activeElement;
@@ -285,6 +324,7 @@ export function insertBefore(elem: HTMLElement, htmlString: string) {
  *   modal.querySelector('[tabindex="0"]')?.focus();
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Node/contains} - Browser support: IE 9+, all modern browsers
  * @see {@link https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/} - ARIA keyboard navigation practices
@@ -299,28 +339,36 @@ export function elementContains(parent: HTMLElement, child: HTMLElement) {
  * @param {...HTMLElement} elems - Variable number of DOM elements to hide
  * @returns {void}
  * @example
+ * ```ts
  * // Hide single element
  * const modal = document.getElementById('modal');
  * hide(modal);
  *
+ * ```
  * @example
+ * ```ts
  * // Hide multiple elements at once
  * const buttons = document.querySelectorAll('.temporary-button');
  * hide(...buttons);
  *
+ * ```
  * @example
+ * ```ts
  * // Accessible hiding with proper ARIA attributes
  * const tooltip = document.getElementById('tooltip');
  * hide(tooltip);
  * tooltip.setAttribute('aria-hidden', 'true');
  *
+ * ```
  * @example
+ * ```ts
  * // Conditional hiding based on user preferences
  * const animations = document.querySelectorAll('.animated');
  * if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
  *   hide(...animations);
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/CSS/display} - CSS display property
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html} - WCAG: Content on hover or focus
@@ -336,6 +384,7 @@ export function hide(...elems: HTMLElement[]) {
  * @param {NodeList|HTMLCollection|HTMLElement[]} nodeList - The node collection to convert
  * @returns {HTMLElement[]} A new array containing all elements from the node list
  * @example
+ * ```ts
  * // Convert NodeList from querySelectorAll to array
  * const divs = document.querySelectorAll('div');
  * const divArray = nodeListToArray(divs);
@@ -345,7 +394,9 @@ export function hide(...elems: HTMLElement[]) {
  *   div.classList.add('processed');
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Filter and map operations on DOM elements
  * const buttons = document.querySelectorAll('button');
  * const buttonArray = nodeListToArray(buttons);
@@ -354,7 +405,9 @@ export function hide(...elems: HTMLElement[]) {
  *   .filter(btn => !btn.disabled)
  *   .map(btn => btn.textContent);
  *
+ * ```
  * @example
+ * ```ts
  * // Convert HTMLCollection (live collection) to static array
  * const forms = document.forms; // HTMLCollection
  * const formArray = nodeListToArray(forms);
@@ -364,6 +417,7 @@ export function hide(...elems: HTMLElement[]) {
  *   form.addEventListener('submit', handleSubmit);
  * });
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/NodeList} - NodeList documentation
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection} - HTMLCollection documentation
@@ -381,30 +435,38 @@ export function nodeListToArray(nodeList: HTMLElement[]) {
  * @returns {void}
  * @throws {TypeError} Throws if elem is null/undefined
  * @example
+ * ```ts
  * // Set basic attributes
  * const button = document.createElement('button');
  * setAttribute(button, 'id', 'submit-btn');
  * setAttribute(button, 'class', 'btn btn-primary');
  * setAttribute(button, 'type', 'submit');
  *
+ * ```
  * @example
+ * ```ts
  * // Set styles (uses cssText for better performance)
  * const elem = document.getElementById('myElement');
  * setAttribute(elem, 'style', 'color: red; font-size: 16px; margin: 10px;');
  *
+ * ```
  * @example
+ * ```ts
  * // Set form input values (handles input/textarea specially)
  * const input = document.getElementById('username');
  * setAttribute(input, 'value', 'john_doe');
  * setAttribute(input, 'placeholder', 'Enter username');
  *
+ * ```
  * @example
+ * ```ts
  * // Set accessibility attributes
  * const menuButton = document.querySelector('.menu-toggle');
  * setAttribute(menuButton, 'aria-expanded', 'false');
  * setAttribute(menuButton, 'aria-controls', 'main-menu');
  * setAttribute(menuButton, 'aria-label', 'Toggle navigation menu');
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute} - Browser support: All browsers
  * @see {@link https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/} - ARIA attribute practices
@@ -434,17 +496,22 @@ export function setAttribute(elem: HTMLElement, key: string, value: string) {
  * @param {string} str - The string to escape (handles null/undefined gracefully)
  * @returns {string} The escaped string with HTML entities, or original if null/undefined
  * @example
+ * ```ts
  * // Basic XSS prevention
  * const userInput = '<script>alert("XSS")</script>';
  * const safeText = escapeHTML(userInput);
  * console.log(safeText); // '&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;'
  *
+ * ```
  * @example
+ * ```ts
  * // Safe display of user content
  * const commentText = escapeHTML(user.comment);
  * document.getElementById('comment').innerHTML = `<p>${commentText}</p>`;
  *
+ * ```
  * @example
+ * ```ts
  * // Real-time input sanitization
  * const inputBox = document.getElementById('input-box');
  * const outputBox = document.getElementById('output-box');
@@ -454,12 +521,15 @@ export function setAttribute(elem: HTMLElement, key: string, value: string) {
  *   outputBox.textContent = escapedText; // Use textContent for additional safety
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Escape quotes for HTML attributes
  * const title = `User said: "Hello & goodbye"`;
  * const escapedTitle = escapeHTML(title);
  * element.setAttribute('title', escapedTitle);
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html} - OWASP XSS Prevention
  * @see {@link https://developer.mozilla.org/en-US/docs/Glossary/Entity} - HTML entities reference
@@ -487,6 +557,7 @@ export function escapeHTML(str: string) {
  * @param {HTMLElement} [elem] - The DOM element to get position for
  * @returns {{left: number, top: number}} Object containing left and top coordinates in pixels
  * @example
+ * ```ts
  * // Get element position for tooltip placement
  * const button = document.getElementById('help-button');
  * const pos = getOffsetPos(button);
@@ -495,7 +566,9 @@ export function escapeHTML(str: string) {
  * tooltip.style.left = `${pos.left}px`;
  * tooltip.style.top = `${pos.top + button.offsetHeight + 5}px`;
  *
+ * ```
  * @example
+ * ```ts
  * // Calculate if element is in viewport
  * const element = document.querySelector('.lazy-load');
  * const elementPos = getOffsetPos(element);
@@ -507,7 +580,9 @@ export function escapeHTML(str: string) {
  *   loadContent(element);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Position floating elements relative to target
  * const targetElement = document.getElementById('anchor');
  * const floatingPanel = document.getElementById('panel');
@@ -517,6 +592,7 @@ export function escapeHTML(str: string) {
  * floatingPanel.style.left = `${targetPos.left}px`;
  * floatingPanel.style.top = `${targetPos.top}px`;
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetLeft} - Browser support: All browsers
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent} - offsetParent documentation
@@ -542,6 +618,7 @@ export function getOffsetPos(elem?: HTMLElement) {
  * @description Gets the current vertical scroll position of the document
  * @returns {number} The number of pixels scrolled from the top of the document
  * @example
+ * ```ts
  * // Show/hide scroll-to-top button based on scroll position
  * window.addEventListener('scroll', () => {
  *   const scrollTop = getScrollTop();
@@ -556,7 +633,9 @@ export function getOffsetPos(elem?: HTMLElement) {
  *   }
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Implement scroll progress indicator
  * function updateScrollProgress() {
  *   const scrollTop = getScrollTop();
@@ -568,7 +647,9 @@ export function getOffsetPos(elem?: HTMLElement) {
  *   progressBar.setAttribute('aria-valuenow', scrollPercent.toString());
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Lazy loading based on scroll position
  * const images = document.querySelectorAll('img[data-src]');
  * window.addEventListener('scroll', () => {
@@ -584,6 +665,7 @@ export function getOffsetPos(elem?: HTMLElement) {
  *   });
  * });
  *
+ * ```
  * @since 1.0.0
  * @see {@link setScrollTop} - Set scroll position
  * @see {@link getScrollPosition} - Get both X and Y scroll positions
@@ -599,11 +681,14 @@ export function getScrollTop() {
  * @param {Window|Element} [elem=window] - The element to get scroll position from (defaults to window)
  * @returns {{x: number, y: number}} Object containing horizontal (x) and vertical (y) scroll positions
  * @example
+ * ```ts
  * // Get current document scroll position
  * const scrollPos = getScrollPosition();
  * console.log(`Scrolled ${scrollPos.x}px horizontally, ${scrollPos.y}px vertically`);
  *
+ * ```
  * @example
+ * ```ts
  * // Save and restore scroll position (useful for SPAs)
  * const savedPosition = getScrollPosition();
  * localStorage.setItem('scrollPosition', JSON.stringify(savedPosition));
@@ -612,7 +697,9 @@ export function getScrollTop() {
  * const restored = JSON.parse(localStorage.getItem('scrollPosition'));
  * window.scrollTo(restored.x, restored.y);
  *
+ * ```
  * @example
+ * ```ts
  * // Get scroll position of specific scrollable element
  * const scrollableDiv = document.getElementById('scrollable-content');
  * const divScrollPos = getScrollPosition(scrollableDiv);
@@ -621,7 +708,9 @@ export function getScrollTop() {
  * const otherDiv = document.getElementById('other-scrollable');
  * otherDiv.scrollTo(divScrollPos.x, divScrollPos.y);
  *
+ * ```
  * @example
+ * ```ts
  * // Implement scroll synchronization for accessibility
  * const mainContent = document.getElementById('main-content');
  * const minimap = document.getElementById('minimap');
@@ -632,6 +721,7 @@ export function getScrollTop() {
  *   minimap.scrollTo(pos.x * ratio, pos.y * ratio);
  * });
  *
+ * ```
  * @since 1.0.0
  * @see {@link getScrollTop} - Get vertical scroll position only
  * @see {@link setScrollTop} - Set vertical scroll position
@@ -639,9 +729,10 @@ export function getScrollTop() {
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/focus-order.html} - WCAG: Focus management during navigation
  */
 export function getScrollPosition(elem = window) {
+  const scrollableElem = elem as Window & { scrollLeft?: number; scrollTop?: number };
   return {
-    x: !isUndefined(elem.pageXOffset) ? elem.pageXOffset : elem.screenLeft,
-    y: !isUndefined(elem.pageYOffset) ? elem.pageYOffset : elem.screenTop,
+    x: !isUndefined(scrollableElem.pageXOffset) ? scrollableElem.pageXOffset : scrollableElem.scrollLeft || 0,
+    y: !isUndefined(scrollableElem.pageYOffset) ? scrollableElem.pageYOffset : scrollableElem.scrollTop || 0,
   };
 }
 
@@ -650,16 +741,21 @@ export function getScrollPosition(elem = window) {
  * @param {number} height - The vertical scroll position in pixels
  * @returns {number} The height value that was set
  * @example
+ * ```ts
  * // Scroll to top of page
  * setScrollTop(0);
  *
+ * ```
  * @example
+ * ```ts
  * // Scroll to specific section
  * const section = document.getElementById('target-section');
  * const sectionTop = getOffsetPos(section).top;
  * setScrollTop(sectionTop - 20); // 20px offset for better UX
  *
+ * ```
  * @example
+ * ```ts
  * // Implement "scroll to top" button with accessibility
  * const scrollToTopButton = document.getElementById('scroll-to-top');
  * scrollToTopButton.addEventListener('click', () => {
@@ -674,7 +770,9 @@ export function getScrollPosition(elem = window) {
  *   setTimeout(() => document.body.removeChild(announcement), 1000);
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Restore scroll position after page reload
  * window.addEventListener('beforeunload', () => {
  *   sessionStorage.setItem('scrollTop', getScrollTop().toString());
@@ -687,6 +785,7 @@ export function getScrollPosition(elem = window) {
  *   }
  * });
  *
+ * ```
  * @since 1.0.0
  * @see {@link getScrollTop} - Get current scroll position
  * @see {@link animateScrollTo} - Smooth animated scrolling
@@ -698,72 +797,35 @@ export function setScrollTop(height: number) {
   return height;
 }
 
-/**
- * @description Cross-browser compatible requestAnimationFrame with fallback for older browsers
- * @type {Function}
- * @param {Function} callback - Function to call before the next repaint
- * @returns {number} Request ID that can be used with cancelAnimationFrame
- * @example
- * // Basic animation loop
- * function animate() {
- *   // Update animation state
- *   updatePosition();
- *
- *   // Continue animation
- *   requestAnimFrame(animate);
- * }
- * requestAnimFrame(animate);
- *
- * @example
- * // Smooth element movement with performance optimization
- * let animationId;
- * function moveElement(element, targetX, targetY) {
- *   const currentX = parseFloat(element.style.left) || 0;
- *   const currentY = parseFloat(element.style.top) || 0;
- *
- *   const deltaX = (targetX - currentX) * 0.1;
- *   const deltaY = (targetY - currentY) * 0.1;
- *
- *   element.style.left = `${currentX + deltaX}px`;
- *   element.style.top = `${currentY + deltaY}px`;
- *
- *   if (Math.abs(deltaX) > 0.1 || Math.abs(deltaY) > 0.1) {
- *     animationId = requestAnimFrame(() => moveElement(element, targetX, targetY));
- *   }
- * }
- *
- * @example
- * // Accessible animation with reduced motion support
- * function startAnimation() {
- *   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- *
- *   if (prefersReducedMotion) {
- *     // Skip animation, apply final state immediately
- *     applyFinalState();
- *     return;
- *   }
- *
- *   function animateStep() {
- *     updateAnimationFrame();
- *     if (!animationComplete) {
- *       requestAnimFrame(animateStep);
- *     }
- *   }
- *
- *   requestAnimFrame(animateStep);
- * }
- *
- * @since 1.0.0
- * @see {@link animateScrollTo} - Uses this function for smooth scrolling
- * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame} - Browser support: IE 10+, all modern browsers
- * @see {@link https://caniuse.com/requestanimationframe} - Browser compatibility table
- * @see {@link https://web.dev/prefers-reduced-motion/} - Respecting user motion preferences
- */
 declare global {
   interface Window {
     mozRequestAnimationFrame?: any;
   }
 }
+
+/**
+ * 跨浏览器兼容的 requestAnimationFrame，旧浏览器降级为 setTimeout(fn, 1000/60)。
+ * Cross-browser compatible requestAnimationFrame with setTimeout fallback for older browsers.
+ * @param {Function} callback - 在下次重绘前执行的回调函数 / function to call before the next repaint
+ * @returns {number} 可传入 cancelAnimationFrame 的请求 ID / request ID usable with cancelAnimationFrame
+ * @example
+ * ```ts
+ * function animate() {
+ *   updatePosition();
+ *   requestAnimFrame(animate);
+ * }
+ * requestAnimFrame(animate);
+ * ```
+ * @example
+ * ```ts
+ * // 仅在支持 requestAnimationFrame 的浏览器中运行动画
+ * let id: number;
+ * function start() { id = requestAnimFrame(step); }
+ * function stop() { cancelAnimationFrame(id); }
+ * ```
+ * @since 1.0.0
+ * @see {@link animateScrollTo}
+ */
 export const requestAnimFrame = (function () {
   if (typeof window !== 'undefined') {
     return (
@@ -774,7 +836,7 @@ export const requestAnimFrame = (function () {
   }
 
   return function (callback: (...args: unknown[]) => unknown) {
-    window.setTimeout(callback, 1000 / 60);
+    return setTimeout(callback, 1000 / 60);
   };
 })();
 
@@ -784,16 +846,21 @@ export const requestAnimFrame = (function () {
  * @param {number} duration - Animation duration in milliseconds
  * @returns {void}
  * @example
+ * ```ts
  * // Smooth scroll to top over 500ms
  * animateScrollTo(0, 500);
  *
+ * ```
  * @example
+ * ```ts
  * // Scroll to specific section with smooth animation
  * const targetSection = document.getElementById('contact');
  * const targetPosition = getOffsetPos(targetSection).top - 60; // Account for fixed header
  * animateScrollTo(targetPosition, 800);
  *
+ * ```
  * @example
+ * ```ts
  * // Accessible smooth scrolling with reduced motion support
  * function scrollToSection(sectionId) {
  *   const section = document.getElementById(sectionId);
@@ -810,7 +877,9 @@ export const requestAnimFrame = (function () {
  *   section.focus();
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Scroll to form errors with animation
  * function scrollToFirstError() {
  *   const firstError = document.querySelector('.field-error');
@@ -823,6 +892,7 @@ export const requestAnimFrame = (function () {
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  * @see {@link setScrollTop} - Instant scroll positioning
  * @see {@link smoothScroll} - CSS-based smooth scrolling
@@ -861,10 +931,13 @@ export function animateScrollTo(to: number, duration: number) {
  * @param {string} elemSelector - CSS selector for the target element
  * @returns {void}
  * @example
+ * ```ts
  * // Scroll to a specific section
  * smoothScroll('#about-section');
  *
+ * ```
  * @example
+ * ```ts
  * // Scroll to form validation errors
  * const firstError = document.querySelector('.error');
  * if (firstError) {
@@ -872,7 +945,9 @@ export function animateScrollTo(to: number, duration: number) {
  *   firstError.focus(); // Improve accessibility
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Navigation menu with smooth scrolling
  * document.querySelectorAll('.nav-link').forEach(link => {
  *   link.addEventListener('click', (e) => {
@@ -885,7 +960,9 @@ export function animateScrollTo(to: number, duration: number) {
  *   });
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Accessible skip link implementation
  * const skipLink = document.getElementById('skip-to-main');
  * skipLink.addEventListener('click', (e) => {
@@ -898,6 +975,7 @@ export function animateScrollTo(to: number, duration: number) {
  *   mainContent.focus();
  * });
  *
+ * ```
  * @since 1.0.0
  * @see {@link animateScrollTo} - Custom animated scrolling with duration control
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView} - Browser support: IE 6+, smooth behavior in modern browsers
@@ -914,6 +992,7 @@ export function smoothScroll(elemSelector: string) {
  * @description Disables copy and paste functionality on the webpage (use with caution for accessibility)
  * @returns {Function} Cleanup function to restore original copy/paste behavior
  * @example
+ * ```ts
  * // Temporarily disable copy/paste for sensitive content
  * const restoreCopyPaste = disableCopy();
  *
@@ -922,7 +1001,9 @@ export function smoothScroll(elemSelector: string) {
  *   restoreCopyPaste();
  * }, 5000);
  *
+ * ```
  * @example
+ * ```ts
  * // Disable copy/paste during exam or secure content viewing
  * let copyPasteDisabled = false;
  * const toggleCopyPaste = document.getElementById('toggle-security');
@@ -939,7 +1020,9 @@ export function smoothScroll(elemSelector: string) {
  *   }
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Provide alternative for accessibility when disabling copy
  * const restoreCopy = disableCopy();
  *
@@ -952,6 +1035,7 @@ export function smoothScroll(elemSelector: string) {
  * });
  * document.body.appendChild(copyButton);
  *
+ * ```
  * @since 1.0.0
  * @see {@link https://developer.mozilla.org/en-US/docs/Web/API/Navigator/clipboard} - Modern clipboard API
  * @see {@link https://www.w3.org/WAI/WCAG21/Understanding/keyboard.html} - WCAG: Keyboard accessibility considerations

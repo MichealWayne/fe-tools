@@ -43,23 +43,29 @@ export interface ImageConfig {
  * @description Default configuration object for image processing operations
  * @type {ImageConfig}
  * @example
+ * ```ts
  * // Use default settings
  * import config from './config';
  * console.log(config.quality); // 90
  *
+ * ```
  * @example
+ * ```ts
  * // Modify settings at runtime
  * config.quality = 95; // Higher quality output
  * config.webpQuality = 85; // Better WebP quality
  * config.blur.radius = 10; // Stronger blur effect
  *
+ * ```
  * @example
+ * ```ts
  * // Custom blur settings for artistic effects
  * config.blur = {
  *   color: 16,    // More colors preserved
  *   radius: 15,   // Larger blur radius
  *   sigma: 8      // Stronger blur intensity
  * };
+ * ```
  */
 const config: ImageConfig = {
   blur: {

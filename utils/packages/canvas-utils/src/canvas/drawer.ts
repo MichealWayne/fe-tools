@@ -27,6 +27,7 @@ import { PointPosition } from '../types';
  * @param {PointPosition} point2 - 终点。The ending point coordinates with x and y properties
  * @returns {void} This function does not return a value
  * @example
+ * ```ts
  * // Basic line drawing
  * const canvas = document.getElementById('myCanvas');
  * const ctx = canvas.getContext('2d');
@@ -34,7 +35,9 @@ import { PointPosition } from '../types';
  * ctx.lineWidth = 2;
  * drawLine(ctx, { x: 10, y: 10 }, { x: 100, y: 100 });
  *
+ * ```
  * @example
+ * ```ts
  * // Drawing multiple connected lines
  * const points = [
  *   { x: 0, y: 50 },
@@ -46,6 +49,7 @@ import { PointPosition } from '../types';
  *   drawLine(ctx, points[i], points[i + 1]);
  * }
  *
+ * ```
  * @since 1.0.0
  */
 export function drawLine(
@@ -70,13 +74,17 @@ export function drawLine(
  * @returns {number} 斜边长度。The hypotenuse length (straight-line distance between the points)
  * @private
  * @example
+ * ```ts
  * // Calculate distance for a 3-4-5 right triangle
  * const distance = _getBeveling(3, 4); // Returns 5
  *
+ * ```
  * @example
+ * ```ts
  * // Calculate diagonal distance of a square
  * const diagonal = _getBeveling(10, 10); // Returns ~14.14
  *
+ * ```
  * @since 1.0.0
  */
 function _getBeveling(x: number, y: number): number {
@@ -92,13 +100,16 @@ function _getBeveling(x: number, y: number): number {
  * @param {number} [dashLen=5] - 虚线宽度。The length of each dash segment in pixels
  * @returns {void} This function does not return a value
  * @example
+ * ```ts
  * // Basic dashed line with default dash length
  * const canvas = document.getElementById('myCanvas');
  * const ctx = canvas.getContext('2d');
  * ctx.strokeStyle = '#333333';
  * drawDashLine(ctx, { x: 0, y: 50 }, { x: 200, y: 50 });
  *
+ * ```
  * @example
+ * ```ts
  * // Custom dash length for different visual effects
  * ctx.strokeStyle = '#ff6600';
  * drawDashLine(ctx, { x: 10, y: 10 }, { x: 150, y: 100 }, 10); // Longer dashes
@@ -106,6 +117,7 @@ function _getBeveling(x: number, y: number): number {
  * ctx.strokeStyle = '#0066ff';
  * drawDashLine(ctx, { x: 10, y: 120 }, { x: 150, y: 200 }, 2); // Shorter dashes
  *
+ * ```
  * @since 1.0.0
  * @see {@link drawLine} - For solid line drawing
  */
@@ -137,16 +149,21 @@ export function drawDashLine(
  * @param {number} [strokeWidth=1] - The width of the stroke (border) in pixels. Set to 0 to disable stroke
  * @returns {void} This function does not return a value
  * @example
+ * ```ts
  * // Basic filled circle without stroke
  * const canvas = document.getElementById('myCanvas');
  * const ctx = canvas.getContext('2d');
  * drawPoint(ctx, { x: 50, y: 50 }, '#ff0000', '#ffffff', 10, 0);
  *
+ * ```
  * @example
+ * ```ts
  * // Circle with both fill and stroke
  * drawPoint(ctx, { x: 100, y: 100 }, '#0066cc', '#ffffff', 15, 2);
  *
+ * ```
  * @example
+ * ```ts
  * // Creating data points for a scatter plot
  * const dataPoints = [
  *   { x: 20, y: 30 },
@@ -157,6 +174,7 @@ export function drawDashLine(
  *   drawPoint(ctx, point, '#ff6600', '#333333', 8, 1);
  * });
  *
+ * ```
  * @since 1.0.0
  */
 export function drawPoint(
@@ -191,6 +209,7 @@ export function drawPoint(
  * @param {string | number} text - 文字内容。The text content to be drawn (numbers will be converted to strings)
  * @returns {void} This function does not return a value
  * @example
+ * ```ts
  * // Basic rotated text
  * const canvas = document.getElementById('myCanvas');
  * const ctx = canvas.getContext('2d');
@@ -198,7 +217,9 @@ export function drawPoint(
  * ctx.fillStyle = '#333333';
  * drawRotateText(ctx, { x: 100, y: 100 }, 45, 'Rotated Text');
  *
+ * ```
  * @example
+ * ```ts
  * // Creating rotated labels for chart axes
  * const labels = ['Jan', 'Feb', 'Mar', 'Apr'];
  * labels.forEach((label, index) => {
@@ -207,12 +228,15 @@ export function drawPoint(
  *   drawRotateText(ctx, { x, y }, -45, label);
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Rotating numeric values
  * ctx.font = '14px monospace';
  * ctx.fillStyle = '#0066cc';
  * drawRotateText(ctx, { x: 150, y: 150 }, 90, 42.5);
  *
+ * ```
  * @since 1.0.0
  */
 export function drawRotateText(
@@ -238,6 +262,7 @@ export function drawRotateText(
  * @param {number} width - The radius of the circular area to clear in pixels
  * @returns {void} This function does not return a value
  * @example
+ * ```ts
  * // Clear a circular area to create a "hole" effect
  * const canvas = document.getElementById('myCanvas');
  * const ctx = canvas.getContext('2d');
@@ -249,7 +274,9 @@ export function drawRotateText(
  * // Then clear a circular area
  * clearArc(ctx, { x: 100, y: 100 }, 50);
  *
+ * ```
  * @example
+ * ```ts
  * // Creating multiple circular cutouts
  * ctx.fillStyle = '#0066cc';
  * ctx.fillRect(0, 0, 300, 200);
@@ -264,6 +291,7 @@ export function drawRotateText(
  *   clearArc(ctx, { x: hole.x, y: hole.y }, hole.radius);
  * });
  *
+ * ```
  * @since 1.0.0
  */
 export function clearArc(ctx: CanvasRenderingContext2D, point: PointPosition, width: number): void {
@@ -298,6 +326,7 @@ export function clearArc(ctx: CanvasRenderingContext2D, point: PointPosition, wi
  * @param {CanvasRenderingContext2D} ctx - The 2D rendering context of the canvas element
  * @returns {number} The device pixel ratio that was applied (1 for standard displays, >1 for high-DPI displays)
  * @example
+ * ```ts
  * // Basic retina scaling setup
  * const canvas = document.getElementById('myCanvas');
  * const ctx = canvas.getContext('2d');
@@ -310,7 +339,9 @@ export function clearArc(ctx: CanvasRenderingContext2D, point: PointPosition, wi
  * const pixelRatio = retinaScale(canvas, ctx);
  * console.log(`Applied pixel ratio: ${pixelRatio}`);
  *
+ * ```
  * @example
+ * ```ts
  * // Complete setup for high-DPI canvas
  * function setupCanvas(canvasId) {
  *   const canvas = document.getElementById(canvasId);
@@ -330,6 +361,7 @@ export function clearArc(ctx: CanvasRenderingContext2D, point: PointPosition, wi
  *   return { canvas, ctx, ratio };
  * }
  *
+ * ```
  * @since 1.0.0
  */
 export function retinaScale(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D): number {

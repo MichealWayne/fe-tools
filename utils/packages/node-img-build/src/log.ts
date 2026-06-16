@@ -9,10 +9,13 @@
  * @description Logging utility object with timestamped message formatting
  * @namespace log
  * @example
+ * ```ts
  * // Log processing information
  * log.info('Starting image conversion batch');
  *
+ * ```
  * @example
+ * ```ts
  * // Log errors during processing
  * try {
  *   await processImage();
@@ -20,9 +23,12 @@
  *   log.error(error);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Log successful operations
  * log.success('All images converted successfully');
+ * ```
  */
 export default {
   /**
@@ -30,8 +36,10 @@ export default {
    * @param {string} message - Information message to log
    * @returns {void}
    * @example
+   * ```ts
    * log.info('Processing 15 images in batch');
    * log.info(`Converting ${filename} to WebP format`);
+   * ```
    */
   info: (message: string): void => {
     console.log(`[INFO] ${new Date().toISOString()}: ${message}`);
@@ -42,16 +50,20 @@ export default {
    * @param {string | Error} message - Error message or Error object to log
    * @returns {void}
    * @example
+   * ```ts
    * // Log string error message
    * log.error('Failed to read image directory');
    *
+   * ```
    * @example
+   * ```ts
    * // Log Error object
    * try {
    *   await processImage();
    * } catch (err) {
    *   log.error(err); // Automatically extracts error message
    * }
+   * ```
    */
   error: (message: string | Error): void => {
     console.error(
@@ -64,8 +76,10 @@ export default {
    * @param {string} message - Success message to log
    * @returns {void}
    * @example
+   * ```ts
    * log.success('Image converted successfully to WebP');
    * log.success(`Generated 1x image: ${outputPath}`);
+   * ```
    */
   success: (message: string): void => {
     console.log(`[SUCCESS] ${new Date().toISOString()}: ${message}`);

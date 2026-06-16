@@ -33,10 +33,13 @@ describe('number test', () => {
   });
 
   it('isOdd()', () => {
-    expect(isOdd(2)).toBe(true);
-    expect(isOdd(0)).toBe(true);
-    expect(isOdd(1)).toBe(false);
-    expect(isOdd(-2)).toBe(true);
+    // Fixed: isOdd now detects odd numbers (was even-detection, contradicting the name).
+    expect(isOdd(1)).toBe(true);
+    expect(isOdd(3)).toBe(true);
+    expect(isOdd(-3)).toBe(true);
+    expect(isOdd(0)).toBe(false);
+    expect(isOdd(2)).toBe(false);
+    expect(isOdd(-2)).toBe(false);
   });
 
   it('should return true when given a float number', () => {
@@ -90,6 +93,12 @@ describe('number test', () => {
   it('should return the minimum value when the input number is less than the minimum value', () => {
     const result = clamp(-3, 0, 10);
     expect(result).toEqual(0);
+  });
+
+  it('should throw RangeError when min > max', () => {
+    // Fixed: clamp(5, 10, 1) previously returned an unpredictable value.
+    expect(() => clamp(5, 10, 1)).toThrow(RangeError);
+    expect(() => clamp(0, 100, 0)).toThrow(RangeError);
   });
 
   it('should round a positive number with default decimal places to an integer', () => {

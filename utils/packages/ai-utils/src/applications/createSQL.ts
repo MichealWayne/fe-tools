@@ -15,7 +15,7 @@ import { STANDARD_PROMPT_TEMPLATE } from '../templates';
 
 const MAX_TOKEN_LEN = 15000; // More reasonable for SQL context/schema
 
-interface SqlPromptOptions {
+export interface SqlPromptOptions {
   engine?: string;
   schema?: string;
 }
@@ -52,10 +52,20 @@ function getSqlPromptTxt({ engine, schema }: SqlPromptOptions): string {
 
 /**
  * @function genSqlPrompt
- * @description 生成用于SQL查询的Prompt
- * @param {SqlPromptOptions} options 数据库引擎和schema信息
- * @param {number} maxLen token最大长度, 默认15000
- * @returns {string} 符合要求的Prompt文本，如果超过长度限制则返回空字符串
+ * @description 根据数据库 schema 和引擎信息生成 SQL 查询的 Prompt 文本。Generates a prompt for SQL query generation based on database schema and engine info
+ * @param {SqlPromptOptions} input - 数据库引擎和 schema 信息 / database engine and schema information
+ * @param {number} [maxLen=15000] - token 最大长度限制 / maximum token length
+ * @returns {string} 符合要求的 Prompt 文本，超过长度限制时返回空字符串。Prompt text, or empty string if it exceeds the token limit
+ * @example
+ * ```ts
+ * const prompt = genSqlPrompt({ engine: 'MySQL', schema: 'CREATE TABLE users (id INT, name VARCHAR(100))' });
+ * console.log(prompt); // -> 完整的 SQL 生成 prompt
+ * ```
+ * @example
+ * ```ts
+ * const prompt = genSqlPrompt({ engine: 'PostgreSQL', schema: schemaStr });
+ * if (prompt) sendToLLM(prompt);
+ * ```
  */
 export const genSqlPrompt = createPromptGenerator(
   { maxTokenLength: MAX_TOKEN_LEN },

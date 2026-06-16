@@ -15,16 +15,22 @@
  * @param {string} sql - 待校验的SQL字符串。SQL string to validate
  * @returns {boolean} 如果未发现明显语法异常则返回true。True if no obvious syntax anomalies found
  * @example
+ * ```ts
  * // Basic SELECT
  * isValidSQL('SELECT * FROM users WHERE id = 1;'); // true
  *
+ * ```
  * @example
+ * ```ts
  * // Unmatched quote
  * isValidSQL("SELECT * FROM users WHERE name = 'Alice"); // false
  *
+ * ```
  * @example
+ * ```ts
  * // Unbalanced parentheses
  * isValidSQL('SELECT (id FROM users'); // false
+ * ```
  */
 export function isValidSQL(sql: string): boolean {
   const input = sql.trim();

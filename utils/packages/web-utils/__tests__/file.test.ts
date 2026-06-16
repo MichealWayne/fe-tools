@@ -250,7 +250,8 @@ describe('File module', () => {
 
     test('should return empty string for files without extension', () => {
       expect(getFileExtension('file')).toBe('');
-      expect(getFileExtension('.file')).toBe('file');
+      expect(getFileExtension('.file')).toBe('');
+      expect(getFileExtension('.gitignore')).toBe('');
       expect(getFileExtension('')).toBe('');
     });
   });

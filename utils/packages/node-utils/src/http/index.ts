@@ -36,7 +36,9 @@ const isRedirectStatus = (statusCode?: number) =>
  * @param {object} headers - 请求头对象。Headers object
  * @returns {object} 解析后的请求头。Parsed headers
  * @example
+ * ```ts
  * const headers = parseHeaders(req.headers);
+ * ```
  */
 export function parseHeaders(headers: http.IncomingHttpHeaders): Record<string, string> {
   const result: Record<string, string> = {};
@@ -57,9 +59,11 @@ export function parseHeaders(headers: http.IncomingHttpHeaders): Record<string, 
  * @param {string} dest - 目标路径。Destination path
  * @returns {Promise<string>} 下载的文件路径。Downloaded file path
  * @example
+ * ```ts
  * downloadFile('https://example.com/file.pdf', './downloads/file.pdf')
  *   .then(filePath => console.log(`Downloaded to ${filePath}`))
  *   .catch(err => console.error(err));
+ * ```
  */
 export function downloadFile(
   fileUrl: string,
@@ -131,9 +135,11 @@ export function downloadFile(
  * @param {string} requestUrl - 请求URL。Request URL
  * @returns {Promise<any>} JSON响应数据。JSON response data
  * @example
+ * ```ts
  * getJSON('https://api.example.com/data')
  *   .then(data => console.log(data))
  *   .catch(err => console.error(err));
+ * ```
  */
 export function getJSON(requestUrl: string): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -171,9 +177,11 @@ export function getJSON(requestUrl: string): Promise<any> {
  * @param {object} data - 要发送的数据。Data to send
  * @returns {Promise<any>} 响应数据。Response data
  * @example
+ * ```ts
  * postJSON('https://api.example.com/users', { name: 'John', email: 'john@example.com' })
  *   .then(response => console.log(response))
  *   .catch(err => console.error(err));
+ * ```
  */
 export function postJSON(requestUrl: string, data: any): Promise<any> {
   return new Promise((resolve, reject) => {
@@ -226,10 +234,12 @@ export function postJSON(requestUrl: string, data: any): Promise<any> {
  * @param {Function} handler - 请求处理函数。Request handler function
  * @returns {http.Server} HTTP服务器实例。HTTP server instance
  * @example
+ * ```ts
  * const server = createSimpleServer(3000, (req, res) => {
  *   res.writeHead(200, { 'Content-Type': 'text/plain' });
  *   res.end('Hello World');
  * });
+ * ```
  */
 export function createSimpleServer(
   port: number,
@@ -249,15 +259,19 @@ export function createSimpleServer(
  * @param {Function} handler - 请求处理函数。Request handler function
  * @returns {http.Server} HTTP服务器实例。HTTP server instance
  * @example
+ * ```ts
  * const server = createHTTPServer(3000, (req, res) => {
  *   res.writeHead(200, { 'Content-Type': 'text/plain' });
  *   res.end('Hello');
  * });
  *
+ * ```
  * @example
+ * ```ts
  * const server = createHTTPServer(8080, (req, res) => {
  *   res.end(JSON.stringify({ ok: true }));
  * });
+ * ```
  */
 export function createHTTPServer(
   port: number,
@@ -273,11 +287,15 @@ export function createHTTPServer(
  * @param {number} port - 代理监听端口。Proxy listen port
  * @returns {http.Server} HTTP服务器实例。HTTP server instance
  * @example
+ * ```ts
  * const proxy = createSimpleProxy('http://localhost:4000', 3001);
  *
+ * ```
  * @example
+ * ```ts
  * // Proxy HTTPS target
  * const proxy = createSimpleProxy('https://example.com', 3002);
+ * ```
  */
 export function createSimpleProxy(target: string, port: number): http.Server {
   const targetUrl = new url.URL(target);
@@ -324,12 +342,16 @@ export function createSimpleProxy(target: string, port: number): http.Server {
  * @param {number} [options.maxRedirects=5] - 最大重定向次数。Max redirects
  * @returns {Promise<string>} 响应内容。Response body
  * @example
+ * ```ts
  * await uploadFile('./file.txt', 'https://example.com/upload');
  *
+ * ```
  * @example
+ * ```ts
  * await uploadFile('./image.png', 'https://example.com/upload', {
  *   headers: { Authorization: 'Bearer token' }
  * });
+ * ```
  */
 export function uploadFile(
   filePath: string,
@@ -416,7 +438,9 @@ export function uploadFile(
  * @param {number} port - 端口号。Port number
  * @returns {http.Server} HTTP服务器实例。HTTP server instance
  * @example
+ * ```ts
  * const server = serveStatic('./public', 3000);
+ * ```
  */
 export function serveStatic(rootDir: string, port: number): http.Server {
   const mimeTypes: Record<string, string> = {

@@ -17,6 +17,12 @@ describe('factorial', () => {
     expect(factorial(1)).toBe(1);
   });
 
+  it('should throw error for non-integer input', () => {
+    // Per JSDoc: factorial is only defined for integers.
+    expect(() => factorial(2.5)).toThrow(TypeError);
+    expect(() => factorial(3.14)).toThrow(TypeError);
+  });
+
   it('should throw error if n < 0', () => {
     expect(() => factorial(-1)).toThrow(TypeError);
     expect(() => factorial(-5)).toThrow(TypeError);
@@ -43,14 +49,31 @@ describe('gcd', () => {
   });
 
   it('should work with negative numbers', () => {
-    expect(Math.abs(gcd(-12, 18))).toBe(6);
-    expect(Math.abs(gcd(12, -18))).toBe(6);
-    expect(Math.abs(gcd(-12, -18))).toBe(6);
+    // GCD is always non-negative; fixed from previously returning a negative value.
+    expect(gcd(-12, 18)).toBe(6);
+    expect(gcd(12, -18)).toBe(6);
+    expect(gcd(-12, -18)).toBe(6);
   });
 
   it('should handle edge cases', () => {
     expect(gcd(1, 1)).toBe(1);
     expect(gcd(100, 50)).toBe(50);
+  });
+
+  it('should throw for non-number inputs (per JSDoc)', () => {
+    // @ts-expect-error - intentionally passing non-number
+    expect(() => gcd('12', 18)).toThrow(TypeError);
+    // @ts-expect-error - intentionally passing non-number
+    expect(() => gcd(12, null)).toThrow(TypeError);
+  });
+
+  it('should throw for NaN / Infinity (avoid infinite recursion)', () => {
+    // Regression: the abs()-based impl infinite-looped on NaN/Infinity because
+    // (NaN % x) and (Infinity % x) never reach 0.
+    expect(() => gcd(NaN, 5)).toThrow(TypeError);
+    expect(() => gcd(5, NaN)).toThrow(TypeError);
+    expect(() => gcd(Infinity, 5)).toThrow(TypeError);
+    expect(() => gcd(5, Infinity)).toThrow(TypeError);
   });
 });
 
@@ -77,6 +100,18 @@ describe('isDivisible', () => {
     expect(isDivisible(5, 1)).toBe(true); // any number is divisible by 1
   });
 
+  it('should throw when divisor is 0 (per JSDoc)', () => {
+    expect(() => isDivisible(5, 0)).toThrow('Division by zero!');
+    expect(() => isDivisible(0, 0)).toThrow();
+  });
+
+  it('should throw for non-number inputs (per JSDoc)', () => {
+    // @ts-expect-error - intentionally passing non-number
+    expect(() => isDivisible('12', 3)).toThrow(TypeError);
+    // @ts-expect-error - intentionally passing non-number
+    expect(() => isDivisible(12, null)).toThrow(TypeError);
+  });
+
   it('should work with negative numbers', () => {
     expect(isDivisible(-12, 3)).toBe(true);
     expect(isDivisible(12, -3)).toBe(true);
@@ -97,6 +132,16 @@ describe('lcm', () => {
     expect(lcm(5, 1)).toBe(5); // LCM with 1 is the number itself
   });
 
+  it('should return 0 for lcm(0, 0)', () => {
+    // Fixed from previously returning NaN (0/0).
+    expect(lcm(0, 0)).toBe(0);
+  });
+
+  it('should work with negative numbers (always non-negative result)', () => {
+    expect(lcm(-12, 18)).toBe(36);
+    expect(lcm(-12, -18)).toBe(36);
+  });
+
   it('should handle identical numbers', () => {
     expect(lcm(8, 8)).toBe(8);
     expect(lcm(10, 10)).toBe(10);
@@ -107,5 +152,17 @@ describe('lcm', () => {
     const lcmResult = lcm(x, y);
     const gcdResult = gcd(x, y);
     expect(lcmResult * gcdResult).toBe(Math.abs(x * y));
+  });
+
+  it('should throw for non-number inputs (per JSDoc)', () => {
+    // @ts-expect-error - intentionally passing non-number
+    expect(() => lcm('12', 18)).toThrow(TypeError);
+    // @ts-expect-error - intentionally passing non-number
+    expect(() => lcm(12, undefined)).toThrow(TypeError);
+  });
+
+  it('should throw for NaN / Infinity', () => {
+    expect(() => lcm(NaN, 5)).toThrow(TypeError);
+    expect(() => lcm(5, Infinity)).toThrow(TypeError);
   });
 });

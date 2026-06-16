@@ -34,6 +34,14 @@ export class WorkerPool {
     resolve: (value: any) => void;
     reject: (reason?: any) => void;
   }> = [];
+  private runningTasks: Map<
+    Worker,
+    {
+      task: any;
+      resolve: (value: any) => void;
+      reject: (reason?: any) => void;
+    }
+  > = new Map();
   private activeWorkers: Set<Worker> = new Set();
 
   /**
@@ -78,13 +86,11 @@ export class WorkerPool {
    */
   private handleWorkerMessage(worker: Worker, event: MessageEvent) {
     this.activeWorkers.delete(worker);
+    const task = this.runningTasks.get(worker);
+    this.runningTasks.delete(worker);
 
-    // 查找与此工作线程关联的任务
-    const taskIndex = this.queue.findIndex(item => item.task.workerId === worker.onmessage);
-
-    if (taskIndex !== -1) {
-      const { resolve } = this.queue[taskIndex];
-      this.queue.splice(taskIndex, 1);
+    if (task) {
+      const { resolve } = task;
       resolve(event.data);
     }
 
@@ -96,13 +102,11 @@ export class WorkerPool {
    */
   private handleWorkerError(worker: Worker, error: ErrorEvent) {
     this.activeWorkers.delete(worker);
+    const task = this.runningTasks.get(worker);
+    this.runningTasks.delete(worker);
 
-    // 查找与此工作线程关联的任务
-    const taskIndex = this.queue.findIndex(item => item.task.workerId === worker.onmessage);
-
-    if (taskIndex !== -1) {
-      const { reject } = this.queue[taskIndex];
-      this.queue.splice(taskIndex, 1);
+    if (task) {
+      const { reject } = task;
       reject(error);
     }
 
@@ -121,7 +125,7 @@ export class WorkerPool {
       const task = this.queue.shift();
       if (task) {
         this.activeWorkers.add(availableWorker);
-        task.task.workerId = availableWorker.onmessage;
+        this.runningTasks.set(availableWorker, task);
         availableWorker.postMessage(task.task.data);
       }
     }
@@ -152,11 +156,15 @@ export class WorkerPool {
     this.workers = [];
     this.activeWorkers.clear();
 
-    // 拒绝所有待处理的任务
+    // 拒绝所有待处理和运行中的任务
     this.queue.forEach(({ reject }) => {
       reject(new Error('Worker pool terminated'));
     });
+    this.runningTasks.forEach(({ reject }) => {
+      reject(new Error('Worker pool terminated'));
+    });
     this.queue = [];
+    this.runningTasks.clear();
   }
 }
 

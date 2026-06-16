@@ -1,6 +1,6 @@
 {
   "name": "fe-tools-ai-utils",
-  "version": "0.0.1",
+  "version": "1.2.1",
   "description": "FrontEnd tools, AI utils functions.",
   "author": "Wayne <michealwayne@163.com>",
   "license": "ISC",
@@ -29,9 +29,9 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "jest": "^30.0.5",
-    "ts-jest": "^29.4.1"
+    "@types/jest": "^26.0.24",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.2.0"
   },
   "dependencies": {
     "ml-distance": "^4.0.1"

@@ -65,11 +65,24 @@ describe('worker utils', () => {
     expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:mock');
   });
 
-  it('WorkerPool should return a promise for tasks', () => {
+  it('WorkerPool should return a promise for tasks', async () => {
     const pool = new WorkerPool('worker.js', 1);
     const promise = pool.exec({ ok: true });
     expect(promise).toBeInstanceOf(Promise);
     pool.terminate();
+    await expect(promise).rejects.toThrow('Worker pool terminated');
+  });
+
+  it('WorkerPool should resolve task results from worker messages', async () => {
+    jest.useFakeTimers();
+    const pool = new WorkerPool('worker.js', 1);
+    const promise = pool.exec({ ok: true });
+
+    jest.runAllTimers();
+
+    await expect(promise).resolves.toEqual({ ok: true });
+    pool.terminate();
+    jest.useRealTimers();
   });
 
   it('WorkerPool should reject pending tasks on terminate', async () => {

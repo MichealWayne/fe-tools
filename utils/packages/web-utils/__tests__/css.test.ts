@@ -104,6 +104,15 @@ describe('CSS module', () => {
       expect(getStyle(elem, 'width')).toBe(100);
     });
 
+    test('should preserve decimal pixel values', () => {
+      const elem = document.createElement('div');
+      (document.defaultView!.getComputedStyle as jest.Mock).mockImplementationOnce(() => ({
+        getPropertyValue: jest.fn().mockReturnValue('12.5px'),
+      }));
+
+      expect(getStyle(elem, 'width')).toBe(12.5);
+    });
+
     test('should get style from currentStyle (IE fallback)', () => {
       // Mock element with currentStyle (IE style)
       const elem = {
@@ -144,6 +153,15 @@ describe('CSS module', () => {
 
       expect(getElementSize(elem, 'width')).toBe(100);
       expect(getElementSize(elem, 'height')).toBe(50);
+    });
+
+    test('should preserve decimal element sizes', () => {
+      const elem = document.createElement('div');
+      (document.defaultView!.getComputedStyle as jest.Mock).mockImplementationOnce(() => ({
+        getPropertyValue: jest.fn().mockReturnValue('12.5px'),
+      }));
+
+      expect(getElementSize(elem, 'width')).toBe(12.5);
     });
 
     test('should get element size from currentStyle (IE fallback)', () => {

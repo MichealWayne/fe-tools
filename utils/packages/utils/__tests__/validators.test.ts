@@ -188,9 +188,21 @@ describe('validators test', () => {
     });
 
     it('should handle empty string', () => {
-      const result = isBase64('');
-      // Empty string may return true or false depending on implementation
-      expect(typeof result).toBe('boolean');
+      expect(isBase64('')).toBe(false);
+    });
+
+    it('should validate Base64 without global btoa and atob when Buffer is available', () => {
+      const originalBtoa = (globalThis as any).btoa;
+      const originalAtob = (globalThis as any).atob;
+
+      try {
+        delete (globalThis as any).btoa;
+        delete (globalThis as any).atob;
+        expect(isBase64('SGVsbG8=')).toBe(true);
+      } finally {
+        (globalThis as any).btoa = originalBtoa;
+        (globalThis as any).atob = originalAtob;
+      }
     });
   });
 
@@ -200,8 +212,21 @@ describe('validators test', () => {
       expect(isJWT(validJWT)).toBe(true);
     });
 
+    it('should validate JWT tokens without global atob when Buffer is available', () => {
+      const originalAtob = (globalThis as any).atob;
+      const validJWT = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjMifQ.signature';
+
+      try {
+        delete (globalThis as any).atob;
+        expect(isJWT(validJWT)).toBe(true);
+      } finally {
+        (globalThis as any).atob = originalAtob;
+      }
+    });
+
     it('should reject invalid JWT tokens', () => {
       expect(isJWT('invalid')).toBe(false);
+      expect(isJWT('a.b.c')).toBe(false);
       expect(isJWT('part1.part2')).toBe(false); // Missing third part
       expect(isJWT('part1.part2.part3.part4')).toBe(false); // Too many parts
       expect(isJWT('')).toBe(false);

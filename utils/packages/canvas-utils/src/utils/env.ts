@@ -30,12 +30,15 @@ const { NODE_ENV } = (globalObj as { process?: { env?: { NODE_ENV?: string } } }
  * @description 基于NODE_ENV环境变量的开发模式标志。Development mode flag based on NODE_ENV environment variable. Can also be set using webpack.DefinePlugin for build-time optimization.
  * @type {boolean}
  * @example
+ * ```ts
  * // Conditional debugging
  * if (__DEV__) {
  *   console.log('Canvas debug info:', { width: canvas.width, height: canvas.height });
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Performance monitoring in development
  * function drawChart(ctx, data) {
  *   const startTime = __DEV__ ? performance.now() : 0;
@@ -49,6 +52,7 @@ const { NODE_ENV } = (globalObj as { process?: { env?: { NODE_ENV?: string } } }
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  */
 export const __DEV__ = NODE_ENV === 'development';
@@ -58,6 +62,7 @@ export const __DEV__ = NODE_ENV === 'development';
  * @description 检测代码是否在微信小程序环境中运行。Detects if the code is running in a WeChat mini-program environment by checking for WeChat-specific global objects and APIs.
  * @type {boolean}
  * @example
+ * ```ts
  * // Platform-specific canvas handling
  * function initializeCanvas(options) {
  *   if (isWeapp) {
@@ -72,7 +77,9 @@ export const __DEV__ = NODE_ENV === 'development';
  *   }
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Conditional feature availability
  * function saveChart() {
  *   if (isWeapp) {
@@ -90,6 +97,7 @@ export const __DEV__ = NODE_ENV === 'development';
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  */
 export const isWeapp = typeof wx !== 'undefined' && typeof wx.getSystemInfoSync !== 'undefined';
@@ -99,6 +107,7 @@ export const isWeapp = typeof wx !== 'undefined' && typeof wx.getSystemInfoSync 
  * @description 检测代码是否在Web浏览器环境中运行（不包括微信小程序）。Detects if the code is running in a web browser environment (excluding WeChat mini-programs).
  * @type {boolean}
  * @example
+ * ```ts
  * // Web-specific DOM operations
  * function setupCanvasEvents(canvas) {
  *   if (isWeb) {
@@ -111,7 +120,9 @@ export const isWeapp = typeof wx !== 'undefined' && typeof wx.getSystemInfoSync 
  *   }
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Responsive canvas sizing
  * function updateCanvasSize(canvas) {
  *   if (isWeb) {
@@ -126,6 +137,7 @@ export const isWeapp = typeof wx !== 'undefined' && typeof wx.getSystemInfoSync 
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  */
 export const isWeb = typeof window !== 'undefined' && !isWeapp;
@@ -135,6 +147,7 @@ export const isWeb = typeof window !== 'undefined' && !isWeapp;
  * @description 检测代码是否在Node.js环境中运行。Detects if the code is running in a Node.js environment by checking for Node.js-specific process object and version information.
  * @type {boolean}
  * @example
+ * ```ts
  * // Server-side canvas rendering
  * function generateChartImage(data) {
  *   if (isNode) {
@@ -155,7 +168,9 @@ export const isWeb = typeof window !== 'undefined' && !isWeapp;
  *   }
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Environment-specific imports
  * async function loadCanvasLibrary() {
  *   if (isNode) {
@@ -168,6 +183,7 @@ export const isWeb = typeof window !== 'undefined' && !isWeapp;
  *   }
  * }
  *
+ * ```
  * @since 1.0.0
  */
 export const isNode =

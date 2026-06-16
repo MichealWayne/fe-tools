@@ -17,21 +17,28 @@
  * @param {string} input - 需要估算token数量的字符串。The string to estimate token length for (supports multilingual text)
  * @returns {number} 估算的token数量。The estimated number of tokens (rough approximation)
  * @example
+ * ```ts
  * // Estimate tokens for English text
  * const englishTokens = estimateTokenLength('Hello, how are you today?');
  * console.log(englishTokens); // Approximately 6-8 tokens
  *
+ * ```
  * @example
+ * ```ts
  * // Estimate tokens for Chinese text
  * const chineseTokens = estimateTokenLength('你好，今天怎么样？');
  * console.log(chineseTokens); // Approximately 8-10 tokens
  *
+ * ```
  * @example
+ * ```ts
  * // Estimate tokens for code
  * const codeTokens = estimateTokenLength('function hello() { return "world"; }');
  * console.log(codeTokens); // Approximately 8-12 tokens
  *
+ * ```
  * @example
+ * ```ts
  * // Check if prompt fits within model limits
  * const prompt = 'Generate a summary of this article...';
  * const tokens = estimateTokenLength(prompt);
@@ -40,6 +47,7 @@
  *   console.warn('Prompt may be too long for model');
  * }
  *
+ * ```
  * @see {@link https://www.npmjs.com/package/tiktoken} - For precise OpenAI token counting
  */
 export function estimateTokenLength(input: string): number {

@@ -102,10 +102,18 @@ describe('isTransparentColor', () => {
   });
 
   it('should identify non-transparent colors', () => {
-    expect(isTransparentColor('rgba(0,0,0,0.1)')).toBe(true);
+    // Fixed: the old regex captured alpha without the decimal point, so '0.1' was
+    // mis-read as '0' and reported transparent. Now full alpha is matched.
+    expect(isTransparentColor('rgba(0,0,0,0.1)')).toBe(false);
+    expect(isTransparentColor('rgba(0,0,0,0.5)')).toBe(false);
     expect(isTransparentColor('rgba(0,0,0,1)')).toBe(false);
     expect(isTransparentColor('rgb(255,255,255)')).toBe(false);
     expect(isTransparentColor('rgb(0,0,0)')).toBe(false);
+  });
+
+  it('should treat only alpha 0 (and 0.0) as transparent', () => {
+    expect(isTransparentColor('rgba(0,0,0,0.0)')).toBe(true);
+    expect(isTransparentColor('rgba(0,0,0,0)')).toBe(true);
   });
 
   it('should handle invalid input', () => {
