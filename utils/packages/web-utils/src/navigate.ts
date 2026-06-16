@@ -28,8 +28,15 @@ export interface NavigateOptions {
  * @description 跳转到指定URL，支持新标签页、替换等选项。Navigates to a specified URL with support for new tabs, replacement, and other options
  * @param {string} url - 跳转地址。The URL to navigate to
  * @param {NavigateOptions} [options] - 跳转选项。Navigation options
+ * @returns {void}
  * @example
+ * ```ts
  * navigateTo('https://example.com', { newTab: true });
+ * ```
+ * @example
+ * ```ts
+ * navigateTo('/dashboard', { replace: true }); // 替换当前历史记录 / replace current history entry
+ * ```
  */
 export function navigateTo(url: string, options: NavigateOptions = {}): void {
   const { replace = false, newTab = false, target = '_blank' } = options;
@@ -54,6 +61,17 @@ export function navigateTo(url: string, options: NavigateOptions = {}): void {
  * @function httpsRedirect
  * @description 强制跳转到HTTPS协议，将HTTP转换为HTTPS。Forces redirect to HTTPS protocol, converting HTTP to HTTPS
  * @param {string} [url] - 跳转地址（可选，默认为当前页面地址）。The URL to redirect (optional, defaults to current page URL)
+ * @returns {void}
+ * @example
+ * ```ts
+ * // 使用当前页面地址，若为 HTTP 则跳转至 HTTPS
+ * httpsRedirect(); // 若当前为 http://example.com 则跳转到 https://example.com
+ * ```
+ * @example
+ * ```ts
+ * httpsRedirect('http://example.com/page'); // -> 跳转到 https://example.com/page
+ * httpsRedirect('https://example.com'); // 已是 HTTPS，无操作
+ * ```
  */
 export function httpsRedirect(url: string = location.href) {
   if (!url.startsWith('https://')) {

@@ -177,6 +177,8 @@ describe('string test', () => {
     expect(equals({ a: 1 }, { a: 1, b: 2 })).toEqual(false);
     expect(equals({ a: 1 }, [1])).toEqual(false);
     expect(equals({ then: () => '' }, { then: () => '' })).toEqual(false);
+    const then = () => '';
+    expect(equals({ then, value: 1 }, { then, value: 1 })).toEqual(true);
     expect(equals(new Date(), new Date())).toEqual(true);
     expect(equals(null, undefined)).toEqual(false);
     expect(equals(Object, Array)).toEqual(false);

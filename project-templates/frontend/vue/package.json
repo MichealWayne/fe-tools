@@ -9,8 +9,11 @@
     "start": "vue-cli-service serve",
     "dev": "npm run start",
     "build": "vue-cli-service build",
-    "build:prod": "vue-cli-service build --mode prod && node build/index",
-    "lint": "vue-cli-service lint"
+        "build:prod": "vue-cli-service build --mode prod && node build/index",
+        "lint": "vue-cli-service lint",
+        "format": "prettier --write \"src/**/*.{vue,js,less,css}\"",
+        "test": "jest",
+        "test:watch": "jest --watch"
   },
   "dependencies": {
     "moo-css-base": "^0.9.4",
@@ -23,9 +26,11 @@
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
     "axios": "^1.7.7",
+    "jest": "^30.4.2",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "mockjs": "^1.0.1-beta3",
+    "prettier": "^3.8.3",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^4.29.3"
   },

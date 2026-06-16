@@ -20,9 +20,10 @@ declare global {
   }
 }
 
-(function (win) {
+(function (win?: Window) {
+  if (!win) return false;
   // no rem set
-  if (window.norem) return false;
+  if (win.norem) return false;
 
   const doc = win.document;
   const docEl = doc.documentElement;
@@ -40,7 +41,9 @@ declare global {
    * @function refreshRem
    * @description 重新根据屏幕调整rem单位。Re-adjusts rem units based on screen size
    * @example
+   * ```ts
    * window.flexible.refreshRem();
+   * ```
    */
   function refreshRem() {
     let { width } = docEl.getBoundingClientRect();
@@ -94,7 +97,9 @@ declare global {
    * @param  {Number | String} remVal rem值
    * @return {String}   转换后px值
    * @example
+   * ```ts
    * window.flexible.rem2px('1rem');  // '75px'
+   * ```
    */
   flexible.rem2px = (remVal: string | number) => {
     let val: string | number = parseFloat(remVal as string) * (Number(flexible.rem) || 0);
@@ -106,11 +111,13 @@ declare global {
 
   /**
    * @function px2rem
-   * @description **window.flexible.px2rem(d)**。rem单位转px
+   * @description **window.flexible.px2rem(d)**。px单位转rem。Converts px units to rem units
    * @param  {Number | String} pxVal px值
    * @return {String}   转换后rem值
    * @example
-   * window.flexible.rem2px('75px');  // '1rem'
+   * ```ts
+   * window.flexible.px2rem('75px');  // '1rem'
+   * ```
    */
   flexible.px2rem = (pxVal: string) => {
     let val: string | number = parseFloat(pxVal) / (Number(flexible.rem) || 0);
@@ -121,4 +128,4 @@ declare global {
   };
 
   win.flexible = flexible;
-})(window);
+})(typeof window === 'undefined' ? undefined : window);

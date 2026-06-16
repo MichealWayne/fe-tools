@@ -24,6 +24,7 @@ import { animate } from './animate';
  * @param {...any[]} list - 要混入到目标类的对象/类的可变数量参数。Variable number of objects/classes to mix into the target class
  * @returns {Function} 应用混入的类装饰器函数。Class decorator function that applies the mixins
  * @example
+ * ```ts
  * // Define mixin objects
  * const DrawingMixin = {
  *   drawLine(x1, y1, x2, y2) {
@@ -53,8 +54,10 @@ import { animate } from './animate';
  *     this.drawLine(0, 0, 100, 100);  // From DrawingMixin
  *   }
  * }
+ * ```
  *
  * @example
+ * ```ts
  * // Multiple chart types sharing common functionality
  * const AnimationMixin = {
  *   startAnimation(duration = 1000) {
@@ -71,7 +74,6 @@ import { animate } from './animate';
  *     this.canvas.addEventListener(event, handler);
  *   }
  * };
- *
  * @mixins(AnimationMixin, EventMixin)
  * class BarChart {
  *   // Bar chart specific implementation
@@ -81,6 +83,7 @@ import { animate } from './animate';
  * class LineChart {
  *   // Line chart specific implementation
  * }
+ * ```
  *
  * @since 1.0.0
  */
@@ -98,6 +101,7 @@ export function mixins(...list: any[]) {
  * @param {Function} chartFactory - 要增强动画功能的图表类构造函数。The chart class constructor to enhance with animation capabilities
  * @returns {void} 此函数直接修改类原型。This function modifies the class prototype directly
  * @example
+ * ```ts
  * // Define a chart class
  * class PieChart {
  *   constructor(options) {
@@ -130,7 +134,9 @@ export function mixins(...list: any[]) {
  *   chart.render();
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Multiple chart types with consistent animation
  * class BarChart {
  *   constructor(options) {
@@ -152,6 +158,7 @@ export function mixins(...list: any[]) {
  * const barChart = new BarChart({ duration: 1000 });
  * const lineChart = new LineChart({ duration: 1500 });
  *
+ * ```
  * @since 1.0.0
  * @see {@link animate} - The underlying animation function used
  */
@@ -176,13 +183,13 @@ export function setAnimationHooks(chartFactory: Function): void {
  * @returns {PropertyDescriptor} 修改后的方法描述符。The modified method descriptor
  * @throws {Error} 如果缺少所需的环境特定依赖项则抛出错误。Throws error if required environment-specific dependencies are missing
  * @example
+ * ```ts
  * // Web browser usage
  * class WebChart {
  *   constructor(element, options) {
  *     this.$el = element; // DOM element
  *     this.opts = options;
  *   }
- *
  *   @setEnvContext
  *   initialize() {
  *     // After decoration, this.canvas and this.ctx are available
@@ -196,8 +203,10 @@ export function setAnimationHooks(chartFactory: Function): void {
  *   height: 300
  * });
  * chart.initialize();
+ * ```
  *
  * @example
+ * ```ts
  * // WeChat mini-program usage
  * class WeappChart {
  *   constructor(options) {
@@ -208,7 +217,6 @@ export function setAnimationHooks(chartFactory: Function): void {
  *       ...options
  *     };
  *   }
- *
  *   @setEnvContext
  *   setup() {
  *     // Canvas context is automatically created for WeChat environment
@@ -217,8 +225,10 @@ export function setAnimationHooks(chartFactory: Function): void {
  *     this.canvas.draw(); // WeChat-specific draw method
  *   }
  * }
+ * ```
  *
  * @example
+ * ```ts
  * // Node.js usage with node-canvas
  * const { createCanvas } = require('canvas');
  *
@@ -237,7 +247,6 @@ export function setAnimationHooks(chartFactory: Function): void {
  *       ...options
  *     };
  *   }
- *
  *   @setEnvContext
  *   generate() {
  *     // Canvas and context are ready for server-side rendering
@@ -245,6 +254,7 @@ export function setAnimationHooks(chartFactory: Function): void {
  *     this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
  *   }
  * }
+ * ```
  *
  * @since 1.0.0
  * @see {@link createCanvasElem} - For web canvas element creation

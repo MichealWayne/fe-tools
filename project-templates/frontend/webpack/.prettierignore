@@ -1,0 +1,11 @@
+/dist/*
+/build/*
+
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+pnpm-lock.yaml
+yarn.lock
+package-lock.json

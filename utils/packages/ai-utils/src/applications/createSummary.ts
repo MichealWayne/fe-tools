@@ -29,7 +29,7 @@ export interface SummaryOptions {
 }
 
 // Internal interface to pass both text and options to the generator
-interface SummaryInput {
+export interface SummaryInput {
   text: string;
   options?: SummaryOptions;
 }
@@ -60,10 +60,21 @@ function getCreateSummaryPromptTxt(input: SummaryInput): string {
 const DEFAULT_SUMMARY_TOKEN_LEN = 10000; // Reasonable default for summaries
 
 /**
- * Generates a prompt for summarizing text.
- * @param text The text to summarize.
- * @param options Options for the summary.
- * @returns A prompt string for the LLM, or an empty string if it exceeds token limits.
+ * @function genSummaryPrompt
+ * @description 根据输入文本生成摘要 Prompt 文本。Generates a prompt for summarizing the given text
+ * @param {SummaryInput} input - 摘要输入参数（包含待摘要文本及配置项）/ summary input (text and options)
+ * @param {number} [maxLen=10000] - token 最大长度限制 / maximum token length
+ * @returns {string} 符合要求的 Prompt 文本，超过长度限制时返回空字符串。Prompt text, or empty string if it exceeds the token limit
+ * @example
+ * ```ts
+ * const prompt = genSummaryPrompt({ text: 'Long article content...', options: { maxLength: 200 } });
+ * console.log(prompt); // -> 完整的摘要生成 prompt
+ * ```
+ * @example
+ * ```ts
+ * const prompt = genSummaryPrompt({ text: articleText });
+ * if (prompt) sendToLLM(prompt);
+ * ```
  */
 export const genSummaryPrompt = createPromptGenerator(
   { maxTokenLength: DEFAULT_SUMMARY_TOKEN_LEN },

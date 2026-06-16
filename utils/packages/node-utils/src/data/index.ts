@@ -13,9 +13,11 @@
  * @param {string} delimiter - 分隔符(默认: ',')。Delimiter (default: ',')
  * @returns {string[][]} 二维数组。2D array
  * @example
+ * ```ts
  * const csv = 'name,age,city\nJohn,25,NYC\nJane,30,LA';
  * const data = parseCSV(csv);
  * // -> [['name', 'age', 'city'], ['John', '25', 'NYC'], ['Jane', '30', 'LA']]
+ * ```
  */
 export function parseCSV(csv: string, delimiter = ','): string[][] {
   const lines = csv.split('\n').filter(line => line.trim());
@@ -49,9 +51,11 @@ export function parseCSV(csv: string, delimiter = ','): string[][] {
  * @param {string} delimiter - 分隔符(默认: ',')。Delimiter (default: ',')
  * @returns {string} CSV字符串。CSV string
  * @example
+ * ```ts
  * const data = [['name', 'age'], ['John', 25], ['Jane', 30]];
  * const csv = arrayToCSV(data);
  * // -> 'name,age\nJohn,25\nJane,30'
+ * ```
  */
 export function arrayToCSV(data: any[][], delimiter = ','): string {
   return data
@@ -77,14 +81,18 @@ export function arrayToCSV(data: any[][], delimiter = ','): string {
  * @param {string} delimiter - 分隔符(默认: ',')。Delimiter (default: ',')
  * @returns {string} CSV字符串。CSV string
  * @example
+ * ```ts
  * const data = [{ name: 'John', age: 25 }, { name: 'Jane', age: 30 }];
  * const csv = stringifyCSV(data);
  * // -> 'name,age\nJohn,25\nJane,30'
  *
+ * ```
  * @example
+ * ```ts
  * const data = [{ id: 1, active: true }];
  * stringifyCSV(data, ';');
  * // -> 'id;active\n1;true'
+ * ```
  */
 export function stringifyCSV(data: Record<string, unknown>[], delimiter = ','): string {
   if (!data.length) return '';
@@ -122,12 +130,16 @@ const buildXML = (key: string, value: unknown): string => {
  * @param {string} [rootName='root'] - 根节点名称。Root node name
  * @returns {string} XML字符串。XML string
  * @example
+ * ```ts
  * const xml = stringifyXML({ name: 'John', age: 25 });
  * // -> '<root><name>John</name><age>25</age></root>'
  *
+ * ```
  * @example
+ * ```ts
  * const xml = stringifyXML([{ id: 1 }, { id: 2 }], 'items');
  * // -> '<items><item><id>1</id></item><item><id>2</id></item></items>'
+ * ```
  */
 export function stringifyXML(
   data: Record<string, unknown> | unknown[],
@@ -145,8 +157,10 @@ export function stringifyXML(
  * @param {string} xmlString - XML字符串。XML string
  * @returns {object} 解析后的对象。Parsed object
  * @example
+ * ```ts
  * const xml = '<root><item>value</item></root>';
  * const data = parseXML(xml);
+ * ```
  */
 export function parseXML(xmlString: string): any {
   // This is a simplified version for Node.js
@@ -183,6 +197,7 @@ export function parseXML(xmlString: string): any {
  * @param {string} toFormat - 目标格式('csv'|'json'|'xml')。Target format ('csv'|'json'|'xml')
  * @returns {string | object} 转换后的数据。Converted data
  * @example
+ * ```ts
  * // CSV to JSON
  * const csv = 'name,age\nJohn,25\nJane,30';
  * const json = convertFormat(csv, 'csv', 'json');
@@ -193,10 +208,13 @@ export function parseXML(xmlString: string): any {
  * const csvOutput = convertFormat(data, 'json', 'csv');
  * // -> 'name,age\nJohn,25'
  *
+ * ```
  * @example
+ * ```ts
  * // JSON to XML
  * const xml = convertFormat({ name: 'John' }, 'json', 'xml');
  * // -> '<root><name>John</name></root>'
+ * ```
  */
 export function convertFormat(data: any, fromFormat: string, toFormat: string): any {
   if (fromFormat === 'csv' && toFormat === 'json') {
@@ -251,6 +269,7 @@ export function convertFormat(data: any, fromFormat: string, toFormat: string): 
  * @param {string} key - 分组键。Grouping key
  * @returns {object} 分组后的对象。Grouped object
  * @example
+ * ```ts
  * const users = [
  *   { name: 'John', city: 'NYC' },
  *   { name: 'Jane', city: 'LA' },
@@ -258,6 +277,7 @@ export function convertFormat(data: any, fromFormat: string, toFormat: string): 
  * ];
  * groupData(users, 'city');
  * // -> { NYC: [{...}, {...}], LA: [{...}] }
+ * ```
  */
 export function groupData(data: any[], key: string): Record<string, any[]> {
   return data.reduce((acc, item) => {

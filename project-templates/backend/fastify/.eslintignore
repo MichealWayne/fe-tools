@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Test outputs
+coverage/
+
+# Configuration files
+*.config.js
+
+# Environment files
+.env*
+!.env.example
+
+# Tool caches
+.eslintcache
+
+# OS generated files
+.DS_Store

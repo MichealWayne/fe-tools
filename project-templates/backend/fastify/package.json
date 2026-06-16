@@ -16,6 +16,7 @@
     "install:prod": "npm install --production",
     "docker:start": "npm install && node dist/",
     "lint": "eslint \"src/**/*.ts\"",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix",
     "typecheck": "tsc --noEmit",
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "jest"

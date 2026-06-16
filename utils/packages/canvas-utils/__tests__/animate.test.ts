@@ -1,3 +1,5 @@
+import { timingFunction } from '../src/utils/animate';
+
 describe('animate', () => {
   it('should call onProcess and onAnimationFinish using fallback timer', () => {
     const originalRAF = (globalThis as any).requestAnimationFrame;
@@ -20,5 +22,13 @@ describe('animate', () => {
 
     jest.useRealTimers();
     (globalThis as any).requestAnimationFrame = originalRAF;
+  });
+});
+
+describe('timingFunction', () => {
+  it('should be exported from the animate module', () => {
+    expect(typeof timingFunction).toBe('function');
+    expect(timingFunction(0)).toBe(0);
+    expect(timingFunction(1)).toBe(1);
   });
 });

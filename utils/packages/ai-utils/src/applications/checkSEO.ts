@@ -50,16 +50,20 @@ export interface FrontendSeoAuditInput {
  * @returns {string} SEO 检查 Prompt 文本。SEO audit prompt text.
  *
  * @example
+ * ```ts
  * const prompt = genFrontendSeoAuditPrompt({
  *   content: '<html><head><title>Home</title></head><body><h1>Landing</h1></body></html>',
  *   pageUrl: 'https://example.com/'
  * });
  *
+ * ```
  * @example
+ * ```ts
  * const prompt = genFrontendSeoAuditPrompt({
  *   content: '<main><h1>AI Toolkit</h1><p>Build faster</p></main>',
  *   targetKeywords: ['AI toolkit', 'frontend developer tools']
  * });
+ * ```
  */
 function getFrontendSeoAuditPromptTxt(input: FrontendSeoAuditInput): string {
   const pageContext = input.pageUrl ? `Page URL: ${input.pageUrl}\n` : '';
@@ -93,15 +97,19 @@ function getFrontendSeoAuditPromptTxt(input: FrontendSeoAuditInput): string {
  * @returns {string} SEO 检查 Prompt；超长时返回空字符串。SEO audit prompt or an empty string when it exceeds the token limit.
  *
  * @example
+ * ```ts
  * genFrontendSeoAuditPrompt({
  *   content: '<head><title>Docs</title></head><main><h1>Docs</h1></main>'
  * });
  *
+ * ```
  * @example
+ * ```ts
  * genFrontendSeoAuditPrompt({
  *   content: '<main><h1>Product</h1><p>Fast delivery</p></main>',
  *   targetKeywords: ['delivery platform']
  * });
+ * ```
  */
 export const genFrontendSeoAuditPrompt = createPromptGenerator(
   { maxTokenLength: MAX_TOKEN_LEN },

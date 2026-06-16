@@ -11,11 +11,13 @@
  * @description 检查网络连接状态。Checks network connection status
  * @returns {boolean} 如果在线则返回true。True if online
  * @example
+ * ```ts
  * if (isOnline()) {
  *   console.log('Connected to internet');
  * } else {
  *   console.log('Offline mode');
  * }
+ * ```
  */
 export function isOnline(): boolean {
   return navigator.onLine;
@@ -26,8 +28,10 @@ export function isOnline(): boolean {
  * @description 获取网络连接类型(4G, 5G, WiFi等)。Gets network connection type (4G, 5G, WiFi, etc.)
  * @returns {string} 网络类型或'unknown'。Network type or 'unknown'
  * @example
+ * ```ts
  * const networkType = getNetworkType();
  * console.log(`Connection type: ${networkType}`); // -> '4g', 'wifi', etc.
+ * ```
  */
 export function getNetworkType(): string {
   const connection =
@@ -45,6 +49,7 @@ export function getNetworkType(): string {
  * @description 获取详细的网络信息。Gets detailed network information
  * @returns {object} 网络信息对象。Network information object
  * @example
+ * ```ts
  * const info = getNetworkInfo();
  * console.log(info);
  * // {
@@ -54,6 +59,7 @@ export function getNetworkType(): string {
  * //   rtt: 50,
  * //   saveData: false
  * // }
+ * ```
  */
 export function getNetworkInfo(): {
   online: boolean;
@@ -87,12 +93,14 @@ export function getNetworkInfo(): {
  * @param {Function} callback - 网络状态变化时的回调函数。Callback on network status change
  * @returns {Function} 移除监听器的函数。Function to remove listener
  * @example
+ * ```ts
  * const removeListener = onNetworkChange((online) => {
  *   console.log(online ? 'Connected' : 'Disconnected');
  * });
  *
  * // Later, remove listener
  * removeListener();
+ * ```
  */
 export function onNetworkChange(callback: (online: boolean) => void): () => void {
   const onlineHandler = () => callback(true);
@@ -115,11 +123,13 @@ export function onNetworkChange(callback: (online: boolean) => void): () => void
  * @param {number} delay - 重试间隔(毫秒,默认: 1000)。Retry delay in ms (default: 1000)
  * @returns {Promise} 请求结果的Promise。Promise of request result
  * @example
+ * ```ts
  * const fetchData = () => fetch('https://api.example.com/data');
  * retryRequest(fetchData, 3, 1000)
  *   .then(response => response.json())
  *   .then(data => console.log(data))
  *   .catch(error => console.error('Failed after retries:', error));
+ * ```
  */
 export async function retryRequest<T>(
   requestFn: () => Promise<T>,
@@ -149,9 +159,11 @@ export async function retryRequest<T>(
  * @param {object} options - 选项对象。Options object
  * @returns {number} 回调ID。Callback ID
  * @example
+ * ```ts
  * requestIdleCallbackPolyfill(() => {
  *   console.log('Executing during idle time');
  * });
+ * ```
  */
 export function requestIdleCallbackPolyfill(
   callback: (deadline: any) => void,
@@ -178,9 +190,20 @@ export function requestIdleCallbackPolyfill(
  * @function cancelIdleCallbackPolyfill
  * @description cancelIdleCallback的polyfill实现。Polyfill for cancelIdleCallback
  * @param {number} id - 回调ID。Callback ID
+ * @returns {void}
  * @example
+ * ```ts
  * const id = requestIdleCallbackPolyfill(() => {});
  * cancelIdleCallbackPolyfill(id);
+ * ```
+ * @example
+ * ```ts
+ * // 在组件卸载时取消空闲回调 / cancel idle callback on unmount
+ * let taskId: number;
+ * taskId = requestIdleCallbackPolyfill(() => heavyTask());
+ * // later:
+ * cancelIdleCallbackPolyfill(taskId);
+ * ```
  */
 export function cancelIdleCallbackPolyfill(id: number): void {
   if (typeof window !== 'undefined' && 'cancelIdleCallback' in window) {

@@ -12,8 +12,10 @@
  * @param {Date} date - 日期。The date to check
  * @return {number} 返回天数。The day number of the year
  * @example
+ * ```ts
  * dayOfYear(new Date('2022/02/20')); // 51
  * dayOfYear(new Date('2024/12/31')); // 366
+ * ```
  */
 export function dayOfYear(date = new Date()) {
   return Math.floor((+date - +new Date(date.getFullYear(), 0, 0)) / (1000 * 60 * 60 * 24));
@@ -25,9 +27,11 @@ export function dayOfYear(date = new Date()) {
  * @param {Date} date - 日期。The date to format
  * @return {string} 返回时间。The formatted time string
  * @example
+ * ```ts
  * getColonTimeFromDate(new Date()); // '15:58:40'
  * getColonTimeFromDate(); // '15:58:40'
  * getColonTimeFromDate(new Date('2022-02-20 11:10:20')); // '11:10:20'
+ * ```
  */
 export function getColonTimeFromDate(date = new Date()) {
   return date.toTimeString().slice(0, 8);
@@ -40,9 +44,11 @@ export function getColonTimeFromDate(date = new Date()) {
  * @param {Date} dateFinal - 结束日期。The final date
  * @return {number} 日期差值（天数）。The difference in days
  * @example
+ * ```ts
  * const dateInitial = new Date('2023-01-01');
  * const dateFinal = new Date('2023-01-05');
  * getDaysDiffBetweenDates(dateInitial, dateFinal);  // 4
+ * ```
  */
 export function getDaysDiffBetweenDates(dateInitial: Date, dateFinal: Date) {
   return (+dateFinal - +dateInitial) / (1000 * 60 * 60 * 24);
@@ -55,8 +61,10 @@ export function getDaysDiffBetweenDates(dateInitial: Date, dateFinal: Date) {
  * @param {Date} dateB - 日期B。Date B to compare against
  * @return {boolean} 日期A是否在日期B之后。Whether date A is after date B
  * @example
+ * ```ts
  * isAfterDate(new Date('2023-01-01'), new Date('2023-01-02')); // false
  * isAfterDate(new Date('2023-01-01'), new Date('2022-01-02')); // true
+ * ```
  */
 export function isAfterDate(dateA: Date, dateB = new Date()) {
   return dateA > dateB;
@@ -69,8 +77,10 @@ export function isAfterDate(dateA: Date, dateB = new Date()) {
  * @param {Date} dateB - 日期B。Date B to compare against
  * @return {boolean} 日期A是否在日期B之前。Whether date A is before date B
  * @example
+ * ```ts
  * isBeforeDate(new Date('2023-01-01'), new Date('2023-01-02')); // true
  * isBeforeDate(new Date('2023-01-01'), new Date('2022-01-02')); // false
+ * ```
  */
 export function isBeforeDate(dateA: Date, dateB = new Date()) {
   return dateA < dateB;
@@ -83,13 +93,19 @@ export function isBeforeDate(dateA: Date, dateB = new Date()) {
  * @param {number} days - 天数,默认为1。Number of days to add, default is 1
  * @return {string} 返回日期。The resulting date string
  * @example
+ * ```ts
  * const date = new Date('2023-01-01');
  * const days = 5;
  * daysLater(date, days); // '2023-01-06'
+ * ```
  */
 export function daysLater(date = new Date(), days = 1) {
-  date.setDate(date.getDate() + days);
-  return date.toISOString().split('T')[0];
+  // 旧实现直接 mutate 入参 date（date.setDate(...)），调用方若复用该 Date 会受副作用影响。
+  // 这里基于入参构造一个新 Date 再偏移，保持入参不变。
+  // The old impl mutated the input date in place; operate on a copy to leave the caller's date intact.
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result.toISOString().split('T')[0];
 }
 
 /**
@@ -99,9 +115,11 @@ export function daysLater(date = new Date(), days = 1) {
  * @param {Date} dateFinal - 结束日期。The final date
  * @return {object} 返回格式化后的时间对象。The formatted time object with day, hour, minute, second properties
  * @example
+ * ```ts
  * const dateInitial = new Date('2023-03-22T08:00:00.000Z');
  * const dateFinal = new Date('2023-03-23T14:15:30.000Z');
  * getFormattedRemainTime(dateInitial, dateFinal); // { day: 1, hour: 6, minute: 15, second: 30, }
+ * ```
  */
 export function getFormattedRemainTime(dateInitial: Date, dateFinal: Date) {
   const time = +dateFinal - +dateInitial;

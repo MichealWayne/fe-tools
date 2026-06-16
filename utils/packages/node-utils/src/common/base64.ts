@@ -16,26 +16,34 @@
  * @param {string} str - 要编码的字符串。The string to encode (supports UTF-8 and Unicode characters)
  * @returns {string} Base64编码后的字符串。Base64 encoded string
  * @example
+ * ```ts
  * // Basic string encoding
  * const encoded = base64Encode('hello world');
  * console.log(encoded); // 'aGVsbG8gd29ybGQ='
  *
+ * ```
  * @example
+ * ```ts
  * // Encode JSON data for API transmission
  * const data = { user: 'john', token: 'abc123' };
  * const encoded = base64Encode(JSON.stringify(data));
  * console.log(encoded); // Base64 representation of JSON
  *
+ * ```
  * @example
+ * ```ts
  * // Encode special characters and Unicode
  * const unicode = base64Encode('Hello 世界! 🌍');
  * console.log(unicode); // Properly encoded Unicode string
  *
+ * ```
  * @example
+ * ```ts
  * // Encode for URL-safe transmission
  * const credentials = base64Encode('username:password');
  * const authHeader = `Basic ${credentials}`;
  *
+ * ```
  * @see {@link base64Decode} - Decode Base64 strings
  * @see {@link isBase64Str} - Validate Base64 format
  */
@@ -51,18 +59,23 @@ export function base64Encode(str: string) {
  * @returns {string} 解码后的UTF-8字符串。Decoded UTF-8 string
  * @throws {Error} 如果输入不是有效的Base64可能抛出错误。May throw if the input is not valid Base64
  * @example
+ * ```ts
  * // Basic string decoding
  * const decoded = base64Decode('aGVsbG8gd29ybGQ=');
  * console.log(decoded); // 'hello world'
  *
+ * ```
  * @example
+ * ```ts
  * // Decode and parse JSON data
  * const encodedJson = 'eyJ1c2VyIjoiam9obiIsInRva2VuIjoiYWJjMTIzIn0=';
  * const decodedJson = base64Decode(encodedJson);
  * const data = JSON.parse(decodedJson);
  * console.log(data); // { user: 'john', token: 'abc123' }
  *
+ * ```
  * @example
+ * ```ts
  * // Safe decoding with error handling
  * try {
  *   const result = base64Decode(userInput);
@@ -71,12 +84,15 @@ export function base64Encode(str: string) {
  *   console.error('Invalid Base64 input:', error.message);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Decode authentication credentials
  * const authHeader = 'Basic dXNlcm5hbWU6cGFzc3dvcmQ=';
  * const credentials = base64Decode(authHeader.replace('Basic ', ''));
  * console.log(credentials); // 'username:password'
  *
+ * ```
  * @see {@link base64Encode} - Encode strings to Base64
  * @see {@link isBase64Str} - Validate Base64 strings
  */
@@ -91,12 +107,15 @@ export function base64Decode(base64Str: string) {
  * @param {string} str - 要验证的字符串。The string to validate for Base64 format
  * @returns {boolean} 如果是有效Base64返回true，否则返回false。True if the string is valid Base64, false otherwise
  * @example
+ * ```ts
  * // Validate Base64 strings
  * console.log(isBase64Str('aGVsbG8gd29ybGQ=')); // true
  * console.log(isBase64Str('hello world'));       // false
  * console.log(isBase64Str('invalid@base64!'));   // false
  *
+ * ```
  * @example
+ * ```ts
  * // Input validation before decoding
  * function safeBase64Decode(input) {
  *   if (!isBase64Str(input)) {
@@ -105,13 +124,17 @@ export function base64Decode(base64Str: string) {
  *   return base64Decode(input);
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Filter valid Base64 strings from array
  * const inputs = ['aGVsbG8=', 'invalid', 'dGVzdA==', 'also-invalid'];
  * const validBase64 = inputs.filter(isBase64Str);
  * console.log(validBase64); // ['aGVsbG8=', 'dGVzdA==']
  *
+ * ```
  * @example
+ * ```ts
  * // API input validation
  * app.post('/decode', (req, res) => {
  *   const { data } = req.body;
@@ -122,6 +145,7 @@ export function base64Decode(base64Str: string) {
  *   res.json({ result: decoded });
  * });
  *
+ * ```
  * @see {@link base64Decode} - Decode validated Base64 strings
  */
 export function isBase64Str(str: string): boolean {

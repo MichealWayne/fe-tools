@@ -49,3 +49,7 @@ openspec
 .cursor
 .opencode
 .trae
+
+# temp documents
+REVIEW_REPORT.md
+CODE_REVIEW_ISSUES.md

@@ -29,3 +29,6 @@ export * from './utils/python';
 
 // prompt utils
 export * from './utils/prompt';
+
+// vector utils
+export * from './vectors';

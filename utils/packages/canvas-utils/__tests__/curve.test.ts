@@ -2,7 +2,7 @@
  * @author Wayne
  * @Date 2024-07-23 10:06:50
  */
-import { getCurvePoints } from '../src/utils/curve';
+import { Vector, getCurvePoints } from '../src/utils/curve';
 
 function isFinitePoint(point: { x: number; y: number }): boolean {
   return Number.isFinite(point.x) && Number.isFinite(point.y);
@@ -22,5 +22,13 @@ describe('getCurvePoints', () => {
     controlPoints.forEach(point => {
       expect(isFinitePoint(point)).toBe(true);
     });
+  });
+});
+
+describe('Vector', () => {
+  it('should be exported from the package entry', () => {
+    const vector = new Vector(3, 4);
+
+    expect(vector.length()).toBe(5);
   });
 });

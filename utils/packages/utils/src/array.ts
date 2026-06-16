@@ -18,15 +18,19 @@ export type AnyArr = unknown[];
  * @returns {number} 数组中的最大值。对于空数组返回-Infinity，如果数组包含非数字值则返回NaN。The maximum value in the array. Returns -Infinity for empty arrays, NaN if array contains non-numeric values
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * arrayMax([1, 2, 3, 0, -1, -5]); // -> 3
  * arrayMax([1, 2, 3]); // -> 3
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * arrayMax([]); // -> -Infinity
  * arrayMax([1, 2, NaN]); // -> NaN
  * arrayMax([-5, -10, -1]); // -> -1
+ * ```
  */
 export function arrayMax(arr: NumberArr): number {
   return Math.max(...arr);
@@ -39,15 +43,19 @@ export function arrayMax(arr: NumberArr): number {
  * @returns {number} 数组中的最小值。对于空数组返回Infinity，如果数组包含非数字值则返回NaN。The minimum value in the array. Returns Infinity for empty arrays, NaN if array contains non-numeric values
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * arrayMin([1, 2, 3, 0, -1, -5]); // -> -5
  * arrayMin([1, 2, 3]); // -> 1
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * arrayMin([]); // -> Infinity
  * arrayMin([1, 2, NaN]); // -> NaN
  * arrayMin([-5, -10, -1]); // -> -10
+ * ```
  */
 export function arrayMin(arr: NumberArr): number {
   return Math.min(...arr);
@@ -60,15 +68,19 @@ export function arrayMin(arr: NumberArr): number {
  * @returns {number} 数组中所有数字的平均值。对于空数组返回NaN。The average value of all numbers in the array. Returns NaN for empty arrays
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * arrayAverage([1, 2, 3, 0, -1, -5]); // -> 0
  * arrayAverage([1, 2, 3]); // -> 2
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * arrayAverage([]); // -> NaN
  * arrayAverage([5]); // -> 5
  * arrayAverage([1.5, 2.5, 3.5]); // -> 2.5
+ * ```
  */
 export function arrayAverage(arr: number[]): number {
   return arr.reduce((acc, val) => acc + val, 0) / arr.length;
@@ -81,16 +93,20 @@ export function arrayAverage(arr: number[]): number {
  * @returns {number} 数组中所有数字的总和。对于空数组返回0。The sum of all numbers in the array. Returns 0 for empty arrays
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * arraySum([1, 2, 3]); // -> 6
  * arraySum([-1, 2, 3]); // -> 4
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * arraySum([]); // -> 0
  * arraySum([5]); // -> 5
  * arraySum([-1, -2, -3]); // -> -6
  * arraySum([1.5, 2.5]); // -> 4
+ * ```
  */
 export function arraySum(arr: number[]): number {
   return arr.reduce((acc, val) => acc + val, 0);
@@ -103,18 +119,22 @@ export function arraySum(arr: number[]): number {
  * @returns {boolean} 如果所有元素都相等则返回true，否则返回false。对于空数组返回true。True if all elements are equal, false otherwise. Returns true for empty arrays
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * allEqual([0, 1, 2]); // -> false
  * allEqual([2, 2, 2]); // -> true
  * allEqual([2, 2, '2']); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * allEqual([]); // -> true
  * allEqual([5]); // -> true
  * allEqual([NaN, NaN, NaN]); // -> false (NaN !== NaN)
  * allEqual([null, null]); // -> true
  * allEqual([undefined, undefined]); // -> true
+ * ```
  */
 export const allEqual = (arr: AnyArr): boolean => {
   return arr.every(val => val === arr[0]);
@@ -125,9 +145,18 @@ declare const Buffer: { byteLength: (value: string, encoding?: string) => number
 /**
  * @function getStringByteLength
  * @description 获取字符串的字节长度。Gets the byte length of a string
- * @param {string} value
+ * @param {string} value - 要计算字节长度的字符串 / string to measure
  * @returns {number} 字符串的字节长度。The byte length of the string
  * @throws {Error} 当浏览器不支持TextEncoder时抛出错误。Throws an error when the browser does not support TextEncoder
+ * @example
+ * ```ts
+ * getStringByteLength('hello'); // -> 5
+ * getStringByteLength('你好'); // -> 6（UTF-8 每个中文字符3字节）
+ * ```
+ * @example
+ * ```ts
+ * getStringByteLength(''); // -> 0
+ * ```
  */
 export const getStringByteLength = (value: string): number => {
   if (typeof TextEncoder !== 'undefined') {
@@ -145,16 +174,21 @@ export const getStringByteLength = (value: string): number => {
  * @param {unknown} val - 要获取大小的值（数组、字符串、Map、Set、对象或Blob）。The value to get the size of (array, string, Map, Set, object, or Blob)
  * @returns {number} 输入值的大小/长度。对于null、undefined或不支持的类型返回0。The size/length of the input value. Returns 0 for null, undefined, or unsupported types
  * @example
+ * ```ts
  * // Array size
  * const arr = [1, 2, 3, 4, 5];
  * size(arr); // -> 5
  *
+ * ```
  * @example
+ * ```ts
  * // String size (byte length)
  * const str = 'Hello, world!';
  * size(str); // -> 13
  *
+ * ```
  * @example
+ * ```ts
  * // Map and Set size
  * const myMap = new Map([['key1', 'value1'], ['key2', 'value2']]);
  * size(myMap); // -> 2
@@ -162,21 +196,28 @@ export const getStringByteLength = (value: string): number => {
  * const mySet = new Set([1, 2, 3, 4, 5]);
  * size(mySet); // -> 5
  *
+ * ```
  * @example
+ * ```ts
  * // Object property count
  * const obj = { a: 1, b: 2, c: 3 };
  * size(obj); // -> 3
  *
+ * ```
  * @example
+ * ```ts
  * // Blob size
  * const blob = new Blob(['Hello, world!'], { type: 'text/plain' });
  * size(blob); // -> 13
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * size(null); // -> 0
  * size(undefined); // -> 0
  * size(42); // -> 0
+ * ```
  */
 export function size(val: unknown) {
   if (isArray(val)) return val.length;
@@ -198,20 +239,26 @@ export function size(val: unknown) {
  * @returns {string} 带引号值和换行分隔符的CSV格式字符串。CSV formatted string with quoted values and newline separators
  * @throws {TypeError} 当arr不是数组或包含非数组元素时抛出错误。When arr is not an array or contains non-array elements
  * @example
+ * ```ts
  * // Basic usage
  * arrayToCSV([['a', 'b'], ['c', 'd']]); // -> '"a","b"\n"c","d"'
  * arrayToCSV([['Name', 'Age'], ['John', 25], ['Jane', 30]]); // -> '"Name","Age"\n"John","25"\n"Jane","30"'
  *
+ * ```
  * @example
+ * ```ts
  * // Custom delimiter
  * arrayToCSV([['a', 'b'], ['c', 'd']], ';'); // -> '"a";"b"\n"c";"d"'
  * arrayToCSV([['a', 'b'], ['c', 'd']], '\t'); // -> '"a"\t"b"\n"c"\t"d"'
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * arrayToCSV([]); // -> ''
  * arrayToCSV([['single']]); // -> '"single"'
  * arrayToCSV([['with,comma', 'normal']]); // -> '"with,comma","normal"'
+ * ```
  */
 export function arrayToCSV(arr: AnyArr[], delimiter = ','): string {
   return arr
@@ -233,21 +280,27 @@ export function arrayToCSV(arr: AnyArr[], delimiter = ','): string {
  * @param {T | T[]} val - 要转换为数组的值（可以是任何类型或已经是数组）。Value to convert to array (can be any type or already an array)
  * @returns {T[]} 包含该值的数组，如果输入已经是数组则返回原数组。Array containing the value, or the original array if input was already an array
  * @example
+ * ```ts
  * // Converting single values
  * castArray('foo'); // -> ['foo']
  * castArray(42); // -> [42]
  * castArray(null); // -> [null]
  * castArray(undefined); // -> [undefined]
  *
+ * ```
  * @example
+ * ```ts
  * // Already arrays remain unchanged
  * castArray([1, 2, 3]); // -> [1, 2, 3]
  * castArray([]); // -> []
  *
+ * ```
  * @example
+ * ```ts
  * // Objects and complex types
  * castArray({ a: 1 }); // -> [{ a: 1 }]
  * castArray(new Date()); // -> [Date object]
+ * ```
  */
 export function castArray<T>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val];
@@ -262,18 +315,23 @@ export function castArray<T>(val: T | T[]): T[] {
  * @throws {RangeError} 当size小于1时抛出错误。When size is less than 1
  * @throws {TypeError} 当arr不是数组或size不是数字时抛出错误。When arr is not an array or size is not a number
  * @example
+ * ```ts
  * // Basic chunking
  * chunk([1, 2, 3, 4, 5], 3); // -> [[1, 2, 3], [4, 5]]
  * chunk([1, 2, 3, 4, 5], 2); // -> [[1, 2], [3, 4], [5]]
  * chunk([1, 2, 3, 4, 5], 1); // -> [[1], [2], [3], [4], [5]]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * chunk([], 2); // -> []
  * chunk([1, 2, 3], 5); // -> [[1, 2, 3]]
  * chunk(['a', 'b', 'c', 'd'], 2); // -> [['a', 'b'], ['c', 'd']]
  *
+ * ```
  * @example
+ * ```ts
  * // Processing data in batches
  * const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
  * const batches = chunk(data, 3);
@@ -284,8 +342,13 @@ export function castArray<T>(val: T | T[]): T[] {
  * // Batch 2: [4, 5, 6]
  * // Batch 3: [7, 8, 9]
  * // Batch 4: [10]
+ * ```
  */
 export function chunk<T>(arr: T[], size: number): T[][] {
+  // Honor the JSDoc contract: size must be >= 1 (size=0 caused an infinite loop, size<0 returned []).
+  if (!Number.isInteger(size) || size < 1) {
+    throw new RangeError('chunk() size must be a positive integer (>= 1)');
+  }
   return Array.from(
     {
       length: Math.ceil(arr.length / size),
@@ -301,24 +364,32 @@ export function chunk<T>(arr: T[], size: number): T[][] {
  * @returns {T[]} 仅包含真值的新数组。New array with only truthy values
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * compact([0, 1, false, 2, '', 3]); // -> [1, 2, 3]
  * compact([0, 1, false, 2, '', 3, null, undefined, NaN]); // -> [1, 2, 3]
  *
+ * ```
  * @example
+ * ```ts
  * // Various falsy values
  * compact([false, 0, '', null, undefined, NaN, 'hello', 42, true]); // -> ['hello', 42, true]
  * compact(['', '0', 'false']); // -> ['0', 'false'] (strings are truthy except empty string)
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * compact([]); // -> []
  * compact([false, 0, '', null, undefined, NaN]); // -> []
  * compact([1, 2, 3]); // -> [1, 2, 3] (no change)
  *
+ * ```
  * @example
+ * ```ts
  * // Objects and arrays (always truthy)
  * compact([{}, [], 0, false]); // -> [{}, []]
+ * ```
  */
 export function compact<T>(arr: T[]): T[] {
   return arr.filter(Boolean);
@@ -332,21 +403,27 @@ export function compact<T>(arr: T[]): T[] {
  * @returns {number} 该值在数组中出现的次数。Number of times the value appears in the array
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * countOccurrences([1, 2, 4, 5, 2, 6, 3], 2); // -> 2
  * countOccurrences([1, 2, 4, 5, 2, 6, 3], 3); // -> 1
  * countOccurrences([1, 2, 4, 5, 2, 6, 3], 7); // -> 0
  *
+ * ```
  * @example
+ * ```ts
  * // String arrays
  * countOccurrences(['a', 'b', 'a', 'c', 'a'], 'a'); // -> 3
  * countOccurrences(['hello', 'world', 'hello'], 'hello'); // -> 2
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * countOccurrences([], 1); // -> 0
  * countOccurrences([null, null, undefined], null); // -> 2
  * countOccurrences([NaN, NaN, 1], NaN); // -> 0 (NaN !== NaN)
+ * ```
  */
 export function countOccurrences<T>(arr: T[], val: T): number {
   return arr.reduce((a: number, v) => (v === val ? a + 1 : a), 0);
@@ -358,22 +435,37 @@ export function countOccurrences<T>(arr: T[], val: T): number {
  * @returns {unknown[]} 完全展平的数组，所有嵌套数组都已展开。Completely flattened array with all nested arrays expanded
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * deepFlatten([[1, 2, 3], 4, [5, 6, [7, 8, [9]]]]); // -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
  * deepFlatten([1, [2, [3, [4]]]]); // -> [1, 2, 3, 4]
  *
+ * ```
  * @example
+ * ```ts
  * // Mixed types
  * deepFlatten([1, ['a', [true, [null]]], 2]); // -> [1, 'a', true, null, 2]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * deepFlatten([]); // -> []
  * deepFlatten([1, 2, 3]); // -> [1, 2, 3] (no nesting)
  * deepFlatten([[]]); // -> []
+ * ```
  */
 export function deepFlatten(arr: unknown[]): unknown[] {
-  return [].concat(...arr.map((v: any) => (Array.isArray(v) ? deepFlatten(v) : v)));
+  // The old [].concat(...arr.map(...)) used spread, which exceeded the call stack for
+  // wide/deeply nested arrays. Accumulate via reduce to avoid the spread stack limit.
+  return arr.reduce<unknown[]>((acc, v) => {
+    if (Array.isArray(v)) {
+      acc.push(...deepFlatten(v));
+    } else {
+      acc.push(v);
+    }
+    return acc;
+  }, []);
 }
 
 /**
@@ -384,20 +476,26 @@ export function deepFlatten(arr: unknown[]): unknown[] {
  * @returns {unknown[]} 展平到指定深度的数组。Flattened array up to the specified depth
  * @throws {TypeError} 当arr不是数组或depth不是数字时抛出错误。When arr is not an array or depth is not a number
  * @example
+ * ```ts
  * // Basic usage
  * flatten([1, 2, [3, 4, [5, 6]]]); // -> [1, 2, 3, 4, [5, 6]]
  * flatten([1, 2, [3, 4, [5, 6]]], 2); // -> [1, 2, 3, 4, 5, 6]
  *
+ * ```
  * @example
+ * ```ts
  * // Different depth levels
  * flatten([1, [2, [3, [4]]]], 0); // -> [1, [2, [3, [4]]]] (no flattening)
  * flatten([1, [2, [3, [4]]]], 1); // -> [1, 2, [3, [4]]]
  * flatten([1, [2, [3, [4]]]], 3); // -> [1, 2, 3, 4]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * flatten([], 5); // -> []
  * flatten([1, 2, 3], 1); // -> [1, 2, 3] (no nesting)
+ * ```
  */
 export function flatten(arr: AnyArr, depth = 1): unknown[] {
   return arr.reduce(
@@ -415,21 +513,27 @@ export function flatten(arr: AnyArr, depth = 1): unknown[] {
  * @returns {unknown[]} 包含arr1中不在arr2中的元素的数组。Array containing elements from arr1 that are not in arr2
  * @throws {TypeError} 当arr1或arr2不是数组时抛出错误。When arr1 or arr2 is not an array
  * @example
+ * ```ts
  * // Basic usage
  * difference([1, 2, 3], [1, 2]); // -> [3]
  * difference([1, 2, 3, 4], [2, 4]); // -> [1, 3]
  * difference(['a', 'b', 'c'], ['b']); // -> ['a', 'c']
  *
+ * ```
  * @example
+ * ```ts
  * // No differences
  * difference([1, 2, 3], [1, 2, 3]); // -> []
  * difference([1, 2, 3], [1, 2, 3, 4, 5]); // -> []
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * difference([], [1, 2, 3]); // -> []
  * difference([1, 2, 3], []); // -> [1, 2, 3]
  * difference([1, 1, 2], [1]); // -> [2] (duplicates in first array are preserved)
+ * ```
  */
 export function difference(arr1: AnyArr, arr2: AnyArr) {
   const s = new Set(arr2);
@@ -445,20 +549,26 @@ export function difference(arr1: AnyArr, arr2: AnyArr) {
  * @returns {unknown[]} 包含arr1中没有匹配转换值的元素的数组。Array containing elements from arr1 that don't have matching transformed values in arr2
  * @throws {TypeError} 当arr1或arr2不是数组，或fn不是函数时抛出错误。When arr1 or arr2 is not an array, or fn is not a function
  * @example
+ * ```ts
  * // Basic usage with transformation
  * differenceBy([2.1, 1.2], [2.3, 3.4], Math.floor); // -> [1.2]
  * differenceBy(['apple', 'banana'], ['APPLE'], s => s.toLowerCase()); // -> ['banana']
  *
+ * ```
  * @example
+ * ```ts
  * // Object comparison
  * const users1 = [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }];
  * const users2 = [{ id: 1, name: 'Johnny' }];
  * differenceBy(users1, users2, u => u.id); // -> [{ id: 2, name: 'Jane' }]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * differenceBy([], [1, 2], x => x); // -> []
  * differenceBy([1, 2], [], x => x); // -> [1, 2]
+ * ```
  */
 export function differenceBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => unknown): unknown[] {
   const s = new Set(arr2.map(fn));
@@ -473,21 +583,27 @@ export function differenceBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => unk
  * @returns {T[]} 从开头删除指定数量元素的新数组。New array with specified number of elements removed from the beginning
  * @throws {TypeError} 当arr不是数组或itemsCount不是数字时抛出错误。When arr is not an array or itemsCount is not a number
  * @example
+ * ```ts
  * // Basic usage
  * drop([1, 2, 3], 1); // -> [2, 3]
  * drop([1, 2, 3], 2); // -> [3]
  * drop([1, 2, 3, 4, 5], 3); // -> [4, 5]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * drop([1, 2, 3], 0); // -> [1, 2, 3]
  * drop([1, 2, 3], 4); // -> []
  * drop([], 2); // -> []
  * drop([1, 2, 3], -1); // -> [1, 2, 3] (negative values treated as 0)
  *
+ * ```
  * @example
+ * ```ts
  * // String arrays
  * drop(['a', 'b', 'c', 'd'], 2); // -> ['c', 'd']
+ * ```
  */
 export function drop<T>(arr: readonly T[], itemsCount: number): T[] {
   itemsCount = Math.max(itemsCount, 0);
@@ -495,26 +611,32 @@ export function drop<T>(arr: readonly T[], itemsCount: number): T[] {
 }
 /**
  * @function dropWhile
- * @description 当条件为false时从数组的开头删除元素。Removes elements from the beginning of an array while a condition is false
+ * @description 从数组开头删除元素，直到回调返回 true。Drops items from the beginning until the callback returns true
  * @param {T[]} _arr - 要处理的数组。Array to process
- * @param {Function} canContinueDropping - 当元素应该保留时返回true，当应该删除时返回false的函数。Function that returns true when element should be kept, false when it should be dropped
+ * @param {Function} canContinueDropping - 当元素应该保留并停止删除时返回 true，当元素应该继续删除时返回 false。Function that returns true when the item should be kept and dropping should stop, false when dropping should continue
  * @returns {T[]} 从开头删除元素直到条件变为true的新数组。New array with elements dropped from the beginning until condition becomes true
  * @throws {TypeError} 当_arr不是数组或canContinueDropping不是函数时抛出错误。When _arr is not an array or canContinueDropping is not a function
  * @example
+ * ```ts
  * // Basic usage
  * dropWhile([1, 2, 3, 4], n => n >= 3); // -> [3, 4]
  * dropWhile([1, 2, 3, 4, 1], n => n >= 2); // -> [2, 3, 4, 1]
  *
+ * ```
  * @example
+ * ```ts
  * // String arrays
  * dropWhile(['a', 'b', 'c'], s => s >= 'b'); // -> ['b', 'c']
  * dropWhile(['apple', 'banana', 'cherry'], s => s.length > 5); // -> ['banana', 'cherry']
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * dropWhile([], n => n > 0); // -> []
  * dropWhile([1, 2, 3], n => n > 10); // -> [] (all elements dropped)
  * dropWhile([1, 2, 3], n => n < 10); // -> [1, 2, 3] (no elements dropped)
+ * ```
  */
 export function dropWhile<T>(_arr: T[], canContinueDropping: (item: T) => boolean): T[] {
   let arr = _arr;
@@ -532,22 +654,28 @@ export function dropWhile<T>(_arr: T[], canContinueDropping: (item: T) => boolea
  * @returns {unknown[]} 找到该值的索引数组。Array of indices where the value was found
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * indexOfAll([1, 2, 3, 4, 2, 2], 2); // -> [1, 4, 5]
  * indexOfAll([1, 2, 3, 4, 2, 2], 5); // -> []
  * indexOfAll(['a', 'b', 'a', 'c', 'a'], 'a'); // -> [0, 2, 4]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * indexOfAll([], 1); // -> []
  * indexOfAll([1, 2, 3], 4); // -> []
  * indexOfAll([null, null, 1], null); // -> [0, 1]
  * indexOfAll([NaN, NaN, 1], NaN); // -> [] (NaN !== NaN)
  *
+ * ```
  * @example
+ * ```ts
  * // Object arrays
  * const obj = { id: 1 };
  * indexOfAll([obj, { id: 2 }, obj], obj); // -> [0, 2]
+ * ```
  */
 export function indexOfAll(arr: any[], val: unknown): unknown[] {
   return arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
@@ -561,20 +689,26 @@ export function indexOfAll(arr: any[], val: unknown): unknown[] {
  * @returns {unknown[]} 包含两个输入数组中都存在的元素的数组。Array containing elements that exist in both input arrays
  * @throws {TypeError} 当arr1或arr2不是数组时抛出错误。When arr1 or arr2 is not an array
  * @example
+ * ```ts
  * // Basic usage
  * intersection([1, 2, 3, 4], [1, 2]); // -> [1, 2]
  * intersection([1, 2, 3, 4], [1, 5]); // -> [1]
  * intersection(['a', 'b', 'c'], ['b', 'c', 'd']); // -> ['b', 'c']
  *
+ * ```
  * @example
+ * ```ts
  * // No intersection
  * intersection([1, 2, 3], [4, 5, 6]); // -> []
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * intersection([], [1, 2, 3]); // -> []
  * intersection([1, 2, 3], []); // -> []
  * intersection([1, 1, 2], [1, 3]); // -> [1, 1] (duplicates preserved from first array)
+ * ```
  */
 export function intersection(arr1: AnyArr, arr2: AnyArr): unknown[] {
   const s = new Set(arr2);
@@ -590,20 +724,26 @@ export function intersection(arr1: AnyArr, arr2: AnyArr): unknown[] {
  * @returns {unknown[]} 包含arr1中具有与arr2匹配的转换值的元素的数组。Array containing elements from arr1 that have matching transformed values in arr2
  * @throws {TypeError} 当arr1或arr2不是数组，或fn不是函数时抛出错误。When arr1 or arr2 is not an array, or fn is not a function
  * @example
+ * ```ts
  * // Basic usage
  * intersectionBy([2.1, 1.2], [2.3, 3.4], Math.floor); // -> [2.1]
  * intersectionBy(['apple', 'BANANA'], ['banana', 'cherry'], s => s.toLowerCase()); // -> ['BANANA']
  *
+ * ```
  * @example
+ * ```ts
  * // Object comparison
  * const users1 = [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }];
  * const users2 = [{ id: 1, name: 'Johnny' }, { id: 3, name: 'Bob' }];
  * intersectionBy(users1, users2, u => u.id); // -> [{ id: 1, name: 'John' }]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * intersectionBy([], [1, 2], x => x); // -> []
  * intersectionBy([1, 2], [], x => x); // -> []
+ * ```
  */
 export function intersectionBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => unknown): unknown[] {
   const s = new Set(arr2.map(fn));
@@ -619,18 +759,24 @@ export function intersectionBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => u
  * @returns {unknown[]} 包含arr1中根据比较函数与arr2中的元素匹配的元素的数组。Array containing elements from arr1 that match elements in arr2 according to the comparison function
  * @throws {TypeError} 当arr1或arr2不是数组，或fn不是函数时抛出错误。When arr1 or arr2 is not an array, or fn is not a function
  * @example
+ * ```ts
  * // Basic usage with custom comparison
  * intersectionWith([1, 1.2, 1.5, 3, 0], [1.9, 3, 0], (a, b) => Math.round(a) === Math.round(b)); // -> [1.5, 3, 0]
  *
+ * ```
  * @example
+ * ```ts
  * // Object comparison
  * const arr1 = [{ x: 1, y: 2 }, { x: 2, y: 1 }];
  * const arr2 = [{ x: 1, y: 1 }, { x: 1, y: 2 }];
  * intersectionWith(arr1, arr2, (a, b) => a.x === b.x && a.y === b.y); // -> [{ x: 1, y: 2 }]
  *
+ * ```
  * @example
+ * ```ts
  * // String comparison (case insensitive)
  * intersectionWith(['Apple', 'Banana'], ['apple', 'cherry'], (a, b) => a.toLowerCase() === b.toLowerCase()); // -> ['Apple']
+ * ```
  */
 export function intersectionWith(
   arr1: AnyArr,
@@ -646,24 +792,32 @@ export function intersectionWith(
  * @returns {Function} 返回输入函数相反布尔结果的函数。Function that returns the opposite boolean result of the input function
  * @throws {TypeError} 当fn不是函数时抛出错误。When fn is not a function
  * @example
+ * ```ts
  * // Basic usage with array filtering
  * [1, 2, 3, 4, 5].filter(negate(n => n % 2 === 0)); // -> [1, 3, 5] (odd numbers)
  * [1, 2, 3, 4, 5].filter(negate(n => n % 2 === 1)); // -> [2, 4] (even numbers)
  *
+ * ```
  * @example
+ * ```ts
  * // String filtering
  * ['apple', 'banana', 'cherry'].filter(negate(s => s.includes('a'))); // -> ['cherry']
  *
+ * ```
  * @example
+ * ```ts
  * // Object filtering
  * const users = [{ active: true }, { active: false }, { active: true }];
  * users.filter(negate(u => u.active)); // -> [{ active: false }]
  *
+ * ```
  * @example
+ * ```ts
  * // Custom predicate functions
  * const isPositive = n => n > 0;
  * const isNegative = negate(isPositive);
  * [-1, 0, 1, 2].filter(isNegative); // -> [-1, 0]
+ * ```
  */
 export function negate(fn: (...args: unknown[]) => unknown) {
   return function (...args: unknown[]) {
@@ -678,19 +832,25 @@ export function negate(fn: (...args: unknown[]) => unknown) {
  * @returns {any} 数组中的随机元素，如果数组为空则返回undefined。Random element from the array, or undefined if array is empty
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * sample([3, 7, 9, 11]); // -> 9 (randomly selected)
  * sample(['apple', 'banana', 'cherry']); // -> 'banana' (randomly selected)
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * sample([]); // -> undefined
  * sample([42]); // -> 42 (only one element)
  *
+ * ```
  * @example
+ * ```ts
  * // Object arrays
  * const users = [{ name: 'John' }, { name: 'Jane' }, { name: 'Bob' }];
  * sample(users); // -> { name: 'Jane' } (randomly selected)
+ * ```
  */
 export function sample(arr: AnyArr) {
   return arr[Math.floor(Math.random() * arr.length)];
@@ -704,19 +864,25 @@ export function sample(arr: AnyArr) {
  * @returns {any[]} 包含随机选择元素的数组。Array containing randomly selected elements
  * @throws {TypeError} 当arr不是数组或num不是数字时抛出错误。When arr is not an array or num is not a number
  * @example
+ * ```ts
  * // Basic usage
  * sampleSize([1, 2, 3, 4, 5], 2); // -> [3, 1] (randomly selected)
  * sampleSize([1, 2, 3, 4, 5], 3); // -> [5, 2, 4] (randomly selected)
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * sampleSize([], 2); // -> []
  * sampleSize([1, 2, 3], 0); // -> []
  * sampleSize([1, 2, 3], 5); // -> [2, 1, 3] (returns all elements when num > array length)
  *
+ * ```
  * @example
+ * ```ts
  * // String arrays
  * sampleSize(['a', 'b', 'c', 'd'], 2); // -> ['c', 'a'] (randomly selected)
+ * ```
  */
 export function sampleSize(arr: AnyArr, num = 1) {
   const result = [...arr];
@@ -735,19 +901,25 @@ export function sampleSize(arr: AnyArr, num = 1) {
  * @returns {any[]} 元素随机排序的新数组。New array with elements in random order
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * shuffle([1, 2, 3, 4, 5]); // -> [3, 1, 5, 2, 4] (randomly shuffled)
  * shuffle(['a', 'b', 'c']); // -> ['c', 'a', 'b'] (randomly shuffled)
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * shuffle([]); // -> []
  * shuffle([42]); // -> [42] (single element)
  *
+ * ```
  * @example
+ * ```ts
  * // Object arrays
  * const cards = [{ suit: 'hearts', value: 'A' }, { suit: 'spades', value: 'K' }];
  * shuffle(cards); // -> randomly shuffled array of card objects
+ * ```
  */
 export function shuffle(arr: AnyArr) {
   const result = [...arr];
@@ -767,19 +939,25 @@ export function shuffle(arr: AnyArr) {
  * @returns {any[]} 包含每个第n个元素的数组。Array containing every nth element
  * @throws {TypeError} 当arr不是数组或nth不是数字时抛出错误。When arr is not an array or nth is not a number
  * @example
+ * ```ts
  * // Basic usage
  * everyNth([1, 2, 3, 4, 5, 6], 2); // -> [1, 3, 5]
  * everyNth([1, 2, 3, 4, 5, 6, 7, 8], 3); // -> [1, 4, 7]
  *
+ * ```
  * @example
+ * ```ts
  * // String arrays
  * everyNth(['a', 'b', 'c', 'd', 'e', 'f'], 2); // -> ['a', 'c', 'e']
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * everyNth([], 2); // -> []
  * everyNth([1, 2, 3], 1); // -> [1, 2, 3] (every element)
  * everyNth([1, 2, 3], 5); // -> [1] (only first element when nth > length)
+ * ```
  */
 export function everyNth(arr: AnyArr, nth: number) {
   return arr.filter((_e, i) => i % nth === 0);
@@ -791,27 +969,35 @@ export function everyNth(arr: AnyArr, nth: number) {
  * @returns {any[]} 删除重复值的新数组。New array with duplicate values removed
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * unique([1, 2, 2, 3, 4, 4, 5]); // -> [1, 2, 3, 4, 5]
  * unique(['a', 'b', 'a', 'c', 'b']); // -> ['a', 'b', 'c']
  *
+ * ```
  * @example
+ * ```ts
  * // Mixed types
  * unique([1, '1', 2, '2', 1]); // -> [1, '1', 2, '2']
  * unique([true, false, 1, 0, true]); // -> [true, false, 1, 0]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * unique([]); // -> []
  * unique([1]); // -> [1]
  * unique([null, undefined, null, undefined]); // -> [null, undefined]
  * unique([NaN, NaN, 1]); // -> [NaN, 1] (NaN is treated as unique)
  *
+ * ```
  * @example
+ * ```ts
  * // Object arrays (by reference)
  * const obj1 = { id: 1 };
  * const obj2 = { id: 2 };
  * unique([obj1, obj2, obj1]); // -> [obj1, obj2]
+ * ```
  */
 export function unique(arr: AnyArr) {
   return [...new Set(arr)];
@@ -824,23 +1010,31 @@ export function unique(arr: AnyArr) {
  * @returns {any[]} 仅包含恰好出现一次的元素的新数组。New array containing only elements that appear exactly once
  * @throws {TypeError} 当arr不是数组时抛出错误。When arr is not an array
  * @example
+ * ```ts
  * // Basic usage
  * filterNonUnique([1, 2, 2, 3, 4, 4, 5]); // -> [1, 3, 5]
  * filterNonUnique(['a', 'b', 'a', 'c', 'b', 'd']); // -> ['c', 'd']
  *
+ * ```
  * @example
+ * ```ts
  * // All elements unique
  * filterNonUnique([1, 2, 3, 4]); // -> [1, 2, 3, 4]
  *
+ * ```
  * @example
+ * ```ts
  * // All elements duplicated
  * filterNonUnique([1, 1, 2, 2, 3, 3]); // -> []
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * filterNonUnique([]); // -> []
  * filterNonUnique([1]); // -> [1]
  * filterNonUnique([null, null, undefined]); // -> [undefined]
+ * ```
  */
 export function filterNonUnique(arr: AnyArr) {
   return arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
@@ -855,24 +1049,32 @@ export function filterNonUnique(arr: AnyArr) {
  * @throws {TypeError} 当len不是数字时抛出错误。When len is not a number
  * @throws {RangeError} 当len为负数时抛出错误。When len is negative
  * @example
+ * ```ts
  * // Basic usage
  * initializeArrayWithValues(5, 2); // -> [2, 2, 2, 2, 2]
  * initializeArrayWithValues(3, 'hello'); // -> ['hello', 'hello', 'hello']
  *
+ * ```
  * @example
+ * ```ts
  * // Default value (0)
  * initializeArrayWithValues(4); // -> [0, 0, 0, 0]
  *
+ * ```
  * @example
+ * ```ts
  * // Different value types
  * initializeArrayWithValues(3, true); // -> [true, true, true]
  * initializeArrayWithValues(2, null); // -> [null, null]
  * initializeArrayWithValues(3, { id: 1 }); // -> [{ id: 1 }, { id: 1 }, { id: 1 }]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * initializeArrayWithValues(0); // -> []
  * initializeArrayWithValues(1, 'single'); // -> ['single']
+ * ```
  */
 export function initializeArrayWithValues(len: number, value = 0) {
   return Array(len).fill(value);
@@ -886,24 +1088,31 @@ export function initializeArrayWithValues(len: number, value = 0) {
  * @returns {T[]} 包含已删除元素的数组。Array containing the removed elements
  * @throws {TypeError} 当arr不是数组或fn不是函数时抛出错误。When arr is not an array or fn is not a function
  * @example
+ * ```ts
  * // Basic usage
  * const arr = [1, 2, 3, 4, 5];
  * const removed = remove(arr, v => v % 2 === 0); // -> [2, 4]
  * console.log(arr); // -> [1, 3, 5] (original array modified)
  *
+ * ```
  * @example
+ * ```ts
  * // String arrays
  * const fruits = ['apple', 'banana', 'cherry', 'date'];
  * const longNames = remove(fruits, f => f.length > 5); // -> ['banana', 'cherry']
  * console.log(fruits); // -> ['apple', 'date']
  *
+ * ```
  * @example
+ * ```ts
  * // Object arrays
  * const users = [{ active: true, name: 'John' }, { active: false, name: 'Jane' }];
  * const inactive = remove(users, u => !u.active); // -> [{ active: false, name: 'Jane' }]
  * console.log(users); // -> [{ active: true, name: 'John' }]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * const empty = [];
  * remove(empty, x => x > 0); // -> []
@@ -911,43 +1120,59 @@ export function initializeArrayWithValues(len: number, value = 0) {
  * const noMatch = [1, 2, 3];
  * remove(noMatch, x => x > 10); // -> []
  * console.log(noMatch); // -> [1, 2, 3] (unchanged)
+ * ```
  */
 export function remove<T>(arr: T[], fn: (v: T) => boolean): T[] {
-  const result: T[] = [];
+  // The old impl used filter + forEach { arr.splice(arr.indexOf(val), 1) }:
+  // when multiple matched values are equal, indexOf always returns the first remaining
+  // position, deleting the wrong index (duplicates under-removed). Partition once into
+  // removed/kept, then rebuild arr's contents in place with splice to keep the mutate semantics.
+  const removed: T[] = [];
+  const kept: T[] = [];
   if (Array.isArray(arr)) {
-    const filtered = arr.filter(fn);
-    filtered.forEach(val => {
-      arr.splice(arr.indexOf(val), 1);
-      result.push(val);
+    arr.forEach(val => {
+      if (fn(val)) {
+        removed.push(val);
+      } else {
+        kept.push(val);
+      }
     });
+    arr.splice(0, arr.length, ...kept);
   }
-  return result;
+  return removed;
 }
 
 /**
  * @function digitize
  * @description 将数字转换为单个数字的数组。Converts a number into an array of its individual digits
  * @param {number} num - 要转换为数字数组的数字。Number to convert to digit array
- * @returns {number[]} 包含数字各个位数的数组。Array containing individual digits of the number
- * @throws {TypeError} 当num不是数字时抛出错误。When num is not a number
+ * @returns {number[]} 包含数字各个位数的数组；无法提取数字时返回空数组。Array containing individual digits of the number; returns an empty array when no digits can be extracted
  * @example
+ * ```ts
  * // Basic usage
  * digitize(12345); // -> [1, 2, 3, 4, 5]
  * digitize(987); // -> [9, 8, 7]
  *
+ * ```
  * @example
+ * ```ts
  * // Single digit
  * digitize(7); // -> [7]
  * digitize(0); // -> [0]
  *
+ * ```
  * @example
+ * ```ts
  * // Negative numbers (sign ignored)
  * digitize(-123); // -> [1, 2, 3]
  *
+ * ```
  * @example
+ * ```ts
  * // Decimal numbers (decimal point ignored)
  * digitize(12.34); // -> [1, 2, 3, 4]
  * digitize(0.567); // -> [0, 5, 6, 7]
+ * ```
  */
 export function digitize(num: number) {
   const digits = Math.abs(num).toString().replace(/\D/g, '');
@@ -962,19 +1187,25 @@ export function digitize(num: number) {
  * @throws {TypeError} 当n不是数字时抛出错误。When n is not a number
  * @throws {RangeError} 当n为负数时抛出错误。When n is negative
  * @example
+ * ```ts
  * // Basic usage
  * fibonacci(5); // -> [0, 1, 1, 2, 3]
  * fibonacci(8); // -> [0, 1, 1, 2, 3, 5, 8, 13]
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * fibonacci(0); // -> []
  * fibonacci(1); // -> [0]
  * fibonacci(2); // -> [0, 1]
  *
+ * ```
  * @example
+ * ```ts
  * // Larger sequences
  * fibonacci(10); // -> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+ * ```
  */
 export function fibonacci(n: number) {
   return Array(n)
@@ -989,25 +1220,33 @@ export function fibonacci(n: number) {
  * @returns {number} 中位数值。对于偶数长度的数组，返回两个中间值的平均值。The median value. For even-length arrays, returns the average of the two middle values
  * @throws {TypeError} 当arr不是数组或包含非数字值时抛出错误。When arr is not an array or contains non-numeric values
  * @example
+ * ```ts
  * // Odd length arrays
  * median([1, 2, 3, 4, 5]); // -> 3
  * median([7, 2, 10, 9]); // -> 8 (sorted: [2, 7, 9, 10], median of 7 and 9)
  *
+ * ```
  * @example
+ * ```ts
  * // Even length arrays
  * median([1, 2, 3, 4, 5, 6]); // -> 3.5 (average of 3 and 4)
  * median([1, 3]); // -> 2 (average of 1 and 3)
  *
+ * ```
  * @example
+ * ```ts
  * // Unsorted arrays
  * median([1, 2, 10, 2, 20]); // -> 2 (sorted: [1, 2, 2, 10, 20])
  * median([5, 1, 9, 3]); // -> 4 (sorted: [1, 3, 5, 9], average of 3 and 5)
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * median([]); // -> NaN
  * median([42]); // -> 42
  * median([1, 1, 1]); // -> 1
+ * ```
  */
 export function median(arr: NumberArr): number {
   if (arr.length === 0) return NaN;

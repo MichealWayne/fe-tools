@@ -11,31 +11,39 @@
  * @param {unknown} val - 要获取类型的值。Value to get the type of
  * @returns {string} 值类型的字符串表示（例如，'Array'，'Object'，'String'，'Number'）。String representation of the value's type (e.g., 'Array', 'Object', 'String', 'Number')
  * @example
+ * ```ts
  * // Basic types
  * type([1, 2, 3]); // -> 'Array'
  * type({ a: 1, b: '2' }); // -> 'Object'
  * type('abc'); // -> 'String'
  * type(123); // -> 'Number'
  *
+ * ```
  * @example
+ * ```ts
  * // Special values
  * type(null); // -> 'Null'
  * type(undefined); // -> 'Undefined'
  * type(NaN); // -> 'Number'
  * type(Infinity); // -> 'Number'
  *
+ * ```
  * @example
+ * ```ts
  * // Functions and dates
  * type(() => {}); // -> 'Function'
  * type(new Date()); // -> 'Date'
  * type(/regex/); // -> 'RegExp'
  *
+ * ```
  * @example
+ * ```ts
  * // Built-in objects
  * type(new Map()); // -> 'Map'
  * type(new Set()); // -> 'Set'
  * type(new WeakMap()); // -> 'WeakMap'
  * type(Promise.resolve()); // -> 'Promise'
+ * ```
  */
 export function type(val?: unknown): string {
   return Object.prototype.toString.call(val).replace(/\[object\s|\]/g, '');
@@ -47,13 +55,16 @@ export function type(val?: unknown): string {
  * @param {unknown} val - 要检查的值。Value to check
  * @returns {boolean} 如果值为undefined则返回true，否则返回false。True if the value is undefined, false otherwise
  * @example
+ * ```ts
  * // Basic usage
  * let test1 = [1, 2, 3];
  * let test2;
  * isUndefined(test1); // -> false
  * isUndefined(test2); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Different undefined scenarios
  * isUndefined(undefined); // -> true
  * isUndefined(null); // -> false
@@ -61,19 +72,24 @@ export function type(val?: unknown): string {
  * isUndefined(0); // -> false
  * isUndefined(false); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Object properties
  * const obj = { a: 1 };
  * isUndefined(obj.a); // -> false
  * isUndefined(obj.b); // -> true (property doesn't exist)
  *
+ * ```
  * @example
+ * ```ts
  * // Function parameters
  * function test(param) {
  *   return isUndefined(param);
  * }
  * test(); // -> true (no argument passed)
  * test(null); // -> false
+ * ```
  */
 export function isUndefined(val?: unknown): val is undefined {
   return typeof val === 'undefined';
@@ -85,28 +101,36 @@ export function isUndefined(val?: unknown): val is undefined {
  * @param {unknown} val - 要检查的值。Value to check
  * @returns {boolean} 如果值为数组则返回true，否则返回false。True if the value is an array, false otherwise
  * @example
+ * ```ts
  * // Basic usage
  * isArray([1, 2, 3]); // -> true
  * isArray({ a: 1, b: '2' }); // -> false
  * isArray('string'); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Different array types
  * isArray([]); // -> true (empty array)
  * isArray(new Array()); // -> true
  * isArray(Array.from('abc')); // -> true
  * isArray([...new Set([1, 2, 3])]); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Array-like objects (not arrays)
  * isArray(arguments); // -> false (in function context)
  * isArray({ 0: 'a', 1: 'b', length: 2 }); // -> false
  * isArray('abc'); // -> false (string is array-like but not array)
  *
+ * ```
  * @example
+ * ```ts
  * // Typed arrays
  * isArray(new Int32Array([1, 2, 3])); // -> false (typed arrays are not regular arrays)
  * isArray(new Uint8Array([1, 2, 3])); // -> false
+ * ```
  */
 export const isArray = (val?: unknown): val is Array<any> => type(val) === 'Array';
 
@@ -116,29 +140,37 @@ export const isArray = (val?: unknown): val is Array<any> => type(val) === 'Arra
  * @param {unknown} val - 要检查的值。Value to check
  * @returns {boolean} 如果值为字符串原始类型则返回true，否则返回false。True if the value is a string primitive, false otherwise
  * @example
+ * ```ts
  * // Basic usage
  * isString('abc'); // -> true
  * isString([1, 2, 3]); // -> false
  * isString(123); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Different string types
  * isString(''); // -> true (empty string)
  * isString('hello world'); // -> true
  * isString(`template string`); // -> true
  * isString(String('converted')); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // String objects vs primitives
  * isString('primitive'); // -> true
  * isString(new String('object')); // -> false (String object, not primitive)
  *
+ * ```
  * @example
+ * ```ts
  * // Other types
  * isString(null); // -> false
  * isString(undefined); // -> false
  * isString(0); // -> false
  * isString(false); // -> false
+ * ```
  */
 export function isString(val?: unknown): val is string {
   return typeof val === 'string';
@@ -150,6 +182,7 @@ export function isString(val?: unknown): val is string {
  * @param {unknown} val - 要检查的值。Value to check
  * @returns {boolean} 如果值为有限数字则返回true，否则返回false。True if the value is a finite number, false otherwise
  * @example
+ * ```ts
  * // Valid numbers
  * isNumber(1); // -> true
  * isNumber(0); // -> true
@@ -157,25 +190,32 @@ export function isString(val?: unknown): val is string {
  * isNumber(3.14); // -> true
  * isNumber(Number(1)); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Invalid numbers
  * isNumber(NaN); // -> false
  * isNumber(Infinity); // -> false
  * isNumber(-Infinity); // -> false
  * isNumber(new Number(1)); // -> false (Number object)
  *
+ * ```
  * @example
+ * ```ts
  * // Non-numbers
  * isNumber('123'); // -> false (string)
  * isNumber(null); // -> false
  * isNumber(undefined); // -> false
  * isNumber(true); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * isNumber(0 / 0); // -> false (NaN)
  * isNumber(1 / 0); // -> false (Infinity)
  * isNumber(-0); // -> true (negative zero is a valid number)
+ * ```
  */
 export function isNumber(val?: unknown): val is number {
   return typeof val === 'number' && Number.isFinite(val);
@@ -187,29 +227,37 @@ export function isNumber(val?: unknown): val is number {
  * @param {unknown} val - 要检查的值。Value to check
  * @returns {boolean} 如果值为普通对象则返回true，否则返回false。True if the value is a plain object, false otherwise
  * @example
+ * ```ts
  * // Plain objects
  * isObject({ a: 1, b: '2' }); // -> true
  * isObject({}); // -> true (empty object)
  * isObject(Object.create(null)); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Not plain objects
  * isObject([1, 2, 3]); // -> false (array)
  * isObject(null); // -> false
  * isObject(new Date()); // -> false (Date object)
  * isObject(() => {}); // -> false (function)
  *
+ * ```
  * @example
+ * ```ts
  * // Constructor objects
  * isObject(new Object()); // -> true
  * isObject(new String('test')); // -> false (String object)
  * isObject(new Number(42)); // -> false (Number object)
  *
+ * ```
  * @example
+ * ```ts
  * // Built-in objects
  * isObject(new Map()); // -> false
  * isObject(new Set()); // -> false
  * isObject(/regex/); // -> false
+ * ```
  */
 export function isObject(val?: unknown): val is Record<any, any> {
   return type(val) === 'Object';
@@ -221,34 +269,44 @@ export function isObject(val?: unknown): val is Record<any, any> {
  * @param {unknown} val - 要检查的值。Value to check
  * @returns {boolean} 如果值为函数则返回true，否则返回false。True if the value is a function, false otherwise
  * @example
+ * ```ts
  * // Regular functions
  * isFunction(function() {}); // -> true
  * isFunction(() => {}); // -> true
  * isFunction(async function() {}); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Built-in functions
  * isFunction(console.log); // -> true
  * isFunction(Math.max); // -> true
  * isFunction(Array.isArray); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Constructor functions
  * isFunction(Date); // -> true
  * isFunction(Array); // -> true
  * isFunction(Object); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Not functions
  * isFunction([1, 2, 3]); // -> false
  * isFunction({ a: 1 }); // -> false
  * isFunction('function'); // -> false
  * isFunction(null); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Class constructors
  * class MyClass {}
  * isFunction(MyClass); // -> true (classes are functions)
+ * ```
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
 export function isFunction(val?: unknown): val is Function {
@@ -256,46 +314,70 @@ export function isFunction(val?: unknown): val is Function {
 }
 
 /**
- * @function isPrimitive
+ * @function isPromise
  * @description 检查值是否为类Promise对象（具有'then'方法）。Checks if a value is a Promise-like object (has a 'then' method)
  * @param {unknown} val - 要检查的值。Value to check
  * @returns {boolean} 如果值为类Promise对象则返回true，否则返回false。True if the value is Promise-like, false otherwise
  * @example
+ * ```ts
  * // Real Promises
- * isPrimitive(new Promise(resolve => resolve(1))); // -> true
- * isPrimitive(Promise.resolve(42)); // -> true
- * isPrimitive(Promise.reject('error')); // -> true
+ * isPromise(new Promise(resolve => resolve(1))); // -> true
+ * isPromise(Promise.resolve(42)); // -> true
+ * isPromise(Promise.reject('error')); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Thenable objects
- * isPrimitive({ then: () => {}, catch: () => {} }); // -> true
- * isPrimitive({ then: function(resolve) { resolve(1); } }); // -> true
+ * isPromise({ then: () => {}, catch: () => {} }); // -> true
+ * isPromise({ then: function(resolve) { resolve(1); } }); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Not Promise-like
- * isPrimitive({}); // -> false
- * isPrimitive({ then: 'not a function' }); // -> false
- * isPrimitive(null); // -> false
- * isPrimitive(undefined); // -> false
+ * isPromise({}); // -> false
+ * isPromise({ then: 'not a function' }); // -> false
+ * isPromise(null); // -> false
+ * isPromise(undefined); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Async functions return Promises
  * async function asyncFn() { return 42; }
- * isPrimitive(asyncFn()); // -> true
+ * isPromise(asyncFn()); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Custom thenable
  * const customThenable = {
  *   then(onResolve, onReject) {
  *     setTimeout(() => onResolve('done'), 1000);
  *   }
  * };
- * isPrimitive(customThenable); // -> true
+ * isPromise(customThenable); // -> true
+ * ```
  */
-export const isPrimitive = <T = any>(val?: unknown): val is Promise<T> =>
+export const isPromise = <T = any>(val?: unknown): val is Promise<T> =>
   !!val &&
   (typeof val === 'object' || typeof val === 'function') &&
   typeof (val as PromiseLike<T>).then === 'function';
+
+/**
+ * @function isPrimitive
+ * @description 检查值是否为类Promise对象（具有'then'方法）。Checks if a value is a Promise-like object (has a 'then' method)
+ * @deprecated 请使用 isPromise 代替。Please use isPromise instead
+ * @param {unknown} val - 要检查的值。Value to check
+ * @returns {boolean} 如果值为类Promise对象则返回true，否则返回false。True if the value is Promise-like, false otherwise
+ * @example
+ * ```ts
+ * isPrimitive(Promise.resolve(42)); // -> true
+ * isPrimitive({}); // -> false
+ * ```
+ */
+export const isPrimitive = isPromise;
 
 /**
  * @function isDate
@@ -303,34 +385,44 @@ export const isPrimitive = <T = any>(val?: unknown): val is Promise<T> =>
  * @param {unknown} value - 要检查的值。Value to check
  * @returns {boolean} 如果值为Date对象则返回true，否则返回false。True if the value is a Date object, false otherwise
  * @example
+ * ```ts
  * // Valid Date objects
  * isDate(new Date()); // -> true
  * isDate(new Date('2022-03-14')); // -> true
  * isDate(new Date(1647312000000)); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Invalid Date objects (still Date instances)
  * isDate(new Date('invalid')); // -> true (but date.getTime() would be NaN)
  *
+ * ```
  * @example
+ * ```ts
  * // Not Date objects
  * isDate('2022-03-14'); // -> false (string)
  * isDate(1647312000000); // -> false (timestamp number)
  * isDate({ year: 2022, month: 3, day: 14 }); // -> false (plain object)
  *
+ * ```
  * @example
+ * ```ts
  * // Edge cases
  * isDate(null); // -> false
  * isDate(undefined); // -> false
  * isDate(Date.now()); // -> false (returns number, not Date)
  *
+ * ```
  * @example
+ * ```ts
  * // Checking for valid dates
  * function isValidDate(value) {
  *   return isDate(value) && !isNaN(value.getTime());
  * }
  * isValidDate(new Date()); // -> true
  * isValidDate(new Date('invalid')); // -> false
+ * ```
  */
 export const isDate = (value: unknown): value is Date => {
   return Object.prototype.toString.call(value) === '[object Date]';
@@ -343,54 +435,70 @@ export const isDate = (value: unknown): value is Date => {
  * @param {any} b - 要比较的第二个值。Second value to compare
  * @returns {boolean} 如果值深度相等则返回true，否则返回false。True if values are deeply equal, false otherwise
  * @example
+ * ```ts
  * // Primitive values
  * equals(1, 1); // -> true
  * equals('hello', 'hello'); // -> true
  * equals(true, true); // -> true
  * equals(null, null); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Arrays (deep comparison)
  * equals([1, 2, 3], [1, 2, 3]); // -> true
  * equals([1, [2, 3]], [1, [2, 3]]); // -> true
  * equals([1, 2, 3], [1, 2, 4]); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Objects (deep comparison)
  * equals({ a: 1, b: 2 }, { a: 1, b: 2 }); // -> true
  * equals({ a: 1, b: { c: 3 } }, { a: 1, b: { c: 3 } }); // -> true
  * equals({ a: 1 }, { a: 1, b: 2 }); // -> false (different keys)
  *
+ * ```
  * @example
+ * ```ts
  * // Date objects
  * const date1 = new Date('2022-01-01');
  * const date2 = new Date('2022-01-01');
  * equals(date1, date2); // -> true (same timestamp)
  * equals(new Date('2022-01-01'), new Date('2022-01-02')); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Mixed types
  * equals(1, '1'); // -> false (different types)
  * equals([], {}); // -> false (different constructors)
  * equals(null, undefined); // -> false
  *
+ * ```
  * @example
+ * ```ts
  * // Complex nested structures
  * const obj1 = { users: [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }] };
  * const obj2 = { users: [{ id: 1, name: 'John' }, { id: 2, name: 'Jane' }] };
  * equals(obj1, obj2); // -> true
  *
+ * ```
  * @example
+ * ```ts
  * // Reference vs value equality
  * const arr = [1, 2, 3];
  * equals(arr, arr); // -> true (same reference)
  * equals(arr, [1, 2, 3]); // -> true (same values)
+ * ```
  */
 export function equals(a: any, b: any): boolean {
   if (a === b) return true;
   if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
   if (typeof a === 'function' || typeof b === 'function') return false;
-  if (isPrimitive(a) || isPrimitive(b)) return false;
+  if (Object.prototype.toString.call(a) === '[object Promise]' || Object.prototype.toString.call(b) === '[object Promise]') {
+    return false;
+  }
   if (a === null || b === null) return false;
   if (typeof a !== 'object' || typeof b !== 'object') return false;
   if (a?.constructor !== b?.constructor) return false;

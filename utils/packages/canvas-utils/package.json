@@ -1,6 +1,6 @@
 {
   "name": "fe-tools-canvas-utils",
-  "version": "0.1.0",
+  "version": "1.2.1",
   "description": "web/weapp/nodejs canvas utils(used in FundCharts).",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

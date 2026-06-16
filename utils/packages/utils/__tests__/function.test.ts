@@ -56,6 +56,16 @@ describe('memoize', () => {
     expect(result).toEqual(21);
     expect(fn).toBeCalledWith(7);
   });
+
+  it('should handle undefined as a cache key', () => {
+    // Fixed: the old && short-circuit form had ambiguous behavior for undefined keys.
+    const fn = jest.fn((x: unknown): unknown => (x === undefined ? 'nil' : (x as number) * 2));
+    const memoizedFn = memoize(fn);
+
+    expect(memoizedFn(undefined)).toBe('nil');
+    expect(memoizedFn(undefined)).toBe('nil');
+    expect(fn).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe('function test', () => {
@@ -109,6 +119,21 @@ describe('function test', () => {
     const result = pipeline(1);
 
     expect(result).toBe(4);
+  });
+
+  it('pipe() with zero functions returns identity', () => {
+    // Fixed: pipe() used to throw "Reduce of empty array with no initial value".
+    const pipeline = pipe();
+    expect(pipeline(42)).toBe(42);
+  });
+
+  it('pipe() should preserve multi-arg first function', () => {
+    // Regression: an earlier fix used a reduce initial value that consumed the first
+    // function's extra arguments, so pipe((x,y)=>x+y, x=>x*2)(3,4) became NaN.
+    const add = (x: number, y: number) => x + y;
+    const dbl = (x: number) => x * 2;
+    const pipeline = pipe(add, dbl);
+    expect(pipeline(3, 4)).toBe(14);
   });
 
   it('(runPromisesInSeries)Empty array as argument', async () => {
@@ -170,6 +195,13 @@ describe('function test', () => {
     expect(_tempObj.index).toEqual(2);
     resTempFunc2();
     expect(_tempObj.index).toEqual(2);
+  });
+
+  it('once() should return the first result on every call', () => {
+    // Fixed: the old impl discarded fn's return value, so `once(() => 42)()` yielded undefined.
+    const getAnswer = once(() => 42);
+    expect(getAnswer()).toBe(42);
+    expect(getAnswer()).toBe(42); // subsequent calls return the cached first result
   });
 
   it('throttle()', done => {
@@ -291,6 +323,20 @@ describe('function test', () => {
     chainAsync([fn1, fn2, fn3]);
   });
 
+  it('chainAsync() should not throw when the last function still calls next', () => {
+    // Fixed: previously the last fn invoking next() caused fns[curr] to be undefined
+    // and threw TypeError. Now out-of-range next() calls simply stop the chain.
+    const fn1 = jest.fn(function (this: unknown, ...args: unknown[]) {
+      (args[0] as () => void)();
+    });
+    const fn2 = jest.fn(function (this: unknown, ...args: unknown[]) {
+      (args[0] as () => void)(); // last fn still calls next
+    });
+    expect(() => chainAsync([fn1, fn2])).not.toThrow();
+    expect(fn1).toHaveBeenCalledTimes(1);
+    expect(fn2).toHaveBeenCalledTimes(1);
+  });
+
   it('compose()', () => {
     const add2 = (x: number) => x + 2;
     const multiply3 = (x: number) => x * 3;
@@ -299,6 +345,12 @@ describe('function test', () => {
     // (5 / 2) * 3 + 2 = 9.5
     const composed = compose(add2, multiply3, divideBy2);
     expect(composed(5)).toBe(9.5);
+  });
+
+  it('compose() with zero functions returns identity', () => {
+    // Fixed: compose() used to throw "Reduce of empty array with no initial value".
+    const composed = compose<number>();
+    expect(composed(42)).toBe(42);
   });
 
   it('promisify()', async () => {
@@ -329,5 +381,17 @@ describe('function test', () => {
       expect(error).toBeInstanceOf(Error);
       expect((error as Error).message).toBe('Value must be positive');
     }
+  });
+
+  it('promisify() should pass multiple arguments separately', async () => {
+    type NodeCallback = (err: Error | null, result?: string) => void;
+
+    const mockNodeFn = jest.fn(function (filePath: string, encoding: string, callback: NodeCallback) {
+      callback(null, `${filePath}:${encoding}`);
+    });
+
+    const promisified = promisify(mockNodeFn);
+    await expect(promisified('file.txt', 'utf8')).resolves.toBe('file.txt:utf8');
+    expect(mockNodeFn).toHaveBeenCalledWith('file.txt', 'utf8', expect.any(Function));
   });
 });

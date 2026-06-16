@@ -9,7 +9,7 @@
  * @author Wayne
  * @since 1.0.0
  */
-import mlDistance from 'ml-distance';
+import * as mlDistance from 'ml-distance';
 
 const cosineSimilarity = mlDistance.similarity.cosine;
 
@@ -18,15 +18,18 @@ const cosineSimilarity = mlDistance.similarity.cosine;
  * @description 向量相似度比较（余弦相似度）。Compares two vectors using cosine similarity to measure their directional similarity in high-dimensional space.
  * @param {number[]} vector1 - 第一个向量数组。First vector array for comparison (must be same length as vector2)
  * @param {number[]} vector2 - 第二个向量数组。Second vector array for comparison (must be same length as vector1)
- * @returns {number} 相似度值（0-1之间）。Similarity value between 0 and 1 (1 = identical direction, 0 = orthogonal)
+ * @returns {number} 余弦相似度值（-1 到 1 之间）。Cosine similarity value between -1 and 1 (1 = identical direction, 0 = orthogonal, -1 = opposite direction)
  * @example
+ * ```ts
  * // Compare two document embeddings
  * const doc1Embedding = [0.1, 0.2, 0.3, 0.4, 0.5];
  * const doc2Embedding = [0.2, 0.3, 0.4, 0.5, 0.6];
  * const similarity = vectorCompare(doc1Embedding, doc2Embedding);
  * console.log(`Documents similarity: ${similarity.toFixed(3)}`); // e.g., 0.998
  *
+ * ```
  * @example
+ * ```ts
  * // Find most similar vector from a collection
  * const queryVector = [1, 0, 1, 0];
  * const candidates = [
@@ -39,7 +42,9 @@ const cosineSimilarity = mlDistance.similarity.cosine;
  * );
  * const mostSimilarIndex = similarities.indexOf(Math.max(...similarities));
  *
+ * ```
  * @example
+ * ```ts
  * // Semantic search with embeddings
  * const searchQuery = getEmbedding('machine learning');
  * const documents = [
@@ -50,6 +55,7 @@ const cosineSimilarity = mlDistance.similarity.cosine;
  * const scores = documents.map(doc => vectorCompare(searchQuery, doc));
  * // Higher scores indicate more semantic similarity
  *
+ * ```
  * @see {@link https://en.wikipedia.org/wiki/Cosine_similarity} - Cosine similarity explanation
  */
 export default function vectorCompare(vector1: number[], vector2: number[]) {

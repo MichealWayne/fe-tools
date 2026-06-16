@@ -26,20 +26,33 @@ function deserialize(value: unknown) {
   }
 }
 
-const STORAGE_CONST_ROLER = {
-  local: localStorage,
-  session: sessionStorage,
+const getStorageController = (type: string) => {
+  const globalStorage =
+    typeof window === 'undefined'
+      ? undefined
+      : {
+          local: window.localStorage,
+          session: window.sessionStorage,
+        };
+
+  const controller = globalStorage?.[type as keyof typeof globalStorage];
+  if (!controller) {
+    throw new Error(`Storage type "${type}" is not available in the current environment`);
+  }
+  return controller;
 };
 
 /**
  * Storage
  * @param {string} type storage type, default: 'local'
  * @example:
+ * ```ts
  *      Storage('local').set(a, [1, 2, 3]);
  *      Storage('session').get('a');
+ * ```
  */
 function Storage(type = 'local') {
-  const _controller = STORAGE_CONST_ROLER[type as keyof typeof STORAGE_CONST_ROLER];
+  const _controller = getStorageController(type);
 
   return {
     /**

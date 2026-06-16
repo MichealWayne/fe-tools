@@ -10,7 +10,7 @@
  * @since 1.0.0
  */
 
-const COLORS_MAP = {
+export const COLORS_MAP = {
   end: '%s\x1b[0m',
 
   Reset: '\x1b[0m',
@@ -44,23 +44,31 @@ const COLORS_MAP = {
  * @param {string} type - COLORS_MAP中的颜色类型。Color type from COLORS_MAP (e.g., 'FgRed', 'BgBlue', 'Bright')
  * @returns {string} 带重置代码的格式化颜色字符串。Formatted color string with reset code for use with console.log
  * @example
+ * ```ts
  * // Basic color usage
  * console.log(get('FgRed'), 'This text is red');
  * console.log(get('BgYellow'), 'This has yellow background');
  *
+ * ```
  * @example
+ * ```ts
  * // Multiple formatting
  * console.log(get('Bright') + get('FgGreen'), 'Bright green text');
  *
+ * ```
  * @example
+ * ```ts
  * // Error logging with red color
  * console.log(get('FgRed'), 'Error: Connection failed');
  *
+ * ```
  * @example
+ * ```ts
  * // Success message with green background
  * console.log(get('BgGreen'), 'Success: Operation completed');
  *
- * @see {@link COLORS_MAP} - Available color constants
+ * ```
+ * @see COLORS_MAP - Available color constants
  */
 const get = (type: string) => COLORS_MAP[type as keyof typeof COLORS_MAP] + COLORS_MAP.end;
 

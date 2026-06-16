@@ -12,8 +12,10 @@
  * @param {string} url - 页面地址。The page URL
  * @return {object} 查询参数信息对象。Query parameter information object
  * @example
+ * ```ts
  * console.log(parseQueryString('https://github.com/?a=1&b=sss')); // {a: '1', b: 'sss'}
  * console.log(parseQueryString('https://github.com')); // {}
+ * ```
  */
 export function parseQueryString(url = window.location.href) {
   const queryStart = url.indexOf('?');
@@ -43,7 +45,9 @@ export function parseQueryString(url = window.location.href) {
  * @param {Function | undefined} decode - 解码函数。The decode function
  * @return {string | null} 查询参数字段对应的信息。Information corresponding to the query parameter field
  * @example
+ * ```ts
  * const name = getUrlParam('name');
+ * ```
  */
 export function getUrlParam(name: string, decode?: (s: string) => string) {
   const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -61,12 +65,14 @@ export function getUrlParam(name: string, decode?: (s: string) => string) {
 
 /**
  * @func paramsJoinUrl
- * @description 将参数对象转为 url 字符串
- * @param {object} 参数对象
- * @returns {string} url 修改后的URL
+ * @description 将参数对象转为 URL 查询字符串。Converts a parameter object to a URL query string
+ * @param {object} params - 要序列化的参数对象 / parameter object to serialize
+ * @returns {string} URL 查询字符串（不含前缀 `?`）/ URL query string (without leading `?`)
  * @example
+ * ```ts
  * const url = `https://example.com/api?${paramsJoinUrl({ age: 25, city: 'New York' })}`;
  * console.log(url); // "https://example.com/api?age=25&city=New%20York"
+ * ```
  */
 export const paramsJoinUrl = (params: { [key: string]: string }): string => {
   const param = [];
@@ -86,9 +92,11 @@ export const paramsJoinUrl = (params: { [key: string]: string }): string => {
  * @param {string} url 原始URL
  * @returns {string} url 修改后的URL
  * @example
+ * ```ts
  * console.log(getBaseUrl());
  * console.log(getBaseUrl('https://example.com/page.html?query=string')); // https://example.com/page.html
  * console.log(getBaseUrl('https://example.com/')); // https://example.com/
+ * ```
  */
 export const getBaseUrl = (url: string = location.href.toString()): string =>
   url.includes('?') ? url.split('?')[0] : url;
@@ -99,7 +107,9 @@ export const getBaseUrl = (url: string = location.href.toString()): string =>
  * @param {string} url 原始URL
  * @returns {string} url 修改后的URL
  * @example
+ * ```ts
  * console.log(getUrlDomain('https://example.com/page.html?query=string')); // https://example.com
+ * ```
  */
 export const getUrlDomain = (url: string = location.href.toString()): string => {
   // eslint-disable-next-line no-useless-escape
@@ -113,6 +123,8 @@ export const getUrlDomain = (url: string = location.href.toString()): string => 
  * @param {string} path 要处理的路径
  * @returns {string} 将/去重后的结果
  * @example
+ * ```ts
  * uniqueSlash('http://www.example.com//foo//bar'); // 'http://www.example.com/foo/bar'
+ * ```
  */
-export const uniqueSlash = (path: string) => path.replace(/(https?:\/)|(\/)+/g, '$1$2');
+export const uniqueSlash = (path: string) => path.replace(/([^:]\/)\/+/g, '$1');

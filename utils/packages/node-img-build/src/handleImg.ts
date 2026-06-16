@@ -64,16 +64,20 @@ export interface WebpOptions {
  *   Object containing image metadata and GM processing stream
  * @throws {Error} When image file is not found or cannot be processed by GraphicsMagick
  * @example
+ * ```ts
  * // Load image and get dimensions
  * const { data, gmStream } = await getGmStream('./images', 'photo.jpg');
  * console.log(`Image: ${data.size.width}x${data.size.height} pixels`);
  * console.log(`Format: ${data.format}, Quality: ${data.quality}`);
  *
+ * ```
  * @example
+ * ```ts
  * // Load image for further processing
  * const { gmStream } = await getGmStream('./assets', 'banner_2x.png');
  * const resized = gmStream.resize(800, 400);
  *
+ * ```
  * @since 1.0.0
  */
 export function getGmStream(
@@ -107,26 +111,32 @@ export function getGmStream(
  * @param {string} filePath - Directory path containing the source image
  * @param {string} imgName - Source image filename (supports retina '_2x.' naming)
  * @param {string} outPath - Output directory where WebP file will be saved
- * @param {WebpOptions} [options={}] - WebP conversion options including quality settings
+ * @param {WebpOptions} [options] - WebP conversion options including quality settings
  * @returns {Promise<string>} Promise resolving to the full path of the generated WebP file
  * @throws {Error} When source image cannot be read or WebP conversion fails
  * @example
+ * ```ts
  * // Convert regular image to WebP with default quality (80%)
  * const webpPath = await toWebpImg('./src/images', 'photo.jpg', './dist/images');
  * console.log(`WebP created: ${webpPath}`);
  *
+ * ```
  * @example
+ * ```ts
  * // Convert retina image with custom quality
  * await toWebpImg('./assets', 'hero_2x.png', './public', { quality: 90 });
  * // Creates: ./public/hero.webp (removes _2x from filename)
  *
+ * ```
  * @example
+ * ```ts
  * // Batch convert images with optimized quality for web
  * const images = ['banner.jpg', 'icon_2x.png', 'background.jpg'];
  * for (const img of images) {
  *   await toWebpImg('./src', img, './dist', { quality: 85 });
  * }
  *
+ * ```
  * @since 1.0.0
  */
 export function toWebpImg(
@@ -165,14 +175,17 @@ export function toWebpImg(
 /**
  * @description Apply blur effect to an image using GraphicsMagick processing
  * @param {gmConstructor.State} gmStream - GraphicsMagick image stream to process
- * @param {BlurOptions} [options={}] - Blur effect configuration options
+ * @param {BlurOptions} [options] - Blur effect configuration options
  * @returns {gmConstructor.State | false} Modified GM stream with blur applied, or false if processing fails
  * @example
+ * ```ts
  * // Apply default blur effect
  * const { gmStream } = await getGmStream('./images', 'photo.jpg');
  * const blurred = toBlurImg(gmStream);
  *
+ * ```
  * @example
+ * ```ts
  * // Custom blur with artistic effect
  * const artisticBlur = toBlurImg(gmStream, {
  *   color: 16,        // Preserve more colors
@@ -180,7 +193,9 @@ export function toWebpImg(
  *   blurSigma: 8      // Smoother effect
  * });
  *
+ * ```
  * @example
+ * ```ts
  * // Subtle blur for background images
  * const subtleBlur = toBlurImg(gmStream, {
  *   color: 32,        // High color preservation
@@ -188,6 +203,7 @@ export function toWebpImg(
  *   blurSigma: 1      // Minimal sigma
  * });
  *
+ * ```
  * @since 1.0.0
  */
 export function toBlurImg(
@@ -215,22 +231,28 @@ export function toBlurImg(
  * @returns {Promise<string>} Promise resolving to base64 data URI string
  * @throws {Error} When GM stream is invalid or format conversion fails
  * @example
+ * ```ts
  * // Convert to base64 JPEG (default)
  * const { gmStream } = await getGmStream('./images', 'photo.jpg');
  * const dataUri = await toBase64(gmStream);
  * // Returns: "data:image/jpg;base64,/9j/4AAQSkZJRgABAQAAAQ..."
  *
+ * ```
  * @example
+ * ```ts
  * // Convert to base64 PNG for transparency support
  * const pngDataUri = await toBase64(gmStream, 'png');
  * document.getElementById('img').src = pngDataUri;
  *
+ * ```
  * @example
+ * ```ts
  * // Convert processed image to base64 for CSS background
  * const resized = resizeImg(gmStream, 100, 100);
  * const base64 = await toBase64(resized, 'webp');
  * const css = `background-image: url(${base64})`;
  *
+ * ```
  * @since 1.0.0
  */
 export function toBase64(gmStream: gmConstructor.State, type = 'jpg'): Promise<string> {
@@ -260,22 +282,28 @@ export function toBase64(gmStream: gmConstructor.State, type = 'jpg'): Promise<s
  * @returns {gmConstructor.State | false} Resized GM stream or false if processing fails
  * @throws {Error} When width/height are not positive, finite numbers
  * @example
+ * ```ts
  * // Resize maintaining aspect ratio
  * const { gmStream } = await getGmStream('./images', 'photo.jpg');
  * const resized = resizeImg(gmStream, 800);
  * // Resizes to 800px width, height calculated proportionally
  *
+ * ```
  * @example
+ * ```ts
  * // Resize to exact dimensions (may distort image)
  * const exact = resizeImg(gmStream, 800, 600);
  * // Forces image to exactly 800x600 pixels
  *
+ * ```
  * @example
+ * ```ts
  * // Create thumbnail versions
  * const thumbnail = resizeImg(gmStream, 150, 150);
  * const medium = resizeImg(gmStream, 400);
  * const large = resizeImg(gmStream, 1200);
  *
+ * ```
  * @since 1.0.0
  */
 export function resizeImg(
@@ -311,18 +339,23 @@ export function resizeImg(
  * @returns {Promise<string>} Promise resolving to the full path of the generated 1x image
  * @throws {Error} When image name doesn't contain '_2x.', file not found, or processing fails
  * @example
+ * ```ts
  * // Generate 1x from retina image
  * const outputPath = await generate1xFrom2x('./assets', 'icon_2x.png', './dist');
  * // Creates: ./dist/icon.png (half the dimensions of icon_2x.png)
  *
+ * ```
  * @example
+ * ```ts
  * // Batch process all retina images
  * const retinaImages = getImgList('./src/images', { only2x: true });
  * for (const img of retinaImages) {
  *   await generate1xFrom2x('./src/images', img, './public/images');
  * }
  *
+ * ```
  * @example
+ * ```ts
  * // Process retina assets for responsive design
  * const assets = ['logo_2x.png', 'hero_2x.jpg', 'button_2x.png'];
  * const results = await Promise.all(
@@ -330,6 +363,7 @@ export function resizeImg(
  * );
  * console.log('Generated 1x images:', results);
  *
+ * ```
  * @since 1.0.0
  */
 export function generate1xFrom2x(
