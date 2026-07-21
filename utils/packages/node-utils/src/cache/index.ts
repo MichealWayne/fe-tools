@@ -316,6 +316,9 @@ export default class Cache {
    * @param {OriginalFunction} original - The original sync function to wrap
    * @param {IdentityFunction} identity - Function that generates cache key and extension from arguments
    * @returns {Function} Wrapped function that checks cache before calling original
+   * @remarks The synchronous wrapper does not await cache.write(); the write happens
+   * in the background and its rejection is not handled, so a failed cache write is
+   * silent. Use wrapAsync when write errors must be observed.
    * @example
    * ```ts
    * // Wrap an expensive sync computation

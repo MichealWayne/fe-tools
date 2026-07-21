@@ -14,7 +14,7 @@ pnpm-debug.log*
 /package-lock.json
 
 # production
-/dist/
+dist/
 /Dist/
 
 # misc

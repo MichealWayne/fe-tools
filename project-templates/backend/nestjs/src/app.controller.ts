@@ -11,11 +11,6 @@ export class AppController {
     return `hello ${SERVER_NAME}.`;
   }
 
-  @Get('/readiness')
-  readiness(): string {
-    return `hello ${SERVER_NAME}.`;
-  }
-
   @Get('/getTest')
   getTest(@Query() query: Record<string, any>): any {
     return {

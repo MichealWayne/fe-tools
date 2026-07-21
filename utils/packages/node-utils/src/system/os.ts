@@ -230,7 +230,8 @@ export function freememPercentage() {
 /**
  * @function freeCommand
  * @description 执行Linux 'free -m'命令获取详细内存信息。Executes Linux 'free -m' command to get detailed memory information including cache and buffer usage.
- * @param {AnyCallbackFunc} callback - 接收(usedMem, cachedMem)参数（MB）的回调函数。Callback function receiving (usedMem, cachedMem) in MB (null on error)
+ * @param {AnyCallbackFunc} callback - 接收(usedMem, cachedMem)参数（MB）的回调函数；非Linux平台或命令失败时以(null, null)调用。Callback function receiving (usedMem, cachedMem) in MB; called with (null, null) on non-Linux platforms or when the command fails
+ * @remarks 通过判断回调首个参数是否为null来检测失败。Detect failure by checking whether the first callback argument is null.
  * @example
  * ```ts
  * // Get detailed Linux memory info
@@ -299,7 +300,8 @@ export function freeCommand(callback: AnyCallbackFunc) {
 /**
  * @function harddrive
  * @description 使用'df -k'命令获取磁盘使用信息（仅Unix/Linux）。Gets disk usage information using 'df -k' command for storage monitoring on Unix/Linux systems.
- * @param {AnyCallbackFunc} callback - 接收(totalMB, freeMB, usedMB)的回调函数。Callback function receiving (totalMB, freeMB, usedMB) (null on error)
+ * @param {AnyCallbackFunc} callback - 接收(totalMB, freeMB, usedMB)的回调函数；win32平台或命令失败时以(null, null, null)调用。Callback function receiving (totalMB, freeMB, usedMB); called with (null, null, null) on win32 or when the command fails
+ * @remarks 通过判断回调首个参数是否为null来检测失败。Detect failure by checking whether the first callback argument is null.
  * @example
  * ```ts
  * // Monitor disk space

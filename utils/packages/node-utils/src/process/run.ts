@@ -43,6 +43,7 @@ export interface RunResult {
  * @param {RunOptions} [options] - 执行选项，包括超时、输出捕获和失败处理。Execution options including timeout, output capture, and failure handling
  * @returns {Promise<RunResult>} 解析为执行结果的Promise，包含状态码、stdout、stderr和成功状态。Promise resolving to execution result with code, stdout, stderr, and success status
  * @throws {Error} 如果命令失败且ignoreFailure为false，或者发生超时则拒绝。Rejects if command fails and ignoreFailure is false, or if timeout occurs
+ * @remarks 默认stdio为inherit，未开启captureStdout时result.stdout为空字符串；captureStdout为'lines'时result.stdout是字符串数组；超时会以SIGKILL终止子进程并reject（而非返回失败结果）。stdio defaults to inherit, so result.stdout is empty unless captureStdout is set; captureStdout: 'lines' makes result.stdout a string array; a timeout kills the child with SIGKILL and rejects rather than resolving a failed result.
  * @example
  * ```ts
  * // Basic command execution
@@ -99,7 +100,7 @@ export function runAsync(
     const child = spawn(cmd as string, args, opt);
     let stdoutData = '';
     let stderrData = '';
-    let timeoutId: NodeJS.Timeout | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
     let settled = false;
 
     const finalize = (handler: () => void) => {

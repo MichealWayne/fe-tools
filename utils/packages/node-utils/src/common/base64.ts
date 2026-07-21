@@ -57,7 +57,7 @@ export function base64Encode(str: string) {
  * @description 将Base64字符串解码回UTF-8格式。Decodes a Base64 string back to UTF-8 format using Node.js Buffer with proper error handling.
  * @param {string} base64Str - 要解码的Base64字符串。The Base64 encoded string to decode
  * @returns {string} 解码后的UTF-8字符串。Decoded UTF-8 string
- * @throws {Error} 如果输入不是有效的Base64可能抛出错误。May throw if the input is not valid Base64
+ * @remarks Buffer.from(str, 'base64')较为宽松，对非法Base64通常不抛错而是静默解码出无意义结果；如需校验请先调用isBase64Str。Buffer.from(str, 'base64') is lenient and usually decodes invalid Base64 silently to garbage instead of throwing; call isBase64Str first if validation is required.
  * @example
  * ```ts
  * // Basic string decoding
@@ -76,12 +76,11 @@ export function base64Encode(str: string) {
  * ```
  * @example
  * ```ts
- * // Safe decoding with error handling
- * try {
- *   const result = base64Decode(userInput);
- *   console.log('Decoded successfully:', result);
- * } catch (error) {
- *   console.error('Invalid Base64 input:', error.message);
+ * // Validate before decoding (base64Decode itself rarely throws)
+ * if (isBase64Str(userInput)) {
+ *   console.log('Decoded:', base64Decode(userInput));
+ * } else {
+ *   console.error('Invalid Base64 input');
  * }
  *
  * ```

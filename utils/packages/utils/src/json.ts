@@ -164,15 +164,21 @@ export function mergeJSON(...objects: any[]): any {
 
 /**
  * @function cloneJSON
- * @description 深度克隆JSON对象。Deep clones a JSON object
+ * @description 通过JSON序列化深度克隆对象，仅适用于可JSON序列化的数据。Deep clones a value via JSON serialization; only for JSON-serializable data
  * @param {any} obj - 要克隆的对象。Object to clone
  * @returns {any} 克隆的对象。Cloned object
+ * @remarks 基于JSON.parse(JSON.stringify(obj))：会丢弃undefined/函数属性，将Date转为字符串、RegExp转为{}；顶层为undefined/函数或存在循环引用时会抛TypeError。不适用于需要保留原型或特殊类型的场景。Based on JSON.parse(JSON.stringify(obj)): drops undefined/function properties, converts Date to string and RegExp to {}, and throws TypeError for top-level undefined/function or circular references. Not suitable when prototypes or special types must be preserved.
  * @example
  * ```ts
  * const original = { a: 1, b: { c: 2 } };
  * const cloned = cloneJSON(original);
  * cloned.b.c = 3;
  * console.log(original.b.c); // -> 2 (unchanged)
+ * ```
+ * @example
+ * ```ts
+ * cloneJSON({ a: undefined, when: new Date() });
+ * // -> { when: '2025-01-01T00:00:00.000Z' } (a dropped, Date became a string)
  * ```
  */
 export function cloneJSON<T>(obj: T): T {

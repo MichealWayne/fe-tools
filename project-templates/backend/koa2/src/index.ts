@@ -4,7 +4,7 @@
  * @LastEditTime 2024-05-17 09:51:06
  */
 import Koa from 'koa';
-// import cors from 'koa2-cors'; 跨域处理，只有必要时开启
+// import cors from '@koa/cors'; 跨域处理，只有必要时开启
 
 import { SERVER_NAME } from './constant';
 

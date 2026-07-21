@@ -57,12 +57,20 @@ export function parseHeaders(headers: http.IncomingHttpHeaders): Record<string, 
  * @description 下载文件。Downloads a file
  * @param {string} fileUrl - 文件URL。File URL
  * @param {string} dest - 目标路径。Destination path
+ * @param {object} [options] - 下载选项。Download options
+ * @param {number} [options.maxRedirects=5] - 允许跟随的最大重定向次数。Maximum number of redirects to follow
  * @returns {Promise<string>} 下载的文件路径。Downloaded file path
+ * @remarks 自动跟随3xx重定向（默认最多5次），会递归创建目标目录；非2xx状态、超过重定向上限或流错误时reject，并在出错时删除已创建的目标文件。Follows 3xx redirects (up to 5 by default), creates the destination directory recursively, rejects on non-2xx status, exceeding the redirect limit, or stream errors, and unlinks the partial destination file on failure.
  * @example
  * ```ts
  * downloadFile('https://example.com/file.pdf', './downloads/file.pdf')
  *   .then(filePath => console.log(`Downloaded to ${filePath}`))
  *   .catch(err => console.error(err));
+ * ```
+ * @example
+ * ```ts
+ * // Limit redirects
+ * downloadFile('https://example.com/file.pdf', './file.pdf', { maxRedirects: 2 });
  * ```
  */
 export function downloadFile(
@@ -134,6 +142,7 @@ export function downloadFile(
  * @description 发送GET请求获取JSON数据。Sends GET request to get JSON data
  * @param {string} requestUrl - 请求URL。Request URL
  * @returns {Promise<any>} JSON响应数据。JSON response data
+ * @remarks 非2xx状态码在解析前即reject；2xx响应体不是合法JSON时以固定错误信息reject，不做文本回退。Non-2xx status codes reject before parsing; a 2xx body that is not valid JSON rejects with a fixed error message, with no text fallback.
  * @example
  * ```ts
  * getJSON('https://api.example.com/data')
