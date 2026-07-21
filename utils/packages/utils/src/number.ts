@@ -91,14 +91,14 @@ export function isValidNumber(val: unknown) {
  * @description 两个数字是否约等于。Checks if two numbers are approximately equal
  * @param {number} val1 - 数字1。First number
  * @param {number} val2 - 数字2。Second number
- * @param {number} epsilon - 误差范围，默认为0.001。Error margin, default is 0.001
+ * @param {number} [epsilon] - 误差范围，默认为0.001，差值必须严格小于该值。Error margin, default is 0.001; the difference must be strictly less than this value
  * @return {boolean} 两个数字是否约等于。Whether the two numbers are approximately equal
  * @example
  * ```ts
  * const val1 = 0.1 + 0.2;
  * const val2 = 0.3;
  * isApproximatelyEqual(val1, val2); // true
- * isApproximatelyEqual(val1, val2, 0.0001); // false
+ * isApproximatelyEqual(1, 1.01); // false
  * ```
  */
 export function isApproximatelyEqual(val1: number, val2: number, epsilon = 0.001) {
@@ -122,9 +122,10 @@ export function average(...nums: number[]) {
 /**
  * @function randomIntegerInRange
  * @description 求范围中的随机整数。Generates a random integer within a range
- * @param {number} min - 范围最小值。Minimum value of the range
- * @param {number} max - 范围最大值。Maximum value of the range
- * @return {number} 随机整数。Random integer within the range
+ * @param {number} min - 范围最小值（包含）。Minimum value of the range (inclusive)
+ * @param {number} max - 范围最大值（包含）。Maximum value of the range (inclusive)
+ * @return {number} 范围[min, max]内的随机整数。Random integer in the inclusive range [min, max]
+ * @throws {RangeError} 当min大于max时。When min is greater than max
  * @example
  * ```ts
  * randomIntegerInRange(1, 10); // 一个1～10的随机整数。A random integer between 1 and 10
@@ -159,8 +160,8 @@ export function randomNumberInRange(min: number, max: number) {
 /**
  * @function randomIntArrayInRange
  * @description 求范围中的随机整数数组。Generates an array of random integers within a range
- * @param {number} min - 范围最小值。Minimum value of the range
- * @param {number} max - 范围最大值。Maximum value of the range
+ * @param {number} min - 范围最小值（包含）。Minimum value of the range (inclusive)
+ * @param {number} max - 范围最大值（包含）。Maximum value of the range (inclusive)
  * @param {number} num - 数组长度。Length of the array
  * @return {number[]} 随机整数数组。Array of random integers within the range
  * @example
@@ -176,7 +177,7 @@ export function randomIntArrayInRange(min: number, max: number, num = 1) {
  * @function round
  * @description 数字取位。Rounds a number to a specified number of decimal places
  * @param {number} num - 数字。The number to round
- * @param {number} decimals - 保留小数位数，默认为0。Number of decimal places to keep, default is 0
+ * @param {number} [decimals] - 保留小数位数，默认为0；负数表示向十位、百位等高位取整。Number of decimal places to keep, default is 0; negative values round to tens, hundreds, and higher places
  * @return {number} 取位后的数字。The rounded number
  * @example
  * ```ts
@@ -217,6 +218,7 @@ export function sum(...arr: number[]) {
  * @param {number} min - 最小值。Minimum value
  * @param {number} max - 最大值。Maximum value
  * @return {number} 约束后的数字。The clamped number
+ * @throws {RangeError} 当min大于max时。When min is greater than max
  * @example
  * ```ts
  * clamp(5, 0, 10); // 5

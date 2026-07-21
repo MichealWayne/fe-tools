@@ -146,8 +146,8 @@ declare const Buffer: { byteLength: (value: string, encoding?: string) => number
  * @function getStringByteLength
  * @description 获取字符串的字节长度。Gets the byte length of a string
  * @param {string} value - 要计算字节长度的字符串 / string to measure
- * @returns {number} 字符串的字节长度。The byte length of the string
- * @throws {Error} 当浏览器不支持TextEncoder时抛出错误。Throws an error when the browser does not support TextEncoder
+ * @returns {number} 字符串的UTF-8字节长度。The UTF-8 byte length of the string
+ * @remarks 优先使用TextEncoder，其次Buffer；当两者都不可用（极旧环境）时降级为value.length，返回的是UTF-16码元数而非UTF-8字节数。Prefers TextEncoder, then Buffer; when neither is available (very old environments) it falls back to value.length, which is the UTF-16 code-unit count rather than the UTF-8 byte length.
  * @example
  * ```ts
  * getStringByteLength('hello'); // -> 5
@@ -173,6 +173,7 @@ export const getStringByteLength = (value: string): number => {
  * @description 获取各种数据类型的大小/长度，包括数组、字符串、Maps、Sets、对象和Blobs。Gets the size/length of various data types including arrays, strings, Maps, Sets, objects, and Blobs
  * @param {unknown} val - 要获取大小的值（数组、字符串、Map、Set、对象或Blob）。The value to get the size of (array, string, Map, Set, object, or Blob)
  * @returns {number} 输入值的大小/长度。对于null、undefined或不支持的类型返回0。The size/length of the input value. Returns 0 for null, undefined, or unsupported types
+ * @remarks 仅当运行环境存在全局Blob时才按字节数处理Blob；在无Blob的环境（如部分Node.js）中，会退化为读取对象的length属性或键数量。Blobs are measured by byte size only when a global Blob exists; in environments without Blob (e.g. some Node.js versions) the value falls back to its length property or key count.
  * @example
  * ```ts
  * // Array size
@@ -312,8 +313,7 @@ export function castArray<T>(val: T | T[]): T[] {
  * @param {T[]} arr - 要拆分为块的数组。Array to split into chunks
  * @param {number} size - 每个块的大小（必须是正整数）。Size of each chunk (must be positive integer)
  * @returns {T[][]} 块数组，其中每个块是指定大小的数组（最后一个块可能较小）。Array of chunks, where each chunk is an array of the specified size (last chunk may be smaller)
- * @throws {RangeError} 当size小于1时抛出错误。When size is less than 1
- * @throws {TypeError} 当arr不是数组或size不是数字时抛出错误。When arr is not an array or size is not a number
+ * @throws {RangeError} 当size不是正整数时抛出错误。When size is not a positive integer
  * @example
  * ```ts
  * // Basic chunking
@@ -579,9 +579,9 @@ export function differenceBy(arr1: AnyArr, arr2: AnyArr, fn: (v: unknown) => unk
  * @function drop
  * @description 从数组的开头删除元素。Removes elements from the beginning of an array
  * @param {T[]} arr - 要从中删除元素的数组。Array to drop elements from
- * @param {number} itemsCount - 要从开头删除的元素数量（默认：1）。Number of elements to drop from the beginning (default: 1)
+ * @param {number} itemsCount - 要从开头删除的元素数量（默认：1）；负数按0处理。Number of elements to drop from the beginning (default: 1); negative values are treated as 0
  * @returns {T[]} 从开头删除指定数量元素的新数组。New array with specified number of elements removed from the beginning
- * @throws {TypeError} 当arr不是数组或itemsCount不是数字时抛出错误。When arr is not an array or itemsCount is not a number
+ * @throws {TypeError} 当itemsCount不是数字时抛出错误。When itemsCount is not a number
  * @example
  * ```ts
  * // Basic usage
@@ -614,6 +614,16 @@ export function drop<T>(arr: readonly T[], itemsCount: number): T[] {
  * @description 从数组开头删除元素，直到回调返回 true。Drops items from the beginning until the callback returns true
  * @param {T[]} _arr - 要处理的数组。Array to process
  * @param {Function} canContinueDropping - 当元素应该保留并停止删除时返回 true，当元素应该继续删除时返回 false。Function that returns true when the item should be kept and dropping should stop, false when dropping should continue
+ * @remarks 不会修改输入数组，而是返回切片后的新数组。The input array is not mutated; a sliced array is returned.
+ * @example
+ * ```ts
+ * dropWhile([1, 2, 3, 4], n => n >= 3); // -> [3, 4]
+ * ```
+ * @example
+ * ```ts
+ * // Return false to keep dropping; return true to stop.
+ * dropWhile([1, 2, 3], n => n < 3); // -> [3]
+ * ```
  * @returns {T[]} 从开头删除元素直到条件变为true的新数组。New array with elements dropped from the beginning until condition becomes true
  * @throws {TypeError} 当_arr不是数组或canContinueDropping不是函数时抛出错误。When _arr is not an array or canContinueDropping is not a function
  * @example
@@ -1086,6 +1096,7 @@ export function initializeArrayWithValues(len: number, value = 0) {
  * @param {T[]} arr - 要从中删除元素的数组（就地修改）。Array to remove elements from (modified in place)
  * @param {Function} fn - 测试元素的谓词函数。Predicate function to test elements
  * @returns {T[]} 包含已删除元素的数组。Array containing the removed elements
+ * @remarks arr会被就地修改为仅包含未匹配元素。The input array arr is mutated in place and retains only non-matching elements.
  * @throws {TypeError} 当arr不是数组或fn不是函数时抛出错误。When arr is not an array or fn is not a function
  * @example
  * ```ts

@@ -173,32 +173,20 @@ export function decapitalize([first, ...rest]: string) {
  * @throws {TypeError} 当str不是字符串时。When str is not a string
  * @example
  * ```ts
- * // Unix line endings (
-)
- * splitLines('line 1
-line 2
-line 3
-'); // -> ['line 1', 'line 2', 'line 3', '']
+ * // Unix line endings
+ * splitLines('line 1\nline 2\nline 3\n'); // -> ['line 1', 'line 2', 'line 3', '']
  *
  * ```
  * @example
  * ```ts
- * // Windows line endings (
-)
- * splitLines('line 1
-line 2
-line 3
-'); // -> ['line 1', 'line 2', 'line 3', '']
+ * // Windows line endings
+ * splitLines('line 1\r\nline 2\r\nline 3\r\n'); // -> ['line 1', 'line 2', 'line 3', '']
  *
  * ```
  * @example
  * ```ts
  * // Mixed line endings
- * splitLines('line 1
-line 2
-line 3
-
-'); // -> ['line 1', 'line 2', 'line 3', '']
+ * splitLines('line 1\nline 2\r\nline 3\n'); // -> ['line 1', 'line 2', 'line 3', '']
  *
  * ```
  * @example
@@ -206,9 +194,7 @@ line 3
  * // Edge cases
  * splitLines(''); // -> ['']
  * splitLines('single line'); // -> ['single line']
- * splitLines('
-
-'); // -> ['', '', '', '']
+ * splitLines('\n\n'); // -> ['', '', '']
  * ```
  */
 
@@ -403,8 +389,9 @@ export function reverseString(str: string) {
  * @function truncateString
  * @description 将字符串截断到指定长度，如果截断则添加省略号。Truncates a string to a specified length and adds ellipsis if truncated
  * @param {string} str - 要截断的字符串。String to truncate
- * @param {number} num - 截断后的总长度上限（含省略号，默认：10）。Total length cap including the ellipsis (default: 10)
+ * @param {number} num - 截断长度限制（含省略号，默认：10）；当num小于等于3时，结果会保留省略号并可能超过该限制。Length limit including the ellipsis (default: 10); when num is 3 or less, the result keeps the ellipsis and may exceed the limit
  * @returns {string} 如果需要则带有省略号的截断字符串，或在限制内的原始字符串。Truncated string with ellipsis if needed, or original string if within limit
+ * @remarks 当num小于等于3时，函数返回str.slice(0, num) + '...'。For num <= 3, the function returns str.slice(0, num) + '...'.
  * @example
  * ```ts
  * // Basic truncation
@@ -454,6 +441,11 @@ export function truncateString(str: string, num = 10) {
  * @param {number} maxLength - 包括省略号在内的最大允许长度（默认：10）。Maximum allowed length including ellipsis (default: 10)
  * @param {string} ellipsisStr - 自定义省略号字符串（默认：'...'）。Custom ellipsis string (default: '...')
  * @returns {string} 带有自定义省略号的截断字符串，或在限制内的原始字符串。Truncated string with custom ellipsis, or original string if within limit
+ * @remarks 当ellipsisStr长度大于等于maxLength时，仅返回截断到maxLength的ellipsisStr。When ellipsisStr is at least maxLength characters long, only the ellipsis string truncated to maxLength is returned.
+ * @example
+ * ```ts
+ * ellipsis('hello', 2, '...'); // -> '..'
+ * ```
  * @throws {TypeError} 当参数类型不符合预期时。When parameters are not of expected types
  * @example
  * ```ts

@@ -248,8 +248,9 @@ export function rmdirsSync(targetPath: string) {
  * @description 异步写入数据到文件，根据需要创建目录。Asynchronously writes data to a file, creating directories as needed with automatic directory structure creation.
  * @param {string} filePath - 要写入的文件路径。The file path to write to
  * @param {string} fileData - 要写入文件的内容。The content to write to the file
- * @param {boolean} [replace=true] - 如果为true，覆盖现有文件；如果为false，追加到现有文件。If true, overwrites existing file; if false, appends to existing file
+ * @param {boolean} [replace=true] - 如果为true，覆盖现有文件；如果为false，追加到现有文件（文件不存在时则新建）。If true, overwrites existing file; if false, appends to an existing file (or creates a new file when it does not exist)
  * @returns {Promise<boolean>} 成功写入时解析为true的Promise。Promise that resolves to true on successful write
+ * @remarks 会自动创建目标文件所在目录。The target file's parent directory is created automatically.
  * @throws {Error} 如果写入操作失败则拒绝。Rejects if write operation fails
  * @example
  * ```ts

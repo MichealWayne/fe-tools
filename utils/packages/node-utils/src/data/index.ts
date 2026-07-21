@@ -10,8 +10,9 @@
  * @function parseCSV
  * @description 解析CSV字符串为二维数组。Parses CSV string to 2D array
  * @param {string} csv - CSV字符串。CSV string
- * @param {string} delimiter - 分隔符(默认: ',')。Delimiter (default: ',')
+ * @param {string} delimiter - 单字符分隔符(默认: ',')。Single-character delimiter (default: ',')
  * @returns {string[][]} 二维数组。2D array
+ * @remarks 这是一个轻量解析器：仅按\n拆分行（不识别\r\n中的\r，也不支持引号内换行），丢弃空白行，对每个字段做trim，且引号仅作开合切换（不支持转义的双引号""）。含引号内换行或CRLF的标准CSV可能被错误解析。Lightweight parser: splits rows on \n only (does not handle \r in \r\n or quoted newlines), drops blank lines, trims every field, and toggles quote state without supporting escaped double-quotes (""). Standard CSV with quoted newlines or CRLF may be parsed incorrectly.
  * @example
  * ```ts
  * const csv = 'name,age,city\nJohn,25,NYC\nJane,30,LA';

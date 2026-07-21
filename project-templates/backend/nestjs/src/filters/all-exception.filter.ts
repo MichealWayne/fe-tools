@@ -10,7 +10,10 @@ function getExceptionMessage(exception: unknown): string {
     const response = exception.getResponse();
     if (typeof response === 'object' && response !== null && 'message' in response) {
       const message = (response as { message?: unknown }).message;
-      return Array.isArray(message) ? message.join(', ') : String(message || exception.message);
+      if (Array.isArray(message)) {
+        return message.join(', ');
+      }
+      return typeof message === 'string' ? message : exception.message;
     }
     return exception.message;
   }

@@ -26,10 +26,24 @@ export type EasingFunction = (amount: number) => number;
  * @see https://www.febucci.com/2018/08/easing-functions/
  */
 const Easing = {
+  /**
+   * Linear easing functions.
+   * @param amount - Normalized progress, normally in the range [0, 1].
+   * @returns The interpolated progress.
+   * @example
+   * Easing.Linear.None(0.5); // 0.5
+   */
   // 线性缓动函数
   Linear: {
     None: (amount: number) => amount,
   },
+  /**
+   * Quadratic easing functions.
+   * Each function accepts normalized progress, normally in the range [0, 1].
+   * @example
+   * Easing.Quadratic.In(0.5); // 0.25
+   * Easing.Quadratic.Out(0.5); // 0.75
+   */
   // 二次缓动函数
   Quadratic: {
     // 缓慢加速
@@ -121,6 +135,10 @@ const Easing = {
       return 0.5 * (-Math.pow(2, -10 * (amount - 1)) + 2);
     },
   },
+  /**
+   * Circular easing functions.
+   * @remarks Values are intended for normalized progress in the range [0, 1].
+   */
   Circular: {
     In: (amount: number) => 1 - Math.sqrt(1 - amount * amount),
     Out: (amount: number) => Math.sqrt(1 - --amount * amount),

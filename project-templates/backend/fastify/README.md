@@ -1,79 +1,97 @@
-# Fastify TypeScript Template(Beta)
+# Fastify + TypeScript 后端模板
 
-A production-ready Fastify server template with TypeScript, featuring:
+## 项目简介
 
-- 🚀 Fastify v5 with TypeScript support
-- 🔐 Built-in security headers with @fastify/helmet
-- 🔄 CORS support with @fastify/cors
-- 📝 API documentation with Swagger/OpenAPI
-- 📊 Logging with Pino
-- 🔒 Rate limiting
-- 🧪 Jest testing setup
-- 🛠️ ESLint + Prettier for code quality
-- 📦 Optimized for production
+这是一个基于 Fastify 5 和 TypeScript 的 Node.js 后端服务模板，内置以下能力：
 
-## Getting Started
+- Fastify HTTP 服务
+- CORS 与安全响应头
+- Swagger/OpenAPI 文档
+- 限流
+- 日志
+- TypeScript 类型检查
+- ESLint、Prettier 与 Jest
 
-### Prerequisites
+## 技术栈
 
-- Node.js 20.x or later
-- npm 10.x or later
-- TypeScript 6.0 or later
+- Node.js 20+
+- Fastify 5
+- TypeScript 6
+- Jest 30
+- ESLint 10
 
-### Installation
+## 环境要求
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Copy `.env.example` to `.env` and update the values:
-   ```bash
-   cp .env.example .env
-   ```
+- Node.js 20 或更高版本
+- npm 10 或更高版本
 
-### Development
-
-Start the development server with hot-reload:
+## 安装
 
 ```bash
-npm run dev
+npm install
 ```
 
-The server will be available at `http://localhost:3000`
-
-### Production
-
-Build the application:
+如需配置环境变量：
 
 ```bash
-npm run build
+cp .env.example .env
 ```
 
-Start the production server:
+## 常用命令
 
-```bash
-npm start
+| 命令 | 说明 |
+| --- | --- |
+| `npm run dev` | 开发模式启动，支持热重载 |
+| `npm run build` | 编译 TypeScript |
+| `npm start` | 编译后启动服务 |
+| `npm run typecheck` | 仅执行类型检查 |
+| `npm run lint` | 执行 ESLint 检查 |
+| `npm run test` | 执行 Jest 测试 |
+
+默认服务端口为 `3000`。
+
+## 健康检查
+
+三个后端模板统一使用以下健康检查路由：
+
+| 路由 | 用途 |
+| --- | --- |
+| `GET /health` | 综合健康检查 |
+| `GET /health/live` | 存活检查 |
+| `GET /health/ready` | 就绪检查 |
+
+成功响应格式：
+
+```json
+{
+  "status": "ok",
+  "timestamp": "2026-07-14T11:31:16.737Z",
+  "uptime": 12.34
+}
 ```
 
-## Project Structure
+Fastify 的业务 API 默认使用 `/api` 前缀；健康检查路由不使用此前缀。
 
-```
+Swagger 文档地址：`/documentation`。
+
+## 项目结构
+
+```text
 src/
-├── config/           # Configuration files
-├── controllers/      # Route controllers
-├── interfaces/       # TypeScript interfaces
-├── middlewares/      # Custom middlewares
-├── routes/           # Route definitions
-├── services/         # Business logic
-├── utils/            # Utility functions
-├── app.ts            # Application setup
-└── index.ts          # Application entry point
+├── app.ts                  # 应用初始化、插件与基础路由
+├── index.ts                # 服务启动入口
+├── config/                 # 环境变量与配置
+├── routes/                 # 业务路由和健康检查路由
+├── controllers/            # 控制器
+├── services/               # 业务服务
+├── middlewares/            # 中间件
+├── interfaces/             # 类型定义
+└── utils/                  # 工具函数
 ```
 
-## Environment Variables
+## 环境变量
 
-Create a `.env` file in the root directory with the following variables:
+常用配置：
 
 ```env
 NODE_ENV=development
@@ -82,32 +100,21 @@ LOG_LEVEL=info
 API_PREFIX=/api
 ```
 
-## API Documentation
+完整配置以 `src/config` 为准。
 
-Access the interactive API documentation at `/documentation` when the server is running.
+## AI 参考信息
 
-## Testing
+当 AI 基于此模板新增功能或修改代码时，请遵循以下约束：
 
-Run tests:
+1. 服务入口是 `src/index.ts`，应用组装逻辑位于 `src/app.ts`。
+2. 新增业务 API 时优先放入 `src/routes`，并遵循 `/api` 前缀。
+3. 不要把健康检查路由放入 `/api` 前缀；保持 `/health`、`/health/live`、`/health/ready` 不变。
+4. 健康检查响应应保持 `status`、`timestamp`、`uptime` 字段兼容。
+5. 需要增加数据库、缓存等就绪检查时，只修改 `/health/ready` 的检查逻辑；失败返回 HTTP 503。
+6. 修改依赖后必须执行 `npm run typecheck`、`npm run lint`、`npm run build` 和 `npm test`。
+7. 不要提交 `node_modules`、`dist`、`.env` 或运行日志。
+8. 端口通过环境变量配置，不要在源码中写死部署环境端口。
 
-```bash
-npm test
-```
-
-Run tests in watch mode:
-
-```bash
-npm test -- --watch
-```
-
-## Linting
-
-Check for linting errors:
-
-```bash
-npm run lint
-```
-
-## License
+## 许可证
 
 ISC

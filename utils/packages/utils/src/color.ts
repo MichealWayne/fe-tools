@@ -8,7 +8,7 @@
 /**
  * @function randomHexColor
  * @description 生成随机十六进制颜色。Generates random hexadecimal color
- * @return {string} 随机颜色值。Random color value
+ * @return {string} #000000到#ffffff范围内的随机十六进制颜色。A random hexadecimal color in the range #000000 to #ffffff
  * @example
  * ```ts
  * randomHexColor(); // '#ff0000'(randomly)
@@ -55,7 +55,7 @@ export function getColorRgbArr(color: string): number[] {
  * @param {string} str - 原始十六进制颜色值。The original hexadecimal color value
  * @param {number} rate - 透明度,默认为1,取值范围[0,1]。Opacity, default is 1, range [0,1]
  * @return {string} rgba颜色值，如'rgba(255,0,0,0.5)'。RGBA color value, e.g. 'rgba(255,0,0,0.5)'
- * @need getColorRgb
+ * @see getColorRgbArr - Converts the hexadecimal input to RGB components
  * @example
  * ```ts
  * getColorRgba('#ff0000', 0.5); // 'rgba(255,0,0,0.5)'

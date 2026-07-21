@@ -367,7 +367,7 @@ export const isPromise = <T = any>(val?: unknown): val is Promise<T> =>
 
 /**
  * @function isPrimitive
- * @description 检查值是否为类Promise对象（具有'then'方法）。Checks if a value is a Promise-like object (has a 'then' method)
+ * @description 历史遗留的错误命名别名，实际检查值是否为类Promise对象（具有'then'方法）。Misnamed legacy alias that actually checks whether a value is Promise-like (has a 'then' method)
  * @deprecated 请使用 isPromise 代替。Please use isPromise instead
  * @param {unknown} val - 要检查的值。Value to check
  * @returns {boolean} 如果值为类Promise对象则返回true，否则返回false。True if the value is Promise-like, false otherwise
@@ -375,7 +375,9 @@ export const isPromise = <T = any>(val?: unknown): val is Promise<T> =>
  * ```ts
  * isPrimitive(Promise.resolve(42)); // -> true
  * isPrimitive({}); // -> false
+ * // Use isPromise for new code.
  * ```
+ * @see isPromise
  */
 export const isPrimitive = isPromise;
 

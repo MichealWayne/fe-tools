@@ -152,12 +152,6 @@ export async function bootstrap(
     // Register routes
     await registerRoutes(app);
 
-    // Health check endpoint
-    app.get('/health', () => ({
-      status: 'ok',
-      timestamp: new Date().toISOString(),
-    }));
-
     // Root endpoint
     app.get('/', () => ({
       name: 'Fastify API',

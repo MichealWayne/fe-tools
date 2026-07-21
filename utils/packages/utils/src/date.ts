@@ -88,10 +88,10 @@ export function isBeforeDate(dateA: Date, dateB = new Date()) {
 
 /**
  * @function daysLater
- * @description 获取几天后的日期。Gets the date after specified days
- * @param {Date} date - 日期。The base date
- * @param {number} days - 天数,默认为1。Number of days to add, default is 1
- * @return {string} 返回日期。The resulting date string
+ * @description 获取几天后的日期字符串，不修改输入日期。Gets a date string after the specified number of days without mutating the input date
+ * @param {Date} date - 基准日期。The base date
+ * @param {number} [days] - 要增加的天数，默认为1，可为负数。Number of days to add, default is 1; may be negative
+ * @return {string} UTC日期字符串，格式为YYYY-MM-DD。UTC date string in YYYY-MM-DD format
  * @example
  * ```ts
  * const date = new Date('2023-01-01');

@@ -15,7 +15,8 @@
  * @description 将Promise的错误和数据分离。Separates Promise errors and data
  * @param {Promise} promise - Promise实例。The Promise instance
  * @param {Object} [errorExt] - 错误扩展对象。Error extension object
- * @return {Promise<[U, undefined] | [null, T]>} 返回一个Promise，成功时为[null, data]，失败时为[error, undefined]。Returns a Promise that resolves to [null, data] on success or [error, undefined] on failure
+ * @return {Promise<[null, T] | [U, undefined]>} 返回一个Promise，成功时为[null, data]，失败时为[error, undefined]。Returns a Promise that resolves to [null, data] on success or [error, undefined] on failure
+ * @remarks 错误值原样透传：拒因是什么就返回什么（如reject('x')会得到['x', undefined]，并非一定是Error）。传入errorExt时通过Object.assign({}, err, errorExt)合并，结果是普通对象（不再是Error实例），且errorExt的字段会覆盖原错误的同名字段（如message）。The rejection value is passed through as-is (e.g. reject('x') yields ['x', undefined], not necessarily an Error). When errorExt is provided it is merged via Object.assign({}, err, errorExt), producing a plain object (no longer an Error instance) where errorExt fields overwrite same-named error fields such as message.
  * @example
  * ```ts
 const [err, data] = await to(promise); // some promise instance

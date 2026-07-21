@@ -80,12 +80,12 @@ const hasSymbol = (pwd: string) => /[\W_]/.test(pwd);
  * @function checkPwdStrength
  * @description 检验密码强度（数字+字母+符号）。Validates password strength (numbers + letters + symbols)
  * @param {string} pwd - 待检查的密码。The password to check
- * @param {PwdStrengthTips} tips - 自定义密码强度提示信息。Custom password strength tip messages
+ * @param {PwdStrengthTips} [tips] - 自定义密码强度提示信息。Custom password strength tip messages
  * @return {PwdStrengthTypes | string} 密码强度类型或提示信息。Password strength type or tip message
  * @example
  * ```ts
- * checkPwdStrength('abc123!'); // -> PwdStrengthTypes.Middle（含字母、数字、符号）
- * checkPwdStrength('abc123'); // -> PwdStrengthTypes.Low（仅字母+数字）
+ * checkPwdStrength('abc123!'); // -> PwdStrengthTypes.strong（含字母、数字、符号）
+ * checkPwdStrength('abc123'); // -> PwdStrengthTypes.average（含字母和数字）
  * ```
  * @example
  * ```ts

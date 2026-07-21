@@ -85,7 +85,7 @@ export function partition<T>(arr: T[], fn: (item: T) => boolean): [T[], T[]] {
  * @function zip
  * @description 将多个数组组合成元组数组。Combines multiple arrays into an array of tuples
  * @param {...Array} arrays - 要组合的数组。Arrays to combine
- * @returns {Array[]} 元组数组。Array of tuples
+ * @returns {Array[]} 元组数组，长度取最长输入数组，较短数组缺失位置为undefined。Array of tuples; the length follows the longest input array and missing values are undefined
  * @example
  * ```ts
  * // Combine parallel arrays

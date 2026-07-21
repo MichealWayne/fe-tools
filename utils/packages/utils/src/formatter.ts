@@ -10,8 +10,9 @@
  * @function formatFileSize
  * @description 将字节数格式化为人类可读的文件大小。Formats bytes to human-readable file size
  * @param {number} bytes - 字节数。Number of bytes
- * @param {number} decimals - 小数位数(默认: 2)。Decimal places (default: 2)
+ * @param {number} [decimals] - 小数位数(默认: 2)。Decimal places (default: 2)
  * @returns {string} 格式化的文件大小字符串。Formatted file size string
+ * @remarks 负数、NaN和非有限数返回'0 Bytes'；超过YB范围的值使用YB单位。Negative, NaN, and non-finite values return '0 Bytes'; values beyond YB use the YB unit.
  * @example
  * ```ts
  * formatFileSize(1024); // -> '1.00 KB'

@@ -8,7 +8,7 @@
 
 /**
  * @function NOOP
- * @description 无操作函数，返回空字符串（用作默认回调函数）。No-operation function that returns an empty string (useful as default callback)
+ * @description 无操作函数，调用时不产生副作用并返回空字符串。No-operation function with no side effects that returns an empty string
  * @returns {string} 空字符串。Empty string
  * @example
  * ```ts
@@ -88,7 +88,8 @@ export function attempt<T extends unknown[], R>(fn: (...fnArgs: T) => R, ...args
  * @description 将函数的执行延迟到事件循环的下一个时钟周期。Defers execution of a function to the next tick of the event loop
  * @param {Function} fn - 要延迟执行的函数。Function to defer
  * @param {...any} args - 传递给函数的参数。Arguments to pass to the function
- * @returns {Promise<void>} 当函数执行完成时解析的 Promise。Promise that resolves when the function has been executed
+ * @returns {Promise<void>} 在下一个tick调度fn后解析的 Promise。Promise that resolves after fn has been scheduled on the next tick
+ * @remarks fn被调用但不会被await：若fn为async函数，其返回的Promise被忽略，defer可能在fn内部异步逻辑完成前就已resolve；fn同步抛出会使defer的Promise被reject，而async内部的拒绝不会被捕获。fn is invoked but not awaited: if fn is async its returned Promise is ignored and defer may resolve before fn's async work finishes; a synchronous throw rejects defer's Promise, while an async rejection is not caught.
  * @example
  * ```ts
  * // Basic deferral
@@ -144,8 +145,8 @@ export async function defer(fn: (...arg: unknown[]) => unknown, ...args: unknown
 /**
  * @function runPromisesInSeries
  * @description 按顺序执行返回 Promise 的函数数组（一个接一个）。Executes an array of promise-returning functions sequentially (one after another)
- * @param {Array<Function>} ps - 返回 Promise 的函数数组。Array of functions that return promises
- * @returns {Promise<any>} 使用最后一个函数的结果解析的 Promise。Promise that resolves with the result of the last function
+ * @param {Array<Function>} ps - 返回 Promise 的函数数组，每个函数会收到上一个函数resolve后的值作为参数。Array of functions that return promises; each receives the previous function's resolved value as its argument
+ * @returns {Promise<any>} 使用最后一个函数的结果解析的 Promise；传入空数组时解析为undefined。Promise that resolves with the result of the last function, or undefined for an empty array
  * @throws {Error} 如果序列中的任何 Promise 被拒绝。If any promise in the sequence rejects
  * @example
  * ```ts
@@ -197,7 +198,8 @@ export function runPromisesInSeries(ps: Array<(...args: unknown[]) => Promise<an
  * @description 测量并记录函数的执行时间。Measures and logs the execution time of a function
  * @param {Function} fn - 要测量的函数。Function to measure
  * @param {...any} args - 传递给函数的参数。Arguments to pass to the function
- * @returns {any} 函数执行的结果。The result of the function execution
+ * @returns {any} 函数执行的结果（若fn返回Promise则原样返回，不会被await）。The result of the function execution (a Promise returned by fn is passed through, not awaited)
+ * @remarks 仅测量fn的同步调用耗时；对async函数只统计到返回Promise为止，不包含其后续异步耗时。Only the synchronous invocation of fn is timed; for async functions the measurement stops when the Promise is returned and excludes its later async work.
  * @example
  * ```ts
  * // Measuring a simple function
@@ -216,14 +218,10 @@ export function runPromisesInSeries(ps: Array<(...args: unknown[]) => Promise<an
  * ```
  * @example
  * ```ts
- * // Measuring async functions
- * async function fetchData(url) {
- *   const response = await fetch(url);
- *   return response.json();
- * }
- *
- * await timeTaken(fetchData, 'https://api.example.com/data');
- * // Console output: timeTaken: 234.567ms
+ * // Note: async functions are NOT awaited, so the logged time only covers
+ * // the synchronous portion up to the returned Promise.
+ * const promise = timeTaken(fetchData, 'https://api.example.com/data');
+ * const data = await promise; // await the returned promise separately
  *
  * ```
  * @example

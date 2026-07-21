@@ -13,11 +13,12 @@ import userRoutes from './user.routes';
 // Define route options interface
 export interface RouteOptions {
   prefix: string;
+  useApiPrefix?: boolean;
 }
 
 // Array of route modules with their options
 const routes: Array<{ plugin: FastifyPluginAsync; options?: RouteOptions }> = [
-  { plugin: healthRoutes, options: { prefix: '/health' } },
+  { plugin: healthRoutes, options: { prefix: '/health', useApiPrefix: false } },
   { plugin: userRoutes, options: { prefix: '/users' } },
 ];
 
@@ -28,7 +29,7 @@ export async function registerRoutes(app: FastifyInstance): Promise<void> {
   // Register each route module
   for (const route of routes) {
     const prefix = route.options?.prefix
-      ? `${config.apiPrefix}${route.options.prefix}`
+      ? `${route.options.useApiPrefix === false ? '' : config.apiPrefix}${route.options.prefix}`
       : config.apiPrefix;
 
     await app.register(route.plugin, { prefix });
