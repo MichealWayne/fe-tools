@@ -1,0 +1,24 @@
+{
+  "codexQuotaNotificationLowTitle": { "message": "Codex 额度不足" },
+  "codexQuotaNotificationResetTitle": { "message": "Codex 额度已重置" },
+  "codexQuotaNotificationLowMessage": { "message": "$1仅剩 $2%。" },
+  "codexQuotaNotificationResetMessage": { "message": "$1已恢复，当前剩余 $2%。" },
+  "codexQuotaNotificationFiveHour": { "message": "5 小时额度" },
+  "codexQuotaNotificationWeekly": { "message": "每周额度" },
+  "codexQuotaNotificationAdditional": { "message": "$1 分钟额度" },
+  "extensionName": {
+    "message": "FE工具箱"
+  },
+  "extensionDescription": {
+    "message": "前端开发者工具集合。"
+  },
+  "extensionActionTitle": {
+    "message": "打开 FE 工具箱"
+  },
+  "contextMenuQrCode": {
+    "message": "为当前网址生成二维码"
+  },
+  "contextMenuTranslate": {
+    "message": "快速翻译"
+  }
+}
