@@ -26,6 +26,12 @@ The root build also creates an aggregate `fe-tools` package under `dist/fe-tools
 - Detailed documentation for each utility function
 - Environment-specific packages to prevent unnecessary code bundling
 
+## 🎯 Positioning
+
+This workspace is a focused collection of TypeScript helpers for frontend and Node.js projects, not a full replacement for lodash or es-toolkit. Choose it when you need browser/Node-specific helpers, Canvas and image processing, runtime detection, or AI prompt utilities alongside typed APIs and package-level documentation.
+
+For general-purpose array and object operations, compare mature utility libraries first. For package selection, see the package name and directory mapping in the root [README](../README-en.md#21-utils).
+
 ## 📄 Documentation
 
 Full API documentation is available by running:
@@ -67,7 +73,7 @@ npm run docs
 
 ## 📝 License
 
-This workspace is licensed under the MIT License as declared in `package.json`.
+The workspace root declares the MIT License. Published packages currently carry their own package metadata; check the target package's `package.json` before redistribution.
 
 ## 👤 Author
 

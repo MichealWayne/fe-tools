@@ -6,27 +6,38 @@
 
 ---
 
+## Quick Start
+
+Choose an entry point based on your goal:
+
+- **Find front-end resources**: start with [Common Websites](#1-common-websites) for documentation, compatibility, frameworks, and engineering references.
+- **Use ready-made tools**: install the [Chrome Extension](#fe-tools---chrome-extension) for JSON, SVG, regex, screenshot, and API tasks.
+- **Install utility packages**: see [utils](#21-utils) and choose a package by runtime and use case.
+- **Create a project**: see [project-templates](#22-project-templates) and follow the README inside the selected template.
+
+> This repository contains four independent areas: resource navigation, browser tools, TypeScript utility packages, and project templates. You do not need to read the entire README before using one area.
+
 ## 1. Common Websites
 
 Contents:
 
-- [1.1 HTML/CSS/JavaScript](https://github.com/MichealWayne/fe-tools#11-htmlcssjavascript)
-- [1.2 Compatibility/Query](https://github.com/MichealWayne/fe-tools#12-%E5%85%BC%E5%AE%B9%E6%9F%A5%E8%AF%A2)
-- [1.3 CSS Tools](https://github.com/MichealWayne/fe-tools#13-css%E5%B7%A5%E5%85%B7)
-- [1.4 JS Plugins/Libraries](https://github.com/MichealWayne/fe-tools#14-js%E6%8F%92%E4%BB%B6%E5%BA%93)
-- [1.5 Vue](https://github.com/MichealWayne/fe-tools#15-vue)
-- [1.6 React](https://github.com/MichealWayne/fe-tools#16-react)
-- [1.7 Nodejs and Building](https://github.com/MichealWayne/fe-tools#17-nodejs%E5%92%8C%E6%9E%84%E5%BB%BA)
-- [1.8 Hybrid and Cross-Platform](https://github.com/MichealWayne/fe-tools#18-hybird%E5%92%8C%E8%B7%A8%E7%AB%AF)
-- [1.9 Auxiliary Tools](https://github.com/MichealWayne/fe-tools#19-%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7)
-- [1.10 Testing, Security, and Encryption](https://github.com/MichealWayne/fe-tools#110-%E6%B5%8B%E8%AF%95%E5%AE%89%E5%85%A8%E5%8F%8A%E5%8A%A0%E5%AF%86)
-- [1.11 AI Artificial Intelligence Library](https://github.com/MichealWayne/fe-tools#111-ai-artificial-intelligence-library)
-- [1.12 WebAssembly](https://github.com/MichealWayne/fe-tools#112-webassembly)
-- [1.13 IDE Plugins](https://github.com/MichealWayne/fe-tools#113-ide-plugins)
-- [1.14 Web3/Blockchain](https://github.com/MichealWayne/fe-tools#114-web3blockchain)
-- [1.15 Life Edition](https://github.com/MichealWayne/fe-tools#115-life-edition)
+- [1.1 HTML/CSS/JavaScript](#11-htmlcssjavascriptwasmdart)
+- [1.2 Compatibility/Query](#12-compatibilityquery)
+- [1.3 CSS Tools](#13-css-tools)
+- [1.4 JS Plugins/Libraries](#14-js-pluginslibraries)
+- [1.5 Vue](#15-vue)
+- [1.6 React](#16-react)
+- [1.7 Node.js and Build Tooling](#17-nodejs-and-build-tooling)
+- [1.8 Hybrid and Cross-Platform](#18-hybrid-and-cross-platform)
+- [1.9 Auxiliary Tools](#19-auxiliary-tools)
+- [1.10 Testing, Security, and Encryption](#110-testing-security-and-encryption)
+- [1.11 AI Artificial Intelligence Library](#111-ai-artificial-intelligence-library)
+- [1.12 WebAssembly](#112-webassembly)
+- [1.13 IDE Plugins](#113-ide-plugins)
+- [1.14 Web3/Blockchain](#114-web3blockchain)
+- [1.15 Life Edition](#115-life-edition)
 
-> Note: Some options can be considered by asking [Deepseek](https://chat.deepseek.com/) / [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/) first, and then judging based on the comprehensive information.
+> Note: Some options can be considered by asking [Deepseek](https://chat.deepseek.com/) / [ChatGPT](https://chatgpt.com/) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/) first, and then judging based on the comprehensive information.
 
 ### 1.1 HTML/CSS/JavaScript/WASM/Dart
 
@@ -569,7 +580,9 @@ Contents:
 | https://nextjs.org/docs/app/api-reference/file-conventions/metadata | seo | The native SEO solution for Next.js 13+, replacing some functionalities of next-seo. |
 | https://github.com/onivim/next-og | seo | Dynamically generates Open Graph images, supporting Edge Runtime. |
 
-### 1.7 Nodejs and building
+### 1.7 Node.js and Build Tooling
+
+#### 1.7.1 Runtime, Package Management, and Engineering Tools
 
 | Address                                                                                     | Label              | Description                                                                                  |
 | ------------------------------------------------------------------------------------------- | ------------------ | -------------------------------------------------------------------------------------------- |
@@ -583,48 +596,47 @@ Contents:
 | https://nodejs.org/docs/latest/api/                                                         | node               | Official Node.js API documentation; Chinese sites can be used as secondary references.        |
 | https://docs.deno.com/                                                                      | deno               | Official Deno documentation for the modern JavaScript/TypeScript runtime.                     |
 | https://bun.sh/                                                                             | bun                | JavaScript/TypeScript runtime, package manager, bundler, and test runner.                    |
+| https://tsx.is/                                                                             | tsx/typescript     | TypeScript execution tool for Node.js; use when full TypeScript features or tsconfig support is needed. |
 | https://turbo.build/repo                                                                    | turborepo          | Easy-to-use, high-performance multi-package management tool, monorepo.                       |
 | https://lerna.js.org/                                                                       | lerna              | Easy-to-use multi-package management tool, monorepo.                                         |
 | https://github.com/ds300/patch-package#readme                                               | patch-package      | Tool package for patching node_modules.                                                      |
-| https://v8.dev/docs                                                                         | V8                 | js V8 engine documentation.                                                                  |
 | https://v8.dev/docs                                                                         | v8                 | V8 engine documentation entry; old Node 10.6 materials are only historical references.        |
 | https://github.com/bellard/quickjs                                                          | quickjs            | A lightweight js engine.                                                                     |
 | https://github.com/GoogleChromeLabs/jsvu                                                    | jsvu               | A must-have tool for debugging js engines, engine switching and version control.             |
 | https://docs.docker.com/                                                                    | docker             | Application container engine Docker.                                                         |
 | https://man.linuxde.net/                                                                    | linux              | Linux command query manual.                                                                  |
 | http://aheckmann.github.io/gm/                                                              | gm                 | Backend image processing tool.                                                               |
-| https://github.com/protobi/js-xlsx/tree/beta#readme                                         | js-xlsx            | Library for editing and processing xlsx.                                                     |
+| https://sheetjs.com/                                                                         | sheetjs/xlsx        | Library for reading and writing xlsx and other spreadsheet files.                            |
 | https://github.com/shelljs/shelljs                                                          | shelljs            | Implement commonly used shell commands with Nodejs.                                          |
 | https://github.com/chalk/chalk                                                              | chalk              | Console command line output style tool, mainly controls color.                               |
 | https://github.com/node-schedule/node-schedule                                              | node-schedule      | Timing task tool for Nodejs.                                                                 |
-| https://www.npmjs.com/package/source-map-support                                            | source-map-support | Module tool that supports SourceMap in the nodejs environment.                               |
+| https://www.npmjs.com/package/source-map-support                                            | source-map-support | Source Map support for legacy Node.js projects; assess Node's built-in capabilities first for new projects. |
 | https://github.com/wclr/yalc                                                                | yalc               | An effective alternative to npm link, using real npm packages instead of various links.      |
-| https://nodejs.org/api/corepack.html                                                        | corepack           | Node built-in package-manager version dispatcher for managing pnpm/yarn versions.            |
+| https://nodejs.org/api/corepack.html                                                        | corepack           | pnpm/yarn version dispatcher and pinning tool; it is no longer distributed with Node.js starting from Node.js 25. |
 | https://volta.sh/                                                                           | volta              | Node/Yarn/npm toolchain version manager.                                                     |
 | https://github.com/Schniz/fnm                                                               | fnm                | Fast Node.js version manager.                                                                |
 | https://nx.dev/                                                                             | nx                 | Monorepo build system and task orchestration tool.                                           |
 | https://github.com/changesets/changesets                                                    | changesets         | Multi-package repository version management and changelog generation tool.                    |
 
-### 1.7.1 Building
+#### 1.7.2 Building
 
 | Address                                                                      | Tag           | Description                                                                                                     |
 | ---------------------------------------------------------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------- |
 | https://prettier.io/                                                         | prettier      | Code formatting tool that does not affect the code.                                                             |
+| https://vite.dev/                                                            | vite          | Modern Web development and build tool with a fast dev server and production builds.                             |
 | https://ejs.bootcss.com/                                                     | ejs           | Easy-to-use HTML template engine.                                                                               |
 | http://mustache.github.io/                                                   | mustache      | HTML template library suitable for multiple languages.                                                          |
 | https://pugjs.org/language/includes.html                                     | pug           | HTML template library.                                                                                          |
-| http://www.nodeclass.com/api/jade.html                                       | jade          | HTML template library.                                                                                          |
 | https://gulpjs.com/docs/en/getting-started/quick-start/                      | gulp          | Maintenance reference: automation build tool common in old projects; modern projects usually prefer Vite/Rollup/Rspack/esbuild. |
 | https://gulpjs.com/plugins/                                                  | gulp          | Gulp plugin center.                                                                                             |
 | https://gruntjs.com/                                                         | grunt         | Historical reference: early automation build tool, mainly for legacy maintenance.                                |
 | https://rollupjs.org/                                                        | Rollup        | ES module bundler commonly used for libraries and tooling ecosystems.                                             |
-| https://webpack.docschina.org/                                               | webpack       | The most widely used bundling tool.                                                                             |
+| https://webpack.js.org/                                                       | webpack       | Mature module bundler, still common for complex legacy applications and ecosystem integrations.                |
 | https://github.com/neutrinojs/webpack-chain                                  | webpack-chain | A tool to chain configure webpack configuration.                                                                |
 | https://rspack.rs/                                                           | rspack        | Rust-based high-performance bundler compatible with the Webpack ecosystem.                                       |
 | https://rsbuild.dev/                                                         | rsbuild       | Rspack-based build tool for modern web applications and libraries.                                               |
 | https://nextjs.org/docs/app/api-reference/turbopack                          | turbopack     | High-performance Rust-based bundler mainly serving the Next.js ecosystem.                                         |
 | https://parceljs.org/                                                        | parceljs      | Zero/low-configuration bundler.                                                                                  |
-| https://www.snowpack.dev/                                                    | snowpack      | A lightweight frontend project building tool without bundle.                                                    |
 | https://swc.rs/                                                              | swc           | A ts/js compiler written in Rust that claims to be 20 times faster than babel and supports all of its features. |
 | https://babeljs.io/                                                          | babel         | Widely used JavaScript compiler.                                                                                 |
 | https://github.com/fb55/htmlparser2#readme                                   | htmlparser2   | A tool for converting html to AST.                                                                              |
@@ -636,18 +648,18 @@ Contents:
 | https://github.com/addyosmani/critical#readme                                | critical      | A tool for extracting relevant CSS from HTML.                                                                   |
 | https://modernjs.dev/                                                        | modernjs      | A web frontend engineering system tool developed by ByteDance.                                                  |
 | https://github.com/javascript-obfuscator/javascript-obfuscator               | obfuscator    | A js code obfuscation plugin.                                                                                   |
-| https://github.com/egoist/tsup                                               | tsup          | TypeScript library build tool based on esbuild.                                                                  |
+| https://github.com/egoist/tsup                                               | tsup          | Existing TypeScript-library build tool; evaluate tsdown on Node.js >= 22.18 and check config compatibility before migration. |
 | https://github.com/unjs/unbuild                                              | unbuild       | Library build tool from the UnJS ecosystem.                                                                      |
 | https://tsdown.dev/                                                          | tsdown        | Next-generation build tool for TypeScript libraries.                                                             |
 | https://biomejs.dev/                                                         | biome         | Modern Web formatter/linter toolchain, useful as a replacement for part of Prettier/ESLint scenarios.             |
 
-### 1.7.2 Server
+#### 1.7.3 Server
 
 | Address                                                        | Tag                   | Description                                                                                                                                       |
 | -------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| http://www.expressjs.com.cn/                                    | express             | Lightweight web application development framework.                                                                              |
+| https://expressjs.com/                                           | express             | Mature lightweight Web application framework.                                                                                   |
 | https://koajs.cn/#-application-                                 | koajs               | Web application development framework.                                                                                          |
-| https://www.fastify.io/                                         | fastify             | Claimed to be the fastest lightweight web application development framework, with a focus on JSON schema acceleration.          |
+| https://fastify.dev/                                            | fastify             | Node.js Web framework focused on performance and schema-driven design.                                                           |
 | http://www.midwayjs.org/                                        | midway              | Web application development framework that supports Web/Full Stack/Microservices/RPC/Socket/Serverless, used by Alibaba Taobao. |
 | https://docs.feathersjs.com/                                    | feathersjs          | Lightweight web application development framework suitable for data streaming.                                                  |
 | https://docs.nestjs.com/                                        | nestjs              | Powerful web application framework.                                                                                             |
@@ -655,17 +667,16 @@ Contents:
 | https://nitro.unjs.io/                                          | nitro               | Nuxt/UnJS server engine, suitable for full-stack and edge deployments.                                                           |
 | https://elysiajs.com/                                           | elysia              | High-performance server framework in the Bun ecosystem.                                                                           |
 | https://github.com/nuysoft/Mock/wiki                            | mockjs              | Interface data simulation tool that can be used on both client and server sides.                                                |
-| https://sheetjs.com/                                            | sheetjs             | Tool for processing xlsx/csv spreadsheet import/export in Node or the browser.                                                   |
 | https://www.prisma.io/                                          | prisma              | TypeScript ORM and database toolkit.                                                                                              |
 | https://orm.drizzle.team/                                       | drizzle             | TypeScript-first ORM with type safety and SQL-friendly design.                                                                    |
 | https://trpc.io/                                                | trpc                | End-to-end type-safe API/RPC framework.                                                                                           |
 | https://ts-rest.com/                                            | ts-rest             | Contract-based type-safe REST API tooling.                                                                                        |
-| https://github.com/parallel-js/parallel.js                      | paralleljs          | Tool for parallel processing of JS, usable in both the browser and Node server.                                                 |
 | https://parall.ax/products/jspdf                                | js-pdf              | Tool for generating PDFs through Node.                                                                                          |
-| http://doc.pm2.io/en/plus/overview/                             | pm2                 | Node process management.                                                                                                        |
-| https://github.com/rvagg/node-worker-farm                       | node-worker-farm    | The very common Node.js multiprocess computing library.                                                                         |
+| https://pm2.keymetrics.io/docs/usage/quick-start/               | pm2                 | Node.js process manager and daemon tool.                                                                                        |
+| https://github.com/piscinajs/piscina                            | piscina/worker-threads | Worker-thread pool built on Node.js worker_threads, suitable for CPU-intensive tasks.                                        |
 | https://github.com/Marak/colors.js                              | colorsjs            | Node log console output color control.                                                                                          |
 | https://log4js-node.github.io/log4js-node/                      | log4js              | Log tool.                                                                                                                       |
+| https://getpino.io/                                              | pino                | Low-overhead structured logger for Node.js.                                                                                      |
 | https://nwjs.io/                                                | nwjs                | Application runtime environment based on NodeJs and Chromium, allowing you to call all Node.js modules directly from the DOM.   |
 | https://github.com/archiverjs/node-archiver                     | node-archiver       | Supports ZIP/TAR document stream transmission and receiving plugins.                                                            |
 | https://github.com/thejoshwolfe/yazl                            | yazl                | Compression zip plugin, corresponding to decompression at https://github.com/thejoshwolfe/yauzl.                                |
@@ -674,47 +685,51 @@ Contents:
 | https://sailsjs.com/                                            | sailsjs             | User-friendly MVC Nodejs framework.                                                                                             |
 | https://helmetjs.github.io/                                     | helmet              | Protects Express service applications by setting response header.                                                               |
 | https://github.com/expressjs/cors#readme                        | cors                | Cors middleware for Nodejs.                                                                                                     |
-| https://github.com/expressjs/body-parser#readme                 | body-parser         | Request flow parsing middleware for Nodejs.                                                                                     |
+| https://github.com/expressjs/body-parser#readme                 | body-parser         | Request-body parser; new Express projects can usually use built-in express.json() and express.urlencoded() for JSON and URL-encoded requests. |
 | http://restify.com/                                             | restify             | Web service framework for Nodejs.                                                                                               |
 | https://github.com/expressjs/multer#readme                      | multer              | Middleware for handling uploaded files in Nodejs.                                                                               |
 | https://github.com/node-cache/node-cache                        | node-cache          | A Nodejs cache control module.                                                                                                  |
 | https://socket.io/                                              | socket.io           | WebSocket solution.                                                                                                             |
 | https://github.com/luin/ioredis                                 | ioredis             | Redis invocation JS encapsulation library.                                                                                      |
+| https://docs.bullmq.io/                                         | bullmq/queue        | Redis-backed task queue with delayed jobs, retries, concurrency, and background processing.                                    |
 | https://github.com/websockets/ws                                | ws                  | A nodejs package for WebSocket.                                                                                                 |
 | https://github.com/digitalocean/nginxconfig.io                  | nginxconfig.io      | Tool for generating nginx configurations online.                                                                                |
-| https://github.com/davidmarkclements/fast-safe-stringify#readme | fast-safe-stringify | Securely and quickly serialize JSON, replacing JSON.stringify.                                                                  |
+| https://github.com/davidmarkclements/fast-safe-stringify#readme | fast-safe-stringify | Safe JSON serialization for cases such as circular references; not a complete JSON.stringify replacement.                       |
 
-### 1.7.3 GraphQL
+#### 1.7.4 GraphQL
 
 | Address                                        | Tag           | Description                                         |
 | ---------------------------------------------- | ------------- | --------------------------------------------------- |
 | https://graphql.org/graphql-js/                | graphql       | GraphQL's JS implementation.                        |
 | https://github.com/hasura/graphql-engine       | hasura        | Powerful GraphQL engine solution.                   |
 | https://github.com/apollographql/apollo-client | apollo-client | Solution for every UI framework and GraphQL server. |
+| https://www.apollographql.com/docs/apollo-server/ | apollo-server | Node.js GraphQL server implementation for Apollo ecosystem services. |
+| https://the-guild.dev/graphql/yoga-server | graphql-yoga | Web-standards-based GraphQL server option for Node.js and edge runtimes. |
 
-### 1.7.4 Micro Frontends
+#### 1.7.5 Micro Frontends
 
 | Address                                                   | Tags              | Description                                                                                                 |
 | --------------------------------------------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------- |
 | https://single-spa.js.org/                                | single-spa        | A micro-frontend solution with router configuration as its main feature.                                    |
-| https://qiankun.umijs.org/zh/                             | qiankun           | An Ant-design micro-frontend framework based on single-spa.                                                 |
-| https://webpack.docschina.org/concepts/module-federation/ | module-federation | A micro-frontend solution with module sharing during build as its main feature, implemented in webpack (5). |
+| https://qiankunjs.com/                                    | qiankun           | A single-spa-based micro-frontend framework; 3.0 is in development, so production choices should state the target version. |
+| https://module-federation.io/                              | module-federation | Module-sharing micro-frontend solution with integrations across frameworks and build tools.                 |
 | https://fronts.js.org/                                    | fronts            | A progressive micro-frontend framework based on webpack module-federation.                                  |
 | https://github.com/jsdom/jsdom                            | jsdom             | A wrapped library for DOM manipulation in node environment.                                                 |
 | https://wujie-micro.github.io/doc/                        | wujie             | Micro-frontend framework based on Web Components + iframe.                                                  |
 
-### 1.7.5 Cloud and Serverless
+#### 1.7.6 Cloud and Serverless
 
 | Address                                             | Tags       | Description                                                                                               |
 | --------------------------------------------------- | ---------- | --------------------------------------------------------------------------------------------------------- |
 | https://wasmedge.org/                               | wasmedge   | A cloud-native and serverless framework related to WebAssembly.                                           |
 | https://www.serverless.com/                         | serverless | A framework for quickly building node serverless services, supporting Tencent Cloud SCF, AWS Lambda, etc. |
-| https://aws.amazon.com/cn/campaigns/lambda/         | aws-lambda | Classic, Amazon serverless computing service.                                                             |
-| https://qingfuwu.cn/                                | qingfuwu   | Byte lightweight service, supports Serverless (FaaS), CDN and other services, with a free tier.           |
+| https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html | aws-lambda | AWS serverless compute service; uses the developer-documentation entry point.                             |
 | https://help.aliyun.com/document_detail/154438.html | aliyunFC   | Alibaba Cloud Function Compute service, supports Serverless (FaaS).                                       |
-| https://cloud.tencent.com/document/product/583      | tecentFC   | Tencent Cloud Cloud Function service, supports Serverless (FaaS).                                         |
+| https://cloud.tencent.com/document/product/583      | tencent-scf | Tencent Cloud Function service supporting event and Web functions.                                       |
+| https://developers.cloudflare.com/workers/          | cloudflare-workers/edge | Serverless platform for global edge APIs, full-stack applications, and background tasks.          |
+| https://vercel.com/docs/functions                   | vercel-functions | Managed functions for Vercel and full-stack deployments such as Next.js.                                |
 
-### 1.7.6 Low Code
+#### 1.7.7 Low Code
 
 | Address                                            | Tags           | Description                                                                        |
 | -------------------------------------------------- | -------------- | ---------------------------------------------------------------------------------- |
@@ -728,106 +743,138 @@ Contents:
 
 ### 1.8 Hybrid and Cross-platform
 
-| Link                                                              | Tag                                 | Description                                                                                                                                                      |
-| ----------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps | PWA                                 | Progressive Web Apps.                                                                                                                                            |
-| https://developers.weixin.qq.com/miniprogram/dev/                 | Mini Program/Hybrid                 | WeChat Mini Program official development website.                                                                                                                |
-| https://docs.alipay.com/mini/developer/getting-started            | Mini Program/Hybrid                 | Alipay Mini Program official development website.                                                                                                                |
-| https://smartprogram.baidu.com/developer/index.html               | Mini Program/Hybrid                 | Baidu Mini Program official development website.                                                                                                                 |
-| https://wepyjs.github.io/wepy-docs/                               | Mini Program/Hybrid                 | Vue syntax Mini Program official development website.                                                                                                            |
-| https://github.com/opendigg/awesome-github-wechat-weapp           | Mini Program/Hybrid                 | Xiaomi Light App official development website.                                                                                                                   |
-| https://dev.mi.com/doc/?page_id=2303                              | Light App/Hybrid                    | Xiaomi Light App official development website.                                                                                                                   |
-| https://www.quickapp.cn/                                          | Light App/Hybrid                    | Oppo/vivo Light App official development website.                                                                                                                |
-| https://developer.huawei.com/consumer/cn/quickApp                 | Light App/Hybrid                    | Huawei Light App official development website.                                                                                                                   |
-| https://reactnative.cn/                                           | Cross-platform                      | Popular cross-platform tool using React syntax, RN.                                                                                                              |
-| https://github.com/NativeScript/NativeScript                      | Cross-platform                      | Popular cross-platform development framework that supports Angular/Vue/Svelte/React.                                                                             |
-| https://github.com/ionic-team/ionic-framework                     | Cross-platform                      | A powerful cross-platform UI toolkit for building native-quality iOS, Android, and PWA apps using HTML, CSS, and JavaScript.                                     |
-| https://github.com/quasarframework/quasar                         | Cross-platform                      | Build top-quality, high-performance Vue responsive websites, PWAs, SSR, mobile, and desktop apps                                                                 |
-| https://lynxjs.org/zh/index.html                                  | Cross-platform                      | Bytedance's cross-platform framework for iOS, Android, HarmonyOS and Web.                                                                                  |
-| https://weexapp.com/zh/                                           | Cross-platform                      | A cross-platform tool that was popular a few years ago using Vue syntax, but is no longer maintained.                                                            |
-| https://alibaba.github.io/weex-ui/#/cn/                           | Cross-platform/Weex                 | Weex UI component library.                                                                                                                                       |
-| https://taro.jd.com/                                              | Mini Program/Cross-platform         | Cross-web/Mini Program/Native React syntax cross-platform tool, runtime cross-platform mode.                                                                     |
-| https://rax.js.org/                                               | Mini Program/Cross-platform/Flutter | React syntax cross-platform tool for cross-web/Mini Program/Flutter (now largely quiet), Alibaba.                                                                 |
-| https://wechat-miniprogram.github.io/kbone/docs/                  | Mini Program/Cross-platform         | Cross-web/Mini Program cross-platform build plugin with low cost and compatibility with various web frameworks, Tencent.                                         |
-| https://hippyjs.org/                                              | Cross-platform                      | Tencent's hybrid cross-platform framework.                                                                                                                       |
-| https://uniapp.dcloud.io/                                         | Mini Program/Cross-platform         | Vue syntax cross-platform tool for cross-web/Mini Program/Native.                                                                                                |
-| https://openkraken.com/                                           | Kraken                              | High-performance web rendering engine built on Flutter that allows writing Flutter in web paradigm, Alibaba.                                                     |
-| https://github.com/remaxjs/remax                                  | Remax                               | React syntax cross-web/Mini Program tool, similar to taro-next(3) cross-platform mode, friendly for Mini Program, Alipay.                                        |
-| https://ant-move.github.io/guide/                                 | Antmove                             | Mini Program converter that converts to multi-platform Mini Program based on Alipay/WeChat Mini Program, Amap.                                                   |
-| https://guoshuyu.cn/home/wx/Flutter-1.html                        | Cross-platform                      | Extremely popular Dart syntax cross-platform development tool.                                                                                                   |
-| http://electronjs.org/docs                                        | Cross-platform                      | Development framework for PC, Windows/Mac applications.                                                                                                          |
-| http://electronjs.org/docs                                        | Cross-platform                      | Development framework for PC, Windows applications, Microsoft.                                                                                                   |
-| https://tauri.app/                                                | Tauri                               | Development framework for web-based Windows/Mac applications written in Rust.                                                                                    |
-| https://github.com/tw93/Pake                                      | Pake                                | Scaffold tool for web page packaging and generating small desktop apps based on Rust Tauri framework, supporting Mac/Windows/Linux systems.                      |
-| https://wendux.github.io/dist/#/doc/flyio/readme                  | Fly                                 | Request encapsulation library that supports Web, Node.js, WeChat Mini Program, Weex, React Native, Quick App.                                                    |
-| https://github.com/icindy/wxParse                                 | wxParse                             | Rich text parsing component for WeChat Mini Program that supports conversion of HTML and markdown to wxml visualization (but is currently no longer maintained). |
-| https://developer.chrome.com/extensions                           | Chrome-extension                    | Official documentation for Chrome extensions.                                                                                                                    |
-| https://github.com/sxei/chrome-plugin-demo                        | Chrome-plugin, Chrome-extension     | A good tutorial for developing Chrome extensions with demos.                                                                                                     |
+#### 1.8.1 Mini Programs, Quick Apps, and Web
+
+| Link                                                              | Tag                         | Description                                                                                                                     |
+| ----------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps | PWA                         | Progressive Web Apps.                                                                                                           |
+| https://developers.weixin.qq.com/miniprogram/dev/                 | Mini Program/Hybrid         | WeChat Mini Program official development website.                                                                               |
+| https://docs.alipay.com/mini/developer/getting-started            | Mini Program/Hybrid         | Alipay Mini Program official development website.                                                                               |
+| https://smartprogram.baidu.com/developer/index.html               | Mini Program/Hybrid         | Baidu Mini Program official development website.                                                                                |
+| https://www.quickapp.cn/                                          | Quick App/Hybrid            | Oppo and vivo Quick App official development website.                                                                           |
+| https://developer.huawei.com/consumer/cn/quickApp                 | Quick App/Hybrid            | Huawei Quick App official development website.                                                                                  |
+| https://docs.taro.zone/docs/                                      | Mini Program/Cross-platform | Taro 4 open cross-platform solution for mini programs, H5, React Native, and more with React, Vue, and related frameworks.     |
+| https://uniapp.dcloud.net.cn/                                     | Mini Program/Cross-platform | Vue-syntax cross-platform framework for App, Web, HarmonyOS, and multiple mini-program platforms.                             |
+| https://github.com/alibaba/rax                                    | Mini Program/Cross-platform | Alibaba multi-runtime framework for Web, Mini Programs, Node.js, Weex, and more; suitable for an established Rax stack.        |
+| https://wechat-miniprogram.github.io/kbone/docs/                  | Mini Program/Cross-platform | Maintenance reference: Web-to-WeChat-Mini-Program compatibility layer; verify component and runtime support before adoption.   |
+| https://github.com/Tencent/wepy                                   | Mini Program                | Historical reference: archived Vue-style Mini Program framework; prefer native Mini Programs, Taro, or uni-app for new work.  |
+| https://github.com/remaxjs/remax                                  | Mini Program                | Historical reference: archived React Mini Program framework; prefer Taro or native Mini Program solutions for new work.        |
+| https://ant-move.github.io/guide/                                 | Mini Program                | Alipay/WeChat Mini Program conversion tool; validate target platform APIs and component compatibility before migration.        |
+
+#### 1.8.2 Mobile and Native Containers
+
+| Link                                        | Tag              | Description                                                                                                                              |
+| ------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| https://reactnative.dev/                    | Cross-platform   | Meta-supported native application framework using React and native components for Android, iOS, and more.                              |
+| https://docs.expo.dev/                      | React Native     | React Native's recommended framework-based starting point for new projects, with routing, native modules, build, and release tooling. |
+| https://docs.flutter.dev/                   | Cross-platform   | Google's Dart UI toolkit for building mobile, desktop, and web applications from a single codebase.                                    |
+| https://lynxjs.org/zh/index.html            | Cross-platform   | ByteDance cross-platform framework for iOS, Android, HarmonyOS, and Web.                                                               |
+| https://hippyjs.org/                        | Cross-platform   | Tencent cross-platform dynamic application framework, suited to existing Hippy stacks or matching container integrations.              |
+| https://docs.nativescript.org/              | Cross-platform   | JavaScript/TypeScript native mobile framework supporting Angular, Vue, Svelte, and React.                                              |
+| https://ionicframework.com/docs             | Hybrid/UI        | Web-technology mobile UI toolkit, normally paired with Capacitor.                                                                       |
+| https://capacitorjs.com/docs                | Hybrid/Runtime   | Native container and plugin runtime for Web-first applications needing iOS and Android capabilities.                                   |
+| https://quasar.dev/                         | Vue/Cross-platform | Vue framework for SPA, SSR, PWA, mobile, and desktop applications.                                                                   |
+| https://github.com/openkraken/kraken        | Renderer         | Flutter-based Web-standards rendering engine; best evaluated as a rendering technology, not as a general app framework.                |
+
+#### 1.8.3 Desktop Applications
+
+| Link                                                           | Tag            | Description                                                                                                                            |
+| -------------------------------------------------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| https://www.electronjs.org/docs/latest/                        | Desktop        | Desktop application framework based on Chromium and Node.js for Windows, macOS, and Linux.                                            |
+| https://learn.microsoft.com/en-us/microsoft-edge/webview2/     | Windows/Desktop | Microsoft Windows WebView container for embedding Edge-based Web content in native Windows applications.                              |
+| https://v2.tauri.app/                                          | Desktop/Mobile | System-WebView and Rust-based application framework; Tauri 2 supports desktop plus Android and iOS.                                  |
+| https://github.com/tw93/Pake                                   | Desktop        | Tauri-based tool for packaging web pages or local static files as desktop applications.                                               |
+
+#### 1.8.4 Maintenance and Specialized References
+
+| Link                                             | Tag               | Description                                                                                                                                    |
+| ------------------------------------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| https://github.com/alibaba/weex                  | Weex              | Maintenance/migration reference: Apache Weex retired and returned to Alibaba; assess ecosystem and platform compatibility before new adoption. |
+| https://alibaba.github.io/weex-ui/#/cn/          | Weex              | Maintenance reference: Weex UI component library, only for existing Weex projects.                                                          |
+| https://wendux.github.io/dist/#/doc/flyio/readme | HTTP client       | Multi-runtime request library, not a cross-platform framework; evaluate it separately by runtime and maintenance status.                    |
+| https://github.com/icindy/wxParse                | Mini Program      | Historical reference: the project explicitly states that it is no longer maintained; choose a maintained rich-text renderer for new work.    |
+| https://developer.chrome.com/docs/extensions/    | Browser extension | Official Chrome extension documentation.                                                                                                      |
+| https://github.com/sxei/chrome-plugin-demo       | Browser extension | Chrome extension example project for learning Manifest and core features.                                                                     |
 
 ### 1.9 Auxiliary Tools
 
-| Address                                                                                      | Tag                           | Description                                                                                                                                   |
-| -------------------------------------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| https://chat.openai.com/chat                                                                 | chatGPT                       | OpenAI-based Q&A bot, also good for looking up technical issues.                                                                               |
-| https://www.cursor.so/                                                                       | cursor                        | Still a hot AI coding IDE product.                                                                                                             |
-| https://stackoverflow.com/                                                                   | stackoverflow                 | A friendly community for solving technical problems.                                                                                          |
-| https://bundlephobia.com/                                                                    | bundlephobia                  | A website for analyzing the size and loading performance of npm packages.                                                                     |
-| https://npmgraph.js.org/                                                                     | npmgraph                      | A tool website for analyzing the dependency relationships of npm packages.                                                                    |
-| https://www.typescriptlang.org/dt/search?search=                                             | joi                           | A website for querying TypeScript declaration files of various libraries.                                                                     |
-| http://deerchao.net/tutorials/regex/regex.htm                                                | regexp                        | A beginner's tutorial on regular expressions.                                                                                                 |
-| https://regexper.com/                                                                        | regexper                      | A visual online regular expression verification website.                                                                                      |
-| https://extendsclass.com/regex-tester.html                                                   | cyrilex                       | An online visual regex tester and debugger.                                                                                                   |
-| http://wproxy.org/whistle/install.html                                                       | whistle                       | A web debugging proxy tool.                                                                                                                   |
-| https://astexplorer.net/                                                                     | astexplorer                   | An online ast parsing tool for languages such as css/html/js/ts.                                                                              |
-| https://github.com/typicode/husky#readme                                                     | Husky                         | A git tool on NodeJS.                                                                                                                         |
-| https://cn.eslint.org/                                                                       | eslint                        | A js code checking tool.                                                                                                                      |
-| https://visualgo.net/en                                                                      | Visualgo                      | A visualization algorithm query.                                                                                                              |
-| https://visualgo.net/en                                                                      | Visualgo                      | A visualization algorithm query.                                                                                                              |
-| http://yisibl.github.io/cubic-bezier/#.48,1.06,1,1.45                                        | cubic                         | An animation curve query website (ease/linear...).                                                                                            |
-| https://dev.w3.org/html5/html-author/charref                                                 | charref                       | A query for escape characters of character punctuation.                                                                                       |
-| https://www.colorzilla.com/gradient-editor/                                                  | gradient-editor               | A CSS gradient style generation tool.                                                                                                         |
-| https://valine.js.org/cdn.html                                                               | valine                        | A comment system tool.                                                                                                                        |
-| http://gittalk.com.cutestat.com/                                                             | gittalk                       | A commenting tool for github.                                                                                                                 |
-| https://github.com/Coding/WebIDE                                                             | webide                        | Writing code on the web.                                                                                                                      |
-| https://hiroppy.github.io/fusuma/                                                            | fusuma                        | Writing web ppt with markdown.                                                                                                                |
-| https://stackedit.io/                                                                        | stackedit                     | A browser-based markdown editor.                                                                                                              |
-| https://vuepress.vuejs.org/zh/                                                               | vuepress                      | Writing documents/blogs with markdown.                                                                                                        |
+> AI chat and AI coding tools are collected in [1.11 AI Artificial Intelligence Library](#111-ai-artificial-intelligence-library). Do not submit secrets, production data, or private source code to online executors, file diff tools, or image-processing services.
+
+#### 1.9.1 Development Diagnostics and Code Helpers
+
+| Address | Tag | Description |
+| --- | --- | --- |
+| https://stackoverflow.com/ | stackoverflow | Community for technical questions and answers. |
+| https://bundlephobia.com/ | bundlephobia | Analyze npm package size and loading cost. |
+| https://npmgraph.js.org/ | npmgraph | Inspect npm package dependency relationships. |
+| https://www.typescriptlang.org/dt/search?search= | typescript/declaration-files | Search TypeScript declarations from DefinitelyTyped. |
+| https://astexplorer.net/ | astexplorer | Explore ASTs for CSS, HTML, JavaScript, TypeScript, and more. |
+| https://github.com/typicode/husky#readme | husky | Git hooks manager for Node.js projects. |
+| https://eslint.org/docs/latest/ | eslint | Official current documentation for JavaScript and TypeScript linting. |
+| https://codemirror.net/ | codemirror | Web code editor with language modes and extension support. |
+| https://stackblitz.com/ | stackblitz/webcontainers | Browser development environment powered by WebContainers, useful for quick reproductions and sharing. |
+| https://unbug.github.io/codelf/ | codeif | Naming search tool for code identifiers. |
+| https://app.quicktype.io/ | quicktype | Generate TypeScript, Go, Java, C#, and other types from JSON. |
+
+#### 1.9.2 Debugging, APIs, and Data Conversion
+
+| Address | Tag | Description |
+| --- | --- | --- |
+| https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions | regexp | Official JavaScript regular-expression guide and reference. |
+| https://regex101.com/ | regex101 | Test, explain, debug, and save regular expressions; select the JavaScript flavor when needed. |
+| https://regexper.com/ | regexper | Visualize regular-expression structure. |
+| https://extendsclass.com/regex-tester.html | regex-tester | Online regex tester and debugger. |
+| https://wproxy.org/whistle/ | whistle | Web debugging proxy tool. |
+| https://hoppscotch.io/ | hoppscotch | Open-source API client and lightweight Postman-style alternative. |
+| https://www.usebruno.com/ | bruno | Git-friendly open-source API client. |
+| https://tool.lu/json/ | json | Online JSON formatter. |
+| https://tool.lu/js/ | js | Online JavaScript formatter, obfuscator, and minifier. |
+| https://tool.lu/css/ | css | Online CSS formatter, minifier, and responsive-unit utility. |
+| https://tool.lu/coderunner/ | code-runner | Online multi-language code runner; never submit secrets, production data, or private source. |
+| https://www.diffchecker.com/ | diffchecker | Online text and file comparison; use local tools for sensitive files. |
+
+#### 1.9.3 Documentation, Presentations, and Community
+
+| Address | Tag | Description |
+| --- | --- | --- |
+| https://stackedit.io/ | stackedit | Browser-based Markdown editor. |
+| https://v2.vuepress.vuejs.org/ | vuepress | Vue static documentation-site generator; use the current v2 documentation. |
 | https://vitepress.dev/                                                                       | vitepress                     | Vite-powered static documentation site generator, suitable for docs and blogs.                                                                 |
-| https://vitejs.cn/vitepress/                                                                 | vitepress                     | Historical/Chinese VitePress entry, kept to match the Chinese README resource list.                                                            |
 | https://docusaurus.io/                                                                       | docusaurus                    | React-based documentation site generator, suitable for product, project, and open-source docs.                                                  |
 | https://hexo.io/zh-cn/                                                                       | hexo                          | Writing documents/blogs with markdown.                                                                                                        |
 | https://d.umijs.org/                                                                         | dumi                          | A tool suitable for writing front-end development documents, markdown, ants.                                                                  |
 | https://jsdoc.app/                                                                           | jsdoc                         | The most classic tool for generating documentation from js code comments.                                                                     |
 | https://github.com/jsdoc2md/jsdoc-to-markdown                                                | jsdoc-to-markdown             | Generating markdown documentation from js comments (jsdoc format).                                                                            |
-| https://www.materialui.co/colors                                                             | materialui                    | Quickly select color values.                                                                                                                  |
+| https://fumadocs.dev/ | fumadocs | Composable React documentation framework for deeply customized Next.js and React documentation sites. |
+| https://sli.dev/ | slidev | Markdown presentation tool for developers, with code highlighting, components, and export support. |
+| https://giscus.app/ | giscus/comments | GitHub Discussions-based comment system; requires a public repository with Discussions enabled. |
+
+#### 1.9.4 Images, Design, and Visualization
+
+| Address | Tag | Description |
+| --- | --- | --- |
+| https://www.materialui.co/colors | materialui | Pick color values quickly. |
 | https://carbon.now.sh/                                                                       | carbon                        | Generate beautiful screenshots of code when writing blogs.                                                                                    |
 | https://tinypng.com/                                                                         | Tinypng                       | Compress png and jpeg images.                                                                                                                 |
 | https://github.com/svg/svgo                                                                  | svgo                          | A tool for compressing SVG graphic files.                                                                                                     |
 | https://jakearchibald.github.io/svgomg/                                                      | SVGOMG                        | Compress SVG graphics online.                                                                                                                 |
 | https://github.com/ImageOptim/ImageOptim                                                     | imageoptim                    | macOS image optimization tool, useful for compressing common image formats.                                                                    |
 | https://squoosh.app/                                                                         | squoosh                       | Google web image compression tool.                                                                                                            |
-| https://imagemagick.org/index.php                                                            | imagemagick                   | An image processing tool widely used in the background.                                                                                       |
-| https://github.com/javierbyte/img2css                                                        | img2css                       | An interesting library that presents images in CSS using box-shadow.                                                                          |
+| https://imagemagick.org/ | imagemagick | Widely used image-processing toolkit. |
 | https://www.whatfontis.com/                                                                  | whatfontis                    | A font recognition tool for images, limited to English fonts and registration is required.                                                    |
-| https://www.toptal.com/developers/keycode                                                    | keycode                       | Enter a key and get its corresponding js keyCode for the online website                                                                       |
 | https://ps.gaoding.com/#/                                                                    | ps                            | Powerful online Photoshop.                                                                                                                    |
-| https://avocode.com/convert-psd-to-sketch?ref=producthunt                                    | avocode                       | One-click conversion of psd to sketch.                                                                                                        |
-| https://jakearchibald.github.io/svgomg/                                                      | svgomg                        | Online svg optimization and preview.                                                                                                          |
+| https://www.colorzilla.com/gradient-editor/ | gradient-editor | CSS gradient generator. |
+| https://excalidraw.com/ | excalidraw | Collaborative whiteboard for quick architecture diagrams, flowcharts, and sketches. |
+
+#### 1.9.5 Diagrams, Standards, and Collections
+
+| Address | Tag | Description |
+| --- | --- | --- |
 | https://code2flow.com/                                                                       | code2flow                     | Online pseudo-code to flowchart tool.                                                                                                         |
-| https://tool.lu/json/                                                                        | json                          | Online json formatting tool.                                                                                                                  |
-| https://tool.lu/js/                                                                          | js                            | Online js formatting/obfuscation/compression tool.                                                                                            |
-| https://tool.lu/css/                                                                         | css                           | Online css formatting/compression/responsive unit processing tool.                                                                            |
-| https://tool.lu/coderunner/                                                                  | coderunner                    | Online php/c/c++/python/go/js/java/bash code execution tool.                                                                                  |
-| https://hoppscotch.io/                                                                       | hoppscotch                    | Open-source online API debugging tool.                                                                                                        |
-| https://www.usebruno.com/                                                                    | bruno                         | Git-friendly API client, useful as a Postman alternative.                                                                                     |
-| https://www.diffchecker.com/                                                                 | diffchecker                   | Online text/file diff tool.                                                                                                                   |
 | https://isoflow.io/                                                                          | isoflow                       | Online flowchart drawing tool.                                                                                                                |
-| https://codemirror.net/                                                                      | codemirror                    | Web code editor with many language modes and plugins.                                                                                          |
-| https://github.com/n8n-io/n8n                                                                | n8n                           | A workflow automation tool based on free and open fair code licenses for easily automating tasks across different services.                   |
-| https://zijian.aliyun.com/detect/dns/DNS_PING-d31c5446aff9db99decd9d9d944b11c5-1640605424801 | dns                           | A domain name DNS detection website tool, Alibaba Cloud.                                                                                      |
 | https://tabatkins.github.io/railroad-diagrams/generator.html                                 | railroad-diagrams             | A website tool for drawing railroad diagrams online.                                                                                          |
-| https://unbug.github.io/codelf/                                                              | codeIf                        | A naming search tool to help solve naming difficulties.                                                                                       |
-| https://app.quicktype.io/                                                                    | QuickType                     | A tool website for generating type declaration code for specified languages (such as TypeScript, C++, Java, C#, Go, etc.) based on json text. |
+| https://html.spec.whatwg.org/multipage/named-characters.html | charref | Current HTML named-character-reference specification. |
+| https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key | keyboard-event | Modern keyboard-event reference; do not use legacy `keyCode` as the primary reference for new code. |
 | https://github.com/1c7/chinese-independent-developer                                         | chinese-independent-developer | An aggregation of projects by independent developers in China.                                                                                |
 
 ### 1.10 Testing, Security, and Encryption
@@ -931,12 +978,15 @@ Contents:
 | https://ai-sdk.dev/ | ai-sdk | TypeScript AI SDK by Vercel for building streaming chat, AI UI, tool calling, and multi-model applications |
 | https://github.com/openai/openai-agents-js | openai-agents-js | Official OpenAI JavaScript/TypeScript Agents SDK for lightweight multi-agent workflows, handoffs, tool calling, and tracing |
 | https://github.com/openai/openai-agents-python | openai-agents-python | Official OpenAI Python Agents SDK for multi-agent workflows, tool calling, evaluation, and tracing |
+| https://github.com/anthropics/claude-agent-sdk-typescript | claude-agent-sdk | Official Anthropic Agent SDK for TypeScript and Python; embeds Claude Code capabilities such as tool use, subagents, and sessions into applications |
+| https://github.com/github/copilot-sdk | copilot-sdk | Official GitHub multi-language agent runtime for embedding Copilot CLI planning, tool calling, and file-editing capabilities into applications |
+| https://github.com/microsoft/agent-framework | microsoft-agent-framework | Microsoft production-oriented multi-language agent and workflow framework with orchestration, durability, observability, A2A, and MCP support |
 | https://github.com/langchain-ai/langchain | langchain | LLM application framework with a broad ecosystem; often used together with LangGraph for complex agent orchestration |
 | https://github.com/langchain-ai/langgraph | langgraph | Mainstream framework for stateful, resumable, long-running agent workflows |
 | https://llamaindex.ai/ | llamaindex | Data and RAG framework for LLM applications, focused on knowledge bases, document QA, and retrieval-augmented generation |
 | https://github.com/run-llama/llama_deploy | llamadeploy | Agentic workflow deployment framework to deploy and scale workflows as services |
-| https://github.com/microsoft/semantic-kernel | semantic-kernel | Microsoft open-source AI orchestration SDK for enterprise .NET, Python, and Java scenarios |
-| https://github.com/microsoft/autogen | autogen | Microsoft multi-agent conversation and workflow framework for research and complex collaborative agents |
+| https://github.com/microsoft/semantic-kernel | semantic-kernel | Maintenance and migration reference: Microsoft has consolidated its future evolution into Microsoft Agent Framework; new projects should evaluate MAF first |
+| https://github.com/microsoft/autogen | autogen | Maintenance and migration reference: now in maintenance mode; new projects should prefer Microsoft Agent Framework |
 | https://github.com/crewAIInc/crewAI | crewai | Multi-agent framework centered on roles, tasks, teams, collaboration, and engineering controllability |
 | https://github.com/google/adk-python | google-adk | Google Agent Development Kit for code-first agent development, evaluation, and deployment |
 | https://github.com/mastra-ai/mastra | mastra | TypeScript-native agent framework covering agents, workflows, RAG, memory, and observability |
@@ -996,7 +1046,7 @@ Contents:
 | https://github.com/cline/cline | cline | Open-source VSCode agent extension supporting file editing, command execution, browser actions, and tool use |
 | https://github.com/RooVetGit/Roo-Code | roo-code | Active VSCode agent tool from the Cline ecosystem, supporting multiple modes and complex tasks |
 | https://github.com/continuedev/continue | continue | Open-source AI IDE extension for VSCode and JetBrains, supporting multi-model, local model, and custom context workflows |
-| https://github.com/sourcegraph/amp | amp | Sourcegraph-related AI coding agent/development tool for codebase-level agent workflows |
+| https://ampcode.com/docs | amp | Official Amp AI coding agent and development environment for codebase-level workflows in terminals, IDEs, and CI/CD |
 | https://www.cursor.com/ | cursor | Mainstream AI IDE for professional developers, supporting code generation, understanding, refactoring, and multi-file edits |
 | https://windsurf.com/ | windsurf | Mainstream AI IDE emphasizing agentic coding and beginner-friendly onboarding |
 | https://www.trae.ai/ | trae | AI IDE from ByteDance, useful for observing Chinese AI coding product patterns |
@@ -1008,17 +1058,20 @@ Contents:
 | https://github.com/PatrickJS/awesome-cursorrules | cursorrules | Collection of Cursor rules, useful as references for project-level AI coding standards |
 | https://github.com/SchneiderSam/awesome-windsurfrules | windsurfrules | Collection of Windsurf rules, useful as references for agent rule governance |
 
-#### 1.11.5 MCP and Tool Ecosystem
+#### 1.11.5 MCP, A2A, and Tool Ecosystem
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
 | https://modelcontextprotocol.io/ | mcp | Open protocol initiated by Anthropic for connecting AI applications to external data sources, tools, and workflows |
 | https://github.com/modelcontextprotocol | mcp-github | Official MCP GitHub organization containing specifications, SDKs, servers, and related projects |
+| https://github.com/modelcontextprotocol/typescript-sdk | mcp-typescript-sdk | Official MCP TypeScript SDK for building MCP clients and servers in Node.js, Bun, Deno, or web frameworks |
+| https://github.com/a2aproject/A2A | a2a | Open agent-to-agent communication protocol for capability discovery, long-running collaboration, and interoperability across frameworks and vendors |
 | https://registry.modelcontextprotocol.io/ | mcp-registry | Official MCP registry for discovering public MCP server metadata |
+| https://help.openai.com/en/articles/12515353-build-with-the-apps-sdk | openai-apps-sdk | OpenAI MCP-based toolkit for developing ChatGPT apps (preview), including tool logic and embedded interactive UI |
 | https://smithery.ai/ | smithery | MCP server discovery, hosting, connection, and commercialization platform |
 | https://glama.ai/mcp/servers | glama-mcp | MCP server registry and search platform covering a large number of community servers |
 | https://mcp.so/ | mcp-so | MCP tools and server collection site |
-| https://github.com/modelcontextprotocol/servers | mcp-servers | Official and community MCP server collection entry point |
+| https://github.com/modelcontextprotocol/servers | mcp-servers | Official reference server collection for learning the SDK and protocol; prefer the MCP Registry when discovering usable servers |
 | https://github.com/microsoft/playwright-mcp | playwright-mcp | Microsoft Playwright MCP server enabling LLMs to operate browsers through structured page snapshots |
 | https://github.com/browserbase/mcp-server-browserbase | browserbase-mcp | Browserbase MCP server for browser automation |
 | https://github.com/upstash/context7 | context7 | Tool and MCP ecosystem project that provides up-to-date documentation context to LLMs and agents |
@@ -1036,12 +1089,13 @@ Contents:
 | https://agentskills.io/home | agentskills-io | Entry point for Agent Skills concepts, specifications, and integration guides |
 | https://agentskills.io/specification | skills-spec | SKILL.md specification defining frontmatter, instructions, resources, and related structure |
 | https://github.com/agentskills/agentskills | skills-spec-repo | Agent Skills specification and documentation repository |
+| https://github.com/openai/skills | openai-skills | Official OpenAI/Codex Skills Catalog with reusable workflows and examples |
 | https://github.com/anthropics/skills | anthropics-skills | Official Anthropic example skills collection |
 | https://github.com/vercel-labs/agent-skills | vercel-agent-skills | Official Vercel agent skills collection |
 | https://github.com/vercel-labs/skills | skills-cli | Skills CLI for installing, discovering, checking, and updating skills |
 | https://github.com/softaworks/agent-toolkit | agent-toolkit | Popular community skills collection covering development workflows, planning, documentation, architecture, and communication |
 
-#### 1.11.7 RAG, Knowledge Bases, and Data Ingestion
+#### 1.11.7 RAG, Knowledge Bases, Memory, and Data Ingestion
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
@@ -1052,7 +1106,7 @@ Contents:
 | https://github.com/infiniflow/ragflow | ragflow | Open-source RAG engine emphasizing document parsing, workflows, and enterprise knowledge bases |
 | https://github.com/deepset-ai/haystack | haystack | Open-source LLM, RAG, and search pipeline framework for enterprise retrieval QA systems |
 | https://github.com/weaviate/Verba | verba | Weaviate open-source RAG chatbot template for knowledge-base QA |
-| https://github.com/embedchain/embedchain | embedchain | Framework for quickly creating ChatGPT/RAG applications from data sources |
+| https://github.com/mem0ai/mem0 | mem0 | Long-term memory layer for agents and AI applications, for extracting, retrieving, and persisting cross-session preferences, facts, and context |
 | https://github.com/run-llama/llama_parse | llama-parse | LlamaIndex ecosystem document parsing tool/service for PDFs, tables, and complex documents |
 | https://github.com/DS4SD/docling | docling | Document parsing tool for converting PDFs, Office files, HTML, and other formats into structured data |
 | https://github.com/Unstructured-IO/unstructured | unstructured | Document ETL toolkit for transforming complex files into searchable text chunks |
@@ -1097,6 +1151,9 @@ Contents:
 | https://github.com/langflow-ai/langflow | langflow | Visual LLM, agent, and RAG application building platform |
 | https://github.com/FlowiseAI/Flowise | flowise | Drag-and-drop LLM application builder for quickly creating flows and tool-calling applications |
 | https://github.com/n8n-io/n8n | n8n | Open-source automation workflow platform with broad AI node and agent workflow support |
+| https://github.com/vercel/ai-elements | ai-elements | AI-native component library built on shadcn/ui for quickly building chat, reasoning, tool-use, and generated-content interfaces |
+| https://github.com/assistant-ui/assistant-ui | assistant-ui | React AI chat UI component library with streaming messages, tool use, attachments, and adapters for multiple agent and model frameworks |
+| https://openai.github.io/chatkit-js/ | openai-chatkit | OpenAI React/Web Component chat UI for managed or self-hosted ChatKit backends |
 | https://github.com/vercel/ai-chatbot | ai-chatbot | Vercel open-source full-stack AI chatbot template |
 | https://github.com/danny-avila/LibreChat | librechat | Open-source multi-model ChatGPT-like application supporting plugins, agents, tools, and multiple providers |
 | https://github.com/ChatGPTNextWeb/NextChat | nextchat | Formerly ChatGPT-Next-Web, a lightweight cross-platform ChatGPT-like application |
@@ -1213,6 +1270,8 @@ Contents:
 
 ### 1.14 Web3/Blockchain
 
+#### 1.14.1 EVM Frontend, Wallets, and Applications
+
 | Address | Tag | Description |
 | ---- | ---- | ---- |
 | https://ethereum.org/developers/ | ethereum | Official Ethereum developer entry point for wallets, smart contracts, nodes, toolchains, and DApp basics. |
@@ -1224,34 +1283,64 @@ Contents:
 | https://rainbowkit.com/ | rainbowkit | React wallet connection component library for quickly building a polished wallet connection experience. |
 | https://connectkit.family/ | connectkit | Beautiful, modern Web3 wallet connection components. |
 | https://reown.com/appkit | reown-appkit | New entry point in the WalletConnect/Web3Modal direction, covering wallet connection, account login, embedded wallets, and Onchain App experience capabilities. |
-| https://docs.family.co/web3modal | web3modal | Maintenance/historical reference: Ethereum wallet connection library; new projects should also look at Reown AppKit. |
+| https://docs.reown.com/appkit/upgrade/to-reown-appkit-web | web3modal | Migration reference: Web3Modal has moved to Reown AppKit; new projects should use Reown AppKit directly. |
 | https://metamask.io/sdk/ | metamask-sdk | Official MetaMask SDK. |
 | https://walletconnect.com/ | walletconnect | Open protocol for connecting decentralized applications and mobile wallets. |
+| https://github.com/coinbase/onchainkit | onchainkit | Base-focused React and TypeScript component/toolkit for onchain apps; not a general replacement for wallet connection libraries. |
+| https://docs.privy.io/wallets/overview/embedded | privy | Embedded wallet, login, and account infrastructure for social login and gas sponsorship; evaluate custody and vendor-dependency trade-offs. |
+| https://siwe.xyz/ | siwe/eip-4361 | EIP-4361 wallet sign-in standard and TypeScript implementation, preferred over project-specific signed messages. |
 | https://thirdweb.com/ | thirdweb | Complete Web3 application development platform with SDKs, contracts, wallets, infrastructure, and related capabilities. |
-| https://moralis.io/ | moralis | Web3 development platform providing APIs, indexing, and infrastructure capabilities. |
-| https://www.alchemy.com/ | alchemy | Blockchain development platform and API provider commonly used for RPC, NFT, token, transaction, and related data services. |
-| https://infura.io/ | infura | Ethereum, IPFS, and related infrastructure API gateway service. |
-| https://www.quicknode.com/ | quicknode | Blockchain infrastructure API service supporting multi-chain RPC and data services. |
+| https://docs.safe.global/ | safe | Multisig wallet and smart-account infrastructure for DAOs, team treasury management, and account abstraction scenarios. |
+
+#### 1.14.2 Smart Contract Development and Security
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
 | https://hardhat.org/ | hardhat | Mainstream Ethereum smart contract development environment for compilation, testing, deployment, and debugging. |
 | https://book.getfoundry.sh/ | foundry | High-performance Ethereum smart contract development toolchain written in Rust, including forge, cast, and anvil. |
 | https://book.getfoundry.sh/anvil/ | anvil | Local blockchain node in the Foundry ecosystem, suitable for local smart contract development and testing. |
 | https://github.com/scaffold-eth/scaffold-eth-2 | scaffold-eth | Modern Ethereum DApp starter template, commonly combining Hardhat/Foundry, Viem, Wagmi, RainbowKit, and Next.js. |
-| https://trufflesuite.com/ | truffle | Historical reference: classic Ethereum development framework; Truffle/Ganache have been sunset and archived, so new projects should prefer Hardhat or Foundry. |
 | https://tenderly.co/ | tenderly | Smart contract debugging, simulation, monitoring, and on-chain analysis platform. |
+| https://github.com/crytic/slither | slither | Solidity/Vyper static analyzer that integrates with Hardhat, Foundry, and CI to detect common contract vulnerabilities. |
+| https://github.com/crytic/echidna | echidna | Property-based smart-contract fuzzer for complementing unit tests and static analysis. |
+| https://archive.trufflesuite.com/ | truffle | Historical and migration reference: Truffle and Ganache have been sunset and archived; new projects should prefer Hardhat or Foundry. |
+
+#### 1.14.3 Onchain Data, Infrastructure, and Storage
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
 | https://thegraph.com/docs/ | the-graph | Blockchain data indexing protocol for building on-chain data query services. |
+| https://github.com/ponder-sh/ponder | ponder | TypeScript-first EVM data indexing framework that can generate a GraphQL API, suitable for self-hosted indexers and application backends. |
+| https://moralis.io/ | moralis | Web3 development platform providing APIs, indexing, and infrastructure capabilities. |
+| https://www.alchemy.com/ | alchemy | Blockchain development platform and API provider commonly used for RPC, NFT, token, transaction, and related data services. |
+| https://infura.io/ | infura | Managed Ethereum and L2 API service for RPC, WebSockets, archive data, and related infrastructure. |
+| https://www.quicknode.com/ | quicknode | Blockchain infrastructure API service supporting multi-chain RPC and data services. |
 | https://docs.chain.link/ | chainlink | Decentralized oracle network commonly used for prices, randomness, automation, and on-chain/off-chain data interaction. |
-| https://docs.safe.global/ | safe | Multisig wallet and smart account infrastructure for DAOs, team treasury management, and account abstraction scenarios. |
+| https://docs.ipfs.tech/ | ipfs | Decentralized storage documentation covering content addressing, file storage, and distribution. |
+| https://blog.ceramic.network/the-future-of-ceramic-focusing-on-recall/ | ceramic | Specialized and migration reference: Ceramic has shifted toward Recall and plans to deprecate js-ceramic and ComposeDB; confirm the current product path before adopting it. |
+| https://gun.eco/ | gun | Experimental decentralized data synchronization protocol for P2P sync and offline-first exploration. |
+
+#### 1.14.4 EVM Standards and Chain Ecosystem
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
 | https://eips.ethereum.org/EIPS/eip-1193 | eip-1193 | Ethereum Provider JavaScript API standard, the basis for wallet injection and DApp interaction. |
 | https://eips.ethereum.org/EIPS/eip-6963 | eip-6963 | Multi-wallet injection discovery standard, solving discovery and selection when multiple wallet extensions inject providers at the same time. |
+| https://eips.ethereum.org/EIPS/eip-5792 | eip-5792 | Wallet Call API for batched calls and wallet capability discovery; provide a fallback to legacy transaction APIs. |
+| https://eips.ethereum.org/EIPS/eip-7702 | eip-7702 | EOA code-delegation standard and a key direction for account abstraction and programmable-account UX; DApps should integrate through standardized wallet interfaces. |
 | https://docs.optimism.io/ | optimism | Official Optimism / OP Stack documentation for learning Ethereum L2 and Rollup ecosystems. |
 | https://docs.arbitrum.io/ | arbitrum | Official Arbitrum documentation for Arbitrum L2, contract deployment, and frontend integration. |
-| https://docs.polygon.technology/ | polygon | Official Polygon documentation for Polygon PoS, zkEVM, and related developer tools. |
+| https://docs.polygon.technology/ | polygon | Documentation for Polygon PoS, CDK, and related developer tools; Polygon zkEVM Mainnet Beta has sunset and should not be a new-project target chain. |
 | https://docs.base.org/ | base | Official Base developer documentation for Base chain, contract deployment, and Onchain App development. |
-| https://docs.ipfs.tech/ | ipfs | Decentralized storage documentation covering content addressing, file storage, and distribution. |
-| https://docs.ceramic.network/ | ceramic | Decentralized data network for DID, user data, and composable data scenarios. |
-| https://gun.eco/ | gun | Decentralized data synchronization protocol for experimental P2P data sync and offline-first applications. |
 
-### 1.15 Life
+#### 1.14.5 Non-EVM Chain Development
+
+| Address | Tag | Description |
+| ---- | ---- | ---- |
+| https://solana.com/docs/clients/official/javascript | solana-kit | Officially recommended Solana JavaScript/TypeScript SDK for applications across the web, Node.js, and React Native. |
+| https://docs.sui.io/guides/developer/sui-sdk | sui-ts-sdk | Official Sui TypeScript SDK for account, transaction, and on-chain data integration in the Move/Sui ecosystem. |
+
+### 1.15 Life Edition
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
@@ -1274,6 +1363,22 @@ Contents:
 
 Common utility methods for frontend development, suitable for browser and Node.js. Documentation: [https://blog.michealwayne.cn/fe-tools/stable/](https://blog.michealwayne.cn/fe-tools/stable/)
 
+#### Positioning and package selection
+
+`utils` is not intended to be a complete replacement for lodash or es-toolkit. It is most useful when a project needs TypeScript types, browser/Node-specific helpers, Canvas or image processing, or AI prompt utilities. For general-purpose array and object operations, compare mature general-purpose libraries first, then choose a package below:
+
+| Use case | Directory | npm package |
+| --- | --- | --- |
+| General JavaScript/TypeScript utilities | `packages/utils` | `fe-tools-utils` |
+| Browser DOM, URL, form, and network helpers | `packages/web-utils` | `fe-tools-webapi` |
+| Node.js file, HTTP, and process helpers | `packages/node-utils` | `fe-tools-node-utils` |
+| Canvas drawing and geometry | `packages/canvas-utils` | `fe-tools-canvas-utils` |
+| Node.js image processing | `packages/node-img-build` | `fe-tools-node-img-build` |
+| AI prompt and related helpers | `packages/ai-utils` | `fe-tools-ai-utils` |
+| Runtime environment detection | `packages/env` | `fe-tools-env` |
+
+> `web-utils` is the directory name; the actual npm package is `fe-tools-webapi`. Each package provides ESM, CommonJS, and TypeScript declarations. Refer to the package README and generated API documentation for the exact public API.
+
 #### Modules
 
 - [env](./utils/packages/env/): environment detection constants.
@@ -1289,7 +1394,7 @@ Common utility methods for frontend development, suitable for browser and Node.j
 Run these commands from `./utils`:
 
 - `pnpm install`
-- Build: `npm run build:prod`
+- Build: `npm run build`
 - Build docs: `npm run docs`
 
 > TODO: Mini Program wrappers and build wrappers.
@@ -1298,16 +1403,21 @@ Run these commands from `./utils`:
 
 `frontend` templates:
 
+- [nextjs + ts](./project-templates/frontend/nextjs+ts/)
+- [vite + react + ts](./project-templates/frontend/vite-react+ts/)
+- [vite + vue3 + ts](./project-templates/frontend/vite-vue3+ts/)
 - [webpack](./project-templates/frontend/webpack/)
 - [webpack + ts](./project-templates/frontend/webpack%2Bts/)
-- [vite + vue3](./project-templates/frontend/vite-vue3+ts/)
-- [vue2](./project-templates/frontend/vue/)
-- [vite + react 17](./project-templates/frontend/vite-react+ts/)
-- [react16](./project-templates/frontend/react/)
+- [vue2 (legacy maintenance)](./project-templates/frontend/vue/)
+- [react16 (legacy maintenance)](./project-templates/frontend/react/)
+
+> For new projects, prefer Next.js, Vite + React, or Vite + Vue. Webpack, React 16, and Vue 2 templates are mainly for learning or maintaining existing projects.
 
 `backend` templates:
 
+- [fastify](./project-templates/backend/fastify/)
 - [koa2](./project-templates/backend/koa2/)
+- [nestjs](./project-templates/backend/nestjs/)
 
 #### 2.3 ~~styles base style library~~
 
@@ -1334,18 +1444,22 @@ A small extension that assists frontend development.
 - rgb/hsb/hex color conversion
 - Multi-language translation
 - Simple Postman
+- Codex quota lookup, local cache, background refresh, and low-quota/reset notifications
 - Common regex lookup
 - JSON formatting and validation
 - SVG online editor
 - Date/timestamp conversion
 - Linux command lookup
 - Page screenshot (full page/node screenshot and save)
+- Current-page tech-stack detection with evidence, versions, and confidence
 - Utility function library search
 - Custom search extension
 - Chinese/English switching
+
+The extension keeps preferences, Postman data, and Codex quota snapshots in Chrome local storage. Codex quota features require a signed-in ChatGPT session and store only quota percentages and timestamps, not ChatGPT credentials or account information. Remote tool data is supplemental; the local tool panel remains usable when the remote catalog is unavailable.
 
 [Go to extension](https://github.com/MichealWayne/fe-tools/tree/master/chrome-extension)
 
 ### Installation
 
-Clone this repository locally, open the browser extensions page, click "Load unpacked", and select the `chrome-extension` directory in this repository.
+Clone this repository locally, open the browser extensions page, click "Load unpacked", and select the `chrome-extension` directory in this repository. For source builds and the full validation workflow, see the [extension README](./chrome-extension/README.md) and the [source repository](https://github.com/MichealWayne/fe-tools-chrome-plugin).

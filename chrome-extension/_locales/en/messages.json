@@ -1,0 +1,24 @@
+{
+  "codexQuotaNotificationLowTitle": { "message": "Codex quota is running low" },
+  "codexQuotaNotificationResetTitle": { "message": "Codex quota has reset" },
+  "codexQuotaNotificationLowMessage": { "message": "$1 has $2% remaining." },
+  "codexQuotaNotificationResetMessage": { "message": "$1 is available again with $2% remaining." },
+  "codexQuotaNotificationFiveHour": { "message": "5-hour quota" },
+  "codexQuotaNotificationWeekly": { "message": "Weekly quota" },
+  "codexQuotaNotificationAdditional": { "message": "$1-minute quota" },
+  "extensionName": {
+    "message": "FE Toolbox"
+  },
+  "extensionDescription": {
+    "message": "A collection of tools for frontend developers."
+  },
+  "extensionActionTitle": {
+    "message": "Open FE Toolbox"
+  },
+  "contextMenuQrCode": {
+    "message": "Generate a QR code for this URL"
+  },
+  "contextMenuTranslate": {
+    "message": "Quick translate"
+  }
+}

@@ -160,6 +160,13 @@
 
     // 监听来自 background 页面的消息
     chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+      const contract = window.FeToolsMessageContract;
+      if (
+        !contract ||
+        (!contract.isTabMessage(message) && !contract.isRuntimeMessage(message))
+      ) {
+        return false;
+      }
       if (message.action === 'executeScriptAndHandleTabCreate') {
         console.log('chrome', chrome, window.getSelection().toString())
         const selection = window.getSelection().toString();

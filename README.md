@@ -6,6 +6,17 @@
 
 ------------------
 
+## 快速入口
+
+根据你的目标选择入口：
+
+- **查前端资料**：从[常用网站与资源](#1-常用网站)开始，适合查文档、兼容性、框架和工程化资料。
+- **直接使用工具**：安装[Chrome 插件](#fe-tools---chrome插件)，适合 JSON、SVG、正则、截图、API 调试等日常任务。
+- **安装工具函数**：查看[utils 工具包](#21-utils说明)，按运行环境选择 npm 包。
+- **创建项目**：查看[project-templates 模板](#22-project-templates-一些前后端项目模版)，复制后按模板 README 启动。
+
+> 本仓库包含资源导航、浏览器工具、TypeScript 工具包和项目模板四类内容。它们可以独立使用，不需要一次性阅读完整 README。
+
 
 ## 1. 常用网站
 目录：
@@ -15,17 +26,17 @@
 - [1.4 JS插件/库](#14-js插件库)
 - [1.5 Vue](#15-vue)
 - [1.6 React](#16-react)
-- [1.7 NodeJS和构建](#17-NodeJS和构建)
-- [1.8 Hybird和跨端](#18-hybird和跨端)
+- [1.7 NodeJS和构建](#17-nodejs和构建)
+- [1.8 Hybrid和跨端](#18-hybrid-和跨端)
 - [1.9 辅助工具](#19-辅助工具)
 - [1.10 测试、安全及加密](#110-测试安全及加密)
-- [1.11 AI人工智能库](#111-AI人工智能库)
+- [1.11 AI人工智能库](#111-ai人工智能库)
 - [1.12 WebAssembly](#112-webassembly)
 - [1.13 IDE插件](#113-ide插件)
 - [1.14 Web3/区块链](#114-web3区块链)
 - [1.15 生活篇](#115-生活篇)
 
-> 注：一些选型可以考虑先问 [Deepseek](https://chat.deepseek.com/) / [chatGPT](https://chat.openai.com/chat) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/)，然后根据回答信息进行综合判断
+> 注：一些选型可以考虑先问 [Deepseek](https://chat.deepseek.com/) / [ChatGPT](https://chatgpt.com/) / [Claude](https://claude.ai/chats) / [Kimi](https://kimi.moonshot.cn/)，然后根据回答信息进行综合判断
 
 
 
@@ -538,6 +549,9 @@
 
 
 ### 1.7 NodeJS和构建
+
+#### 1.7.1 运行时、包管理与工程工具
+
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://github.com/goldbergyoni/nodebestpractices" target="_blank">Node.js best practices list</a> | `nodebestpractices` | NodeJS最佳实践集合。
@@ -550,10 +564,10 @@
 <a href="https://nodejs.org/docs/latest/api/" target="_blank">NodeJS api</a> | `node` | Node.js 官方 API 文档；中文站可作为辅助参考。
 <a href="https://docs.deno.com/" target="_blank">Deno docs</a> | `deno` | Deno 官方文档，现代 JavaScript/TypeScript 运行时。
 <a href="https://bun.sh/" target="_blank">Bun</a> | `bun` | JavaScript/TypeScript runtime、package manager、bundler 和 test runner。
+<a href="https://tsx.is/" target="_blank">tsx</a> | `tsx/typescript` | Node.js 的 TypeScript 执行工具；需要完整 TypeScript 特性或读取 tsconfig 时可选用。
 <a href="https://turbo.build/repo" target="_blank">TurboRepo</a> | `turborepo` | 好用的、高性能的多包管理工具，monorepo。
 <a href="https://lerna.js.org/" target="_blank">Lerna</a> | `lerna` | 好用的多包管理工具，monorepo。
 <a href="https://github.com/ds300/patch-package#readme" target="_blank">patch-package</a> | `patch-package ` | 给node_modules打补丁的工具包。
-<a href="https://v8.dev/docs" target="_blank">V8 dev docs</a> | `V8` | js V8引擎文档。
 <a href="https://v8.dev/docs" target="_blank">V8</a> | `v8` | V8 引擎文档入口；旧 Node 10.6 版本资料仅作历史参考。
 <a href="https://github.com/bellard/quickjs" target="_blank">QuickJs</a> | `quickjs` |  一款轻量级js引擎。
 <a href="https://github.com/GoogleChromeLabs/jsvu" target="_blank">jsvu</a> | `jsvu` |  js引擎调试必备，引擎切换及版本控制。
@@ -564,31 +578,32 @@
 <a href="https://github.com/shelljs/shelljs" target="_blank">ShellJs</a> | `shelljs` | 用NodeJS实现shell常用命令。
 <a href="https://github.com/chalk/chalk" target="_blank">chalk</a> | `chalk ` | 控制台命令行输出样式工具，主要控制颜色。
 <a href="https://github.com/node-schedule/node-schedule" target="_blank">node-schedule</a> | `node-schedule` | 适用于NodeJS的定时任务工具。
-<a href="https://www.npmjs.com/package/source-map-support" target="_blank">source-map-support</a> | `source-map-support` | 在 NodeJS 环境下支持 SourceMap 的模块工具。
+<a href="https://www.npmjs.com/package/source-map-support" target="_blank">source-map-support</a> | `source-map-support` | 存量 Node.js 项目的 Source Map 支持模块；新项目应先评估 Node 内置能力。
 <a href="https://github.com/wclr/yalc" target="_blank">yalc</a> | `yalc` | npm link 的有效替代品，使用真实的 npm package 代替各种 link。
-<a href="https://nodejs.org/api/corepack.html" target="_blank">Corepack</a> | `corepack` | Node 内置包管理器版本分发控制工具，可管理 pnpm/yarn 版本。
+<a href="https://nodejs.org/api/corepack.html" target="_blank">Corepack</a> | `corepack` | pnpm/yarn 的版本分发与固定工具；Node.js 25 起不再随 Node 分发，需按官方方式单独安装。
 <a href="https://volta.sh/" target="_blank">Volta</a> | `volta` | Node/Yarn/npm 工具链版本管理工具。
 <a href="https://github.com/Schniz/fnm" target="_blank">fnm</a> | `fnm` | 快速 Node.js 版本管理工具。
 <a href="https://nx.dev/" target="_blank">Nx</a> | `nx` | Monorepo 构建系统和任务编排工具。
 <a href="https://github.com/changesets/changesets" target="_blank">Changesets</a> | `changesets` | 多包仓库版本管理和 changelog 生成工具。
 
-#### 1.7.1 构建
+#### 1.7.2 构建
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://prettier.io/" target="_blank">Prettier</a> | `prettier ` | 对代码无侵害的代码格式化工具。
+<a href="https://vite.dev/" target="_blank">Vite</a> | `vite` | 现代 Web 开发与构建工具，提供快速开发服务器和生产构建能力。
 <a href="https://ejs.bootcss.com/" target="_blank">ejs</a> | `ejs` | 简单上手的html模板引擎。
 <a href="http://mustache.github.io/" target="_blank">Mustache</a> | `mustache` | 适用于多语言的html模板库。
 <a href="https://pugjs.org/language/includes.html" target="_blank">pug</a> | `pug` | html模板库。
-<a href="http://www.nodeclass.com/api/jade.html" target="_blank">jade</a> | `jade` | 历史参考：Pug 前身，老模板项目维护时可能遇到。
 <a href="https://gulpjs.com/docs/en/getting-started/quick-start/" target="_blank">gulp 配置文档</a> | `gulp` | 存量维护：老项目常见自动化构建工具，现代项目优先 Vite/Rollup/Rspack/esbuild。
 <a href="https://gulpjs.com/plugins/" target="_blank">gulp plugins</a> | `gulp` | gulp插件中心。
 <a href="https://gruntjs.com/" target="_blank">grunt 配置文档</a> | `grunt` | 历史参考：早期自动化构建工具，主要用于老项目维护。
 <a href="https://rollupjs.org/" target="_blank">rollupjs文档</a> | `Rollup` | ES 模块打包工具，库构建和工具链生态中常用。
-<a href="https://webpack.docschina.org/" target="_blank">webpack 配置文档</a> | `webpack` | 应用面不能再广的打包工具。
+<a href="https://webpack.js.org/" target="_blank">webpack 配置文档</a> | `webpack` | 成熟的模块打包工具，复杂存量应用和生态集成仍常用。
 <a href="https://github.com/neutrinojs/webpack-chain" target="_blank">webpack-chain</a> | `webpack-chain` | 链式配置webpack配置的工具。
+<a href="https://rspack.rs/" target="_blank">Rspack</a> | `rspack` | 兼容 Webpack 生态的 Rust 高性能打包器，适合 Webpack 迁移或底层构建定制。
+<a href="https://rsbuild.dev/" target="_blank">Rsbuild</a> | `rsbuild` | 基于 Rspack 的开箱即用构建工具，适合新建 Web 应用。
 <a href="https://nextjs.org/docs/app/api-reference/turbopack" target="_blank">Turbopack</a> | `turbopack` | 基于 Rust 的高性能打包工具，主要服务 Next.js 生态。
 <a href="https://parceljs.org/" target="_blank">parceljs 配置文档</a> | `parceljs` | 零配置/轻配置打包工具。
-<a href="https://www.snowpack.dev/" target="_blank">snowpack 官网</a> | `snowpack` | 历史参考：无 bundle 构建阶段性工具，现代项目通常优先 Vite。
 <a href="https://swc.rs/" target="_blank">swc</a> | `swc` | 用Rust写的、号称比babel快20倍且支持其所有功能的ts/js编译器。
 <a href="https://babeljs.io/" target="_blank">babel</a> | `babel` | 应用面很广的 JavaScript 编译器。
 <a href="https://github.com/fb55/htmlparser2#readme" target="_blank">htmlparser2</a> | `htmlparser2` | 一款html的转AST工具。
@@ -600,17 +615,17 @@
 <a href="https://github.com/addyosmani/critical#readme" target="_blank">critical</a> | `critical` | 一款从HTML中提取相关CSS的工具。
 <a href="https://modernjs.dev/" target="_blank">ModernJS</a> | `modernjs` | web前端工程化体系工具，字节跳动。
 <a href="https://github.com/javascript-obfuscator/javascript-obfuscator" target="_blank">javascript-obfuscator</a> | `obfuscator` | js代码混淆插件。
-<a href="https://github.com/egoist/tsup" target="_blank">tsup</a> | `tsup` | 基于 esbuild 的 TypeScript 库构建工具。
+<a href="https://github.com/egoist/tsup" target="_blank">tsup</a> | `tsup` | 存量 TypeScript 库构建工具；新项目在 Node.js >= 22.18 时可评估 tsdown，迁移前需核对配置兼容性。
 <a href="https://github.com/unjs/unbuild" target="_blank">unbuild</a> | `unbuild` | UnJS 生态的库构建工具。
 <a href="https://tsdown.dev/" target="_blank">tsdown</a> | `tsdown` | 面向 TypeScript 库的新一代构建工具。
 <a href="https://biomejs.dev/" target="_blank">Biome</a> | `biome` | 现代 Web formatter/linter 工具链，可用于替代部分 Prettier/ESLint 场景。
 
-#### 1.7.2 服务端
+#### 1.7.3 服务端
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="http://www.expressjs.com.cn/" target="_blank">express 配置文档</a> | `express` | 轻量web应用程序开发框架。
+<a href="https://expressjs.com/" target="_blank">Express</a> | `express` | 成熟的轻量 Web 应用框架。
 <a href="https://koajs.cn/#-application-" target="_blank">Koa 文档</a> | `koajs` | web应用程序开发框架。
-<a href="https://www.fastify.io/" target="_blank">Fastify 官网</a> | `fastify` | 标称当代最快的轻量web应用程序开发框架，重点是JSON schema加速。
+<a href="https://fastify.dev/" target="_blank">Fastify</a> | `fastify` | 性能与 Schema 驱动设计兼顾的 Node.js Web 框架。
 <a href="http://www.midwayjs.org/" target="_blank">Midway 官网</a> | `midway` | 支持了 Web / 全栈 / 微服务 / RPC / Socket / Serverless 的 web 应用程序开发框架，阿里淘系。
 <a href="https://docs.feathersjs.com/" target="_blank">feathers.js</a> | `feathersjs` | 轻量web应用程序开发框架，适用于数据流型。
 <a href="https://docs.nestjs.com/" target="_blank">Nest.js</a> | `nestjs` | 强大的Web应用框架。
@@ -618,62 +633,66 @@
 <a href="https://nitro.unjs.io/" target="_blank">Nitro</a> | `nitro` | Nuxt/UnJS 生态服务端引擎，适合全栈和边缘部署。
 <a href="https://elysiajs.com/" target="_blank">Elysia</a> | `elysia` | Bun 生态高性能服务端框架。
 <a href="https://github.com/nuysoft/Mock/wiki" target="_blank">Mockjs 配置文档</a> | `mockjs` | 接口数据模拟工具，可以在客户端和服务端使用。
-<a href="https://sheetjs.com/" target="_blank">SheetJs</a> | `sheetjs` | 通过 Node/浏览器处理 xlsx/csv 等电子表格文件的工具。
 <a href="https://www.prisma.io/" target="_blank">Prisma</a> | `prisma` | TypeScript ORM 和数据库工具链。
 <a href="https://orm.drizzle.team/" target="_blank">Drizzle ORM</a> | `drizzle` | TypeScript-first ORM，类型安全和 SQL 友好。
 <a href="https://trpc.io/" target="_blank">tRPC</a> | `trpc` | 端到端类型安全 API/RPC 框架。
 <a href="https://ts-rest.com/" target="_blank">ts-rest</a> | `ts-rest` | 基于契约的类型安全 REST API 工具。
-<a href="https://github.com/parallel-js/parallel.js" target="_blank">ParallelJs</a> | `paralleljs` | 并行处理js的工具，可用于浏览器和node服务端。
 <a href="https://parall.ax/products/jspdf" target="_blank">js-pdf</a> | `js-pdf` | 通过node操作生成pdf的工具。
-<a href="http://doc.pm2.io/en/plus/overview/" target="_blank">pm2</a> | `pm2` | node进程管理。
-<a href="https://github.com/rvagg/node-worker-farm" target="_blank">node-worker-farm</a> | `node-worker-farm` | 很常用的 Node.js 多进程计算库。
+<a href="https://pm2.keymetrics.io/docs/usage/quick-start/" target="_blank">PM2</a> | `pm2` | Node.js 进程管理与守护工具。
+<a href="https://github.com/piscinajs/piscina" target="_blank">Piscina</a> | `piscina/worker-threads` | 基于 Node.js worker_threads 的工作线程池，适合 CPU 密集型任务。
 <a href="https://github.com/Marak/colors.js" target="_blank">colors.js</a> | `colorsjs` | node log控制台输出颜色控制。
 <a href="https://log4js-node.github.io/log4js-node/" target="_blank">log4.js</a> | `log4js` | log日志工具。
+<a href="https://getpino.io/" target="_blank">Pino</a> | `pino` | 面向 Node.js 的低开销结构化日志工具。
 <a href="https://nwjs.io/" target="_blank">nw.js</a> | `nwjs` | 基于NodeJS和chromium的应用程序运行环境，允许您直接从DOM调用所有Node.js模块。
 <a href="https://github.com/archiverjs/node-archiver" target="_blank">node-archiver</a> | `node-archiver` | 支持ZIP/TAR文档流传输和接收插件。
 <a href="https://github.com/thejoshwolfe/yazl" target="_blank">yazl</a> | `yazl` | 压缩zip插件，对应解压为[yauzl](https://github.com/thejoshwolfe/yauzl)。
+<a href="https://github.com/thejoshwolfe/yauzl" target="_blank">yauzl</a> | `yauzl` | 与 yazl 配套的 ZIP 解压库。
 <a href="https://sailsjs.com/" target="_blank">SailsJs</a> | `sailsjs` | 好用的MVC NodeJS框架。
 <a href="https://helmetjs.github.io/" target="_blank">Helmet中间件</a> | `helmet` | 通过设置响应头header保护express服务应用。
 <a href="https://github.com/expressjs/cors#readme" target="_blank">Cors中间件</a> | `cors` | NodeJS的Cors中间件。
-<a href="https://github.com/expressjs/body-parser#readme" target="_blank">Body-parser中间件</a> | `body-parser` | NodeJS的请求流解析中间件。
+<a href="https://github.com/expressjs/body-parser#readme" target="_blank">body-parser</a> | `body-parser` | 请求体解析中间件；Express 新项目的 JSON、URL 编码请求通常可直接使用内置 `express.json()` / `express.urlencoded()`。
 <a href="http://restify.com/" target="_blank">Restify</a> | `restify` | NodeJS的Web服务框架。
 <a href="https://github.com/expressjs/multer#readme" target="_blank">Multer</a> | `multer` | 用于处理上传文件的NodeJS中间件。
 <a href="https://github.com/node-cache/node-cache" target="_blank">Node-cache</a> | `node-cache` | 一个NodeJS的缓存控制模块。
 <a href="https://socket.io/" target="_blank">Socket.IO</a> | `socket.io` | WebSocket解决方案。
 <a href="https://github.com/luin/ioredis" target="_blank">ioredis</a> | `ioredis` | redis调用js封装库。
+<a href="https://docs.bullmq.io/" target="_blank">BullMQ</a> | `bullmq/queue` | 基于 Redis 的任务队列，支持延迟、重试、并发与后台任务处理。
 <a href="https://github.com/websockets/ws" target="_blank">ws</a> | `ws` | WebSocket的一个NodeJS包。
 <a href="https://github.com/digitalocean/nginxconfig.io" target="_blank">nginxconfig.io</a> | `nginxconfig.io` | 在线生成nginx配置的工具。
-<a href="https://github.com/davidmarkclements/fast-safe-stringify#readme" target="_blank">fast-safe-stringify</a> | `fast-safe-stringify` | 安全快速地序列化JSON，替代JSON.stringify。
+<a href="https://github.com/davidmarkclements/fast-safe-stringify#readme" target="_blank">fast-safe-stringify</a> | `fast-safe-stringify` | 面向循环引用等场景的安全 JSON 序列化工具，不是 JSON.stringify 的完全替代。
 <a href="https://nodemailer.com/" target="_blank">NodeMailer</a> | `node-mailer` | 用来发邮件的库、支持SMTP/SES/Sendmail/Stream方式。
 
-#### 1.7.3 GraphQL
+#### 1.7.4 GraphQL
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://graphql.org/graphql-js/" target="_blank">Graphql-js</a> | `graphql` | GraphQL的js实现。
 <a href="https://github.com/hasura/graphql-engine" target="_blank">hasura graphql-engine</a> | `hasura` | 一款强大的GraphQL引擎方案。
 <a href="https://github.com/apollographql/apollo-client" target="_blank">apollo-client</a> | `apollo-client` | 适用于每个UI框架和GraphQL服务器的方案。
+<a href="https://www.apollographql.com/docs/apollo-server/" target="_blank">Apollo Server</a> | `apollo-server` | Node.js GraphQL 服务端实现，适合 Apollo 生态的服务端场景。
+<a href="https://the-guild.dev/graphql/yoga-server" target="_blank">GraphQL Yoga</a> | `graphql-yoga` | 基于 Web 标准的 GraphQL 服务端方案，适合 Node.js 与边缘运行时。
 
-#### 1.7.4 微前端
+#### 1.7.5 微前端
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://single-spa.js.org/" target="_blank">single-spa</a> | `single-spa` | 以路由配置为主要特点的微前端解决方案。
-<a href="https://qiankun.umijs.org/zh/" target="_blank">qiankun</a> | `qiankun` | 蚂蚁系微前端框架，基于single-spa。
-<a href="https://webpack.docschina.org/concepts/module-federation/" target="_blank">Module Federation</a> | `module-federation` | 构建时共享模块为主要特点的微前端解决方案，webpack（5）的实现。
+<a href="https://qiankunjs.com/" target="_blank">qiankun</a> | `qiankun` | 基于 single-spa 的微前端框架；3.0 正在开发，生产选型需明确使用版本。
+<a href="https://module-federation.io/" target="_blank">Module Federation</a> | `module-federation` | 模块共享型微前端方案，支持多种框架与构建工具集成。
 <a href="https://fronts.js.org/" target="_blank">R/Fronts</a> | `fronts` | 渐进式微前端框架，基于webpack module-federation。
 <a href="https://wujie-micro.github.io/doc/" target="_blank">无界Wujie</a> | `wujie` | 基于web component+iframe的微前端框架，腾讯。
 <a href="https://github.com/jsdom/jsdom" target="_blank">jsdom</a> | `jsdom` | 在node环境上实现DOM操作的封装库。
 
-#### 1.7.5 云和Serverless
+#### 1.7.6 云和Serverless
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://wasmedge.org/" target="_blank">WasmEdge 官网</a> | `wasmedge` | 一款与WebAssembly有关的云原生及serverless框架。
 <a href="https://www.serverless.com/" target="_blank">Serverless Framework 官网</a> | `serverless` | 快速建立node Serverless 服务的框架，支持腾讯云 SCF，AWS Lambda等。
-<a href="https://aws.amazon.com/cn/campaigns/lambda/" target="_blank">AWS Lambda</a> | `aws-lambda` | 经典，亚马逊amazon serverless计算服务。
-<a href="https://qingfuwu.cn/" target="_blank">字节轻服务 官网</a> | `qingfuwu` | 字节轻服务，支持Serverless（FaaS）、CDN等服务，有免费档。
+<a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html" target="_blank">AWS Lambda</a> | `aws-lambda` | AWS 的 Serverless 计算服务；使用开发者文档入口。
 <a href="https://help.aliyun.com/document_detail/154438.html" target="_blank">阿里云 FC</a> | `aliyunFC` | 阿里云函数计算服务，支持Serverless（FaaS）。
-<a href="https://cloud.tencent.com/document/product/583" target="_blank">腾讯云 SFC</a> | `tecentFC` | 腾讯云云函数服务，支持Serverless（FaaS）。
+<a href="https://cloud.tencent.com/document/product/583" target="_blank">腾讯云 SCF</a> | `tencent-scf` | 腾讯云函数服务，支持事件函数和 Web 函数。
+<a href="https://developers.cloudflare.com/workers/" target="_blank">Cloudflare Workers</a> | `cloudflare-workers/edge` | 面向全球边缘网络的 Serverless 平台，适合 API、全栈应用与后台任务。
+<a href="https://vercel.com/docs/functions" target="_blank">Vercel Functions</a> | `vercel-functions` | 免运维函数服务，适合 Vercel 与 Next.js 等全栈部署场景。
 
-#### 1.7.6 低代码LowCode
+#### 1.7.7 低代码LowCode
 
 地址 | 标签 | 说明
 ---- | ---- | ----
@@ -685,107 +704,140 @@
 <a href="https://shuffle.dev/" target="_blank">Shuffle</a> | `shuffle` | 海外火热的低代码平台。
 <a href="https://webflow.com/" target="_blank">Webflow</a> | `webflow` | 海外火热的低代码平台。
 
-### 1.8 Hybird和跨端
+### 1.8 Hybrid 和跨端
+
+#### 1.8.1 小程序、快应用与 Web
+
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps" target="_blank">pwa</a> | `pwa` | Progressive web apps，渐进式web应用。
-<a href="https://developers.weixin.qq.com/miniprogram/dev/" target="_blank">微信小程序官网</a> | `小程序/hybird` | 微信小程序开发官网。
-<a href="https://docs.alipay.com/mini/developer/getting-started" target="_blank">支付宝小程序官网</a> | `小程序/hybird` | 支付宝小程序开发官网。
-<a href="https://smartprogram.baidu.com/developer/index.html" target="_blank">百度小程序官网</a> | `小程序/hybird` | 百度小程序开发官网。
-<a href="https://wepyjs.github.io/wepy-docs/" target="_blank">wepy文档</a> | `小程序/hybird` | vue语法的小程序开发官网。
-<a href="https://github.com/opendigg/awesome-github-wechat-weapp" target="_blank">小程序工具集合</a> | `小程序/hybird` | 微信小程序开发工具集合。
-<a href="https://dev.mi.com/doc/?page_id=2303" target="_blank">小米轻应用官网</a> | `轻应用/hybird` | 小米轻应用开发官网。
-<a href="https://www.quickapp.cn/" target="_blank">Oppo/vivo快应用官网</a> | `轻应用/hybird` | Oppo/vivo轻应用开发官网。
-<a href="https://developer.huawei.com/consumer/cn/quickApp" target="_blank">华为快应用官网</a> | `轻应用/hybird` | 华为轻应用开发官网。
-<a href="https://reactnative.cn/" target="_blank">React-native 文档</a> | `跨端` | 热门的react语法跨端工具，RN。
-<a href="https://lynxjs.org/zh/index.html" target="_blank">Lynx 文档</a> | `跨端` | 字节的iOS/Android/鸿蒙/Web跨端框架。
-<a href="https://github.com/NativeScript/NativeScript" target="_blank">NativeScript</a> | `跨端` | 国外一款流行的跨端开发框架，支持Angular/Vue/Svelte/React。
-<a href="https://github.com/ionic-team/ionic-framework" target="_blank">ionic-framework</a> | `跨端` | 一个强大的跨平台UI工具包，用于使用HTML，CSS和JavaScript构建本机质量的iOS，Android和PWA。
-<a href="https://github.com/quasarframework/quasar" target="_blank">quasar-framework</a> | `跨端` | 构建一流的高性能的Vue响应式网站、PWA、SSR、移动和桌面应用
-<a href="https://weexapp.com/zh/" target="_blank">Weex文档</a> | `跨端` | 前几年热门的vue语法跨端工具，现在都不维护了。
-<a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex-UI文档</a> | `跨端/weex` | weex的UI组件库。
-<a href="https://taro.jd.com/" target="_blank">Taro文档</a> | `小程序/跨端` | 跨web/小程序/原生的react语法跨端工具，runtime跨端模式。
-<a href="https://rax.js.org/" target="_blank">Rax文档</a> | `小程序/跨端/Flutter` | 跨web/小程序/Flutter的react语法跨端工具（已经沉寂了），阿里。
-<a href="https://wechat-miniprogram.github.io/kbone/docs/" target="_blank">Kbone文档</a> | `小程序/跨端` | 跨web/小程序跨端构建插件，成本低，适配各类web框架，腾讯。
-<a href="https://hippyjs.org/" target="_blank">Hippy文档</a> | `跨端` | 腾讯的一款混合跨端框架。
-<a href="https://uniapp.dcloud.io/" target="_blank">uni-app文档</a> | `小程序/跨端` | 跨web/小程序/原生的vue语法跨端工具。
-<a href="https://openkraken.com/" target="_blank">北海Kraken</a> | `Kraken` | 高性能 Web 渲染引擎，基于 Flutter 构建，可以用web范式写法写Flutter，阿里。
-<a href="https://github.com/remaxjs/remax" target="_blank">Remax文档</a> | `remax` | React语法跨web/小程序工具，类似于taro-next(3)的跨端模式，对小程序友好，支付宝。
-<a href="https://ant-move.github.io/guide/" target="_blank"> Antmove </a> | `antmove` | 小程序转换器，基于支付宝/微信小程序转换为多端小程序，高德。
-<a href="https://guoshuyu.cn/home/wx/Flutter-1.html" target="_blank">Flutter文档</a> | `跨端` | 超火的Dart语法的跨端开发工具。
-<a href="http://electronjs.org/docs" target="_blank">Electron文档</a> | `跨端` | PC、windows/Mac应用的开发框架。
-<a href="http://electronjs.org/docs" target="_blank">WebView2文档</a> | `跨端` | PC、windows应用的开发框架，微软。
-<a href="https://tauri.app/" target="_blank">Tauri文档</a> | `Tauri` | Rust 编写的、基于web的 windows/Mac 应用的开发框架。
-<a href="https://github.com/tw93/Pake" target="_blank">Pake</a> | `pake` | 基于Rust Tauri 框架、 打包网页生成很小的桌面 App的脚手架工具，支持 Mac / Windows / Linux 系统。
-<a href="https://wendux.github.io/dist/#/doc/flyio/readme" target="_blank">flyio(fly)文档</a> | `fly` | 支持Web、Node.js 、微信小程序 、Weex 、React Native 、Quick App的请求封装库。
-<a href="https://github.com/icindy/wxParse" target="_blank">wxParse</a> | `wxParse ` | 微信小程序富文本解析组件，支持Html及markdown转wxml可视化（但是目前已停止维护）。
-<a href="https://developer.chrome.com/extensions" target="_blank">chrome extension</a> | `chrome-extension` | Chrome拓展程序官方文档。
-<a href="https://github.com/sxei/chrome-plugin-demo" target="_blank">chrome-plugin-demo</a> | `chrome-plugin, chrome-extension` | 一篇很好的Chrome拓展程序开发教程，有demo。
+<a href="https://developers.weixin.qq.com/miniprogram/dev/" target="_blank">微信小程序官网</a> | `小程序/hybrid` | 微信小程序开发官网。
+<a href="https://docs.alipay.com/mini/developer/getting-started" target="_blank">支付宝小程序官网</a> | `小程序/hybrid` | 支付宝小程序开发官网。
+<a href="https://smartprogram.baidu.com/developer/index.html" target="_blank">百度小程序官网</a> | `小程序/hybrid` | 百度小程序开发官网。
+<a href="https://www.quickapp.cn/" target="_blank">Oppo/vivo快应用官网</a> | `轻应用/hybrid` | Oppo/vivo轻应用开发官网。
+<a href="https://developer.huawei.com/consumer/cn/quickApp" target="_blank">华为快应用官网</a> | `轻应用/hybrid` | 华为轻应用开发官网。
+<a href="https://docs.taro.zone/docs/" target="_blank">Taro 文档</a> | `小程序/跨端` | Taro 4 开放式跨端方案，支持 React、Vue 等框架开发小程序、H5、React Native 等端。
+<a href="https://uniapp.dcloud.net.cn/" target="_blank">uni-app 文档</a> | `小程序/跨端` | Vue 语法跨端框架，覆盖 App、Web、鸿蒙和多个小程序平台；按项目目标选择 uni-app 或 uni-app x。
+<a href="https://github.com/alibaba/rax" target="_blank">Rax</a> | `小程序/跨端` | 阿里开源的多端框架，覆盖 Web、小程序、Node.js、Weex 等运行时；适合已有 Rax 技术栈或明确的生态需求。
+<a href="https://wechat-miniprogram.github.io/kbone/docs/" target="_blank">Kbone</a> | `小程序/跨端` | 存量参考：将 Web 应用迁移到微信小程序的兼容层，采用前应验证目标组件与运行时能力。
+<a href="https://github.com/Tencent/wepy" target="_blank">Wepy</a> | `小程序` | 历史参考：腾讯已归档的 Vue 风格小程序框架；新项目优先原生小程序、Taro 或 uni-app。
+<a href="https://github.com/remaxjs/remax" target="_blank">Remax</a> | `小程序` | 历史参考：仓库已归档的 React 小程序框架；新项目优先评估 Taro 或原生小程序方案。
+<a href="https://ant-move.github.io/guide/" target="_blank">Antmove</a> | `小程序` | 支付宝/微信小程序转换工具；迁移前需验证目标平台 API 与组件兼容性。
 
-### 1.9 辅助工具
+#### 1.8.2 移动端与原生容器
+
 地址 | 标签 | 说明
 ---- | ---- | ----
-<a href="https://chat.openai.com/chat" target="_blank">chatGPT</a> | `chatGPT` | 基于OpenAI的问答机器人，用来查技术问题也挺好。
-<a href="https://www.cursor.so/" target="_blank">Cursor</a> | `cursor` | 依旧火热的AI Coding IDE产品。
-<a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a> | `stackoverflow` | 技术问题排忧解难的友好社区。
-<a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析npm软件包的体积和加载性能的网站。
-<a href="https://npmgraph.js.org/" target="_blank">npmgraph</a> | `npmgraph` | 分析npm软件包依赖关系的工具网站。
-<a href="https://www.typescriptlang.org/dt/search?search=" target="_blank">Ts声明文件查询</a> | `joi` | 各类库的TypeScript声明文件查询网站。
-<a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank">正则表达式30分钟</a> | `regexp` | 正则上手教程。
-<a href="https://regexper.com/" target="_blank">在线正则验证</a> | `regexper` | 可视化在线正则验证网站。
-<a href="https://extendsclass.com/regex-tester.html" target="_blank">cyrilex</a> | `cyrilex` | 一个在线可视化的正则表达式测试工具和调试器。
-<a href="http://wproxy.org/whistle/install.html" target="_blank">whistle</a> | `whistle` | web调试代理工具。
-<a href="https://astexplorer.net/" target="_blank">AST explorer</a> | `astexplorer` | css/html/js/ts等语言的在线ast解析工具。
-<a href="https://github.com/typicode/husky#readme" target="_blank">husky</a> | `Husky` | NodeJS上的git工具。
-<a href="https://cn.eslint.org/" target="_blank">eslint 文档</a> | `eslint` | js代码检查工具。
-<a href="https://visualgo.net/en" target="_blank">visualgo</a> | `Visualgo` | 可视化算法查询。
-<a href="https://visualgo.net/en" target="_blank">visualgo</a> | `Visualgo` | 可视化算法查询。
-<a href="http://yisibl.github.io/cubic-bezier/#.48,1.06,1,1.45" target="_blank">动画曲线查询</a> | `cubic` | 动画曲线查询网站（ease/linear...）
-<a href="https://dev.w3.org/html5/html-author/charref" target="_blank">Character Entity Reference Chart</a> | `charref` | 字符标点的转义字符查询。
-<a href="https://www.colorzilla.com/gradient-editor/" target="_blank">gradient-editor</a> | `gradient-editor` | CSS渐变样式生成工具。
-<a href="https://valine.js.org/cdn.html" target="_blank">valineJS</a> | `valine` | 评论系统工具。
-<a href="http://gittalk.com.cutestat.com/" target="_blank">GitTalk</a> | `gittalk` | github的评论工具。
-<a href="https://codemirror.net/" target="_blank">CodeMirror</a> | `codemirror` | web代码文本编辑器，带有大量的语言模式和插件功能。
-<a href="https://github.com/Coding/WebIDE" target="_blank">webIDE</a> | `webide` | web上写代码。
-<a href="https://hiroppy.github.io/fusuma/" target="_blank">Fusuma</a> | `fusuma` | 用markdown写web ppt。
-<a href="https://stackedit.io/" target="_blank">stackedit</a> | `stackedit ` | 在浏览器中运行的Markdown编辑器。
-<a href="https://vuepress.vuejs.org/zh/" target="_blank">VuePress</a> | `vuepress` | 用markdown写文档/博客
-<a href="https://vitejs.cn/vitepress/" target="_blank">VitePress</a> | `vitepress` | 用markdown写文档/博客，VuePress小兄弟，用vite构建
-<a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> | `hexo` | 用markdown写文档/博客
-<a href="https://d.umijs.org/" target="_blank">dumi</a> | `dumi` | 适合写前端开发文档的工具，markdown，蚂蚁
-<a href="https://jsdoc.app/" target="_blank">jsdoc</a> | `jsdoc` | 最经典的js代码注释生成文档的工具
-<a href="https://github.com/jsdoc2md/jsdoc-to-markdown" target="_blank">jsdoc-to-markdown</a> | `jsdoc-to-markdown` | js注释（jsdoc格式）生成markdown文档
-<a href="https://www.materialui.co/colors" target="_blank">materialui</a> | `materialui` | 快速色值选择
-<a href="https://carbon.now.sh/" target="_blank">carbon</a> | `carbon` | 生成写博客时代码的美腻截图
-<a href="https://tinypng.com/" target="_blank">tinypng</a> | `Tinypng` | 压缩png和jpeg图片
-<a href="https://github.com/svg/svgo" target="_blank">svgo</a> | `svgo` | 压缩SVG图形文件工具
-<a href="https://github.com/ImageOptim/ImageOptim" target="_blank">ImageOptim</a> | `imageoptim` | macOS 图片压缩优化工具。
-<a href="https://squoosh.app/" target="_blank">Squoosh</a> | `squoosh-app` | GoogleChromeLabs 出品的在线图片压缩/格式转换工具。
-<a href="https://jakearchibald.github.io/svgomg/" target="_blank">svgomg</a> | `SVGOMG` | 压缩SVG图形
-<a href="https://imagemagick.org/index.php" target="_blank">ImageMagick</a> | `imagemagick` | 后台运用极广的图片处理工具。
-<a href="https://github.com/javierbyte/img2css" target="_blank">img2css</a> | `img2css` | 一个有趣的库，利用box-shadow将图片以CSS的方式呈现。
-<a href="https://www.whatfontis.com/" target="_blank">whatfontis.com</a> | `whatfontis` | 识别图片上的字体不过限于英文字体，需要注册。
-<a href="https://www.toptal.com/developers/keycode" target="_blank">keycode</a> | `keycode` | 一个输入按键并获取其对应js keyCode的在线网站。
-<a href="https://ps.gaoding.com/#/" target="_blank">ps.gaoding.com</a> | `ps` | 强大的在线Photoshop。
-<a href="https://avocode.com/convert-psd-to-sketch?ref=producthunt" target="_blank">convert-psd-to-sketch avocode</a> | `avocode` | psd一键转sketch。
-<a href="https://jakearchibald.github.io/svgomg/" target="_blank">svgomg</a> | `svgomg` | 在线svg优化及预览。
-<a href="https://code2flow.com/" target="_blank">code2flow</a> | `code2flow` | 在线伪码转流程图工具。
-<a href="https://tool.lu/json/" target="_blank">tool.lu-json</a> | `json` | 在线json格式化工具。
-<a href="https://tool.lu/js/" target="_blank">tool.lu-js</a> | `js` | 在线js格式化/混淆/压缩工具。
-<a href="https://tool.lu/css/" target="_blank">tool.lu-css</a> | `css` | 在线css格式化/压缩/响应式单位处理工具。
-<a href="https://tool.lu/coderunner/" target="_blank">tool.lu-coderunner</a> | `coderunner` | 在线php/c/c++/python/go/js/java/bash代码执行工具。
-<a href="https://www.diffchecker.com/" target="_blank">diffchecker.com</a> | `diffchecker` | 在线文本/文件diff工具。
-<a href="https://isoflow.io/" target="_blank">isoflow.io</a> | `isoflow` | 在线流程图绘制工具。
-<a href="https://github.com/n8n-io/n8n" target="_blank"> n8n </a> | `n8n` | 基于自由和开放的公平代码许可节点的工作流自动化工具。轻松自动化跨不同服务的任务。
-<a href="https://zijian.aliyun.com/detect/dns/DNS_PING-d31c5446aff9db99decd9d9d944b11c5-1640605424801" target="_blank"> 阿里云 DNS检测 </a> | `dns` | 域名DNS检测网站工具，阿里云。
-<a href="https://tabatkins.github.io/railroad-diagrams/generator.html" target="_blank"> Railroad Diagrams </a> | `railroad-diagrams` | 在线绘制铁路图的网站工具。
-<a href="https://unbug.github.io/codelf/" target="_blank">CodeIf</a> | `codeIf` | 帮助解决命名困难的命名搜索工具。
-<a href="https://app.quicktype.io/" target="_blank"> QuickType </a> | `QuickType` | 根据 json 文本生成指定语言（如 TypeScript，C++，,Java，C#，Go 等）类型声明代码的工具网站。
+<a href="https://reactnative.dev/" target="_blank">React Native</a> | `跨端` | Meta 支持的原生应用框架；使用 React 与原生组件构建 Android、iOS 等应用。
+<a href="https://docs.expo.dev/" target="_blank">Expo</a> | `react-native/expo` | React Native 官方推荐的框架式新项目入口，提供路由、原生模块、构建和发布能力。
+<a href="https://docs.flutter.dev/" target="_blank">Flutter</a> | `跨端` | Google 的 Dart 跨平台 UI 工具包，适合从单一代码库构建移动、桌面和 Web 应用。
+<a href="https://lynxjs.org/zh/index.html" target="_blank">Lynx</a> | `跨端` | 字节的 iOS、Android、鸿蒙和 Web 跨端框架。
+<a href="https://hippyjs.org/" target="_blank">Hippy</a> | `跨端` | 腾讯的跨平台动态应用框架，适合已有 Hippy 技术栈或相应容器接入场景。
+<a href="https://docs.nativescript.org/" target="_blank">NativeScript</a> | `跨端` | 基于 JavaScript/TypeScript 的原生移动应用框架，支持 Angular、Vue、Svelte 和 React。
+<a href="https://ionicframework.com/docs" target="_blank">Ionic Framework</a> | `hybrid/ui` | 基于 Web 技术的移动 UI 工具包，通常与 Capacitor 配合使用。
+<a href="https://capacitorjs.com/docs" target="_blank">Capacitor</a> | `hybrid/runtime` | 面向现有 Web 项目的原生容器与插件运行时，适合需要 iOS/Android 原生能力的 Web-first 应用。
+<a href="https://quasar.dev/" target="_blank">Quasar</a> | `vue/跨端` | Vue 跨端应用框架，可构建 SPA、SSR、PWA、移动和桌面应用。
+<a href="https://github.com/openkraken/kraken" target="_blank">Kraken</a> | `renderer` | 基于 Flutter 的 Web 标准渲染引擎；更适合作为渲染技术方案研究，而非通用跨端应用框架。
+
+#### 1.8.3 桌面应用
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://www.electronjs.org/docs/latest/" target="_blank">Electron</a> | `desktop` | 基于 Chromium 和 Node.js 的桌面应用框架，覆盖 Windows、macOS、Linux。
+<a href="https://learn.microsoft.com/en-us/microsoft-edge/webview2/" target="_blank">WebView2</a> | `windows/desktop` | 微软 Windows WebView 容器，适合在原生 Windows 应用中嵌入基于 Edge 的 Web 内容。
+<a href="https://v2.tauri.app/" target="_blank">Tauri</a> | `desktop/mobile` | 基于系统 WebView 和 Rust 的跨平台应用框架；Tauri 2 覆盖桌面及 Android、iOS。
+<a href="https://github.com/tw93/Pake" target="_blank">Pake</a> | `desktop` | 基于 Tauri 将网页或本地静态文件打包为桌面应用的工具，适合轻量封装场景。
+
+#### 1.8.4 存量与专项参考
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://github.com/alibaba/weex" target="_blank">Weex</a> | `weex` | 存量/迁移参考：Apache Weex 已退役并迁回 Alibaba 维护；新项目需审慎评估生态和平台兼容性。
+<a href="https://alibaba.github.io/weex-ui/#/cn/" target="_blank">Weex UI</a> | `weex` | 存量维护：Weex UI 组件库，仅适用于现有 Weex 项目。
+<a href="https://wendux.github.io/dist/#/doc/flyio/readme" target="_blank">flyio (fly)</a> | `http-client` | 多运行时请求库；它不是跨端框架，建议按项目运行时与维护状态单独评估。
+<a href="https://github.com/icindy/wxParse" target="_blank">wxParse</a> | `小程序` | 历史参考：项目已明确停止维护；新项目应选择仍维护的富文本渲染方案。
+<a href="https://developer.chrome.com/docs/extensions/" target="_blank">Chrome Extensions</a> | `browser-extension` | Chrome 扩展开发官方文档。
+<a href="https://github.com/sxei/chrome-plugin-demo" target="_blank">chrome-plugin-demo</a> | `browser-extension` | Chrome 扩展示例项目，适合学习 Manifest 与基础功能。
+
+### 1.9 辅助工具
+> AI 对话与 AI Coding 工具统一见 [1.11 AI 人工智能库](#111-ai人工智能库)；在线执行、文件比较和图片处理工具请勿提交密钥、生产数据或私有源码。
+
+#### 1.9.1 开发诊断与代码辅助
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://stackoverflow.com/" target="_blank">stackoverflow.com</a> | `stackoverflow` | 技术问题排忧解难的社区。
+<a href="https://bundlephobia.com/" target="_blank">bundlephobia.com</a> | `bundlephobia` | 分析 npm 软件包的体积和加载成本。
+<a href="https://npmgraph.js.org/" target="_blank">npmgraph</a> | `npmgraph` | 分析 npm 软件包依赖关系。
+<a href="https://www.typescriptlang.org/dt/search?search=" target="_blank">TypeScript 声明文件查询</a> | `typescript/declaration-files` | 查询 DefinitelyTyped 中的 TypeScript 类型声明。
+<a href="https://astexplorer.net/" target="_blank">AST Explorer</a> | `astexplorer` | CSS、HTML、JavaScript、TypeScript 等语言的在线 AST 解析工具。
+<a href="https://github.com/typicode/husky#readme" target="_blank">Husky</a> | `husky` | Node.js 项目的 Git Hooks 管理工具。
+<a href="https://eslint.org/docs/latest/" target="_blank">ESLint 文档</a> | `eslint` | JavaScript/TypeScript 代码检查工具的官方最新文档。
+<a href="https://codemirror.net/" target="_blank">CodeMirror</a> | `codemirror` | 支持多种语言模式和扩展的 Web 代码编辑器。
+<a href="https://stackblitz.com/" target="_blank">StackBlitz</a> | `stackblitz/webcontainers` | 基于 WebContainers 的浏览器开发环境，适合快速复现和分享。
+<a href="https://unbug.github.io/codelf/" target="_blank">CodeIf</a> | `codeif` | 帮助解决命名困难的命名搜索工具。
+<a href="https://app.quicktype.io/" target="_blank">QuickType</a> | `quicktype` | 根据 JSON 生成 TypeScript、Go、Java、C# 等语言的类型声明。
+
+#### 1.9.2 调试、API 与数据转换
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_expressions" target="_blank">MDN 正则表达式指南</a> | `regexp` | JavaScript 正则表达式的官方参考与入门资料。
+<a href="https://regex101.com/" target="_blank">regex101</a> | `regex101` | 支持测试、解释、调试和保存正则表达式的在线工具；注意选择 JavaScript 风格。
+<a href="https://regexper.com/" target="_blank">Regexper</a> | `regexper` | 可视化展示正则表达式结构。
+<a href="https://extendsclass.com/regex-tester.html" target="_blank">Regex Tester</a> | `regex-tester` | 在线正则表达式测试与调试工具。
+<a href="https://wproxy.org/whistle/" target="_blank">Whistle</a> | `whistle` | Web 调试代理工具。
 <a href="https://hoppscotch.io/" target="_blank">Hoppscotch</a> | `hoppscotch` | 开源 API 调试工具，可作为 Postman 类工具的轻量替代。
 <a href="https://www.usebruno.com/" target="_blank">Bruno</a> | `bruno` | Git 友好的开源 API 客户端。
+<a href="https://tool.lu/json/" target="_blank">tool.lu JSON</a> | `json` | 在线 JSON 格式化工具。
+<a href="https://tool.lu/js/" target="_blank">tool.lu JS</a> | `js` | 在线 JavaScript 格式化、混淆与压缩工具。
+<a href="https://tool.lu/css/" target="_blank">tool.lu CSS</a> | `css` | 在线 CSS 格式化、压缩与响应式单位处理工具。
+<a href="https://tool.lu/coderunner/" target="_blank">tool.lu Code Runner</a> | `code-runner` | 在线多语言代码运行工具；勿提交密钥、生产数据或私有源码。
+<a href="https://www.diffchecker.com/" target="_blank">Diffchecker</a> | `diffchecker` | 在线文本和文件差异比较工具；敏感文件优先使用本地工具。
+
+#### 1.9.3 文档、演示与社区
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://stackedit.io/" target="_blank">StackEdit</a> | `stackedit` | 在浏览器中运行的 Markdown 编辑器。
+<a href="https://v2.vuepress.vuejs.org/" target="_blank">VuePress</a> | `vuepress` | Vue 生态静态文档站生成器；使用当前 v2 文档。
 <a href="https://vitepress.dev/" target="_blank">VitePress</a> | `vitepress` | Vite 驱动的静态文档站生成器，适合技术文档。
-<a href="https://docusaurus.io/" target="_blank">Docusaurus</a> | `docusaurus` | React 生态文档站框架，适合产品/技术文档。
-<a href="https://github.com/1c7/chinese-independent-developer" target="_blank"> 中国独立开发者项目列表 </a> | `chinese-independent-developer` | 聚合中国独立开发者的项目。
+<a href="https://docusaurus.io/" target="_blank">Docusaurus</a> | `docusaurus` | React 生态文档站框架，适合产品和开源项目文档。
+<a href="https://fumadocs.dev/" target="_blank">Fumadocs</a> | `fumadocs` | 可组合的 React 文档框架，适合深度自定义的 Next.js/React 文档站。
+<a href="https://hexo.io/zh-cn/" target="_blank">Hexo</a> | `hexo` | 静态博客框架。
+<a href="https://d.umijs.org/" target="_blank">dumi</a> | `dumi` | 面向组件库和前端项目的文档站工具。
+<a href="https://jsdoc.app/" target="_blank">JSDoc</a> | `jsdoc` | 从 JavaScript 代码注释生成 API 文档的工具。
+<a href="https://github.com/jsdoc2md/jsdoc-to-markdown" target="_blank">jsdoc-to-markdown</a> | `jsdoc-to-markdown` | 将 JSDoc 注释转换为 Markdown 文档。
+<a href="https://sli.dev/" target="_blank">Slidev</a> | `slidev` | 面向开发者的 Markdown 演示文稿工具，支持代码高亮、组件和导出。
+<a href="https://giscus.app/zh-CN" target="_blank">giscus</a> | `giscus/comments` | 基于 GitHub Discussions 的评论系统；需公开仓库并启用 Discussions。
+
+#### 1.9.4 图像、设计与可视化
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://www.materialui.co/colors" target="_blank">Material UI Colors</a> | `materialui` | 快速选择色值。
+<a href="https://carbon.now.sh/" target="_blank">Carbon</a> | `carbon` | 生成适合博客和文档的代码截图。
+<a href="https://tinypng.com/" target="_blank">TinyPNG</a> | `tinypng` | 压缩 PNG 和 JPEG 图片。
+<a href="https://github.com/svg/svgo" target="_blank">SVGO</a> | `svgo` | SVG 图形压缩工具。
+<a href="https://github.com/ImageOptim/ImageOptim" target="_blank">ImageOptim</a> | `imageoptim` | macOS 图片压缩优化工具。
+<a href="https://squoosh.app/" target="_blank">Squoosh</a> | `squoosh` | 浏览器内图片压缩与格式转换工具。
+<a href="https://jakearchibald.github.io/svgomg/" target="_blank">SVGOMG</a> | `svgomg` | 在线 SVG 优化与预览工具。
+<a href="https://imagemagick.org/" target="_blank">ImageMagick</a> | `imagemagick` | 广泛使用的图片处理工具链。
+<a href="https://www.whatfontis.com/" target="_blank">WhatFontIs</a> | `whatfontis` | 从图片识别字体；部分功能需要注册。
+<a href="https://ps.gaoding.com/#/" target="_blank">稿定 PS</a> | `ps` | 在线图像编辑工具。
+<a href="https://www.colorzilla.com/gradient-editor/" target="_blank">Gradient Editor</a> | `gradient-editor` | CSS 渐变样式生成工具。
+<a href="https://excalidraw.com/" target="_blank">Excalidraw</a> | `excalidraw` | 开源风格的协作白板，适合快速绘制架构图、流程图和草图。
+
+#### 1.9.5 图表、规范与集合
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://code2flow.com/" target="_blank">code2flow</a> | `code2flow` | 在线伪代码转流程图工具。
+<a href="https://isoflow.io/" target="_blank">isoflow</a> | `isoflow` | 在线流程图绘制工具。
+<a href="https://tabatkins.github.io/railroad-diagrams/generator.html" target="_blank">Railroad Diagrams</a> | `railroad-diagrams` | 在线绘制铁路图工具。
+<a href="https://html.spec.whatwg.org/multipage/named-characters.html" target="_blank">HTML Named Character References</a> | `charref` | HTML 实体字符的现行规范参考。
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key" target="_blank">KeyboardEvent.key</a> | `keyboard-event` | 现代键盘事件属性参考；不要再以旧 `keyCode` 作为新代码的主要依据。
+<a href="https://github.com/1c7/chinese-independent-developer" target="_blank">中国独立开发者项目列表</a> | `chinese-independent-developer` | 聚合中国独立开发者的项目。
 
 
 
@@ -879,11 +931,15 @@
 | <a href="https://ai-sdk.dev/" target="_blank">AI SDK</a> | `ai-sdk` | Vercel 出品的 TypeScript AI SDK，适合构建流式对话、AI UI、工具调用和多模型应用 |
 | <a href="https://github.com/openai/openai-agents-js" target="_blank">OpenAI Agents SDK JS/TS</a> | `openai-agents-js` | OpenAI 官方 JavaScript/TypeScript Agent SDK，适合轻量多 Agent、handoff、tool calling、tracing |
 | <a href="https://github.com/openai/openai-agents-python" target="_blank">OpenAI Agents SDK Python</a> | `openai-agents-python` | OpenAI 官方 Python Agent SDK，适合多 Agent 工作流、工具调用、评测和追踪 |
+| <a href="https://github.com/anthropics/claude-agent-sdk-typescript" target="_blank">Claude Agent SDK</a> | `claude-agent-sdk` | Anthropic 官方 Agent SDK，支持 TypeScript/Python，可将 Claude Code 的工具调用、子 Agent 与会话能力嵌入应用 |
+| <a href="https://github.com/github/copilot-sdk" target="_blank">GitHub Copilot SDK</a> | `copilot-sdk` | GitHub 官方多语言 Agent runtime，适合将 Copilot CLI 的规划、工具调用与文件编辑能力嵌入应用 |
+| <a href="https://github.com/microsoft/agent-framework" target="_blank">Microsoft Agent Framework</a> | `microsoft-agent-framework` | Microsoft 面向生产环境的多语言 Agent/工作流框架，支持编排、持久化、可观测性、A2A 与 MCP |
 | <a href="https://github.com/langchain-ai/langchain" target="_blank">LangChain</a> | `langchain` | LLM 应用开发框架，生态完整，但复杂 Agent 编排建议配合 LangGraph 使用 |
 | <a href="https://github.com/langchain-ai/langgraph" target="_blank">LangGraph</a> | `langgraph` | 当前主流的有状态、可恢复、长期运行 Agent 工作流框架 |
 | <a href="https://llamaindex.ai/" target="_blank">LlamaIndex</a> | `llamaindex` | 数据/RAG 取向的 LLM 应用框架，适合知识库、文档问答、检索增强生成 |
-| <a href="https://github.com/microsoft/semantic-kernel" target="_blank">Semantic Kernel</a> | `semantic-kernel` | 微软开源 AI 编排 SDK，适合企业级 .NET/Python/Java 场景 |
-| <a href="https://github.com/microsoft/autogen" target="_blank">AutoGen</a> | `autogen` | 微软多 Agent 对话与工作流框架，适合研究和复杂协作型 Agent |
+| <a href="https://github.com/run-llama/llama_deploy" target="_blank">LlamaDeploy</a> | `llamadeploy` | Agent 工作流部署框架，可将工作流部署和扩展为服务 |
+| <a href="https://github.com/microsoft/semantic-kernel" target="_blank">Semantic Kernel</a> | `semantic-kernel` | 存量维护/迁移参考：Microsoft 已将其后续演进整合至 Microsoft Agent Framework；新项目优先评估 MAF |
+| <a href="https://github.com/microsoft/autogen" target="_blank">AutoGen</a> | `autogen` | 存量维护/迁移参考：已进入 maintenance mode；新项目建议优先使用 Microsoft Agent Framework |
 | <a href="https://github.com/crewAIInc/crewAI" target="_blank">CrewAI</a> | `crewai` | 以角色、任务、团队协作为核心的多 Agent 框架，工程落地较活跃 |
 | <a href="https://github.com/google/adk-python" target="_blank">Google ADK</a> | `google-adk` | Google 开源 Agent Development Kit，偏 code-first 的 Agent 开发、评估和部署 |
 | <a href="https://github.com/mastra-ai/mastra" target="_blank">Mastra</a> | `mastra` | TypeScript 原生 Agent 框架，覆盖 Agent、workflow、RAG、memory、observability |
@@ -943,7 +999,7 @@
 | <a href="https://github.com/cline/cline" target="_blank">Cline</a> | `cline` | 开源 VSCode Agent 插件，支持文件编辑、命令执行、浏览器等工具调用 |
 | <a href="https://github.com/RooVetGit/Roo-Code" target="_blank">Roo Code</a> | `roo-code` | Cline 分支生态中活跃的 VSCode Agent 工具，支持多模式和复杂任务 |
 | <a href="https://github.com/continuedev/continue" target="_blank">Continue</a> | `continue` | 开源 AI IDE 插件，支持 VSCode/JetBrains、多模型、本地模型和自定义上下文 |
-| <a href="https://github.com/sourcegraph/amp" target="_blank">Amp</a> | `amp` | Sourcegraph 相关 AI coding agent/开发工具，适合关注代码库级 Agent 演进 |
+| <a href="https://ampcode.com/docs" target="_blank">Amp</a> | `amp` | Amp 官方 AI coding agent/开发环境，适合终端、IDE、CI/CD 中的代码库级 Agent 工作流 |
 | <a href="https://www.cursor.com/" target="_blank">Cursor</a> | `cursor` | 主流 AI IDE，适合专业开发者进行代码生成、理解、重构和多文件修改 |
 | <a href="https://windsurf.com/" target="_blank">Windsurf</a> | `windsurf` | 主流 AI IDE，强调 Agentic coding 和上手体验 |
 | <a href="https://www.trae.ai/" target="_blank">Trae</a> | `trae` | 字节系 AI IDE，适合观察国内 AI 编程产品形态 |
@@ -955,17 +1011,20 @@
 | <a href="https://github.com/PatrickJS/awesome-cursorrules" target="_blank">awesome-cursorrules</a> | `cursorrules` | Cursor 规则集合，可作为项目级 AI 编码规范参考 |
 | <a href="https://github.com/SchneiderSam/awesome-windsurfrules" target="_blank">awesome-windsurfrules</a> | `windsurfrules` | Windsurf 规则集合，可作为 Agent 规则治理参考 |
 
-#### 1.11.5 MCP 与工具生态
+#### 1.11.5 MCP、A2A 与工具生态
 
 | 地址 | 标签 | 说明 |
 | --- | --- | --- |
 | <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol</a> | `mcp` | Anthropic 发起的开放协议，用于让 AI 应用连接外部数据源、工具和工作流 |
 | <a href="https://github.com/modelcontextprotocol" target="_blank">modelcontextprotocol GitHub</a> | `mcp-github` | MCP 官方 GitHub 组织，包含规范、SDK、服务器等 |
+| <a href="https://github.com/modelcontextprotocol/typescript-sdk" target="_blank">MCP TypeScript SDK</a> | `mcp-typescript-sdk` | MCP 官方 TypeScript SDK，适合在 Node.js、Bun、Deno 或 Web 框架中构建 MCP client/server |
+| <a href="https://github.com/a2aproject/A2A" target="_blank">Agent2Agent Protocol</a> | `a2a` | 开放的 Agent 间通信协议，适合跨框架、跨厂商 Agent 的能力发现、长任务协作和互操作 |
 | <a href="https://registry.modelcontextprotocol.io/" target="_blank">Official MCP Registry</a> | `mcp-registry` | 官方 MCP 注册表，适合发现公共 MCP server 元数据 |
+| <a href="https://help.openai.com/en/articles/12515353-build-with-the-apps-sdk" target="_blank">OpenAI Apps SDK</a> | `openai-apps-sdk` | OpenAI 基于 MCP 的 ChatGPT 应用开发工具包（预览），可定义工具逻辑和内嵌交互界面 |
 | <a href="https://smithery.ai/" target="_blank">Smithery</a> | `smithery` | MCP server 发现、托管、连接与商业化平台 |
 | <a href="https://glama.ai/mcp/servers" target="_blank">Glama MCP Servers</a> | `glama-mcp` | MCP server 注册和检索平台，覆盖大量社区服务器 |
 | <a href="https://mcp.so/" target="_blank">MCP.so</a> | `mcp-so` | MCP 工具/服务器集合站 |
-| <a href="https://github.com/modelcontextprotocol/servers" target="_blank">MCP Servers</a> | `mcp-servers` | 官方/社区 MCP servers 集合入口 |
+| <a href="https://github.com/modelcontextprotocol/servers" target="_blank">MCP Servers</a> | `mcp-servers` | 官方参考实现集合，适合学习 SDK 与协议能力；发现可用服务优先使用 MCP Registry |
 | <a href="https://github.com/microsoft/playwright-mcp" target="_blank">Playwright MCP</a> | `playwright-mcp` | Microsoft 出品的浏览器自动化 MCP server，可让 LLM 通过结构化页面快照操作浏览器 |
 | <a href="https://github.com/browserbase/mcp-server-browserbase" target="_blank">Browserbase MCP Server</a> | `browserbase-mcp` | Browserbase 的浏览器自动化 MCP server |
 | <a href="https://github.com/upstash/context7" target="_blank">Context7</a> | `context7` | 为 LLM/Agent 提供最新文档上下文的工具/MCP 生态项目 |
@@ -983,12 +1042,13 @@
 | <a href="https://agentskills.io/home" target="_blank">AgentSkills.io</a> | `agentskills-io` | Agent Skills 概念、规范、集成指南入口 |
 | <a href="https://agentskills.io/specification" target="_blank">Agent Skills Specification</a> | `skills-spec` | SKILL.md 格式规范，定义 frontmatter、instructions、resources 等结构 |
 | <a href="https://github.com/agentskills/agentskills" target="_blank">agentskills/agentskills</a> | `skills-spec-repo` | Agent Skills 规范与文档仓库 |
+| <a href="https://github.com/openai/skills" target="_blank">OpenAI Skills</a> | `openai-skills` | OpenAI/Codex 官方 Skills Catalog，包含可复用工作流与示例 |
 | <a href="https://github.com/anthropics/skills" target="_blank">anthropics/skills</a> | `anthropics-skills` | Anthropic 官方示例 skills 集合 |
 | <a href="https://github.com/vercel-labs/agent-skills" target="_blank">vercel-labs/agent-skills</a> | `vercel-agent-skills` | Vercel 官方 agent skills 集合 |
 | <a href="https://github.com/vercel-labs/skills" target="_blank">vercel-labs/skills</a> | `skills-cli` | Skills CLI，可用于安装、发现、检查和更新 skills |
 | <a href="https://github.com/softaworks/agent-toolkit" target="_blank">softaworks/agent-toolkit</a> | `agent-toolkit` | 社区高人气 skills 合集，覆盖开发流程、规划、文档、架构、沟通等 |
 
-#### 1.11.7 RAG、知识库与数据接入
+#### 1.11.7 RAG、知识库、记忆与数据接入
 
 | 地址 | 标签 | 说明 |
 | --- | --- | --- |
@@ -999,7 +1059,7 @@
 | <a href="https://github.com/infiniflow/ragflow" target="_blank">RAGFlow</a> | `ragflow` | 开源 RAG 引擎，强调文档解析、工作流和企业知识库 |
 | <a href="https://github.com/deepset-ai/haystack" target="_blank">Haystack</a> | `haystack` | 开源 LLM/RAG/搜索管道框架，适合企业检索问答系统 |
 | <a href="https://github.com/weaviate/Verba" target="_blank">Verba</a> | `verba` | Weaviate 开源 RAG chatbot，适合知识库问答样板 |
-| <a href="https://github.com/embedchain/embedchain" target="_blank">EmbedChain</a> | `embedchain` | 基于数据源快速创建 ChatGPT/RAG 应用 |
+| <a href="https://github.com/mem0ai/mem0" target="_blank">Mem0</a> | `mem0` | 面向 Agent 与 AI 应用的长期记忆层，适合跨会话偏好、事实与上下文的提取、检索和持久化 |
 | <a href="https://github.com/run-llama/llama_parse" target="_blank">LlamaParse</a> | `llama-parse` | LlamaIndex 生态文档解析服务/工具，适合 PDF、表格、复杂文档解析 |
 | <a href="https://github.com/DS4SD/docling" target="_blank">Docling</a> | `docling` | 文档解析工具，适合 PDF、Office、HTML 等转结构化数据 |
 | <a href="https://github.com/Unstructured-IO/unstructured" target="_blank">Unstructured</a> | `unstructured` | 文档 ETL 工具，适合将复杂文件转为可检索文本块 |
@@ -1044,6 +1104,9 @@
 | <a href="https://github.com/langflow-ai/langflow" target="_blank">Langflow</a> | `langflow` | 可视化 LLM/Agent/RAG 应用构建平台 |
 | <a href="https://github.com/FlowiseAI/Flowise" target="_blank">Flowise</a> | `flowise` | 拖拽式 LLM 应用构建工具，适合快速搭建流程和工具调用 |
 | <a href="https://github.com/n8n-io/n8n" target="_blank">n8n</a> | `n8n` | 开源自动化工作流平台，已大量支持 AI 节点和 Agent 工作流 |
+| <a href="https://github.com/vercel/ai-elements" target="_blank">AI Elements</a> | `ai-elements` | 基于 shadcn/ui 的 AI 原生组件库，适合快速构建对话、推理、工具调用和生成内容界面 |
+| <a href="https://github.com/assistant-ui/assistant-ui" target="_blank">assistant-ui</a> | `assistant-ui` | React AI Chat UI 组件库，支持流式消息、工具调用、附件与多种 Agent/模型适配器 |
+| <a href="https://openai.github.io/chatkit-js/" target="_blank">OpenAI ChatKit</a> | `openai-chatkit` | OpenAI 的 React/Web Component Chat UI，可接入托管或自托管 ChatKit 后端 |
 | <a href="https://github.com/vercel/ai-chatbot" target="_blank">AI Chatbot</a> | `ai-chatbot` | Vercel 开源全栈 AI Chatbot 模板 |
 | <a href="https://github.com/danny-avila/LibreChat" target="_blank">LibreChat</a> | `librechat` | 开源多模型 ChatGPT 类应用，支持插件、代理、工具和多 provider |
 | <a href="https://github.com/ChatGPTNextWeb/NextChat" target="_blank">NextChat</a> | `nextchat` | 原 ChatGPT-Next-Web，轻量跨平台 ChatGPT 类应用 |
@@ -1161,6 +1224,8 @@
 
 ### 1.14 Web3/区块链
 
+#### 1.14.1 EVM 前端、钱包与应用
+
 地址 | 标签 | 说明
 ---- | ---- | ----
 <a href="https://ethereum.org/developers/" target="_blank">Ethereum Developers</a> | `ethereum` | 以太坊官方开发者入口，适合了解钱包、智能合约、节点、工具链和 DApp 开发基础。
@@ -1172,32 +1237,62 @@
 <a href="https://rainbowkit.com/" target="_blank">RainbowKit</a> | `rainbowkit` | React 钱包连接组件库，适合快速构建较好的钱包连接体验。
 <a href="https://connectkit.family/" target="_blank">ConnectKit</a> | `connectkit` | 美观、现代的 Web3 钱包连接组件。
 <a href="https://reown.com/appkit" target="_blank">Reown AppKit</a> | `reown-appkit` | WalletConnect/Web3Modal 方向的新入口，提供钱包连接、账户登录、嵌入式钱包等 Onchain App 体验能力。
-<a href="https://docs.family.co/web3modal" target="_blank">Web3Modal</a> | `web3modal` | 存量维护/历史参考：以太坊钱包连接库；新项目建议同时关注 Reown AppKit。
+<a href="https://docs.reown.com/appkit/upgrade/to-reown-appkit-web" target="_blank">Web3Modal（迁移）</a> | `web3modal` | 存量迁移参考：Web3Modal 已迁移至 Reown AppKit；新项目直接使用 Reown AppKit。
 <a href="https://metamask.io/sdk/" target="_blank">MetaMask SDK</a> | `metamask-sdk` | MetaMask 官方开发工具包。
 <a href="https://walletconnect.com/" target="_blank">WalletConnect</a> | `walletconnect` | 连接去中心化应用与移动钱包的开放协议。
+<a href="https://github.com/coinbase/onchainkit" target="_blank">OnchainKit</a> | `onchainkit` | Base 生态的 React/TypeScript 组件与工具库，适合构建 Base Onchain App；并非通用钱包连接方案的替代品。
+<a href="https://docs.privy.io/wallets/overview/embedded" target="_blank">Privy</a> | `privy` | 嵌入式钱包、登录与账户基础设施，适合社交登录、Gas sponsorship 等场景；选型时需评估托管与供应商依赖。
+<a href="https://siwe.xyz/" target="_blank">Sign-In with Ethereum</a> | `siwe/eip-4361` | EIP-4361 钱包登录标准及 TypeScript 实现，适合替代项目自定义签名消息。
 <a href="https://thirdweb.com/" target="_blank">Thirdweb</a> | `thirdweb` | 构建 Web3 应用的完整开发平台，提供 SDK、合约、钱包、基础设施等能力。
-<a href="https://moralis.io/" target="_blank">Moralis</a> | `moralis` | Web3 开发平台，提供 API、索引和基础设施能力。
-<a href="https://www.alchemy.com/" target="_blank">Alchemy</a> | `alchemy` | 区块链开发平台和 API 提供商，常用于 RPC、NFT、Token、交易等数据服务。
-<a href="https://infura.io/" target="_blank">Infura</a> | `infura` | 以太坊、IPFS 等基础设施 API 网关服务。
-<a href="https://www.quicknode.com/" target="_blank">QuickNode</a> | `quicknode` | 区块链基础设施 API 服务，支持多链 RPC 和数据服务。
+<a href="https://docs.safe.global/" target="_blank">Safe</a> | `safe` | 多签钱包和智能账户基础设施，适合 DAO、团队资金管理和账户抽象相关场景。
+
+#### 1.14.2 智能合约开发与安全
+
+地址 | 标签 | 说明
+---- | ---- | ----
 <a href="https://hardhat.org/" target="_blank">Hardhat</a> | `hardhat` | 主流以太坊智能合约开发环境，支持编译、测试、部署、调试等流程。
 <a href="https://book.getfoundry.sh/" target="_blank">Foundry</a> | `foundry` | Rust 编写的高性能以太坊智能合约开发工具链，包含 forge、cast、anvil 等工具。
 <a href="https://book.getfoundry.sh/anvil/" target="_blank">Anvil</a> | `anvil` | Foundry 生态中的本地区块链节点，适合智能合约本地开发和测试。
 <a href="https://github.com/scaffold-eth/scaffold-eth-2" target="_blank">Scaffold-ETH 2</a> | `scaffold-eth` | 现代以太坊 DApp 快速开发模板，常见组合是 Hardhat/Foundry、Viem、Wagmi、RainbowKit、Next.js。
-<a href="https://trufflesuite.com/" target="_blank">Truffle</a> | `truffle` | 历史参考：经典以太坊开发框架，Truffle/Ganache 已 sunset 并归档；新项目建议优先 Hardhat 或 Foundry。
 <a href="https://tenderly.co/" target="_blank">Tenderly</a> | `tenderly` | 智能合约调试、模拟、监控和链上分析平台。
+<a href="https://github.com/crytic/slither" target="_blank">Slither</a> | `slither` | Solidity/Vyper 静态分析器，可集成 Hardhat、Foundry 与 CI，用于发现常见合约漏洞。
+<a href="https://github.com/crytic/echidna" target="_blank">Echidna</a> | `echidna` | 基于性质的智能合约模糊测试工具，适合补充单元测试和静态分析。
+<a href="https://archive.trufflesuite.com/" target="_blank">Truffle Archive</a> | `truffle` | 历史/迁移参考：Truffle 与 Ganache 已 sunset 并归档；新项目优先 Hardhat 或 Foundry。
+
+#### 1.14.3 链上数据、基础设施与存储
+
+地址 | 标签 | 说明
+---- | ---- | ----
 <a href="https://thegraph.com/docs/" target="_blank">The Graph</a> | `the-graph` | 区块链数据索引协议，适合构建链上数据查询服务。
+<a href="https://github.com/ponder-sh/ponder" target="_blank">Ponder</a> | `ponder` | TypeScript-first EVM 链上数据索引框架，可生成 GraphQL API，适合自建索引与应用后端。
+<a href="https://moralis.io/" target="_blank">Moralis</a> | `moralis` | Web3 开发平台，提供 API、索引和基础设施能力。
+<a href="https://www.alchemy.com/" target="_blank">Alchemy</a> | `alchemy` | 区块链开发平台和 API 提供商，常用于 RPC、NFT、Token、交易等数据服务。
+<a href="https://infura.io/" target="_blank">Infura</a> | `infura` | 以太坊与 L2 的托管 API 服务，适合 RPC、WebSocket、归档数据等基础设施接入。
+<a href="https://www.quicknode.com/" target="_blank">QuickNode</a> | `quicknode` | 区块链基础设施 API 服务，支持多链 RPC 和数据服务。
 <a href="https://docs.chain.link/" target="_blank">Chainlink</a> | `chainlink` | 去中心化预言机网络，常用于价格、随机数、自动化等链上/链下数据交互。
-<a href="https://docs.safe.global/" target="_blank">Safe</a> | `safe` | 多签钱包和智能账户基础设施，适合 DAO、团队资金管理和账户抽象相关场景。
+<a href="https://docs.ipfs.tech/" target="_blank">IPFS</a> | `ipfs` | 去中心化存储网络文档，适合了解内容寻址、文件存储和分发。
+<a href="https://blog.ceramic.network/the-future-of-ceramic-focusing-on-recall/" target="_blank">Ceramic Network</a> | `ceramic` | 专项/迁移参考：Ceramic 已转向 Recall，并计划弃用 js-ceramic 与 ComposeDB；新项目需先确认当前产品路径。
+<a href="https://gun.eco/" target="_blank">GUN</a> | `gun` | 实验性去中心化数据同步协议，适合 P2P 数据同步、离线优先应用等探索场景。
+
+#### 1.14.4 EVM 标准与链生态
+
+地址 | 标签 | 说明
+---- | ---- | ----
 <a href="https://eips.ethereum.org/EIPS/eip-1193" target="_blank">EIP-1193</a> | `eip-1193` | Ethereum Provider JavaScript API 标准，钱包注入和 DApp 交互的基础规范。
 <a href="https://eips.ethereum.org/EIPS/eip-6963" target="_blank">EIP-6963</a> | `eip-6963` | 多钱包注入发现标准，解决多个钱包扩展同时注入时的发现和选择问题。
+<a href="https://eips.ethereum.org/EIPS/eip-5792" target="_blank">EIP-5792</a> | `eip-5792` | Wallet Call API，支持批量调用与钱包能力查询；应提供对传统交易 API 的降级路径。
+<a href="https://eips.ethereum.org/EIPS/eip-7702" target="_blank">EIP-7702</a> | `eip-7702` | EOA 代码委托标准，是账户抽象与可编程账户体验的重要方向；DApp 应优先通过钱包标准接口集成。
 <a href="https://docs.optimism.io/" target="_blank">Optimism Docs</a> | `optimism` | Optimism / OP Stack 官方文档，适合了解以太坊 L2 和 Rollup 生态。
 <a href="https://docs.arbitrum.io/" target="_blank">Arbitrum Docs</a> | `arbitrum` | Arbitrum 官方文档，适合了解 Arbitrum L2、合约部署和前端集成。
-<a href="https://docs.polygon.technology/" target="_blank">Polygon Docs</a> | `polygon` | Polygon 官方文档，适合了解 Polygon PoS、zkEVM 和相关开发工具。
+<a href="https://docs.polygon.technology/" target="_blank">Polygon Docs</a> | `polygon` | Polygon PoS、CDK 和相关开发工具文档；Polygon zkEVM Mainnet Beta 已 sunset，不应作为新项目目标链。
 <a href="https://docs.base.org/" target="_blank">Base Docs</a> | `base` | Base 官方开发者文档，适合了解 Base 链、合约部署和 Onchain App 开发。
-<a href="https://docs.ipfs.tech/" target="_blank">IPFS</a> | `ipfs` | 去中心化存储网络文档，适合了解内容寻址、文件存储和分发。
-<a href="https://docs.ceramic.network/" target="_blank">Ceramic Network</a> | `ceramic` | 去中心化数据网络，适合 DID、用户数据和可组合数据场景。
-<a href="https://gun.eco/" target="_blank">GUN</a> | `gun` | 去中心化数据同步协议，适合 P2P 数据同步、离线优先应用等实验性场景。
+
+#### 1.14.5 非 EVM 链开发
+
+地址 | 标签 | 说明
+---- | ---- | ----
+<a href="https://solana.com/docs/clients/official/javascript" target="_blank">Solana Kit</a> | `solana-kit` | Solana 官方推荐的 JavaScript/TypeScript SDK，适合在 Web、Node.js、React Native 中构建 Solana 应用。
+<a href="https://docs.sui.io/guides/developer/sui-sdk" target="_blank">Sui TypeScript SDK</a> | `sui-ts-sdk` | Sui 官方 TypeScript SDK，适合 Move/Sui 生态的账户、交易和链上数据集成。
 
 
 ### 1.15 生活篇
@@ -1227,6 +1322,22 @@
 
 前端开发常用的通用工具方法，适用于浏览器/NodeJS。文档见[https://blog.michealwayne.cn/fe-tools/stable/](https://blog.michealwayne.cn/fe-tools/stable/)
 
+#### 定位与选择
+
+`utils`不是 lodash 或 es-toolkit 的完全替代品。它更适合需要 TypeScript 类型、浏览器/Node 专用能力、Canvas/图片处理，或 AI Prompt 辅助方法的项目。只需要通用数组、对象操作时，建议先比较成熟通用库，再按场景选择以下包：
+
+| 使用场景 | 目录 | npm 包名 |
+| --- | --- | --- |
+| 通用 JavaScript/TypeScript 方法 | `packages/utils` | `fe-tools-utils` |
+| 浏览器 DOM、URL、表单、网络等 | `packages/web-utils` | `fe-tools-webapi` |
+| Node.js 文件、HTTP、进程等 | `packages/node-utils` | `fe-tools-node-utils` |
+| Canvas 绘制与几何计算 | `packages/canvas-utils` | `fe-tools-canvas-utils` |
+| Node.js 图片处理 | `packages/node-img-build` | `fe-tools-node-img-build` |
+| AI Prompt 与相关辅助方法 | `packages/ai-utils` | `fe-tools-ai-utils` |
+| 运行时环境判断 | `packages/env` | `fe-tools-env` |
+
+> `web-utils` 是目录名，实际 npm 包名是 `fe-tools-webapi`。各包均提供 ESM、CommonJS 和 TypeScript 类型声明；发布包的具体 API 以对应目录 README 和生成文档为准。
+
 #### 模块
 
 - [env](./utils/packages/env/)：环境判断常量；
@@ -1242,7 +1353,7 @@
 （需要在`./utils`目录下）
 
 - 执行`pnpm install`安装依赖；
-- 构建：`npm run build:prod`
+- 构建：`npm run build`
 - 构建文档：`npm run docs`
 
 > todo: 小程序封装，构建封装。
@@ -1251,16 +1362,21 @@
 
 `frontend` 前端项目模版
 
+- [nextjs + ts](./project-templates/frontend/nextjs+ts/)
+- [vite + react + ts](./project-templates/frontend/vite-react+ts/)
+- [vite + vue3 + ts](./project-templates/frontend/vite-vue3+ts/)
 - [webpack](./project-templates/frontend/webpack/)
 - [webpack + ts](./project-templates/frontend/webpack%2Bts/)
-- [vite + vue3](./project-templates/frontend/vite-vue3+ts/)
-- [vue2](./project-templates/frontend/vue/)
-- [vite + react 17](./project-templates/frontend/vite-react+ts/)
-- [react16](./project-templates/frontend/react/)
+- [vue2（存量维护）](./project-templates/frontend/vue/)
+- [react16（存量维护）](./project-templates/frontend/react/)
+
+> 新项目优先选择 Next.js、Vite + React 或 Vite + Vue；Webpack、React 16、Vue 2 模板主要用于学习或存量项目维护。
 
 `backend` 后端项目模版
 
+- [fastify](./project-templates/backend/fastify/)
 - [koa2](./project-templates/backend/koa2/)
+- [nestjs](./project-templates/backend/nestjs/)
 
 
 #### 2.3 ~~styles基础样式库~~
@@ -1289,6 +1405,7 @@
 - 有道翻译快捷入口（`√`）
 - API 测试 / 简易 Postman（`√`）
 - 请求环境变量管理（`√`）
+- Codex 额度查询、缓存、后台刷新与低额度 / 重置通知（`√`）
 - 常用正则查询与测试（`√`）
 - JSON 转换、格式化与验证（`√`）
 - SVG 在线编辑与优化（`√`）
