@@ -34,6 +34,6 @@
     "ts-jest": "^26.2.0"
   },
   "dependencies": {
-    "ml-distance": "^4.0.1"
+    "ml-distance": "4.0.1"
   }
 }
