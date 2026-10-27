@@ -19,6 +19,10 @@
     "message": "Generate a QR code for this URL"
   },
   "contextMenuTranslate": {
-    "message": "Quick translate"
-  }
+    "message": "Online translation (Youdao)"
+  },
+  "contextMenuElementScreenshot": { "message": "Select element screenshot…" },
+  "contextMenuFullPageScreenshot": { "message": "Capture full page (including scrollable content)" },
+  "contextMenuScreenshotError": { "message": "Unable to start capture. Check that this page supports screenshots and retry." },
+  "contextMenuTechStack": { "message": "Detect page tech stack" }
 }

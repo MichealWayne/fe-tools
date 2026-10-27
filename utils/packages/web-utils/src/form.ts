@@ -24,13 +24,18 @@ export function serializeForm(form: HTMLFormElement, asQueryString = false): any
   const data: any = {};
 
   formData.forEach((value, key) => {
-    if (data[key]) {
+    if (Object.prototype.hasOwnProperty.call(data, key)) {
       if (!Array.isArray(data[key])) {
         data[key] = [data[key]];
       }
       data[key].push(value);
     } else {
-      data[key] = value;
+      Object.defineProperty(data, key, {
+        configurable: true,
+        enumerable: true,
+        value,
+        writable: true,
+      });
     }
   });
 
@@ -140,11 +145,44 @@ export function autoSaveForm(
     const savedData = localStorage.getItem(storageKey);
     if (savedData) {
       const data = JSON.parse(savedData);
-      Object.keys(data).forEach(key => {
-        const element = form.elements.namedItem(key) as HTMLInputElement;
-        if (element) {
-          element.value = data[key];
+      const formControls = Array.from(form.elements) as Array<Element & { name?: string }>;
+      formControls.forEach(element => {
+        if (
+          element instanceof HTMLInputElement &&
+          (element.type === 'checkbox' || element.type === 'radio') &&
+          !element.matches(':disabled')
+        ) {
+          element.checked = false;
         }
+      });
+      Object.keys(data).forEach(key => {
+        const values = (Array.isArray(data[key]) ? data[key] : [data[key]]).map(String);
+        let valueIndex = 0;
+        formControls
+          .filter(element => element.name === key && !element.matches(':disabled'))
+          .forEach(element => {
+            if (
+              element instanceof HTMLInputElement &&
+              (element.type === 'checkbox' || element.type === 'radio')
+            ) {
+              element.checked = values[valueIndex] === element.value;
+              if (element.checked) valueIndex++;
+            } else if (element instanceof HTMLSelectElement && element.multiple) {
+              Array.from(element.options).forEach(option => {
+                option.selected = values[valueIndex] === option.value;
+                if (option.selected) valueIndex++;
+              });
+            } else if (
+              element instanceof HTMLButtonElement ||
+              (element instanceof HTMLInputElement &&
+                ['button', 'image', 'reset', 'submit'].includes(element.type))
+            ) {
+              return;
+            } else if ('value' in element) {
+              (element as HTMLInputElement).value = values[valueIndex] ?? '';
+              if (valueIndex < values.length) valueIndex++;
+            }
+          });
       });
     }
   } catch (e) {

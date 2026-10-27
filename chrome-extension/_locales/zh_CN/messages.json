@@ -19,6 +19,10 @@
     "message": "为当前网址生成二维码"
   },
   "contextMenuTranslate": {
-    "message": "快速翻译"
-  }
+    "message": "在线翻译（有道）"
+  },
+  "contextMenuElementScreenshot": { "message": "选择元素截图…" },
+  "contextMenuFullPageScreenshot": { "message": "截取完整页面（含滚动区域）" },
+  "contextMenuScreenshotError": { "message": "无法启动截图，请确认当前页面支持截图后重试。" },
+  "contextMenuTechStack": { "message": "技术栈检测" }
 }

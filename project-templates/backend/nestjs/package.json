@@ -5,12 +5,15 @@
     "author": "Wayne",
     "description": "nestjs nodejs server template.",
     "main": "dist/main.js",
+    "engines": {
+        "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
+    },
     "scripts": {
-        "start": "tsc && node dist/main.js",
+        "start": "node dist/main.js",
         "dev": "ts-node-dev --respawn --transpile-only src/main.ts",
-        "build": "rm -rf dist/* && tsc",
-        "build:prod": "tsc && rm -rf node_modules && npm install --production",
-        "install:prod": "npm install --production",
+        "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+        "build": "npm run clean && tsc",
+        "build:prod": "npm run build",
         "docker:start": "npm install && node dist/main.js",
         "lint": "eslint .",
         "lint:fix": "eslint . --fix",

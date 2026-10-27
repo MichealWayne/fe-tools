@@ -5,6 +5,7 @@
 ## 模板列表
 
 - vite-react+ts: React 18 + Vite + TailwindCSS + TS
+- [react-hono+ts](./react-hono+ts/): React + Vite + Hono + TS 全栈模板，包含 Node.js API、类型共享、输入校验和前后端联调
 - react: React 16 + Webpack
 - vite-vue3+ts: Vue 3 + Vite + TS
 - vue: Vue 2 + Webpack

@@ -31,9 +31,12 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const status =
       exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
 
-    const msg = getExceptionMessage(exception);
+    const msg =
+      status >= 500
+        ? 'Internal Server Error'
+        : getExceptionMessage(exception);
 
-    logger.error(`[${request.method}] ${request.url} - ${msg}`);
+    logger.error(`[${request.method}] ${request.url} - ${msg}`, exception);
 
     void response.status(status).send({
       success: false,

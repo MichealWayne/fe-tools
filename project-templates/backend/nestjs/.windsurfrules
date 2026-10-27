@@ -2,7 +2,7 @@
 
 ## Project-Specific Guidelines
 You are working on a NestJS + TypeScript project with the following details:
-- Framework: NestJS (platform: Express)
+- Framework: NestJS (platform: Fastify)
 - Language: TypeScript
 - Routing: Nest Controllers
 - Middleware/Guards: Global filters, pipes, and interceptors as needed

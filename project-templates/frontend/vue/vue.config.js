@@ -50,12 +50,6 @@ module.exports = {
 
     return {
       plugins,
-
-      externals: {
-        vue: 'Vue',
-        'vue-router': 'VueRouter',
-        axios: 'axios',
-      },
     };
   },
 

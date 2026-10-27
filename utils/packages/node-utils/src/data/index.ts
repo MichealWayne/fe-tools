@@ -12,7 +12,7 @@
  * @param {string} csv - CSV字符串。CSV string
  * @param {string} delimiter - 单字符分隔符(默认: ',')。Single-character delimiter (default: ',')
  * @returns {string[][]} 二维数组。2D array
- * @remarks 这是一个轻量解析器：仅按\n拆分行（不识别\r\n中的\r，也不支持引号内换行），丢弃空白行，对每个字段做trim，且引号仅作开合切换（不支持转义的双引号""）。含引号内换行或CRLF的标准CSV可能被错误解析。Lightweight parser: splits rows on \n only (does not handle \r in \r\n or quoted newlines), drops blank lines, trims every field, and toggles quote state without supporting escaped double-quotes (""). Standard CSV with quoted newlines or CRLF may be parsed incorrectly.
+ * @remarks 支持单字符分隔符、双引号转义、CRLF 和引号内换行；字段会 trim，纯空白记录会被丢弃。This parser supports a single-character delimiter, escaped double quotes, CRLF, and newlines inside quoted fields. Fields are trimmed and blank records are discarded, while a quoted empty field is preserved.
  * @example
  * ```ts
  * const csv = 'name,age,city\nJohn,25,NYC\nJane,30,LA';
@@ -21,28 +21,50 @@
  * ```
  */
 export function parseCSV(csv: string, delimiter = ','): string[][] {
-  const lines = csv.split('\n').filter(line => line.trim());
-  return lines.map(line => {
-    const values: string[] = [];
-    let current = '';
-    let inQuotes = false;
+  if (delimiter.length !== 1 || delimiter === '"' || /[\r\n]/.test(delimiter)) {
+    throw new TypeError('CSV delimiter must be a single non-quote character');
+  }
 
-    for (let i = 0; i < line.length; i++) {
-      const char = line[i];
+  const rows: string[][] = [];
+  let row: string[] = [];
+  let field = '';
+  let inQuotes = false;
+  let rowHasQuotedField = false;
 
-      if (char === '"') {
-        inQuotes = !inQuotes;
-      } else if (char === delimiter && !inQuotes) {
-        values.push(current.trim());
-        current = '';
+  const pushField = () => {
+    row.push(field.trim());
+    field = '';
+  };
+  const pushRow = () => {
+    pushField();
+    if (row.length > 1 || row.some(value => value.length > 0) || rowHasQuotedField) rows.push(row);
+    row = [];
+    rowHasQuotedField = false;
+  };
+
+  for (let i = 0; i < csv.length; i++) {
+    const char = csv[i];
+    if (char === '"') {
+      if (inQuotes && csv[i + 1] === '"') {
+        field += '"';
+        i++;
       } else {
-        current += char;
+        if (!inQuotes) rowHasQuotedField = true;
+        inQuotes = !inQuotes;
       }
+    } else if (!inQuotes && char === delimiter) {
+      pushField();
+    } else if (!inQuotes && (char === '\n' || char === '\r')) {
+      if (char === '\r' && csv[i + 1] === '\n') i++;
+      pushRow();
+    } else {
+      field += char;
     }
+  }
 
-    values.push(current.trim());
-    return values;
-  });
+  if (inQuotes) throw new SyntaxError('CSV contains an unterminated quoted field');
+  if (field.length > 0 || row.length > 0 || rowHasQuotedField) pushRow();
+  return rows;
 }
 
 /**
@@ -65,7 +87,13 @@ export function arrayToCSV(data: any[][], delimiter = ','): string {
         .map(cell => {
           const cellStr = String(cell);
           // Escape quotes and wrap in quotes if contains delimiter, quote, or newline
-          if (cellStr.includes(delimiter) || cellStr.includes('"') || cellStr.includes('\n')) {
+          if (
+            cellStr.length === 0 ||
+            cellStr.includes(delimiter) ||
+            cellStr.includes('"') ||
+            cellStr.includes('\r') ||
+            cellStr.includes('\n')
+          ) {
             return `"${cellStr.replace(/"/g, '""')}"`;
           }
           return cellStr;
@@ -154,9 +182,10 @@ export function stringifyXML(
 
 /**
  * @function parseXML
- * @description 简单的XML解析器(需要DOMParser)。Simple XML parser (requires DOMParser)
+ * @description 解析基础 XML 元素、属性、重复子节点和实体引用。Parses basic XML elements, attributes, repeated children, and entity references.
  * @param {string} xmlString - XML字符串。XML string
- * @returns {object} 解析后的对象。Parsed object
+ * @returns {object} 以根元素名为键的对象；属性放在`@attributes`，混合文本放在`#text`和有序的`#content`。Object keyed by the root element name; attributes use `@attributes`, and mixed text uses `#text` plus ordered `#content`.
+ * @remarks 支持普通元素、属性、注释、处理指令、CDATA 和预定义/数字实体；不解析 DTD 或自定义实体。Repeated child elements are returned as arrays. DTDs and custom entities are not resolved.
  * @example
  * ```ts
  * const xml = '<root><item>value</item></root>';
@@ -164,30 +193,186 @@ export function stringifyXML(
  * ```
  */
 export function parseXML(xmlString: string): any {
-  // This is a simplified version for Node.js
-  // For production use, consider using libraries like xml2js or fast-xml-parser
-  const result: any = {};
+  type XmlNode = {
+    name: string;
+    attributes: Record<string, string>;
+    children: XmlNode[];
+    text: string;
+    content: Array<{ type: 'text'; value: string } | { type: 'element'; node: XmlNode }>;
+  };
+  const appendText = (node: XmlNode, value: string) => {
+    node.text += value;
+    const lastContent = node.content[node.content.length - 1];
+    if (lastContent?.type === 'text') lastContent.value += value;
+    else node.content.push({ type: 'text', value });
+  };
+  const findDoctypeEnd = (xml: string, start: number): number => {
+    let bracketDepth = 0;
+    let quote = '';
+    let inComment = false;
 
-  // Remove XML declaration and comments
-  const cleaned = xmlString.replace(/<\?xml[^?]*\?>/g, '').replace(/<!--[\s\S]*?-->/g, '');
+    for (let index = start + 9; index < xml.length; index++) {
+      if (inComment) {
+        if (xml.startsWith('-->', index)) {
+          inComment = false;
+          index += 2;
+        }
+        continue;
+      }
 
-  // Simple tag matching (does not handle all XML features)
-  const tagRegex = /<([a-zA-Z0-9]+)(?:\s[^>]*)?>([\s\S]*?)<\/\1>/g;
-  let match;
-
-  while ((match = tagRegex.exec(cleaned)) !== null) {
-    const tagName = match[1];
-    const content = match[2].trim();
-
-    // Check if content contains nested tags
-    if (/<[a-zA-Z0-9]+/.test(content)) {
-      result[tagName] = parseXML(content);
-    } else {
-      result[tagName] = content;
+      const char = xml[index];
+      if (quote) {
+        if (char === quote) quote = '';
+      } else if (xml.startsWith('<!--', index)) {
+        inComment = true;
+        index += 3;
+      } else if (char === '"' || char === "'") {
+        quote = char;
+      } else if (char === '[') {
+        bracketDepth++;
+      } else if (char === ']' && bracketDepth > 0) {
+        bracketDepth--;
+      } else if (char === '>' && bracketDepth === 0) {
+        return index + 1;
+      }
     }
+
+    return -1;
+  };
+  const setOwnValue = (target: Record<string, unknown>, key: string, value: unknown) => {
+    Object.defineProperty(target, key, {
+      configurable: true,
+      enumerable: true,
+      value,
+      writable: true,
+    });
+  };
+
+  const decodeEntities = (value: string): string =>
+    value.replace(/&(#x[\da-f]+|#\d+|amp|lt|gt|quot|apos);/gi, (entity, name: string) => {
+      if (name[0] !== '#') {
+        const entities: Record<string, string> = {
+          amp: '&',
+          lt: '<',
+          gt: '>',
+          quot: '"',
+          apos: "'",
+        };
+        return entities[name.toLowerCase()];
+      }
+      const codePoint = name[1].toLowerCase() === 'x'
+        ? Number.parseInt(name.slice(2), 16)
+        : Number.parseInt(name.slice(1), 10);
+      return codePoint >= 0 && codePoint <= 0x10ffff && !(codePoint >= 0xd800 && codePoint <= 0xdfff)
+        ? String.fromCodePoint(codePoint)
+        : entity;
+    });
+
+  const rootNodes: XmlNode[] = [];
+  const stack: XmlNode[] = [];
+  const tokens = /<!--[\s\S]*?-->|<\?[\s\S]*?\?>|<!\[CDATA\[[\s\S]*?\]\]>|<(?:[^>"']|"[^"]*"|'[^']*')*>|[^<]+/gi;
+  let consumed = 0;
+  let match: RegExpExecArray | null;
+
+  while (consumed < xmlString.length) {
+    if (/^<!DOCTYPE\b/i.test(xmlString.slice(consumed))) {
+      const doctypeEnd = findDoctypeEnd(xmlString, consumed);
+      if (doctypeEnd < 0) throw new SyntaxError('Unterminated XML DOCTYPE');
+      consumed = doctypeEnd;
+      tokens.lastIndex = consumed;
+      continue;
+    }
+
+    match = tokens.exec(xmlString);
+    if (!match) break;
+    if (match.index !== consumed) throw new SyntaxError('Invalid XML markup');
+    consumed = tokens.lastIndex;
+    const token = match[0];
+
+    if (token.startsWith('<!--') || token.startsWith('<?')) continue;
+    if (token.startsWith('<![CDATA[')) {
+      if (!stack.length) throw new SyntaxError('CDATA must be inside the root element');
+      appendText(stack[stack.length - 1], token.slice(9, -3));
+      continue;
+    }
+    if (token.startsWith('</')) {
+      const closingName = token.slice(2, -1).trim();
+      const current = stack.pop();
+      if (!current || current.name !== closingName) {
+        throw new SyntaxError(`Mismatched XML closing tag: ${closingName}`);
+      }
+      continue;
+    }
+    if (token.startsWith('<')) {
+      const opening = token.match(/^<([A-Za-z_][\w:.-]*)([\s\S]*?)>$/);
+      if (!opening) throw new SyntaxError('Invalid XML opening tag');
+      const name = opening[1];
+      const selfClosing = /\/\s*>$/.test(token);
+      const attributeText = opening[2].replace(/\/\s*$/, '').trim();
+      const attributes: Record<string, string> = {};
+      const attributePattern = /([A-Za-z_][\w:.-]*)\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+      let attributeMatch: RegExpExecArray | null;
+      while ((attributeMatch = attributePattern.exec(attributeText)) !== null) {
+        setOwnValue(
+          attributes,
+          attributeMatch[1],
+          decodeEntities(attributeMatch[2] ?? attributeMatch[3] ?? '')
+        );
+      }
+      if (attributeText.replace(attributePattern, '').trim()) {
+        throw new SyntaxError(`Invalid XML attributes on <${name}>`);
+      }
+
+      const node: XmlNode = { name, attributes, children: [], text: '', content: [] };
+      const parent = stack[stack.length - 1];
+      if (parent) {
+        parent.children.push(node);
+        parent.content.push({ type: 'element', node });
+      }
+      else rootNodes.push(node);
+      if (!selfClosing) stack.push(node);
+      continue;
+    }
+
+    if (stack.length) appendText(stack[stack.length - 1], decodeEntities(token));
+    else if (token.trim()) throw new SyntaxError('Text must be inside the root element');
   }
 
-  return result;
+  if (consumed !== xmlString.length || stack.length || rootNodes.length !== 1) {
+    throw new SyntaxError('XML must contain one complete root element');
+  }
+
+  const toValue = (node: XmlNode): unknown => {
+    const output: Record<string, unknown> = {};
+    const childValues = new Map<XmlNode, unknown>();
+    if (Object.keys(node.attributes).length) output['@attributes'] = node.attributes;
+    node.children.forEach(child => {
+      const value = toValue(child);
+      childValues.set(child, value);
+      if (Object.prototype.hasOwnProperty.call(output, child.name)) {
+        const existing = output[child.name];
+        setOwnValue(output, child.name, Array.isArray(existing) ? [...existing, value] : [existing, value]);
+      } else {
+        setOwnValue(output, child.name, value);
+      }
+    });
+    const text = node.text.trim();
+    if (node.children.length) {
+      if (text) output['#text'] = text;
+      if (node.content.some(content => content.type === 'text' && content.value.length > 0)) {
+        output['#content'] = node.content.map(content =>
+          content.type === 'text'
+            ? { type: 'text', value: content.value }
+            : { type: 'element', name: content.node.name, value: childValues.get(content.node) }
+        );
+      }
+    } else if (!Object.keys(node.attributes).length) return text;
+    else if (text) output['#text'] = text;
+    return output;
+  };
+
+  const root = rootNodes[0];
+  return { [root.name]: toValue(root) };
 }
 
 /**

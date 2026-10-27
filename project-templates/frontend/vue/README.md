@@ -32,3 +32,5 @@
 ├─views     视图
 ├─mock      接口模拟
 └─main.js   入口js
+
+Vue、Vue Router 和 Axios 由项目依赖安装并随应用构建，不依赖外部 CDN。

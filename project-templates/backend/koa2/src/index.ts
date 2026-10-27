@@ -18,8 +18,8 @@ import router from './routes';
 
 const app = new Koa();
 
-app.use(bodyHandler);
 app.use(errorHandler);
+app.use(bodyHandler);
 // app.use(cors());
 
 app.use(router.routes()).use(router.allowedMethods());

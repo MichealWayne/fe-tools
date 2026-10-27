@@ -8,13 +8,14 @@
 
 - **[nextjs+ts](./frontend/nextjs+ts/)** - Next.js + React + TailwindCSS + TypeScript 项目模板
 - **[vite-react+ts](./frontend/vite-react+ts/)** - React + Vite + TypeScript 项目模板
+- **[react-hono+ts](./frontend/react-hono+ts/)** - React + Vite + Hono + TypeScript 全栈项目模板（Node.js API）
 - **[vite-vue3+ts](./frontend/vite-vue3+ts/)** - Vue 3 + Vite + TypeScript 项目模板
 - **[react](./frontend/react/)** - React 16 + Webpack 存量项目维护模板
 - **[vue](./frontend/vue/)** - Vue 2 + Webpack 存量项目维护模板
 - **[webpack+ts](./frontend/webpack+ts/)** - 原生 TypeScript + Webpack 模板
 - **[webpack](./frontend/webpack/)** - 原生 JavaScript + Webpack 模板
 
-> 新项目优先选择 `nextjs+ts`、`vite-react+ts` 或 `vite-vue3+ts`；React 16、Vue 2 和传统 Webpack 模板主要用于学习或维护旧项目。
+> 新项目优先选择 `nextjs+ts`、`vite-react+ts` 或 `vite-vue3+ts`；需要 React 页面和独立 Node.js API 时可选 `react-hono+ts`。React 16、Vue 2 和传统 Webpack 模板主要用于学习或维护旧项目。
 
 ### 🚀 后端模板 (Backend Templates)
 

@@ -230,14 +230,14 @@ export function freememPercentage() {
 /**
  * @function freeCommand
  * @description 执行Linux 'free -m'命令获取详细内存信息。Executes Linux 'free -m' command to get detailed memory information including cache and buffer usage.
- * @param {AnyCallbackFunc} callback - 接收(usedMem, cachedMem)参数（MB）的回调函数；非Linux平台或命令失败时以(null, null)调用。Callback function receiving (usedMem, cachedMem) in MB; called with (null, null) on non-Linux platforms or when the command fails
+ * @param {AnyCallbackFunc} callback - 接收(usedMem, buff/cache)参数（MB）的回调函数；非Linux平台或命令失败时以(null, null)调用。Callback receiving (usedMem, buffers + cache) in MB; called with (null, null) on non-Linux platforms or when the command fails
  * @remarks 通过判断回调首个参数是否为null来检测失败。Detect failure by checking whether the first callback argument is null.
  * @example
  * ```ts
  * // Get detailed Linux memory info
- * freeCommand((usedMem, cachedMem) => {
+ * freeCommand((usedMem, buffCacheMem) => {
  *   console.log(`Used memory: ${usedMem} MB`);
- *   console.log(`Cached memory: ${cachedMem} MB`);
+ *   console.log(`Buffers/cache: ${buffCacheMem} MB`);
  * });
  *
  * ```
@@ -245,9 +245,8 @@ export function freememPercentage() {
  * ```ts
  * // Memory monitoring on Linux servers
  * if (platform() === 'linux') {
- *   freeCommand((used, cached) => {
- *     const effectiveUsed = used - cached;
- *     console.log(`Effective memory usage: ${effectiveUsed} MB`);
+ *   freeCommand((used, buffCache) => {
+ *     console.log(`Used memory: ${used} MB; buffers/cache: ${buffCache} MB`);
  *   });
  * }
  *
@@ -277,23 +276,30 @@ export function freeCommand(callback: AnyCallbackFunc) {
       return;
     }
 
-    const str_mem_info = lines[1].replace(/[\s\n\r]+/g, ' ');
-
-    const mem_info = str_mem_info.split(' ');
-    if (mem_info.length < 7) {
+    const memInfo = lines[1].trim().split(/\s+/);
+    if (memInfo.length < 6) {
       console.error('freeCommand output parse failed.');
       callback(null, null);
       return;
     }
 
-    const total_mem = parseFloat(mem_info[1]);
-    const free_mem = parseFloat(mem_info[3]);
-    const buffers_mem = parseFloat(mem_info[5]);
-    const cached_mem = parseFloat(mem_info[6]);
+    const totalMem = Number(memInfo[1]);
+    const freeMem = Number(memInfo[3]);
+    const hasAvailableColumn = /\bavailable\b/i.test(lines[0]);
+    const cachedMem = hasAvailableColumn
+      ? Number(memInfo[5])
+      : Number(memInfo[5]) + Number(memInfo[6]);
+    const usedMem = hasAvailableColumn
+      ? totalMem - Number(memInfo[6])
+      : totalMem - (freeMem + Number(memInfo[5]) + Number(memInfo[6]));
 
-    const used_mem = total_mem - (free_mem + buffers_mem + cached_mem);
+    if (![totalMem, freeMem, cachedMem, usedMem].every(Number.isFinite)) {
+      console.error('freeCommand output parse failed.');
+      callback(null, null);
+      return;
+    }
 
-    callback(used_mem, cached_mem);
+    callback(usedMem, cachedMem);
   });
 }
 

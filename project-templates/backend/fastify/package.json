@@ -6,14 +6,14 @@
   "description": "Fastify node.js server template with TypeScript",
   "main": "dist/index.js",
   "engines": {
-    "node": ">=20.0.0"
+    "node": "^20.19.0 || ^22.13.0 || >=24.0.0"
   },
   "scripts": {
-    "start": "tsc && node dist/",
+    "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "rm -rf dist/* && tsc",
-    "build:prod": "tsc && rm -rf node_modules && npm install --production",
-    "install:prod": "npm install --production",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc",
+    "build:prod": "npm run build",
     "docker:start": "npm install && node dist/",
     "lint": "eslint \"src/**/*.ts\"",
     "lint:fix": "eslint \"src/**/*.ts\" --fix",

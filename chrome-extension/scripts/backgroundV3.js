@@ -6,6 +6,8 @@
  */
 
 importScripts('message-contract.js');
+importScripts('screenshot-runtime.js');
+importScripts('screenshot-menu.js');
 importScripts('codex-quota-runtime.js');
 importScripts('codex-quota-notifications.js');
 
@@ -322,7 +324,20 @@ const CONFIG_LIST = [
     title: chrome.i18n.getMessage('contextMenuTranslate'),
     contexts: ['all'],
   },
+  {
+    id: 'techStack',
+    title: chrome.i18n.getMessage('contextMenuTechStack'),
+    contexts: ['all'],
+    documentUrlPatterns: ['http://*/*', 'https://*/*'],
+  },
 ];
+
+CONFIG_LIST.push(...globalThis.FeToolsScreenshotMenu.definitions.map(item => ({
+  id: item.id,
+  title: chrome.i18n.getMessage(item.titleKey),
+  contexts: ['all'],
+  documentUrlPatterns: ['http://*/*', 'https://*/*'],
+})));
 
 // create QRcode
 chrome.runtime.onInstalled.addListener(() => {
@@ -342,6 +357,7 @@ chrome.runtime.onInstalled.addListener(() => {
         contexts: item.contexts,
         id: item.id,
         parentId: MAIN_MENU_ID,
+        ...(item.documentUrlPatterns ? { documentUrlPatterns: item.documentUrlPatterns } : {}),
       });
     });
   });
@@ -351,15 +367,17 @@ chrome.runtime.onInstalled.addListener(() => {
  * 右键菜单点击事件
  */
 chrome.contextMenus.onClicked.addListener((data, tab) => {
+  if (globalThis.FeToolsScreenshotMenu.onClicked(data.menuItemId, tab)) return;
   if (data.menuItemId === 'qrCode') {
-      handleTabCreate('index.html?search=qrcode&message=' + encodeURIComponent(tab.url || ''));
+    handleTabCreate(chrome.runtime.getURL(
+      'index.html?type=qrcode&url=' + encodeURIComponent(tab?.url || '')
+    ));
   } else if (data.menuItemId === 'translate') {
-    // 发送消息给 content script 执行脚本
-    chrome.tabs.sendMessage(tab.id, {
-      action: 'executeScriptAndHandleTabCreate',
-      code: 'window.getSelection().toString();',
-      type: 'translate',
-    });
+    handleTabCreate('https://fanyi.youdao.com/indexLLM.html#/');
+  } else if (data.menuItemId === 'techStack' && tab?.id) {
+    handleTabCreate(chrome.runtime.getURL(
+      `index.html?type=tech-stack&sourceTabId=${tab.id}&url=${encodeURIComponent(tab.url || '')}`
+    ));
   }
 });
 
@@ -378,28 +396,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     return true;
   } else if (message.action === 'handleTabCreate') {
     handleTabCreate(message.url);
-  } else if (message.action === 'captureVisibleTab') {
-    const targetWindowId = message.windowId ?? sender?.tab?.windowId;
-    chrome.tabs.captureVisibleTab(
-      targetWindowId,
-      {
-        format: 'png',
-      },
-      dataUrl => {
-        if (chrome.runtime.lastError) {
-          sendResponse({
-            success: false,
-            error: chrome.runtime.lastError.message,
-          });
-          return;
-        }
-        sendResponse({
-          success: true,
-          dataUrl,
-        });
-      }
-    );
-    return true;
+  } else if (message.action === 'captureVisibleTab' || message.action === 'openElementScreenshotPreview') {
+    return globalThis.FeToolsScreenshotRuntime.handleMessage(message, sender, sendResponse);
   } else if (message.action === 'downloadImage') {
     const filename = message.filename || 'page-screenshot.png';
     chrome.downloads.download(

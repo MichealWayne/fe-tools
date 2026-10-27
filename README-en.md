@@ -47,7 +47,7 @@ Contents:
 | https://developer.mozilla.org/zh-CN/docs/Web                                                                                                                                                                            | html/css/js   | MDN docs in Chinese.                                                                                                                          |
 | https://developer.mozilla.org/en-US/plus/ai-help                                                                                                                                                                        | html/css/js   | MDN AI assistant for documentation Q&A.                                                                                                       |
 | https://www.w3.org/                                                                                                                                                                                                     | html/css/js   | The official W3C standard.                                                                                                                    |
-| https://www.w3schools.com/                                                                                                                                                                                              | w3cschool     | W3C School, an international popular web development learning website.                                                                        |
+| https://www.w3schools.com/                                                                                                                                                                                              | w3cschool     | Independent web development learning and reference site; not affiliated with the W3C.                                                          |
 | https://www.w3.org/Style/CSS/                                                                                                                                                                                           | w3c-css       | W3C CSS documentation.                                                                                                                        |
 | https://www.runoob.com/cssref/css-reference.html                                                                                                                                                                        | css           | Quickly query CSS properties and basic usage.                                                                                                 |
 | https://www.canvasapi.cn/                                                                                                                                                                                               | canvas        | Collection of canvas API methods.                                                                                                             |
@@ -62,7 +62,7 @@ Contents:
 | http://es6-features.org/                                                                                                                                                                                                | ES6           | Historical reference: ES6 feature demo site, useful for quickly reviewing ES6 syntax; use MDN/TC39 for modern features. |
 | http://es6.ruanyifeng.com/                                                                                                                                                                                              | ES6           | The most frequently used ECMAScript 6 documentation in China, especially suitable for beginners.                                              |
 | https://es6.ruanyifeng.com/                                                                                                                                                                                             | ES6           | Classic Chinese ES6 introduction, useful for fundamentals; modern JS features should use MDN/TC39/latest ECMA-262 as the source of truth. |
-| http://www.html5plus.org/doc/h5p.html                                                                                                                                                                                   | html5         | HTML5 web API query, such as camera/geolocation.                                                                                              |
+| http://www.html5plus.org/doc/h5p.html                                                                                                                                                                                   | html5plus     | Reference for APIs added by the HTML5+ App runtime; these are not standard browser Web APIs.                                                   |
 | [https://developer.apple.com/library/archive/](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect) | html          | Safari webview HTML tag query, used for mobile web development, such as some iOS-specific attributes or behaviors can be found here.          |
 | https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html#//apple_ref/doc/uid/TP40008058-autocorrect                                                | html          | Safari webview HTML tag query (direct link).                                                                                                   |
 | https://webkit.org/status/                                                                                                                                                                                              | webkit        | WebKit official website documentation, js/css feature status support query.                                                                   |
@@ -158,7 +158,7 @@ Contents:
 | https://glenmaddern.com/articles/css-modules                         | css-modules          | A solution for modularizing CSS styles.                                             |
 | https://github.com/MicheleBertoli/css-in-js                          | css-in-js            | Generates CSS styles by writing in JavaScript.                                      |
 | https://github.com/emotion-js/emotion                                 | emotion              | Popular CSS-in-JS library, common in the React ecosystem.                           |
-| https://stitches.dev/                                                 | stitches             | Modern CSS-in-JS solution, suitable for component variants and design systems.       |
+| https://stitches.dev/                                                 | stitches             | Historical reference: CSS-in-JS solution for component variants and design systems; the project is no longer maintained. |
 | http://blog.michealwayne.cn/Moo-CSS/docs/moocss/#m%E6%A8%A1%E5%9D%97 | moo-css              | A CSS writing solution.                                                             |
 | https://github.com/l-hammer/You-need-to-know-css                     | You-need-to-know-css | A collection of CSS tricks.                                                         |
 | https://logotyp.us/                                                  | logotyp              | A collection of logos from well-known companies/businesses in and outside of China. |
@@ -368,7 +368,7 @@ Contents:
 
 | Address                                       | Tag             | Description                                                                                 |
 | --------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------- |
-| http://bouncejs.com/                          | BounceJS        | A powerful CSS3 animation creation tool.                                                    |
+| http://bouncejs.com/                          | BounceJS        | Historical reference: early CSS3 animation creation tool; consider maintained animation libraries for new projects. |
 | https://github.com/bendc/animateplus          | Animateplus     | A lightweight animation tool at only 3k.                                                    |
 | https://animejs.com/                          | animejs         | A lightweight JS animation library.                                                         |
 | https://gsap.com/                             | gsap            | Mature high-performance JavaScript animation library, suitable for complex timeline and interaction animations. |
@@ -393,7 +393,7 @@ Contents:
 | Address                                  | Tag         | Description                                                                   |
 | ---------------------------------------- | ----------- | ----------------------------------------------------------------------------- |
 | https://github.com/AlloyTeam/AlloyFinger | AlloyFinger | Adds various mobile gesture events.                                           |
-| http://hammerjs.github.io/               | hammerjs    | A gesture encapsulation library that cancels the 300ms delay of mobile click. |
+| http://hammerjs.github.io/               | hammerjs    | Historical touch gesture recognizer for tap, swipe, pan, pinch, and more; it does not resolve browser click delay. |
 | https://interactjs.io/                   | interactjs  | Implements drag-and-drop, scaling, and multi-touch gestures using JavaScript. |
 | https://developer.mozilla.org/zh-CN/docs/Web/API/Pointer_events | pointer-events | Browser pointer event API covering mouse, touch, and pen input, useful as the modern foundation for gesture handling. |
 
@@ -402,7 +402,7 @@ Contents:
 | Address                              | Tag             | Description                                      |
 | ------------------------------------ | --------------- | ------------------------------------------------ |
 | https://developer.mozilla.org/zh-CN/docs/Web/Performance/Lazy_loading | lazy-loading | MDN lazy-loading guide, covering native lazy loading and modern resource loading basics. |
-| http://callmecavs.com/layzr.js/      | layzr.js        | Lightweight image lazy loading tool.             |
+| http://callmecavs.com/layzr.js/      | layzr.js        | Historical reference: early image lazy-loading library; prefer native lazy loading, Intersection Observer, or a maintained library. |
 | https://github.com/aFarkas/lazysizes | lazysizes       | High-performance image/iframe lazy loading tool. |
 | https://infinite-scroll.com/         | infinite-scroll | "Infinite" scroll loading plugin.                |
 | https://pazguille.github.io/aload/   | aload.js        | Historical reference: asynchronous image/js/css loading tool. |
@@ -412,14 +412,14 @@ Contents:
 | Address                                                   | Tag                       | Description                                                                                  |
 | --------------------------------------------------------- | ------------------------- | -------------------------------------------------------------------------------------------- |
 | https://github.com/TypeStrong/ts-loader                   | ts-loader                 | TypeScript build plugin in webpack.                                                          |
-| https://github.com/s-panferov/awesome-typescript-loader   | awesome-typescript-loader | TypeScript build plugin in webpack, faster than ts-loader.                                   |
+| https://github.com/s-panferov/awesome-typescript-loader   | awesome-typescript-loader | Historical reference: archived TypeScript loader for Webpack; consider ts-loader, SWC, esbuild, Rspack, or Vite for current projects. |
 | https://github.com/kimamula/ts-transformer-keys#readme    | ts-transformer-keys       | Used to extract key value arrays of interfaces (requires webpack).                           |
 | https://github.com/tamino-martinius/node-ts-dedent#readme | ts-dedent                 | Print normal line breaks for logs on the node side.                                          |
 | https://github.com/kawamataryo/suppress-ts-errors         | suppress-ts-error         | Automatically add @ts-expect-error or @ts-ignore comments to all type errors in the project. |
 | https://github.com/sindresorhus/type-fest                 | type-fest                 | Classic tool type encapsulation library.                                                     |
 | https://github.com/sindresorhus/ts-extras                 | ts-extras                 | Practical TypeScript helper types and functions from Sindre Sorhus.                           |
 | https://github.com/millsp/ts-toolbelt                     | ts-toolbelt               | Advanced TypeScript type toolkit, suitable for complex type programming.                       |
-| https://microsoft.github.io/TypeChat/                     | typechat                  | Based on OpenAi GPT model ts type production tools, Microsoft.                               |
+| https://microsoft.github.io/TypeChat/                     | typechat                  | Microsoft's natural-language interface tool: prompts a model from existing TypeScript types and validates or repairs structured output. |
 
 ### 1.4.12 Others
 
@@ -435,7 +435,7 @@ Contents:
 | https://github.com/akxcv/vuera                     | vuera                  | A library for mixing Vue/React components, which means Vue can use React components and React can use Vue components.                            |
 | https://github.com/devilwjp/veaury                 | veaury                 | A library for mixing Vue3/React components, better than vuera                                                                                    |
 | https://quark-design.hellobike.com/                | quark                  | A mobile cross-framework UI component library based on Web Components, Hallo.                                                                    |
-| https://astro.build/ | astro | Modern static site generator with multi-framework component support and zero JS runtime. |
+| https://astro.build/ | astro | Content-focused framework with multi-framework support; ships no client JS by default. Interactive islands load it on demand; SSR is also supported. |
 | https://qwik.builder.io/ | qwik | Resumable web framework with zero hydration and instant loading. |
 | https://fresh.deno.dev/ | fresh | Full-stack web framework based on Deno with zero configuration and edge-first. |
 | https://remix.run/ | remix | Full-stack web framework focused on web standards and modern UX. |
@@ -443,7 +443,7 @@ Contents:
 | https://alpinejs.dev/ | alpinejs | Lightweight declarative framework with Vue-like syntax. |
 | https://lit.dev/ | lit | Simple library for building Web Components, by Google. |
 | https://github.com/BuilderIO/partytown | partytown | Library for relocating third-party scripts to web workers. |
-| https://github.com/web3/web3.js                    | web3js                 | Standard js encapsulation library for Ethereum.                                                                                                  |
+| https://github.com/web3/web3.js                    | web3js                 | Historical/migration reference: the repository was archived in 2025; evaluate viem or ethers for maintained projects. |
 
 ### 1.5 Vue
 
@@ -454,13 +454,13 @@ Contents:
 | https://v2.cn.vuejs.org/                                 | vue                       | Vue 2 Chinese documentation, useful for legacy Vue 2 projects.                                                                             |
 | https://vuejs.org/v2/guide/syntax.html                   | vue                       | Vue2 official documentation.                                                                                                               |
 | https://cn.vuejs.org/v2/guide/syntax.html                | vue                       | Vue2 official documentation (Chinese).                                                                                                     |
-| https://cli.vuejs.org/                                   | vue-cli                   | Vue scaffolding tool documentation.                                                                                                        |
+| https://cli.vuejs.org/                                   | vue-cli                   | Maintenance reference for legacy Vue CLI projects; use create-vue with Vite for new Vue projects.                                            |
 | https://cli.vuejs.org/zh/                                | vue-cli                   | Vue CLI Chinese documentation, mostly for maintaining older Vue CLI projects.                                                              |
 | https://github.com/vuejs/create-vue                      | create-vue                | Official Vue project scaffolding tool, recommended for modern Vue 3 projects.                                                              |
-| https://cli.vuejs.org/zh/guide/cli-service.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4 | vue-cli | Vue CLI docs (Chinese, CLI service usage).                                                                                                 |
+| https://cli.vuejs.org/zh/guide/cli-service.html#%E4%BD%BF%E7%94%A8%E5%91%BD%E4%BB%A4 | vue-cli | Legacy Vue CLI service reference (Chinese); use create-vue with Vite for new projects.                                                      |
 | https://pinia.vuejs.org/                                 | pinia                     | Lightweight Vue state management tool recommended for Vue3.                                                                                |
-| https://vuex.vuejs.org/                                  | vuex                      | Vue data flow control tool.                                                                                                                |
-| https://vuex.vuejs.org/zh/                               | vuex                      | Vuex documentation (Chinese).                                                                                                              |
+| https://vuex.vuejs.org/                                  | vuex                      | Maintenance reference for existing Vuex projects; Pinia is recommended for new Vue projects.                                              |
+| https://vuex.vuejs.org/zh/                               | vuex                      | Vuex Chinese docs for existing projects; Pinia is recommended for new Vue projects.                                                       |
 | https://router.vuejs.org/                                | vue-router                | Front-end routing control based on Vue.                                                                                                    |
 | https://router.vuejs.org/zh/                             | vue-router                | Vue Router documentation (Chinese).                                                                                                        |
 | https://danilowoz.com/create-vue-content-loader/         | create-vue-content-loader | Vue version of SVG skeleton screen plug-in.                                                                                                |
@@ -471,23 +471,23 @@ Contents:
 | https://youzan.github.io/vant/#/zh-CN/intro              | vant                      | Mobile UI library from Youzan (Chinese docs).                                                                                              |
 | https://aidenzou.github.io/vue-weui/                     | vue-weui                  | Mobile UI component library in WeUI style.                                                                                                 |
 | http://aidenzou.github.io/vue-weui/#!/                   | vue-weui                  | Mobile UI component library in WeUI style (Chinese).                                                                                       |
-| https://element.eleme.cn/                                | element                   | UI component library for PC front-end development, from Eleme.                                                                             |
-| https://element.eleme.cn/#/zh-CN                         | element                   | UI component library for PC front-end development (Chinese docs).                                                                          |
-| https://element-plus.org/                                | element-plus              | Vue 3 version of Element UI, a mainstream desktop component library.                                                                       |
+| https://element.eleme.cn/                                | element                   | Maintenance reference: Element UI is a Vue 2 desktop component library; use Element Plus for Vue 3 projects.                              |
+| https://element.eleme.cn/#/zh-CN                         | element                   | Maintenance reference: Element UI is a Vue 2 desktop component library; use Element Plus for Vue 3 projects.                              |
+| https://element-plus.org/                                | element-plus              | Vue 3 desktop UI component library and the successor to Element UI.                                                                         |
 | https://www.naiveui.com/                                 | naive-ui                  | Vue 3 component library with TypeScript support and strong theming ability.                                                                |
 | https://arco.design/vue/docs/start                       | arco-vue                  | Arco Design Vue component library from ByteDance.                                                                                          |
 | https://tdesign.tencent.com/vue-next/overview            | tdesign-vue-next          | Tencent TDesign Vue 3 component library.                                                                                                   |
 | https://github.com/hilongjw/vue-lazyload                 | vue-lazyload              | Vue version of image/component lazy loading plug-in.                                                                                       |
-| http://v1.iviewui.com/docs/guide/install                 | iview                     | PC UI component library.                                                                                                                   |
+| http://v1.iviewui.com/docs/guide/install                 | iview                     | Maintenance reference: legacy desktop UI component library for Vue 2 projects.                                                             |
 | https://vue.ant.design/                                  | antd-vue                  | PC UI component library, Vue version of ant design.                                                                                        |
 | https://vue.ant.design/docs/vue/introduce-cn/            | antd-vue                  | PC UI component library, Vue version of ant design (Chinese docs).                                                                         |
-| https://kazupon.github.io/vue-i18n/                      | vue-i18n                  | Multi-language solution.                                                                                                                   |
+| https://vue-i18n.intlify.dev/                           | vue-i18n                  | Vue internationalization plugin; this is the current documentation, while the old v8 docs are for legacy migration reference.              |
 | https://terryz.github.io/vue/#/region                    | v-region                  | Vue administrative region selection component.                                                                                             |
 | https://github.com/ecomfe/vue-echarts                    | vue-echarts               | Echarts Vue encapsulation component.                                                                                                       |
 | https://nuxt.com/                                        | nuxtjs                    | Modern Vue/Nuxt full-stack application framework.                                                                                          |
 | https://zh.nuxtjs.org/                                   | nuxtjs                    | Vue server-side rendering application framework (Chinese docs).                                                                            |
 | https://vite.dev/                                        | vitejs                    | Fast modern frontend build tool, default choice for many Vue projects.                                                                     |
-| https://github.com/vuejs/vue-class-component#readme      | vue-class-component       | Component decorator encapsulation for Vue, used for jsx/tsx Vue component writing.                                                         |
+| https://github.com/vuejs/vue-class-component#readme      | vue-class-component       | Historical reference: unmaintained class-style Vue components; prefer single-file components and Composition API for Vue 3. |
 | https://formilyjs.org/                                   | formilyjs                 | Element/Antd form DSL solution.                                                                                                            |
 | https://github.com/privatenumber/vue-2-3                 | vue-2-3                   | A solution encapsulation for coexistence of Vue2 and Vue3.                                                                                 |
 | https://docs-swrv.netlify.app/                           | SWRV                      | Vue hook library for data requests, handling request caching, status, and more.                                                            |
@@ -504,29 +504,28 @@ Contents:
 | -------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | https://react.dev/                                             | react                 | React official documentation.                                                                                                                     |
 | https://react.docschina.org/                                   | react                 | React Chinese translation documentation.                                                                                                          |
-| https://create-react-app.dev/                                  | create-react-app      | Historical reference: React scaffolding tool; modern new projects usually prefer Vite, Next.js, Remix, or framework templates.                     |
-| https://github.com/facebook/react-devtools                     | react-devtools        | React Chrome development extension plugin.                                                                                                        |
-| https://reactrouter.com/                                       | react-router          | Frontend routing library for React.                                                                                                               |
-| https://zustand.docs.pmnd.rs/getting-started/introduction      | zustand               | A popular, simple and lightweight data flow control tool.                                                                                         |
-| https://github.com/facebookexperimental/Recoil                 | recoil                | Simple and hook-friendly data flow control tool.                                                                                                  |
-| https://redux-toolkit.js.org/                                  | redux                 | Official recommended Redux toolset for state management, reducer logic, and async flows.                                                           |
+| https://react.dev/learn/react-compiler                         | react-compiler        | Official stable React compiler for build-time optimization; consider incremental adoption.                                                        |
+| https://react.dev/learn/react-developer-tools                  | react-devtools        | Official React Developer Tools guide for browser extensions, component inspection, and performance profiling.                                    |
+| https://create-react-app.dev/                                  | create-react-app      | Historical reference: React does not recommend CRA for new apps; choose a framework or build tool based on project needs. |
+| https://reactrouter.com/start/modes                             | react-router          | Shopify-maintained React router/full-stack framework with Declarative, Data, and Framework modes; Framework supports SPA, SSR, and static rendering. |
+| https://zustand.docs.pmnd.rs/getting-started/introduction      | zustand               | Simple, lightweight client-state management library.                                                                                              |
+| https://github.com/facebookexperimental/Recoil                 | recoil                | Historical reference: experimental React state-management library; not a first choice for new projects.                                           |
+| https://redux-toolkit.js.org/                                  | redux-toolkit         | Official recommended Redux toolset for state management, reducer logic, and async flows.                                                           |
 | https://facebookarchive.github.io/flux/                        | flux                  | Historical reference: data-flow architecture from the early React ecosystem.                                                                        |
-| https://cn.mobx.js.org/                                        | mobx                  | Lightweight data flow control tool.                                                                                                               |
-| https://dvajs.com/                                             | dvajs                 | Data flow solution based on redux and redux-saga, by Ant Financial.                                                                               |
+| https://mobx.js.org/README.html                                | mobx                  | Reactive state-management library suited to projects that prefer an observable programming model.                                                  |
+| https://dvajs.com/                                             | dvajs                 | Legacy data-flow solution common in older Ant/Umi projects; new projects can use Umi, Redux Toolkit, or TanStack Query directly.                 |
 | https://umijs.org/zh/                                          | umijs                 | Pluggable enterprise-level React application framework, by Ant Financial.                                                                         |
-| http://rekit.js.org/                                           | rekit                 | React/Redux/React-router development tool/IDE.                                                                                                    |
-| http://rekit.js.org                                            | rekit                 | React/Redux/React-router development tool/IDE (no trailing slash).                                                                                |
-| https://nextjs.org/                                            | nextjs                | Lightweight React server-side rendering application framework.                                                                                    |
-| https://www.gatsbyjs.cn/                                       | gatsbyjs              | Lightweight React static website building framework.                                                                                              |
+| https://rekit.js.org/                                          | rekit                 | Historical reference: React/Redux development tool; check compatibility with current React and build tooling before use.                           |
+| https://nextjs.org/                                            | nextjs                | Full-stack React framework supporting server rendering, static generation, and app routing.                                                       |
+| https://www.gatsbyjs.com/docs/                                 | gatsbyjs              | React-based website framework for static sites and content-driven websites; assess the current ecosystem and hosting fit for new projects.         |
 | https://github.com/streamich/react-use                         | react-use             | Easy-to-use React custom hooks encapsulation library.                                                                                             |
 | https://react-hook-form.com/                                   | react-hook-form       | High-performance React form state and validation library.                                                                                          |
 | https://jotai.org/                                             | jotai                 | Atomic React state management library.                                                                                                            |
 | https://valtio.dev/                                            | valtio                | Proxy-based React state management library.                                                                                                       |
 | https://ahooks.js.org/                                         | ahooks                | React Hooks library from the Ant/Alibaba ecosystem, covering business scenarios and common interactions.                                            |
-| https://cn.mobx.js.org/                                        | umi hooks             | Hooks methods for the middle office, such as requests, dragging, and debouncing.                                                                  |
-| https://react-query.tanstack.com/docs/overview                 | react-query           | Easy-to-use React ajax interface request processing encapsulation hook.                                                                           |
+| https://tanstack.com/query/latest/docs/framework/react/overview | tanstack-query       | Server-state management for React, including fetching, caching, synchronization, and updates.                                                      |
 | https://github.com/welldone-software/why-did-you-render#readme | why-did-you-render    | Tool for detecting whether React components need to be re-rendered.                                                                               |
-| https://www.framer.com/motion/                                 | framer-motion         | Very powerful React animation/interaction gesture library, from Farmer API.                                                                       |
+| https://motion.dev/docs/react                                  | motion                | Formerly Framer Motion; provides React animations, layout transitions, and gesture interactions.                                                  |
 | http://danilowoz.com/create-content-loader/                    | create-content-loader | React version of SVG skeleton screen plugin.                                                                                                      |
 | https://ui.shadcn.com/                                         | shadcn                | shadcn, atomic and flexible UI component library.                                                                                                 |
 | https://www.radix-ui.com/                                      | radix-ui             | Unstyled accessible component primitives, often used with Tailwind/shadcn.                                                                         |
@@ -541,13 +540,11 @@ Contents:
 | https://tanstack.com/form/latest                               | tanstack-form         | Type-safe form state management library from the TanStack ecosystem.                                                                               |
 | https://lexical.dev/                                           | lexical               | Meta open-source rich text editor framework.                                                                                                      |
 | https://tiptap.dev/                                            | tiptap                | Headless rich text editor framework based on ProseMirror.                                                                                         |
-| https://authjs.dev/                                            | authjs                | Authentication solution formerly known as NextAuth.js, suitable for Next.js and other frameworks.                                                  |
-| https://www.heroui.com/                                        | heroui               | React UI component library evolved from NextUI.                                                                                                   |
 | https://github.com/twobin/react-lazyload                       | react-lazyload        | React-based image/component loading plugin.                                                                                                       |
-| https://github.com/jamiebuilds/react-loadable#readme           | react-loadable        | Implementing code abstraction and dynamic loading of React components.                                                                            |
+| https://github.com/jamiebuilds/react-loadable#readme           | react-loadable        | Historical reference: older React code-splitting library; prefer React.lazy/Suspense or framework-level dynamic imports for modern projects.       |
 | https://github.com/STRML/react-draggable                       | react-draggable       | A React encapsulation component for drag and drop operations.                                                                                     |
 | https://github.com/react-dnd/react-dnd#readme                  | react-dnd             | Complex drag and drop control library for React, based on HTML5 drag and drop API.                                                                |
-| https://github.com/JedWatson/react-tappable                    | react-tappable        | A React encapsulation component for click event operations.                                                                                       |
+| https://github.com/JedWatson/react-tappable                    | react-tappable        | Historical reference: early React touch/click wrapper; consider Pointer Events or a maintained gesture library for modern projects.                |
 | https://github.com/tajo/react-portal#readme                    | react-portal          | A tool for rendering additional node components defined through portals.                                                                          |
 | https://github.com/vkbansal/react-contextmenu                  | react-contextmenu     | PC web implementation of right-click menu tool components.                                                                                        |
 | https://rexxars.github.io/react-markdown/                      | react-markdown        | Markdown tool for use on React.                                                                                                                   |
@@ -555,9 +552,9 @@ Contents:
 | https://vasanthk.gitbooks.io/react-bits/                       | react-bits            | Common React tricks.                                                                                                                              |
 | https://docsite.js.org/zh-cn/docs/addDoc.html                  | docsite               | React-based document generation tool.                                                                                                             |
 | http://casesandberg.github.io/react-color/                     | react-color           | React-based color picker plugin, simulating Sketch, Photoshop, Chrome and other color picking tools. Note that it can be directly used in Preact. |
-| http://reactdesktop.js.org/                                    | react-desktop         | React encapsulation component that simulates Mac or Windows desktop interaction.                                                                  |
-| https://www.reactboilerplate.com/                              | react-boilerplate     | A typical React project template that prioritizes performance.                                                                                    |
-| https://github.com/sstur/react-rte                             | react-rte             | Rich text editor based on draftJS.                                                                                                                |
+| http://reactdesktop.js.org/                                    | react-desktop         | Historical reference: React components that simulate desktop platform interfaces; check maintenance and current React compatibility before use. |
+| https://www.reactboilerplate.com/                              | react-boilerplate     | Historical reference: an older React/Redux/Webpack project template; prefer a currently supported framework or starter for new projects.           |
+| https://github.com/sstur/react-rte                             | react-rte             | Historical reference: DraftJS-based rich-text editor; consider Lexical, Tiptap, or ProseMirror for current projects. |
 | https://react.i18next.com/                                     | react-i18next         | Multi-language solution.                                                                                                                          |
 | https://swr.vercel.app/                                        | swr                   | React Hooks library for data requests, handling request caching, state, and more.                                                                 |
 | https://formik.org/                                            | formik                | Highly encapsulated, out-of-the-box form wrapper library for React Forms.                                                                         |
@@ -570,14 +567,14 @@ Contents:
 | https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations | server-actions | Next.js Server Actions documentation for form submission and server mutations. |
 | https://github.com/TheEdoRan/next-safe-action | next-safe-action | Type-safe Server Actions helper for Next.js. |
 | https://next.i18next.com/ | next-i18next | A library for handling internationalization and multilingual support in Next.js. |
-| https://authjs.dev/ | next-auth | Authentication solution formerly known as NextAuth.js, supporting OAuth, JWT, database integration, and SSR/full-stack scenarios. |
-| https://github.com/garmeeh/next-seo | next-seo | An SEO tool designed for Next.js, supporting dynamic meta tag management and structured data generation. |
+| https://authjs.dev/ | authjs/next-auth | Web and Next.js authentication solution formerly known as NextAuth.js, supporting OAuth, JWT, and database integrations. |
+| https://github.com/garmeeh/next-seo | next-seo | Next.js SEO tool; evaluate the built-in Metadata API first and consider this library when you need additional features such as structured data. |
 | https://next-intl-docs.vercel.app/ | i18n | A modern internationalization solution, supporting both App Router and Pages Router, with built-in multilingual loading for SSR. |
 | https://www.heroui.com/ | ui-library | Modern React UI component library evolved from NextUI, with SSR and theming support. |
 | https://github.com/vercel/next.js/tree/canary/packages/next-mdx | mdx | The official MDX support library, allowing you to mix Markdown and React components directly in pages. |
 | https://next-redux-wrapper.js.org/ | state-management | A bridge library between Redux and Next.js, automatically handling store synchronization in SSR scenarios. |
-| https://github.com/vercel-labs/next-plugin-injection | security | The official security plugin, automatically injecting security headers like CSP (requires Next.js 13.4+). |
-| https://nextjs.org/docs/app/api-reference/file-conventions/metadata | seo | The native SEO solution for Next.js 13+, replacing some functionalities of next-seo. |
+| https://github.com/vercel-labs/next-plugin-injection | security | A Vercel Labs plugin for injecting Next.js security headers; verify its maintenance, supported versions, and CSP requirements before use. |
+| https://nextjs.org/docs/app/api-reference/functions/generate-metadata | seo | Built-in metadata and Open Graph configuration for the Next.js App Router; start with the official documentation. |
 | https://github.com/onivim/next-og | seo | Dynamically generates Open Graph images, supporting Edge Runtime. |
 
 ### 1.7 Node.js and Build Tooling
@@ -591,7 +588,7 @@ Contents:
 | https://yarnpkg.com/                                                                        | yarn               | Node package manager suitable for managing dependencies across multiple projects.             |
 | https://pnpm.io/                                                                            | pnpm               | Fast, disk-efficient Node package manager, commonly used in monorepo scenarios.               |
 | https://github.com/tj/n                                                                     | n                  | Extremely simple Nodejs version manager.                                                     |
-| https://storybook.js.org/                                                                   | storybookjs        | UI component library navigation site for independent development of React, Vue, and Angular. |
+| https://storybook.js.org/                                                                   | storybookjs        | Tool for isolated UI component development, testing, and documentation across React, Vue, Angular, and other frameworks. |
 | https://unpkg.com/                                                                          | unpkg              | Foreign public static resource CDN, applicable to all content on npm.                        |
 | https://nodejs.org/docs/latest/api/                                                         | node               | Official Node.js API documentation; Chinese sites can be used as secondary references.        |
 | https://docs.deno.com/                                                                      | deno               | Official Deno documentation for the modern JavaScript/TypeScript runtime.                     |
@@ -605,7 +602,7 @@ Contents:
 | https://github.com/GoogleChromeLabs/jsvu                                                    | jsvu               | A must-have tool for debugging js engines, engine switching and version control.             |
 | https://docs.docker.com/                                                                    | docker             | Application container engine Docker.                                                         |
 | https://man.linuxde.net/                                                                    | linux              | Linux command query manual.                                                                  |
-| http://aheckmann.github.io/gm/                                                              | gm                 | Backend image processing tool.                                                               |
+| http://aheckmann.github.io/gm/                                                              | gm                 | Maintenance reference: Node.js wrapper for GraphicsMagick; consider Sharp or ImageMagick for current image-processing work. |
 | https://sheetjs.com/                                                                         | sheetjs/xlsx        | Library for reading and writing xlsx and other spreadsheet files.                            |
 | https://github.com/shelljs/shelljs                                                          | shelljs            | Implement commonly used shell commands with Nodejs.                                          |
 | https://github.com/chalk/chalk                                                              | chalk              | Console command line output style tool, mainly controls color.                               |
@@ -637,7 +634,7 @@ Contents:
 | https://rsbuild.dev/                                                         | rsbuild       | Rspack-based build tool for modern web applications and libraries.                                               |
 | https://nextjs.org/docs/app/api-reference/turbopack                          | turbopack     | High-performance Rust-based bundler mainly serving the Next.js ecosystem.                                         |
 | https://parceljs.org/                                                        | parceljs      | Zero/low-configuration bundler.                                                                                  |
-| https://swc.rs/                                                              | swc           | A ts/js compiler written in Rust that claims to be 20 times faster than babel and supports all of its features. |
+| https://swc.rs/                                                              | swc           | Rust-based JavaScript/TypeScript compiler and minifier; performance and Babel transform compatibility depend on configuration, plugins, and use case. |
 | https://babeljs.io/                                                          | babel         | Widely used JavaScript compiler.                                                                                 |
 | https://github.com/fb55/htmlparser2#readme                                   | htmlparser2   | A tool for converting html to AST.                                                                              |
 | https://github.com/inikulin/parse5/blob/master/packages/parse5/docs/index.md | parse5        | A tool for converting html to AST.                                                                              |
@@ -820,7 +817,7 @@ Contents:
 
 | Address | Tag | Description |
 | --- | --- | --- |
-| https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions | regexp | Official JavaScript regular-expression guide and reference. |
+| https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions | regexp | MDN guide and reference for JavaScript regular expressions. |
 | https://regex101.com/ | regex101 | Test, explain, debug, and save regular expressions; select the JavaScript flavor when needed. |
 | https://regexper.com/ | regexper | Visualize regular-expression structure. |
 | https://extendsclass.com/regex-tester.html | regex-tester | Online regex tester and debugger. |
@@ -890,10 +887,9 @@ Contents:
 | https://mswjs.io/                                | msw         | API mocking library based on Service Worker/interceptors, useful for tests and local development. |
 | https://www.cypress.io/                         | cypress     | A unit testing integrated platform tool.                                                         |
 | https://github.com/avajs/ava                    | avajs       | A fast testing tool.                                                                             |
-| https://karma-runner.github.io/latest/index.html | karma       | A JavaScript testing execution process management tool based on Node.js (Testacular's new name). |
-| https://enzymejs.github.io/enzyme/              | enzyme      | A React unit testing tool that can test hooks.                                                   |
+| https://karma-runner.github.io/latest/index.html | karma       | Historical reference: JavaScript test runner; prefer maintained runners such as Vitest, Jest, or Playwright for new projects. |
+| https://enzymejs.github.io/enzyme/              | enzyme      | Historical reference: early React component testing utility; Testing Library is generally preferred for modern React projects. |
 | https://github.com/marmelab/gremlins.js         | gremlins    | A node and browser Monkey Test tool.                                                             |
-| https://uptime.kuma.pet/                        | uptime-kuma | An open-source metric monitoring platform based on puppeteer.                                    |
 | https://playwright.dev/                         | playwright  | A newer e2e testing tool that supports mainstream browsers such as Chrome and Firefox.           |
 | https://www.chromatic.com/                       | chromatic   | Visual regression and Storybook publishing platform.                                             |
 | https://k6.io/                                   | k6          | Load and performance testing tool.                                                               |
@@ -944,6 +940,7 @@ Contents:
 | http://www.webfunny.cn/                 | webfunny_monitor | A unified front-end exception monitoring solution.                       |
 | https://github.com/typicode/json-server | json-server      | A fast mock tool that runs locally.                                      |
 | https://www.pagespy.org/                | Page spy         | A set of higher degree of remote web debugging tools, Huolala tech.      |
+| https://uptime.kuma.pet/                | uptime-kuma      | Self-hosted availability monitoring for HTTP, TCP, Ping, DNS, and other checks, with notifications and status pages. |
 
 ### 1.10.4 Quality Check
 
@@ -958,7 +955,7 @@ Contents:
 | https://www.sonarlint.org/vscode/           | sonarlint     | VSCode plugin for code quality validation of js/ts projects                                                                       |
 | https://github.com/google/eng-practices     | eng-practices | Google engineering practices documentation                                                                                        |
 | https://github.com/cheeriojs/cheerio#readme | cheerio       | A tool for web scraping                                                                                                           |
-| https://pptr.dev/                           | puppeteer     | A headless browser based on Chromium, used for web automation including web crawling                                              |
+| https://pptr.dev/                           | puppeteer     | JavaScript automation library for controlling Chrome or Firefox; headless by default, with headful mode also available. |
 | https://www.selenium.dev/                   | selenium      | A powerful tool for testing web applications                                                                                      |
 | https://github.com/GoogleChrome/lighthouse  | lighthouse    | Google's standard web performance testing tool, built into Chrome                                                                 |
 | https://github.com/nolanlawson/fuite        | fuite         | A tool for web memory detection, based on Puppeteer                                                                               |
@@ -984,7 +981,7 @@ Contents:
 | https://github.com/langchain-ai/langchain | langchain | LLM application framework with a broad ecosystem; often used together with LangGraph for complex agent orchestration |
 | https://github.com/langchain-ai/langgraph | langgraph | Mainstream framework for stateful, resumable, long-running agent workflows |
 | https://llamaindex.ai/ | llamaindex | Data and RAG framework for LLM applications, focused on knowledge bases, document QA, and retrieval-augmented generation |
-| https://github.com/run-llama/llama_deploy | llamadeploy | Agentic workflow deployment framework to deploy and scale workflows as services |
+| https://github.com/run-llama/llama-agents | llama-agents | LlamaIndex workflow deployment tool; LlamaDeploy is deprecated, so new projects should use this replacement |
 | https://github.com/microsoft/semantic-kernel | semantic-kernel | Maintenance and migration reference: Microsoft has consolidated its future evolution into Microsoft Agent Framework; new projects should evaluate MAF first |
 | https://github.com/microsoft/autogen | autogen | Maintenance and migration reference: now in maintenance mode; new projects should prefer Microsoft Agent Framework |
 | https://github.com/crewAIInc/crewAI | crewai | Multi-agent framework centered on roles, tasks, teams, collaboration, and engineering controllability |
@@ -1014,6 +1011,7 @@ Contents:
 | https://github.com/BerriAI/litellm | litellm | Unified multi-model API proxy and gateway for model routing, cost tracking, rate limiting, and OpenAI API compatibility |
 | https://github.com/Portkey-AI/gateway | portkey-gateway | Open-source AI gateway supporting multi-model routing, fallback, logging, and governance |
 | https://github.com/Helicone/helicone | helicone | Open-source LLM observability and gateway platform for logs, cost tracking, caching, and monitoring |
+| https://openrouter.ai/docs | openrouter | Hosted multi-model API and provider-routing service; evaluate data routing, privacy, and cost before use |
 | https://github.com/run-llama/LlamaIndexTS | llamaindex-ts | TypeScript version of LlamaIndex for JavaScript/TypeScript RAG applications |
 
 #### 1.11.3 Agent Task Management and Human-Agent Collaboration Platforms
@@ -1027,7 +1025,6 @@ Contents:
 | https://github.com/OpenBMB/ChatDev | chatdev | Multi-agent software company simulation project, useful as a reference for agent collaboration workflows |
 | https://github.com/geekan/MetaGPT | metagpt | Multi-agent software development framework that turns requirements into PRDs, designs, tasks, and code |
 | https://github.com/OpenBMB/IoA | ioa | Internet of Agents project focused on multi-agent collaboration and communication research |
-| https://github.com/taskforcesh/bullmq | bullmq | Node.js queue infrastructure that can be used as a foundation for agent task scheduling and asynchronous execution |
 | https://github.com/temporalio/temporal | temporal | Reliable workflow engine for long-running agent tasks, retries, compensation, and resumable execution |
 
 #### 1.11.4 AI Coding and Development Tools
@@ -1067,11 +1064,12 @@ Contents:
 | https://github.com/modelcontextprotocol/typescript-sdk | mcp-typescript-sdk | Official MCP TypeScript SDK for building MCP clients and servers in Node.js, Bun, Deno, or web frameworks |
 | https://github.com/a2aproject/A2A | a2a | Open agent-to-agent communication protocol for capability discovery, long-running collaboration, and interoperability across frameworks and vendors |
 | https://registry.modelcontextprotocol.io/ | mcp-registry | Official MCP registry for discovering public MCP server metadata |
+| https://apps.extensions.modelcontextprotocol.io/ | mcp-apps | Official MCP extension for interactive interfaces rendered by compatible clients; host support varies |
 | https://help.openai.com/en/articles/12515353-build-with-the-apps-sdk | openai-apps-sdk | OpenAI MCP-based toolkit for developing ChatGPT apps (preview), including tool logic and embedded interactive UI |
 | https://smithery.ai/ | smithery | MCP server discovery, hosting, connection, and commercialization platform |
 | https://glama.ai/mcp/servers | glama-mcp | MCP server registry and search platform covering a large number of community servers |
 | https://mcp.so/ | mcp-so | MCP tools and server collection site |
-| https://github.com/modelcontextprotocol/servers | mcp-servers | Official reference server collection for learning the SDK and protocol; prefer the MCP Registry when discovering usable servers |
+| https://github.com/modelcontextprotocol/servers | mcp-servers | Official protocol reference implementations for learning, not general-purpose production services; use the MCP Registry to find servers. |
 | https://github.com/microsoft/playwright-mcp | playwright-mcp | Microsoft Playwright MCP server enabling LLMs to operate browsers through structured page snapshots |
 | https://github.com/browserbase/mcp-server-browserbase | browserbase-mcp | Browserbase MCP server for browser automation |
 | https://github.com/upstash/context7 | context7 | Tool and MCP ecosystem project that provides up-to-date documentation context to LLMs and agents |
@@ -1105,7 +1103,7 @@ Contents:
 | https://github.com/unclecode/crawl4ai | crawl4ai | Open-source web crawling and content extraction tool for AI and RAG use cases |
 | https://github.com/infiniflow/ragflow | ragflow | Open-source RAG engine emphasizing document parsing, workflows, and enterprise knowledge bases |
 | https://github.com/deepset-ai/haystack | haystack | Open-source LLM, RAG, and search pipeline framework for enterprise retrieval QA systems |
-| https://github.com/weaviate/Verba | verba | Weaviate open-source RAG chatbot template for knowledge-base QA |
+| https://github.com/weaviate/Verba | verba | Historical reference: Weaviate's RAG chatbot project was archived in June 2026 and is no longer maintained |
 | https://github.com/mem0ai/mem0 | mem0 | Long-term memory layer for agents and AI applications, for extracting, retrieving, and persisting cross-session preferences, facts, and context |
 | https://github.com/run-llama/llama_parse | llama-parse | LlamaIndex ecosystem document parsing tool/service for PDFs, tables, and complex documents |
 | https://github.com/DS4SD/docling | docling | Document parsing tool for converting PDFs, Office files, HTML, and other formats into structured data |
@@ -1137,8 +1135,8 @@ Contents:
 | https://github.com/promptfoo/promptfoo | promptfoo | Prompt and model output testing and regression evaluation tool, suitable for CI gates |
 | https://github.com/confident-ai/deepeval | deepeval | LLM application evaluation framework for RAG, agents, and conversation quality |
 | https://github.com/explodinggradients/ragas | ragas | RAG evaluation framework covering faithfulness, context precision, context recall, and related metrics |
-| https://github.com/openai/evals | openai-evals | OpenAI open-source evaluation framework for custom model and task evaluations |
-| https://github.com/microsoft/promptflow | promptflow | Microsoft open-source tool for LLM application development, evaluation, and flow orchestration |
+| https://github.com/openai/evals | openai-evals | OpenAI's open-source model and LLM-system evaluation framework; separate from the hosted Evals platform, scheduled to close Nov. 30, 2026 |
+| https://github.com/microsoft/promptflow | promptflow | Migration reference: no longer recommended for new development; service retires April 20, 2027. Evaluate Microsoft Agent Framework for new projects. |
 | https://github.com/dair-ai/Prompt-Engineering-Guide | prompt-guide | Prompt engineering guide and resource repository |
 | https://github.com/openai/tiktoken | tiktoken | OpenAI tokenizer for token counting and cost estimation |
 | https://github.com/dqbd/tiktoken | js-tiktoken | JavaScript/WASM version of tiktoken for frontend and Node.js cost estimation |
@@ -1150,7 +1148,7 @@ Contents:
 | https://github.com/langgenius/dify | dify | Open-source LLM application development platform covering workflows, RAG, agents, model management, and app publishing |
 | https://github.com/langflow-ai/langflow | langflow | Visual LLM, agent, and RAG application building platform |
 | https://github.com/FlowiseAI/Flowise | flowise | Drag-and-drop LLM application builder for quickly creating flows and tool-calling applications |
-| https://github.com/n8n-io/n8n | n8n | Open-source automation workflow platform with broad AI node and agent workflow support |
+| https://github.com/n8n-io/n8n | n8n | Fair-code, source-available workflow automation with AI nodes and agents; its license restricts some uses and distribution. |
 | https://github.com/vercel/ai-elements | ai-elements | AI-native component library built on shadcn/ui for quickly building chat, reasoning, tool-use, and generated-content interfaces |
 | https://github.com/assistant-ui/assistant-ui | assistant-ui | React AI chat UI component library with streaming messages, tool use, attachments, and adapters for multiple agent and model frameworks |
 | https://openai.github.io/chatkit-js/ | openai-chatkit | OpenAI React/Web Component chat UI for managed or self-hosted ChatKit backends |
@@ -1230,7 +1228,6 @@ Contents:
 | https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint | eslint | JS/TS code quality checking extension commonly used in modern frontend projects. |
 | https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint | stylelint | CSS/Less/SCSS style checking extension. |
 | https://marketplace.visualstudio.com/items?itemName=Vue.volar | volar/vue-official | Official Vue VS Code extension, preferred for Vue 3 projects and a replacement for Vetur in new projects. |
-| https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin | typescript-vue-plugin | Vue + TypeScript support extension for Vue 3/TS projects. |
 | https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss | tailwindcss | Tailwind CSS IntelliSense, completion, and lint extension commonly used in Tailwind projects. |
 | https://marketplace.visualstudio.com/items?itemName=antfu.unocss | unocss | UnoCSS VS Code extension for atomic CSS projects. |
 | https://marketplace.visualstudio.com/items?itemName=biomejs.biome | biome | Official Biome VS Code extension for projects using Biome for formatting and linting. |
@@ -1244,12 +1241,12 @@ Contents:
 | https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github | github-pr | GitHub PR and Issue management extension for code review and collaboration inside VS Code. |
 | https://marketplace.visualstudio.com/items?itemName=humao.rest-client | rest-client | Sends HTTP requests directly in VS Code, useful for API debugging and saved API examples. |
 | https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client | thunder-client | VS Code-native API debugging client, useful as a lightweight Postman alternative. |
-| https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker | docker | Official Docker VS Code extension for containers, images, Compose files, and debugging. |
+| https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-containers | container-tools | Microsoft's extension for container and Compose management, plus in-container debugging; replaces the old Docker extension entry point. |
+| https://marketplace.visualstudio.com/items?itemName=docker.docker | docker-dx | Docker's official extension for Dockerfile, Compose, and Bake authoring assistance and build diagnostics. |
 | https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers | dev-containers | VS Code Dev Containers extension for unifying team development environments. |
 | https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright | playwright | Official Playwright VS Code extension for writing, debugging, and running E2E tests. |
 | https://marketplace.visualstudio.com/items?itemName=vitest.explorer | vitest | Vitest testing extension for modern Vite/Vitest projects. |
-| https://marketplace.visualstudio.com/items?itemName=GitHub.copilot | copilot | GitHub official AI coding assistant for completion, explanation, and assisted generation. |
-| https://marketplace.visualstudio.com/items?itemName=GitHub.copilot-chat | copilot-chat | Conversational coding assistant for GitHub Copilot. |
+| https://code.visualstudio.com/docs/setup/copilot | copilot | Official VS Code guide; version 1.116+ includes Copilot Chat, completions, and agents without a separate extension. |
 | https://marketplace.visualstudio.com/items?itemName=Continue.continue | continue | Open-source AI coding assistant extension supporting multiple models and local/remote code context. |
 | https://marketplace.visualstudio.com/items?itemName=SimonSiefke.svg-preview | svg-preview | SVG graphics preview extension. |
 | https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight | color-highlight | Color preview extension. |
@@ -1405,6 +1402,7 @@ Run these commands from `./utils`:
 
 - [nextjs + ts](./project-templates/frontend/nextjs+ts/)
 - [vite + react + ts](./project-templates/frontend/vite-react+ts/)
+- [react + hono + ts](./project-templates/frontend/react-hono+ts/) - React + Hono full-stack template
 - [vite + vue3 + ts](./project-templates/frontend/vite-vue3+ts/)
 - [webpack](./project-templates/frontend/webpack/)
 - [webpack + ts](./project-templates/frontend/webpack%2Bts/)

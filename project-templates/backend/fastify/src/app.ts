@@ -65,7 +65,7 @@ async function setupPlugins(app: FastifyInstance): Promise<void> {
     origin: config.cors.origin,
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+    credentials: config.cors.credentials,
   });
 
   if (config.rateLimit.enabled) {
@@ -99,21 +99,21 @@ function setupHooks(app: FastifyInstance): void {
 }
 
 function setupErrorHandlers(app: FastifyInstance): void {
-  app.setNotFoundHandler(async request => {
+  app.setNotFoundHandler(async (request, reply) => {
     request.log.warn(`Route not found: ${request.method} ${request.url}`);
-    return {
+    return reply.status(404).send({
       statusCode: 404,
       error: 'Not Found',
       message: `Route ${request.method}:${request.url} not found`,
-    };
+    });
   });
 
   app.setErrorHandler<FastifyError>(async (error, request, reply) => {
     const statusCode = error.statusCode || 500;
     const errorResponse: ErrorResponse = {
       statusCode,
-      error: error.name,
-      message: error.message,
+      error: statusCode >= 500 ? 'Internal Server Error' : error.name,
+      message: statusCode >= 500 ? 'Internal Server Error' : error.message,
     };
 
     if (config.env === Environment.Development) {
@@ -128,7 +128,7 @@ function setupErrorHandlers(app: FastifyInstance): void {
           params: request.params,
           query: request.query,
         },
-        error: errorResponse,
+        error,
       },
       'Request error'
     );
@@ -156,7 +156,7 @@ export async function bootstrap(
     app.get('/', () => ({
       name: 'Fastify API',
       version: '1.0.0',
-      documentation: '/documentation',
+      ...(config.swagger.enabled ? { documentation: '/documentation' } : {}),
     }));
 
     log.info('Application bootstrap completed');
