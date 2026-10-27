@@ -14,7 +14,7 @@
 
 ## 技术栈
 
-- Node.js 20+
+- Node.js 20.19+, 22.13+, or 24+
 - Fastify 5
 - TypeScript 6
 - Jest 30
@@ -22,7 +22,7 @@
 
 ## 环境要求
 
-- Node.js 20 或更高版本
+- Node.js 20.19+、22.13+ 或 24+
 - npm 10 或更高版本
 
 ## 安装
@@ -43,12 +43,15 @@ cp .env.example .env
 | --- | --- |
 | `npm run dev` | 开发模式启动，支持热重载 |
 | `npm run build` | 编译 TypeScript |
-| `npm start` | 编译后启动服务 |
+| `npm run build:prod` | 清理并编译生产运行所需的 `dist/` 产物，不改动当前依赖安装 |
+| `npm start` | 启动已经构建的 `dist/index.js` |
 | `npm run typecheck` | 仅执行类型检查 |
 | `npm run lint` | 执行 ESLint 检查 |
 | `npm run test` | 执行 Jest 测试 |
 
 默认服务端口为 `3000`。
+
+部署时先运行 `npm run build:prod`，再在独立的部署环境安装生产依赖并启动。不要在开发工作目录里用省略开发依赖的安装命令替代构建。
 
 ## 健康检查
 
@@ -101,6 +104,11 @@ API_PREFIX=/api
 ```
 
 完整配置以 `src/config` 为准。
+
+- `JWT_SECRET`：生产环境必须设置为独立的随机密钥，开发环境使用仅供本地开发的默认值。
+- `CORS_ORIGIN`：允许访问 API 的来源，支持逗号分隔的来源列表；默认 `*`。
+- `CORS_CREDENTIALS`：默认关闭。使用 Cookie 跨域请求时设为 `true`，同时必须把 `CORS_ORIGIN` 配成明确的来源列表，不能使用 `*`。
+- `SWAGGER_ENABLED`：开发环境默认开启，生产环境默认关闭；生产环境显式开启后，`/documentation` 和 OpenAPI 文档会公开。
 
 ## AI 参考信息
 

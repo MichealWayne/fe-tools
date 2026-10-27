@@ -84,8 +84,8 @@ import { readJsonFile, runAsync, parseCSV } from 'fe-tools-node-utils';
 
 ### Data (数据处理) (文件: `src/data/index.ts`)
 
-- **parseCSV** - 解析 CSV 字符串为二维数组。
+- **parseCSV** - 解析 CSV 字符串为二维数组，支持双引号转义、CRLF、裸回车分行和引号内换行；字段会 trim，纯空白记录会丢弃，带引号的空字段会保留。
 - **stringifyCSV** - 将对象数组转换为 CSV 字符串。
-- **parseXML** - 解析 XML 字符串为 JSON 对象。
+- **parseXML** - 解析基础 XML 元素为对象；支持嵌套/重复节点、属性、CDATA 和标准实体引用。属性使用 `@attributes`，重复节点转为数组，混合文本与子节点的顺序记录在 `#content`；不解析 DTD 或自定义实体。
 - **stringifyXML** - 将 JSON 对象转换为 XML 字符串。
 - **convertFormat** - 在不同数据格式间转换(JSON/CSV/XML)。

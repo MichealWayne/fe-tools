@@ -16,7 +16,7 @@
 
 ## 技术栈
 
-- Node.js 20+
+- Node.js 20.19+, 22.13+, or 24+
 - Koa 3
 - `@koa/router`
 - TypeScript 6
@@ -25,7 +25,7 @@
 
 ## 环境要求
 
-- Node.js 20 或更高版本
+- Node.js 20.19+、22.13+ 或 24+
 - npm 10 或更高版本
 
 ## 安装
@@ -40,12 +40,15 @@ npm install
 | --- | --- |
 | `npm run dev` | 开发模式启动，支持热重载 |
 | `npm run build` | 编译 TypeScript |
-| `npm start` | 编译后启动服务 |
+| `npm run build:prod` | 清理并编译生产运行所需的 `dist/` 产物，不改动当前依赖安装 |
+| `npm start` | 启动已经构建的 `dist/index.js` |
 | `npm run typecheck` | 仅执行类型检查 |
 | `npm run lint` | 执行 ESLint 检查 |
 | `npm run test` | 执行 Jest 测试 |
 
 默认服务端口为 `5000`，可通过 `PORT` 环境变量覆盖。
+
+部署时先运行 `npm run build:prod`，再在独立的部署环境安装生产依赖并启动。不要在开发工作目录里用省略开发依赖的安装命令替代构建。
 
 ## 健康检查
 

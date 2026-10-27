@@ -19,7 +19,11 @@
     ]);
   const isScrollResponse = value => hasFiniteFields(value, ['scrollY']);
   const isSelectionResponse = value => {
-    if (!isRecord(value) || typeof value.success !== 'boolean' || !isOptionalString(value.error)) {
+    if (
+      !isRecord(value) ||
+      typeof value.success !== 'boolean' ||
+      !isOptionalString(value.error)
+    ) {
       return false;
     }
     return (
@@ -53,7 +57,14 @@
 
   const isBackgroundMessage = message => {
     if (!isRecord(message) || !isString(message.action)) return false;
-    if (message.action === 'captureVisibleTab') return isNumber(message.windowId);
+    if (message.action === 'captureVisibleTab') {
+      return (message.windowId === undefined || isNumber(message.windowId)) &&
+        (message.tabId === undefined || isNumber(message.tabId));
+    }
+    if (message.action === 'openElementScreenshotPreview') {
+      return isString(message.dataUrl) && message.dataUrl.startsWith('data:image/png;base64,') &&
+        isString(message.filename) && message.filename.length > 0;
+    }
     return (
       message.action === 'downloadImage' &&
       isString(message.dataUrl) &&

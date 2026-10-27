@@ -21,25 +21,34 @@ process.on('unhandledRejection', (reason, promise) => {
 // Handle process termination
 process.on('SIGINT', () => {
   log.info('SIGINT received. Shutting down gracefully...');
-  shutdown(0);
+  void shutdown(0);
 });
 
 process.on('SIGTERM', () => {
   log.info('SIGTERM received. Shutting down gracefully...');
-  shutdown(0);
+  void shutdown(0);
 });
 
-// Graceful shutdown function
-function shutdown(exitCode: number) {
-  try {
-    log.info('Shutting down application...');
-    // Add any cleanup code here
-    log.info('Application shutdown complete');
-    process.exit(exitCode);
-  } catch (error) {
-    log.fatal('Error during shutdown', error);
-    process.exit(1);
-  }
+let appInstance: FastifyInstance | undefined;
+let shutdownPromise: Promise<void> | undefined;
+
+// Wait for Fastify to close before allowing Node.js to exit.
+function shutdown(exitCode: number): Promise<void> {
+  if (shutdownPromise) return shutdownPromise;
+
+  shutdownPromise = (async () => {
+    try {
+      log.info('Shutting down application...');
+      await appInstance?.close();
+      log.info('Application shutdown complete');
+      process.exitCode = exitCode;
+    } catch (error) {
+      log.fatal('Error during shutdown', error);
+      process.exitCode = 1;
+    }
+  })();
+
+  return shutdownPromise;
 }
 
 const start = async () => {
@@ -51,11 +60,11 @@ const start = async () => {
       logger: false,
       disableRequestLogging: config.env === Environment.Test,
       ignoreTrailingSlash: true,
-      forceCloseConnections: true,
       connectionTimeout: 30000, // 30 seconds
       keepAliveTimeout: 5000, // 5 seconds
       pluginTimeout: 10000, // 10 seconds
     });
+    appInstance = app;
 
     // Initialize application
     await bootstrap(app);
@@ -83,7 +92,9 @@ const start = async () => {
     });
 
     log.info(`Server listening at ${address}`);
-    log.info(`API Documentation available at ${address}/documentation`);
+    if (config.swagger.enabled) {
+      log.info(`API Documentation available at ${address}/documentation`);
+    }
     log.info(`Health check: ${address}/health`);
     log.info('Ready to accept connections');
 

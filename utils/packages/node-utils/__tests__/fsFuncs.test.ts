@@ -49,6 +49,12 @@ describe('writeFile', () => {
     expect(fs.existsSync(nestedDir)).toBe(true);
   });
 
+  it('should create missing nested directories from an absolute path', () => {
+    const nestedDir = path.join(tempDir, 'absolute', 'to', 'nested');
+    expect(mkdirsSync(nestedDir)).toBe(true);
+    expect(fs.existsSync(nestedDir)).toBe(true);
+  });
+
   it('should check existence of paths', () => {
     const exists = fsExistsSync(tempDir);
     expect(exists).toBe(true);

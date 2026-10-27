@@ -11,7 +11,7 @@ export const LOG_INFO = {
       filename: './logs/access',
       pattern: '.yyyy.log',
       alwaysIncludePattern: true,
-      'maxLogSize ': 204800,
+      maxLogSize: 204800,
     },
     http: {
       type: 'logLevelFilter',

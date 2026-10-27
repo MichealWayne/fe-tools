@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "__MSG_extensionName__",
-  "version": "1.6.0",
+  "version": "1.8.0",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "icons": {
@@ -35,7 +35,7 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*", "<all_urls>"],
-      "js": ["scripts/message-contract.js", "scripts/content-script-v3.js"]
+      "js": ["scripts/message-contract.js", "scripts/element-screenshot.js", "scripts/content-script-v3.js"]
     }
   ]
 }

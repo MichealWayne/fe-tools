@@ -98,21 +98,7 @@ export function mkdirsSync(dirPath: string) {
       return true;
     }
 
-    let pathTemp = '';
-    const dirs = dirPath.split(/[/\\]/);
-
-    for (const dirName of dirs) {
-      pathTemp = pathTemp ? join(pathTemp, dirName) : dirName;
-
-      if (!fs.existsSync(pathTemp)) {
-        try {
-          fs.mkdirSync(pathTemp);
-        } catch (e) {
-          Tip.log(`Error! Create directory failed! Path=${pathTemp} Error: ${e}`);
-          return false;
-        }
-      }
-    }
+    fs.mkdirSync(dirPath, { recursive: true });
     return true;
   } catch (err) {
     Tip.log(`Error!create director fail! path=${dirPath} errorMsg:${err}`);

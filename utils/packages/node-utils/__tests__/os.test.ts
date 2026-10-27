@@ -11,6 +11,11 @@ beforeEach(() => {
 // Create a properly typed mock for exec
 const mockExec = jest.fn() as jest.Mock & { __promisify__: any };
 mockExec.__promisify__ = jest.fn();
+const originalExec = childrenProcess.exec;
+
+afterEach(() => {
+  childrenProcess.exec = originalExec;
+});
 
 describe('platform', () => {
   it('should return the current platform', () => {
@@ -82,6 +87,53 @@ describe('freeCommand', () => {
 
     expect(childrenProcess.exec).toHaveBeenCalledWith('free -m', expect.any(Function));
     expect(callback).toHaveBeenCalledWith(2000, 2000);
+  });
+
+  it('should use available memory and buff/cache columns from modern free output', () => {
+    const callback = jest.fn();
+    const originalPlatformDescriptor = Object.getOwnPropertyDescriptor(process, 'platform');
+    const stdout =
+      '               total        used        free      shared  buff/cache   available\n' +
+      'Mem:           16000        6000        1000         200        9000        9500\n' +
+      'Swap:           2000           0        2000\n';
+
+    Object.defineProperty(process, 'platform', { ...originalPlatformDescriptor, value: 'linux' });
+    childrenProcess.exec = mockExec;
+    mockExec.mockImplementation((_command, cb) => cb(null, stdout));
+
+    try {
+      osUtils.freeCommand(callback);
+      expect(callback).toHaveBeenCalledWith(6500, 9000);
+    } finally {
+      if (originalPlatformDescriptor) {
+        Object.defineProperty(process, 'platform', originalPlatformDescriptor);
+      }
+      childrenProcess.exec = originalExec;
+    }
+  });
+
+  it('should read separate buffers and cached columns from legacy free output', () => {
+    const callback = jest.fn();
+    const originalPlatformDescriptor = Object.getOwnPropertyDescriptor(process, 'platform');
+    const stdout =
+      '             total       used       free     shared    buffers     cached\n' +
+      'Mem:          8000       3500       4000          0        500       2000\n' +
+      '-/+ buffers/cache:       2000       6000\n' +
+      'Swap:         2000          0       2000\n';
+
+    Object.defineProperty(process, 'platform', { ...originalPlatformDescriptor, value: 'linux' });
+    childrenProcess.exec = mockExec;
+    mockExec.mockImplementation((_command, cb) => cb(null, stdout));
+
+    try {
+      osUtils.freeCommand(callback);
+      expect(callback).toHaveBeenCalledWith(1500, 2500);
+    } finally {
+      if (originalPlatformDescriptor) {
+        Object.defineProperty(process, 'platform', originalPlatformDescriptor);
+      }
+      childrenProcess.exec = originalExec;
+    }
   });
 });
 

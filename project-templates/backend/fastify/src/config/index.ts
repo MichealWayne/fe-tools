@@ -11,6 +11,7 @@ dotenv.config({
 const DEFAULT_PORT = 3000;
 const DEFAULT_HOST = '0.0.0.0';
 const DEFAULT_API_PREFIX = '/api';
+const DEVELOPMENT_JWT_SECRET = 'dev-only-insecure-secret-change-before-production-32';
 
 // Enums
 export enum Environment {
@@ -39,6 +40,7 @@ const LoggingSchema = z.object({
 
 const CorsSchema = z.object({
   origin: z.union([z.string(), z.array(z.string())]).default('*'),
+  credentials: z.boolean().default(false),
 });
 
 const RateLimitSchema = z.object({
@@ -74,17 +76,14 @@ const ConfigSchema = z.object({
     appLogFile: 'app.log',
     errorLogLevel: LogLevel.Error,
   }),
-  cors: CorsSchema.default({ origin: '*' }),
+  cors: CorsSchema.default({ origin: '*', credentials: false }),
   rateLimit: RateLimitSchema.default({
     enabled: true,
     max: 100,
     timeWindow: 60000,
   }),
   swagger: SwaggerSchema.default({ enabled: true }),
-  jwt: JwtSchema.default({
-    secret: 'dev-secret-key-that-is-32-characters-long',
-    expiresIn: '1h',
-  }),
+  jwt: JwtSchema.default({ secret: DEVELOPMENT_JWT_SECRET, expiresIn: '1h' }),
   database: DatabaseSchema.default({ url: 'postgres://user:password@localhost:5432/fastify_db' }),
 });
 
@@ -126,7 +125,12 @@ class ConfigBuilder {
         errorLogLevel: (process.env.ERROR_LOG_LEVEL as LogLevel) || LogLevel.Error,
       },
       cors: {
-        origin: process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(',') : '*',
+        origin: process.env.CORS_ORIGIN
+          ? process.env.CORS_ORIGIN.trim() === '*'
+            ? '*'
+            : process.env.CORS_ORIGIN.split(',').map(origin => origin.trim())
+          : '*',
+        credentials: parseBoolean(process.env.CORS_CREDENTIALS, false),
       },
       rateLimit: {
         enabled: parseBoolean(process.env.RATE_LIMIT_ENABLED, true),
@@ -134,10 +138,13 @@ class ConfigBuilder {
         timeWindow: parseNumber(process.env.RATE_LIMIT_WINDOW_MS, 60000),
       },
       swagger: {
-        enabled: parseBoolean(process.env.SWAGGER_ENABLED, true),
+        enabled: parseBoolean(
+          process.env.SWAGGER_ENABLED,
+          this.config.env !== Environment.Production
+        ),
       },
       jwt: {
-        secret: process.env.JWT_SECRET || 'your-jwt-secret',
+        secret: process.env.JWT_SECRET || DEVELOPMENT_JWT_SECRET,
         expiresIn: process.env.JWT_EXPIRES_IN || '1h',
       },
       database: {
@@ -148,12 +155,19 @@ class ConfigBuilder {
 
   private validate(): void {
     if (this.config.env === Environment.Production) {
-      if (!process.env.JWT_SECRET) {
-        throw new Error('JWT_SECRET is required in production');
+      if (!process.env.JWT_SECRET || process.env.JWT_SECRET === DEVELOPMENT_JWT_SECRET) {
+        throw new Error('Set a unique JWT_SECRET before starting in production');
       }
       if (!process.env.DATABASE_URL) {
         throw new Error('DATABASE_URL is required in production');
       }
+    }
+
+    const origins = Array.isArray(this.config.cors?.origin)
+      ? this.config.cors.origin
+      : [this.config.cors?.origin];
+    if (this.config.cors?.credentials && origins.includes('*')) {
+      throw new Error('CORS_CREDENTIALS=true requires explicit CORS_ORIGIN values, not *');
     }
   }
 

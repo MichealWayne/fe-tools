@@ -316,9 +316,9 @@ export default class Cache {
    * @param {OriginalFunction} original - The original sync function to wrap
    * @param {IdentityFunction} identity - Function that generates cache key and extension from arguments
    * @returns {Function} Wrapped function that checks cache before calling original
-   * @remarks The synchronous wrapper does not await cache.write(); the write happens
-   * in the background and its rejection is not handled, so a failed cache write is
-   * silent. Use wrapAsync when write errors must be observed.
+   * @remarks The synchronous wrapper returns without waiting for disk I/O. Repeated
+   * calls for the same key reuse the result while its first write is pending. Write
+   * failures are logged; use wrapAsync when the caller must await persistence.
    * @example
    * ```ts
    * // Wrap an expensive sync computation
@@ -343,14 +343,26 @@ export default class Cache {
    */
   wrapNormal(original: OriginalFunction, identity: IdentityFunction) {
     const cache = this;
+    const pendingResults = new Map<string, unknown>();
     return function (this: any, ...args: unknown[]) {
       const { key, ext } = identity.call(this, ...args);
       const cached = cache.get(key, ext);
       if (cached !== undefined) {
         return cached;
       }
+      const pendingKey = JSON.stringify([key, ext]);
+      if (pendingResults.has(pendingKey)) {
+        return pendingResults.get(pendingKey);
+      }
       const result = original.call(this, ...args);
-      cache.write(key, ext, result);
+      if (!cache.disabled) {
+        pendingResults.set(pendingKey, result);
+        void cache.write(key, ext, result).catch(error => {
+          console.error(`Failed to write cache entry ${key}${ext}:`, error);
+        }).finally(() => {
+          pendingResults.delete(pendingKey);
+        });
+      }
       return result;
     };
   }

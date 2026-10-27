@@ -1,6 +1,6 @@
 # webpack-demo
 
-webpack(4)前端项目模板。
+Webpack 5 前端项目模板。
 
 ## src 目录结构
 
