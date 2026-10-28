@@ -821,6 +821,7 @@
 <a href="https://tinypng.com/" target="_blank">TinyPNG</a> | `tinypng` | 压缩 PNG 和 JPEG 图片。
 <a href="https://github.com/svg/svgo" target="_blank">SVGO</a> | `svgo` | SVG 图形压缩工具。
 <a href="https://github.com/ImageOptim/ImageOptim" target="_blank">ImageOptim</a> | `imageoptim` | macOS 图片压缩优化工具。
+<a href="https://github.com/tumingke0/LayoutKeeper" target="_blank">LayoutKeeper</a> | `layoutkeeper` | 免费开源的 macOS 多显示器窗口布局与屏幕管理工具，拔插显示器或唤醒后自动将窗口恢复到原屏幕和所属桌面 Space，支持外接屏硬件 DDC 亮度跟随内建屏幕环境光自动变化及菜单栏 4 档防休眠。
 <a href="https://squoosh.app/" target="_blank">Squoosh</a> | `squoosh` | 浏览器内图片压缩与格式转换工具。
 <a href="https://jakearchibald.github.io/svgomg/" target="_blank">SVGOMG</a> | `svgomg` | 在线 SVG 优化与预览工具。
 <a href="https://imagemagick.org/" target="_blank">ImageMagick</a> | `imagemagick` | 广泛使用的图片处理工具链。
