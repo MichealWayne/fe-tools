@@ -829,6 +829,7 @@ Contents:
 | https://tool.lu/css/ | css | Online CSS formatter, minifier, and responsive-unit utility. |
 | https://tool.lu/coderunner/ | code-runner | Online multi-language code runner; never submit secrets, production data, or private source. |
 | https://www.diffchecker.com/ | diffchecker | Online text and file comparison; use local tools for sensitive files. |
+| https://curlshot.com/ | screenshot-api | Screenshot API: one GET request renders any URL to PNG, JPEG, WebP, PDF, or a scrolling video; commercial service with a free plan of 100 screenshots/month, no card required. |
 
 #### 1.9.3 Documentation, Presentations, and Community
 
