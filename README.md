@@ -795,6 +795,7 @@
 <a href="https://tool.lu/css/" target="_blank">tool.lu CSS</a> | `css` | 在线 CSS 格式化、压缩与响应式单位处理工具。
 <a href="https://tool.lu/coderunner/" target="_blank">tool.lu Code Runner</a> | `code-runner` | 在线多语言代码运行工具；勿提交密钥、生产数据或私有源码。
 <a href="https://www.diffchecker.com/" target="_blank">Diffchecker</a> | `diffchecker` | 在线文本和文件差异比较工具；敏感文件优先使用本地工具。
+<a href="https://curlshot.com/" target="_blank">CurlShot</a> | `screenshot-api` | 网页截图 API：一个 GET 请求即可将任意网址渲染为 PNG、JPEG、WebP、PDF 或滚动视频；商业服务，免费版每月 100 次截图，无需信用卡。
 
 #### 1.9.3 文档、演示与社区
 
