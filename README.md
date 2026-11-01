@@ -823,6 +823,7 @@
 <a href="https://github.com/ImageOptim/ImageOptim" target="_blank">ImageOptim</a> | `imageoptim` | macOS 图片压缩优化工具。
 <a href="https://squoosh.app/" target="_blank">Squoosh</a> | `squoosh` | 浏览器内图片压缩与格式转换工具。
 <a href="https://jakearchibald.github.io/svgomg/" target="_blank">SVGOMG</a> | `svgomg` | 在线 SVG 优化与预览工具。
+<a href="https://pic2svg.com/svg-cut-file-checker/" target="_blank">Pic2SVG SVG checker</a> | `svg-checker` | Inspect SVG outlines, image references, live text and physical dimensions locally; free, no account.
 <a href="https://imagemagick.org/" target="_blank">ImageMagick</a> | `imagemagick` | 广泛使用的图片处理工具链。
 <a href="https://www.whatfontis.com/" target="_blank">WhatFontIs</a> | `whatfontis` | 从图片识别字体；部分功能需要注册。
 <a href="https://ps.gaoding.com/#/" target="_blank">稿定 PS</a> | `ps` | 在线图像编辑工具。
