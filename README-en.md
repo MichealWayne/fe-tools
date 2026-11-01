@@ -1168,6 +1168,7 @@ Contents:
 | https://github.com/browserbase/stagehand | stagehand | Browserbase open-source browser automation SDK combining natural-language actions with Playwright code |
 | https://github.com/microsoft/playwright-mcp | playwright-mcp | Playwright MCP server suitable for allowing AI coding assistants to operate real browsers |
 | https://github.com/vercel-labs/agent-browser | agent-browser | Browser automation CLI for AI agents |
+| https://vostride.com | agent-qa | Natural-language web and mobile QA CLI with persistent memory, self-improvement, and local stdio MCP; requires Node.js 24+. Early-stage project; FSL-1.1-ALv2 restricts competing commercial use, and model/device costs are separate |
 | https://github.com/openinterpreter/open-interpreter | open-interpreter | Local computer-use and automation agent that can execute commands, file operations, and scripts |
 | https://github.com/OpenInterpreter/01 | 01 | Local voice and computer assistant project in the Open Interpreter ecosystem |
 | https://github.com/Significant-Gravitas/AutoGPT | autogpt-history | Early representative autonomous agent project; better kept as a historical case or design reference than a first-choice engineering framework |
