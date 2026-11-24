@@ -1,6 +1,22 @@
 # fe-tools
 
-> Common documentation/websites for front-end development, style/JS method libraries (TS), and typical project templates.
+<p align="center">
+  Front-end resources, browser tools, TypeScript utility packages, and project templates
+</p>
+
+<p align="center">
+  <a href="./README.md">简体中文</a> · <a href="./README-en.md">English</a>
+</p>
+
+<p align="center">
+  <a href="#1-common-websites">Resources</a> ·
+  <a href="#fe-tools---chrome-extension">Chrome Extension</a> ·
+  <a href="#21-utils">Utility Packages</a> ·
+  <a href="#22-project-templates">Project Templates</a> ·
+  <a href="#contributing-and-license">Contributing & License</a> ·
+  <a href="https://blog.michealwayne.cn/fe-tools/stable/">Documentation</a> ·
+  <a href="./CHANGELOG.md">Changelog (Chinese)</a>
+</p>
 
 <a title="Common front-end documentation/websites, style/JS method libraries, and project templates" href="https://blog.michealwayne.cn/fe-tools/stable/#fe-tools" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
 
@@ -975,12 +991,13 @@ Contents:
 | https://ai-sdk.dev/ | ai-sdk | TypeScript AI SDK by Vercel for building streaming chat, AI UI, tool calling, and multi-model applications |
 | https://github.com/openai/openai-agents-js | openai-agents-js | Official OpenAI JavaScript/TypeScript Agents SDK for lightweight multi-agent workflows, handoffs, tool calling, and tracing |
 | https://github.com/openai/openai-agents-python | openai-agents-python | Official OpenAI Python Agents SDK for multi-agent workflows, tool calling, evaluation, and tracing |
-| https://github.com/anthropics/claude-agent-sdk-typescript | claude-agent-sdk | Official Anthropic Agent SDK for TypeScript and Python; embeds Claude Code capabilities such as tool use, subagents, and sessions into applications |
+| https://github.com/anthropics/claude-agent-sdk-typescript | claude-agent-sdk | Official Anthropic Agent SDK with TypeScript and [Python](https://github.com/anthropics/claude-agent-sdk-python) implementations that embed Claude Code capabilities such as tool use, subagents, and sessions into applications |
 | https://github.com/github/copilot-sdk | copilot-sdk | Official GitHub multi-language agent runtime for embedding Copilot CLI planning, tool calling, and file-editing capabilities into applications |
-| https://github.com/microsoft/agent-framework | microsoft-agent-framework | Microsoft production-oriented multi-language agent and workflow framework with orchestration, durability, observability, A2A, and MCP support |
+| https://github.com/microsoft/agent-framework | microsoft-agent-framework | Microsoft’s multi-language agent and workflow framework with orchestration, durability, observability, A2A, and MCP support. Note: PyPI releases 1.26.1 and 1.26.2 from 2026-11-17 were reported to contain malicious code and were withdrawn; check subsequent notices and package provenance before installing ([incident record](https://github.com/advisories/GHSA-764m-3ppc-5m73)). |
 | https://github.com/langchain-ai/langchain | langchain | LLM application framework with a broad ecosystem; often used together with LangGraph for complex agent orchestration |
 | https://github.com/langchain-ai/langgraph | langgraph | Mainstream framework for stateful, resumable, long-running agent workflows |
 | https://llamaindex.ai/ | llamaindex | Data and RAG framework for LLM applications, focused on knowledge bases, document QA, and retrieval-augmented generation |
+| https://github.com/run-llama/LlamaIndexTS | llamaindex-ts | TypeScript implementation of LlamaIndex for JavaScript/TypeScript RAG applications |
 | https://github.com/run-llama/llama-agents | llama-agents | LlamaIndex workflow deployment tool; LlamaDeploy is deprecated, so new projects should use this replacement |
 | https://github.com/microsoft/semantic-kernel | semantic-kernel | Maintenance and migration reference: Microsoft has consolidated its future evolution into Microsoft Agent Framework; new projects should evaluate MAF first |
 | https://github.com/microsoft/autogen | autogen | Maintenance and migration reference: now in maintenance mode; new projects should prefer Microsoft Agent Framework |
@@ -993,6 +1010,10 @@ Contents:
 | https://github.com/huggingface/smolagents | smolagents | Hugging Face minimal agent library with few abstractions, suitable for fast experiments and code-style actions |
 | https://github.com/camel-ai/camel | camel | Multi-agent research and engineering framework for role-play, social simulation, collaborative tasks, and data generation |
 | https://github.com/agentscope-ai/agentscope | agentscope | Multi-agent application framework for distributed, multi-role, and complex agent systems |
+| https://github.com/OpenBMB/ChatDev | chatdev | Multi-agent software-development framework for simulating a software company and role-based collaboration workflows; useful as a research reference |
+| https://github.com/geekan/MetaGPT | metagpt | Multi-agent software-development framework that turns requirements into PRDs, designs, tasks, and code |
+| https://github.com/OpenBMB/IoA | ioa | Internet of Agents research project focused on multi-agent collaboration and communication |
+| https://github.com/temporalio/temporal | temporal | General-purpose durable workflow engine that can support long-running agent workflows with retries, compensation, and recovery; not an AI-specific framework |
 | https://github.com/stanfordnlp/dspy | dspy | Framework for programming rather than hand-writing prompts, useful for optimizable RAG, classification, and agent pipelines |
 
 #### 1.11.2 Model API SDKs and Model Routing
@@ -1012,7 +1033,6 @@ Contents:
 | https://github.com/Portkey-AI/gateway | portkey-gateway | Open-source AI gateway supporting multi-model routing, fallback, logging, and governance |
 | https://github.com/Helicone/helicone | helicone | Open-source LLM observability and gateway platform for logs, cost tracking, caching, and monitoring |
 | https://openrouter.ai/docs | openrouter | Hosted multi-model API and provider-routing service; evaluate data routing, privacy, and cost before use |
-| https://github.com/run-llama/LlamaIndexTS | llamaindex-ts | TypeScript version of LlamaIndex for JavaScript/TypeScript RAG applications |
 
 #### 1.11.3 Agent Task Management and Human-Agent Collaboration Platforms
 
@@ -1022,10 +1042,6 @@ Contents:
 | https://github.com/multica-ai/multica | multica-open | Open-source Multica repository for studying agent task management, runtime, skill reuse, and team collaboration patterns |
 | https://slock.ai/ | slock | Platform for real-time human-agent collaboration in channels and DMs, similar to an agent-oriented Slack layer |
 | https://www.taskade.com/ | taskade | AI workspace covering projects, tasks, agents, automation, memory, and business app generation |
-| https://github.com/OpenBMB/ChatDev | chatdev | Multi-agent software company simulation project, useful as a reference for agent collaboration workflows |
-| https://github.com/geekan/MetaGPT | metagpt | Multi-agent software development framework that turns requirements into PRDs, designs, tasks, and code |
-| https://github.com/OpenBMB/IoA | ioa | Internet of Agents project focused on multi-agent collaboration and communication research |
-| https://github.com/temporalio/temporal | temporal | Reliable workflow engine for long-running agent tasks, retries, compensation, and resumable execution |
 
 #### 1.11.4 AI Coding and Development Tools
 
@@ -1034,6 +1050,7 @@ Contents:
 | https://openai.com/codex/ | codex | OpenAI coding agent supporting CLI and cloud task workflows |
 | https://github.com/openai/codex | codex-cli | OpenAI Codex command-line tool for local repository editing, code generation, debugging, and task execution |
 | https://docs.anthropic.com/en/docs/claude-code/overview | claude-code | Anthropic AI coding assistant for local codebase understanding, generation, refactoring, and debugging |
+| https://github.com/deepseek-ai/deepseek-harness | deepseek-harness/dsh | DeepSeek's open-source agent harness built on the Cordis plugin architecture. It is in developer preview, so plugin and API compatibility may change. See the [official documentation](https://deepseek-harness.github.io/deepseek-harness/). |
 | https://opencode.ai/ | opencode | Open-source terminal AI coding assistant with pluggable multi-model and multi-provider support |
 | https://github.com/google-gemini/gemini-cli | gemini-cli | Google Gemini CLI, an open-source command-line AI coding assistant |
 | https://github.com/OpenHands/OpenHands | openhands | Open-source AI software engineer and coding agent runtime for autonomous fixes, task execution, and sandboxed running |
@@ -1048,10 +1065,6 @@ Contents:
 | https://windsurf.com/ | windsurf | Mainstream AI IDE emphasizing agentic coding and beginner-friendly onboarding |
 | https://www.trae.ai/ | trae | AI IDE from ByteDance, useful for observing Chinese AI coding product patterns |
 | https://github.com/features/copilot | copilot | GitHub official AI coding assistant, evolving from completion into agent and task workflows |
-| https://bolt.new/ | bolt | AI agent platform for web application generation and deployment |
-| https://github.com/stackblitz/bolt.new | bolt-open | Open-source version of Bolt.new, useful for studying browser-based full-stack generation and WebContainer workflows |
-| https://v0.dev/ | v0 | Vercel UI/frontend generation tool, useful for React, Next.js, and shadcn scenarios |
-| https://lovable.dev/ | lovable | AI development platform for turning product ideas and prototypes into full-stack applications |
 | https://github.com/PatrickJS/awesome-cursorrules | cursorrules | Collection of Cursor rules, useful as references for project-level AI coding standards |
 | https://github.com/SchneiderSam/awesome-windsurfrules | windsurfrules | Collection of Windsurf rules, useful as references for agent rule governance |
 
@@ -1059,13 +1072,13 @@ Contents:
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://modelcontextprotocol.io/ | mcp | Open protocol initiated by Anthropic for connecting AI applications to external data sources, tools, and workflows |
+| https://modelcontextprotocol.io/ | mcp | Open protocol for connecting AI applications to external data, tools, and workflows; donated by Anthropic to the Linux Foundation’s Agentic AI Foundation (AAIF), with technical direction led by project maintainers |
 | https://github.com/modelcontextprotocol | mcp-github | Official MCP GitHub organization containing specifications, SDKs, servers, and related projects |
 | https://github.com/modelcontextprotocol/typescript-sdk | mcp-typescript-sdk | Official MCP TypeScript SDK for building MCP clients and servers in Node.js, Bun, Deno, or web frameworks |
-| https://github.com/a2aproject/A2A | a2a | Open agent-to-agent communication protocol for capability discovery, long-running collaboration, and interoperability across frameworks and vendors |
+| https://github.com/a2aproject/A2A | a2a | Open agent-to-agent communication protocol initiated by Google and now hosted by the Linux Foundation’s Agent2Agent Project, supporting capability discovery, long-running collaboration, and interoperability |
 | https://registry.modelcontextprotocol.io/ | mcp-registry | Official MCP registry for discovering public MCP server metadata |
 | https://apps.extensions.modelcontextprotocol.io/ | mcp-apps | Official MCP extension for interactive interfaces rendered by compatible clients; host support varies |
-| https://help.openai.com/en/articles/12515353-build-with-the-apps-sdk | openai-apps-sdk | OpenAI MCP-based toolkit for developing ChatGPT apps (preview), including tool logic and embedded interactive UI |
+| https://developers.openai.com/plugins/build/mcp-server | openai-apps-sdk | OpenAI’s MCP-based toolkit for developing ChatGPT apps, including tool servers and embedded interactive UI; check the official docs for client capabilities |
 | https://smithery.ai/ | smithery | MCP server discovery, hosting, connection, and commercialization platform |
 | https://glama.ai/mcp/servers | glama-mcp | MCP server registry and search platform covering a large number of community servers |
 | https://mcp.so/ | mcp-so | MCP tools and server collection site |
@@ -1079,26 +1092,25 @@ Contents:
 
 #### 1.11.6 Agent Skills
 
+Agent Skills is an open format that packages reusable instructions in a directory containing `SKILL.md`, with optional scripts, references, and assets. Install locations, recognized fields, and runtime capabilities vary by agent. Before using a third-party skill, check its source, permissions, and compatibility with your target agent.
+
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://skills.sh/ | skills-sh | Agent Skills directory and browsing site for discovering and installing skills |
-| https://lobehub.com/skills | lobehub-skills | Agent Skills marketplace supporting SKILL.md format for Claude Code, Codex CLI, ChatGPT, and others |
-| https://skillsllm.com/ | skillsllm | Open-source Agent Skills aggregation site for Claude Code, Codex CLI, and ChatGPT |
-| https://agentskills.io/home | agentskills-io | Entry point for Agent Skills concepts, specifications, and integration guides |
-| https://agentskills.io/specification | skills-spec | SKILL.md specification defining frontmatter, instructions, resources, and related structure |
-| https://github.com/agentskills/agentskills | skills-spec-repo | Agent Skills specification and documentation repository |
-| https://github.com/openai/skills | openai-skills | Official OpenAI/Codex Skills Catalog with reusable workflows and examples |
-| https://github.com/anthropics/skills | anthropics-skills | Official Anthropic example skills collection |
-| https://github.com/vercel-labs/agent-skills | vercel-agent-skills | Official Vercel agent skills collection |
-| https://github.com/vercel-labs/skills | skills-cli | Skills CLI for installing, discovering, checking, and updating skills |
-| https://github.com/softaworks/agent-toolkit | agent-toolkit | Popular community skills collection covering development workflows, planning, documentation, architecture, and communication |
+| https://agentskills.io/specification | skills-spec | Specification for the open Agent Skills format, including required `SKILL.md` fields and optional resources. Source repository: https://github.com/agentskills/agentskills |
+| https://developers.openai.com/plugins/concepts/skills | openai-skills | Official OpenAI guidance on Skills for ChatGPT and Codex. Current official examples are in https://github.com/openai/plugins; the former `openai/skills` repository is deprecated. |
+| https://code.claude.com/docs/en/skills | claude-code-skills | Official Anthropic documentation for Claude Code Skills, including its support for the Agent Skills standard and host-specific extensions. Example collection: https://github.com/anthropics/skills |
+| https://skills.sh/ | skills-sh | Agent Skills discovery directory and leaderboard; the directory and installation CLI are maintained separately. |
+| https://github.com/vercel-labs/skills | skills-cli | `npx skills` CLI for discovering, installing, and updating skills in the open ecosystem; support depends on the target agent. |
+| https://lobehub.com/skills | lobehub-skills | LobeHub’s SKILL.md skills marketplace; usage and capabilities across agents should be checked for each target product. |
+| https://skillsllm.com/ | skillsllm | Third-party AI skills marketplace and directory that also lists MCP servers and agent tools; use it for discovery, then check the original repository and compatibility details before installing. |
+| https://github.com/vercel-labs/agent-skills | vercel-agent-skills | Vercel's official collection of agent skills for frontend and web development. |
+| https://github.com/obra/superpowers | superpowers | Opinionated skills framework and software development methodology for coding agents, with integrations for multiple agents; choose it to fit your workflow and follow the relevant installation guide. |
+| https://github.com/softaworks/agent-toolkit | agent-toolkit | Author-curated skills collection primarily for Claude Code, covering development, documentation, and planning workflows; verify compatibility with other agents separately. |
 
 #### 1.11.7 RAG, Knowledge Bases, Memory, and Data Ingestion
 
 | Address | Tag | Description |
 | ---- | ---- | ---- |
-| https://github.com/run-llama/llama_index | llamaindex-rag | Core RAG and data indexing framework for documents, databases, and knowledge-base applications |
-| https://github.com/langchain-ai/langchain | langchain-rag | LangChain retrieval, document loader, text splitter, and vector store ecosystem |
 | https://github.com/mendableai/firecrawl | firecrawl | Converts websites into LLM-ready Markdown and structured data for crawling and RAG preparation |
 | https://github.com/unclecode/crawl4ai | crawl4ai | Open-source web crawling and content extraction tool for AI and RAG use cases |
 | https://github.com/infiniflow/ragflow | ragflow | Open-source RAG engine emphasizing document parsing, workflows, and enterprise knowledge bases |
@@ -1119,8 +1131,8 @@ Contents:
 | https://github.com/weaviate/weaviate | weaviate | Open-source vector search engine with a mature ecosystem for knowledge bases and semantic search |
 | https://github.com/pgvector/pgvector | pgvector | PostgreSQL vector extension for adding vector retrieval to existing Postgres systems |
 | https://github.com/timescale/pgvectorscale | pgvectorscale | Timescale open-source PostgreSQL vector extension for higher-performance vector search |
-| https://github.com/supabase/vecs | supabase-vecs | Supabase vector client |
-| https://github.com/pinecone-io/pinecone-ts-client | pinecone | Pinecone vector database TypeScript client |
+| https://github.com/supabase/vecs | supabase-vecs | Python client for managing and querying vector collections in PostgreSQL with pgvector |
+| https://github.com/pinecone-io/pinecone-ts-client | pinecone | TypeScript client for the Pinecone vector database, not the database implementation itself |
 | https://github.com/vespa-engine/vespa | vespa | Large-scale search, recommendation, and vector retrieval engine |
 | https://github.com/typesense/typesense | typesense | Open-source search engine supporting hybrid keyword, semantic, and vector retrieval scenarios |
 | https://github.com/meilisearch/meilisearch | meilisearch | Lightweight search engine that can be combined with vector and semantic search capabilities |
@@ -1135,8 +1147,8 @@ Contents:
 | https://github.com/promptfoo/promptfoo | promptfoo | Prompt and model output testing and regression evaluation tool, suitable for CI gates |
 | https://github.com/confident-ai/deepeval | deepeval | LLM application evaluation framework for RAG, agents, and conversation quality |
 | https://github.com/explodinggradients/ragas | ragas | RAG evaluation framework covering faithfulness, context precision, context recall, and related metrics |
-| https://github.com/openai/evals | openai-evals | OpenAI's open-source model and LLM-system evaluation framework; separate from the hosted Evals platform, scheduled to close Nov. 30, 2026 |
-| https://github.com/microsoft/promptflow | promptflow | Migration reference: no longer recommended for new development; service retires April 20, 2027. Evaluate Microsoft Agent Framework for new projects. |
+| https://github.com/openai/evals | openai-evals | OpenAI's open-source model and LLM-system evaluation framework; the hosted Evals platform became read-only on Oct. 31, 2026 and is scheduled to close on Nov. 30, 2026 ([official deprecation notice](https://developers.openai.com/api/docs/deprecations)). |
+| https://github.com/microsoft/promptflow | promptflow | Migration reference: Prompt flow in Microsoft Foundry/Azure ML is no longer recommended for new development and retires on Apr. 20, 2027 ([official notice](https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/prompt-flow)). |
 | https://github.com/dair-ai/Prompt-Engineering-Guide | prompt-guide | Prompt engineering guide and resource repository |
 | https://github.com/openai/tiktoken | tiktoken | OpenAI tokenizer for token counting and cost estimation |
 | https://github.com/dqbd/tiktoken | js-tiktoken | JavaScript/WASM version of tiktoken for frontend and Node.js cost estimation |
@@ -1148,10 +1160,14 @@ Contents:
 | https://github.com/langgenius/dify | dify | Open-source LLM application development platform covering workflows, RAG, agents, model management, and app publishing |
 | https://github.com/langflow-ai/langflow | langflow | Visual LLM, agent, and RAG application building platform |
 | https://github.com/FlowiseAI/Flowise | flowise | Drag-and-drop LLM application builder for quickly creating flows and tool-calling applications |
+| https://bolt.new/ | bolt | AI agent platform for web application generation and deployment |
+| https://github.com/stackblitz/bolt.new | bolt-open | Open-source version of Bolt.new, useful for studying browser-based full-stack generation and WebContainer workflows |
+| https://v0.dev/ | v0 | Vercel UI/frontend generation tool, useful for React, Next.js, and shadcn scenarios |
+| https://lovable.dev/ | lovable | AI development platform for turning product ideas and prototypes into full-stack applications |
 | https://github.com/n8n-io/n8n | n8n | Fair-code, source-available workflow automation with AI nodes and agents; its license restricts some uses and distribution. |
 | https://github.com/vercel/ai-elements | ai-elements | AI-native component library built on shadcn/ui for quickly building chat, reasoning, tool-use, and generated-content interfaces |
 | https://github.com/assistant-ui/assistant-ui | assistant-ui | React AI chat UI component library with streaming messages, tool use, attachments, and adapters for multiple agent and model frameworks |
-| https://openai.github.io/chatkit-js/ | openai-chatkit | OpenAI React/Web Component chat UI for managed or self-hosted ChatKit backends |
+| https://developers.openai.com/api/docs/guides/chatkit | openai-chatkit | OpenAI React/Web Component chat UI for managed or self-hosted ChatKit backends |
 | https://github.com/vercel/ai-chatbot | ai-chatbot | Vercel open-source full-stack AI chatbot template |
 | https://github.com/danny-avila/LibreChat | librechat | Open-source multi-model ChatGPT-like application supporting plugins, agents, tools, and multiple providers |
 | https://github.com/ChatGPTNextWeb/NextChat | nextchat | Formerly ChatGPT-Next-Web, a lightweight cross-platform ChatGPT-like application |
@@ -1166,7 +1182,6 @@ Contents:
 | ---- | ---- | ---- |
 | https://github.com/browser-use/browser-use | browser-use | Open-source browser agent framework that lets LLMs control browsers to complete web tasks |
 | https://github.com/browserbase/stagehand | stagehand | Browserbase open-source browser automation SDK combining natural-language actions with Playwright code |
-| https://github.com/microsoft/playwright-mcp | playwright-mcp | Playwright MCP server suitable for allowing AI coding assistants to operate real browsers |
 | https://github.com/vercel-labs/agent-browser | agent-browser | Browser automation CLI for AI agents |
 | https://github.com/openinterpreter/open-interpreter | open-interpreter | Local computer-use and automation agent that can execute commands, file operations, and scripts |
 | https://github.com/OpenInterpreter/01 | 01 | Local voice and computer assistant project in the Open Interpreter ecosystem |
@@ -1182,6 +1197,8 @@ Contents:
 | https://github.com/ml5js/ml5-library | ml5 | Friendly machine learning library for creative coding and web developers, built on TensorFlow.js |
 | https://github.com/mljs/ml | mljs | JavaScript machine learning algorithm collection |
 | https://github.com/huggingface/transformers.js | transformersjs | Hugging Face Transformer model runtime for browser and Node.js |
+| https://github.com/mlc-ai/web-llm | webllm | WebGPU-based in-browser LLM inference engine for running supported open models on the client |
+| https://developers.google.com/edge/litert-lm/js | litert-lm-web | Google AI Edge JavaScript/TypeScript on-device LLM runtime for WebGPU-capable browsers |
 | https://github.com/microsoft/onnxruntime | onnxruntime-web | ONNX Runtime Web capabilities for browser-side model inference |
 | https://github.com/openai/whisper | whisper | OpenAI open-source speech recognition model |
 | https://github.com/ggerganov/whisper.cpp | whisper-cpp | High-performance C/C++ implementation of Whisper for local and edge speech recognition |
@@ -1189,6 +1206,20 @@ Contents:
 | https://github.com/microsoft/cognitive-services-speech-sdk-js | azure-speech | Microsoft Azure Speech Service JavaScript SDK |
 | https://github.com/opencv/opencv.js | opencvjs | JavaScript version of OpenCV for browser-side computer vision |
 | https://github.com/google-ai-edge/mediapipe | mediapipe | Google cross-platform media AI and vision task framework for pose, gesture, face, and related scenarios |
+
+#### 1.11.13 DeepSeek Harness Community Plugins
+
+The following projects had relatively high community interest and explicit DeepSeek Harness integrations as of 2026-11-21. GitHub stars indicate interest, not quality or security. Harness is still in developer preview; check each plugin's supported version, source, and permissions before installing. Plugins may access files, networks, processes, and credentials available to Harness; see the [official safety notice](https://github.com/deepseek-ai/deepseek-harness/blob/master/SAFETY.md).
+
+| Address | Tag | Description |
+| --- | --- | --- |
+| https://github.com/dsh-market/dsh-market | dsh-market | Community-maintained in-Harness marketplace for browsing, searching, and managing community plugins; it is not an official DeepSeek marketplace. |
+| https://github.com/omdsh-dev/DSH-better-sidebar | dsh-better-sidebar | Developer workspace sidebar with file preview and editing, a terminal, Git, side chat, and sub-agent pages. |
+| https://github.com/liustack/modlens | modlens | Adds image understanding to text-only models, including structured OCR, layout, and semantic evidence. Check the data policy of the configured vision provider before use. |
+| https://github.com/Anionex/dsh-vision-toolkit | dsh-vision-toolkit | Vision tools for screenshots and GUI tasks, including long-screenshot OCR, visual grounding, UI restoration, and pixel diffs; some capabilities overlap with ModLens. |
+| https://github.com/NanmiCoder/dsh-agent-teams | dsh-agent-teams | Multi-agent collaboration plugin for task decomposition, dependency-aware coordination, member communication, and parallel execution. |
+
+Discovery: [Awesome DSH Plugin community-curated list](https://github.com/awesome-dsh-plugin/awesome-dsh-plugin), or browse the directory in Harness with dsh-market. These projects are community-maintained; refer to each repository for current installation and compatibility details.
 
 
 ### 1.12 WebAssembly
@@ -1461,3 +1492,9 @@ The extension keeps preferences, Postman data, and Codex quota snapshots in Chro
 ### Installation
 
 Clone this repository locally, open the browser extensions page, click "Load unpacked", and select the `chrome-extension` directory in this repository. For source builds and the full validation workflow, see the [extension README](./chrome-extension/README.md) and the [source repository](https://github.com/MichealWayne/fe-tools-chrome-plugin).
+
+## Contributing and license
+
+Contributions are welcome through issues and pull requests. Please read the [contribution guide](./CONTRIBUTING-en.md) for directory conventions, data provenance, and validation guidance; the [Chinese version](./CONTRIBUTING.md) is also available.
+
+This repository currently has no top-level license declaration. Some utility packages and project templates declare licenses in their own `package.json` files; a package-level declaration does not grant rights to the entire repository. See the [contribution guide](./CONTRIBUTING-en.md) for the known scope and unresolved areas.
