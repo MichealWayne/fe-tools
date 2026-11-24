@@ -1,6 +1,22 @@
 # fe-tools
 
-> 前端开发工具集：常用文档网站、样式/js方法封装库（ts）、典型项目模板。[English README>>](./README-en.md)
+<p align="center">
+  前端资源导航、浏览器工具、TypeScript 工具包与项目模板
+</p>
+
+<p align="center">
+  <a href="./README.md">简体中文</a> · <a href="./README-en.md">English</a>
+</p>
+
+<p align="center">
+  <a href="#1-常用网站">资源索引</a> ·
+  <a href="#fe-tools---chrome插件">Chrome 扩展</a> ·
+  <a href="#21-utils说明">utils 工具包</a> ·
+  <a href="#22-project-templates-一些前后端项目模版">项目模板</a> ·
+  <a href="#贡献与许可">贡献与许可</a> ·
+  <a href="https://blog.michealwayne.cn/fe-tools/stable/">在线文档</a> ·
+  <a href="./CHANGELOG.md">更新日志</a>
+</p>
 
 <a title="前端开发常用文档/网站地址、样式/js方法封装库、项目模板" href="https://blog.michealwayne.cn/fe-tools/stable/#fe-tools" target="_blank"><img style="display: block; margin: 0 auto; width: 50%;" src="https://blog.michealwayne.cn/images/fe.jpg"/></a>
 
@@ -932,12 +948,13 @@
 | <a href="https://ai-sdk.dev/" target="_blank">AI SDK</a> | `ai-sdk` | Vercel 出品的 TypeScript AI SDK，适合构建流式对话、AI UI、工具调用和多模型应用 |
 | <a href="https://github.com/openai/openai-agents-js" target="_blank">OpenAI Agents SDK JS/TS</a> | `openai-agents-js` | OpenAI 官方 JavaScript/TypeScript Agent SDK，适合轻量多 Agent、handoff、tool calling、tracing |
 | <a href="https://github.com/openai/openai-agents-python" target="_blank">OpenAI Agents SDK Python</a> | `openai-agents-python` | OpenAI 官方 Python Agent SDK，适合多 Agent 工作流、工具调用、评测和追踪 |
-| <a href="https://github.com/anthropics/claude-agent-sdk-typescript" target="_blank">Claude Agent SDK</a> | `claude-agent-sdk` | Anthropic 官方 Agent SDK，支持 TypeScript/Python，可将 Claude Code 的工具调用、子 Agent 与会话能力嵌入应用 |
+| <a href="https://github.com/anthropics/claude-agent-sdk-typescript" target="_blank">Claude Agent SDK</a> | `claude-agent-sdk` | Anthropic 官方 Agent SDK，提供 TypeScript 和 <a href="https://github.com/anthropics/claude-agent-sdk-python" target="_blank">Python</a> 实现，可将 Claude Code 的工具调用、子 Agent 与会话能力嵌入应用 |
 | <a href="https://github.com/github/copilot-sdk" target="_blank">GitHub Copilot SDK</a> | `copilot-sdk` | GitHub 官方多语言 Agent runtime，适合将 Copilot CLI 的规划、工具调用与文件编辑能力嵌入应用 |
-| <a href="https://github.com/microsoft/agent-framework" target="_blank">Microsoft Agent Framework</a> | `microsoft-agent-framework` | Microsoft 面向生产环境的多语言 Agent/工作流框架，支持编排、持久化、可观测性、A2A 与 MCP |
+| <a href="https://github.com/microsoft/agent-framework" target="_blank">Microsoft Agent Framework</a> | `microsoft-agent-framework` | Microsoft 的多语言 Agent/工作流框架，支持编排、持久化、可观测性、A2A 与 MCP。注意：2026-11-17 发布到 PyPI 的 1.26.1/1.26.2 被报告包含恶意代码并已撤下；安装前请核对后续公告与发行来源（<a href="https://github.com/advisories/GHSA-764m-3ppc-5m73" target="_blank">事件记录</a>）。 |
 | <a href="https://github.com/langchain-ai/langchain" target="_blank">LangChain</a> | `langchain` | LLM 应用开发框架，生态完整，但复杂 Agent 编排建议配合 LangGraph 使用 |
 | <a href="https://github.com/langchain-ai/langgraph" target="_blank">LangGraph</a> | `langgraph` | 当前主流的有状态、可恢复、长期运行 Agent 工作流框架 |
 | <a href="https://llamaindex.ai/" target="_blank">LlamaIndex</a> | `llamaindex` | 数据/RAG 取向的 LLM 应用框架，适合知识库、文档问答、检索增强生成 |
+| <a href="https://github.com/run-llama/LlamaIndexTS" target="_blank">LlamaIndex TS</a> | `llamaindex-ts` | LlamaIndex 的 TypeScript 实现，适合 JavaScript/TypeScript RAG 应用 |
 | <a href="https://github.com/run-llama/llama-agents" target="_blank">LlamaAgents</a> | `llama-agents` | LlamaIndex 工作流部署工具；LlamaDeploy 已弃用，新项目请看此替代项目 |
 | <a href="https://github.com/microsoft/semantic-kernel" target="_blank">Semantic Kernel</a> | `semantic-kernel` | 存量维护/迁移参考：Microsoft 已将其后续演进整合至 Microsoft Agent Framework；新项目优先评估 MAF |
 | <a href="https://github.com/microsoft/autogen" target="_blank">AutoGen</a> | `autogen` | 存量维护/迁移参考：已进入 maintenance mode；新项目建议优先使用 Microsoft Agent Framework |
@@ -950,6 +967,10 @@
 | <a href="https://github.com/huggingface/smolagents" target="_blank">smolagents</a> | `smolagents` | Hugging Face 极简 Agent 库，抽象少，适合快速实验和代码式行动 |
 | <a href="https://github.com/camel-ai/camel" target="_blank">CAMEL</a> | `camel` | 多 Agent 研究/工程框架，适合角色扮演、社会模拟、协作任务和数据生成 |
 | <a href="https://github.com/agentscope-ai/agentscope" target="_blank">AgentScope</a> | `agentscope` | 面向多 Agent 应用的工程框架，适合分布式、多角色、复杂 Agent 系统 |
+| <a href="https://github.com/OpenBMB/ChatDev" target="_blank">ChatDev</a> | `chatdev` | 多 Agent 软件开发框架，用于模拟软件公司和角色协作流程，可作为研究参考 |
+| <a href="https://github.com/geekan/MetaGPT" target="_blank">MetaGPT</a> | `metagpt` | 多 Agent 软件开发框架，可将需求拆解为 PRD、设计、任务和代码 |
+| <a href="https://github.com/OpenBMB/IoA" target="_blank">IoA</a> | `ioa` | Internet of Agents 研究项目，关注多 Agent 协作与通信 |
+| <a href="https://github.com/temporalio/temporal" target="_blank">Temporal</a> | `temporal` | 通用持久化工作流引擎，可支撑长周期 Agent 任务的重试、补偿和恢复；并非 AI 专用框架 |
 | <a href="https://github.com/stanfordnlp/dspy" target="_blank">DSPy</a> | `dspy` | “编程而非手写 Prompt”的 LLM 应用框架，适合可优化的 RAG、分类、Agent 流程 |
 
 #### 1.11.2 模型 API SDK 与模型路由
@@ -969,7 +990,6 @@
 | <a href="https://github.com/Portkey-AI/gateway" target="_blank">Portkey Gateway</a> | `portkey-gateway` | 开源 AI Gateway，支持多模型路由、fallback、日志、治理 |
 | <a href="https://github.com/Helicone/helicone" target="_blank">Helicone</a> | `helicone` | 开源 LLM observability / gateway，适合请求日志、成本、缓存和监控 |
 | <a href="https://openrouter.ai/docs" target="_blank">OpenRouter</a> | `openrouter` | 托管的多模型 API 与 provider 路由服务；使用前需评估数据路由、隐私和成本 |
-| <a href="https://github.com/run-llama/LlamaIndexTS" target="_blank">LlamaIndex TS</a> | `llamaindex-ts` | LlamaIndex 的 TypeScript 版本，适合 JS/TS RAG 应用 |
 
 #### 1.11.3 Agent 任务管理与人机协作平台
 
@@ -979,10 +999,6 @@
 | <a href="https://github.com/multica-ai/multica" target="_blank">Multica Open Source</a> | `multica-open` | Multica 开源仓库，适合研究 Agent 任务管理、runtime、技能复用和团队协作模式 |
 | <a href="https://slock.ai/" target="_blank">Slock</a> | `slock` | 人与 Agent 在频道/DM 中实时协作的平台，更偏“Agent Slack/团队沟通层” |
 | <a href="https://www.taskade.com/" target="_blank">Taskade</a> | `taskade` | AI 工作空间，覆盖项目、任务、Agent、自动化、记忆和业务应用生成 |
-| <a href="https://github.com/OpenBMB/ChatDev" target="_blank">ChatDev</a> | `chatdev` | 多 Agent 软件公司模拟项目，可作为 Agent 协作流程研究参考 |
-| <a href="https://github.com/geekan/MetaGPT" target="_blank">MetaGPT</a> | `metagpt` | 从需求到 PRD、设计、任务、代码的多 Agent 软件开发框架 |
-| <a href="https://github.com/OpenBMB/IoA" target="_blank">IoA</a> | `ioa` | Internet of Agents，多 Agent 协作与通信研究方向 |
-| <a href="https://github.com/temporalio/temporal" target="_blank">Temporal</a> | `temporal` | 可靠工作流引擎，适合长周期 Agent task、补偿、重试和可恢复执行 |
 
 #### 1.11.4 AI 编程开发工具
 
@@ -991,6 +1007,7 @@
 | <a href="https://openai.com/codex/" target="_blank">Codex</a> | `codex` | OpenAI 编码 Agent，支持 CLI/云端任务等开发工作流 |
 | <a href="https://github.com/openai/codex" target="_blank">Codex CLI</a> | `codex-cli` | OpenAI Codex 命令行工具，适合本地仓库修改、代码生成、调试和任务执行 |
 | <a href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank">Claude Code</a> | `claude-code` | Anthropic 出品的 AI 编程助手，适合本地代码库理解、生成、重构、调试 |
+| <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank">DeepSeek Harness</a> | `deepseek-harness/dsh` | DeepSeek 开源的 Agent Harness，基于 Cordis 插件架构；目前处于 developer preview，插件和 API 兼容性可能变化。详见<a href="https://deepseek-harness.github.io/deepseek-harness/" target="_blank">官方文档</a>。 |
 | <a href="https://opencode.ai/" target="_blank">OpenCode</a> | `opencode` | 开源终端 AI 编程助手，主打多模型/多 provider 可插拔 |
 | <a href="https://github.com/google-gemini/gemini-cli" target="_blank">Gemini CLI</a> | `gemini-cli` | Google Gemini CLI，开源命令行 AI 编程助手 |
 | <a href="https://github.com/OpenHands/OpenHands" target="_blank">OpenHands</a> | `openhands` | 开源 AI 软件工程师/编码 Agent 运行时，适合自主修复、任务执行、沙箱运行 |
@@ -1005,10 +1022,6 @@
 | <a href="https://windsurf.com/" target="_blank">Windsurf</a> | `windsurf` | 主流 AI IDE，强调 Agentic coding 和上手体验 |
 | <a href="https://www.trae.ai/" target="_blank">Trae</a> | `trae` | 字节系 AI IDE，适合观察国内 AI 编程产品形态 |
 | <a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a> | `copilot` | GitHub 官方 AI 编程助手，已从补全扩展到 Agent/任务流 |
-| <a href="https://bolt.new/" target="_blank">Bolt.new</a> | `bolt` | 面向 Web 应用生成和部署的 AI Agent 平台 |
-| <a href="https://github.com/stackblitz/bolt.new" target="_blank">Bolt.new Open Source</a> | `bolt-open` | Bolt.new 开源版本，适合研究浏览器内全栈生成与 WebContainer 工作流 |
-| <a href="https://v0.dev/" target="_blank">v0</a> | `v0` | Vercel 出品 UI/前端生成工具，适合 React、Next.js、shadcn 场景 |
-| <a href="https://lovable.dev/" target="_blank">Lovable</a> | `lovable` | 面向产品原型到全栈应用生成的 AI 开发平台 |
 | <a href="https://github.com/PatrickJS/awesome-cursorrules" target="_blank">awesome-cursorrules</a> | `cursorrules` | Cursor 规则集合，可作为项目级 AI 编码规范参考 |
 | <a href="https://github.com/SchneiderSam/awesome-windsurfrules" target="_blank">awesome-windsurfrules</a> | `windsurfrules` | Windsurf 规则集合，可作为 Agent 规则治理参考 |
 
@@ -1016,13 +1029,13 @@
 
 | 地址 | 标签 | 说明 |
 | --- | --- | --- |
-| <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol</a> | `mcp` | Anthropic 发起的开放协议，用于让 AI 应用连接外部数据源、工具和工作流 |
+| <a href="https://modelcontextprotocol.io/" target="_blank">Model Context Protocol</a> | `mcp` | 连接 AI 应用与外部数据、工具和工作流的开放协议；由 Anthropic 捐赠给 Linux Foundation 下的 Agentic AI Foundation（AAIF），技术方向由项目维护者推进 |
 | <a href="https://github.com/modelcontextprotocol" target="_blank">modelcontextprotocol GitHub</a> | `mcp-github` | MCP 官方 GitHub 组织，包含规范、SDK、服务器等 |
 | <a href="https://github.com/modelcontextprotocol/typescript-sdk" target="_blank">MCP TypeScript SDK</a> | `mcp-typescript-sdk` | MCP 官方 TypeScript SDK，适合在 Node.js、Bun、Deno 或 Web 框架中构建 MCP client/server |
-| <a href="https://github.com/a2aproject/A2A" target="_blank">Agent2Agent Protocol</a> | `a2a` | 开放的 Agent 间通信协议，适合跨框架、跨厂商 Agent 的能力发现、长任务协作和互操作 |
+| <a href="https://github.com/a2aproject/A2A" target="_blank">Agent2Agent Protocol</a> | `a2a` | Google 发起、现由 Linux Foundation 下 Agent2Agent Project 托管的开放 Agent 间通信协议，支持能力发现、长任务协作和互操作 |
 | <a href="https://registry.modelcontextprotocol.io/" target="_blank">Official MCP Registry</a> | `mcp-registry` | 官方 MCP 注册表，适合发现公共 MCP server 元数据 |
 | <a href="https://apps.extensions.modelcontextprotocol.io/" target="_blank">MCP Apps</a> | `mcp-apps` | MCP 官方扩展，为工具提供可在兼容客户端中展示的交互式界面；客户端支持情况不同 |
-| <a href="https://help.openai.com/en/articles/12515353-build-with-the-apps-sdk" target="_blank">OpenAI Apps SDK</a> | `openai-apps-sdk` | OpenAI 基于 MCP 的 ChatGPT 应用开发工具包（预览），可定义工具逻辑和内嵌交互界面 |
+| <a href="https://developers.openai.com/plugins/build/mcp-server" target="_blank">OpenAI Apps SDK</a> | `openai-apps-sdk` | OpenAI 基于 MCP 的 ChatGPT 应用开发工具包，可开发工具服务和内嵌交互界面；客户端能力以官方文档为准 |
 | <a href="https://smithery.ai/" target="_blank">Smithery</a> | `smithery` | MCP server 发现、托管、连接与商业化平台 |
 | <a href="https://glama.ai/mcp/servers" target="_blank">Glama MCP Servers</a> | `glama-mcp` | MCP server 注册和检索平台，覆盖大量社区服务器 |
 | <a href="https://mcp.so/" target="_blank">MCP.so</a> | `mcp-so` | MCP 工具/服务器集合站 |
@@ -1036,26 +1049,25 @@
 
 #### 1.11.6 Agent Skills
 
+Agent Skills 是一种开放格式，以包含 `SKILL.md` 的目录封装可复用指令及可选脚本、参考资料和资源。不同 Agent 的安装位置、可识别字段和运行能力可能不同；使用第三方技能前，请检查来源、权限和目标 Agent 的兼容说明。
+
 | 地址 | 标签 | 说明 |
 | --- | --- | --- |
-| <a href="https://skills.sh/" target="_blank">Skills.sh</a> | `skills-sh` | Agent Skills 目录/浏览站，适合发现和安装 skill |
-| <a href="https://lobehub.com/skills" target="_blank">LobeHub Skills</a> | `lobehub-skills` | Agent Skills 市场，支持 Claude Code、Codex CLI、ChatGPT 等 SKILL.md 格式 |
-| <a href="https://skillsllm.com/" target="_blank">SkillsLLM</a> | `skillsllm` | 面向 Claude Code、Codex CLI、ChatGPT 的开源 Agent Skills 聚合站 |
-| <a href="https://agentskills.io/home" target="_blank">AgentSkills.io</a> | `agentskills-io` | Agent Skills 概念、规范、集成指南入口 |
-| <a href="https://agentskills.io/specification" target="_blank">Agent Skills Specification</a> | `skills-spec` | SKILL.md 格式规范，定义 frontmatter、instructions、resources 等结构 |
-| <a href="https://github.com/agentskills/agentskills" target="_blank">agentskills/agentskills</a> | `skills-spec-repo` | Agent Skills 规范与文档仓库 |
-| <a href="https://github.com/openai/skills" target="_blank">OpenAI Skills</a> | `openai-skills` | OpenAI/Codex 官方 Skills Catalog，包含可复用工作流与示例 |
-| <a href="https://github.com/anthropics/skills" target="_blank">anthropics/skills</a> | `anthropics-skills` | Anthropic 官方示例 skills 集合 |
-| <a href="https://github.com/vercel-labs/agent-skills" target="_blank">vercel-labs/agent-skills</a> | `vercel-agent-skills` | Vercel 官方 agent skills 集合 |
-| <a href="https://github.com/vercel-labs/skills" target="_blank">vercel-labs/skills</a> | `skills-cli` | Skills CLI，可用于安装、发现、检查和更新 skills |
-| <a href="https://github.com/softaworks/agent-toolkit" target="_blank">softaworks/agent-toolkit</a> | `agent-toolkit` | 社区高人气 skills 合集，覆盖开发流程、规划、文档、架构、沟通等 |
+| <a href="https://agentskills.io/specification" target="_blank">Agent Skills Specification</a> | `skills-spec` | Agent Skills 开放格式规范，规定 `SKILL.md` 的必需字段和可选资源；规范源码见 <a href="https://github.com/agentskills/agentskills" target="_blank">agentskills/agentskills</a>。 |
+| <a href="https://developers.openai.com/plugins/concepts/skills" target="_blank">OpenAI Skills 文档</a> | `openai-skills` | OpenAI 关于 ChatGPT/Codex Skills 的官方概念与构建说明；当前官方示例位于 <a href="https://github.com/openai/plugins" target="_blank">OpenAI Plugins</a>，旧版 <code>openai/skills</code> 仓库已弃用。 |
+| <a href="https://code.claude.com/docs/en/skills" target="_blank">Claude Code Skills</a> | `claude-code-skills` | Anthropic 官方技能文档，说明 Claude Code 对 Agent Skills 开放标准的支持及宿主扩展；示例集合见 <a href="https://github.com/anthropics/skills" target="_blank">anthropics/skills</a>。 |
+| <a href="https://skills.sh/" target="_blank">Skills.sh</a> | `skills-sh` | Agent Skills 发现目录和热度榜；目录与安装 CLI 分别维护。 |
+| <a href="https://github.com/vercel-labs/skills" target="_blank">Vercel Skills CLI</a> | `skills-cli` | `npx skills` 开放技能生态 CLI，可发现、安装和更新 Skills；具体支持取决于目标 Agent。 |
+| <a href="https://lobehub.com/skills" target="_blank">LobeHub Skills</a> | `lobehub-skills` | LobeHub 的 SKILL.md 技能市场；跨 Agent 使用方式和能力需按目标产品分别核对。 |
+| <a href="https://skillsllm.com/" target="_blank">SkillsLLM</a> | `skillsllm` | 第三方 AI Skills 市场与目录，也收录 MCP server 和 Agent 工具；适合作为发现入口，安装前应检查原始仓库和兼容说明。 |
+| <a href="https://github.com/vercel-labs/agent-skills" target="_blank">Vercel Agent Skills</a> | `vercel-agent-skills` | Vercel 官方前端与 Web 开发相关 Agent Skills 集合。 |
+| <a href="https://github.com/obra/superpowers" target="_blank">Superpowers</a> | `superpowers` | 观点鲜明的编码 Agent 技能框架与开发方法论，提供面向多个 Agent 的集成；按项目选择并遵循对应安装说明。 |
+| <a href="https://github.com/softaworks/agent-toolkit" target="_blank">Softaworks Agent Toolkit</a> | `agent-toolkit` | 作者精选的技能合集，主要面向 Claude Code，覆盖开发、文档、规划等工作流；其他 Agent 的兼容性需单独确认。 |
 
 #### 1.11.7 RAG、知识库、记忆与数据接入
 
 | 地址 | 标签 | 说明 |
 | --- | --- | --- |
-| <a href="https://github.com/run-llama/llama_index" target="_blank">LlamaIndex</a> | `llamaindex-rag` | RAG/数据索引核心框架，适合文档、数据库、知识库应用 |
-| <a href="https://github.com/langchain-ai/langchain" target="_blank">LangChain RAG</a> | `langchain-rag` | LangChain 的 retrieval、document loaders、text splitters、vector store 生态 |
 | <a href="https://github.com/mendableai/firecrawl" target="_blank">Firecrawl</a> | `firecrawl` | 将网站转换为 LLM 友好的 Markdown/结构化数据，适合网页抓取和 RAG 数据准备 |
 | <a href="https://github.com/unclecode/crawl4ai" target="_blank">Crawl4AI</a> | `crawl4ai` | 面向 AI/RAG 的开源网页爬取与内容提取工具 |
 | <a href="https://github.com/infiniflow/ragflow" target="_blank">RAGFlow</a> | `ragflow` | 开源 RAG 引擎，强调文档解析、工作流和企业知识库 |
@@ -1076,8 +1088,8 @@
 | <a href="https://github.com/weaviate/weaviate" target="_blank">Weaviate</a> | `weaviate` | 开源向量搜索引擎，生态完整，适合知识库和语义搜索 |
 | <a href="https://github.com/pgvector/pgvector" target="_blank">pgvector</a> | `pgvector` | PostgreSQL 向量扩展，适合已有 Postgres 体系内增加向量检索 |
 | <a href="https://github.com/timescale/pgvectorscale" target="_blank">pgvectorscale</a> | `pgvectorscale` | Timescale 开源 PostgreSQL 向量扩展，面向更高性能向量搜索 |
-| <a href="https://github.com/supabase/vecs" target="_blank">Supabase Vecs</a> | `supabase-vecs` | Supabase 的向量客户端 |
-| <a href="https://github.com/pinecone-io/pinecone-ts-client" target="_blank">Pinecone SDK</a> | `pinecone` | Pinecone 向量数据库 TypeScript 客户端 |
+| <a href="https://github.com/supabase/vecs" target="_blank">Supabase Vecs</a> | `supabase-vecs` | 用于 PostgreSQL/pgvector 的 Python 客户端，可管理和查询向量集合 |
+| <a href="https://github.com/pinecone-io/pinecone-ts-client" target="_blank">Pinecone TypeScript Client</a> | `pinecone` | Pinecone 向量数据库的 TypeScript 客户端，不是数据库实现本身 |
 | <a href="https://github.com/vespa-engine/vespa" target="_blank">Vespa</a> | `vespa` | 大规模搜索、推荐和向量检索引擎 |
 | <a href="https://github.com/typesense/typesense" target="_blank">Typesense</a> | `typesense` | 开源搜索引擎，支持关键字、语义/向量检索混合场景 |
 | <a href="https://github.com/meilisearch/meilisearch" target="_blank">Meilisearch</a> | `meilisearch` | 轻量搜索引擎，可配合向量/语义能力做混合检索 |
@@ -1092,8 +1104,8 @@
 | <a href="https://github.com/promptfoo/promptfoo" target="_blank">promptfoo</a> | `promptfoo` | Prompt/模型输出测试与回归评测工具，适合 CI 门禁 |
 | <a href="https://github.com/confident-ai/deepeval" target="_blank">DeepEval</a> | `deepeval` | LLM 应用评测框架，适合 RAG、Agent、对话质量评测 |
 | <a href="https://github.com/explodinggradients/ragas" target="_blank">Ragas</a> | `ragas` | RAG 评测框架，适合 faithfulness、context precision/recall 等指标 |
-| <a href="https://github.com/openai/evals" target="_blank">OpenAI Evals（开源框架）</a> | `openai-evals` | OpenAI 开源的模型与 LLM 系统评测框架；与计划于 2026 年 11 月 30 日关闭的托管 Evals 平台不同 |
-| <a href="https://github.com/microsoft/promptflow" target="_blank">PromptFlow</a> | `promptflow` | 迁移参考：Microsoft 不推荐新开发；服务将于 2027 年 4 月 20 日退役，新项目可评估 Microsoft Agent Framework |
+| <a href="https://github.com/openai/evals" target="_blank">OpenAI Evals（开源框架）</a> | `openai-evals` | OpenAI 开源的模型与 LLM 系统评测框架；托管 Evals 平台已于 2026-10-31 转为只读，计划于 2026-11-30 关闭，详见<a href="https://developers.openai.com/api/docs/deprecations" target="_blank">官方弃用说明</a>。 |
+| <a href="https://github.com/microsoft/promptflow" target="_blank">PromptFlow</a> | `promptflow` | 迁移参考：Microsoft Foundry/Azure ML 中的 Prompt flow 不再推荐新开发，将于 2027-04-20 退役；详见<a href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/prompt-flow" target="_blank">官方说明</a>。 |
 | <a href="https://github.com/dair-ai/Prompt-Engineering-Guide" target="_blank">Prompt Engineering Guide</a> | `prompt-guide` | Prompt 工程指南和资源库 |
 | <a href="https://github.com/openai/tiktoken" target="_blank">tiktoken</a> | `tiktoken` | OpenAI tokenizer，用于 token 计算和成本预估 |
 | <a href="https://github.com/dqbd/tiktoken" target="_blank">js-tiktoken</a> | `js-tiktoken` | tiktoken 的 JavaScript/WASM 版本，适合前端/Node 成本预估 |
@@ -1105,10 +1117,14 @@
 | <a href="https://github.com/langgenius/dify" target="_blank">Dify</a> | `dify` | 开源 LLM 应用开发平台，覆盖 workflow、RAG、Agent、模型管理和应用发布 |
 | <a href="https://github.com/langflow-ai/langflow" target="_blank">Langflow</a> | `langflow` | 可视化 LLM/Agent/RAG 应用构建平台 |
 | <a href="https://github.com/FlowiseAI/Flowise" target="_blank">Flowise</a> | `flowise` | 拖拽式 LLM 应用构建工具，适合快速搭建流程和工具调用 |
+| <a href="https://bolt.new/" target="_blank">Bolt.new</a> | `bolt` | 面向 Web 应用生成和部署的 AI Agent 平台 |
+| <a href="https://github.com/stackblitz/bolt.new" target="_blank">Bolt.new Open Source</a> | `bolt-open` | Bolt.new 开源版本，适合研究浏览器内全栈生成与 WebContainer 工作流 |
+| <a href="https://v0.dev/" target="_blank">v0</a> | `v0` | Vercel 出品 UI/前端生成工具，适合 React、Next.js、shadcn 场景 |
+| <a href="https://lovable.dev/" target="_blank">Lovable</a> | `lovable` | 面向产品原型到全栈应用生成的 AI 开发平台 |
 | <a href="https://github.com/n8n-io/n8n" target="_blank">n8n</a> | `n8n` | fair-code/source-available 自动化工作流平台，支持 AI 节点和 Agent；许可证限制部分使用与分发方式 |
 | <a href="https://github.com/vercel/ai-elements" target="_blank">AI Elements</a> | `ai-elements` | 基于 shadcn/ui 的 AI 原生组件库，适合快速构建对话、推理、工具调用和生成内容界面 |
 | <a href="https://github.com/assistant-ui/assistant-ui" target="_blank">assistant-ui</a> | `assistant-ui` | React AI Chat UI 组件库，支持流式消息、工具调用、附件与多种 Agent/模型适配器 |
-| <a href="https://openai.github.io/chatkit-js/" target="_blank">OpenAI ChatKit</a> | `openai-chatkit` | OpenAI 的 React/Web Component Chat UI，可接入托管或自托管 ChatKit 后端 |
+| <a href="https://developers.openai.com/api/docs/guides/chatkit" target="_blank">OpenAI ChatKit</a> | `openai-chatkit` | OpenAI 的 React/Web Component Chat UI，可接入托管或自托管 ChatKit 后端 |
 | <a href="https://github.com/vercel/ai-chatbot" target="_blank">AI Chatbot</a> | `ai-chatbot` | Vercel 开源全栈 AI Chatbot 模板 |
 | <a href="https://github.com/danny-avila/LibreChat" target="_blank">LibreChat</a> | `librechat` | 开源多模型 ChatGPT 类应用，支持插件、代理、工具和多 provider |
 | <a href="https://github.com/ChatGPTNextWeb/NextChat" target="_blank">NextChat</a> | `nextchat` | 原 ChatGPT-Next-Web，轻量跨平台 ChatGPT 类应用 |
@@ -1123,7 +1139,6 @@
 | --- | --- | --- |
 | <a href="https://github.com/browser-use/browser-use" target="_blank">Browser Use</a> | `browser-use` | 开源浏览器 Agent 框架，让 LLM 控制浏览器完成网页任务 |
 | <a href="https://github.com/browserbase/stagehand" target="_blank">Stagehand</a> | `stagehand` | Browserbase 开源浏览器自动化 SDK，将自然语言操作与 Playwright 代码结合 |
-| <a href="https://github.com/microsoft/playwright-mcp" target="_blank">Playwright MCP</a> | `playwright-mcp` | Playwright 的 MCP server，适合 AI 编码助手直接操作真实浏览器 |
 | <a href="https://github.com/vercel-labs/agent-browser" target="_blank">Vercel Agent Browser</a> | `agent-browser` | 面向 AI Agent 的浏览器自动化 CLI |
 | <a href="https://github.com/openinterpreter/open-interpreter" target="_blank">Open Interpreter</a> | `open-interpreter` | 本机电脑使用/自动化 Agent，可执行命令、文件操作和脚本 |
 | <a href="https://github.com/OpenInterpreter/01" target="_blank">01</a> | `01` | Open Interpreter 生态的本地语音/电脑助理方向项目 |
@@ -1139,6 +1154,8 @@
 | <a href="https://github.com/ml5js/ml5-library" target="_blank">ML5.js</a> | `ml5` | 面向创意编程和 Web 开发者的友好机器学习库，基于 TensorFlow.js |
 | <a href="https://github.com/mljs/ml" target="_blank">ML.js</a> | `mljs` | JavaScript 机器学习算法集合 |
 | <a href="https://github.com/huggingface/transformers.js" target="_blank">Transformers.js</a> | `transformersjs` | Hugging Face 浏览器/Node Transformer 模型运行库 |
+| <a href="https://github.com/mlc-ai/web-llm" target="_blank">WebLLM</a> | `webllm` | 基于 WebGPU 的浏览器内 LLM 推理引擎，可在客户端运行支持的开源模型 |
+| <a href="https://developers.google.com/edge/litert-lm/js" target="_blank">LiteRT-LM Web API</a> | `litert-lm-web` | Google AI Edge 的 JavaScript/TypeScript 端侧 LLM 运行时，面向支持 WebGPU 的浏览器 |
 | <a href="https://github.com/microsoft/onnxruntime" target="_blank">ONNX Runtime Web</a> | `onnxruntime-web` | ONNX Runtime 的 Web 运行能力，适合浏览器端模型推理 |
 | <a href="https://github.com/openai/whisper" target="_blank">Whisper</a> | `whisper` | OpenAI 开源语音识别模型 |
 | <a href="https://github.com/ggerganov/whisper.cpp" target="_blank">whisper.cpp</a> | `whisper-cpp` | Whisper 的 C/C++ 高性能实现，适合本地/边缘端语音识别 |
@@ -1146,6 +1163,20 @@
 | <a href="https://github.com/microsoft/cognitive-services-speech-sdk-js" target="_blank">Azure Speech SDK</a> | `azure-speech` | 微软 Azure 语音服务 JavaScript SDK |
 | <a href="https://github.com/opencv/opencv.js" target="_blank">OpenCV.js</a> | `opencvjs` | OpenCV 的 JavaScript 版本，用于浏览器端计算机视觉 |
 | <a href="https://github.com/google-ai-edge/mediapipe" target="_blank">MediaPipe</a> | `mediapipe` | Google 跨平台媒体 AI/视觉任务框架，适合姿态、手势、人脸等场景 |
+
+#### 1.11.13 DeepSeek Harness 社区插件
+
+以下为截至 2026-11-21 社区关注度较高、且明确提供 DeepSeek Harness 集成的项目。GitHub stars 只反映关注度，不代表质量或安全性；Harness 仍处于 developer preview，安装前请核对插件声明的兼容版本、源码和权限。插件可能访问 Harness 本身可访问的文件、网络、进程和凭据，详见<a href="https://github.com/deepseek-ai/deepseek-harness/blob/master/SAFETY.md" target="_blank">官方安全说明</a>。
+
+| 地址 | 标签 | 说明 |
+| --- | --- | --- |
+| <a href="https://github.com/dsh-market/dsh-market" target="_blank">dsh-market</a> | `dsh-market` | 社区维护的 Harness 内插件市场，可浏览、搜索和管理社区插件；不是 DeepSeek 官方市场。 |
+| <a href="https://github.com/omdsh-dev/DSH-better-sidebar" target="_blank">DSH-better-sidebar</a> | `dsh-better-sidebar` | 开发工作区侧栏，提供文件预览与编辑、终端、Git、侧边对话和子代理页面。 |
+| <a href="https://github.com/liustack/modlens" target="_blank">ModLens</a> | `modlens` | 为纯文本模型增加图像理解能力，提供 OCR、布局和语义等结构化视觉信息；使用前确认所配置视觉模型服务的数据策略。 |
+| <a href="https://github.com/Anionex/dsh-vision-toolkit" target="_blank">DSH Vision Toolkit</a> | `dsh-vision-toolkit` | 面向截图与 GUI 任务的视觉工具，包括长截图 OCR、视觉定位、UI 还原和像素差异检查；与 ModLens 部分能力重叠。 |
+| <a href="https://github.com/NanmiCoder/dsh-agent-teams" target="_blank">Agent Teams</a> | `dsh-agent-teams` | 多 Agent 协作插件，支持任务拆分、依赖编排、成员通信和并行执行。 |
+
+插件发现入口：<a href="https://github.com/awesome-dsh-plugin/awesome-dsh-plugin" target="_blank">Awesome DSH Plugin 社区精选列表</a>；也可在 Harness 内使用上方的 dsh-market 浏览目录。以上项目均由社区维护，安装前请以各自仓库的当前说明为准。
 
 
 ### 1.12 WebAssembly
@@ -1357,8 +1388,6 @@
 - 构建：`npm run build`
 - 构建文档：`npm run docs`
 
-> todo: 小程序封装，构建封装。
-
 #### 2.2 project-templates 一些前后端项目模版
 
 `frontend` 前端项目模版
@@ -1423,3 +1452,9 @@
 ### 安装方式
 
 clone本仓库到本地，在`“扩展程序”界面`点击`“加载已解压的拓展程序”`选择本地仓库目录下的chrome-extension目录。
+
+## 贡献与许可
+
+欢迎通过 Issue 和 Pull Request 提交改进。提交前请阅读[贡献指南](./CONTRIBUTING.md)，了解各目录约定、数据来源要求和验证方式。
+
+本仓库目前没有根目录级许可声明。部分工具包和项目模板在各自的 `package.json` 中声明了许可；请勿将单个包的声明视为全仓库授权。具体范围见[贡献指南](./CONTRIBUTING.md)。
