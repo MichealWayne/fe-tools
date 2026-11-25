@@ -1140,6 +1140,7 @@ Agent Skills 是一种开放格式，以包含 `SKILL.md` 的目录封装可复�
 | <a href="https://github.com/browser-use/browser-use" target="_blank">Browser Use</a> | `browser-use` | 开源浏览器 Agent 框架，让 LLM 控制浏览器完成网页任务 |
 | <a href="https://github.com/browserbase/stagehand" target="_blank">Stagehand</a> | `stagehand` | Browserbase 开源浏览器自动化 SDK，将自然语言操作与 Playwright 代码结合 |
 | <a href="https://github.com/vercel-labs/agent-browser" target="_blank">Vercel Agent Browser</a> | `agent-browser` | 面向 AI Agent 的浏览器自动化 CLI |
+| <a href="https://vostride.com" target="_blank">agent-qa</a> | `agent-qa` | 自然语言网页与移动端 QA CLI，内置持久化记忆、自我改进及本地 stdio MCP；需 Node.js 24+。早期项目，FSL-1.1-ALv2 限制竞争性商业使用，模型与设备费用另计 |
 | <a href="https://github.com/openinterpreter/open-interpreter" target="_blank">Open Interpreter</a> | `open-interpreter` | 本机电脑使用/自动化 Agent，可执行命令、文件操作和脚本 |
 | <a href="https://github.com/OpenInterpreter/01" target="_blank">01</a> | `01` | Open Interpreter 生态的本地语音/电脑助理方向项目 |
 | <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank">AutoGPT</a> | `autogpt-history` | 早期自主 Agent 代表，建议作为历史案例/设计参考，而非首选工程框架 |
